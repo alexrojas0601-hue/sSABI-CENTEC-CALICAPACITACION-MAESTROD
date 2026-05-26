@@ -4,159 +4,357 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SABI CENTEC MAESTROS · Portal de Excelencia Docente</title>
-<meta name="description" content="SABI CENTEC MAESTROS - Plataforma de Autoformación Docente. 16 cursos gratuitos para maestros colombianos.">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="author" content="Alexander Rojas Zamorano - Colegio CENTEC Cali">
+<meta name="description" content="SABI CENTEC MAESTROS - Plataforma de Autoformación Docente. 15 cursos gratuitos para maestros colombianos.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
-:root{--navy:#0d1b2a;--navy2:#111d2e;--navy3:#162236;--gold:#f0a500;--gold2:#e8b84b;--white:#ffffff;--gray:#8a9bb0;--card:#1a2a3e}
-body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --navy:#0d1b2a;
+  --navy2:#111d2e;
+  --navy3:#162236;
+  --gold:#f0a500;
+  --gold2:#e8b84b;
+  --white:#fff;
+  --gray:#8a9bb0;
+  --card:#1a2a3e;
+  --card2:#1e3050;
+}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;background:rgba(13,27,42,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(240,165,0,.15)}
-.nav-brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
-.nav-logo{width:36px;height:36px}
-.nav-name{display:flex;flex-direction:column;line-height:1}
-.nav-name strong{font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:.5px}
-.nav-name span{font-size:.55rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:500}
-.nav-links{display:flex;align-items:center;gap:.5rem}
-.nav-link{padding:.5rem 1.1rem;border-radius:25px;font-size:.85rem;font-weight:500;text-decoration:none;color:var(--white);border:1px solid rgba(255,255,255,.2);transition:all .2s}
-.nav-link:hover{background:rgba(255,255,255,.1)}
-.nav-link.active{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
-.nav-link.portal{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
-.nav-link.portal:hover{background:var(--gold2)}
+/* ═══ NAV ═══ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 2rem;
+  background:rgba(13,27,42,.97);
+  border-bottom:1px solid rgba(240,165,0,.12);
+}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:inherit}
+.brand-icon{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--navy2);border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0
+}
+.brand-text strong{display:block;font-size:1.05rem;font-weight:700;letter-spacing:.3px}
+.brand-text small{display:block;font-size:.52rem;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;line-height:1}
+.nav-links{display:flex;align-items:center;gap:.4rem}
+.nav-a{
+  padding:.48rem 1rem;border-radius:22px;font-size:.82rem;font-weight:500;
+  text-decoration:none;color:rgba(255,255,255,.85);
+  border:1px solid transparent;transition:all .18s
+}
+.nav-a:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.06)}
+.nav-a.active{background:var(--gold);color:var(--navy);font-weight:600;border-color:var(--gold)}
+.nav-a.portal-btn{background:var(--gold);color:var(--navy);font-weight:600;border-color:var(--gold)}
+.nav-a.portal-btn:hover{background:var(--gold2)}
 
-/* HERO */
-#inicio{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:radial-gradient(ellipse at 50% 40%,rgba(80,60,140,.35) 0%,transparent 65%),var(--navy)}
-.avatar-ring{width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(100,80,180,.5),rgba(40,20,80,.3));display:flex;align-items:center;justify-content:center;margin:0 auto 2.5rem;box-shadow:0 0 60px rgba(120,80,200,.4),0 0 120px rgba(80,50,150,.2);position:relative;overflow:hidden}
-.avatar-ring img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.avatar-fallback{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,#2d1f6e,#4a3095);display:flex;align-items:center;justify-content:center;font-size:4rem}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.25);border-radius:25px;padding:.4rem 1.2rem;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1.5rem}
-.hero-badge::before,.hero-badge::after{content:'—';color:var(--gold);font-size:.6rem}
-.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.15;margin-bottom:.5rem;max-width:750px}
+/* ═══ HERO ═══ */
+#inicio{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:7rem 1.5rem 4rem;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 42%, rgba(72,52,160,.38) 0%, transparent 70%),
+    var(--navy);
+}
+.hero-avatar{
+  width:190px;height:190px;border-radius:50%;
+  margin:0 auto 2.2rem;
+  background:radial-gradient(circle at center,rgba(90,65,180,.55),rgba(30,15,70,.3));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 55px rgba(110,75,200,.45),0 0 110px rgba(70,45,140,.2);
+  overflow:hidden;position:relative
+}
+.hero-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid rgba(255,255,255,.22);border-radius:25px;
+  padding:.38rem 1.1rem;font-size:.7rem;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:1.4rem
+}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.1rem,5.5vw,4rem);
+  font-weight:900;line-height:1.12;margin-bottom:.6rem;max-width:760px
+}
 .hero-h1 em{color:var(--gold);font-style:italic}
-.hero-sub{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.8rem}
-.hero-quote{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--gold2);margin-bottom:.3rem}
-.hero-author{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:2.5rem}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem}
-.btn-gold{padding:.85rem 2rem;background:var(--gold);color:var(--navy);border:none;border-radius:30px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s}
+.hero-sub{
+  font-size:.76rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.45);margin-bottom:.9rem
+}
+.hero-quote{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.15rem;color:var(--gold2);margin-bottom:.3rem
+}
+.hero-attr{font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:2.4rem}
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem}
+.btn-gold{
+  padding:.82rem 1.9rem;background:var(--gold);color:var(--navy);
+  border:none;border-radius:28px;font-weight:700;font-size:.92rem;
+  cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;
+  display:inline-flex;align-items:center;gap:.4rem;transition:all .2s
+}
 .btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
-.btn-outline{padding:.85rem 2rem;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.3);border-radius:30px;font-weight:500;font-size:.95rem;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s}
-.btn-outline:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5)}
-.scroll-hint{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3)}
-.scroll-hint::before{content:'↓ ';color:var(--gold)}
+.btn-outline{
+  padding:.82rem 1.9rem;background:transparent;color:var(--white);
+  border:1px solid rgba(255,255,255,.28);border-radius:28px;
+  font-weight:500;font-size:.92rem;cursor:pointer;
+  font-family:'Inter',sans-serif;text-decoration:none;
+  display:inline-flex;align-items:center;gap:.4rem;transition:all .2s
+}
+.btn-outline:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.5)}
+.scroll-hint{font-size:.67rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.28)}
+.scroll-hint::before{content:'↓  ';color:var(--gold)}
 
-/* INSPIRACIÓN */
-#inspiracion{padding:5rem 2rem;background:var(--navy2)}
-.section-tag{display:flex;align-items:center;gap:.75rem;justify-content:center;margin-bottom:1rem;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
-.section-tag::before,.section-tag::after{content:'';height:1px;width:40px;background:var(--gold);display:block}
-.section-h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;text-align:center;margin-bottom:3rem}
-.quotes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.25rem;max-width:1100px;margin:0 auto 2.5rem}
-.quote-card{background:var(--card);border-radius:14px;padding:1.75rem;border:1px solid rgba(255,255,255,.06);position:relative}
-.quote-card::before{content:'❝';position:absolute;top:.75rem;right:1rem;font-size:2rem;color:rgba(255,255,255,.06);font-family:serif}
-.q-icon{font-size:1.6rem;margin-bottom:1rem;display:block}
-.q-text{font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;line-height:1.7;margin-bottom:1rem;color:rgba(255,255,255,.9)}
-.q-attr{font-size:.75rem;color:var(--gold);font-weight:500;line-height:1.4}
-.btn-center{text-align:center}
+/* ═══ INSPIRACIÓN ═══ */
+#inspiracion{padding:5rem 1.5rem;background:var(--navy2)}
+.sec-tag{
+  display:flex;align-items:center;gap:.7rem;justify-content:center;
+  margin-bottom:.9rem;font-size:.68rem;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--gold)
+}
+.sec-tag::before,.sec-tag::after{content:'';height:1px;width:38px;background:var(--gold)}
+.sec-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.75rem,4vw,2.7rem);
+  font-weight:700;text-align:center;margin-bottom:2.8rem
+}
+.quotes-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.2rem;max-width:1100px;margin:0 auto 2.5rem
+}
+.q-card{
+  background:var(--card);border-radius:14px;
+  padding:1.7rem 1.6rem;
+  border:1px solid rgba(255,255,255,.055);
+  position:relative;overflow:hidden
+}
+.q-card::before{
+  content:'❝';position:absolute;top:.6rem;right:1rem;
+  font-size:2.2rem;color:rgba(255,255,255,.05);font-family:serif;line-height:1
+}
+.q-icon{font-size:1.55rem;margin-bottom:.9rem;display:block}
+.q-text{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:.93rem;line-height:1.72;margin-bottom:.85rem;
+  color:rgba(255,255,255,.88)
+}
+.q-attr{font-size:.73rem;color:var(--gold);font-weight:500;line-height:1.45}
+.tc{text-align:center}
 
-/* STATS */
-.stats-section{background:var(--gold);padding:4rem 2rem;text-align:center}
-.stats-h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--navy);margin-bottom:2.5rem}
-.stats-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:3rem;max-width:900px;margin:0 auto}
-.stat-item{text-align:center}
-.stat-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--navy);line-height:1;display:block}
-.stat-label{font-size:.8rem;color:rgba(13,27,42,.7);margin-top:.3rem;max-width:120px;line-height:1.3}
+/* ═══ STATS ═══ */
+.stats-wrap{background:var(--gold);padding:4rem 1.5rem}
+.stats-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.55rem,3.5vw,2.3rem);
+  font-weight:700;color:var(--navy);text-align:center;margin-bottom:2.5rem
+}
+.stats-row{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:2.5rem 3.5rem;max-width:900px;margin:0 auto
+}
+.stat{text-align:center}
+.stat-n{
+  font-family:'Playfair Display',serif;
+  font-size:3.6rem;font-weight:900;color:var(--navy);
+  line-height:1;display:block
+}
+.stat-n span{font-size:2.2rem}
+.stat-l{font-size:.78rem;color:rgba(13,27,42,.68);margin-top:.3rem;max-width:115px;line-height:1.35}
 
-/* CURSOS */
-#cursos{padding:5rem 2rem;background:var(--navy2)}
-.cursos-intro-h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;text-align:center;margin-bottom:.5rem}
-.cursos-intro-h2 em{color:var(--gold);font-style:italic}
-.cursos-intro-p{text-align:center;color:rgba(255,255,255,.6);font-size:.9rem;max-width:540px;margin:.5rem auto 2rem}
-.filter-pills{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:3rem}
-.pill{padding:.45rem 1.1rem;border-radius:20px;border:1px solid rgba(255,255,255,.2);font-size:.8rem;color:rgba(255,255,255,.7);cursor:pointer;transition:all .2s;background:transparent;font-family:'Inter',sans-serif}
+/* ═══ CURSOS ═══ */
+#cursos{padding:5rem 1.5rem;background:var(--navy2)}
+.cursos-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.75rem,4vw,2.6rem);
+  font-weight:700;text-align:center;margin-bottom:.4rem
+}
+.cursos-h2 em{color:var(--gold);font-style:italic}
+.cursos-p{
+  text-align:center;color:rgba(255,255,255,.55);
+  font-size:.88rem;max-width:520px;margin:.4rem auto 2rem
+}
+.pills{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;margin-bottom:3rem}
+.pill{
+  padding:.42rem 1rem;border-radius:20px;
+  border:1px solid rgba(255,255,255,.18);
+  font-size:.78rem;color:rgba(255,255,255,.65);
+  cursor:pointer;transition:all .18s;background:transparent;
+  font-family:'Inter',sans-serif
+}
 .pill:hover,.pill.on{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
-.category-block{margin-bottom:3rem}
-.cat-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.cat-icon{font-size:1.4rem}
-.cat-name{font-size:1rem;font-weight:600;color:var(--white)}
-.cat-meta{margin-left:auto;font-size:.78rem;color:var(--gray)}
-.cards-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
-.course-card{background:var(--card);border-radius:14px;padding:1.5rem;border:1px solid rgba(255,255,255,.07);cursor:pointer;transition:all .25s;display:flex;flex-direction:column;gap:.6rem;position:relative}
-.course-card:hover{transform:translateY(-4px);border-color:rgba(240,165,0,.3);box-shadow:0 8px 30px rgba(0,0,0,.3)}
-.course-card.nuevo::after{content:'NUEVO';position:absolute;top:.75rem;right:.75rem;background:var(--gold);color:var(--navy);font-size:.6rem;font-weight:700;padding:.15rem .5rem;border-radius:10px;letter-spacing:.5px}
-.c-num{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
-.c-icon{font-size:1.8rem}
-.c-title{font-size:.95rem;font-weight:600;line-height:1.35;color:var(--white)}
-.c-desc{font-size:.78rem;color:var(--gray);line-height:1.55;flex:1}
-.c-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.3rem}
-.tag{font-size:.65rem;padding:.2rem .5rem;border-radius:8px;font-weight:500}
-.tag-dur{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
-.tag-free{background:rgba(34,197,94,.12);color:#4ade80}
-.tag-dip{background:rgba(240,165,0,.12);color:var(--gold)}
+.cat-block{margin-bottom:3.2rem}
+.cat-head{
+  display:flex;align-items:center;gap:.7rem;
+  margin-bottom:1.5rem;padding-bottom:.7rem;
+  border-bottom:1px solid rgba(255,255,255,.07)
+}
+.cat-ico{font-size:1.3rem}
+.cat-name{font-size:.97rem;font-weight:600}
+.cat-meta{margin-left:auto;font-size:.75rem;color:var(--gray)}
+.cards-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:1rem}
+.c-card{
+  background:var(--card);border-radius:13px;padding:1.45rem;
+  border:1px solid rgba(255,255,255,.065);
+  cursor:pointer;transition:all .22s;
+  display:flex;flex-direction:column;gap:.55rem;position:relative
+}
+.c-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(240,165,0,.32);
+  box-shadow:0 10px 35px rgba(0,0,0,.32)
+}
+.c-card.nuevo::after{
+  content:'NUEVO';position:absolute;top:.7rem;right:.7rem;
+  background:var(--gold);color:var(--navy);
+  font-size:.58rem;font-weight:700;padding:.13rem .45rem;
+  border-radius:8px;letter-spacing:.4px
+}
+.c-num{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
+.c-ico{font-size:1.75rem}
+.c-title{font-size:.93rem;font-weight:600;line-height:1.35;color:var(--white)}
+.c-desc{font-size:.77rem;color:var(--gray);line-height:1.55;flex:1}
+.c-tags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.25rem}
+.tag{font-size:.63rem;padding:.18rem .48rem;border-radius:7px;font-weight:500}
+.td{background:rgba(255,255,255,.08);color:rgba(255,255,255,.58)}
+.tf{background:rgba(34,197,94,.11);color:#4ade80}
+.ti{background:rgba(240,165,0,.11);color:var(--gold)}
 
-/* MOMENTO */
-.momento-section{padding:5rem 2rem;background:var(--navy3);text-align:center}
-.momento-avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 1.5rem;overflow:hidden;box-shadow:0 0 30px rgba(120,80,200,.4)}
-.momento-avatar img{width:100%;height:100%;object-fit:cover}
-.momento-tag{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
-.momento-tag::before,.momento-tag::after{content:'—';color:var(--gold)}
-.momento-h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-bottom:1.5rem}
-.momento-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(.95rem,2vw,1.2rem);line-height:1.7;max-width:660px;margin:0 auto 1rem;color:rgba(255,255,255,.85)}
-.momento-quote em{color:var(--gold)}
-.beneficios{max-width:580px;margin:2rem auto;display:flex;flex-direction:column;gap:1rem}
-.ben-item{display:flex;align-items:flex-start;gap:.85rem;text-align:left;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.ben-item:last-child{border-bottom:none}
-.ben-ico{font-size:1.1rem;margin-top:.1rem;flex-shrink:0}
-.ben-text{font-size:.88rem;color:rgba(255,255,255,.85);line-height:1.6}
-.ben-text strong{color:var(--white)}
-.momento-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2rem}
+/* ═══ MOMENTO (Portal Docente) ═══ */
+#momento{
+  padding:5rem 1.5rem;
+  background:linear-gradient(180deg,var(--navy3) 0%,var(--navy2) 100%);
+  text-align:center
+}
+.m-avatar{
+  width:85px;height:85px;border-radius:50%;
+  margin:0 auto 1.4rem;overflow:hidden;
+  box-shadow:0 0 28px rgba(100,70,200,.4)
+}
+.m-avatar img{width:100%;height:100%;object-fit:cover}
+.m-tag{
+  font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.9rem;
+  display:flex;align-items:center;justify-content:center;gap:.5rem
+}
+.m-tag::before,.m-tag::after{content:'—';color:var(--gold)}
+.m-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.55rem,3.5vw,2.2rem);
+  font-weight:700;margin-bottom:1.5rem
+}
+.m-quote{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(.92rem,2vw,1.18rem);
+  line-height:1.72;max-width:650px;margin:0 auto 1rem;
+  color:rgba(255,255,255,.84)
+}
+.m-quote em{color:var(--gold)}
+.bens{max-width:570px;margin:1.8rem auto;display:flex;flex-direction:column;gap:.9rem}
+.ben{
+  display:flex;align-items:flex-start;gap:.8rem;text-align:left;
+  padding-bottom:.9rem;border-bottom:1px solid rgba(255,255,255,.065)
+}
+.ben:last-child{border-bottom:none}
+.ben-ico{font-size:1.05rem;margin-top:.1rem;flex-shrink:0}
+.ben-t{font-size:.86rem;color:rgba(255,255,255,.84);line-height:1.6}
+.ben-t strong{color:var(--white)}
+.m-btns{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;margin-top:1.8rem}
 
-/* FOOTER */
-footer{background:var(--navy);border-top:1px solid rgba(240,165,0,.2);padding:3rem 2rem 1.5rem;text-align:center}
-.footer-logo{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:1rem}
-.footer-brand-name strong{font-size:1.4rem;font-weight:700;letter-spacing:.5px}
-.footer-brand-name span{font-size:.6rem;letter-spacing:3px;display:block;color:var(--gold);text-transform:uppercase}
-.footer-desc{font-size:.78rem;color:var(--gray);max-width:580px;margin:0 auto .5rem;line-height:1.7}
-.footer-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:rgba(255,255,255,.4);margin:1rem 0}
-.footer-divider{height:1px;background:rgba(255,255,255,.07);margin:1.5rem 0}
-.footer-legal{font-size:.75rem;color:rgba(255,255,255,.3);font-style:italic;line-height:1.9}
-.footer-legal a{color:var(--gold);text-decoration:none}
-.footer-contact{margin-top:1.5rem;font-size:.8rem;color:var(--gray)}
-.footer-contact a{color:var(--gold);text-decoration:none}
-.footer-copy{margin-top:1rem;font-size:.72rem;color:rgba(255,255,255,.2)}
+/* ═══ FOOTER ═══ */
+footer{
+  background:var(--navy);
+  border-top:1px solid rgba(240,165,0,.18);
+  padding:3rem 1.5rem 1.5rem;text-align:center
+}
+.ft-brand{display:flex;align-items:center;justify-content:center;gap:.8rem;margin-bottom:1rem}
+.ft-icon{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--navy2);border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem
+}
+.ft-name strong{display:block;font-size:1.3rem;font-weight:700;letter-spacing:.4px}
+.ft-name small{display:block;font-size:.55rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.ft-desc{font-size:.77rem;color:var(--gray);max-width:580px;margin:0 auto .5rem;line-height:1.75}
+.ft-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:.84rem;color:rgba(255,255,255,.35);margin:1rem 0}
+.ft-div{height:1px;background:rgba(255,255,255,.07);margin:1.4rem 0}
+.ft-legal{font-size:.73rem;color:rgba(255,255,255,.28);font-style:italic;line-height:2}
+.ft-legal a{color:var(--gold);text-decoration:none}
+.ft-contact{margin-top:1.4rem;font-size:.78rem;color:var(--gray);line-height:1.9}
+.ft-contact a{color:var(--gold);text-decoration:none}
+.ft-copy{margin-top:.9rem;font-size:.7rem;color:rgba(255,255,255,.18)}
 
-/* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:200;align-items:center;justify-content:center;padding:1rem}
-.modal-overlay.open{display:flex}
-.modal-box{background:#162236;border-radius:20px;max-width:680px;width:100%;max-height:88vh;overflow-y:auto;position:relative;border:1px solid rgba(240,165,0,.2)}
-.modal-header{padding:2rem 2rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.08);border:none;color:var(--white);width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.modal-close:hover{background:rgba(255,255,255,.15)}
-.modal-body{padding:1.5rem 2rem 2rem}
-.m-icon{font-size:2.5rem;margin-bottom:.75rem;display:block}
-.m-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:.35rem}
-.m-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.75rem}
-.m-desc{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:1.5rem}
-.m-modules{list-style:none;display:flex;flex-direction:column;gap:.6rem}
-.m-mod{display:flex;align-items:flex-start;gap:.75rem;padding:.75rem;background:rgba(255,255,255,.04);border-radius:8px;font-size:.84rem;color:rgba(255,255,255,.85);line-height:1.5}
-.m-mod-num{background:var(--gold);color:var(--navy);font-weight:700;font-size:.7rem;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.m-reto{background:rgba(240,165,0,.08);border:1px solid rgba(240,165,0,.2);border-radius:10px;padding:1rem;margin-top:1.25rem}
-.m-reto-title{font-size:.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem}
-.m-reto-text{font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.6}
+/* ═══ MODAL ═══ */
+.overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.82);z-index:1000;
+  align-items:center;justify-content:center;padding:1rem
+}
+.overlay.open{display:flex}
+.mbox{
+  background:#162236;border-radius:18px;
+  max-width:670px;width:100%;max-height:88vh;
+  overflow-y:auto;position:relative;
+  border:1px solid rgba(240,165,0,.18)
+}
+.mhead{padding:1.8rem 2rem 1.1rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.mbody{padding:1.4rem 2rem 2rem}
+.mcls{
+  position:absolute;top:.9rem;right:.9rem;
+  background:rgba(255,255,255,.07);border:none;
+  color:var(--white);width:30px;height:30px;border-radius:50%;
+  font-size:.95rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center
+}
+.mcls:hover{background:rgba(255,255,255,.15)}
+.m-ico{font-size:2.4rem;margin-bottom:.65rem;display:block}
+.m-tit{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;margin-bottom:.3rem}
+.m-tags2{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.7rem}
+.m-desc{font-size:.86rem;color:rgba(255,255,255,.73);line-height:1.72;margin-bottom:1.4rem}
+.mods{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.mod{
+  display:flex;align-items:flex-start;gap:.7rem;
+  padding:.7rem;background:rgba(255,255,255,.04);
+  border-radius:8px;font-size:.82rem;color:rgba(255,255,255,.83);line-height:1.5
+}
+.mod-n{
+  background:var(--gold);color:var(--navy);font-weight:700;
+  font-size:.68rem;width:21px;height:21px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px
+}
+.reto{
+  background:rgba(240,165,0,.07);
+  border:1px solid rgba(240,165,0,.18);
+  border-radius:10px;padding:.9rem;margin-top:1.1rem
+}
+.reto-t{font-size:.72rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.4px;margin-bottom:.35rem}
+.reto-c{font-size:.81rem;color:rgba(255,255,255,.72);line-height:1.6}
 
 /* VOZ BADGE */
-.voz-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.65rem;padding:.2rem .55rem;border-radius:8px;font-weight:600;margin-bottom:.5rem}
-.vb-mot{background:rgba(255,100,50,.12);color:#ff9070}
-.vb-esp{background:rgba(150,100,255,.12);color:#b088ff}
-.vb-idi{background:rgba(50,180,255,.12);color:#60c8ff}
+.vbadge{
+  display:inline-flex;align-items:center;gap:.28rem;
+  font-size:.63rem;padding:.18rem .5rem;border-radius:7px;font-weight:600;
+  margin-bottom:.4rem
+}
+.vm{background:rgba(255,100,50,.11);color:#ff9070}
+.ve{background:rgba(150,100,255,.11);color:#b088ff}
+.vi{background:rgba(50,180,255,.11);color:#60c8ff}
 
 @media(max-width:640px){
-  nav{padding:.75rem 1rem}
-  .nav-links{gap:.25rem}
-  .nav-link{padding:.4rem .75rem;font-size:.78rem}
-  .hero-btns{flex-direction:column;align-items:center}
-  .stats-grid{gap:2rem}
+  nav{padding:.7rem 1rem}
+  .nav-links{gap:.2rem}
+  .nav-a{padding:.38rem .7rem;font-size:.76rem}
+  .hero-btns,.m-btns{flex-direction:column;align-items:center}
+  .stats-row{gap:1.8rem 2rem}
   .cards-row{grid-template-columns:1fr}
   .quotes-grid{grid-template-columns:1fr}
+  .mbox{max-height:94vh}
+  .mhead,.mbody{padding-left:1.2rem;padding-right:1.2rem}
 }
 </style>
 </head>
@@ -164,33 +362,37 @@ footer{background:var(--navy);border-top:1px solid rgba(240,165,0,.2);padding:3r
 
 <!-- NAV -->
 <nav>
-  <a href="#inicio" class="nav-brand">
-    <svg class="nav-logo" viewBox="0 0 36 36" fill="none">
-      <circle cx="18" cy="18" r="17" fill="#0d1b2a" stroke="#f0a500" stroke-width="1.5"/>
-      <text x="18" y="23" text-anchor="middle" font-size="14" font-weight="900" fill="#f0a500" font-family="serif">♛</text>
-    </svg>
-    <div class="nav-name"><strong>SABI</strong><span>CENTEC MAESTROS</span></div>
+  <a href="#inicio" class="brand">
+    <div class="brand-icon">♛</div>
+    <div class="brand-text">
+      <strong>SABI</strong>
+      <small>CENTEC MAESTROS</small>
+    </div>
   </a>
   <div class="nav-links">
-    <a href="#inicio" class="nav-link active" onclick="setNav(this)">Inicio</a>
-    <a href="#inspiracion" class="nav-link" onclick="setNav(this)">Inspiración</a>
-    <a href="#cursos" class="nav-link" onclick="setNav(this)">Cursos</a>
-    <a href="#momento" class="nav-link portal" onclick="setNav(this)">Portal Docente →</a>
+    <a href="#inicio"      class="nav-a active" id="n0">Inicio</a>
+    <a href="#inspiracion" class="nav-a"         id="n1">Inspiración</a>
+    <a href="#cursos"      class="nav-a"         id="n2">Cursos</a>
+    <a href="#momento"     class="nav-a portal-btn" id="n3">Portal Docente →</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="inicio">
-  <div class="avatar-ring">
-    <img src="https://i.imgur.com/placeholder.png" alt="SABI" onerror="this.parentElement.innerHTML='<div class=\'avatar-fallback\'>🎓</div>'">
+  <div class="hero-avatar">
+    <img
+      src="https://i.imgur.com/8mVgBvI.png"
+      alt="SABI — Mascota CENTEC"
+      onerror="this.outerHTML='<div style=\'font-size:5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%\'>🎓</div>'"
+    >
   </div>
   <div class="hero-badge">SABI CENTEC MAESTROS · Plataforma de Autoformación Docente · 100% Gratuita</div>
-  <h1 class="hero-h1">Maestro, este espacio fue creado <em>para ti</em>,<br/>con amor por Colombia</h1>
+  <h1 class="hero-h1">Maestro, este espacio fue creado <em>para ti</em>,<br>con amor por Colombia</h1>
   <p class="hero-sub">Saber · Aprender · Brillar · Imaginar</p>
-  <p class="hero-quote">"El error no nos detiene, nos enseña, nos fortalece y nos hace crecer."</p>
-  <p class="hero-author">— Alexander Rojas Zamorano · Colegio CENTEC Cali</p>
+  <p class="hero-quote">"El error no nos detiene, nos enseña,<br>nos fortalece y nos hace crecer."</p>
+  <p class="hero-attr">— Alexander Rojas Zamorano · Colegio CENTEC Cali</p>
   <div class="hero-btns">
-    <a href="#cursos" class="btn-gold">Ver todos los cursos ✨</a>
+    <a href="#cursos"  class="btn-gold">Ver todos los cursos ✨</a>
     <a href="#momento" class="btn-outline">Ingresar al Portal →</a>
   </div>
   <p class="scroll-hint">DESLIZA PARA EXPLORAR</p>
@@ -198,318 +400,427 @@ footer{background:var(--navy);border-top:1px solid rgba(240,165,0,.2);padding:3r
 
 <!-- INSPIRACIÓN -->
 <section id="inspiracion">
-  <div class="section-tag">Para el maestro que decide seguir creciendo</div>
-  <h2 class="section-h2">Palabras que iluminan el camino</h2>
+  <div class="sec-tag">Para el maestro que decide seguir creciendo</div>
+  <h2 class="sec-h2">Palabras que iluminan el camino</h2>
   <div class="quotes-grid">
-    <div class="quote-card"><span class="q-icon">🌟</span><p class="q-text">"Enseñar no es llenar un recipiente, es encender una llama. Y para encender fuego, primero debes llevar fuego dentro de ti."</p><p class="q-attr">— William Butler Yeats · Para el maestro que da todo</p></div>
-    <div class="quote-card"><span class="q-icon">🙏</span><p class="q-text">"Quien enseña, aprende dos veces. Cada curso que tomas hoy es un regalo que entregas a tus estudiantes mañana."</p><p class="q-attr">— Joseph Joubert · Adaptado SABI CENTEC MAESTROS</p></div>
-    <div class="quote-card"><span class="q-icon">🌱</span><p class="q-text">"La educación es el arma más poderosa que puedes usar para cambiar el mundo. Tú, maestro, empuñas esa arma cada día."</p><p class="q-attr">— Nelson Mandela · Tu vocación es transformación</p></div>
-    <div class="quote-card"><span class="q-icon">🪃</span><p class="q-text">"No preguntes qué puede darte tu profesión. Pregunta qué puedes darle tú a tu profesión, a tus estudiantes, a Colombia."</p><p class="q-attr">— Adaptado de JFK · Compromiso docente</p></div>
-    <div class="quote-card"><span class="q-icon">🕊️</span><p class="q-text">"La grandeza del maestro no está en cuánto sabe, sino en cuánto está dispuesto a seguir aprendiendo. La humildad es tu mayor fortaleza."</p><p class="q-attr">— SABI CENTEC MAESTROS · Filosofía de formación</p></div>
-    <div class="quote-card"><span class="q-icon">🔥</span><p class="q-text">"Cada vez que abres un curso nuevo, le dices a tus estudiantes: el conocimiento no tiene límites, y tampoco tú los tienes."</p><p class="q-attr">— Alexander Rojas Zamorano · CENTEC Cali</p></div>
-    <div class="quote-card"><span class="q-icon">⭐</span><p class="q-text">"La vocación docente no se agota: se alimenta. Aliméntala con formación, con propósito, con comunidad. Un maestro que crece, siembra crecimiento."</p><p class="q-attr">— Adaptado de Paulo Freire · Pedagogía del Oprimido</p></div>
-    <div class="quote-card"><span class="q-icon">🧘</span><p class="q-text">"Cuídate, maestro. No como un lujo, sino como una responsabilidad profunda. No puedes dar lo que no tienes. Colombia necesita lo mejor de ti."</p><p class="q-attr">— FOMAG 2025 · Salud mental y bienestar docente</p></div>
-    <div class="quote-card"><span class="q-icon">🌈</span><p class="q-text">"No necesitas ser perfecto para enseñar bien. Necesitas ser genuino, presente y dispuesto a crecer. Eso es lo que tus estudiantes nunca olvidarán."</p><p class="q-attr">— Investigaciones TALIS 2024 · Vínculo pedagógico</p></div>
-    <div class="quote-card"><span class="q-icon">💎</span><p class="q-text">"El conocimiento que aprendes, nadie te lo puede quitar. La formación que construyes hoy es el patrimonio que nadie te puede arrebatar."</p><p class="q-attr">— SABI CENTEC · Tu legado comienza aquí</p></div>
-    <div class="quote-card"><span class="q-icon">🌍</span><p class="q-text">"Colombia cambia cuando sus maestros crecen. No en las leyes ni en los presupuestos: en el aula, en ti, en la decisión de ser mejor cada día."</p><p class="q-attr">— Alexander Rojas Zamorano · Visión CENTEC</p></div>
-    <div class="quote-card"><span class="q-icon">💰</span><p class="q-text">"Un maestro que aprende a cuidar sus finanzas le enseña a sus estudiantes que la dignidad también se construye con inteligencia económica."</p><p class="q-attr">— SABI CENTEC MAESTROS · Bienestar integral</p></div>
+    <div class="q-card"><span class="q-icon">🌟</span><p class="q-text">"Enseñar no es llenar un recipiente, es encender una llama. Y para encender fuego, primero debes llevar fuego dentro de ti."</p><p class="q-attr">— William Butler Yeats · Para el maestro que da todo</p></div>
+    <div class="q-card"><span class="q-icon">🙏</span><p class="q-text">"Quien enseña, aprende dos veces. Cada curso que tomas hoy es un regalo que entregas a tus estudiantes mañana."</p><p class="q-attr">— Joseph Joubert · Adaptado SABI CENTEC MAESTROS</p></div>
+    <div class="q-card"><span class="q-icon">🌱</span><p class="q-text">"La educación es el arma más poderosa que puedes usar para cambiar el mundo. Tú, maestro, empuñas esa arma cada día."</p><p class="q-attr">— Nelson Mandela · Tu vocación es transformación</p></div>
+    <div class="q-card"><span class="q-icon">🪃</span><p class="q-text">"No preguntes qué puede darte tu profesión. Pregunta qué puedes darle tú a tu profesión, a tus estudiantes, a Colombia."</p><p class="q-attr">— Adaptado de JFK · Compromiso docente</p></div>
+    <div class="q-card"><span class="q-icon">🕊️</span><p class="q-text">"La grandeza del maestro no está en cuánto sabe, sino en cuánto está dispuesto a seguir aprendiendo. La humildad es tu mayor fortaleza."</p><p class="q-attr">— SABI CENTEC MAESTROS · Filosofía de formación</p></div>
+    <div class="q-card"><span class="q-icon">🔥</span><p class="q-text">"Cada vez que abres un curso nuevo, le dices a tus estudiantes: el conocimiento no tiene límites, y tampoco tú los tienes."</p><p class="q-attr">— Alexander Rojas Zamorano · CENTEC Cali</p></div>
+    <div class="q-card"><span class="q-icon">⭐</span><p class="q-text">"La vocación docente no se agota: se alimenta. Aliméntala con formación, con propósito, con comunidad. Un maestro que crece, siembra crecimiento."</p><p class="q-attr">— Adaptado de Paulo Freire · Pedagogía del Oprimido</p></div>
+    <div class="q-card"><span class="q-icon">🧘</span><p class="q-text">"Cuídate, maestro. No como un lujo, sino como una responsabilidad profunda. No puedes dar lo que no tienes. Colombia necesita lo mejor de ti."</p><p class="q-attr">— FOMAG 2025 · Salud mental y bienestar docente</p></div>
+    <div class="q-card"><span class="q-icon">🌈</span><p class="q-text">"No necesitas ser perfecto para enseñar bien. Necesitas ser genuino, presente y dispuesto a crecer. Eso es lo que tus estudiantes nunca olvidarán."</p><p class="q-attr">— Investigaciones TALIS 2024 · Vínculo pedagógico</p></div>
+    <div class="q-card"><span class="q-icon">💎</span><p class="q-text">"El conocimiento que aprendes, nadie te lo puede quitar. La formación que construyes hoy es el patrimonio que nadie te puede arrebatar."</p><p class="q-attr">— SABI CENTEC · Tu legado comienza aquí</p></div>
+    <div class="q-card"><span class="q-icon">🌍</span><p class="q-text">"Colombia cambia cuando sus maestros crecen. No en las leyes ni en los presupuestos: en el aula, en ti, en la decisión de ser mejor cada día."</p><p class="q-attr">— Alexander Rojas Zamorano · Visión CENTEC</p></div>
+    <div class="q-card"><span class="q-icon">💰</span><p class="q-text">"Un maestro que aprende a cuidar sus finanzas le enseña a sus estudiantes que la dignidad también se construye con inteligencia económica."</p><p class="q-attr">— SABI CENTEC MAESTROS · Bienestar integral</p></div>
   </div>
-  <div class="btn-center"><a href="#cursos" class="btn-gold">Explorar los 16 cursos gratuitos →</a></div>
+  <div class="tc"><a href="#cursos" class="btn-gold">Explorar los 16 cursos gratuitos →</a></div>
 </section>
 
 <!-- STATS -->
-<div class="stats-section">
+<div class="stats-wrap">
   <h2 class="stats-h2">La formación que Colombia y tú merecen</h2>
-  <div class="stats-grid">
-    <div class="stat-item"><span class="stat-num">16</span><p class="stat-label">Cursos completos gratuitos</p></div>
-    <div class="stat-item"><span class="stat-num">200+</span><p class="stat-label">Horas de formación disponibles</p></div>
-    <div class="stat-item"><span class="stat-num">5</span><p class="stat-label">Bloques temáticos</p></div>
-    <div class="stat-item"><span class="stat-num">16</span><p class="stat-label">Diplomas incluidos</p></div>
-    <div class="stat-item"><span class="stat-num">$0</span><p class="stat-label">Costo siempre</p></div>
-    <div class="stat-item"><span class="stat-num">100%</span><p class="stat-label">Funciona offline</p></div>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-n">16</span><p class="stat-l">Cursos completos gratuitos</p></div>
+    <div class="stat"><span class="stat-n">200<span>+</span></span><p class="stat-l">Horas de formación disponibles</p></div>
+    <div class="stat"><span class="stat-n">5</span><p class="stat-l">Bloques temáticos</p></div>
+    <div class="stat"><span class="stat-n">16</span><p class="stat-l">Diplomas incluidos</p></div>
+    <div class="stat"><span class="stat-n"><span>$</span>0</span><p class="stat-l">Costo siempre</p></div>
+    <div class="stat"><span class="stat-n">100<span>%</span></span><p class="stat-l">Funciona offline</p></div>
   </div>
 </div>
 
 <!-- CURSOS -->
 <section id="cursos">
-  <h2 class="cursos-intro-h2">Elige tu próximo paso, <em>maestro</em></h2>
-  <p class="cursos-intro-p">Haz clic en cualquier curso para ver su contenido. Sin fechas límite. Sin costo. Para siempre.</p>
-  <div class="filter-pills">
-    <button class="pill on" onclick="filterCat('all',this)">Todos (16)</button>
-    <button class="pill" onclick="filterCat('bienestar',this)">🧘 Bienestar</button>
-    <button class="pill" onclick="filterCat('pedagogia',this)">📚 Pedagogía</button>
-    <button class="pill" onclick="filterCat('tecnologia',this)">💻 Tecnología</button>
-    <button class="pill" onclick="filterCat('idiomas',this)">🌍 Idiomas</button>
-    <button class="pill" onclick="filterCat('finanzas',this)">💰 Finanzas</button>
+  <h2 class="cursos-h2">Elige tu próximo paso, <em>maestro</em></h2>
+  <p class="cursos-p">Haz clic en cualquier curso para ver su contenido. Sin fechas límite. Sin costo. Para siempre.</p>
+
+  <div class="pills">
+    <button class="pill on" onclick="filt('all',this)">Todos (16)</button>
+    <button class="pill"    onclick="filt('b',this)">🧘 Bienestar</button>
+    <button class="pill"    onclick="filt('p',this)">📚 Pedagogía</button>
+    <button class="pill"    onclick="filt('t',this)">💻 Tecnología</button>
+    <button class="pill"    onclick="filt('i',this)">🌍 Idiomas</button>
+    <button class="pill"    onclick="filt('f',this)">💰 Finanzas</button>
   </div>
 
   <!-- BIENESTAR -->
-  <div class="category-block" data-cat="bienestar">
-    <div class="cat-header"><span class="cat-icon">🧘</span><span class="cat-name">Bienestar y salud mental docente</span><span class="cat-meta">2 cursos · 55 horas</span></div>
+  <div class="cat-block" data-c="b">
+    <div class="cat-head">
+      <span class="cat-ico">🧘</span>
+      <span class="cat-name">Bienestar y salud mental docente</span>
+      <span class="cat-meta">2 cursos · 55 horas</span>
+    </div>
     <div class="cards-row">
-      <div class="course-card" onclick="openModal('c01')">
+      <div class="c-card" onclick="abrirModal('c01')">
         <span class="c-num">CURSO 01</span>
-        <span class="c-icon">🌿</span>
-        <span class="voz-badge vb-esp">🎙️ Voz Espiritual & Sanadora</span>
+        <span class="c-ico">🌿</span>
+        <span class="vbadge ve">🎙️ Voz Espiritual & Sanadora</span>
         <div class="c-title">Bienestar docente y prevención del burnout</div>
         <div class="c-desc">Reconoce las señales de burnout, recupera el equilibrio emocional y construye hábitos sostenibles de cuidado personal.</div>
-        <div class="c-tags"><span class="tag tag-dur">6 sem · 30h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">6 sem · 30h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c02')">
+      <div class="c-card" onclick="abrirModal('c02')">
         <span class="c-num">CURSO 02</span>
-        <span class="c-icon">💙</span>
-        <span class="voz-badge vb-esp">🎙️ Voz Cálida & Transformadora</span>
+        <span class="c-ico">💙</span>
+        <span class="vbadge ve">🎙️ Voz Cálida & Transformadora</span>
         <div class="c-title">Inteligencia emocional y habilidades blandas</div>
         <div class="c-desc">Autoconciencia, comunicación asertiva, manejo de conflictos, empatía y vínculo pedagógico con estudiantes.</div>
-        <div class="c-tags"><span class="tag tag-dur">5 sem · 25h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">5 sem · 25h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
     </div>
   </div>
 
   <!-- PEDAGOGÍA -->
-  <div class="category-block" data-cat="pedagogia">
-    <div class="cat-header"><span class="cat-icon">📚</span><span class="cat-name">Pedagogía y didáctica</span><span class="cat-meta">4 cursos · 130 horas</span></div>
+  <div class="cat-block" data-c="p">
+    <div class="cat-head">
+      <span class="cat-ico">📚</span>
+      <span class="cat-name">Pedagogía y didáctica</span>
+      <span class="cat-meta">4 cursos · 130 horas</span>
+    </div>
     <div class="cards-row">
-      <div class="course-card" onclick="openModal('c03')">
+      <div class="c-card" onclick="abrirModal('c03')">
         <span class="c-num">CURSO 03</span>
-        <span class="c-icon">📋</span>
-        <span class="voz-badge vb-mot">🎙️ Voz Cálida & Exigente</span>
+        <span class="c-ico">📋</span>
+        <span class="vbadge vm">🎙️ Voz Cálida & Exigente</span>
         <div class="c-title">Evaluación formativa y retroalimentación efectiva</div>
         <div class="c-desc">Evalúa para que el estudiante crezca, no para juzgarlo. Rúbricas, portafolios, ticket de salida y retroalimentación escrita.</div>
-        <div class="c-tags"><span class="tag tag-dur">6 sem · 30h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">6 sem · 30h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c04')">
+      <div class="c-card" onclick="abrirModal('c04')">
         <span class="c-num">CURSO 04</span>
-        <span class="c-icon">🧠</span>
-        <span class="voz-badge vb-mot">🎙️ Voz Motivadora & Exigente</span>
+        <span class="c-ico">🧠</span>
+        <span class="vbadge vm">🎙️ Voz Motivadora & Exigente</span>
         <div class="c-title">Metodologías activas y pensamiento crítico</div>
         <div class="c-desc">ABP, aula invertida, aprendizaje cooperativo, gamificación, preguntas socráticas. Neuroeducación aplicada al aula real.</div>
-        <div class="c-tags"><span class="tag tag-dur">8 sem · 40h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">8 sem · 40h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c05')">
+      <div class="c-card" onclick="abrirModal('c05')">
         <span class="c-num">CURSO 05</span>
-        <span class="c-icon">🌈</span>
-        <span class="voz-badge vb-esp">🎙️ Voz Compasiva & Poderosa</span>
+        <span class="c-ico">🌈</span>
+        <span class="vbadge ve">🎙️ Voz Compasiva & Poderosa</span>
         <div class="c-title">Educación inclusiva y atención a la diversidad</div>
         <div class="c-desc">DUA, adaptaciones curriculares, NEE, diversidad cultural, estudiantes migrantes y estrategias PIAR.</div>
-        <div class="c-tags"><span class="tag tag-dur">7 sem · 35h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">7 sem · 35h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c06p')">
+      <div class="c-card" onclick="abrirModal('c06p')">
         <span class="c-num">CURSO 06</span>
-        <span class="c-icon">🤝</span>
-        <span class="voz-badge vb-esp">🎙️ Voz Inspiradora & Poderosa</span>
+        <span class="c-ico">🤝</span>
+        <span class="vbadge ve">🎙️ Voz Inspiradora & Poderosa</span>
         <div class="c-title">Liderazgo pedagógico y colaboración profesional</div>
         <div class="c-desc">Comunidades de aprendizaje profesional, observación entre pares, investigación-acción y mentoría docente.</div>
-        <div class="c-tags"><span class="tag tag-dur">5 sem · 25h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">5 sem · 25h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
     </div>
   </div>
 
   <!-- TECNOLOGÍA -->
-  <div class="category-block" data-cat="tecnologia">
-    <div class="cat-header"><span class="cat-icon">💻</span><span class="cat-name">Tecnología e Inteligencia Artificial</span><span class="cat-meta">2 cursos · 55 horas</span></div>
+  <div class="cat-block" data-c="t">
+    <div class="cat-head">
+      <span class="cat-ico">💻</span>
+      <span class="cat-name">Tecnología e Inteligencia Artificial</span>
+      <span class="cat-meta">2 cursos · 55 horas</span>
+    </div>
     <div class="cards-row">
-      <div class="course-card" onclick="openModal('c06')">
+      <div class="c-card" onclick="abrirModal('c07')">
         <span class="c-num">CURSO 07</span>
-        <span class="c-icon">🖥️</span>
-        <span class="voz-badge vb-mot">🎙️ Voz Motivadora & Retadora</span>
+        <span class="c-ico">🖥️</span>
+        <span class="vbadge vm">🎙️ Voz Motivadora & Retadora</span>
         <div class="c-title">Competencias digitales para el aula</div>
         <div class="c-desc">Diagnóstico digital, herramientas gratuitas, contenidos educativos digitales, Kahoot, Quizizz, Canva, Google Workspace.</div>
-        <div class="c-tags"><span class="tag tag-dur">6 sem · 30h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">6 sem · 30h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c07')">
+      <div class="c-card" onclick="abrirModal('c08')">
         <span class="c-num">CURSO 08</span>
-        <span class="c-icon">🤖</span>
-        <span class="voz-badge vb-mot">🎙️ Voz Retadora & Apasionada</span>
+        <span class="c-ico">🤖</span>
+        <span class="vbadge vm">🎙️ Voz Retadora & Apasionada</span>
         <div class="c-title">Inteligencia Artificial y herramientas pedagógicas</div>
         <div class="c-desc">IA para planificación, retroalimentación y diferenciación. Ética del uso de IA en educación colombiana.</div>
-        <div class="c-tags"><span class="tag tag-dur">5 sem · 25h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">5 sem · 25h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
     </div>
   </div>
 
   <!-- IDIOMAS -->
-  <div class="category-block" data-cat="idiomas">
-    <div class="cat-header"><span class="cat-icon">🌍</span><span class="cat-name">Idiomas extranjeros · Ruta MCER A1→C1</span><span class="cat-meta">6 cursos · 260 horas</span></div>
+  <div class="cat-block" data-c="i">
+    <div class="cat-head">
+      <span class="cat-ico">🌍</span>
+      <span class="cat-name">Idiomas extranjeros · Ruta MCER A1→C1</span>
+      <span class="cat-meta">6 cursos · 260 horas</span>
+    </div>
     <div class="cards-row">
-      <div class="course-card" onclick="openModal('c09')">
+      <div class="c-card" onclick="abrirModal('c09')">
         <span class="c-num">CURSO 09</span>
-        <span class="c-icon">🇬🇧</span>
-        <span class="voz-badge vb-idi">🎙️ Pronunciación Nativa Perfecta</span>
+        <span class="c-ico">🇬🇧</span>
+        <span class="vbadge vi">🎙️ Pronunciación Nativa Perfecta</span>
         <div class="c-title">Inglés A1–A2 · Desde cero para docentes</div>
         <div class="c-desc">Para el docente sin inglés formal. Pronunciación con audio MP3 offline, vocabulario pedagógico básico.</div>
-        <div class="c-tags"><span class="tag tag-dur">8 sem · 40h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">8 sem · 40h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c10')">
+      <div class="c-card" onclick="abrirModal('c10')">
         <span class="c-num">CURSO 10</span>
-        <span class="c-icon">📘</span>
-        <span class="voz-badge vb-idi">🎙️ Pronunciación Nativa Perfecta</span>
+        <span class="c-ico">📘</span>
+        <span class="vbadge vi">🎙️ Pronunciación Nativa Perfecta</span>
         <div class="c-title">Inglés B1–B2 · Académico por área del saber</div>
         <div class="c-desc">Vocabulario disciplinar por área curricular, comprensión de artículos académicos en inglés.</div>
-        <div class="c-tags"><span class="tag tag-dur">10 sem · 50h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">10 sem · 50h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c11')">
+      <div class="c-card" onclick="abrirModal('c11')">
         <span class="c-num">CURSO 11</span>
-        <span class="c-icon">🏆</span>
-        <span class="voz-badge vb-idi">🎙️ Pronunciación Nativa Perfecta</span>
+        <span class="c-ico">🏆</span>
+        <span class="vbadge vi">🎙️ Pronunciación Nativa Perfecta</span>
         <div class="c-title">Inglés C1 + Didáctica · Para enseñar inglés</div>
         <div class="c-desc">CLIL, diseño de actividades comunicativas, pronunciación avanzada, escritura C1 académica.</div>
-        <div class="c-tags"><span class="tag tag-dur">12 sem · 60h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">12 sem · 60h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c12')">
+      <div class="c-card" onclick="abrirModal('c12')">
         <span class="c-num">CURSO 12</span>
-        <span class="c-icon">🇫🇷</span>
-        <span class="voz-badge vb-idi">🎙️ Pronunciación Francesa Auténtica</span>
+        <span class="c-ico">🇫🇷</span>
+        <span class="vbadge vi">🎙️ Pronunciación Francesa Auténtica</span>
         <div class="c-title">Francés A1–B1 · Pour les enseignants colombiens</div>
         <div class="c-desc">Francés funcional para docentes. Recursos Franco del MEN y Alianza Francesa. Pronunciación auténtica.</div>
-        <div class="c-tags"><span class="tag tag-dur">8 sem · 40h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">8 sem · 40h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c13')">
+      <div class="c-card" onclick="abrirModal('c13')">
         <span class="c-num">CURSO 13</span>
-        <span class="c-icon">🇧🇷</span>
-        <span class="voz-badge vb-idi">🎙️ Pronunciación Nativa Perfecta</span>
+        <span class="c-ico">🇧🇷</span>
+        <span class="vbadge vi">🎙️ Pronunciación Nativa Perfecta</span>
         <div class="c-title">Português A1–B1 · Integração regional</div>
         <div class="c-desc">Aprovecha la cercanía lingüística con el español. MERCOSUR, movilidad académica regional.</div>
-        <div class="c-tags"><span class="tag tag-dur">8 sem · 40h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">8 sem · 40h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
-      <div class="course-card" onclick="openModal('c14')">
+      <div class="c-card" onclick="abrirModal('c14')">
         <span class="c-num">CURSO 14</span>
-        <span class="c-icon">🌐</span>
-        <span class="voz-badge vb-idi">🎙️ Pronunciación Nativa Perfecta</span>
+        <span class="c-ico">🌐</span>
+        <span class="vbadge vi">🎙️ Pronunciación Nativa Perfecta</span>
         <div class="c-title">Mandarín / Alemán A1 · Alta demanda global</div>
         <div class="c-desc">Módulo exploratorio. Mandarín: pinyin, TLC Colombia–China. Alemán: pronunciación y vocabulario.</div>
-        <div class="c-tags"><span class="tag tag-dur">6 sem · 30h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">6 sem · 30h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
     </div>
   </div>
 
-  <!-- PEDAGOGÍA ESPECIALIZADA NUEVO -->
-  <div class="category-block" data-cat="pedagogia">
-    <div class="cat-header"><span class="cat-icon">🏆</span><span class="cat-name">Pedagogía de Excelencia CENTEC · NUEVO</span><span class="cat-meta">1 curso · 80 horas</span></div>
+  <!-- PEDAGOGÍA NUEVO -->
+  <div class="cat-block" data-c="p">
+    <div class="cat-head">
+      <span class="cat-ico">🏆</span>
+      <span class="cat-name">Pedagogía de Excelencia CENTEC · NUEVO 2026</span>
+      <span class="cat-meta">1 curso · 80 horas</span>
+    </div>
     <div class="cards-row">
-      <div class="course-card nuevo" onclick="openModal('c16')">
+      <div class="c-card nuevo" onclick="abrirModal('c16')">
         <span class="c-num">CURSO 16</span>
-        <span class="c-icon">🌟</span>
-        <span class="voz-badge vb-esp">🎙️ Voz Inspiradora & Espiritual</span>
+        <span class="c-ico">🌟</span>
+        <span class="vbadge ve">🎙️ Voz Inspiradora & Espiritual</span>
         <div class="c-title">Maestro CENTEC: Pedagogía de Excelencia y Educación Significativa</div>
-        <div class="c-desc">Neuroeducación, inicio-desarrollo-cierre de clase, metodologías activas, sistemas educativos del mundo (Finlandia, Singapur, Japón). El curso que forma pedagogos de clase mundial.</div>
-        <div class="c-tags"><span class="tag tag-dur">16 sem · 80h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-desc">Neuroeducación, inicio-desarrollo-cierre de clase, metodologías activas y sistemas educativos del mundo. El curso que forma pedagogos de clase mundial.</div>
+        <div class="c-tags"><span class="tag td">16 sem · 80h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
     </div>
   </div>
 
   <!-- FINANZAS -->
-  <div class="category-block" data-cat="finanzas">
-    <div class="cat-header"><span class="cat-icon">💰</span><span class="cat-name">Matemática financiera personal</span><span class="cat-meta">1 curso · 40 horas</span></div>
+  <div class="cat-block" data-c="f">
+    <div class="cat-head">
+      <span class="cat-ico">💰</span>
+      <span class="cat-name">Matemática financiera personal</span>
+      <span class="cat-meta">1 curso · 40 horas</span>
+    </div>
     <div class="cards-row">
-      <div class="course-card nuevo" onclick="openModal('c15')">
+      <div class="c-card nuevo" onclick="abrirModal('c15')">
         <span class="c-num">CURSO 15</span>
-        <span class="c-icon">📊</span>
-        <span class="voz-badge vb-mot">🎙️ Voz Motivadora & Práctica</span>
+        <span class="c-ico">📊</span>
+        <span class="vbadge vm">🎙️ Voz Motivadora & Práctica</span>
         <div class="c-title">Finanzas personales, presupuesto e inversión</div>
         <div class="c-desc">El curso que nunca te dieron en la carrera y más necesitabas. Presupuesto, cesantías, ahorro inteligente e inversión para docentes colombianos.</div>
-        <div class="c-tags"><span class="tag tag-dur">8 sem · 40h</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>
+        <div class="c-tags"><span class="tag td">8 sem · 40h</span><span class="tag tf">Gratis</span><span class="tag ti">Diploma</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MOMENTO -->
-<section id="momento" class="momento-section">
-  <div class="momento-avatar">
-    <img src="https://i.imgur.com/placeholder.png" alt="SABI" onerror="this.innerHTML='🎓'">
+<!-- PORTAL DOCENTE / MOMENTO -->
+<section id="momento">
+  <div class="m-avatar">
+    <img src="https://i.imgur.com/8mVgBvI.png" alt="SABI"
+      onerror="this.outerHTML='<div style=\'font-size:2.5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%\'>🎓</div>'">
   </div>
-  <div class="momento-tag">Tu momento es ahora</div>
-  <h2 class="momento-h2">Este es tu momento, maestro</h2>
-  <p class="momento-quote">"La formación no es un lujo profesional.<br/>Es el acto más generoso que puedes hacer por tus estudiantes:<br/><em>crecer antes de que lleguen."</em></p>
-  <div class="beneficios">
-    <div class="ben-item"><span class="ben-ico">🎯</span><div class="ben-text"><strong>Sin fechas límite.</strong> Avanza cuando puedas, como puedas. Tu ritmo es válido y es suficiente.</div></div>
-    <div class="ben-item"><span class="ben-ico">🏅</span><div class="ben-text"><strong>Diploma en cada curso.</strong> Personalizado, descargable, con el sello oficial SABI CENTEC.</div></div>
-    <div class="ben-item"><span class="ben-ico">📱</span><div class="ben-text"><strong>Funciona offline.</strong> Descarga los cursos y estudia sin conexión. Pensado para zonas rurales de Colombia.</div></div>
-    <div class="ben-item"><span class="ben-ico">💚</span><div class="ben-text"><strong>100% gratuito.</strong> Siempre. Para siempre. Sin costo. Sin condiciones. Sin excepciones.</div></div>
-    <div class="ben-item"><span class="ben-ico">❤️</span><div class="ben-text"><strong>Hecho con amor.</strong> Cada módulo fue diseñado pensando en el maestro colombiano real, con sus retos y su grandeza.</div></div>
+  <div class="m-tag">Tu momento es ahora</div>
+  <h2 class="m-h2">Este es tu momento, maestro</h2>
+  <p class="m-quote">
+    "La formación no es un lujo profesional.<br>
+    Es el acto más generoso que puedes hacer por tus estudiantes:<br>
+    <em>crecer antes de que lleguen."</em>
+  </p>
+  <div class="bens">
+    <div class="ben"><span class="ben-ico">🎯</span><div class="ben-t"><strong>Sin fechas límite.</strong> Avanza cuando puedas, como puedas. Tu ritmo es válido y es suficiente.</div></div>
+    <div class="ben"><span class="ben-ico">🏅</span><div class="ben-t"><strong>Diploma en cada curso.</strong> Personalizado, descargable, con el sello oficial SABI CENTEC.</div></div>
+    <div class="ben"><span class="ben-ico">📱</span><div class="ben-t"><strong>Funciona offline.</strong> Descarga los cursos y estudia sin conexión. Pensado para zonas rurales de Colombia.</div></div>
+    <div class="ben"><span class="ben-ico">💚</span><div class="ben-t"><strong>100% gratuito.</strong> Siempre. Para siempre. Sin costo. Sin condiciones. Sin excepciones.</div></div>
+    <div class="ben"><span class="ben-ico">❤️</span><div class="ben-t"><strong>Hecho con amor.</strong> Cada módulo fue diseñado pensando en el maestro colombiano real, con sus retos y su grandeza.</div></div>
   </div>
-  <div class="momento-btns">
-    <a href="#cursos" class="btn-gold">Elegir mi primer curso ✨</a>
-    <a href="#cursos" class="btn-outline">Ingresar al Portal</a>
+  <div class="m-btns">
+    <a href="#cursos"  class="btn-gold">Elegir mi primer curso ✨</a>
+    <a href="#cursos"  class="btn-outline">Ingresar al Portal</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#0d1b2a" stroke="#f0a500" stroke-width="1.5"/><text x="20" y="26" text-anchor="middle" font-size="16" font-weight="900" fill="#f0a500" font-family="serif">♛</text></svg>
-    <div class="footer-brand-name"><strong>SABI</strong><span>CENTEC MAESTROS</span></div>
+  <div class="ft-brand">
+    <div class="ft-icon">♛</div>
+    <div class="ft-name"><strong>SABI</strong><small>CENTEC MAESTROS</small></div>
   </div>
-  <p class="footer-desc">Plataforma de Autoformación Docente · 16 cursos gratuitos · Colombia<br/>Alineada con DBA MEN · Estándares Básicos de Competencias · Taxonomía Bloom Revisada · Decreto 1290/2009</p>
-  <p class="footer-quote">"El error no nos detiene, nos enseña, nos fortalece y nos hace crecer."</p>
-  <div class="footer-divider"></div>
-  <p class="footer-legal">🏛️ Este ecosistema de formación es propiedad intelectual de <a href="#">Alexander Rojas Zamorano</a><br/>para el fortalecimiento de la familia del Colegio CENTEC,<br/>custodiado por el <a href="#">legado Rojas Cairasco</a>.<br/>Portal de Excelencia Docente · SABI CENTEC MAESTROS · Cali, Colombia.</p>
-  <div class="footer-divider"></div>
-  <div class="footer-contact">📍 <strong style="color:#f0a500">Colegio CENTEC</strong> · Calle 54 #41E3-57 · Cali, Colombia<br/><br/>📸 <a href="#">@colegiocentec</a> · 🎓 <a href="#">@colegiocentecoficial</a></div>
-  <p class="footer-copy">Propiedad intelectual de Alexander Rojas Zamorano · Legado Rojas Cairasco · SABI CENTEC MAESTROS</p>
+  <p class="ft-desc">
+    Plataforma de Autoformación Docente · 16 cursos gratuitos · Colombia<br>
+    Alineada con DBA MEN · Estándares Básicos de Competencias · Taxonomía Bloom Revisada · Decreto 1290/2009
+  </p>
+  <p class="ft-quote">"El error no nos detiene, nos enseña, nos fortalece y nos hace crecer."</p>
+  <div class="ft-div"></div>
+  <p class="ft-legal">
+    🏛️ Este ecosistema de formación es propiedad intelectual de <a href="#">Alexander Rojas Zamorano</a><br>
+    para el fortalecimiento de la familia del Colegio CENTEC,<br>
+    custodiado por el <a href="#">legado Rojas Cairasco</a>.<br>
+    Portal de Excelencia Docente · SABI CENTEC MAESTROS · Cali, Colombia.
+  </p>
+  <div class="ft-div"></div>
+  <div class="ft-contact">
+    📍 <strong style="color:var(--gold)">Colegio CENTEC</strong> · Calle 54 #41E3-57 · Cali, Colombia<br>
+    📸 <a href="#">@colegiocentec</a> &nbsp;·&nbsp; 🎓 <a href="#">@colegiocentecoficial</a>
+  </div>
+  <p class="ft-copy">Propiedad intelectual de Alexander Rojas Zamorano · Legado Rojas Cairasco · SABI CENTEC MAESTROS</p>
 </footer>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeOut(event)">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-header" id="mh"></div>
-    <div class="modal-body" id="mb"></div>
+<div class="overlay" id="modal" onclick="cerrarOut(event)">
+  <div class="mbox">
+    <button class="mcls" onclick="cerrar()">✕</button>
+    <div class="mhead" id="mh"></div>
+    <div class="mbody" id="mb"></div>
   </div>
 </div>
 
 <script>
-// NAV
-function setNav(el){document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));el.classList.add('active')}
-
-// FILTER
-function filterCat(cat,btn){
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
+// ── FILTRO CURSOS ──
+function filt(cat, btn) {
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
   btn.classList.add('on');
-  document.querySelectorAll('.category-block').forEach(b=>{
-    b.style.display=(cat==='all'||b.dataset.cat===cat)?'block':'none';
+  document.querySelectorAll('.cat-block').forEach(b => {
+    b.style.display = (cat === 'all' || b.dataset.c === cat) ? 'block' : 'none';
   });
 }
 
-// MODAL DATA
-const courses={
-  c01:{icon:'🌿',title:'Bienestar docente y prevención del burnout',voz:'Voz Espiritual & Sanadora',dur:'6 semanas · 30 horas',desc:'Reconoce las señales de burnout antes de que te consuman. Aprende a recuperar el equilibrio emocional y construye hábitos de autocuidado que sostengan tu vocación por años.',mods:['Señales del burnout docente: reconocer para prevenir','Gestión del estrés crónico en el aula','Rutinas de autocuidado físico y emocional','Límites saludables entre vida personal y profesional','Comunidad de apoyo: el maestro no debe ir solo','Construyendo tu plan personal de bienestar sostenible'],reto:'Durante 21 días: registra cada mañana tu estado emocional (1-10) y una acción de autocuidado. Al finalizar, analiza tus patrones y diseña tu protocolo personal de bienestar.'},
-  c02:{icon:'💙',title:'Inteligencia emocional y habilidades blandas',voz:'Voz Cálida & Transformadora',dur:'5 semanas · 25 horas',desc:'El maestro emocionalmente inteligente transforma aulas. Aprende a conocerte, comunicarte con asertividad y construir vínculos genuinos con tus estudiantes.',mods:['Autoconciencia emocional: conocerte para enseñar mejor','Comunicación asertiva con estudiantes, padres y colegas','Manejo constructivo de conflictos en el aula','Empatía pedagógica: entender antes de responder','Vínculo docente-estudiante: la base del aprendizaje','Habilidades blandas para la era de la IA'],reto:'Practica la escucha activa durante una semana: en cada conversación difícil, escucha completamente antes de responder. Documenta qué cambia.'},
-  c03:{icon:'📋',title:'Evaluación formativa y retroalimentación efectiva',voz:'Voz Cálida & Exigente',dur:'6 semanas · 30 horas',desc:'Evalúa para que el estudiante crezca, no para juzgarlo. La evaluación que impacta no es la del fin del período — es la que ocurre cada día en el aula.',mods:['Evaluación formativa vs. sumativa: cuál impacta más','Ticket de salida y semáforo de comprensión diario','Retroalimentación escrita específica y orientada al crecimiento','Rúbricas diferenciadas para todos los niveles','Evaluación por competencias: del DBA a la nota','El error como información valiosa, no como fracaso'],reto:'Implementa ticket de salida diario durante 2 semanas. Analiza los patrones. Diseña una estrategia de retroalimentación grupal basada en tus hallazgos.'},
-  c04:{icon:'🧠',title:'Metodologías activas y pensamiento crítico',voz:'Voz Motivadora & Exigente',dur:'8 semanas · 40 horas',desc:'Los 7 principios neurocientíficos del aprendizaje aplicados a tu aula. ABP, aula invertida, gamificación y aprendizaje cooperativo para clases que nadie olvida.',mods:['Neuroeducación: los 7 principios del cerebro que aprende','Aprendizaje Basado en Proyectos (ABP) paso a paso','Aula Invertida: el tiempo de clase para aprender, no recibir','Gamificación pedagógica: el juego como estrategia seria','Aprendizaje Cooperativo: Jigsaw, Think-Pair-Share, Gallery Walk','La clase neurodidáctica: enganche, instrucción, pausa, cierre','Preguntas socráticas para activar el pensamiento crítico','Evaluación de metodologías activas con rúbricas diferenciadas'],reto:'Diseña una unidad completa con al menos 2 metodologías activas para tu área. Aplícala, documenta y reflexiona sobre los resultados.'},
-  c05:{icon:'🌈',title:'Educación inclusiva y atención a la diversidad',voz:'Voz Compasiva & Poderosa',dur:'7 semanas · 35 horas',desc:'Todo estudiante tiene potencial ilimitado. Aprende a diseñar clases donde TODOS aprenden, cada uno desde donde está, sin dejar a nadie atrás.',mods:['Diseño Universal para el Aprendizaje (DUA): 3 principios','Estrategias PIAR: diferenciación sin señalamiento','Adaptaciones curriculares que no segregan','Atención a estudiantes con NEE en aulas regulares','Diversidad cultural, étnica y migrante en el aula','El lenguaje inclusivo que forma identidad académica'],reto:'Toma tu próxima unidad y diseña 3 versiones de la actividad principal: básico, intermedio y reto. Deja que los estudiantes elijan. Observa.'},
-  'c06p':{icon:'🤝',title:'Liderazgo pedagógico y colaboración profesional',voz:'Voz Inspiradora & Poderosa',dur:'5 semanas · 25 horas',desc:'El maestro que lidera transforma instituciones enteras. Liderazgo no es cargo — es influencia, ejemplo y la capacidad de hacer mejores a los que te rodean.',mods:['Del buen maestro al maestro que forma maestros','Comunicación asertiva con colegas, directivos y familias','Lesson Study japonés adaptado al contexto colombiano','Mentoría entre pares: acompañar sin imponer','Investigación-Acción en el aula: el docente que se investiga','Tu legado pedagógico: lo que dejas cuando ya no estás'],reto:'Propón a 2 colegas hacer una sesión de Lesson Study. Planeen juntos una clase, uno la enseña, los demás observan con propósito y luego reflexionan. Así mejoran Japón y Singapur.'},
-  c06:{icon:'🖥️',title:'Competencias digitales para el aula',voz:'Voz Motivadora & Retadora',dur:'6 semanas · 30 horas',desc:'Transforma tu práctica con herramientas digitales gratuitas. Sin ser experto en tecnología. Desde mañana mismo en tu aula.',mods:['Diagnóstico de competencias digitales docentes','Kahoot y Quizizz: evaluación interactiva que motiva','Canva Educativo: diseño visual que enseña','Google Workspace for Education: flujo de trabajo docente','Wordwall y ClassDojo: gestión activa del aula','Creación de contenidos educativos digitales descargables','Sin internet: versiones físicas de todas las herramientas'],reto:'Crea un Kahoot con 10 preguntas de tu área y úsalo esta semana. Luego diseña una infografía en Canva sobre un concepto clave de tu asignatura.'},
-  c07:{icon:'🤖',title:'Inteligencia Artificial y herramientas pedagógicas',voz:'Voz Retadora & Apasionada',dur:'5 semanas · 25 horas',desc:'La IA no reemplaza al maestro — potencia al maestro que sabe usarla. Aprende a usar Claude AI, ChatGPT y otras herramientas con criterio pedagógico y ético.',mods:['Fundamentos de IA para docentes no tecnólogos','Claude AI y ChatGPT para planificación de clase','Generación de rúbricas y actividades diferenciadas con IA','Retroalimentación de textos estudiantiles asistida por IA','Ética del uso de IA en educación colombiana','Cómo detectar uso inadecuado de IA en los estudiantes'],reto:'Usa IA para diseñar una rúbrica diferenciada con 3 niveles para tu próxima evaluación. Compara con la que habrías diseñado solo. Reflexiona sobre las diferencias.'},
-  c09:{icon:'🇬🇧',title:'Inglés A1–A2 · Desde cero para docentes',voz:'Pronunciación Nativa Perfecta + Avatar',dur:'8 semanas · 40 horas',desc:'Para el docente sin inglés formal. Pronunciación auténtica desde el primer día. Con audio MP3 descargable para estudiar offline en cualquier zona de Colombia.',mods:['Fonética inglesa: los sonidos que no existen en español','Saludos, presentaciones y vocabulario del aula','Classroom language: comandos esenciales para tu clase','Vocabulario pedagógico básico A1–A2','Comprensión auditiva con audio nativo MP3','Conversaciones simples: maestro con estudiantes y padres','Cultura anglófona: Reino Unido, EEUU y Colombia global','Práctica de pronunciación con avatar IA'],reto:'Graba 5 frases con los sonidos difíciles del inglés. Compara tu pronunciación con el audio nativo. Practica 10 min diarios durante 30 días.'},
-  c10:{icon:'📘',title:'Inglés B1–B2 · Académico por área del saber',voz:'Pronunciación Nativa Perfecta + Avatar',dur:'10 semanas · 50 horas',desc:'Inglés funcional para tu área disciplinar. Leer artículos académicos, comprender documentos del MEN en inglés y comunicarte en contextos educativos internacionales.',mods:['Vocabulario disciplinar: ciencias, matemáticas, sociales, lengua','Comprensión de artículos académicos en inglés','Escritura de correos y comunicaciones formales B1-B2','Presentaciones académicas en inglés: estructura y conectores','Listening B2: conferencias, podcasts y clases en inglés','Inglés para reuniones institucionales y consejos académicos','Pronunciación avanzada: ritmo, entonación y fluidez','Preparación para exámenes internacionales (TKT, IELTS)'],reto:'Lee un artículo académico corto en inglés sobre educación. Resume en español los 3 puntos principales. Semana siguiente: haz el resumen directamente en inglés.'},
-  c11:{icon:'🏆',title:'Inglés C1 + Didáctica · Para enseñar inglés',voz:'Pronunciación Nativa Perfecta + Avatar',dur:'12 semanas · 60 horas',desc:'Para el docente de inglés o quien aspira a serlo. CLIL, diseño de actividades comunicativas, pronunciación C1 y metodología de enseñanza de idiomas.',mods:['Metodología comunicativa: enseñar inglés con inglés','CLIL: Content and Language Integrated Learning','Diseño de actividades comunicativas por nivel MCER','Corrección de errores sin desmotivar al estudiante','Pronunciación C1: acento neutro, ritmo y entonación nativa','Evaluación de habilidades lingüísticas (speaking, writing, reading, listening)','Escritura académica C1: ensayos, informes y análisis','Didáctica de la fonética para clases de inglés en Colombia'],reto:'Diseña y dicta una clase completa de inglés usando solo inglés desde el minuto 1. Grábala, analiza tu proporción inglés/español y ponla como meta bajar el español cada semana.'},
-  c12:{icon:'🇫🇷',title:'Francés A1–B1 · Pour les enseignants colombiens',voz:'Pronunciación Francesa Auténtica + Avatar',dur:'8 semanas · 40 horas',desc:'Francés funcional para docentes colombianos. Pronunciación auténtica desde el inicio. Recursos Franco del MEN y Alianza Francesa integrados al curso.',mods:['Fonética francesa: liaison, nasalización y la "u" francesa','Saludos y vocabulario del aula en francés auténtico','Gramática esencial: articles, être, avoir, présent','Vocabulaire pédagogique pour enseignants','Comprensión auditiva con audio de hablantes nativos franceses','Cultura francófona: Francia, Québec, Bélgica, Senegal','Recursos Franco MEN y Alianza Francesa para docentes','Práctica de pronunciación con avatar IA francés'],reto:'Practica "une fenêtre, une fleur, un professeur" con la nasalización correcta. Graba, compara con el audio nativo. 10 minutos diarios — en 30 días tendrás acento auténtico.'},
-  c13:{icon:'🇧🇷',title:'Português A1–B1 · Integração regional',voz:'Pronunciación Nativa Perfecta',dur:'8 semanas · 40 horas',desc:'La lengua más cercana al español. Brasil y Colombia: vecinos que deben entenderse. MERCOSUR, movilidad académica y oportunidades laborales regionales.',mods:['Fonética portuguesa: los falsos amigos y las diferencias reales','Vocabulário básico pedagógico en portugués','Português brasileiro vs. europeu: cuál aprender primero','Comprensión lectora de textos académicos en portugués','Cultura brasileña y lusófona para docentes colombianos','Recursos MERCOSUR y movilidad académica regional','Conversación básica A1-B1 para contextos educativos','Preparación para CELPE-Bras si lo necesitas'],reto:'Lee una noticia educativa de Brasil en portugués. Subraya las palabras que entiendes sin traducción. Te sorprenderá cuánto ya sabes.'},
-  c14:{icon:'🌐',title:'Mandarín / Alemán A1 · Alta demanda global',voz:'Pronunciación Nativa Perfecta',dur:'6 semanas · 30 horas',desc:'Módulo exploratorio dual. Mandarín para el TLC Colombia-China. Alemán para movilidad académica europea. Introducción fonética y cultural en ambos.',mods:['Mandarín: el sistema pinyin y los 4 tonos fundamentales','Vocabulario básico mandarín para contextos educativos','TLC Colombia-China: oportunidades para docentes','Alemán: pronunciación y las diferencias con el español','Vocabulario pedagógico básico en alemán','Movilidad académica Europa: DAAD y becas alemanas'],reto:'Aprende a presentarte en mandarín Y en alemán. Graba tu presentación en ambos idiomas. El cerebro que aprende 2 idiomas nuevos simultáneamente desarrolla plasticidad extraordinaria.'},
-  c15:{icon:'📊',title:'Finanzas personales, presupuesto e inversión',voz:'Voz Motivadora & Práctica',dur:'8 semanas · 40 horas',desc:'El curso que nunca te dieron en la carrera y más necesitabas. Porque un maestro próspero enseña con más alegría, más energía y más libertad creativa.',mods:['Diagnóstico financiero personal: dónde estás hoy','Presupuesto docente inteligente: regla 50/30/20','Cesantías y pensión: todo lo que debes saber y nadie te explica','Deudas: cómo salir y no volver a entrar','Ahorro automático: el hábito que cambia todo','CDT, fondos de inversión y carteras accesibles para docentes','El interés compuesto: tu mejor aliado a largo plazo','Ingresos complementarios éticos para maestros'],reto:'Esta semana: consulta el saldo de tus cesantías. La siguiente: abre una cuenta de ahorro separada y programa una transferencia automática mensual — por pequeña que sea. El hábito lo es todo.'},
-  c16:{icon:'🌟',title:'Maestro CENTEC: Pedagogía de Excelencia y Educación Significativa',voz:'Voz Inspiradora & Espiritual',dur:'16 semanas · 80 horas',desc:'El curso más completo de formación pedagógica. Neuroeducación, inicio-desarrollo-cierre de cada clase, metodologías activas, sistemas educativos del mundo y psicología positiva. Al terminar dirás: "En CENTEC me formé como excelente pedagogo."',mods:['Neuroeducación: los 7 principios del cerebro que aprende','El inicio que engancha: enganche emocional y saberes previos','Mantenimiento: instrucción, pausa activa y práctica guiada','El cierre metacognitivo que consolida para siempre','ABP, Aula Invertida, Gamificación y Aprendizaje Cooperativo','Evaluación formativa de alto impacto','Gestión emocional del aula y clima positivo','Finlandia: autonomía, confianza y propósito docente','Singapur: rigor, profundidad y metacognición','Japón: Lesson Study y mejora colectiva continua','Psicología positiva: mindset de crecimiento y motivación intrínseca','El maestro como líder pedagógico institucional','Sistemas educativos PISA y qué puede aprender Colombia','Diseño de tu propio sello pedagógico personal','Comunidad de práctica CENTEC: aprender con otros','Proyecto final: tu clase perfecta documentada'],reto:'Diseña y ejecuta una clase completa con estructura neurodidáctica CENTEC. Documenta cada fase. Reflexiona metacognitivamente. Al completar recibes el Certificado de Pedagogo CENTEC — el más alto reconocimiento de la plataforma.'}
+// ── DATOS CURSOS ──
+const CD = {
+  c01:{ico:'🌿',tit:'Bienestar docente y prevención del burnout',vb:'ve',vt:'Voz Espiritual & Sanadora',dur:'6 semanas · 30 horas',
+    desc:'Reconoce las señales de burnout antes de que te consuman. Aprende a recuperar el equilibrio emocional y construye hábitos de autocuidado que sostengan tu vocación por años.',
+    mods:['Señales del burnout docente: reconocer para prevenir','Gestión del estrés crónico en el aula','Rutinas de autocuidado físico y emocional','Límites saludables entre vida personal y profesional','Comunidad de apoyo: el maestro no debe ir solo','Tu plan personal de bienestar sostenible'],
+    reto:'Durante 21 días: registra cada mañana tu estado emocional (1-10) y una acción de autocuidado. Al finalizar, analiza tus patrones y diseña tu protocolo personal de bienestar.'},
+  c02:{ico:'💙',tit:'Inteligencia emocional y habilidades blandas',vb:'ve',vt:'Voz Cálida & Transformadora',dur:'5 semanas · 25 horas',
+    desc:'El maestro emocionalmente inteligente transforma aulas. Aprende a conocerte, comunicarte con asertividad y construir vínculos genuinos con tus estudiantes.',
+    mods:['Autoconciencia emocional: conocerte para enseñar mejor','Comunicación asertiva con estudiantes, padres y colegas','Manejo constructivo de conflictos en el aula','Empatía pedagógica: entender antes de responder','Vínculo docente-estudiante: la base del aprendizaje','Habilidades blandas para la era de la IA'],
+    reto:'Practica la escucha activa durante una semana: en cada conversación difícil, escucha completamente antes de responder. Documenta qué cambia.'},
+  c03:{ico:'📋',tit:'Evaluación formativa y retroalimentación efectiva',vb:'vm',vt:'Voz Cálida & Exigente',dur:'6 semanas · 30 horas',
+    desc:'Evalúa para que el estudiante crezca, no para juzgarlo. La evaluación que impacta no es la del fin del período — es la que ocurre cada día en el aula.',
+    mods:['Evaluación formativa vs. sumativa: cuál impacta más','Ticket de salida y semáforo de comprensión diario','Retroalimentación escrita específica y orientada al crecimiento','Rúbricas diferenciadas para todos los niveles','Evaluación por competencias: del DBA a la nota','El error como información valiosa, no como fracaso'],
+    reto:'Implementa ticket de salida diario durante 2 semanas. Analiza los patrones. Diseña una estrategia de retroalimentación grupal basada en tus hallazgos.'},
+  c04:{ico:'🧠',tit:'Metodologías activas y pensamiento crítico',vb:'vm',vt:'Voz Motivadora & Exigente',dur:'8 semanas · 40 horas',
+    desc:'Los 7 principios neurocientíficos del aprendizaje aplicados a tu aula. ABP, aula invertida, gamificación y aprendizaje cooperativo para clases que nadie olvida.',
+    mods:['Neuroeducación: los 7 principios del cerebro que aprende','Aprendizaje Basado en Proyectos (ABP) paso a paso','Aula Invertida: el tiempo de clase para aprender, no recibir','Gamificación pedagógica: el juego como estrategia seria','Aprendizaje Cooperativo: Jigsaw, Think-Pair-Share, Gallery Walk','La clase neurodidáctica: enganche, instrucción, pausa, cierre','Preguntas socráticas para activar el pensamiento crítico','Evaluación de metodologías activas con rúbricas diferenciadas'],
+    reto:'Diseña una unidad con al menos 2 metodologías activas para tu área. Aplícala, documenta y reflexiona sobre los resultados.'},
+  c05:{ico:'🌈',tit:'Educación inclusiva y atención a la diversidad',vb:'ve',vt:'Voz Compasiva & Poderosa',dur:'7 semanas · 35 horas',
+    desc:'Todo estudiante tiene potencial ilimitado. Aprende a diseñar clases donde TODOS aprenden, cada uno desde donde está, sin dejar a nadie atrás.',
+    mods:['Diseño Universal para el Aprendizaje (DUA): 3 principios','Estrategias PIAR: diferenciación sin señalamiento','Adaptaciones curriculares que no segregan','Atención a estudiantes con NEE en aulas regulares','Diversidad cultural, étnica y migrante en el aula','El lenguaje inclusivo que forma identidad académica'],
+    reto:'Toma tu próxima unidad y diseña 3 versiones de la actividad: básico, intermedio y reto. Deja que los estudiantes elijan desde dónde comienzan. Observa.'},
+  c06p:{ico:'🤝',tit:'Liderazgo pedagógico y colaboración profesional',vb:'ve',vt:'Voz Inspiradora & Poderosa',dur:'5 semanas · 25 horas',
+    desc:'El maestro que lidera transforma instituciones enteras. Liderazgo no es cargo — es influencia, ejemplo y la capacidad de hacer mejores a los que te rodean.',
+    mods:['Del buen maestro al maestro que forma maestros','Comunicación asertiva con colegas, directivos y familias','Lesson Study japonés adaptado al contexto colombiano','Mentoría entre pares: acompañar sin imponer','Investigación-Acción en el aula: el docente que se investiga','Tu legado pedagógico: lo que dejas cuando ya no estás'],
+    reto:'Propón a 2 colegas hacer una sesión de Lesson Study. Planeen juntos una clase, uno la enseña, los demás observan y luego reflexionan en grupo.'},
+  c07:{ico:'🖥️',tit:'Competencias digitales para el aula',vb:'vm',vt:'Voz Motivadora & Retadora',dur:'6 semanas · 30 horas',
+    desc:'Transforma tu práctica con herramientas digitales gratuitas. Sin ser experto en tecnología. Aplicable desde mañana mismo en tu aula.',
+    mods:['Diagnóstico de competencias digitales docentes','Kahoot y Quizizz: evaluación interactiva que motiva','Canva Educativo: diseño visual que enseña','Google Workspace for Education: flujo de trabajo docente','Wordwall y ClassDojo: gestión activa del aula','Creación de contenidos educativos digitales descargables','Sin internet: versiones físicas de todas las herramientas'],
+    reto:'Crea un Kahoot con 10 preguntas de tu área y úsalo esta semana. Luego diseña una infografía en Canva sobre un concepto clave de tu asignatura.'},
+  c08:{ico:'🤖',tit:'Inteligencia Artificial y herramientas pedagógicas',vb:'vm',vt:'Voz Retadora & Apasionada',dur:'5 semanas · 25 horas',
+    desc:'La IA no reemplaza al maestro — potencia al maestro que sabe usarla. Aprende a usar Claude AI, ChatGPT y otras herramientas con criterio pedagógico y ético.',
+    mods:['Fundamentos de IA para docentes no tecnólogos','Claude AI y ChatGPT para planificación de clase','Generación de rúbricas y actividades diferenciadas con IA','Retroalimentación de textos estudiantiles asistida por IA','Ética del uso de IA en educación colombiana','Cómo detectar uso inadecuado de IA en los estudiantes'],
+    reto:'Usa IA para diseñar una rúbrica diferenciada con 3 niveles para tu próxima evaluación. Compara con la que habrías diseñado solo. Reflexiona sobre las diferencias.'},
+  c09:{ico:'🇬🇧',tit:'Inglés A1–A2 · Desde cero para docentes',vb:'vi',vt:'Pronunciación Nativa Perfecta + Avatar',dur:'8 semanas · 40 horas',
+    desc:'Para el docente sin inglés formal. Pronunciación auténtica desde el primer día. Con audio MP3 descargable para estudiar offline en cualquier zona de Colombia.',
+    mods:['Fonética inglesa: los sonidos que no existen en español','Saludos, presentaciones y vocabulario del aula','Classroom language: comandos esenciales para tu clase','Vocabulario pedagógico básico A1–A2','Comprensión auditiva con audio nativo MP3','Conversaciones simples: maestro con estudiantes y padres','Cultura anglófona: UK, EEUU y Colombia global','Práctica de pronunciación con avatar IA'],
+    reto:'Graba 5 frases con los sonidos difíciles del inglés. Compara con el audio nativo. Practica 10 min diarios durante 30 días.'},
+  c10:{ico:'📘',tit:'Inglés B1–B2 · Académico por área del saber',vb:'vi',vt:'Pronunciación Nativa Perfecta + Avatar',dur:'10 semanas · 50 horas',
+    desc:'Inglés funcional para tu área disciplinar. Lee artículos académicos, comprende documentos del MEN en inglés y comunícate en contextos educativos internacionales.',
+    mods:['Vocabulario disciplinar: ciencias, matemáticas, sociales, lengua','Comprensión de artículos académicos en inglés','Escritura de correos y comunicaciones formales B1-B2','Presentaciones académicas en inglés: estructura y conectores','Listening B2: conferencias, podcasts y clases en inglés','Inglés para reuniones institucionales y consejos académicos','Pronunciación avanzada: ritmo, entonación y fluidez','Preparación para exámenes internacionales (TKT, IELTS)'],
+    reto:'Lee un artículo académico corto en inglés sobre educación. Resume en español los 3 puntos principales. La semana siguiente: hazlo directamente en inglés.'},
+  c11:{ico:'🏆',tit:'Inglés C1 + Didáctica · Para enseñar inglés',vb:'vi',vt:'Pronunciación Nativa Perfecta + Avatar',dur:'12 semanas · 60 horas',
+    desc:'Para el docente de inglés o quien aspira a serlo. CLIL, diseño de actividades comunicativas, pronunciación C1 y metodología de enseñanza de idiomas.',
+    mods:['Metodología comunicativa: enseñar inglés con inglés','CLIL: Content and Language Integrated Learning','Diseño de actividades comunicativas por nivel MCER','Corrección de errores sin desmotivar al estudiante','Pronunciación C1: acento neutro, ritmo y entonación nativa','Evaluación de habilidades lingüísticas (speaking, writing, reading, listening)','Escritura académica C1: ensayos, informes y análisis','Didáctica de la fonética para clases de inglés en Colombia'],
+    reto:'Dicta una clase completa de inglés usando solo inglés desde el minuto 1. Grábala, analiza tu proporción inglés/español y pon como meta bajarla cada semana.'},
+  c12:{ico:'🇫🇷',tit:'Francés A1–B1 · Pour les enseignants colombiens',vb:'vi',vt:'Pronunciación Francesa Auténtica + Avatar',dur:'8 semanas · 40 horas',
+    desc:'Francés funcional para docentes colombianos. Pronunciación auténtica desde el inicio. Recursos Franco del MEN y Alianza Francesa integrados al curso.',
+    mods:['Fonética francesa: liaison, nasalización y la "u" francesa','Saludos y vocabulario del aula en francés auténtico','Gramática esencial: articles, être, avoir, présent','Vocabulaire pédagogique pour enseignants','Comprensión auditiva con audio de hablantes nativos franceses','Cultura francófona: Francia, Québec, Bélgica, Senegal','Recursos Franco MEN y Alianza Francesa para docentes','Práctica de pronunciación con avatar IA francés'],
+    reto:'Practica "une fenêtre, une fleur, un professeur" con la nasalización correcta. Graba, compara con el audio nativo. 10 minutos diarios — en 30 días tendrás acento auténtico.'},
+  c13:{ico:'🇧🇷',tit:'Português A1–B1 · Integração regional',vb:'vi',vt:'Pronunciación Nativa Perfecta',dur:'8 semanas · 40 horas',
+    desc:'La lengua más cercana al español. Brasil y Colombia: vecinos que deben entenderse. MERCOSUR, movilidad académica y oportunidades laborales regionales.',
+    mods:['Fonética portuguesa: los falsos amigos y las diferencias reales','Vocabulário básico pedagógico en portugués','Português brasileiro vs. europeu: cuál aprender primero','Comprensión lectora de textos académicos en portugués','Cultura brasileña y lusófona para docentes colombianos','Recursos MERCOSUR y movilidad académica regional','Conversación básica A1-B1 para contextos educativos','Preparación para CELPE-Bras si lo necesitas'],
+    reto:'Lee una noticia educativa de Brasil en portugués. Subraya las palabras que entiendes sin traducción. Te sorprenderá cuánto ya sabes.'},
+  c14:{ico:'🌐',tit:'Mandarín / Alemán A1 · Alta demanda global',vb:'vi',vt:'Pronunciación Nativa Perfecta',dur:'6 semanas · 30 horas',
+    desc:'Módulo exploratorio dual. Mandarín para el TLC Colombia-China. Alemán para movilidad académica europea. Introducción fonética y cultural en ambos.',
+    mods:['Mandarín: el sistema pinyin y los 4 tonos fundamentales','Vocabulario básico mandarín para contextos educativos','TLC Colombia-China: oportunidades para docentes','Alemán: pronunciación y las diferencias con el español','Vocabulario pedagógico básico en alemán','Movilidad académica Europa: DAAD y becas alemanas'],
+    reto:'Aprende a presentarte en mandarín Y en alemán. Graba tu presentación en ambos idiomas. El cerebro que aprende 2 idiomas nuevos simultáneamente desarrolla plasticidad extraordinaria.'},
+  c15:{ico:'📊',tit:'Finanzas personales, presupuesto e inversión',vb:'vm',vt:'Voz Motivadora & Práctica',dur:'8 semanas · 40 horas',
+    desc:'El curso que nunca te dieron en la carrera y más necesitabas. Porque un maestro próspero enseña con más alegría, más energía y más libertad creativa.',
+    mods:['Diagnóstico financiero personal: dónde estás hoy','Presupuesto docente inteligente: regla 50/30/20','Cesantías y pensión: todo lo que debes saber','Deudas: cómo salir y no volver a entrar','Ahorro automático: el hábito que cambia todo','CDT, fondos de inversión y carteras accesibles para docentes','El interés compuesto: tu mejor aliado a largo plazo','Ingresos complementarios éticos para maestros'],
+    reto:'Esta semana: consulta el saldo de tus cesantías. La siguiente: abre una cuenta de ahorro separada y programa una transferencia automática mensual — por pequeña que sea. El hábito lo es todo.'},
+  c16:{ico:'🌟',tit:'Maestro CENTEC: Pedagogía de Excelencia y Educación Significativa',vb:'ve',vt:'Voz Inspiradora & Espiritual',dur:'16 semanas · 80 horas',
+    desc:'El curso más completo de formación pedagógica. Neuroeducación, inicio-desarrollo-cierre de clase, metodologías activas y sistemas educativos del mundo. Al terminar dirás: "En CENTEC me formé como excelente pedagogo."',
+    mods:['Neuroeducación: los 7 principios del cerebro que aprende','El inicio que engancha: enganche emocional y saberes previos','Mantenimiento: instrucción, pausa activa y práctica guiada','El cierre metacognitivo que consolida para siempre','ABP, Aula Invertida, Gamificación y Aprendizaje Cooperativo','Evaluación formativa de alto impacto (EEF)','Gestión emocional del aula y clima positivo','Finlandia: autonomía, confianza y propósito docente','Singapur: rigor, profundidad y metacognición','Japón: Lesson Study y mejora colectiva continua','Psicología positiva: mindset de crecimiento','El maestro como líder pedagógico institucional','Sistemas educativos PISA y qué puede aprender Colombia','Diseño de tu propio sello pedagógico personal','Comunidad de práctica CENTEC: aprender con otros','Proyecto final: tu clase perfecta documentada'],
+    reto:'Diseña y ejecuta una clase completa con estructura neurodidáctica CENTEC. Documenta cada fase. Reflexiona metacognitivamente. Al completar recibes el Certificado de Pedagogo CENTEC.'}
 };
 
-function openModal(id){
-  const d=courses[id];if(!d)return;
-  document.getElementById('mh').innerHTML=`<span class="m-icon">${d.icon}</span><span class="voz-badge ${d.voz.includes('Espi')||d.voz.includes('Inspi')||d.voz.includes('Comp')||d.voz.includes('Cáli')?'vb-esp':d.voz.includes('nati')||d.voz.includes('Franc')||d.voz.includes('Nativa')?'vb-idi':'vb-mot'}">🎙️ ${d.voz}</span><div class="m-title">${d.title}</div><div class="m-tags"><span class="tag tag-dur">${d.dur}</span><span class="tag tag-free">Gratis</span><span class="tag tag-dip">Diploma</span></div>`;
-  document.getElementById('mb').innerHTML=`<p class="m-desc">${d.desc}</p><ul class="m-modules">${d.mods.map((m,i)=>`<li class="m-mod"><span class="m-mod-num">${i+1}</span>${m}</li>`).join('')}</ul><div class="m-reto"><div class="m-reto-title">🎯 Reto de aprendizaje</div><div class="m-reto-text">${d.reto}</div></div>`;
+function abrirModal(id) {
+  const d = CD[id];
+  if (!d) return;
+  document.getElementById('mh').innerHTML =
+    `<span class="m-ico">${d.ico}</span>
+     <span class="vbadge ${d.vb}">🎙️ ${d.vt}</span>
+     <div class="m-tit">${d.tit}</div>
+     <div class="m-tags2">
+       <span class="tag td">${d.dur}</span>
+       <span class="tag tf">Gratis</span>
+       <span class="tag ti">Diploma</span>
+     </div>`;
+  document.getElementById('mb').innerHTML =
+    `<p class="m-desc">${d.desc}</p>
+     <ul class="mods">${d.mods.map((m,i)=>`<li class="mod"><span class="mod-n">${i+1}</span>${m}</li>`).join('')}</ul>
+     <div class="reto"><div class="reto-t">🎯 Reto de aprendizaje</div><div class="reto-c">${d.reto}</div></div>`;
   document.getElementById('modal').classList.add('open');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
 }
-function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
-function closeOut(e){if(e.target===document.getElementById('modal'))closeModal();}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+function cerrar() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function cerrarOut(e) {
+  if (e.target === document.getElementById('modal')) cerrar();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrar(); });
 
-// Smooth nav highlight on scroll
-const sections=document.querySelectorAll('section[id], div[id]');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
-  document.querySelectorAll('.nav-link').forEach(l=>{
-    l.classList.toggle('active',l.getAttribute('href')==='#'+cur&&!l.classList.contains('portal'));
+// ── NAV ACTIVO AL SCROLL ──
+const secs = ['inicio','inspiracion','cursos','momento'];
+window.addEventListener('scroll', () => {
+  let cur = 'inicio';
+  secs.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 90) cur = id;
+  });
+  document.querySelectorAll('.nav-a').forEach(a => {
+    const match = a.getAttribute('href') === '#' + cur;
+    if (!a.classList.contains('portal-btn')) {
+      a.classList.toggle('active', match);
+    }
   });
 });
 </script>
