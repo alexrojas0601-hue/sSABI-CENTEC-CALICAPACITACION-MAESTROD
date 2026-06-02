@@ -537,10 +537,10 @@ footer p{font-size:11px;color:rgba(255,255,255,.25);margin-top:.4rem;line-height
   <div class="stats-inner">
     <h2 class="stats-title reveal">La formación que Colombia y tú merecen</h2>
     <div class="stats-grid">
-      <div class="reveal"><div class="st-num" data-n="15">0</div><div class="st-sep"></div><div class="st-lbl">Cursos completos gratuitos</div></div>
-      <div class="reveal"><div class="st-num" data-n="180">0</div><div class="st-sep"></div><div class="st-lbl">Horas de formación disponibles</div></div>
+      <div class="reveal"><div class="st-num" data-n="20">0</div><div class="st-sep"></div><div class="st-lbl">Cursos completos gratuitos</div></div>
+      <div class="reveal"><div class="st-num" data-n="280">0</div><div class="st-sep"></div><div class="st-lbl">Horas de formación disponibles</div></div>
       <div class="reveal"><div class="st-num" data-n="5">0</div><div class="st-sep"></div><div class="st-lbl">Bloques temáticos</div></div>
-      <div class="reveal"><div class="st-num" data-n="15">0</div><div class="st-sep"></div><div class="st-lbl">Diplomas incluidos</div></div>
+      <div class="reveal"><div class="st-num" data-n="20">0</div><div class="st-sep"></div><div class="st-lbl">Diplomas incluidos</div></div>
       <div class="reveal"><div class="st-num">$0</div><div class="st-sep"></div><div class="st-lbl">Costo siempre</div></div>
       <div class="reveal"><div class="st-num">100%</div><div class="st-sep"></div><div class="st-lbl">Funciona offline</div></div>
     </div>
@@ -559,7 +559,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.25);margin-top:.4rem;line-height
 
     <!-- Filtros -->
     <div class="filtros reveal">
-      <button class="fp on" onclick="filtrar('todos',this)">Todos (15)</button>
+      <button class="fp on" onclick="filtrar('todos',this)">Todos (20)</button>
       <button class="fp" onclick="filtrar('bienestar',this)">🧘 Bienestar</button>
       <button class="fp" onclick="filtrar('pedagogia',this)">📚 Pedagogía</button>
       <button class="fp" onclick="filtrar('tecnologia',this)">💻 Tecnología</button>
@@ -680,6 +680,12 @@ const C = [
   {id:12,n:"13",icon:"🇧🇷",title:"Portugués A1–B1 · Integração regional",bloque:"idiomas",sem:8,h:40,desc:"Aprovecha la cercanía lingüística con el español. MERCOSUR, movilidad académica con Brasil, acceso a repositorios educativos brasileños (CAPES, MEC Brasil).",mod:"8 módulos: sonidos del portugués, presentaciones, vocabulario cotidiano, vocabulario aula, gramática, lectura, escritura A2, primer diálogo",act:"24 actividades contextualizadas en el contexto suramericano",bloom:"MCER A1→B1 · MERCOSUR Educativo · Movilidad académica Colombia-Brasil",dipl:"Diploma SABI CENTEC · 40 horas · Nível B1 de português",file:"sabi_curso13_portugues.html"},
   {id:13,n:"14",icon:"🌏",title:"Mandarín / Alemán A1 · Alta demanda global",bloque:"idiomas",sem:6,h:30,desc:"Módulo exploratorio. Mandarín: pinyin, TLC Colombia-China. Alemán: pronunciación, becas DAAD para docentes colombianos. Idiomas del futuro.",mod:"6 módulos: introducción y elección, sistema de escritura, saludos, cotidianidad, contexto cultural, recursos para continuar",act:"18 actividades exploratorias de alto impacto cultural y profesional",bloom:"MCER A1 · TLC Colombia-China · Goethe-Institut Colombia · Becas DAAD",dipl:"Diploma SABI CENTEC · 30 horas · Nivel A1 completado",file:"sabi_curso14_mandarin_aleman.html"},
   {id:14,n:"15",icon:"📊",title:"Finanzas personales, presupuesto e inversión",bloque:"finanzas",sem:8,h:40,desc:"El curso que nunca te dieron en la carrera y más necesitabas. Presupuesto, créditos FOMAG, cesantías, ahorro, inversión y plan pensional con calculadoras interactivas.",mod:"8 módulos: diagnóstico financiero, presupuesto 50-30-20, créditos inteligentes, fondo de emergencia, cesantías FOMAG, inversión, pensión docente, plan a 5 años",act:"24 actividades: calculadoras de interés compuesto, balance patrimonial, plan financiero real",bloom:"Bloom N1–N6 · Matemáticas financieras · FOMAG · Superfinanciera Colombia",dipl:"Diploma SABI CENTEC · 40 horas · Educación financiera certificada",file:"sabi_curso15_finanzas_personales.html",nuevo:true},
+
+  {id:15,n:"16",icon:"🧠",title:"Neuroeducación: cómo aprende el cerebro",bloque:"pedagogia",sem:6,h:30,desc:"La ciencia del aprendizaje al servicio de tu práctica. Plasticidad neuronal, neuromitos, atención, emoción, motivación y diseño neuro-pedagógico. Lo que la neurociencia dice que funciona en el aula.",mod:"5 módulos: neurociencia básica, atención y memoria, motivación y dopamina, sueño y movimiento, diseño neuro-pedagógico",act:"15 actividades: mapa emocional del aula, diseño flow, micro-movimientos, rediseño de unidad completa",bloom:"Bloom N2–N6 · Neurociencia educativa · UNESCO · Eric Kandel",dipl:"Diploma SABI CENTEC · 30 horas · Neuroeducación aplicada",file:"sabi_curso16_neuroeducacion.html",nuevo:true},
+  {id:16,n:"17",icon:"🎬",title:"Producción de video y podcast educativo",bloque:"tecnologia",sem:6,h:30,desc:"El curso que más se vende hoy en Colombia. Guion pedagógico, grabación con celular, edición con CapCut, podcast en Spotify, distribución en YouTube/TikTok/WhatsApp. Plan de contenido para 90 días.",mod:"6 módulos: narrativa y guion, equipo mínimo viable, grabación y edición, podcast, distribución, plan 90 días",act:"18 actividades: primer guion, prueba técnica, video completo, episodio de podcast, publicación real",bloom:"Bloom N3–N6 · Comunicación pedagógica · Tendencia #1 Colombia 2025",dipl:"Diploma SABI CENTEC · 30 horas · Creador de contenido educativo",file:"sabi_curso17_video_podcast_educativo.html",nuevo:true},
+  {id:17,n:"18",icon:"📲",title:"Redes sociales pedagógicas y marca docente",bloque:"tecnologia",sem:5,h:25,desc:"El 78% de docentes colombianos usa redes sociales personalmente — solo el 12% pedagógicamente. Instagram, TikTok, LinkedIn y WhatsApp como herramientas de crecimiento profesional y comunidad educativa.",mod:"5 módulos: marca docente digital, Instagram/TikTok pedagógico, LinkedIn docente, WhatsApp pedagógico, plan estratégico",act:"15 actividades: auditoría digital, primer carrusel, primer reel, perfil LinkedIn, comunidad de práctica",bloom:"Bloom N3–N6 · TALIS 2024 · Ciudadanía digital · Marca personal",dipl:"Diploma SABI CENTEC · 25 horas · Marca docente digital",file:"sabi_curso18_redes_sociales_marca_docente.html",nuevo:true},
+  {id:18,n:"20",icon:"📐",title:"Diseño curricular por competencias y proyectos transversales",bloque:"pedagogia",sem:6,h:30,desc:"El currículo que CENTEC necesita para 2026+. Del enfoque por contenidos al enfoque por competencias. Proyectos transversales, evaluación auténtica, triple alineamiento DBA-Modelo CENTEC-Contexto local.",mod:"4 módulos: contenidos vs competencias, proyectos transversales, evaluación auténtica, propuesta curricular CENTEC",act:"12 actividades: mapa curricular por competencias, mini-proyecto transversal, rúbrica auténtica, propuesta bimestral",bloom:"Bloom N4–N6 · DBA MEN · Modelo CENTEC Futuro · PEI 2026+",dipl:"Diploma SABI CENTEC · 30 horas · Diseño curricular por competencias",file:"sabi_curso20_diseno_curricular_competencias.html",nuevo:true},
+  {id:19,n:"25",icon:"🤝",title:"Comunicación asertiva con familias y comunidad educativa",bloque:"bienestar",sem:5,h:25,desc:"La alianza escuela-familia es el predictor más poderoso del éxito estudiantil. Modelo Epstein, comunicación asertiva DEAR MAN, protocolos WhatsApp, manejo de conflictos y comunidad educativa extendida.",mod:"5 módulos: alianza escuela-familia, comunicación asertiva, canales y herramientas, conflictos y restauración, comunidad extendida",act:"15 actividades: diagnóstico de comunicación, primer contacto positivo, protocolo WhatsApp, manejo de conflicto",bloom:"Bloom N3–N6 · Joyce Epstein · Convivencia escolar · PEI CENTEC",dipl:"Diploma SABI CENTEC · 25 horas · Comunicación con familias",file:"sabi_curso25_comunicacion_familias.html",nuevo:true},
 ];
 
 const BLQ = {
@@ -830,6 +836,51 @@ window.addEventListener("load", () => {
          style="font-size:12px;color:#E8A020;text-decoration:none;display:flex;align-items:center;gap:5px">
         📸 @colegiocentec
       </a>
+        <a class="cc nuevo" href="sabi_curso25_comunicacion_familias.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 25 · 5 semanas</div>
+          <span class="cc-icon">🤝</span>
+          <h4>Comunicación asertiva con familias y comunidad educativa</h4>
+          <p>Alianza escuela-familia, DEAR MAN, WhatsApp pedagógico, conflictos y comunidad extendida.</p>
+          <div class="cc-pills"><span class="cp cp-s">5 sem · 25h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">PEI CENTEC</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
+        <a class="cc nuevo" href="sabi_curso20_diseno_curricular_competencias.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 20 · 6 semanas</div>
+          <span class="cc-icon">📐</span>
+          <h4>Diseño curricular por competencias y proyectos transversales</h4>
+          <p>Triple alineamiento DBA-Modelo CENTEC-Contexto. Evaluación auténtica y PEI 2026+.</p>
+          <div class="cc-pills"><span class="cp cp-s">6 sem · 30h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">PEI CENTEC</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
+        <a class="cc nuevo" href="sabi_curso17_video_podcast_educativo.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 17 · 6 semanas</div>
+          <span class="cc-icon">🎬</span>
+          <h4>Producción de video y podcast educativo</h4>
+          <p>Guion pedagógico, CapCut, Spotify for Podcasters, YouTube, TikTok. El que más vende hoy.</p>
+          <div class="cc-pills"><span class="cp cp-s">6 sem · 30h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">Tendencia</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
+        <a class="cc nuevo" href="sabi_curso18_redes_sociales_marca_docente.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 18 · 5 semanas</div>
+          <span class="cc-icon">📲</span>
+          <h4>Redes sociales pedagógicas y marca docente</h4>
+          <p>Instagram, TikTok, LinkedIn y WhatsApp como herramientas pedagógicas y de crecimiento profesional.</p>
+          <div class="cc-pills"><span class="cp cp-s">5 sem · 25h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">Tendencia</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
+        <a class="cc nuevo" href="sabi_curso16_neuroeducacion.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 16 · 6 semanas</div>
+          <span class="cc-icon">🧠</span>
+          <h4>Neuroeducación: cómo aprende el cerebro</h4>
+          <p>Plasticidad neuronal, neuromitos, atención, motivación y diseño neuro-pedagógico.</p>
+          <div class="cc-pills"><span class="cp cp-s">6 sem · 30h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">Nuevo</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
       <span style="color:rgba(255,255,255,.2)">·</span>
       <a href="https://www.instagram.com/colegiocentecoficial" target="_blank"
          style="font-size:12px;color:#E8A020;text-decoration:none;display:flex;align-items:center;gap:5px">
