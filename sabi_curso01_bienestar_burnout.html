@@ -986,4 +986,141 @@ setTimeout(function(){
   document.querySelectorAll('.yr').forEach(function(el){el.textContent=new Date().getFullYear();});
 },100);
 </script>
+
+<script>
+// ══ FUNCIONES UNIVERSALES SABI CENTEC ══
+
+// Abrir/cerrar módulo
+if(typeof tog === 'undefined'){
+  window.tog = function(id){
+    var body = document.getElementById('body-'+id) || document.getElementById('body-mod'+id.replace('mod',''));
+    if(!body) return;
+    var isOpen = body.classList.contains('open');
+    document.querySelectorAll('.mod-body').forEach(function(b){ b.classList.remove('open'); });
+    if(!isOpen){
+      body.classList.add('open');
+      setTimeout(function(){
+        var el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      }, 60);
+    }
+  };
+}
+
+// Checklist universal
+var _chkTotal = 0, _chkDone = 0;
+setTimeout(function(){ _chkTotal = document.querySelectorAll('.chk-item').length; }, 400);
+
+if(typeof chk === 'undefined'){
+  window.chk = function(el, modNum){
+    if(el.classList.contains('on')) return;
+    el.classList.add('on');
+    var box = el.querySelector('.chk-box');
+    if(box) box.textContent = '✓';
+    _chkDone++;
+    var card = el.closest('.mod-card');
+    if(card){
+      var done = card.querySelectorAll('.chk-item.on').length;
+      var tot  = card.querySelectorAll('.chk-item').length;
+      card.querySelectorAll('.dot').forEach(function(d,i){ if(i<done) d.classList.add('on'); });
+      var lbl = card.querySelector('.dots-label');
+      if(lbl) lbl.textContent = done + ' de ' + tot;
+      if(done >= tot && tot > 0){
+        card.classList.add('done');
+        if(!card.querySelector('.done-badge')){
+          var b = document.createElement('div');
+          b.className = 'done-badge';
+          b.textContent = '✓ Completado';
+          card.appendChild(b);
+        }
+      }
+    }
+    var pct = Math.round((_chkDone / Math.max(_chkTotal,1)) * 100);
+    var pb = document.getElementById('pb');
+    if(pb) pb.style.width = pct + '%';
+  };
+}
+
+// Alias para variantes del checklist
+if(typeof chkIt === 'undefined') window.chkIt = window.chk;
+if(typeof chkDeep === 'undefined') window.chkDeep = window.chk;
+if(typeof checkItem === 'undefined') window.checkItem = function(el){ chk(el, 0); };
+
+// Quiz universal — cubre qResp, qR, resp, responder, ans
+var _QC = window._QC || {};
+var _QF = window._QF || {};
+
+function _handleQuiz(el, qid, letra){
+  var opts = document.getElementById(qid + '-opts');
+  if(!opts || opts.dataset.done) return;
+  opts.dataset.done = '1';
+  var correct = _QC[qid] || window.QC && window.QC[qid];
+  var isOk = letra === correct;
+  el.classList.add(isOk ? 'correct' : 'wrong');
+  if(!isOk) el.classList.add('no');
+  if(isOk) el.classList.add('ok');
+  opts.querySelectorAll('.qopt, .ex-opt').forEach(function(o){ o.classList.add('disabled','off'); });
+  if(!isOk){
+    opts.querySelectorAll('[data-correct],[data-c]').forEach(function(o){
+      o.classList.add('correct','ok');
+    });
+  }
+  var fb = document.getElementById('fb-'+qid) || document.getElementById('fb'+qid.replace(/\D/g,''));
+  var feedback = _QF[qid] || window.QF && window.QF[qid] || window.FEEDBACK && window.FEEDBACK[qid];
+  if(fb && feedback){
+    fb.innerHTML = isOk ? (feedback.ok||feedback.si||'') : (feedback.no||'');
+    fb.className = 'qfb show ex-feedback show ' + (isOk ? 'qfb-ok ex-ok fok' : 'qfb-no ex-no fno');
+    fb.style.display = 'block';
+  }
+  if(window.sabiHablar){
+    if(isOk) sabiHablar('¡Excelente! Respuesta correcta. Tu comprensión del tema es muy sólida, maestro.');
+    else sabiHablar('Esa no es la opción correcta. Lee la retroalimentación con calma — te ayudará a profundizar.');
+  }
+}
+
+// Registrar todas las variantes
+if(typeof qResp === 'undefined') window.qResp = _handleQuiz;
+if(typeof qR === 'undefined') window.qR = _handleQuiz;
+if(typeof resp === 'undefined') window.resp = function(el, qid, letra){ _handleQuiz(el, qid, letra); };
+if(typeof responder === 'undefined') window.responder = function(el, qid, letra){ _handleQuiz(el, qid, letra); };
+if(typeof ans === 'undefined') window.ans = function(el, qid, letra){ _handleQuiz(el, qid, letra); };
+
+// toggleMod alias (cursos viejos)
+if(typeof toggleMod === 'undefined'){
+  window.toggleMod = function(id){ tog(id); };
+}
+
+// Diploma
+if(typeof updNom === 'undefined') window.updNom = function(v){
+  var d = document.getElementById('dipl-nom');
+  if(d) d.textContent = v.trim() || 'Tu Nombre Completo';
+};
+if(typeof updNombre === 'undefined') window.updNombre = window.updNom;
+if(typeof actualizarDiploma === 'undefined') window.actualizarDiploma = window.updNom;
+
+if(typeof imprimirDiploma === 'undefined' && typeof imprimir === 'undefined'){
+  window.imprimirDiploma = function(){
+    var n = document.getElementById('nombre-in');
+    if(!n || !n.value.trim()){ alert('Escribe tu nombre completo'); return; }
+    window.print();
+  };
+}
+if(typeof imprimir === 'undefined') window.imprimir = window.imprimirDiploma;
+
+// Scroll progress bar
+window.addEventListener('scroll', function(){
+  var h = document.documentElement;
+  var pct = Math.round((h.scrollTop / Math.max(h.scrollHeight - h.clientHeight, 1)) * 100);
+  var ap = _chkTotal > 0 ? Math.round((_chkDone/_chkTotal)*100) : 0;
+  var pb = document.getElementById('pb');
+  if(pb) pb.style.width = Math.max(pct*0.35, ap) + '%';
+}, {passive:true});
+
+// Años en elementos yr
+setTimeout(function(){
+  var yr = new Date().getFullYear();
+  document.querySelectorAll('[id^="yr"], .yr, .year').forEach(function(el){ el.textContent = yr; });
+}, 200);
+
+</script>
 </body></html>
