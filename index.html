@@ -537,10 +537,10 @@ footer p{font-size:11px;color:rgba(255,255,255,.25);margin-top:.4rem;line-height
   <div class="stats-inner">
     <h2 class="stats-title reveal">La formación que Colombia y tú merecen</h2>
     <div class="stats-grid">
-      <div class="reveal"><div class="st-num" data-n="20">0</div><div class="st-sep"></div><div class="st-lbl">Cursos completos gratuitos</div></div>
-      <div class="reveal"><div class="st-num" data-n="280">0</div><div class="st-sep"></div><div class="st-lbl">Horas de formación disponibles</div></div>
+      <div class="reveal"><div class="st-num" data-n="25">0</div><div class="st-sep"></div><div class="st-lbl">Cursos completos gratuitos</div></div>
+      <div class="reveal"><div class="st-num" data-n="860">0</div><div class="st-sep"></div><div class="st-lbl">Horas de formación disponibles</div></div>
       <div class="reveal"><div class="st-num" data-n="5">0</div><div class="st-sep"></div><div class="st-lbl">Bloques temáticos</div></div>
-      <div class="reveal"><div class="st-num" data-n="20">0</div><div class="st-sep"></div><div class="st-lbl">Diplomas incluidos</div></div>
+      <div class="reveal"><div class="st-num" data-n="25">0</div><div class="st-sep"></div><div class="st-lbl">Diplomas incluidos</div></div>
       <div class="reveal"><div class="st-num">$0</div><div class="st-sep"></div><div class="st-lbl">Costo siempre</div></div>
       <div class="reveal"><div class="st-num">100%</div><div class="st-sep"></div><div class="st-lbl">Funciona offline</div></div>
     </div>
@@ -559,7 +559,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.25);margin-top:.4rem;line-height
 
     <!-- Filtros -->
     <div class="filtros reveal">
-      <button class="fp on" onclick="filtrar('todos',this)">Todos (20)</button>
+      <button class="fp on" onclick="filtrar('todos',this)">Todos (25)</button>
       <button class="fp" onclick="filtrar('bienestar',this)">🧘 Bienestar</button>
       <button class="fp" onclick="filtrar('pedagogia',this)">📚 Pedagogía</button>
       <button class="fp" onclick="filtrar('tecnologia',this)">💻 Tecnología</button>
@@ -686,6 +686,12 @@ const C = [
   {id:17,n:"18",icon:"📲",title:"Redes sociales pedagógicas y marca docente",bloque:"tecnologia",sem:5,h:25,desc:"El 78% de docentes colombianos usa redes sociales personalmente — solo el 12% pedagógicamente. Instagram, TikTok, LinkedIn y WhatsApp como herramientas de crecimiento profesional y comunidad educativa.",mod:"5 módulos: marca docente digital, Instagram/TikTok pedagógico, LinkedIn docente, WhatsApp pedagógico, plan estratégico",act:"15 actividades: auditoría digital, primer carrusel, primer reel, perfil LinkedIn, comunidad de práctica",bloom:"Bloom N3–N6 · TALIS 2024 · Ciudadanía digital · Marca personal",dipl:"Diploma SABI CENTEC · 25 horas · Marca docente digital",file:"sabi_curso18_redes_sociales_marca_docente.html",nuevo:true},
   {id:18,n:"20",icon:"📐",title:"Diseño curricular por competencias y proyectos transversales",bloque:"pedagogia",sem:6,h:30,desc:"El currículo que CENTEC necesita para 2026+. Del enfoque por contenidos al enfoque por competencias. Proyectos transversales, evaluación auténtica, triple alineamiento DBA-Modelo CENTEC-Contexto local.",mod:"4 módulos: contenidos vs competencias, proyectos transversales, evaluación auténtica, propuesta curricular CENTEC",act:"12 actividades: mapa curricular por competencias, mini-proyecto transversal, rúbrica auténtica, propuesta bimestral",bloom:"Bloom N4–N6 · DBA MEN · Modelo CENTEC Futuro · PEI 2026+",dipl:"Diploma SABI CENTEC · 30 horas · Diseño curricular por competencias",file:"sabi_curso20_diseno_curricular_competencias.html",nuevo:true},
   {id:19,n:"25",icon:"🤝",title:"Comunicación asertiva con familias y comunidad educativa",bloque:"bienestar",sem:5,h:25,desc:"La alianza escuela-familia es el predictor más poderoso del éxito estudiantil. Modelo Epstein, comunicación asertiva DEAR MAN, protocolos WhatsApp, manejo de conflictos y comunidad educativa extendida.",mod:"5 módulos: alianza escuela-familia, comunicación asertiva, canales y herramientas, conflictos y restauración, comunidad extendida",act:"15 actividades: diagnóstico de comunicación, primer contacto positivo, protocolo WhatsApp, manejo de conflicto",bloom:"Bloom N3–N6 · Joyce Epstein · Convivencia escolar · PEI CENTEC",dipl:"Diploma SABI CENTEC · 25 horas · Comunicación con familias",file:"sabi_curso25_comunicacion_familias.html",nuevo:true},
+
+  {id:20,n:"19",icon:"🛡️",title:"Ciudadanía digital y seguridad en pantallas",bloque:"tecnologia",sem:5,h:25,desc:"Colombia es el 3er país con más ciberataques en Latinoamérica. Ciudadanía digital, ciberseguridad básica, ciberacoso y rutas de atención, pensamiento crítico ante fake news y bienestar digital con datos reales Colombia 2024.",mod:"5 módulos: ciudadanía digital, ciberseguridad, ciberacoso, pensamiento crítico digital, bienestar digital",act:"15 actividades: auditoría de huella digital, simulación phishing, protocolo ciberacoso, verificación noticias, medición uso pantallas",bloom:"Bloom N2–N5 · UNESCO 2024 · Ley 1581 Colombia · We Are Social 2024",dipl:"Diploma SABI CENTEC · 25 horas · Ciudadanía digital",file:"sabi_curso19_ciudadania_digital.html",nuevo:true},
+  {id:21,n:"21",icon:"🚀",title:"Emprendimiento e innovación educativa en el aula",bloque:"pedagogia",sem:5,h:25,desc:"Design Thinking pedagógico, proyecto de emprendimiento en 4 semanas, innovación docente, emprendimiento social en Cali y proyecto de vida emprendedor. Alineado con Colombia Productiva y PEI CENTEC 2026+.",mod:"5 módulos: mentalidad emprendedora, proyecto en 4 semanas, innovación docente, emprendimiento social, proyecto de vida",act:"15 actividades: mapa de problemas, mini Design Thinking, Feria de Emprendimiento, mapa de emprendimientos sociales",bloom:"Bloom N3–N6 · GEM Colombia 2024 · PEI CENTEC · Design Thinking",dipl:"Diploma SABI CENTEC · 25 horas · Emprendimiento e innovación",file:"sabi_curso21_emprendimiento_innovacion.html",nuevo:true},
+  {id:22,n:"22",icon:"🕊️",title:"Educación para la paz y convivencia escolar",bloque:"bienestar",sem:5,h:25,desc:"Cátedra de la Paz (Ley 1732/2014), resolución de conflictos con protocolo ganar-ganar, mediación entre pares, memoria histórica colombiana, derechos humanos, democracia escolar y plan de aula de paz.",mod:"5 módulos: Cátedra de la Paz, resolución de conflictos, memoria histórica, derechos humanos, comunidad de paz",act:"15 actividades: diagnóstico convivencia, simulación mediación, proyecto memoria histórica, votación democrática",bloom:"Bloom N3–N5 · Decreto 1038/2015 · CNMH · Convención Derechos del Niño",dipl:"Diploma SABI CENTEC · 25 horas · Educación para la paz",file:"sabi_curso22_educacion_paz_convivencia.html",nuevo:true},
+  {id:23,n:"23",icon:"🧭",title:"Orientación vocacional y proyecto de vida estudiantil",bloque:"pedagogia",sem:5,h:25,desc:"Ikigai, inteligencias múltiples, rutas académicas y laborales en Colombia, SENA, Generación E, proyecto de vida con visión-misión-valores, factores de resiliencia y acompañamiento diferenciado.",mod:"5 módulos: orientación profunda, rutas académicas Colombia, proyecto de vida, factores de riesgo, práctica orientadora",act:"15 actividades: mapa Ikigai, entrevistas vocacionales, Feria de Rutas, tablero de visión, carta al yo futuro",bloom:"Bloom N3–N5 · GEM Colombia 2024 · Epstein · Erikson · PEI CENTEC",dipl:"Diploma SABI CENTEC · 25 horas · Orientación vocacional",file:"sabi_curso23_orientacion_vocacional.html",nuevo:true},
+  {id:24,n:"24",icon:"🔬",title:"Investigación-acción en el aula: el maestro como investigador",bloque:"pedagogia",sem:5,h:25,desc:"Ciclo de investigación-acción, pregunta de investigación pedagógica, observación sistemática, entrevistas y encuestas, triangulación, intervención basada en evidencia, documentación y socialización.",mod:"5 módulos: fundamentos IA, métodos de recolección, análisis e interpretación, diseño de intervención, documentación",act:"15 actividades: diario de práctica, entrevistas a estudiantes, análisis triangulado, plan de intervención, informe final",bloom:"Bloom N4–N6 · Kurt Lewin · Stenhouse · COLCIENCIAS · Práctica reflexiva",dipl:"Diploma SABI CENTEC · 25 horas · Investigación-acción docente",file:"sabi_curso24_investigacion_accion.html",nuevo:true},
 ];
 
 const BLQ = {
@@ -836,6 +842,51 @@ window.addEventListener("load", () => {
          style="font-size:12px;color:#E8A020;text-decoration:none;display:flex;align-items:center;gap:5px">
         📸 @colegiocentec
       </a>
+        <a class="cc nuevo" href="sabi_curso22_educacion_paz_convivencia.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 22 · 5 semanas</div>
+          <span class="cc-icon">🕊️</span>
+          <h4>Educación para la paz y convivencia escolar</h4>
+          <p>Cátedra de la Paz, mediación entre pares, memoria histórica colombiana, derechos humanos y democracia escolar.</p>
+          <div class="cc-pills"><span class="cp cp-s">5 sem · 25h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">Ley 1732</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
+        <a class="cc nuevo" href="sabi_curso21_emprendimiento_innovacion.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 21 · 5 semanas</div>
+          <span class="cc-icon">🚀</span>
+          <h4>Emprendimiento e innovación educativa en el aula</h4>
+          <p>Design Thinking, proyecto en 4 semanas, emprendimiento social en Cali. Alineado PEI CENTEC 2026+.</p>
+          <div class="cc-pills"><span class="cp cp-s">5 sem · 25h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">PEI CENTEC</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
+        <a class="cc nuevo" href="sabi_curso23_orientacion_vocacional.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 23 · 5 semanas</div>
+          <span class="cc-icon">🧭</span>
+          <h4>Orientación vocacional y proyecto de vida estudiantil</h4>
+          <p>Ikigai, rutas académicas Colombia, SENA, Generación E, proyecto de vida y acompañamiento diferenciado.</p>
+          <div class="cc-pills"><span class="cp cp-s">5 sem · 25h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">Muy pedido</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
+        <a class="cc nuevo" href="sabi_curso24_investigacion_accion.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 24 · 5 semanas</div>
+          <span class="cc-icon">🔬</span>
+          <h4>Investigación-acción en el aula: el maestro como investigador</h4>
+          <p>Ciclo investigación-acción, métodos cualitativos, intervención basada en evidencia, documentación pedagógica.</p>
+          <div class="cc-pills"><span class="cp cp-s">5 sem · 25h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">PEI CENTEC</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
+        <a class="cc nuevo" href="sabi_curso19_ciudadania_digital.html">
+          <div class="nbadge">NUEVO</div>
+          <div class="cc-num">Curso 19 · 5 semanas</div>
+          <span class="cc-icon">🛡️</span>
+          <h4>Ciudadanía digital y seguridad en pantallas</h4>
+          <p>Ciberseguridad, ciberacoso, fake news, bienestar digital. Colombia 3er país con más ciberataques en LATAM.</p>
+          <div class="cc-pills"><span class="cp cp-s">5 sem · 25h</span><span class="cp cp-g">Gratis</span><span class="cp cp-n">PEI CENTEC</span></div>
+          <div class="cc-go">Abrir curso →</div>
+        </a>
         <a class="cc nuevo" href="sabi_curso25_comunicacion_familias.html">
           <div class="nbadge">NUEVO</div>
           <div class="cc-num">Curso 25 · 5 semanas</div>
