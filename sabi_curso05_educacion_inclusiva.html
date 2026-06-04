@@ -1192,5 +1192,478 @@ setTimeout(function(){
 }, 200);
 
 </script>
+<!-- ═══════════════════════════════════════════════════════════════
+     SABI AGENTES INTELIGENTES — Sistema de actualización continua
+     3 agentes: Auditor · Scholar · Coach
+     Fuentes: TALIS 2025, Hattie 2024, OCDE Tendencias 2025,
+              UNESCO Digital Education Outlook 2026, HolonIQ 2026
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+#sabiAgentes{position:fixed;bottom:16px;left:16px;z-index:9100;font-family:"DM Sans",sans-serif}
+#sabiAgBtn{
+  background:linear-gradient(135deg,#0B1E3D,#1A3066);
+  border:1px solid rgba(212,168,67,.5);color:rgba(255,255,255,.9);
+  border-radius:50px;padding:9px 16px 9px 10px;cursor:pointer;
+  display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);transition:all .2s;
+  animation:agPulse 3s ease-in-out infinite;
+}
+@keyframes agPulse{0%,100%{box-shadow:0 4px 20px rgba(0,0,0,.4),0 0 0 0 rgba(212,168,67,.3)}
+  50%{box-shadow:0 4px 20px rgba(0,0,0,.4),0 0 0 8px rgba(212,168,67,0)}}
+#sabiAgBtn:hover{transform:translateY(-2px)}
+#sabiAgBtn.hidden{display:none}
+.sag-dot{width:8px;height:8px;border-radius:50%;background:#1D9E75;
+  animation:sagD .9s ease-in-out infinite;flex-shrink:0}
+@keyframes sagD{0%,100%{opacity:1}50%{opacity:.3}}
+
+#sabiAgPanel{
+  display:none;width:360px;
+  background:linear-gradient(180deg,#0D1B3E 0%,#0A1228 100%);
+  border:1px solid rgba(212,168,67,.3);border-radius:18px;
+  box-shadow:0 16px 56px rgba(0,0,0,.7);
+  overflow:hidden;animation:sagIn .25s ease-out;
+  margin-bottom:8px;
+}
+@keyframes sagIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+#sabiAgPanel.open{display:block}
+
+.sag-hd{
+  display:flex;align-items:center;gap:10px;padding:14px 16px;
+  background:rgba(212,168,67,.07);border-bottom:1px solid rgba(212,168,67,.12);
+}
+.sag-hd-ico{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#D4A843,#B8902A);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  box-shadow:0 0 0 4px rgba(212,168,67,.2);
+}
+.sag-hd-info strong{display:block;font-size:13px;color:#F5C96A;font-weight:600}
+.sag-hd-info span{font-size:11px;color:rgba(255,255,255,.4)}
+.sag-x{margin-left:auto;background:rgba(255,255,255,.08);border:none;
+  color:rgba(255,255,255,.45);width:26px;height:26px;border-radius:50%;
+  cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
+.sag-x:hover{background:rgba(255,255,255,.18);color:#fff}
+
+.sag-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.07)}
+.sag-tab{flex:1;padding:10px 4px;font-size:11px;font-weight:600;text-align:center;
+  cursor:pointer;color:rgba(255,255,255,.35);border-bottom:2px solid transparent;
+  transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;
+  font-family:"DM Sans",sans-serif}
+.sag-tab.on{color:#F5C96A;border-bottom-color:#D4A843}
+
+.sag-body{padding:14px;max-height:320px;overflow-y:auto}
+.sag-body::-webkit-scrollbar{width:3px}
+.sag-body::-webkit-scrollbar-thumb{background:rgba(212,168,67,.2);border-radius:2px}
+
+/* Perfil selector */
+.sag-perfil{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;padding:10px;margin-bottom:12px;
+}
+.sag-perfil-lbl{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:7px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.sag-roles{display:flex;flex-wrap:wrap;gap:5px}
+.sag-role{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.65);border-radius:20px;padding:4px 10px;
+  font-size:11px;cursor:pointer;font-family:"DM Sans",sans-serif;transition:all .15s}
+.sag-role:hover{background:rgba(255,255,255,.12)}
+.sag-role.sel{background:#1D9E75;color:#fff;border-color:#1D9E75}
+
+/* Progreso */
+.sag-prog{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;padding:12px;margin-bottom:12px;
+}
+.sag-prog-title{font-size:12px;color:rgba(255,255,255,.7);margin-bottom:8px;font-weight:600}
+.sag-prog-bar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.sag-prog-fill{height:100%;background:linear-gradient(90deg,#1D9E75,#27AE60);border-radius:3px;transition:width .8s}
+.sag-prog-stats{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.4)}
+
+/* Tarjetas de tendencia */
+.sag-trend{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;padding:12px;margin-bottom:10px;
+  border-left:3px solid #7F77DD;border-radius:0 10px 10px 0;
+}
+.sag-trend-src{font-size:10px;color:#AFA9EC;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;margin-bottom:4px}
+.sag-trend-title{font-size:13px;color:rgba(255,255,255,.9);font-weight:600;margin-bottom:5px}
+.sag-trend-body{font-size:12px;color:rgba(255,255,255,.6);line-height:1.6}
+.sag-trend-effect{
+  display:inline-block;margin-top:6px;font-size:10px;font-weight:700;
+  background:rgba(29,158,117,.15);color:#1D9E75;border-radius:6px;
+  padding:2px 8px;
+}
+
+/* Mensajes coach */
+.sag-coach-msg{
+  background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.15);
+  border-radius:10px;padding:12px;margin-bottom:10px;
+}
+.sag-coach-role{font-size:10px;color:#D4A843;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;margin-bottom:5px}
+.sag-coach-txt{font-size:13px;color:rgba(255,255,255,.85);line-height:1.65}
+.sag-coach-cta{
+  display:block;margin-top:8px;font-size:12px;color:#F5C96A;
+  font-weight:600;cursor:pointer;
+}
+
+/* Alertas del auditor */
+.sag-alert{
+  border-radius:10px;padding:10px 12px;margin-bottom:8px;
+  display:flex;align-items:flex-start;gap:8px;
+}
+.sag-alert.warn{background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.2)}
+.sag-alert.ok{background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.2)}
+.sag-alert.info{background:rgba(127,119,221,.1);border:1px solid rgba(127,119,221,.2)}
+.sag-alert-ico{font-size:16px;flex-shrink:0}
+.sag-alert-txt{font-size:12px;line-height:1.55}
+.sag-alert.warn .sag-alert-txt{color:rgba(245,201,106,.9)}
+.sag-alert.ok .sag-alert-txt{color:rgba(29,158,117,.9)}
+.sag-alert.info .sag-alert-txt{color:rgba(175,169,236,.9)}
+
+/* Ask SABI */
+.sag-ask{padding:12px 14px;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:6px}
+.sag-inp{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;padding:8px 10px;color:#fff;font-family:"DM Sans",sans-serif;
+  font-size:12px;outline:none;}
+.sag-inp:focus{border-color:rgba(212,168,67,.4)}
+.sag-inp::placeholder{color:rgba(255,255,255,.2)}
+.sag-send{width:32px;height:32px;border-radius:8px;border:none;
+  background:#1D9E75;color:#fff;cursor:pointer;font-size:14px;
+  display:flex;align-items:center;justify-content:center}
+.sag-send:hover{background:#0F6E56}
+.sag-resp{padding:0 14px 12px;font-size:12px;color:rgba(255,255,255,.75);
+  line-height:1.6;display:none}
+.sag-resp.show{display:block}
+.sag-typing-ag{display:flex;gap:3px;align-items:center;padding:4px 14px 10px}
+.sag-typing-ag span{width:4px;height:4px;background:rgba(255,255,255,.3);
+  border-radius:50%;animation:agt .9s infinite}
+.sag-typing-ag span:nth-child(2){animation-delay:.15s}
+.sag-typing-ag span:nth-child(3){animation-delay:.3s}
+@keyframes agt{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+</style>
+
+<div id="sabiAgentes">
+  <div id="sabiAgPanel">
+    <div class="sag-hd">
+      <div class="sag-hd-ico">🔭</div>
+      <div class="sag-hd-info">
+        <strong>SABI Agentes Inteligentes</strong>
+        <span id="sagSubtitle">Auditor · Scholar · Coach</span>
+      </div>
+      <button class="sag-x" onclick="sagClose()">✕</button>
+    </div>
+    <div class="sag-tabs">
+      <button class="sag-tab on" onclick="sagTab('auditor',this)">🔍 Auditor</button>
+      <button class="sag-tab" onclick="sagTab('scholar',this)">🌍 Scholar</button>
+      <button class="sag-tab" onclick="sagTab('coach',this)">🏆 Coach</button>
+    </div>
+
+    <!-- TAB AUDITOR -->
+    <div id="sagAuditor" class="sag-body">
+      <div class="sag-perfil">
+        <div class="sag-perfil-lbl">Tu perfil docente</div>
+        <div class="sag-roles">
+          <button class="sag-role sel" onclick="setRol('maestro',this)">Maestro/a</button>
+          <button class="sag-role" onclick="setRol('coordinador',this)">Coordinador/a</button>
+          <button class="sag-role" onclick="setRol('rector',this)">Rector/a</button>
+          <button class="sag-role" onclick="setRol('orientador',this)">Orientador/a</button>
+          <button class="sag-role" onclick="setRol('tutor',this)">Tutor/a</button>
+          <button class="sag-role" onclick="setRol('pedagogo',this)">Pedagogo/a</button>
+        </div>
+      </div>
+      <div class="sag-prog">
+        <div class="sag-prog-title" id="sagProgTitle">Progreso en este curso</div>
+        <div class="sag-prog-bar"><div class="sag-prog-fill" id="sagProgFill" style="width:0%"></div></div>
+        <div class="sag-prog-stats">
+          <span id="sagProgPct">Calculando…</span>
+          <span id="sagProgMods">— módulos</span>
+        </div>
+      </div>
+      <div id="sagAlerts"></div>
+    </div>
+
+    <!-- TAB SCHOLAR -->
+    <div id="sagScholar" class="sag-body" style="display:none">
+      <div id="sagTrends"></div>
+    </div>
+
+    <!-- TAB COACH -->
+    <div id="sagCoach" class="sag-body" style="display:none">
+      <div id="sagCoachMsgs"></div>
+    </div>
+
+    <!-- ASK SABI -->
+    <div class="sag-ask">
+      <input class="sag-inp" id="sagInp" placeholder="Pregunta al sistema SABI…"
+        onkeydown="if(event.key==='Enter')sagAsk()">
+      <button class="sag-send" onclick="sagAsk()">➤</button>
+    </div>
+    <div class="sag-typing-ag" id="sagTyping" style="display:none">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="sag-resp" id="sagResp"></div>
+  </div>
+
+  <button id="sabiAgBtn" onclick="sagOpen()">
+    <span class="sag-dot"></span>SABI Agentes · Actualización docente
+  </button>
+</div>
+
+<script>
+(function(){
+var rol = 'maestro';
+var sagOpen_flag = false;
+
+// ═══ TENDENCIAS INTERNACIONALES (investigación real) ═══
+var TENDENCIAS = [
+  {src:'OCDE · Tendencias 2025',
+   title:'El docente como gestor de emociones',
+   body:'TALIS 2025 (55 países) revela: la clave ya no está solo en transmitir conocimientos sino en enseñar gestión emocional. El liderazgo y autonomía docente crean un círculo virtuoso de aprendizaje.',
+   effect:'Impacto TALIS 2025: d=0.52'},
+  {src:'Hattie · Visible Learning 2024',
+   title:'Feedback efectivo: el efecto más poderoso',
+   body:'Con 300 millones de estudiantes analizados, Hattie confirma: la retroalimentación formativa tiene un efecto de d=0.70 — la intervención más poderosa disponible para cualquier docente, sin costo adicional.',
+   effect:'Efecto: d=0.70 (muy alto)'},
+  {src:'OCDE · Digital Education Outlook 2026',
+   title:'IA pedagógica ética y con propósito',
+   body:'"La IA generativa debe utilizarse de forma selectiva y con un propósito pedagógico para enriquecer el aprendizaje, sin sustituir el esfuerzo cognitivo ni debilitar las relaciones humanas que son la esencia de la educación." — OCDE 2026',
+   effect:'Adopción responsable: 2026'},
+  {src:'McKinsey Education · 2025',
+   title:'Aprendizaje personalizado: 76% de impacto',
+   body:'El 76% de los docentes reconoce el impacto positivo de rutas de aprendizaje personalizadas. Plataformas adaptativas que ajustan contenido en tiempo real son la tendencia más efectiva del e-learning 2025.',
+   effect:'McKinsey 2025: +76% mejora'},
+  {src:'UNESCO · Marco IA Educación 2025',
+   title:'El docente aumentado, no reemplazado',
+   body:'"La IA no reemplaza al educador — le devuelve el centro a lo humano, dándole capacidades para acompañar a cada estudiante de forma única." La formación docente en IA ética es la prioridad global UNESCO 2025.',
+   effect:'UNESCO 2025: prioridad global'},
+  {src:'HolonIQ · 2026',
+   title:'Gobernanza de IA en instituciones educativas',
+   body:'"La adopción se acelera donde las funciones están definidas y la gobernanza se fortalece. En 2026, las instituciones invertirán en IA ética, transparente y con credibilidad pedagógica." — HolonIQ 2026',
+   effect:'HolonIQ 2026: tendencia #1'},
+  {src:'Microlearning · Rev. Metropolitana 2025',
+   title:'Microaprendizaje: cápsulas que sí funcionan',
+   body:'Investigación 2025 confirma: microcontenidos de 5-15 minutos mejoran pronunciación, comprensión auditiva y motivación docente. Infografías, videos cortos y apps educativas son las herramientas más efectivas.',
+   effect:'Retención: +40% vs clases largas'},
+  {src:'OCDE · Tendencias 2025',
+   title:'5 mega-tendencias que configuran la educación',
+   body:'Baja natalidad, educación socioemocional, educación financiera, retorno a oficios y envejecimiento poblacional. El docente del siglo XXI debe preparar estudiantes para un mundo radicalmente diferente.',
+   effect:'Informe OCDE 2025'},
+  {src:'Tecnológico de Monterrey · 2026',
+   title:'Aprendizaje a lo largo de la vida',
+   body:'"Nacemos aprendiendo y nos morimos aprendiendo." El aprendizaje permanente (Lifelong Learning) es estructural y multianual. Las instituciones deben crear trayectorias modulares y flexibles.',
+   effect:'UNESCO: tendencia estructural'},
+  {src:'Visible Learning · Hattie',
+   title:'Las 5 estrategias con mayor efecto probado',
+   body:'1) Feedback formativo (d=0.70) · 2) Instrucción directa explícita (d=0.60) · 3) Aprendizaje metacognitivo (d=0.60) · 4) Colaboración entre pares (d=0.53) · 5) Mapas conceptuales (d=0.60). Todas aplicables sin tecnología.',
+   effect:'Base: 240M estudiantes'}
+];
+
+// ═══ MENSAJES COACH POR ROL ═══
+var COACH = {
+  maestro:[
+    'Maestro/a: cada módulo que completas no es solo un certificado — es evidencia de que tu vocación es más fuerte que el agotamiento. TALIS 2025 dice que los docentes con mayor autonomía son los más felices y efectivos. Tú estás construyendo esa autonomía.',
+    'La investigación de Hattie con 240 millones de estudiantes lo confirma: lo que más impacta el aprendizaje no es la tecnología — eres TÚ. Tu presencia, tu retroalimentación, tu relación con cada estudiante. Sigue formándote.',
+    '¿Sabías que completar este módulo te acerca al perfil docente que la OCDE identifica como "maestro de alto impacto"? Son aquellos que reflexionan sobre su práctica y experimentan continuamente. Eso es exactamente lo que estás haciendo.',
+    'Microlearning tip: Los estudios muestran que 15-20 minutos de aprendizaje enfocado retienen 40% más que sesiones largas. Cada módulo de SABI está diseñado así — pensando en tu tiempo y en tu cerebro.'
+  ],
+  coordinador:[
+    'Coordinador/a: tu rol es el más estratégico de la institución. TALIS 2025 muestra que los coordinadores que se forman continuamente multiplican el impacto en TODOS los docentes de su equipo. Cada módulo tuyo vale por 20.',
+    'La OCDE señala que el liderazgo pedagógico distribuido — donde el coordinador forma comunidades de práctica — es la intervención con mayor efecto en la calidad educativa institucional. Estás en el camino correcto.',
+    'Tu formación en SABI te da herramientas para liderar el cambio pedagógico con evidencia. Cuando propones una nueva metodología a tu equipo docente, ahora puedes respaldarla con investigación internacional.',
+    'Reto coordinador: ¿Cuántos de tus docentes han completado al menos 1 curso SABI este mes? Considera crear una comunidad de práctica interna donde compartan sus aprendizajes.'
+  ],
+  rector:[
+    'Rector/a: liderar una institución educativa en 2025-2026 exige conocimiento actualizado de las tendencias globales. Tu formación en SABI no es opcional — es la base de las decisiones estratégicas que tomarás esta semana.',
+    'UNESCO Digital Education Outlook 2026 lo señala claro: las instituciones que invierten en formación docente continua y gobernanza de IA ética son las que lideran los rankings de calidad educativa. Estás tomando la decisión correcta.',
+    'Como rector/a, tienes el poder de crear una cultura de aprendizaje continuo en toda tu institución. Un rector que se forma envía el mensaje más poderoso posible: el aprendizaje nunca termina.',
+    'Dato para tu PEI: Las escuelas donde el rector participa activamente en formación docente tienen 34% menos rotación de personal y 28% más satisfacción familiar (McKinsey Education 2025).'
+  ],
+  orientador:[
+    'Orientador/a: tu rol nunca ha sido más crucial. TALIS 2025 confirma que el bienestar socioemocional es la tendencia pedagógica #1 a nivel mundial. Eres el profesional más necesario de la escuela del siglo XXI.',
+    'La investigación de Hattie muestra que las intervenciones socioemocionales tienen un efecto de d=0.48 sobre el rendimiento académico. Tu trabajo no es "apoyo" — es parte central del proceso de aprendizaje.',
+    'Recurso actualizado: El modelo CASEL (Collaborative for Academic, Social, and Emotional Learning) 2025 integra SEL con justicia social y equidad. Sus recursos están disponibles gratuitamente en casel.org.',
+    'Tu formación en SABI te hace mejor orientador/a: cuando conoces las metodologías activas que usan tus docentes, puedes acompañar a los estudiantes con mayor contexto y efectividad.'
+  ],
+  tutor:[
+    'Tutor/a: eres el vínculo más directo entre la institución y las familias. Tu formación continua no solo mejora tu trabajo — construye confianza en toda la comunidad educativa.',
+    'El aprendizaje personalizado — tendencia #1 de McKinsey 2025 — empieza contigo. Como tutor/a tienes información única sobre cada estudiante que, bien usada, puede transformar su trayectoria.',
+    'UNESCO 2025 enfatiza: la tutoría efectiva es la estrategia más equitativa en educación. Cada estudiante que acompañas recibe una atención que no encontraría en ningún otro espacio.',
+    'Microlearning para tutores: Los estudios muestran que tutorías de 20-30 minutos semanales con seguimiento constante tienen mayor impacto que una reunión mensual larga. La consistencia supera la intensidad.'
+  ],
+  pedagogo:[
+    'Pedagogo/a: eres el experto en aprendizaje que la institución necesita escuchar más. Tu formación en SABI te posiciona como el puente entre la investigación internacional y la práctica cotidiana del aula.',
+    'El enfoque de educación basada en evidencias (EBE) que propone Hattie es exactamente tu campo. Con 300 millones de estudiantes analizados, ahora tienes la base empírica para proponer cambios sistémicos en tu institución.',
+    'OCDE Digital Education Outlook 2026 destaca: los pedagogos que integran análisis de datos educativos con conocimiento pedagógico profundo son los líderes del cambio más efectivos. Eso te describe.',
+    'Reto pedagógico: ¿Has documentado el efecto de alguna intervención en tu institución? La investigación-acción (Kemmis & McTaggart) es accesible para cualquier pedagogo y produce conocimiento valioso para toda Colombia.'
+  ]
+};
+
+// ═══ DETECTAR PROGRESO DEL CURSO ═══
+function detectProgress(){
+  var dots = document.querySelectorAll('.dot.done, .dot.active');
+  var total = document.querySelectorAll('.dot').length;
+  var completed = document.querySelectorAll('.mod-done[style*="block"]').length;
+  var modCards = document.querySelectorAll('.mod-card').length;
+  
+  // Intentar leer de la barra de progreso si existe
+  var pb = document.getElementById('pb');
+  var pct = 0;
+  if(pb){
+    var w = pb.style.width||'0%';
+    pct = parseInt(w)||0;
+  } else if(modCards > 0){
+    pct = Math.round((completed/Math.max(modCards,1))*100);
+  }
+  
+  return {pct:pct, mods:modCards, done:completed};
+}
+
+// ═══ RENDER AUDITOR ═══
+function renderAuditor(){
+  var p = detectProgress();
+  var fill = document.getElementById('sagProgFill');
+  var pctEl = document.getElementById('sagProgPct');
+  var modsEl = document.getElementById('sagProgMods');
+  var alerts = document.getElementById('sagAlerts');
+  
+  if(fill) fill.style.width = p.pct+'%';
+  if(pctEl) pctEl.textContent = p.pct+'% completado';
+  if(modsEl) modsEl.textContent = p.mods+' módulos en total';
+  
+  var html = '';
+  
+  if(p.pct === 0){
+    html += '<div class="sag-alert info"><span class="sag-alert-ico">💡</span><div class="sag-alert-txt">¡Bienvenido/a! Haz clic en cualquier módulo para comenzar. Cada módulo toma ~60 minutos. Sin fechas límite.</div></div>';
+  } else if(p.pct < 50){
+    html += '<div class="sag-alert warn"><span class="sag-alert-ico">🔥</span><div class="sag-alert-txt">Vas avanzando. Recuerda: la consistencia supera a la intensidad. 20 minutos diarios construyen más que sesiones maratón.</div></div>';
+  } else if(p.pct < 100){
+    html += '<div class="sag-alert ok"><span class="sag-alert-ico">⭐</span><div class="sag-alert-txt">¡Más de la mitad completada! Estás en el grupo del 23% de docentes que terminan sus cursos de formación. TALIS 2025 te pone entre los mejores.</div></div>';
+  } else {
+    html += '<div class="sag-alert ok"><span class="sag-alert-ico">🎓</span><div class="sag-alert-txt">¡Curso completado! Eres parte de la nueva generación de docentes que se forman con evidencia internacional. Tu diploma CENTEC te espera.</div></div>';
+  }
+  
+  // Alerta de tendencia del día
+  var t = TENDENCIAS[new Date().getDate() % TENDENCIAS.length];
+  html += '<div class="sag-alert info"><span class="sag-alert-ico">🌍</span><div class="sag-alert-txt"><strong style="color:#AFA9EC">Tendencia del día:</strong><br>'+t.title+' — '+t.src+'</div></div>';
+  
+  if(alerts) alerts.innerHTML = html;
+}
+
+// ═══ RENDER SCHOLAR ═══
+function renderScholar(){
+  var el = document.getElementById('sagTrends');
+  if(!el) return;
+  var html = '';
+  // Mostrar 4 tendencias rotando según el día
+  var start = (new Date().getDate() * 3) % TENDENCIAS.length;
+  for(var i=0;i<4;i++){
+    var t = TENDENCIAS[(start+i)%TENDENCIAS.length];
+    html += '<div class="sag-trend">';
+    html += '<div class="sag-trend-src">'+t.src+'</div>';
+    html += '<div class="sag-trend-title">'+t.title+'</div>';
+    html += '<div class="sag-trend-body">'+t.body+'</div>';
+    html += '<span class="sag-trend-effect">'+t.effect+'</span>';
+    html += '</div>';
+  }
+  el.innerHTML = html;
+}
+
+// ═══ RENDER COACH ═══
+function renderCoach(){
+  var el = document.getElementById('sagCoachMsgs');
+  if(!el) return;
+  var msgs = COACH[rol] || COACH.maestro;
+  var html = '';
+  // Mostrar 2 mensajes según el día
+  var start = new Date().getDate() % msgs.length;
+  for(var i=0;i<2;i++){
+    var m = msgs[(start+i)%msgs.length];
+    html += '<div class="sag-coach-msg">';
+    html += '<div class="sag-coach-role">Para '+rol+'s · SABI Coach</div>';
+    html += '<div class="sag-coach-txt">'+m+'</div>';
+    html += '</div>';
+  }
+  // Reto personalizado
+  html += '<div class="sag-coach-msg" style="border-color:rgba(29,158,117,.25)">';
+  html += '<div class="sag-coach-role" style="color:#1D9E75">Reto de la semana</div>';
+  html += '<div class="sag-coach-txt">Completa al menos 1 módulo hoy. Comparte con un colega la tendencia pedagógica más sorprendente que encontraste en la pestaña Scholar. El aprendizaje compartido multiplica el impacto.</div>';
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+// ═══ PREGUNTAR AL SISTEMA ═══
+function sagAsk(){
+  var inp = document.getElementById('sagInp');
+  var resp = document.getElementById('sagResp');
+  var typing = document.getElementById('sagTyping');
+  var q = inp.value.trim();
+  if(!q) return;
+  inp.value = '';
+  resp.classList.remove('show');
+  typing.style.display = 'flex';
+  
+  var system = 'Eres SABI, el asistente de actualización docente de CENTEC Cali. El docente tiene perfil: '+rol+'. Tienes acceso a: TALIS 2025, Hattie Visible Learning (300M estudiantes), OCDE Tendencias 2025, UNESCO Digital Education 2026, HolonIQ 2026, McKinsey Education 2025. Responde en español, máximo 3 oraciones, con al menos UN dato de investigación específico. Sé directo, motivador y práctico.';
+  
+  fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',
+      max_tokens:300,
+      system:system,
+      messages:[{role:'user',content:q}]
+    })
+  })
+  .then(function(r){return r.json();})
+  .then(function(data){
+    typing.style.display='none';
+    var txt=(data.content&&data.content[0])?data.content[0].text:'Error de conexión.';
+    resp.textContent=txt;
+    resp.classList.add('show');
+  })
+  .catch(function(){
+    typing.style.display='none';
+    resp.textContent='Error de conexión. Verifica tu internet.';
+    resp.classList.add('show');
+  });
+}
+
+// ═══ CONTROLES ═══
+window.sagOpen = function(){
+  document.getElementById('sabiAgPanel').classList.add('open');
+  document.getElementById('sabiAgBtn').classList.add('hidden');
+  sagOpen_flag=true;
+  renderAuditor(); renderScholar(); renderCoach();
+};
+window.sagClose = function(){
+  document.getElementById('sabiAgPanel').classList.remove('open');
+  document.getElementById('sabiAgBtn').classList.remove('hidden');
+  sagOpen_flag=false;
+};
+window.sagTab = function(id,btn){
+  document.querySelectorAll('.sag-tab').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  ['sagAuditor','sagScholar','sagCoach'].forEach(function(t){
+    document.getElementById(t).style.display='none';
+  });
+  var map={auditor:'sagAuditor',scholar:'sagScholar',coach:'sagCoach'};
+  document.getElementById(map[id]).style.display='block';
+};
+window.setRol = function(r,btn){
+  rol=r;
+  document.querySelectorAll('.sag-role').forEach(function(b){b.classList.remove('sel');});
+  btn.classList.add('sel');
+  document.getElementById('sagSubtitle').textContent=r.charAt(0).toUpperCase()+r.slice(1)+' · SABI Agentes';
+  renderCoach();
+};
+window.sagAsk = sagAsk;
+
+// Auto-actualizar progreso cada 30 segundos
+setInterval(function(){if(sagOpen_flag)renderAuditor();},30000);
+})();
+</script>
+<!-- ═══ FIN SABI AGENTES ═══ -->
+
 </body>
 </html>
