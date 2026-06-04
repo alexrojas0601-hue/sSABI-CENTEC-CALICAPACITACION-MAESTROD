@@ -3,129 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SABI Avatar — Club de Idiomas CENTEC</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Crimson+Pro:wght@600;700&display=swap" rel="stylesheet">
+<title>SABI · Club de Idiomas — Colegio CENTEC Cali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
+:root {
+  --navy:#0B1E3D; --navy2:#102347; --navy3:#162E5E;
+  --gold:#D4A843; --gold2:#F2C84B; --gold3:#B8902A;
+  --teal:#1D9E75; --teal2:#0F6E56; --teal-light:#E3F6EE;
+  --coral:#D85A30; --coral-light:#FAECE7;
+  --purple:#7F77DD; --purple-light:#EEEDFE;
+  --blue:#1B7FA6; --blue-light:#E0F2FA;
+  --amber:#BA7517; --amber-light:#FAEEDA;
+  --text:#1A2A3A; --muted:#7A8FA0; --border:rgba(0,0,0,.09);
+  --white:#fff; --off:#F4F7FA;
+  --radius:14px;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0B1E3D;--navy2:#122248;--gold:#D4A843;--gold2:#F2C84B;
-  --teal:#1D9E75;--teal2:#0F6E56;--white:#fff;--off:#F4F7FA;
-  --text:#1A2A3A;--muted:#7A8FA0;--border:rgba(0,0,0,.09);
-}
-body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;min-height:100vh;overflow-x:hidden}
 
-/* ── TOP BAR ── */
-.topbar{
+/* NAV */
+.topnav{
   display:flex;align-items:center;justify-content:space-between;
-  padding:12px 24px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,255,255,.08);
-  position:relative;z-index:10;
+  padding:0 28px;height:62px;background:var(--navy);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 20px rgba(0,0,0,.4);
 }
-.brand{display:flex;align-items:center;gap:10px}
-.brand-dot{
-  width:36px;height:36px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold)0%,#B8902A 100%);
-  display:flex;align-items:center;justify-content:center;font-size:16px;
-  box-shadow:0 0 0 4px rgba(212,168,67,.2);
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-emblem{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold)0%,var(--gold3)100%);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 4px rgba(212,168,67,.25);
 }
-.brand-name{font-family:'Crimson Pro',serif;font-size:1.1rem;color:var(--gold2)}
-.brand-sub{font-size:11px;color:rgba(255,255,255,.4);display:block}
-.lang-tabs{display:flex;gap:6px}
+.nav-emblem svg{width:22px;height:22px;fill:var(--navy)}
+.nav-brand strong{display:block;font-size:14px;font-weight:600;color:#fff;letter-spacing:.03em}
+.nav-brand small{font-size:11px;color:rgba(255,255,255,.4)}
+.nav-back{
+  display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.6);
+  text-decoration:none;font-size:13px;padding:6px 12px;border-radius:8px;
+  transition:all .2s;
+}
+.nav-back:hover{background:rgba(255,255,255,.08);color:#fff}
+.lang-tabs{display:flex;gap:5px}
 .lt{
   border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);
-  color:rgba(255,255,255,.6);border-radius:20px;padding:5px 14px;
+  color:rgba(255,255,255,.6);border-radius:20px;padding:5px 13px;
   font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;
   transition:all .2s;
 }
 .lt:hover{background:rgba(255,255,255,.12)}
-.lt.on{background:var(--teal);color:var(--white);border-color:var(--teal)}
+.lt.on{background:var(--teal);color:#fff;border-color:var(--teal)}
 
-/* ── LAYOUT ── */
-.layout{display:grid;grid-template-columns:1fr 380px;height:calc(100vh - 65px)}
+/* LAYOUT PRINCIPAL */
+.layout{
+  display:grid;grid-template-columns:300px 1fr;
+  height:calc(100vh - 62px);
+}
 
-/* ── AVATAR STAGE ── */
-.stage{
-  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:radial-gradient(ellipse 80% 70% at 50% 40%,#1A3870 0%,var(--navy) 70%);
-  overflow:hidden;
+/* PANEL IZQUIERDO — AVATAR */
+.av-panel{
+  background:linear-gradient(180deg,#102347 0%,#0B1E3D 100%);
+  border-right:1px solid rgba(255,255,255,.08);
+  display:flex;flex-direction:column;align-items:center;
+  padding:20px 16px;gap:14px;overflow-y:auto;
+  position:relative;
 }
-.stage::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 50% 30%,rgba(212,168,67,.06)0%,transparent 60%);
+.av-panel::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:200px;
+  background:radial-gradient(ellipse at 50% 0%,rgba(212,168,67,.1)0%,transparent 70%);
+  pointer-events:none;
 }
-#threeCanvas{display:block;border-radius:0}
-.stage-info{
-  position:absolute;bottom:24px;left:0;right:0;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
+/* Marco del avatar */
+.av-frame{
+  width:180px;height:180px;border-radius:50%;
+  background:linear-gradient(135deg,var(--navy3)0%,var(--navy2)100%);
+  border:3px solid var(--gold3);
+  box-shadow:0 0 0 6px rgba(212,168,67,.15),0 8px 32px rgba(0,0,0,.5);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;flex-shrink:0;
+  animation:auraGlow 3s ease-in-out infinite;
 }
+@keyframes auraGlow{
+  0%,100%{box-shadow:0 0 0 6px rgba(212,168,67,.15),0 8px 32px rgba(0,0,0,.5)}
+  50%{box-shadow:0 0 0 10px rgba(212,168,67,.25),0 8px 40px rgba(0,0,0,.5)}
+}
+.av-frame .av-svg{width:170px;height:170px}
+/* nombre y estado */
 .av-name{
-  font-family:'Crimson Pro',serif;font-size:1.3rem;color:var(--gold2);
-  text-shadow:0 2px 12px rgba(0,0,0,.5);
+  font-family:'Crimson Pro',serif;font-size:1.3rem;
+  color:var(--gold2);text-align:center;line-height:1.2;
 }
-.av-status{
-  display:flex;align-items:center;gap:7px;
-  font-size:12px;color:rgba(255,255,255,.55);
-}
-.av-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);transition:background .3s}
-/* wave visualizer */
-.wave-bar{
-  display:flex;align-items:center;gap:3px;height:24px;
-  opacity:0;transition:opacity .3s;
-}
-.wave-bar.active{opacity:1}
-.wb{width:3px;border-radius:2px;background:var(--teal);animation:wavePulse 0.6s ease-in-out infinite}
-.wb:nth-child(1){height:6px;animation-delay:0s}
+.av-status-row{display:flex;align-items:center;gap:6px}
+.av-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;transition:background .3s}
+.av-status-txt{font-size:12px;color:rgba(255,255,255,.5)}
+/* onda de voz */
+.wave{display:flex;align-items:center;gap:3px;height:20px;opacity:0;transition:opacity .3s}
+.wave.on{opacity:1}
+.wb{width:3px;border-radius:2px;background:var(--teal);animation:wv .6s ease-in-out infinite}
+.wb:nth-child(1){height:5px;animation-delay:0s}
 .wb:nth-child(2){height:14px;animation-delay:.1s}
 .wb:nth-child(3){height:20px;animation-delay:.2s}
-.wb:nth-child(4){height:14px;animation-delay:.3s}
+.wb:nth-child(4){height:12px;animation-delay:.3s}
 .wb:nth-child(5){height:6px;animation-delay:.4s}
-.wb:nth-child(6){height:18px;animation-delay:.05s}
-.wb:nth-child(7){height:10px;animation-delay:.25s}
-@keyframes wavePulse{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.8)}}
+.wb:nth-child(6){height:16px;animation-delay:.05s}
+.wb:nth-child(7){height:8px;animation-delay:.25s}
+@keyframes wv{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.9)}}
 
-/* ── PANEL DERECHO ── */
-.panel{
-  background:rgba(255,255,255,.04);border-left:1px solid rgba(255,255,255,.08);
-  display:flex;flex-direction:column;overflow:hidden;
+/* Fonemas */
+.ph-section{width:100%}
+.ph-lbl{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);margin-bottom:8px}
+.ph-grid{display:flex;flex-wrap:wrap;gap:5px}
+.phb{
+  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.7);border-radius:7px;padding:4px 9px;
+  font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:all .15s;font-weight:600;
 }
+.phb:hover,.phb.lit{background:var(--teal);color:#fff;border-color:var(--teal)}
 
-/* NIVEL / MODO */
+/* Controles voz */
+.vc-section{width:100%}
+.vc-row{display:flex;flex-direction:column;gap:3px;margin-bottom:8px}
+.vc-lbl{font-size:11px;color:rgba(255,255,255,.35);display:flex;justify-content:space-between}
+.vc-range{width:100%;accent-color:var(--teal)}
+.test-btn{
+  width:100%;background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.25);
+  color:var(--gold2);border-radius:8px;padding:8px;font-size:12px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:4px;
+}
+.test-btn:hover{background:rgba(212,168,67,.2)}
+
+/* PANEL DERECHO — CHAT */
+.chat-panel{display:flex;flex-direction:column;overflow:hidden}
+
+/* Tabs */
 .panel-tabs{
-  display:flex;border-bottom:1px solid rgba(255,255,255,.08);
+  display:flex;border-bottom:1px solid rgba(255,255,255,.07);
+  background:rgba(0,0,0,.2);
 }
 .ptab{
-  flex:1;padding:12px 8px;font-size:12px;font-weight:600;text-align:center;
-  cursor:pointer;color:rgba(255,255,255,.4);border-bottom:2px solid transparent;
+  flex:1;padding:13px 8px;font-size:12px;font-weight:600;text-align:center;
+  cursor:pointer;color:rgba(255,255,255,.35);border-bottom:2px solid transparent;
   transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;
   font-family:'DM Sans',sans-serif;
 }
 .ptab.on{color:var(--gold2);border-bottom-color:var(--gold2)}
 
-/* LECCIÓN ACTUAL */
-.lesson-header{
-  padding:16px;border-bottom:1px solid rgba(255,255,255,.06);
+/* Lección header */
+.lesson-hdr{
+  padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(0,0,0,.15);
 }
-.lesson-tag{
-  font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--teal);margin-bottom:4px;
-}
-.lesson-title{font-size:15px;font-weight:600;color:var(--white);margin-bottom:6px}
-.lesson-desc{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5}
-/* progreso */
-.prog-row{display:flex;align-items:center;gap:8px;margin-top:10px}
-.prog-bar{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
-.prog-fill{height:100%;background:var(--teal);border-radius:2px;transition:width .5s}
-.prog-pct{font-size:11px;color:rgba(255,255,255,.4)}
+.lesson-tag{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);margin-bottom:3px}
+.lesson-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px}
+.lesson-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5}
+.prog-row{display:flex;align-items:center;gap:8px;margin-top:8px}
+.prog-bar{flex:1;height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:var(--teal);border-radius:2px;transition:width .6s}
+.prog-pct{font-size:11px;color:rgba(255,255,255,.3)}
 
-/* CHAT */
-.chat-msgs{
-  flex:1;overflow-y:auto;padding:14px;
-  display:flex;flex-direction:column;gap:10px;
-}
+/* Mensajes */
+.chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
 .chat-msgs::-webkit-scrollbar{width:4px}
-.chat-msgs::-webkit-scrollbar-track{background:transparent}
 .chat-msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
-.msg{display:flex;gap:8px;align-items:flex-start;animation:msgIn .3s ease-out}
-@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg{display:flex;gap:8px;align-items:flex-start;animation:mIn .3s ease-out}
+@keyframes mIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .msg.user{flex-direction:row-reverse}
 .msg-av{
   width:28px;height:28px;border-radius:50%;flex-shrink:0;
@@ -134,139 +181,113 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
 .msg.bot .msg-av{background:linear-gradient(135deg,var(--teal)0%,var(--teal2)100%)}
 .msg.user .msg-av{background:rgba(255,255,255,.12)}
 .msg-bub{
-  max-width:82%;border-radius:12px;padding:10px 13px;
-  font-size:13px;line-height:1.55;
+  max-width:80%;border-radius:12px;padding:10px 14px;
+  font-size:13px;line-height:1.6;
 }
 .msg.bot .msg-bub{background:rgba(255,255,255,.07);color:rgba(255,255,255,.9)}
-.msg.user .msg-bub{background:var(--teal);color:var(--white)}
-.phonetic-hint{
-  margin-top:6px;padding:5px 10px;
-  background:rgba(212,168,67,.1);border-left:2px solid var(--gold);
-  border-radius:0 6px 6px 0;font-size:11px;color:var(--gold2);font-style:italic;
+.msg.user .msg-bub{background:var(--teal);color:#fff}
+.ph-note{
+  margin-top:6px;padding:6px 10px;font-size:11px;font-style:italic;color:var(--gold2);
+  background:rgba(212,168,67,.08);border-left:2px solid var(--gold3);border-radius:0 6px 6px 0;
 }
-.typing-dots{display:flex;gap:4px;align-items:center;padding:2px 0}
-.typing-dots span{
-  width:5px;height:5px;background:rgba(255,255,255,.35);
-  border-radius:50%;animation:tdot .9s infinite;
-}
-.typing-dots span:nth-child(2){animation-delay:.15s}
-.typing-dots span:nth-child(3){animation-delay:.3s}
-@keyframes tdot{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.typing{display:flex;gap:4px;align-items:center;padding:2px 0}
+.typing span{width:5px;height:5px;background:rgba(255,255,255,.3);border-radius:50%;animation:td .9s infinite}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+@keyframes td{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
-/* FRASES RÁPIDAS */
+/* Frases rápidas */
 .quickbar{
-  padding:10px 14px;border-top:1px solid rgba(255,255,255,.06);
-  display:flex;gap:6px;overflow-x:auto;
+  padding:9px 14px;border-top:1px solid rgba(255,255,255,.05);
+  display:flex;gap:5px;overflow-x:auto;
 }
 .quickbar::-webkit-scrollbar{display:none}
-.qchip{
-  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);
+.qc{
+  border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);
   color:rgba(255,255,255,.65);border-radius:12px;padding:4px 11px;
   font-size:11px;white-space:nowrap;cursor:pointer;flex-shrink:0;
   font-family:'DM Sans',sans-serif;transition:all .15s;
 }
-.qchip:hover{background:rgba(255,255,255,.12);color:var(--white)}
+.qc:hover{background:rgba(255,255,255,.11);color:#fff}
 
-/* FONEMAS */
-.phonemes-section{
-  padding:10px 14px;border-top:1px solid rgba(255,255,255,.06);
-}
-.ph-label{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:7px}
-.ph-grid{display:flex;flex-wrap:wrap;gap:5px}
-.phb{
-  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);
-  color:rgba(255,255,255,.7);border-radius:7px;padding:4px 9px;
-  font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;
-  transition:all .15s;font-weight:600;
-}
-.phb:hover,.phb.lit{background:var(--teal);color:var(--white);border-color:var(--teal)}
-
-/* INPUT */
+/* Input */
 .input-row{
-  padding:14px;border-top:1px solid rgba(255,255,255,.08);
+  padding:13px 16px;border-top:1px solid rgba(255,255,255,.07);
   display:flex;gap:8px;align-items:flex-end;
 }
 .inp{
   flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
-  border-radius:10px;padding:10px 13px;color:var(--white);
-  font-family:'DM Sans',sans-serif;font-size:13px;resize:none;outline:none;
-  min-height:40px;max-height:90px;transition:border-color .2s;
+  border-radius:10px;padding:10px 13px;color:#fff;font-family:'DM Sans',sans-serif;
+  font-size:13px;resize:none;outline:none;min-height:40px;max-height:88px;
+  transition:border-color .2s;
 }
 .inp:focus{border-color:rgba(29,158,117,.5)}
-.inp::placeholder{color:rgba(255,255,255,.25)}
+.inp::placeholder{color:rgba(255,255,255,.22)}
 .ibtn{
   width:40px;height:40px;border-radius:10px;border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  font-size:17px;transition:all .2s;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+  transition:all .2s;flex-shrink:0;
 }
-.ibtn-send{background:var(--teal)}
+.ibtn-send{background:var(--teal);color:#fff}
 .ibtn-send:hover{background:var(--teal2)}
-.ibtn-mic{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
-.ibtn-mic:hover{background:rgba(255,255,255,.18)}
-.ibtn-mic.rec{background:#C53030!important;animation:recP .7s ease-in-out infinite}
-@keyframes recP{0%,100%{box-shadow:0 0 0 0 rgba(197,48,48,.5)}50%{box-shadow:0 0 0 6px rgba(197,48,48,0)}}
-.ibtn-vol{background:rgba(212,168,67,.15);color:var(--gold2)}
-.ibtn-vol:hover{background:rgba(212,168,67,.25)}
+.ibtn-mic{background:rgba(255,255,255,.09);color:rgba(255,255,255,.7)}
+.ibtn-mic:hover{background:rgba(255,255,255,.16)}
+.ibtn-mic.rec{background:#B91C1C!important;animation:rp .7s ease-in-out infinite}
+@keyframes rp{0%,100%{box-shadow:0 0 0 0 rgba(185,28,28,.5)}50%{box-shadow:0 0 0 6px rgba(185,28,28,0)}}
 
-/* VOZ CONTROLES */
-.voice-ctrl{
-  display:none;position:absolute;bottom:70px;right:14px;
-  background:rgba(18,34,72,.97);border:1px solid rgba(255,255,255,.12);
-  border-radius:12px;padding:14px;width:200px;z-index:20;
-}
-.voice-ctrl.open{display:block}
-.vc-row{display:flex;flex-direction:column;gap:3px;margin-bottom:10px}
-.vc-lbl{font-size:11px;color:rgba(255,255,255,.4);display:flex;justify-content:space-between}
-.vc-s{width:100%;accent-color:var(--teal)}
-.test-btn{
-  width:100%;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.25);
-  color:var(--gold2);border-radius:8px;padding:7px;font-size:12px;cursor:pointer;
-  font-family:'DM Sans',sans-serif;
-}
-
-/* PROGRESO LECCIONES */
-.lessons-list{padding:14px;display:flex;flex-direction:column;gap:8px;overflow-y:auto;flex:1}
-.litem{
+/* Lecciones */
+.lessons-list{padding:12px;display:flex;flex-direction:column;gap:7px;overflow-y:auto;flex:1}
+.li{
   display:flex;align-items:center;gap:10px;padding:10px 12px;
   background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
   border-radius:10px;cursor:pointer;transition:all .2s;
 }
-.litem:hover{background:rgba(255,255,255,.09)}
-.litem.active{border-color:var(--teal);background:rgba(29,158,117,.08)}
-.litem.done{opacity:.6}
+.li:hover{background:rgba(255,255,255,.09)}
+.li.active{border-color:var(--teal);background:rgba(29,158,117,.08)}
 .li-num{
   width:28px;height:28px;border-radius:50%;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;
 }
-.li-num.done{background:var(--teal);color:var(--white)}
-.li-num.active{background:var(--gold);color:var(--navy);animation:activePulse 2s ease-in-out infinite}
-@keyframes activePulse{0%,100%{box-shadow:0 0 0 0 rgba(212,168,67,.4)}50%{box-shadow:0 0 0 6px rgba(212,168,67,0)}}
-.li-num.locked{background:rgba(255,255,255,.08);color:rgba(255,255,255,.3)}
+.li-num.done{background:var(--teal);color:#fff}
+.li-num.cur{background:var(--gold);color:var(--navy);animation:curP 2s ease-in-out infinite}
+@keyframes curP{0%,100%{box-shadow:0 0 0 0 rgba(212,168,67,.4)}50%{box-shadow:0 0 0 6px rgba(212,168,67,0)}}
+.li-num.lock{background:rgba(255,255,255,.06);color:rgba(255,255,255,.25)}
 .li-info{flex:1}
-.li-title{font-size:13px;font-weight:500;color:var(--white)}
-.li-sub{font-size:11px;color:rgba(255,255,255,.35)}
+.li-t{font-size:13px;font-weight:500;color:#fff}
+.li-s{font-size:11px;color:rgba(255,255,255,.3)}
 .li-xp{font-size:11px;color:var(--gold2);font-weight:600}
 
-@media(max-width:700px){
-  .layout{grid-template-columns:1fr;grid-template-rows:260px 1fr}
-  .stage{min-height:260px}
-  #threeCanvas{max-height:260px}
+/* Móvil */
+@media(max-width:680px){
+  .layout{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .av-panel{flex-direction:row;flex-wrap:wrap;padding:12px;height:auto;border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+  .av-frame{width:100px;height:100px}
+  .av-frame .av-svg{width:95px;height:95px}
+  .ph-section,.vc-section{display:none}
   .lang-tabs{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="brand">
-    <div class="brand-dot">🔭</div>
-    <div>
-      <div class="brand-name">SABI — Club de Idiomas</div>
-      <small class="brand-sub">Colegio CENTEC · Cali</small>
+<!-- NAV -->
+<nav class="topnav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-emblem">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke-width="3" stroke="currentColor"/>
+      <line x1="24" y1="32" x2="24" y2="44" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <line x1="16" y1="44" x2="32" y2="44" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <line x1="24" y1="14" x2="24" y2="8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="20" y1="10" x2="24" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="24" cy="20" r="4" fill="currentColor"/>
+    </svg>
     </div>
-  </div>
+    <div class="nav-brand">
+      <strong>SABI CENTEC · Club de Idiomas</strong>
+      <small>Colegio CENTEC · Cali, Colombia</small>
+    </div>
+  </a>
   <div class="lang-tabs">
     <button class="lt on" onclick="setLang('en',this)">🇬🇧 Inglés</button>
     <button class="lt" onclick="setLang('fr',this)">🇫🇷 Francés</button>
@@ -274,657 +295,420 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
     <button class="lt" onclick="setLang('de',this)">🇩🇪 Alemán</button>
     <button class="lt" onclick="setLang('zh',this)">🇨🇳 Mandarín</button>
   </div>
-</div>
+  <a href="index.html" class="nav-back">← Volver al portal</a>
+</nav>
 
 <!-- LAYOUT -->
 <div class="layout">
 
-  <!-- AVATAR STAGE -->
-  <div class="stage">
-    <canvas id="threeCanvas"></canvas>
-    <div class="stage-info">
-      <div class="av-name" id="avName">Prof. Sarah</div>
-      <div class="av-status">
-        <div class="av-dot" id="avDot"></div>
-        <span id="avStatusTxt">Lista para conversar</span>
+  <!-- PANEL IZQUIERDO: AVATAR SABI -->
+  <div class="av-panel">
+    <div class="av-frame">
+      <svg class="av-svg" id="sideFaceSVG" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="80" cy="78" r="64" fill="#FDDBB4"/>
+            <ellipse cx="80" cy="26" rx="46" ry="28" fill="#4A3728"/>
+            <rect x="34" y="26" width="92" height="26" fill="#4A3728"/>
+            <rect x="64" y="132" width="32" height="26" rx="4" fill="#FDDBB4"/>
+            <ellipse cx="80" cy="158" rx="54" ry="16" fill="#1D9E75"/>
+            <g id="eyesG2">
+              <ellipse cx="58" cy="74" rx="10" ry="11" fill="#fff"/>
+              <ellipse cx="102" cy="74" rx="10" ry="11" fill="#fff"/>
+              <circle id="pupil-l" cx="60" cy="75" r="5" fill="#3D2B1A"/>
+              <circle id="pupil-r" cx="104" cy="75" r="5" fill="#3D2B1A"/>
+              <circle cx="62" cy="73" r="1.8" fill="#fff"/>
+              <circle cx="106" cy="73" r="1.8" fill="#fff"/>
+            </g>
+            <path d="M49 62 Q58 57 67 62" stroke="#4A3728" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M93 62 Q102 57 111 62" stroke="#4A3728" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="80" cy="92" rx="5" ry="6" fill="#E8B896"/>
+            <g id="mouthG2">
+              <path id="lip-u2" d="M62 108 Q72 103 80 106 Q88 103 98 108" stroke="#C8836A" stroke-width="2" fill="#C8836A" stroke-linecap="round"/>
+              <path id="lip-l2" d="M62 108 Q80 118 98 108" stroke="#C8836A" stroke-width="2" fill="#E8A090" stroke-linecap="round"/>
+              <path id="teeth2" d="M65 108 Q80 112 95 108 L95 113 Q80 117 65 113 Z" fill="#F5F5F5" opacity="0"/>
+              <path id="tongue2" d="M70 113 Q80 120 90 113" fill="#E06070" opacity="0"/>
+            </g>
+            <ellipse cx="38" cy="90" rx="12" ry="8" fill="rgba(255,150,120,.2)"/>
+            <ellipse cx="122" cy="90" rx="12" ry="8" fill="rgba(255,150,120,.2)"/>
+            <ellipse cx="16" cy="80" rx="8" ry="12" fill="#FDDBB4"/>
+            <ellipse cx="144" cy="80" rx="8" ry="12" fill="#FDDBB4"/>
+          </svg>
+    </div>
+    <div class="av-name" id="avName">Prof. Sarah</div>
+    <div class="av-status-row">
+      <div class="av-dot" id="avDot"></div>
+      <span class="av-status-txt" id="avTxt">Lista para conversar</span>
+    </div>
+    <div class="wave" id="wave">
+      <div class="wb"></div><div class="wb"></div><div class="wb"></div>
+      <div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div>
+    </div>
+
+    <!-- Fonemas -->
+    <div class="ph-section">
+      <div class="ph-lbl">Fonemas — practica la pronunciación</div>
+      <div class="ph-grid" id="phGrid"></div>
+    </div>
+
+    <!-- Voz controles -->
+    <div class="vc-section">
+      <div class="vc-row">
+        <div class="vc-lbl"><span>Volumen</span><span id="vv">100%</span></div>
+        <input type="range" class="vc-range" min="0" max="1" step="0.05" value="1" id="vVol"
+          oninput="document.getElementById('vv').textContent=Math.round(this.value*100)+'%'">
       </div>
-      <div class="wave-bar" id="waveBar">
-        <div class="wb"></div><div class="wb"></div><div class="wb"></div>
-        <div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div>
+      <div class="vc-row">
+        <div class="vc-lbl"><span>Velocidad</span><span id="vr">0.85×</span></div>
+        <input type="range" class="vc-range" min="0.5" max="1.5" step="0.05" value="0.85" id="vRate"
+          oninput="document.getElementById('vr').textContent=parseFloat(this.value).toFixed(2)+'×'">
       </div>
+      <div class="vc-row">
+        <div class="vc-lbl"><span>Tono</span><span id="vp">1.2×</span></div>
+        <input type="range" class="vc-range" min="0.5" max="2" step="0.1" value="1.2" id="vPitch"
+          oninput="document.getElementById('vp').textContent=parseFloat(this.value).toFixed(1)+'×'">
+      </div>
+      <button class="test-btn" onclick="testVoice()">🔊 Probar voz de SABI</button>
     </div>
   </div>
 
-  <!-- PANEL -->
-  <div class="panel" style="position:relative">
-    <!-- Tabs -->
+  <!-- PANEL DERECHO: CHAT + LECCIONES -->
+  <div class="chat-panel">
     <div class="panel-tabs">
-      <button class="ptab on" onclick="showPanel('chat',this)">💬 Conversación</button>
-      <button class="ptab" onclick="showPanel('lessons',this)">📚 Lecciones</button>
-      <button class="ptab" onclick="showPanel('phonemes',this)">🔊 Fonemas</button>
+      <button class="ptab on" onclick="showTab('chat',this)">💬 Conversación</button>
+      <button class="ptab" onclick="showTab('lessons',this)">📚 Lecciones</button>
+      <button class="ptab" onclick="showTab('phonemes',this)">🔊 Fonemas detalle</button>
     </div>
 
-    <!-- PANEL CHAT -->
-    <div id="pChat" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
-      <div class="lesson-header">
+    <!-- TAB CHAT -->
+    <div id="tChat" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+      <div class="lesson-hdr">
         <div class="lesson-tag" id="lessonTag">Lección 1 · Saludos y presentación</div>
         <div class="lesson-title" id="lessonTitle">First conversations in English</div>
-        <div class="lesson-desc" id="lessonDesc">Practica saludos, tu nombre, tu profesión y frases básicas para iniciar una conversación en inglés.</div>
+        <div class="lesson-desc" id="lessonDesc">Practica saludos, tu nombre y frases para iniciar una conversación.</div>
         <div class="prog-row">
-          <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:20%"></div></div>
-          <span class="prog-pct" id="progPct">20%</span>
+          <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:15%"></div></div>
+          <span class="prog-pct" id="progPct">15%</span>
         </div>
       </div>
       <div class="chat-msgs" id="chatMsgs"></div>
       <div class="quickbar" id="quickbar"></div>
-      <div class="input-row" style="position:relative">
-        <textarea class="inp" id="uInp" placeholder="Escribe aquí o usa el micrófono…" rows="1"
+      <div class="input-row">
+        <textarea class="inp" id="uInp" placeholder="Escribe en el idioma que practicas…" rows="1"
           onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();doSend()}"
           oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
-        <button class="ibtn ibtn-mic" id="micBtn" onclick="toggleMic()" title="Hablar">🎤</button>
-        <button class="ibtn ibtn-vol" onclick="toggleVoice()" title="Controles de voz">🔊</button>
-        <button class="ibtn ibtn-send" onclick="doSend()" title="Enviar" style="color:#fff;font-size:16px">➤</button>
-        <!-- VOICE CTRL -->
-        <div class="voice-ctrl" id="voiceCtrl">
-          <div class="vc-row">
-            <div class="vc-lbl"><span>Volumen</span><span id="vVol">100%</span></div>
-            <input type="range" class="vc-s" min="0" max="1" step="0.05" value="1" id="vVolR" oninput="document.getElementById('vVol').textContent=Math.round(this.value*100)+'%'">
-          </div>
-          <div class="vc-row">
-            <div class="vc-lbl"><span>Velocidad</span><span id="vRate">0.85×</span></div>
-            <input type="range" class="vc-s" min="0.5" max="1.5" step="0.05" value="0.85" id="vRateR" oninput="document.getElementById('vRate').textContent=parseFloat(this.value).toFixed(2)+'×'">
-          </div>
-          <div class="vc-row" style="margin-bottom:12px">
-            <div class="vc-lbl"><span>Tono</span><span id="vPitch">1.2×</span></div>
-            <input type="range" class="vc-s" min="0.5" max="2" step="0.1" value="1.2" id="vPitchR" oninput="document.getElementById('vPitch').textContent=parseFloat(this.value).toFixed(1)+'×'">
-          </div>
-          <button class="test-btn" onclick="testVoice()">🔊 Probar voz</button>
-        </div>
+        <button class="ibtn ibtn-mic" id="micBtn" onclick="toggleMic()" title="Hablar por micrófono">
+          <i class="ti ti-microphone" id="micIco"></i>
+        </button>
+        <button class="ibtn ibtn-send" onclick="doSend()" title="Enviar">
+          <i class="ti ti-send"></i>
+        </button>
       </div>
     </div>
 
-    <!-- PANEL LECCIONES -->
-    <div id="pLessons" style="display:none;flex:1;overflow:hidden;flex-direction:column">
+    <!-- TAB LECCIONES -->
+    <div id="tLessons" style="display:none;flex:1;flex-direction:column;overflow:hidden">
       <div class="lessons-list" id="lessonsList"></div>
     </div>
 
-    <!-- PANEL FONEMAS -->
-    <div id="pPhonemes" style="display:none;flex:1;padding:16px;overflow-y:auto">
-      <p style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:14px;line-height:1.6">
-        Haz clic en un fonema para que SABI te muestre la posición exacta de labios y lengua, y lo pronuncie para ti.
+    <!-- TAB FONEMAS DETALLE -->
+    <div id="tPhonemes" style="display:none;flex:1;padding:16px;overflow-y:auto">
+      <p style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.65;margin-bottom:14px">
+        Haz clic en un fonema. SABI explicará la posición exacta de labios y lengua, y lo pronunciará en voz alta.
       </p>
-      <div class="ph-grid" id="phGrid" style="gap:7px"></div>
-      <div id="phonemeDetail" style="margin-top:16px;background:rgba(255,255,255,.05);border-radius:12px;padding:14px;display:none">
-        <div style="font-size:14px;font-weight:600;color:var(--gold2);margin-bottom:8px" id="phTitle"></div>
-        <div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.6" id="phBody"></div>
+      <div class="ph-grid" id="phGrid2" style="gap:7px"></div>
+      <div id="phDetail" style="display:none;margin-top:16px;background:rgba(255,255,255,.05);border-radius:12px;padding:14px">
+        <div id="phDetailTitle" style="font-size:14px;font-weight:600;color:var(--gold2);margin-bottom:8px"></div>
+        <div id="phDetailBody" style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.65"></div>
       </div>
     </div>
-  </div><!-- /panel -->
-</div><!-- /layout -->
+  </div>
+</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-/* ═══════════════════════════════════════════════════
-   DATOS DE IDIOMAS
-   ═══════════════════════════════════════════════════ */
+/* ═══════════════ DATOS DE IDIOMAS ═══════════════ */
 const LANGS = {
   en:{
-    name:'Inglés',teacher:'Prof. Sarah',tts:'en-US',
-    color:0x1D9E75,skinColor:0xFDDBB4,hairColor:0x4A3728,shirtColor:0x1D9E75,
-    greeting:'Hello! I\'m Prof. Sarah. I\'m here to help you practice English. Let\'s start! What\'s your name? 😊',
-    system:`You are Prof. Sarah, a warm English teacher for Colombian teachers at CENTEC school in Cali.
-RULES: Respond in English. Gently correct mistakes. Include phonetic hints like /θ/ for TH.
-Keep responses SHORT (2-4 sentences). Ask follow-up questions. Encourage always.
-When correcting: show correct form, explain briefly WHY.
-Add a 🇬🇧 phonetic note when relevant: e.g. "Note: 'the' = /ðə/"`,
+    teacher:'Prof. Sarah', tts:'en-US',
+    greeting:'Hello! I\'m Prof. Sarah, your English conversation partner at SABI CENTEC. ¡Vamos a practicar juntos! What\'s your name? 😊',
+    system:`You are Prof. Sarah, a warm English teacher for Colombian teachers at CENTEC school in Cali. 
+Respond in English. Gently correct grammar/pronunciation mistakes — show the correct form and explain briefly.
+Add phonetic hints like /θ/ for TH when relevant. Keep responses SHORT (2-4 sentences max).
+Ask follow-up questions to keep the dialogue going. Always encourage: "Great try!", "Almost perfect!"`,
     phonemes:[
-      {s:'TH /ð/',t:'TH sonora',d:'Lengua entre los dientes superiores e inferiores, vibra. Ejemplo: "the, this, that". Practica: "The teacher thinks this is that."'},
-      {s:'TH /θ/',t:'TH sorda',d:'Lengua entre los dientes, sin vibración. Ejemplo: "think, three, thank". Practica: "Thank you for three things."'},
-      {s:'V /v/',t:'Consonante V',d:'Labio inferior toca levemente los dientes superiores, vibra. Muy diferente de B en español. Ejemplo: "very, voice, visit".'},
-      {s:'W /w/',t:'Consonante W',d:'Labios redondeados y tensos, sin tocar los dientes. Ejemplo: "water, world, work". Practica: "We want warm water."'},
-      {s:'R /r/',t:'R inglesa',d:'La lengua NO toca el paladar. Se curva hacia atrás sin tocar nada. Ejemplo: "red, right, really". Muy diferente de la R española.'},
-      {s:'æ',t:'Vocal AE',d:'Entre A y E. Boca muy abierta horizontalmente. Ejemplo: "cat, bad, hat, man". Practica: "The cat sat on the mat."'},
-      {s:'ɪ',t:'I corta',d:'I muy breve y relajada. Ejemplo: "it, bit, sit, big". Diferente de la EE larga: "seat" vs "sit".'},
-      {s:'ʊ',t:'U corta',d:'U breve y relajada. Ejemplo: "book, look, cook, good". Diferente de "food" /uː/.'},
-      {s:'ɔː',t:'O larga',d:'O muy larga y abierta. Ejemplo: "all, call, fall, thought". Labios redondeados, abiertos.'},
-      {s:'eɪ',t:'Diptongo EI',d:'Comienza en E y termina en I. Ejemplo: "day, say, play, name". Muy común en inglés.'},
-      {s:'aɪ',t:'Diptongo AI',d:'Comienza en A y termina en I. Ejemplo: "my, time, fine, like". Muy frecuente.'},
-      {s:'ŋ',t:'NG final',d:'Nasal velar. La lengua toca el velo del paladar. Ejemplo: "sing, ring, king". Nunca se pronuncia la G final.'},
+      {s:'TH /ð/',t:'TH sonora',d:'Lengua entre dientes, con vibración. Ejemplos: "the, this, that, mother". Practica: "The teacher thinks this."'},
+      {s:'TH /θ/',t:'TH sorda',d:'Lengua entre dientes, sin vibración. Ejemplos: "think, three, thank". Practica: "Thank you for three things."'},
+      {s:'V /v/',t:'Consonante V',d:'Labio inferior toca los dientes superiores suavemente, vibra. Diferente de B. Ejemplos: "very, voice, visit, video".'},
+      {s:'W /w/',t:'Consonante W',d:'Labios redondeados y tensos sin tocar dientes. Ejemplos: "water, world, work, warm".'},
+      {s:'R /r/',t:'R inglesa',d:'La lengua NO toca el paladar — se curva hacia atrás sin contacto. Ejemplos: "red, right, really, river".'},
+      {s:'æ',t:'Vocal AE',d:'Entre A y E, boca muy abierta. Ejemplos: "cat, bad, hat, man, class". Practica: "The cat sat on the mat."'},
+      {s:'ɪ',t:'I corta',d:'I breve y relajada. Ejemplos: "it, bit, sit, big, this". Diferente de "seat" /iː/.'},
+      {s:'ŋ',t:'NG nasal',d:'Nasal velar — lengua toca el velo del paladar. Ejemplos: "sing, ring, king, teaching". La G final no se pronuncia.'},
+      {s:'eɪ',t:'Diptongo EI',d:'Comienza en E, termina en I. Ejemplos: "day, say, name, play, teacher".'},
+      {s:'aɪ',t:'Diptongo AI',d:'Comienza en A, termina en I. Ejemplos: "my, time, fine, like, idea".'}
     ],
     lessons:[
       {t:'Greetings & introductions',s:'Saludos y presentación',xp:50,done:true},
-      {t:'Numbers & time',s:'Números y tiempo',xp:60,done:false,active:true},
-      {t:'Classroom language',s:'Lenguaje del aula',xp:70,done:false},
-      {t:'Daily routines',s:'Rutinas diarias',xp:80,done:false},
-      {t:'Food & preferences',s:'Comida y preferencias',xp:90,done:false},
-      {t:'My job as a teacher',s:'Mi trabajo como docente',xp:100,done:false},
-      {t:'Emotions & wellbeing',s:'Emociones y bienestar',xp:110,done:false},
-      {t:'Planning a lesson',s:'Planear una clase',xp:120,done:false},
+      {t:'Numbers, time & dates',s:'Números, tiempo y fechas',xp:60,active:true},
+      {t:'Classroom language',s:'Lenguaje del aula',xp:70},
+      {t:'Daily routines',s:'Rutinas diarias',xp:80},
+      {t:'My job as a teacher',s:'Mi trabajo docente',xp:90},
+      {t:'Emotions & wellbeing',s:'Emociones y bienestar',xp:100},
+      {t:'Planning a lesson',s:'Planear una clase',xp:110},
+      {t:'Giving instructions in English',s:'Dar instrucciones en inglés',xp:120}
     ],
-    quick:['Hello!','Good morning!','My name is...','I am a teacher','How are you?','Can you repeat?','What does ... mean?'],
+    quick:['Hello!','Good morning!','My name is...','I am a teacher','How are you?','Can you repeat?','What does ... mean?','Very good!']
   },
   fr:{
-    name:'Français',teacher:'Prof. Julien',tts:'fr-FR',
-    color:0x1B5EA6,skinColor:0xFDE0BC,hairColor:0x2E1C0E,shirtColor:0x1B5EA6,
-    greeting:'Bonjour ! Je suis Prof. Julien. Le français est une langue magnifique. Comment vous appelez-vous? 🇫🇷',
+    teacher:'Prof. Julien', tts:'fr-FR',
+    greeting:'Bonjour ! Je suis Prof. Julien, votre professeur de français à SABI CENTEC. ¡El francés es una lengua hermosa! Comment vous appelez-vous ? 🇫🇷',
     system:`You are Prof. Julien, a patient French teacher for Colombian teachers at CENTEC school in Cali.
-RULES: Respond in French with Spanish translation in parentheses. Gently correct pronunciation.
-Explain nasal vowels AN/IN/ON, the French R, the silent letters. SHORT responses (2-4 sentences).
-Encourage: "Très bien!", "Presque parfait!", "Encore une fois..."`,
+Respond in French with Spanish translation in parentheses. Explain nasal vowels, the French R, liaisons.
+Correct mistakes gently. SHORT responses (2-4 sentences). Encourage: "Très bien!", "Presque parfait!"`,
     phonemes:[
-      {s:'AN /ɑ̃/',t:'Nasal AN',d:'Vocal A nasalizada. El aire sale por la nariz. Ejemplo: "manger, enfant, grand". Practica con la nariz tapada — si no suena diferente, no es nasal.'},
-      {s:'IN /ɛ̃/',t:'Nasal IN',d:'Vocal E nasalizada. Ejemplos: "vin, fin, main, bien". La lengua está baja, labios ligeramente estirados.'},
-      {s:'ON /õ/',t:'Nasal ON',d:'Vocal O nasalizada. Ejemplos: "bon, maison, nom". Labios redondeados, aire por la nariz.'},
-      {s:'EU /ø/',t:'Vocal EU',d:'No existe en español. Labios como para O, pero lengua como para E. Ejemplo: "deux, peu, feu, bleu". Practica: redondea labios → di E.'},
-      {s:'U /y/',t:'Vocal U francesa',d:'No es la U española. Labios muy redondeados hacia adelante, lengua alta. Ejemplo: "tu, lu, du, sur". Practica: di "i" → redondea labios sin mover la lengua.'},
-      {s:'R /ʁ/',t:'R gutural',d:'La R francesa se pronuncia en la garganta, como si hiciera gárgaras suave. Nunca toca el paladar. Ejemplo: "rouge, rue, rire, Paris".'},
-      {s:'GN /ɲ/',t:'Sonido GN',d:'Como la Ñ española. Ejemplo: "cognac, gagner, magnifique". Practica: "champagne" = "sham-PAN-yuh".'},
-      {s:'liaison',t:'La liaison',d:'Unión de consonante final + vocal inicial. Ejemplo: "vous_avez" → "voo-ZA-vay". "les_enfants" → "lay-ZAN-fan". Obligatorio en francés formal.'},
+      {s:'AN /ɑ̃/',t:'Nasal AN',d:'A nasalizada: el aire sale por la nariz. Ejemplos: "manger, enfant, grand, pendant". Practica con nariz tapada.'},
+      {s:'IN /ɛ̃/',t:'Nasal IN',d:'E nasalizada. Ejemplos: "vin, fin, main, bien, impossible". Labios ligeramente estirados.'},
+      {s:'ON /õ/',t:'Nasal ON',d:'O nasalizada. Ejemplos: "bon, maison, nom, allons". Labios redondeados.'},
+      {s:'EU /ø/',t:'Vocal EU',d:'Labios para O, lengua para E. Ejemplos: "deux, peu, feu, bleu". Practica: redondea labios → di E.'},
+      {s:'U /y/',t:'Vocal U',d:'Labios muy redondeados hacia adelante, lengua alta. Ejemplos: "tu, lu, du, sur". Practica: di "i" → redondea labios.'},
+      {s:'R /ʁ/',t:'R gutural',d:'En la garganta, como gárgaras suaves. Nunca toca el paladar. Ejemplos: "rouge, rue, Paris, merci".'},
+      {s:'GN /ɲ/',t:'Sonido GN',d:'Como la Ñ española. Ejemplos: "magnifique, gagner, champagne, montagne".'},
+      {s:'liaison',t:'La liaison',d:'Unión consonante final + vocal inicial. Ejemplo: "vous_avez" → "voo-ZA-vay". "les_enfants" → "lay-ZAN-fan".'}
     ],
     lessons:[
       {t:'Bonjour et présentations',s:'Saludos y presentación',xp:50,done:true},
-      {t:'Les chiffres et l\'heure',s:'Números y tiempo',xp:60,done:false,active:true},
-      {t:'La salle de classe',s:'El salón de clase',xp:70,done:false},
-      {t:'La famille',s:'La familia',xp:80,done:false},
-      {t:'Les repas',s:'Las comidas',xp:90,done:false},
-      {t:'Mon métier d\'enseignant',s:'Mi profesión docente',xp:100,done:false},
+      {t:'Les chiffres et l\'heure',s:'Números y tiempo',xp:60,active:true},
+      {t:'La salle de classe',s:'El aula',xp:70},
+      {t:'La famille',s:'La familia',xp:80},
+      {t:'Les repas français',s:'Las comidas',xp:90},
+      {t:'Mon métier d\'enseignant',s:'Mi profesión docente',xp:100}
     ],
-    quick:['Bonjour!','Comment allez-vous?','Je m\'appelle...','Je suis professeur','Pouvez-vous répéter?','Qu\'est-ce que ça veut dire?'],
+    quick:['Bonjour !','Comment allez-vous ?','Je m\'appelle...','Je suis professeur(e)','Pouvez-vous répéter ?','Qu\'est-ce que ça veut dire ?','Très bien !']
   },
   pt:{
-    name:'Português',teacher:'Prof. Ana',tts:'pt-BR',
-    color:0x1A8F5E,skinColor:0xF5C89A,hairColor:0x1A0A00,shirtColor:0x1A8F5E,
-    greeting:'Olá! Eu sou a Prof. Ana. O português brasileiro é lindo e está muito próximo do espanhol! Como você se chama? 🇧🇷',
+    teacher:'Prof. Ana', tts:'pt-BR',
+    greeting:'Olá! Eu sou a Prof. Ana, sua professora de português brasileiro no SABI CENTEC. ¡El portugués está muy cerca del español! Como você se chama? 🇧🇷',
     system:`You are Prof. Ana, a friendly Brazilian Portuguese teacher for Colombian teachers at CENTEC school in Cali.
-RULES: Respond in Portuguese, with Spanish notes in parentheses. Highlight similarities with Spanish.
-Gently correct: nasalization (ão, ã), LH/NH sounds, the rolled RR. SHORT responses (2-4 sentences).
-Encourage: "Muito bem!", "Quase perfeito!", "Tente de novo..."`,
+Respond in Portuguese with Spanish notes in parentheses. Highlight similarities with Spanish — it builds confidence.
+Gently correct nasalization (ão/ã), LH/NH, the Brazilian R. SHORT responses (2-4 sentences). Encourage: "Muito bem!"`,
     phonemes:[
-      {s:'ÃO /ɐ̃w̃/',t:'Nasal ÃO',d:'El sonido más característico del portugués brasileño. Ejemplo: "não, mão, irmão, pão". Termina como si dijeras "ung" muy brevemente por la nariz.'},
-      {s:'LH /ʎ/',t:'Dígrafo LH',d:'Como la LL española de España, o la LL italiana. Ejemplo: "filho, trabalho, mulher". Lengua toca el paladar duro.'},
-      {s:'NH /ɲ/',t:'Dígrafo NH',d:'Exactamente como la Ñ española. Ejemplo: "vinho, banho, manhã, sonho". El punto de articulación es el paladar duro.'},
-      {s:'RR',t:'R brasileño',d:'En Brasil, el R fuerte suena como H en inglés ("hat"). Ejemplo: "carro" = "CA-ho", "Rio" = "HEE-o". Al inicio de palabra también: "rato" = "HA-to".'},
-      {s:'D→DJ',t:'D ante I/E',d:'En Brasil, D ante I o E se pronuncia como DJ. Ejemplo: "dia" = "DJI-a", "de" = "DJI". Muy diferente del portugués europeo.'},
-      {s:'T→TCH',t:'T ante I/E',d:'En Brasil, T ante I o E se pronuncia como TCH. Ejemplo: "tio" = "TCHEE-o", "te" = "TCHI". Característico del acento brasileño.'},
+      {s:'ÃO /ɐ̃w̃/',t:'Nasal ÃO',d:'El sonido más característico del portugués. Ejemplos: "não, mão, irmão, pão". Termina como "ung" nasal brevemente.'},
+      {s:'LH /ʎ/',t:'Dígrafo LH',d:'Como LL española de España o LL italiana. Ejemplos: "filho, trabalho, mulher, melhor".'},
+      {s:'NH /ɲ/',t:'Dígrafo NH',d:'Exactamente como Ñ española. Ejemplos: "vinho, banho, manhã, sonho, caminho".'},
+      {s:'RR',t:'R brasileño',d:'En Brasil suena como H inglesa. Ejemplos: "carro"="CA-ho", "Rio"="HEE-o", "rato"="HA-to".'},
+      {s:'D→DJ',t:'D + I/E',d:'Ante I o E suena DJ. Ejemplos: "dia"="DJI-a", "de"="DJI". Muy característico del acento brasileiro.'},
+      {s:'T→TCH',t:'T + I/E',d:'Ante I o E suena TCH. Ejemplos: "tio"="TCHEE-o", "te"="TCHI". Diferente del portugués europeo.'}
     ],
     lessons:[
       {t:'Olá e apresentações',s:'Saludos y presentación',xp:50,done:true},
-      {t:'Números e horas',s:'Números y horas',xp:60,done:false,active:true},
-      {t:'A sala de aula',s:'El salón de clase',xp:70,done:false},
-      {t:'A família',s:'La familia',xp:80,done:false},
-      {t:'Comidas e bebidas',s:'Comidas y bebidas',xp:90,done:false},
+      {t:'Números e horas',s:'Números y horas',xp:60,active:true},
+      {t:'A sala de aula',s:'El aula',xp:70},
+      {t:'A família',s:'La familia',xp:80},
+      {t:'Comidas e bebidas',s:'Comidas y bebidas',xp:90}
     ],
-    quick:['Olá!','Bom dia!','Como vai você?','Eu me chamo...','Pode repetir?','O que significa...?'],
+    quick:['Olá!','Bom dia!','Como vai você?','Eu me chamo...','Pode repetir?','O que significa...?','Muito obrigado(a)!']
   },
   de:{
-    name:'Deutsch',teacher:'Prof. Klaus',tts:'de-DE',
-    color:0x8B7355,skinColor:0xFFE0C0,hairColor:0x6B4C2A,shirtColor:0x5C4A8A,
-    greeting:'Guten Tag! Ich bin Prof. Klaus. Deutsch hat eine sehr logische Struktur — perfekt für Lehrer! Wie heißen Sie? 🇩🇪',
+    teacher:'Prof. Klaus', tts:'de-DE',
+    greeting:'Guten Tag! Ich bin Prof. Klaus, Ihr Deutschlehrer bei SABI CENTEC. ¡El alemán tiene una lógica muy interesante! Wie heißen Sie? 🇩🇪',
     system:`You are Prof. Klaus, a structured but encouraging German teacher for Colombian teachers at CENTEC school.
-RULES: Respond in German with Spanish translations in parentheses. Explain sounds: CH, Ü, Ö, Ä umlauts, SCH.
-Mention grammar patterns briefly. SHORT responses (2-4 sentences).
-Encourage: "Sehr gut!", "Fast perfekt!", "Nochmal bitte..."`,
+Respond in German with Spanish translations in parentheses. Explain CH, Ü, Ö, Ä, SCH sounds.
+Correct mistakes gently. SHORT responses (2-4 sentences). Encourage: "Sehr gut!", "Fast perfekt!"`,
     phonemes:[
-      {s:'CH /x/',t:'CH dura',d:'Como la J española pero más fuerte. Después de A, O, U. Ejemplo: "Bach, doch, Buch". Se produce en la garganta.'},
-      {s:'CH /ç/',t:'CH suave',d:'Como soplar suave. Después de E, I y consonantes. Ejemplo: "ich, mich, nicht, Mädchen". La lengua está alta, aire sale suavemente.'},
-      {s:'Ü /y/',t:'Umlaut Ü',d:'Como la U francesa. Labios muy redondeados hacia adelante, lengua alta como para I. Ejemplo: "über, für, müde, fühlen".'},
-      {s:'Ö /ø/',t:'Umlaut Ö',d:'Labios redondeados como para O, pero lengua como para E. Ejemplo: "schön, öffnen, hören, zwölf".'},
-      {s:'Ä /ɛ/',t:'Umlaut Ä',d:'Como la E española pero más abierta. Ejemplo: "Mädchen, Käse, später, ändern". Similar a la E en "café".'},
-      {s:'SCH /ʃ/',t:'SCH',d:'Como SH en inglés "shoe". Labios hacia adelante. Ejemplo: "Schule, schön, schwimmen, Mensch".'},
-      {s:'W→V',t:'W suena V',d:'La W alemana suena como V española. Ejemplo: "Wasser" = "VÁ-ser", "wie" = "VEE", "was" = "VAS". No hay W inglesa en alemán.'},
-      {s:'V→F',t:'V suena F',d:'La V alemana suena como F en muchos casos. Ejemplo: "Vogel" = "FO-gel", "viel" = "FEEL". Excepto en palabras extranjeras.'},
+      {s:'CH /x/',t:'CH dura',d:'Como J española pero más fuerte, en la garganta. Después de A, O, U. Ejemplos: "Bach, doch, Buch, auch".'},
+      {s:'CH /ç/',t:'CH suave',d:'Como soplar suavemente. Después de E, I, consonantes. Ejemplos: "ich, mich, nicht, Mädchen".'},
+      {s:'Ü /y/',t:'Umlaut Ü',d:'Labios muy redondeados hacia adelante, lengua alta como para I. Ejemplos: "über, für, müde, fühlen".'},
+      {s:'Ö /ø/',t:'Umlaut Ö',d:'Labios para O, lengua para E. Ejemplos: "schön, öffnen, hören, zwölf".'},
+      {s:'Ä /ɛ/',t:'Umlaut Ä',d:'E más abierta. Ejemplos: "Mädchen, Käse, später, ändern". Similar a E en "café".'},
+      {s:'SCH /ʃ/',t:'SCH',d:'Como SH inglesa. Labios hacia adelante. Ejemplos: "Schule, schön, schwimmen, Mensch".'},
+      {s:'W→V',t:'W suena V',d:'La W alemana suena V española. Ejemplos: "Wasser"="VÁ-ser", "wie"="VEE", "was"="VAS".'},
+      {s:'Z /ts/',t:'Consonante Z',d:'Suena TS. Ejemplos: "Zeit"="TSáit", "zusammen"="tsoo-ZÁ-men", "Zahl"="TSAAL".'}
     ],
     lessons:[
       {t:'Guten Tag! Vorstellung',s:'Saludos y presentación',xp:50,done:true},
-      {t:'Zahlen und Uhrzeit',s:'Números y tiempo',xp:60,done:false,active:true},
-      {t:'Im Klassenzimmer',s:'En el aula',xp:70,done:false},
-      {t:'Familie und Beruf',s:'Familia y profesión',xp:80,done:false},
+      {t:'Zahlen und Uhrzeit',s:'Números y tiempo',xp:60,active:true},
+      {t:'Im Klassenzimmer',s:'En el aula',xp:70},
+      {t:'Familie und Beruf',s:'Familia y profesión',xp:80}
     ],
-    quick:['Guten Morgen!','Wie heißen Sie?','Ich bin Lehrer/in','Können Sie wiederholen?','Was bedeutet...?','Sehr gut!'],
+    quick:['Guten Morgen!','Wie heißen Sie?','Ich bin Lehrer/in','Können Sie wiederholen?','Was bedeutet...?','Sehr gut!','Danke schön!']
   },
   zh:{
-    name:'普通话',teacher:'老师 Mei',tts:'zh-CN',
-    color:0xC0392B,skinColor:0xF5D5B0,hairColor:0x0A0A0A,shirtColor:0xC0392B,
-    greeting:'你好！我是 Mei 老师。(Hola, soy la Prof. Mei.) ¡El mandarín tiene tonos que cambian el significado! 你叫什么名字？(¿Cómo te llamas?) 🇨🇳',
+    teacher:'老师 Mei', tts:'zh-CN',
+    greeting:'你好！我是 Mei 老师，你的普通话老师。(Hola, soy Prof. Mei.) ¡Los tonos del mandarín son clave! 你叫什么名字？(¿Cómo te llamas?) 🇨🇳',
     system:`You are 老师 Mei (Teacher Mei), a patient Mandarin Chinese teacher for Colombian teachers at CENTEC school in Cali.
-RULES: Mix Chinese + Pinyin + Spanish translation. Example: 你好 (nǐ hǎo) = Hola.
-Focus on TONES — always mark tones in Pinyin. Keep responses SHORT (2-4 exchanges).
-Encourage: "做得好！(Muy bien!)", "再试一次 (Inténtalo de nuevo)".
-Use humor: "¡Un tono incorrecto puede cambiar el significado completamente!"`,
+Use: Chinese characters + Pinyin + Spanish. Example: 你好 (nǐ hǎo) = Hola.
+Focus on TONES — always mark tones in Pinyin. SHORT responses (2-4 sentences).
+Encourage: "做得好！(Muy bien!)", "再试一次 (Inténtalo de nuevo)."`,
     phonemes:[
-      {s:'1° tono ā',t:'Primer tono (平)',d:'Tono alto y plano. Como si cantaras una nota sostenida. Ejemplo: māo (猫=gato), māma (妈妈=mamá). Voz alta, no sube ni baja.'},
-      {s:'2° tono á',t:'Segundo tono (升)',d:'Tono que sube. Como cuando preguntas "¿Qué?" en español. Ejemplo: máng (忙=ocupado), lái (来=venir). Sube desde medio hasta alto.'},
-      {s:'3° tono ǎ',t:'Tercer tono (降升)',d:'Tono que baja y luego sube. Como expresar duda "hmm". Ejemplo: nǐ (你=tú), hǎo (好=bueno). Es el más difícil — bajo, baja más, luego sube.'},
-      {s:'4° tono à',t:'Cuarto tono (降)',d:'Tono que cae fuertemente. Como dar una orden o sorpresa. Ejemplo: shì (是=ser), duì (对=correcto). Cae desde alto hasta bajo, breve y fuerte.'},
-      {s:'X /ɕ/',t:'Consonante X',d:'Como una SH muy suave, sin redondear labios. Ejemplo: xīn (心=corazón), xuéshēng (学生=estudiante). La lengua toca el paladar blando.'},
-      {s:'Q /tɕ/',t:'Consonante Q',d:'Como CH pero más adelante en la boca. Ejemplo: qǐng (请=por favor), qù (去=ir). Los labios no se redondean.'},
-      {s:'ZH /tʂ/',t:'Consonante ZH',d:'Como la J en inglés "jump" pero retroflexa (lengua curvada hacia atrás). Ejemplo: zhōngguó (中国=China), zhè (这=este).'},
-      {s:'ü /y/',t:'Vocal Ü',d:'Como la U francesa. Labios muy redondeados, lengua alta. En Pinyin, después de L o N se escribe "ü": lǜ (绿=verde), nǚ (女=mujer/femenino).'},
+      {s:'1° ā',t:'Primer tono',d:'Alto y plano, como nota sostenida. Ejemplos: māo(猫=gato), māma(妈妈=mamá). Voz alta sin cambio.'},
+      {s:'2° á',t:'Segundo tono',d:'Sube, como preguntar "¿Qué?". Ejemplos: máng(忙=ocupado), lái(来=venir).'},
+      {s:'3° ǎ',t:'Tercer tono',d:'Baja y sube, como dudar "hmm". Ejemplos: nǐ(你=tú), hǎo(好=bueno). El más difícil.'},
+      {s:'4° à',t:'Cuarto tono',d:'Cae fuerte y rápido, como dar una orden. Ejemplos: shì(是=ser/estar), duì(对=correcto).'},
+      {s:'X /ɕ/',t:'Consonante X',d:'SH muy suave sin redondear labios. Ejemplos: xīn(心=corazón), xuéshēng(学生=estudiante).'},
+      {s:'Q /tɕ/',t:'Consonante Q',d:'CH más adelante en la boca, sin redondear labios. Ejemplos: qǐng(请=por favor), qù(去=ir).'},
+      {s:'ZH /tʂ/',t:'Consonante ZH',d:'Como J inglesa pero retrofleja (lengua hacia atrás). Ejemplos: zhōngguó(中国=China).'},
+      {s:'ü /y/',t:'Vocal Ü',d:'Labios muy redondeados, lengua alta. Después de L o N. Ejemplos: lǜ(绿=verde), nǚ(女=mujer).'}
     ],
     lessons:[
       {t:'你好！自我介绍',s:'Hola, presentarse',xp:50,done:true},
-      {t:'数字和时间',s:'Números y tiempo',xp:60,done:false,active:true},
-      {t:'课堂用语',s:'Lenguaje del aula',xp:70,done:false},
-      {t:'家庭和职业',s:'Familia y profesión',xp:80,done:false},
+      {t:'数字和时间',s:'Números y tiempo',xp:60,active:true},
+      {t:'课堂用语',s:'Lenguaje del aula',xp:70},
+      {t:'家庭和职业',s:'Familia y profesión',xp:80}
     ],
-    quick:['你好!','早上好!','我叫...','我是老师','请再说一遍','这是什么意思?','谢谢!'],
-  },
+    quick:['你好!','早上好!','我叫...','我是老师','请再说一遍','这是什么意思?','谢谢!','做得好!']
+  }
 };
 
-/* ═══════════════════════════════════════════════════
-   THREE.JS — AVATAR 3D
-   ═══════════════════════════════════════════════════ */
-let scene, camera, renderer, avatarGroup;
-let headMesh, jawMesh, eyeL, eyeR, pupilL, pupilR;
-let mouthOpen = 0, targetMouth = 0;
-let blinkTimer = 0, nextBlink = 3;
-let headSway = 0, headNod = 0;
-let isSpeaking = false;
-let currentLang = 'en';
+/* ═══════════════ ESTADO ═══════════════ */
+let lang = 'en';
+let busy = false, recOn = false;
+let history = [];
+let prog = 15;
 
-function initThree(){
-  const canvas = document.getElementById('threeCanvas');
-  const w = canvas.parentElement.clientWidth;
-  const h = canvas.parentElement.clientHeight;
+/* ═══════════════ BOCA ANIMADA (SVG del index original) ═══════════════ */
+const MOUTH = {
+  rest:  {lu:'M62 108 Q72 103 80 106 Q88 103 98 108', ll:'M62 108 Q80 118 98 108', te:0, to:0},
+  open:  {lu:'M62 105 Q72 98 80 102 Q88 98 98 105',  ll:'M62 105 Q80 124 98 105', te:.7, to:.6},
+  mid:   {lu:'M62 107 Q72 101 80 104 Q88 101 98 107', ll:'M62 107 Q80 120 98 107', te:.4, to:.3},
+  smile: {lu:'M64 109 Q72 104 80 107 Q88 104 96 109', ll:'M64 109 Q80 115 96 109', te:0, to:0}
+};
 
-  scene = new THREE.Scene();
-  scene.background = null;
+let mouthOn = false, mouthTimer = null;
 
-  camera = new THREE.PerspectiveCamera(40, w/h, 0.1, 100);
-  camera.position.set(0, 0.3, 3.2);
-  camera.lookAt(0, 0.2, 0);
-
-  renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
-  renderer.setSize(w, h);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  renderer.shadowMap.enabled = true;
-
-  // Luces
-  const ambient = new THREE.AmbientLight(0xffffff, 0.6);
-  scene.add(ambient);
-  const key = new THREE.DirectionalLight(0xfff5e0, 1.2);
-  key.position.set(2, 3, 4);
-  key.castShadow = true;
-  scene.add(key);
-  const fill = new THREE.DirectionalLight(0xe0f0ff, 0.4);
-  fill.position.set(-3, 1, 2);
-  scene.add(fill);
-  const rim = new THREE.DirectionalLight(0xD4A843, 0.3);
-  rim.position.set(0, -2, -3);
-  scene.add(rim);
-
-  buildAvatar('en');
-  animate();
-
-  window.addEventListener('resize', ()=>{
-    const w2 = canvas.parentElement.clientWidth;
-    const h2 = canvas.parentElement.clientHeight;
-    camera.aspect = w2/h2;
-    camera.updateProjectionMatrix();
-    renderer.setSize(w2, h2);
+function setMouth(shape) {
+  const s = MOUTH[shape] || MOUTH.rest;
+  // Actualizar los dos SVGs del avatar (mainFaceSVG y sideFaceSVG)
+  ['','2'].forEach(sfx => {
+    const lu = document.getElementById('lip-u'+sfx) || document.getElementById('lip-upper');
+    const ll = document.getElementById('lip-l'+sfx) || document.getElementById('lip-lower');
+    const te = document.getElementById('teeth'+(sfx||'show'));
+    const to = document.getElementById('tongue'+(sfx||'show'));
+    if(lu) lu.setAttribute('d', s.lu);
+    if(ll) ll.setAttribute('d', s.ll);
+    if(te) te.setAttribute('opacity', s.te);
+    if(to) to.setAttribute('opacity', s.to);
   });
 }
 
-function buildAvatar(langKey){
-  if(avatarGroup){ scene.remove(avatarGroup); }
-  avatarGroup = new THREE.Group();
-  scene.add(avatarGroup);
-
-  const L = LANGS[langKey];
-  const skin = new THREE.Color(L.skinColor);
-  const hair = new THREE.Color(L.hairColor);
-  const shirt = new THREE.Color(L.shirtColor);
-  const accent = new THREE.Color(0xD4A843);
-
-  // ── CUELLO ──
-  const neckG = new THREE.CylinderGeometry(0.15, 0.18, 0.3, 16);
-  const neckM = new THREE.MeshLambertMaterial({color:skin});
-  const neck = new THREE.Mesh(neckG, neckM);
-  neck.position.y = -0.58;
-  avatarGroup.add(neck);
-
-  // ── CUERPO ──
-  const bodyG = new THREE.CapsuleGeometry(0.38, 0.5, 8, 16);
-  const bodyM = new THREE.MeshLambertMaterial({color:shirt});
-  const body = new THREE.Mesh(bodyG, bodyM);
-  body.position.y = -1.15;
-  avatarGroup.add(body);
-
-  // Cuello de camisa
-  const collarG = new THREE.TorusGeometry(0.19, 0.04, 8, 20);
-  const collarM = new THREE.MeshLambertMaterial({color:new THREE.Color(0xffffff)});
-  const collar = new THREE.Mesh(collarG, collarM);
-  collar.position.y = -0.88;
-  avatarGroup.add(collar);
-
-  // ── CABEZA ──
-  const headG = new THREE.SphereGeometry(0.52, 32, 32);
-  const headMat = new THREE.MeshLambertMaterial({color:skin});
-  headMesh = new THREE.Mesh(headG, headMat);
-  headMesh.scale.set(1, 1.12, 0.92);
-  headMesh.castShadow = true;
-  avatarGroup.add(headMesh);
-
-  // ── PELO ──
-  const hairTopG = new THREE.SphereGeometry(0.53, 32, 16, 0, Math.PI*2, 0, Math.PI*0.5);
-  const hairM = new THREE.MeshLambertMaterial({color:hair});
-  const hairTop = new THREE.Mesh(hairTopG, hairM);
-  hairTop.position.y = 0.06;
-  hairTop.scale.set(1.02, 1.05, 1.0);
-  avatarGroup.add(hairTop);
-
-  // Pelo lateral
-  const hairSideG = new THREE.SphereGeometry(0.54, 16, 16, 0, Math.PI*2, Math.PI*0.48, Math.PI*0.15);
-  const hairSide = new THREE.Mesh(hairSideG, hairM);
-  hairSide.scale.set(1.03, 1.1, 1.03);
-  avatarGroup.add(hairSide);
-
-  // ── OREJAS ──
-  [-1, 1].forEach(side=>{
-    const earG = new THREE.SphereGeometry(0.1, 16, 16);
-    const ear = new THREE.Mesh(earG, new THREE.MeshLambertMaterial({color:skin}));
-    ear.position.set(side*0.5, 0.05, 0);
-    ear.scale.set(0.7, 1, 0.5);
-    avatarGroup.add(ear);
-  });
-
-  // ── OJOS ──
-  const eyeWhiteG = new THREE.SphereGeometry(0.09, 16, 16);
-  const eyeWhiteM = new THREE.MeshLambertMaterial({color:0xffffff});
-
-  eyeL = new THREE.Group();
-  eyeR = new THREE.Group();
-
-  const ewL = new THREE.Mesh(eyeWhiteG, eyeWhiteM);
-  const ewR = new THREE.Mesh(eyeWhiteG, eyeWhiteM);
-  eyeL.add(ewL); eyeR.add(ewR);
-
-  pupilL = new THREE.Mesh(
-    new THREE.SphereGeometry(0.045, 12, 12),
-    new THREE.MeshLambertMaterial({color:0x1A0A00})
-  );
-  pupilL.position.set(0.01, 0, 0.07);
-
-  pupilR = new THREE.Mesh(
-    new THREE.SphereGeometry(0.045, 12, 12),
-    new THREE.MeshLambertMaterial({color:0x1A0A00})
-  );
-  pupilR.position.set(-0.01, 0, 0.07);
-
-  // Brillo
-  const glintG = new THREE.SphereGeometry(0.015, 8, 8);
-  const glintM = new THREE.MeshLambertMaterial({color:0xffffff});
-  const glintL = new THREE.Mesh(glintG, glintM);
-  glintL.position.set(0.02, 0.025, 0.088);
-  const glintR = glintL.clone();
-
-  eyeL.add(pupilL); eyeL.add(glintL);
-  eyeR.add(pupilR); eyeR.add(glintR);
-
-  eyeL.position.set(-0.18, 0.1, 0.44);
-  eyeR.position.set(0.18, 0.1, 0.44);
-  avatarGroup.add(eyeL); avatarGroup.add(eyeR);
-
-  // Párpados
-  [-1,1].forEach((side,i)=>{
-    const lidG = new THREE.SphereGeometry(0.093, 16, 8, 0, Math.PI*2, 0, Math.PI*0.5);
-    const lid = new THREE.Mesh(lidG, new THREE.MeshLambertMaterial({color:skin}));
-    lid.position.set(side*-0.18, 0.1, 0.44);
-    lid.rotation.x = -0.1;
-    lid.name = i===0?'lidL':'lidR';
-    avatarGroup.add(lid);
-  });
-
-  // Cejas
-  [-1,1].forEach(side=>{
-    const browG = new THREE.BoxGeometry(0.14, 0.025, 0.03);
-    const brow = new THREE.Mesh(browG, new THREE.MeshLambertMaterial({color:hair}));
-    brow.position.set(side*-0.18, 0.22, 0.46);
-    brow.rotation.z = side * 0.08;
-    avatarGroup.add(brow);
-  });
-
-  // ── NARIZ ──
-  const noseG = new THREE.SphereGeometry(0.07, 12, 12);
-  const nose = new THREE.Mesh(noseG, new THREE.MeshLambertMaterial({color:new THREE.Color(skin).multiplyScalar(0.92)}));
-  nose.position.set(0, -0.04, 0.49);
-  nose.scale.set(0.8, 0.65, 0.7);
-  avatarGroup.add(nose);
-
-  // ── BOCA ──
-  // Labio superior
-  const lipUpG = new THREE.TorusGeometry(0.12, 0.025, 8, 20, Math.PI);
-  const lipM = new THREE.MeshLambertMaterial({color:new THREE.Color(0xC87060)});
-  const lipUp = new THREE.Mesh(lipUpG, lipM);
-  lipUp.position.set(0, -0.2, 0.47);
-  lipUp.rotation.z = Math.PI;
-  avatarGroup.add(lipUp);
-
-  // Labio inferior (jaw group — animado)
-  jawMesh = new THREE.Group();
-  jawMesh.position.set(0, -0.24, 0);
-
-  const lipLowG = new THREE.TorusGeometry(0.12, 0.028, 8, 20, Math.PI);
-  const lipLow = new THREE.Mesh(lipLowG, lipM);
-  lipLow.position.set(0, 0.05, 0.47);
-  jawMesh.add(lipLow);
-
-  // Dientes
-  const teethG = new THREE.BoxGeometry(0.18, 0.04, 0.02);
-  const teethM = new THREE.MeshLambertMaterial({color:0xF8F8F0});
-  const teeth = new THREE.Mesh(teethG, teethM);
-  teeth.position.set(0, 0.06, 0.47);
-  jawMesh.add(teeth);
-
-  // Lengua
-  const tongueG = new THREE.SphereGeometry(0.08, 12, 8);
-  const tongueM = new THREE.MeshLambertMaterial({color:0xE06070});
-  const tongue = new THREE.Mesh(tongueG, tongueM);
-  tongue.position.set(0, 0.03, 0.42);
-  tongue.scale.set(1.2, 0.6, 0.8);
-  jawMesh.add(tongue);
-
-  avatarGroup.add(jawMesh);
-
-  // ── MEJILLAS ──
-  [-1,1].forEach(side=>{
-    const blushG = new THREE.SphereGeometry(0.1, 12, 12);
-    const blushM = new THREE.MeshLambertMaterial({color:0xFFB0A0, transparent:true, opacity:0.25});
-    const blush = new THREE.Mesh(blushG, blushM);
-    blush.position.set(side*-0.32, -0.1, 0.4);
-    blush.scale.set(1, 0.6, 0.5);
-    avatarGroup.add(blush);
-  });
-
-  // ── ARO CENTEC (dorado) ──
-  const ringG = new THREE.TorusGeometry(0.65, 0.03, 8, 60);
-  const ringM = new THREE.MeshLambertMaterial({color:accent});
-  const ring = new THREE.Mesh(ringG, ringM);
-  ring.position.y = 0.05;
-  ring.rotation.x = Math.PI * 0.08;
-  avatarGroup.add(ring);
-
-  // Aro interior
-  const ring2G = new THREE.TorusGeometry(0.68, 0.008, 6, 60);
-  const ring2M = new THREE.MeshLambertMaterial({color:0xF2C84B, transparent:true, opacity:0.4});
-  const ring2 = new THREE.Mesh(ring2G, ring2M);
-  ring2.position.y = 0.05;
-  ring2.rotation.x = Math.PI * 0.08;
-  avatarGroup.add(ring2);
-
-  // Posición general
-  avatarGroup.position.set(0, -0.1, 0);
-}
-
-/* ── ANIMATE ── */
-const clock = new THREE.Clock();
-function animate(){
-  requestAnimationFrame(animate);
-  const dt = clock.getDelta();
-  const t = clock.getElapsedTime();
-
-  // Boca
-  const jawTarget = isSpeaking ? targetMouth : 0;
-  mouthOpen += (jawTarget - mouthOpen) * 0.18;
-  if(jawMesh) jawMesh.rotation.x = mouthOpen * 0.35;
-
-  // Cabeza sway suave
-  if(avatarGroup){
-    avatarGroup.rotation.y = Math.sin(t * 0.4) * 0.03;
-    avatarGroup.rotation.x = Math.sin(t * 0.3) * 0.015;
-    // Asentir cuando habla
-    if(isSpeaking){
-      avatarGroup.rotation.x += Math.sin(t * 4) * 0.018;
-    }
-  }
-
-  // Parpadeo
-  blinkTimer += dt;
-  if(blinkTimer > nextBlink){
-    blinkTimer = 0;
-    nextBlink = 2.5 + Math.random() * 3;
-    doBlink();
-  }
-
-  // Pupils follow subtle movement
-  if(pupilL && pupilR){
-    const px = Math.sin(t * 0.5) * 0.008;
-    const py = Math.sin(t * 0.7) * 0.005;
-    pupilL.position.x = 0.01 + px;
-    pupilL.position.y = py;
-    pupilR.position.x = -0.01 + px;
-    pupilR.position.y = py;
-  }
-
-  renderer.render(scene, camera);
-}
-
-function doBlink(){
-  if(!eyeL || !eyeR) return;
-  const lids = avatarGroup.children.filter(c=>c.name==='lidL'||c.name==='lidR');
-  lids.forEach(l=>{
-    l.scale.y = 3;
-    setTimeout(()=>{ l.scale.y = 1; }, 120);
-  });
-  eyeL.scale.y = 0.1;
-  eyeR.scale.y = 0.1;
-  setTimeout(()=>{ eyeL.scale.y = 1; eyeR.scale.y = 1; }, 120);
-}
-
-/* ── MOUTH ANIMATION LOOP ── */
-let mouthAnimTimer = null;
-function animMouth(on){
-  isSpeaking = on;
-  clearInterval(mouthAnimTimer);
-  if(!on){ targetMouth = 0; return; }
-  const shapes = [0.9, 0.4, 1.0, 0.3, 0.8, 0.2, 0.9, 0.5, 0.7, 0.1];
+function animMouth(on) {
+  mouthOn = on;
+  clearInterval(mouthTimer);
+  if(!on) { setMouth('smile'); return; }
+  const seq = ['open','mid','open','rest','mid','open','rest','open','mid','rest'];
   let i = 0;
-  mouthAnimTimer = setInterval(()=>{
-    if(!isSpeaking){ clearInterval(mouthAnimTimer); targetMouth = 0; return; }
-    targetMouth = shapes[i % shapes.length];
+  mouthTimer = setInterval(() => {
+    if(!mouthOn) { clearInterval(mouthTimer); return; }
+    setMouth(seq[i % seq.length]);
     i++;
-  }, 110);
+  }, 115);
 }
 
-/* ═══════════════════════════════════════════════════
-   LÓGICA DE CONVERSACIÓN + TTS + STT
-   ═══════════════════════════════════════════════════ */
-let busy = false, recOn = false, lastBot = '', chatHistory = [];
-let progress = 20;
+/* Parpadeo */
+setInterval(() => {
+  const eyes = document.querySelectorAll('#eyesG2 ellipse, #eyesG ellipse');
+  eyes.forEach(e => {
+    const ry = e.getAttribute('ry');
+    if(ry === '11') { e.setAttribute('ry','2'); setTimeout(()=>e.setAttribute('ry','11'), 120); }
+  });
+}, 3200 + Math.random()*2000);
 
-function setStatus(s){
+/* ═══════════════ ESTADO/STATUS ═══════════════ */
+function setStatus(s) {
   const dot = document.getElementById('avDot');
-  const txt = document.getElementById('avStatusTxt');
-  const wave = document.getElementById('waveBar');
+  const txt = document.getElementById('avTxt');
+  const wave = document.getElementById('wave');
   const states = {
     idle:   {c:'#1D9E75', t:'Lista para conversar'},
     speak:  {c:'#D4A843', t:'Hablando…'},
     listen: {c:'#E53E3E', t:'Escuchando…'},
-    think:  {c:'#7F77DD', t:'Pensando…'},
+    think:  {c:'#7F77DD', t:'Pensando…'}
   };
   const st = states[s] || states.idle;
   if(dot) dot.style.background = st.c;
   if(txt) txt.textContent = st.t;
-  if(wave) wave.classList.toggle('active', s==='speak');
+  if(wave) wave.classList.toggle('on', s==='speak');
 }
 
-function speak(text, cb){
-  if(!('speechSynthesis' in window)){ if(cb)cb(); return; }
+/* ═══════════════ TTS ═══════════════ */
+function speak(text, cb) {
+  if(!('speechSynthesis' in window)) { if(cb) cb(); return; }
   window.speechSynthesis.cancel();
-  const clean = text.replace(/<[^>]+>/g,'').replace(/[🇬🇧🇫🇷🇧🇷🇩🇪🇨🇳😊]/g,'').substring(0,280);
-  const utt = new SpeechSynthesisUtterance(clean);
-  utt.lang = LANGS[currentLang].tts;
-  utt.volume = parseFloat(document.getElementById('vVolR').value);
-  utt.rate = parseFloat(document.getElementById('vRateR').value);
-  utt.pitch = parseFloat(document.getElementById('vPitchR').value);
-  lastBot = clean;
-  utt.onstart = ()=>{ setStatus('speak'); animMouth(true); };
-  utt.onend = ()=>{ setStatus('idle'); animMouth(false); if(cb)cb(); };
-  utt.onerror = ()=>{ setStatus('idle'); animMouth(false); if(cb)cb(); };
-  setTimeout(()=>window.speechSynthesis.speak(utt), 80);
+  const clean = text.replace(/<[^>]+>/g,'').replace(/[😊🇬🇧🇫🇷🇧🇷🇩🇪🇨🇳]/g,'').substring(0, 300);
+  const u = new SpeechSynthesisUtterance(clean);
+  u.lang = LANGS[lang].tts;
+  u.volume = parseFloat(document.getElementById('vVol').value);
+  u.rate   = parseFloat(document.getElementById('vRate').value);
+  u.pitch  = parseFloat(document.getElementById('vPitch').value);
+  u.onstart = () => { setStatus('speak'); animMouth(true); };
+  u.onend   = () => { setStatus('idle'); animMouth(false); if(cb) cb(); };
+  u.onerror = () => { setStatus('idle'); animMouth(false); if(cb) cb(); };
+  setTimeout(() => window.speechSynthesis.speak(u), 80);
 }
 
-function testVoice(){
-  const tests = {en:"Hello! I'm ready to practice English with you!",fr:"Bonjour ! Je suis prêt à pratiquer le français avec vous !",pt:"Olá! Estou pronto para praticar português com você!",de:"Hallo! Ich bin bereit, mit Ihnen Deutsch zu üben!",zh:"你好！我准备好和您练习普通话了！"};
-  speak(tests[currentLang]);
+function testVoice() {
+  const t = {en:"Hello! I'm Prof. Sarah, your English teacher at SABI CENTEC!",
+    fr:"Bonjour ! Je suis Prof. Julien, votre professeur de français !",
+    pt:"Olá! Eu sou a Prof. Ana, sua professora de português brasileiro!",
+    de:"Hallo! Ich bin Prof. Klaus, Ihr Deutschlehrer bei SABI CENTEC!",
+    zh:"你好！我是 Mei 老师，你的普通话老师！"};
+  speak(t[lang] || t.en);
 }
 
-function addMsg(who, text){
+/* ═══════════════ MENSAJES ═══════════════ */
+function addMsg(who, text) {
   const box = document.getElementById('chatMsgs');
   const d = document.createElement('div');
-  d.className = `msg ${who}`;
-  const av = who==='bot' ? '🤖' : '👤';
+  d.className = 'msg ' + who;
+  const av = who === 'bot' ? '🎭' : '👤';
   d.innerHTML = `<div class="msg-av">${av}</div><div class="msg-bub">${text.replace(/\n/g,'<br>')}</div>`;
   box.appendChild(d);
   box.scrollTop = box.scrollHeight;
 }
 
-function addTyping(){
+function addTyping() {
   const box = document.getElementById('chatMsgs');
   const d = document.createElement('div');
   d.className = 'msg bot'; d.id = 'typi';
-  d.innerHTML = `<div class="msg-av">🤖</div><div class="msg-bub"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+  d.innerHTML = '<div class="msg-av">🎭</div><div class="msg-bub"><div class="typing"><span></span><span></span><span></span></div></div>';
   box.appendChild(d);
   box.scrollTop = box.scrollHeight;
 }
 
-async function sendAI(text){
+/* ═══════════════ IA ═══════════════ */
+async function sendAI(text) {
   if(busy) return;
   busy = true;
   addMsg('user', text);
-  chatHistory.push({role:'user', content:text});
+  history.push({role:'user', content:text});
   addTyping();
   setStatus('think');
-  try{
-    const res = await fetch('https://api.anthropic.com/v1/messages',{
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
+      body: JSON.stringify({
         model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system: LANGS[currentLang].system,
-        messages: chatHistory.slice(-12)
+        max_tokens:800,
+        system: LANGS[lang].system,
+        messages: history.slice(-12)
       })
     });
     const data = await res.json();
     document.getElementById('typi')?.remove();
-    const reply = data.content?.[0]?.text || 'Lo siento, hubo un error. Intenta de nuevo.';
-    chatHistory.push({role:'assistant', content:reply});
+    const reply = data.content?.[0]?.text || 'Error de conexión. Intenta de nuevo.';
+    history.push({role:'assistant', content:reply});
     addMsg('bot', reply);
-    // Actualizar progreso
-    progress = Math.min(95, progress + 8);
-    document.getElementById('progFill').style.width = progress+'%';
-    document.getElementById('progPct').textContent = progress+'%';
+    prog = Math.min(95, prog + 7);
+    document.getElementById('progFill').style.width = prog+'%';
+    document.getElementById('progPct').textContent = prog+'%';
     speak(reply);
-  }catch(e){
+  } catch(e) {
     document.getElementById('typi')?.remove();
-    addMsg('bot','Error de conexión. Verifica tu internet e intenta de nuevo.');
+    addMsg('bot','Error de conexión. Verifica tu internet.');
     setStatus('idle'); animMouth(false);
   }
   busy = false;
 }
 
-function doSend(){
+function doSend() {
   const inp = document.getElementById('uInp');
   const t = inp.value.trim();
   if(!t || busy) return;
@@ -932,176 +716,154 @@ function doSend(){
   sendAI(t);
 }
 
-function toggleMic(){
+/* ═══════════════ MICRÓFONO ═══════════════ */
+function toggleMic() {
   const btn = document.getElementById('micBtn');
-  if(!recOn){
-    recOn = true; btn.classList.add('rec'); btn.textContent = '⏹';
+  const ico = document.getElementById('micIco');
+  if(!recOn) {
+    recOn = true; btn.classList.add('rec');
+    ico.className = 'ti ti-microphone-off';
     setStatus('listen');
-    if('webkitSpeechRecognition' in window || 'SpeechRecognition' in window){
+    if('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
       const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
       const sr = new SR();
-      sr.lang = LANGS[currentLang].tts;
+      sr.lang = LANGS[lang].tts;
       sr.interimResults = false;
-      sr.onresult = e=>{
+      sr.onresult = e => {
         document.getElementById('uInp').value = e.results[0][0].transcript;
         stopMic(); doSend();
       };
-      sr.onerror = sr.onend = ()=>stopMic();
+      sr.onerror = sr.onend = () => stopMic();
       sr.start(); window._sr = sr;
     } else {
-      setTimeout(()=>{ stopMic(); addMsg('bot','Tu navegador no soporta micrófono. Escribe tu mensaje.'); },1500);
+      setTimeout(() => { stopMic(); addMsg('bot','Tu navegador no soporta micrófono. Escribe tu mensaje.'); }, 1500);
     }
   } else stopMic();
 }
 
-function stopMic(){
+function stopMic() {
   recOn = false;
-  const btn = document.getElementById('micBtn');
-  btn.classList.remove('rec'); btn.textContent = '🎤';
+  document.getElementById('micBtn').classList.remove('rec');
+  document.getElementById('micIco').className = 'ti ti-microphone';
   if(!busy) setStatus('idle');
-  try{ window._sr?.stop(); }catch(e){}
+  try { window._sr?.stop(); } catch(e) {}
 }
 
-function toggleVoice(){
-  document.getElementById('voiceCtrl').classList.toggle('open');
-}
-
-/* ═══════════════════════════════════════════════════
-   CAMBIO DE IDIOMA
-   ═══════════════════════════════════════════════════ */
-function setLang(l, btn){
-  currentLang = l;
-  document.querySelectorAll('.lt').forEach(b=>b.classList.remove('on'));
+/* ═══════════════ CAMBIO DE IDIOMA ═══════════════ */
+function setLang(l, btn) {
+  lang = l;
+  document.querySelectorAll('.lt').forEach(b => b.classList.remove('on'));
   if(btn) btn.classList.add('on');
-
-  // Rebuild avatar con colores del idioma
-  buildAvatar(l);
-
-  // Reset chat
-  document.getElementById('chatMsgs').innerHTML = '';
-  chatHistory = [];
-  progress = 10;
-  document.getElementById('progFill').style.width = '10%';
-  document.getElementById('progPct').textContent = '10%';
-
-  // Update lesson info
   const L = LANGS[l];
   document.getElementById('avName').textContent = L.teacher;
-  const lessonActive = L.lessons.find(ls=>ls.active) || L.lessons[0];
-  document.getElementById('lessonTag').textContent = `Lección 1 · ${lessonActive.s}`;
-  document.getElementById('lessonTitle').textContent = lessonActive.t;
-
-  // Update quick phrases
+  document.getElementById('chatMsgs').innerHTML = '';
+  history = [];
+  prog = 15;
+  document.getElementById('progFill').style.width = '15%';
+  document.getElementById('progPct').textContent = '15%';
+  const active = L.lessons.find(ls => ls.active) || L.lessons[0];
+  document.getElementById('lessonTag').textContent = `Lección 1 · ${active.s}`;
+  document.getElementById('lessonTitle').textContent = active.t;
   updateQuick(l);
   updatePhonemes(l);
-  updateLessons(l);
-
-  // Init greeting
-  setTimeout(()=>{
-    chatHistory = [{role:'assistant', content:L.greeting}];
+  buildLessons(l);
+  setTimeout(() => {
+    history = [{role:'assistant', content:L.greeting}];
     addMsg('bot', L.greeting);
     speak(L.greeting);
-  }, 300);
+  }, 200);
 }
 
-function updateQuick(l){
-  const bar = document.getElementById('quickbar');
-  bar.innerHTML = LANGS[l].quick.map(p=>
-    `<button class="qchip" onclick="sendAI('${p.replace(/'/g,"\\'")}')"> ${p}</button>`
-  ).join('');
-}
-
-function updatePhonemes(l){
-  const grid = document.getElementById('phGrid');
+/* ═══════════════ FONEMAS ═══════════════ */
+function updatePhonemes(l) {
   const L = LANGS[l];
-  grid.innerHTML = L.phonemes.map((p,i)=>
-    `<button class="phb" onclick="showPhoneme(${i})">${p.s}</button>`
+  ['phGrid','phGrid2'].forEach(id => {
+    const g = document.getElementById(id);
+    if(!g) return;
+    g.innerHTML = L.phonemes.map((p,i) =>
+      `<button class="phb" onclick="showPh(${i})">${p.s}</button>`
+    ).join('');
+  });
+}
+
+function showPh(i) {
+  const ph = LANGS[lang].phonemes[i];
+  document.querySelectorAll('.phb').forEach((b,j) => b.classList.toggle('lit', j===i));
+  const det = document.getElementById('phDetail');
+  if(det) {
+    document.getElementById('phDetailTitle').textContent = ph.t;
+    document.getElementById('phDetailBody').textContent = ph.d;
+    det.style.display = 'block';
+  }
+  const p = {en:`Demonstrate the "${ph.s}" sound: say 3 example words slowly and clearly, then a short practice sentence.`,
+    fr:`Démontre le son "${ph.s}": dis 3 mots lentement, puis une phrase courte de pratique.`,
+    pt:`Demonstre o som "${ph.s}": fale 3 palavras exemplo devagar, depois uma frase curta.`,
+    de:`Demonstriere den Laut "${ph.s}": sag 3 Beispielwörter langsam, dann einen kurzen Übungssatz.`,
+    zh:`示范"${ph.s}"发音：说3个例词，然后一个练习句子。慢慢说清楚。`};
+  sendAI(p[lang] || p.en);
+  showTab('phonemes', document.querySelectorAll('.ptab')[2]);
+}
+
+/* ═══════════════ FRASES RÁPIDAS ═══════════════ */
+function updateQuick(l) {
+  const bar = document.getElementById('quickbar');
+  bar.innerHTML = LANGS[l].quick.map(p =>
+    `<button class="qc" onclick="sendAI('${p.replace(/'/g,"\'")}')">${p}</button>`
   ).join('');
 }
 
-function showPhoneme(i){
-  const ph = LANGS[currentLang].phonemes[i];
-  document.querySelectorAll('.phb').forEach((b,j)=>b.classList.toggle('lit',j===i));
-  const det = document.getElementById('phonemeDetail');
-  document.getElementById('phTitle').textContent = ph.t;
-  document.getElementById('phBody').textContent = ph.d;
-  det.style.display = 'block';
-  // Pedir al avatar que lo demuestre
-  const prompts = {
-    en:`Demonstrate the "${ph.s}" sound: say 3 example words slowly and clearly, then a short sentence.`,
-    fr:`Démontre le son "${ph.s}": dis 3 mots exemple lentement, puis une phrase courte.`,
-    pt:`Demonstre o som "${ph.s}": fale 3 palavras exemplo devagar, depois uma frase curta.`,
-    de:`Demonstriere den Laut "${ph.s}": sag 3 Beispielwörter langsam, dann einen kurzen Satz.`,
-    zh:`示范"${ph.s}"这个发音：说3个例词，然后一个短句。慢慢说。`
-  };
-  sendAI(prompts[currentLang] || prompts['en']);
-}
-
-function updateLessons(l){
+/* ═══════════════ LECCIONES ═══════════════ */
+function buildLessons(l) {
   const L = LANGS[l];
   const list = document.getElementById('lessonsList');
-  list.innerHTML = L.lessons.map((ls,i)=>{
-    const cls = ls.done ? 'done' : ls.active ? 'active' : '';
-    const numCls = ls.done ? 'done' : ls.active ? 'active' : 'locked';
-    const numTxt = ls.done ? '✓' : ls.active ? (i+1) : '🔒';
-    return `<div class="litem ${cls}" onclick="startLesson(${i})">
-      <div class="li-num ${numCls}">${numTxt}</div>
+  list.innerHTML = L.lessons.map((ls,i) => {
+    const st = ls.done ? 'done' : ls.active ? 'cur' : 'lock';
+    const nt = ls.done ? '✓' : ls.active ? (i+1) : '🔒';
+    const ac = (ls.done || ls.active) ? '' : 'style="opacity:.5;pointer-events:none"';
+    return `<div class="li ${ls.active?'active':''}" onclick="startLesson(${i})" ${ac}>
+      <div class="li-num ${st}">${nt}</div>
       <div class="li-info">
-        <div class="li-title">${ls.t}</div>
-        <div class="li-sub">${ls.s}</div>
+        <div class="li-t">${ls.t}</div>
+        <div class="li-s">${ls.s}</div>
       </div>
       <div class="li-xp">+${ls.xp} XP</div>
     </div>`;
   }).join('');
 }
 
-function startLesson(i){
-  const ls = LANGS[currentLang].lessons[i];
-  if(!ls.done && !ls.active) return; // locked
+function startLesson(i) {
+  const ls = LANGS[lang].lessons[i];
+  if(!ls.done && !ls.active) return;
   document.getElementById('lessonTitle').textContent = ls.t;
   document.getElementById('lessonTag').textContent = `Lección ${i+1} · ${ls.s}`;
-  showPanel('chat', document.querySelector('.ptab'));
-  const prompts = {
-    en:`Let's start the lesson: "${ls.t}". Give me a brief intro and ask me the first question to practice.`,
-    fr:`Commençons la leçon: "${ls.t}". Donne-moi une brève intro et pose-moi la première question.`,
+  showTab('chat', document.querySelectorAll('.ptab')[0]);
+  const p = {en:`Let's start lesson: "${ls.t}". Give a brief welcoming intro and ask me the first practice question.`,
+    fr:`Commençons la leçon: "${ls.t}". Donne une courte intro et pose-moi la première question.`,
     pt:`Vamos começar a lição: "${ls.t}". Dê uma breve introdução e faça a primeira pergunta.`,
-    de:`Beginnen wir die Lektion: "${ls.t}". Gib eine kurze Einführung und stelle mir die erste Frage.`,
-    zh:`开始这节课："${ls.t}"。给我一个简短介绍，然后问第一个问题。`
-  };
-  sendAI(prompts[currentLang]);
+    de:`Beginnen wir die Lektion: "${ls.t}". Gib eine kurze Einführung und stelle die erste Frage.`,
+    zh:`开始这节课："${ls.t}"。简短介绍，然后问第一个练习问题。`};
+  sendAI(p[lang] || p.en);
 }
 
-/* ═══════════════════════════════════════════════════
-   PANEL TOGGLE
-   ═══════════════════════════════════════════════════ */
-function showPanel(id, btn){
-  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('on'));
+/* ═══════════════ TABS ═══════════════ */
+function showTab(id, btn) {
+  document.querySelectorAll('.ptab').forEach(b => b.classList.remove('on'));
   if(btn) btn.classList.add('on');
-  ['pChat','pLessons','pPhonemes'].forEach(p=>{
-    const el = document.getElementById(p);
+  const map = {chat:'tChat', lessons:'tLessons', phonemes:'tPhonemes'};
+  ['tChat','tLessons','tPhonemes'].forEach(t => {
+    const el = document.getElementById(t);
     el.style.display = 'none';
-    el.style.flexDirection = '';
   });
-  const panels = {chat:'pChat', lessons:'pLessons', phonemes:'pPhonemes'};
-  const target = document.getElementById(panels[id]);
-  target.style.display = 'flex';
-  if(id==='chat') target.style.flexDirection = 'column';
+  const target = document.getElementById(map[id]);
+  if(target) {
+    target.style.display = 'flex';
+    if(id==='chat' || id==='lessons') target.style.flexDirection = 'column';
+  }
 }
 
-/* ═══════════════════════════════════════════════════
-   INIT
-   ═══════════════════════════════════════════════════ */
-window.addEventListener('load',()=>{
-  initThree();
+/* ═══════════════ INIT ═══════════════ */
+window.addEventListener('load', () => {
   setLang('en', document.querySelector('.lt.on'));
-});
-
-// Cerrar voice ctrl al click fuera
-document.addEventListener('click',e=>{
-  const vc = document.getElementById('voiceCtrl');
-  if(vc.classList.contains('open') && !vc.contains(e.target) && !e.target.classList.contains('ibtn-vol')){
-    vc.classList.remove('open');
-  }
 });
 </script>
 </body>
