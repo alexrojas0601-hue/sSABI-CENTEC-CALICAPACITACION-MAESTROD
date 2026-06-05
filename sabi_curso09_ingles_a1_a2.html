@@ -258,6 +258,59 @@ footer strong{color:rgba(232,160,32,.5)}
   .icards{grid-template-columns:1fr 1fr}
 }
 </style>
+<style>
+.exam-block{background:rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.25rem;margin:1.25rem 0}
+.exam-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.exam-badge{background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3);color:#F5C96A;border-radius:20px;padding:3px 12px;font-size:11px;font-weight:700;letter-spacing:.04em}
+.exam-title{font-size:14px;font-weight:600;color:rgba(255,255,255,.9)}
+.exam-req{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px}
+.exam-q{background:rgba(255,255,255,.04);border-radius:10px;padding:1rem;margin-bottom:.75rem}
+.exam-q-txt{font-size:13px;color:rgba(255,255,255,.85);font-weight:600;margin-bottom:.75rem;line-height:1.5}
+.exam-q-audio{display:inline-flex;align-items:center;gap:6px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.25);color:#6EE7A0;border-radius:8px;padding:4px 12px;font-size:11px;cursor:pointer;margin-bottom:.75rem;transition:all .2s}
+.exam-q-audio:hover{background:rgba(29,158,117,.22)}
+.exam-opts{display:flex;flex-direction:column;gap:6px}
+.exam-opt{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:9px 13px;cursor:pointer;font-size:12px;color:rgba(255,255,255,.75);transition:all .18s;display:flex;align-items:center;gap:8px}
+.exam-opt:hover:not([data-done]){background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
+.exam-opt.correct{background:rgba(29,158,117,.18);border-color:#1D9E75;color:#6EE7A0}
+.exam-opt.wrong{background:rgba(185,28,28,.15);border-color:#c0392b;color:#f08080}
+.exam-opt.show-correct{background:rgba(29,158,117,.1);border-color:rgba(29,158,117,.4);color:#6EE7A0}
+.exam-opt-letter{width:22px;height:22px;border-radius:50%;flex-shrink:0;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.exam-opt.correct .exam-opt-letter{background:#1D9E75;color:#fff}
+.exam-opt.wrong .exam-opt-letter{background:#c0392b;color:#fff}
+.exam-fb{font-size:12px;padding:.5rem .75rem;border-radius:7px;margin-top:.4rem;line-height:1.55;display:none}
+.exam-fb.show{display:block}
+.exam-fb.ok{background:rgba(29,158,117,.12);color:#6EE7A0;border:1px solid rgba(29,158,117,.2)}
+.exam-fb.no{background:rgba(185,28,28,.1);color:#f08080;border:1px solid rgba(185,28,28,.2)}
+.exam-score{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem}
+.exam-score-bar{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+.exam-score-fill{height:100%;border-radius:4px;transition:width .5s;background:#1D9E75}
+.exam-score-txt{font-size:12px;color:rgba(255,255,255,.5);white-space:nowrap}
+.exam-submit{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);border-radius:10px;padding:12px;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;cursor:not-allowed;margin-top:1rem;transition:all .3s}
+.exam-submit.unlocked{background:linear-gradient(135deg,#1D9E75,#0F6E56);border-color:#1D9E75;color:#fff;cursor:pointer;animation:unlockPulse 2s ease-in-out infinite}
+@keyframes unlockPulse{0%,100%{box-shadow:0 0 0 0 rgba(29,158,117,.4)}50%{box-shadow:0 0 0 8px rgba(29,158,117,0)}}
+.exam-result{border-radius:12px;padding:1rem;margin-top:.75rem;text-align:center;display:none}
+.exam-result.show{display:block}
+.exam-result.pass{background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.25)}
+.exam-result.fail{background:rgba(185,28,28,.08);border:1px solid rgba(185,28,28,.2)}
+.exam-result-pct{font-size:2rem;font-weight:700;margin-bottom:.25rem}
+.exam-result.pass .exam-result-pct{color:#1D9E75}
+.exam-result.fail .exam-result-pct{color:#c0392b}
+.exam-result-msg{font-size:13px;color:rgba(255,255,255,.7);line-height:1.55}
+.exam-retry{display:inline-block;margin-top:.75rem;background:rgba(232,160,32,.12);border:1px solid rgba(232,160,32,.3);color:#F5C96A;border-radius:8px;padding:7px 18px;font-size:12px;cursor:pointer;font-family:"DM Sans",sans-serif;font-weight:600}
+.mod-card.locked .mod-hdr{opacity:.5;cursor:not-allowed!important}
+.lock-msg{display:none;font-size:11px;color:rgba(255,165,0,.7);padding:4px 8px;background:rgba(255,165,0,.07);border-radius:6px;margin-top:4px;width:fit-content}
+.mod-card.locked .lock-msg{display:block}
+.phon-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:1rem;margin:.5rem 0}
+.phon-symbol{font-size:2rem;color:#F5C96A;font-weight:700;margin-bottom:.25rem}
+.phon-name{font-size:13px;color:rgba(255,255,255,.85);font-weight:600;margin-bottom:.5rem}
+.phon-steps{padding-left:1.2rem;margin:.5rem 0}
+.phon-steps li{font-size:12px;color:rgba(255,255,255,.65);line-height:1.7;margin:.2rem 0}
+.phon-examples{display:flex;flex-wrap:wrap;gap:6px;margin-top:.6rem}
+.phon-ex{background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.2);color:#6EE7A0;border-radius:6px;padding:3px 10px;font-size:12px;cursor:pointer;transition:all .15s}
+.phon-ex:hover{background:rgba(29,158,117,.2)}
+.phon-listen-all{display:flex;align-items:center;gap:6px;background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.2);color:#F5C96A;border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;margin-top:.75rem;transition:all .2s;width:fit-content}
+.phon-listen-all:hover{background:rgba(212,168,67,.2)}
+</style>
 </head>
 <body>
 
@@ -320,1096 +373,12 @@ footer strong{color:rgba(232,160,32,.5)}
 </section>
 
 <!-- MÓDULOS -->
-<section id="modulos">
-<div class="con">
-  <div class="stag">Contenido del curso</div>
-  <h2 class="stitle">8 módulos — del A1 al A2</h2>
-
-<!-- ══════════════════════════════════
-     MÓDULO 1 — THE ALPHABET & SOUNDS
-══════════════════════════════════ -->
-<div class="mod-card" id="mod1">
-  <div class="mod-hdr" onclick="tog('mod1')">
-    <div class="mod-num" style="background:rgba(232,160,32,.12);color:var(--ol)">M·01</div>
-    <div class="mod-info">
-      <h3>The Alphabet & Sounds · El Abecedario y los Sonidos</h3>
-      <p>Pronunciación de las 26 letras del inglés · Sonidos que no existen en español</p>
-      <div class="dots-row">
-        <div class="dots" id="d1"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <span class="dots-label" id="dl1">0 de 3 actividades</span>
-      </div>
-    </div>
-    <span class="mod-dur">Semana 1 · ~60 min</span>
-  </div>
-  <div class="mod-body" id="body-mod1">
-    <div class="tags">
-      <span class="tag tb">MCER: A1</span>
-      <span class="tag td">Fonética básica</span>
-      <span class="tag ti">Competencia: Pronunciación</span>
-    </div>
-
-    <p style="font-size:14px;color:rgba(255,255,255,.6);margin:1rem 0 1.25rem;line-height:1.8">
-      El inglés tiene 26 letras pero más de 40 sonidos diferentes. Muchos sonidos no existen en español, lo que explica por qué es difícil al principio. La buena noticia: con práctica constante, tu oído y tu boca se adaptan. 🎯
-    </p>
-
-    <div class="stag" style="font-size:9px;margin-bottom:.75rem">Las 5 vocales — pronunciación diferente al español</div>
-    <div class="vocab-grid">
-      <div class="vocab-card" onclick="speak('A as in apple')">
-        <div class="vc-en">A</div>
-        <div class="vc-pron">/eɪ/ — "ei"</div>
-        <div class="vc-es">A — como en "Apple"</div>
-        <div class="vc-tip">La A inglesa se dice "ei", no "a"</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-      <div class="vocab-card" onclick="speak('E as in elephant')">
-        <div class="vc-en">E</div>
-        <div class="vc-pron">/iː/ — "i" larga</div>
-        <div class="vc-es">E — como en "Elephant"</div>
-        <div class="vc-tip">La E inglesa suena como "i" larga</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-      <div class="vocab-card" onclick="speak('I as in idea')">
-        <div class="vc-en">I</div>
-        <div class="vc-pron">/aɪ/ — "ai"</div>
-        <div class="vc-es">I — como en "Idea"</div>
-        <div class="vc-tip">La I inglesa se dice "ai", como en "aisle"</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-      <div class="vocab-card" onclick="speak('O as in orange')">
-        <div class="vc-en">O</div>
-        <div class="vc-pron">/oʊ/ — "ou"</div>
-        <div class="vc-es">O — como en "Orange"</div>
-        <div class="vc-tip">La O inglesa lleva un diptongo: "ou"</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-      <div class="vocab-card" onclick="speak('U as in umbrella')">
-        <div class="vc-en">U</div>
-        <div class="vc-pron">/juː/ — "yu"</div>
-        <div class="vc-es">U — como en "Umbrella"</div>
-        <div class="vc-tip">La U inglesa se dice "yu"</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-    </div>
-
-    <div class="stag" style="font-size:9px;margin:.75rem 0">3 sonidos ingleses que no existen en español</div>
-    <div class="pron-tip">
-      <strong>TH /θ/</strong> — Pon la lengua entre los dientes y sopla suavemente.<br>
-      Practica: <span class="pron-sound" onclick="speak('the, this, that, three, think')" style="cursor:pointer">🔊 the · this · that · three · think</span>
-    </div>
-    <div class="pron-tip">
-      <strong>W /w/</strong> — Redondea los labios como para decir "u" y luego habla.<br>
-      Practica: <span class="pron-sound" onclick="speak('water, woman, work, week, welcome')" style="cursor:pointer">🔊 water · woman · work · week</span>
-    </div>
-    <div class="pron-tip">
-      <strong>R /r/</strong> — La R inglesa NO vibra. Dobla la lengua hacia atrás sin tocar el paladar.<br>
-      Practica: <span class="pron-sound" onclick="speak('read, right, run, room, river')" style="cursor:pointer">🔊 read · right · run · room</span>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-title">🧠 Ejercicio 1 · Reconocimiento de sonidos</div>
-      <div class="ex-q">¿Cómo se pronuncia la letra <strong>"E"</strong> en inglés (cuando se dice el nombre de la letra)?</div>
-      <div class="ex-opts" id="q1-opts">
-        <div class="ex-opt" onclick="resp(this,'q1','A')">A. Como la "e" en español — "e"</div>
-        <div class="ex-opt" onclick="resp(this,'q1','B')">B. Como la "i" larga — "i:" ✓</div>
-        <div class="ex-opt" onclick="resp(this,'q1','C')">C. Como la "ei" — diptongo</div>
-        <div class="ex-opt" onclick="resp(this,'q1','D')">D. No tiene sonido propio</div>
-      </div>
-      <div class="ex-feedback" id="fb1"></div>
-    </div>
-
-    <div class="actividad">
-      <div class="act-hdr"><span class="act-badge a-habla">Práctica oral</span><h4>Actividad 1.1 · Spell your name</h4></div>
-      <p>Deletrea tu nombre completo en inglés usando el abecedario. Luego practica deletreando el nombre de tu institución educativa. Ejemplo: CENTEC = C-E-N-T-E-C → "si-i-en-ti-i-si"</p>
-      <ul class="chk-list" id="ck1">
-        <li class="chk-item" onclick="chk(this,'d1','dl1',3)"><div class="chk-box"></div><span>Practiqué deletrear mi nombre en inglés</span></li>
-        <li class="chk-item" onclick="chk(this,'d1','dl1',3)"><div class="chk-box"></div><span>Practiqué los sonidos TH, W y R durante 5 minutos</span></li>
-        <li class="chk-item" onclick="chk(this,'d1','dl1',3)"><div class="chk-box"></div><span>Grabé mi voz y comparé con el audio del módulo</span></li>
-      </ul>
-    </div>
-
-    <div class="tip"><span>💡</span><p><strong>Recuerda:</strong> El inglés es el idioma de la ciencia, la tecnología y la investigación educativa global. Aprenderlo no es una exigencia burocrática del MEN — es abrirle a tus estudiantes una puerta a un mundo más grande. Y todo empieza con el abecedario.</p></div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     MÓDULO 2 — GREETINGS & INTRODUCTIONS
-══════════════════════════════════ -->
-<div class="mod-card" id="mod2">
-  <div class="mod-hdr" onclick="tog('mod2')">
-    <div class="mod-num" style="background:rgba(39,174,96,.1);color:#6EE7A0">M·02</div>
-    <div class="mod-info">
-      <h3>Greetings & Introductions · Saludos y Presentaciones</h3>
-      <p>Hello, how are you? · My name is... · Nice to meet you</p>
-      <div class="dots-row">
-        <div class="dots" id="d2"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <span class="dots-label" id="dl2">0 de 3 actividades</span>
-      </div>
-    </div>
-    <span class="mod-dur">Semana 2 · ~65 min</span>
-  </div>
-  <div class="mod-body" id="body-mod2">
-    <div class="tags">
-      <span class="tag tb">MCER: A1</span>
-      <span class="tag td">Comunicación básica</span>
-      <span class="tag ti">Función: Presentarse</span>
-    </div>
-
-    <p style="font-size:14px;color:rgba(255,255,255,.6);margin:1rem 0 1.25rem;line-height:1.8">
-      El primer paso en cualquier idioma es saber presentarse y saludar. Estas frases son las más usadas en el mundo angloparlante y las primeras que tus estudiantes también necesitarán aprender.
-    </p>
-
-    <div class="stag" style="font-size:9px;margin-bottom:.75rem">Vocabulario esencial · Haz clic para escuchar</div>
-    <div class="vocab-grid">
-      <div class="vocab-card" onclick="speak('Hello! How are you?')">
-        <div class="vc-en">Hello! / Hi!</div>
-        <div class="vc-pron">/hɛˈloʊ/ · /haɪ/</div>
-        <div class="vc-es">¡Hola!</div>
-        <div class="vc-tip">Hi es más informal. Hello es para cualquier contexto</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-      <div class="vocab-card" onclick="speak('How are you? I am fine, thank you')">
-        <div class="vc-en">How are you?</div>
-        <div class="vc-pron">/haʊ ɑːr juː/</div>
-        <div class="vc-es">¿Cómo estás?</div>
-        <div class="vc-tip">Respuesta más común: "I'm fine, thanks!"</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-      <div class="vocab-card" onclick="speak('My name is Alexander. What is your name?')">
-        <div class="vc-en">My name is...</div>
-        <div class="vc-pron">/maɪ neɪm ɪz/</div>
-        <div class="vc-es">Mi nombre es...</div>
-        <div class="vc-tip">"I'm..." es más coloquial e igual de correcto</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-      <div class="vocab-card" onclick="speak('Nice to meet you. Pleased to meet you.')">
-        <div class="vc-en">Nice to meet you.</div>
-        <div class="vc-pron">/naɪs tuː miːt juː/</div>
-        <div class="vc-es">Mucho gusto.</div>
-        <div class="vc-tip">"Pleased to meet you" es más formal</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-      <div class="vocab-card" onclick="speak('Good morning! Good afternoon! Good evening!')">
-        <div class="vc-en">Good morning!</div>
-        <div class="vc-pron">/ɡʊd ˈmɔːrnɪŋ/</div>
-        <div class="vc-es">¡Buenos días!</div>
-        <div class="vc-tip">Morning=mañana · Afternoon=tarde · Evening=noche</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-      <div class="vocab-card" onclick="speak('Goodbye! See you tomorrow! See you later!')">
-        <div class="vc-en">Goodbye! / Bye!</div>
-        <div class="vc-pron">/ɡʊdˈbaɪ/</div>
-        <div class="vc-es">¡Adiós! / ¡Chao!</div>
-        <div class="vc-tip">"See you later!" = ¡Hasta luego!</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-    </div>
-
-    <div class="stag" style="font-size:9px;margin:.75rem 0">Diálogo real · Primera clase en inglés</div>
-    <div class="dialogue">
-      <div class="dial-line">
-        <span class="dial-who">Teacher</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Good morning, students! <button class="dial-btn" onclick="speak('Good morning, students!')">🔊</button></div>
-          <div class="dial-es">¡Buenos días, estudiantes!</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who b">Students</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Good morning, teacher! <button class="dial-btn" onclick="speak('Good morning, teacher!')">🔊</button></div>
-          <div class="dial-es">¡Buenos días, profesor/a!</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Teacher</span>
-        <div class="dial-bubble">
-          <div class="dial-en">My name is... How are you today? <button class="dial-btn" onclick="speak('My name is... How are you today?')">🔊</button></div>
-          <div class="dial-es">Mi nombre es... ¿Cómo están hoy?</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who b">Students</span>
-        <div class="dial-bubble">
-          <div class="dial-en">We are fine, thank you! <button class="dial-btn" onclick="speak('We are fine, thank you!')">🔊</button></div>
-          <div class="dial-es">¡Estamos bien, gracias!</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Teacher</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Great! Let's begin! <button class="dial-btn" onclick="speak('Great! Let us begin!')">🔊</button></div>
-          <div class="dial-es">¡Excelente! ¡Comencemos!</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-title">🧠 Ejercicio 2 · Situaciones reales</div>
-      <div class="ex-q">Son las 2:30 de la tarde. Un colega extranjero te saluda. ¿Cuál es el saludo correcto en inglés?</div>
-      <div class="ex-opts" id="q2-opts">
-        <div class="ex-opt" onclick="resp(this,'q2','A')">A. Good morning!</div>
-        <div class="ex-opt" onclick="resp(this,'q2','B')">B. Good afternoon! ✓</div>
-        <div class="ex-opt" onclick="resp(this,'q2','C')">C. Good evening!</div>
-        <div class="ex-opt" onclick="resp(this,'q2','D')">D. Good night!</div>
-      </div>
-      <div class="ex-feedback" id="fb2"></div>
-    </div>
-
-    <div class="actividad">
-      <div class="act-hdr"><span class="act-badge a-practica">Práctica en aula</span><h4>Actividad 2.1 · Inicia tu clase en inglés</h4></div>
-      <p>Esta semana, comienza cada clase con el saludo en inglés: "Good morning/afternoon, students!" y espera que respondan. Es un ritual que tarda 20 segundos y expone a tus estudiantes al inglés real desde el primer día.</p>
-      <ul class="chk-list" id="ck2">
-        <li class="chk-item" onclick="chk(this,'d2','dl2',3)"><div class="chk-box"></div><span>Practiqué el diálogo completo en voz alta 3 veces</span></li>
-        <li class="chk-item" onclick="chk(this,'d2','dl2',3)"><div class="chk-box"></div><span>Inicié al menos una clase con el saludo en inglés</span></li>
-        <li class="chk-item" onclick="chk(this,'d2','dl2',3)"><div class="chk-box"></div><span>Me presenté en inglés a un colega o familiar</span></li>
-      </ul>
-    </div>
-    <div class="tip"><span>🌟</span><p><strong>Para el corazón del maestro:</strong> Cada vez que usas inglés en tu aula, aunque sean solo 20 segundos, estás modelando algo invaluable para tus estudiantes: que los adultos también aprenden, que el error no paraliza y que los idiomas se aprenden usándolos.</p></div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     MÓDULO 3 — NUMBERS, COLORS, DAYS
-══════════════════════════════════ -->
-<div class="mod-card" id="mod3">
-  <div class="mod-hdr" onclick="tog('mod3')">
-    <div class="mod-num" style="background:rgba(52,152,219,.1);color:#93B5F5">M·03</div>
-    <div class="mod-info">
-      <h3>Numbers, Colors & Days · Números, Colores y Días</h3>
-      <p>1-100 · Colors · Days of the week · Months of the year</p>
-      <div class="dots-row">
-        <div class="dots" id="d3"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <span class="dots-label" id="dl3">0 de 3 actividades</span>
-      </div>
-    </div>
-    <span class="mod-dur">Semana 3 · ~70 min</span>
-  </div>
-  <div class="mod-body" id="body-mod3">
-    <div class="tags">
-      <span class="tag tb">MCER: A1</span>
-      <span class="tag td">Vocabulario básico</span>
-      <span class="tag ti">Función: Describir y contar</span>
-    </div>
-
-    <div class="stag" style="font-size:9px;margin:1rem 0 .75rem">Números 1-20 · Haz clic para escuchar</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.5rem;margin:.75rem 0">
-      <div class="vocab-card" onclick="speak('one')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">1</div>
-        <div class="vc-pron" style="font-size:11px">one</div>
-        <div class="vc-es" style="font-size:11px">uno</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('two')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">2</div>
-        <div class="vc-pron" style="font-size:11px">two</div>
-        <div class="vc-es" style="font-size:11px">dos</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('three')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">3</div>
-        <div class="vc-pron" style="font-size:11px">three</div>
-        <div class="vc-es" style="font-size:11px">tres</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('four')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">4</div>
-        <div class="vc-pron" style="font-size:11px">four</div>
-        <div class="vc-es" style="font-size:11px">cuatro</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('five')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">5</div>
-        <div class="vc-pron" style="font-size:11px">five</div>
-        <div class="vc-es" style="font-size:11px">cinco</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('six')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">6</div>
-        <div class="vc-pron" style="font-size:11px">six</div>
-        <div class="vc-es" style="font-size:11px">seis</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('seven')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">7</div>
-        <div class="vc-pron" style="font-size:11px">seven</div>
-        <div class="vc-es" style="font-size:11px">siete</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('eight')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">8</div>
-        <div class="vc-pron" style="font-size:11px">eight</div>
-        <div class="vc-es" style="font-size:11px">ocho</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('nine')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">9</div>
-        <div class="vc-pron" style="font-size:11px">nine</div>
-        <div class="vc-es" style="font-size:11px">nueve</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('ten')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">10</div>
-        <div class="vc-pron" style="font-size:11px">ten</div>
-        <div class="vc-es" style="font-size:11px">diez</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('eleven')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">11</div>
-        <div class="vc-pron" style="font-size:11px">eleven</div>
-        <div class="vc-es" style="font-size:11px">once</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('twelve')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">12</div>
-        <div class="vc-pron" style="font-size:11px">twelve</div>
-        <div class="vc-es" style="font-size:11px">doce</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('thirteen')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">13</div>
-        <div class="vc-pron" style="font-size:11px">thirteen</div>
-        <div class="vc-es" style="font-size:11px">trece</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('fourteen')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">14</div>
-        <div class="vc-pron" style="font-size:11px">fourteen</div>
-        <div class="vc-es" style="font-size:11px">catorce</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('fifteen')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">15</div>
-        <div class="vc-pron" style="font-size:11px">fifteen</div>
-        <div class="vc-es" style="font-size:11px">quince</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('sixteen')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">16</div>
-        <div class="vc-pron" style="font-size:11px">sixteen</div>
-        <div class="vc-es" style="font-size:11px">dieciséis</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('seventeen')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">17</div>
-        <div class="vc-pron" style="font-size:11px">seventeen</div>
-        <div class="vc-es" style="font-size:11px">diecisiete</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('eighteen')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">18</div>
-        <div class="vc-pron" style="font-size:11px">eighteen</div>
-        <div class="vc-es" style="font-size:11px">dieciocho</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('nineteen')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">19</div>
-        <div class="vc-pron" style="font-size:11px">nineteen</div>
-        <div class="vc-es" style="font-size:11px">diecinueve</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-<div class="vocab-card" onclick="speak('twenty')" style="padding:.65rem">
-        <div class="vc-en" style="font-size:1.4rem">20</div>
-        <div class="vc-pron" style="font-size:11px">twenty</div>
-        <div class="vc-es" style="font-size:11px">veinte</div>
-        <div class="vc-play" style="font-size:10px;margin-top:4px">🔊</div>
-      </div>
-    </div>
-
-    <div class="pron-tip">
-      <strong>Trampas de pronunciación en números:</strong><br>
-      • <span class="pron-sound" onclick="speak('thirteen')" style="cursor:pointer">thirteen /θɜːrˈtiːn/</span> vs <span class="pron-sound" onclick="speak('thirty')" style="cursor:pointer">thirty /ˈθɜːrti/</span> — el énfasis cambia todo<br>
-      • <span class="pron-sound" onclick="speak('fifteen')" style="cursor:pointer">fifteen</span> vs <span class="pron-sound" onclick="speak('fifty')" style="cursor:pointer">fifty</span> · <span class="pron-sound" onclick="speak('sixteen')" style="cursor:pointer">sixteen</span> vs <span class="pron-sound" onclick="speak('sixty')" style="cursor:pointer">sixty</span>
-    </div>
-
-    <div class="stag" style="font-size:9px;margin:.75rem 0">Days of the week · Días de la semana</div>
-    <div class="vocab-grid">
-      <div class="vocab-card" onclick="speak('Monday')">
-        <div class="vc-en">Monday</div>
-        <div class="vc-pron">/ˈmʌndeɪ/</div>
-        <div class="vc-es">Lunes</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Tuesday')">
-        <div class="vc-en">Tuesday</div>
-        <div class="vc-pron">/ˈtjuːzdeɪ/</div>
-        <div class="vc-es">Martes</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Wednesday')">
-        <div class="vc-en">Wednesday</div>
-        <div class="vc-pron">/ˈwɛnzdeɪ/</div>
-        <div class="vc-es">Miércoles — ¡la W no suena!</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Thursday')">
-        <div class="vc-en">Thursday</div>
-        <div class="vc-pron">/ˈθɜːrzdeɪ/</div>
-        <div class="vc-es">Jueves — TH dental</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Friday')">
-        <div class="vc-en">Friday</div>
-        <div class="vc-pron">/ˈfraɪdeɪ/</div>
-        <div class="vc-es">Viernes</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Saturday')">
-        <div class="vc-en">Saturday</div>
-        <div class="vc-pron">/ˈsætərdeɪ/</div>
-        <div class="vc-es">Sábado</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Sunday')">
-        <div class="vc-en">Sunday</div>
-        <div class="vc-pron">/ˈsʌndeɪ/</div>
-        <div class="vc-es">Domingo</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-title">🧠 Ejercicio 3 · Números en el aula</div>
-      <div class="ex-q">Un estudiante tiene <strong>15</strong> puntos en una tarea. ¿Cómo se dice "fifteen" en español correctamente?</div>
-      <div class="ex-opts" id="q3-opts">
-        <div class="ex-opt" onclick="resp(this,'q3','A')">A. Cincuenta</div>
-        <div class="ex-opt" onclick="resp(this,'q3','B')">B. Quince ✓</div>
-        <div class="ex-opt" onclick="resp(this,'q3','C')">C. Cinco</div>
-        <div class="ex-opt" onclick="resp(this,'q3','D')">D. Catorce</div>
-      </div>
-      <div class="ex-feedback" id="fb3"></div>
-    </div>
-
-    <div class="actividad">
-      <div class="act-hdr"><span class="act-badge a-escucha">Escucha activa</span><h4>Actividad 3.1 · Números en tu clase de matemáticas</h4></div>
-      <p>Durante tu próxima clase de matemáticas (o ciencias), di los números en inglés mientras los escribes en el tablero. "Fifteen students passed — quince estudiantes pasaron." Es inclusión lingüística natural.</p>
-      <ul class="chk-list" id="ck3">
-        <li class="chk-item" onclick="chk(this,'d3','dl3',3)"><div class="chk-box"></div><span>Practiqué los números 1-20 hasta decirlos fluido</span></li>
-        <li class="chk-item" onclick="chk(this,'d3','dl3',3)"><div class="chk-box"></div><span>Memoricé los 7 días de la semana con pronunciación</span></li>
-        <li class="chk-item" onclick="chk(this,'d3','dl3',3)"><div class="chk-box"></div><span>Usé números en inglés en al menos una clase</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     MÓDULO 4 — CLASSROOM VOCABULARY
-══════════════════════════════════ -->
-<div class="mod-card" id="mod4">
-  <div class="mod-hdr" onclick="tog('mod4')">
-    <div class="mod-num" style="background:rgba(155,89,182,.1);color:#C39BD3">M·04</div>
-    <div class="mod-info">
-      <h3>Classroom Vocabulary · Vocabulario del Aula</h3>
-      <p>Objects, instructions & classroom management in English</p>
-      <div class="dots-row">
-        <div class="dots" id="d4"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <span class="dots-label" id="dl4">0 de 3 actividades</span>
-      </div>
-    </div>
-    <span class="mod-dur">Semana 4 · ~65 min</span>
-  </div>
-  <div class="mod-body" id="body-mod4">
-    <div class="tags">
-      <span class="tag tb">MCER: A1-A2</span>
-      <span class="tag td">Vocabulario pedagógico</span>
-      <span class="tag ti">Función: Gestión del aula</span>
-    </div>
-
-    <p style="font-size:14px;color:rgba(255,255,255,.6);margin:1rem 0 1.25rem;line-height:1.8">
-      El vocabulario del aula en inglés es el más útil para un docente colombiano. Estas son las palabras y frases que puedes empezar a usar mañana mismo, sin importar tu área de enseñanza.
-    </p>
-
-    <div class="stag" style="font-size:9px;margin-bottom:.75rem">Objetos del aula · Classroom objects</div>
-    <div class="vocab-grid">
-      <div class="vocab-card" onclick="speak('blackboard / whiteboard')">
-        <div class="vc-en">blackboard / whiteboard</div>
-        <div class="vc-pron">/ˈblækbɔːrd/</div>
-        <div class="vc-es">tablero</div>
-        <div class="vc-tip">En Colombia = tablero. Black=negro, white=blanco</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('notebook / exercise book')">
-        <div class="vc-en">notebook / exercise book</div>
-        <div class="vc-pron">/ˈnoʊtbʊk/</div>
-        <div class="vc-es">cuaderno</div>
-        <div class="vc-tip">Notebook también es portátil — el contexto define</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('textbook')">
-        <div class="vc-en">textbook</div>
-        <div class="vc-pron">/ˈtɛkstbʊk/</div>
-        <div class="vc-es">libro de texto</div>
-        <div class="vc-tip">Text=texto, book=libro. Muy usado en inglés académico</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('pencil / pen')">
-        <div class="vc-en">pencil / pen</div>
-        <div class="vc-pron">/ˈpɛnsəl/ · /pɛn/</div>
-        <div class="vc-es">lápiz / lapicero</div>
-        <div class="vc-tip">Pencil tiene borrador, pen es bolígrafo</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('eraser')">
-        <div class="vc-en">eraser</div>
-        <div class="vc-pron">/ɪˈreɪzər/</div>
-        <div class="vc-es">borrador</div>
-        <div class="vc-tip">Rubber en inglés británico, eraser en americano</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('ruler')">
-        <div class="vc-en">ruler</div>
-        <div class="vc-pron">/ˈruːlər/</div>
-        <div class="vc-es">regla</div>
-        <div class="vc-tip">También se usa para "gobernante" — ojo con el contexto</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('desk / chair')">
-        <div class="vc-en">desk / chair</div>
-        <div class="vc-pron">/dɛsk/ · /tʃɛr/</div>
-        <div class="vc-es">escritorio / silla</div>
-        <div class="vc-tip">Desk=escritorio del estudiante, table=mesa</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('window / door')">
-        <div class="vc-en">window / door</div>
-        <div class="vc-pron">/ˈwɪndoʊ/ · /dɔːr/</div>
-        <div class="vc-es">ventana / puerta</div>
-        <div class="vc-tip">"Open the window" / "Close the door"</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-    </div>
-
-    <div class="stag" style="font-size:9px;margin:.75rem 0">Instrucciones de aula · Classroom instructions</div>
-    <div class="dialogue">
-      <div class="dial-line">
-        <span class="dial-who">Teacher</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Open your books, please. Page fifteen. <button class="dial-btn" onclick="speak('Open your books please. Page fifteen.')">🔊</button></div>
-          <div class="dial-es">Abran sus libros, por favor. Página quince.</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Teacher</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Listen carefully and repeat after me. <button class="dial-btn" onclick="speak('Listen carefully and repeat after me.')">🔊</button></div>
-          <div class="dial-es">Escuchen con atención y repitan después de mí.</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Teacher</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Work in pairs, please. You have five minutes. <button class="dial-btn" onclick="speak('Work in pairs please. You have five minutes.')">🔊</button></div>
-          <div class="dial-es">Trabajen en parejas. Tienen cinco minutos.</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Teacher</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Any questions? Do you understand? <button class="dial-btn" onclick="speak('Any questions? Do you understand?')">🔊</button></div>
-          <div class="dial-es">¿Alguna pregunta? ¿Entienden?</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Teacher</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Very good! Excellent work, everyone! <button class="dial-btn" onclick="speak('Very good! Excellent work, everyone!')">🔊</button></div>
-          <div class="dial-es">¡Muy bien! ¡Excelente trabajo, todos!</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-title">🧠 Ejercicio 4 · Instrucciones del aula</div>
-      <div class="ex-q">Quieres que tus estudiantes abran sus cuadernos en la página 20. ¿Cuál instrucción es correcta?</div>
-      <div class="ex-opts" id="q4-opts">
-        <div class="ex-opt" onclick="resp(this,'q4','A')">A. "Close your notebooks, page twenty."</div>
-        <div class="ex-opt" onclick="resp(this,'q4','B')">B. "Open your notebooks, page twenty." ✓</div>
-        <div class="ex-opt" onclick="resp(this,'q4','C')">C. "Look your notebooks, page twenty."</div>
-        <div class="ex-opt" onclick="resp(this,'q4','D')">D. "Take your notebooks, please."</div>
-      </div>
-      <div class="ex-feedback" id="fb4"></div>
-    </div>
-
-    <div class="actividad">
-      <div class="act-hdr"><span class="act-badge a-practica">Práctica pedagógica</span><h4>Actividad 4.1 · 5 instrucciones en inglés por clase</h4></div>
-      <p>Elige 5 instrucciones de las aprendidas y úsalas en español e inglés simultáneamente esta semana. "Abran sus cuadernos — Open your notebooks." El método bilingüe natural no requiere que seas C1, requiere que seas constante.</p>
-      <ul class="chk-list" id="ck4">
-        <li class="chk-item" onclick="chk(this,'d4','dl4',3)"><div class="chk-box"></div><span>Memoricé 8 objetos del aula en inglés</span></li>
-        <li class="chk-item" onclick="chk(this,'d4','dl4',3)"><div class="chk-box"></div><span>Usé 5 instrucciones en inglés en al menos 2 clases</span></li>
-        <li class="chk-item" onclick="chk(this,'d4','dl4',3)"><div class="chk-box"></div><span>Preparé mi "classroom English list" personal para el tablero</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     MÓDULO 5 — PRESENT SIMPLE
-══════════════════════════════════ -->
-<div class="mod-card" id="mod5">
-  <div class="mod-hdr" onclick="tog('mod5')">
-    <div class="mod-num" style="background:rgba(231,76,60,.1);color:#E74C3C">M·05</div>
-    <div class="mod-info">
-      <h3>The Present Simple · El Presente Simple</h3>
-      <p>I am, you are, he is · Verb to BE · I work / She works</p>
-      <div class="dots-row">
-        <div class="dots" id="d5"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <span class="dots-label" id="dl5">0 de 3 actividades</span>
-      </div>
-    </div>
-    <span class="mod-dur">Semana 5 · ~75 min</span>
-  </div>
-  <div class="mod-body" id="body-mod5">
-    <div class="tags">
-      <span class="tag tb">MCER: A1-A2</span>
-      <span class="tag td">Gramática fundamental</span>
-      <span class="tag ti">Función: Hablar de hábitos</span>
-    </div>
-
-    <div class="stag" style="font-size:9px;margin:1rem 0 .75rem">El verbo TO BE — el más importante del inglés</div>
-    <div style="background:rgba(0,0,0,.2);border-radius:var(--r);padding:1.25rem;margin:.75rem 0">
-      <table style="width:100%;border-collapse:collapse;font-size:13px">
-        <tr style="border-bottom:1px solid rgba(255,255,255,.08)">
-          <th style="text-align:left;padding:.5rem;color:var(--o);font-weight:600;font-size:11px">PRONOMBRE</th>
-          <th style="text-align:left;padding:.5rem;color:var(--o);font-weight:600;font-size:11px">TO BE</th>
-          <th style="text-align:left;padding:.5rem;color:var(--o);font-weight:600;font-size:11px">EJEMPLO</th>
-          <th style="text-align:left;padding:.5rem;color:var(--o);font-weight:600;font-size:11px">AUDIO</th>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
-          <td style="padding:.5rem;color:white;font-weight:500">I</td>
-          <td style="padding:.5rem;color:var(--ol);font-weight:600">am</td>
-          <td style="padding:.5rem;color:rgba(255,255,255,.6)">I am a teacher.</td>
-          <td style="padding:.5rem"><button class="audio-btn" onclick="speak('I am a teacher.')" style="margin:0;padding:3px 10px">🔊</button></td>
-        </tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
-          <td style="padding:.5rem;color:white;font-weight:500">You</td>
-          <td style="padding:.5rem;color:var(--ol);font-weight:600">are</td>
-          <td style="padding:.5rem;color:rgba(255,255,255,.6)">You are a student.</td>
-          <td style="padding:.5rem"><button class="audio-btn" onclick="speak('You are a student.')" style="margin:0;padding:3px 10px">🔊</button></td>
-        </tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
-          <td style="padding:.5rem;color:white;font-weight:500">He / She / It</td>
-          <td style="padding:.5rem;color:var(--ol);font-weight:600">is</td>
-          <td style="padding:.5rem;color:rgba(255,255,255,.6)">She is from Colombia.</td>
-          <td style="padding:.5rem"><button class="audio-btn" onclick="speak('She is from Colombia.')" style="margin:0;padding:3px 10px">🔊</button></td>
-        </tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
-          <td style="padding:.5rem;color:white;font-weight:500">We</td>
-          <td style="padding:.5rem;color:var(--ol);font-weight:600">are</td>
-          <td style="padding:.5rem;color:rgba(255,255,255,.6)">We are Colombian.</td>
-          <td style="padding:.5rem"><button class="audio-btn" onclick="speak('We are Colombian.')" style="margin:0;padding:3px 10px">🔊</button></td>
-        </tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
-          <td style="padding:.5rem;color:white;font-weight:500">You (plural)</td>
-          <td style="padding:.5rem;color:var(--ol);font-weight:600">are</td>
-          <td style="padding:.5rem;color:rgba(255,255,255,.6)">You are in class 9B.</td>
-          <td style="padding:.5rem"><button class="audio-btn" onclick="speak('You are in class 9B.')" style="margin:0;padding:3px 10px">🔊</button></td>
-        </tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
-          <td style="padding:.5rem;color:white;font-weight:500">They</td>
-          <td style="padding:.5rem;color:var(--ol);font-weight:600">are</td>
-          <td style="padding:.5rem;color:rgba(255,255,255,.6)">They are my students.</td>
-          <td style="padding:.5rem"><button class="audio-btn" onclick="speak('They are my students.')" style="margin:0;padding:3px 10px">🔊</button></td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="pron-tip"><strong>Contracciones más usadas:</strong> I'm · You're · He's / She's · We're · They're<br>
-    <span onclick="speak("I'm a teacher. You're a student. She's from Cali. We're learning English.")" style="cursor:pointer;color:var(--o)">🔊 Escuchar contracciones</span></div>
-
-    <div class="stag" style="font-size:9px;margin:.75rem 0">Presente simple con otros verbos — acciones habituales</div>
-    <div class="vocab-grid">
-      <div class="vocab-card" onclick="speak('I teach in a school in Cali.')">
-        <div class="vc-en">I teach</div>
-        <div class="vc-pron">I / we / you / they + verbo base</div>
-        <div class="vc-es">I teach in a school in Cali.</div>
-        <div class="vc-tip">Con he/she/it se agrega -S: She teaches</div>
-        <div class="vc-play">🔊 Ejemplo</div>
-      </div>
-<div class="vocab-card" onclick="speak('She teaches mathematics.')">
-        <div class="vc-en">She teaches</div>
-        <div class="vc-pron">he / she / it + verbo + S/ES</div>
-        <div class="vc-es">She teaches mathematics.</div>
-        <div class="vc-tip">Teach → teaches (agrega -es)</div>
-        <div class="vc-play">🔊 Ejemplo</div>
-      </div>
-<div class="vocab-card" onclick="speak('I work from Monday to Friday.')">
-        <div class="vc-en">I work</div>
-        <div class="vc-pron">Acciones cotidianas</div>
-        <div class="vc-es">I work from Monday to Friday.</div>
-        <div class="vc-tip">Work → works (con he/she/it)</div>
-        <div class="vc-play">🔊 Ejemplo</div>
-      </div>
-<div class="vocab-card" onclick="speak('Students learn better with music.')">
-        <div class="vc-en">Students learn</div>
-        <div class="vc-pron">Hábitos y rutinas</div>
-        <div class="vc-es">Students learn better with music.</div>
-        <div class="vc-tip">Learn → learns (con he/she/it)</div>
-        <div class="vc-play">🔊 Ejemplo</div>
-      </div>
-<div class="vocab-card" onclick="speak('I live in Cali, Colombia.')">
-        <div class="vc-en">I live in...</div>
-        <div class="vc-pron">Localización habitual</div>
-        <div class="vc-es">I live in Cali, Colombia.</div>
-        <div class="vc-tip">Live → lives (con he/she/it)</div>
-        <div class="vc-play">🔊 Ejemplo</div>
-      </div>
-<div class="vocab-card" onclick="speak('Do you speak English?')">
-        <div class="vc-en">Do you...?</div>
-        <div class="vc-pron">Pregunta en presente simple</div>
-        <div class="vc-es">Do you speak English?</div>
-        <div class="vc-tip">Con he/she/it: Does she speak...?</div>
-        <div class="vc-play">🔊 Ejemplo</div>
-      </div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-title">🧠 Ejercicio 5 · Verbo TO BE</div>
-      <div class="ex-q">Completa la oración: "She ___ a math teacher from Bogotá."</div>
-      <div class="ex-opts" id="q5-opts">
-        <div class="ex-opt" onclick="resp(this,'q5','A')">A. am</div>
-        <div class="ex-opt" onclick="resp(this,'q5','B')">B. are</div>
-        <div class="ex-opt" onclick="resp(this,'q5','C')">C. is ✓</div>
-        <div class="ex-opt" onclick="resp(this,'q5','D')">D. be</div>
-      </div>
-      <div class="ex-feedback" id="fb5"></div>
-    </div>
-
-    <div class="actividad">
-      <div class="act-hdr"><span class="act-badge a-escribe">Escritura</span><h4>Actividad 5.1 · Mi presentación en inglés</h4></div>
-      <p>Escribe en inglés una presentación de 5 oraciones sobre ti usando el presente simple. Incluye: nombre, ciudad, profesión, qué enseñas y cuántos estudiantes tienes. Luego léela en voz alta 3 veces.</p>
-      <ul class="chk-list" id="ck5">
-        <li class="chk-item" onclick="chk(this,'d5','dl5',3)"><div class="chk-box"></div><span>Conjugué el verbo TO BE en todos los pronombres de memoria</span></div>
-        <li class="chk-item" onclick="chk(this,'d5','dl5',3)"><div class="chk-box"></div><span>Escribí mi presentación de 5 oraciones en inglés</span></li>
-        <li class="chk-item" onclick="chk(this,'d5','dl5',3)"><div class="chk-box"></div><span>Identifiqué 5 verbos regulares de mi rutina docente</span></li>
-      </ul>
-    </div>
-    <div class="tip"><span>📚</span><p><strong>Una verdad sobre el presente simple:</strong> El 80% de las conversaciones cotidianas en inglés se construyen con el presente simple y el verbo TO BE. Si los dominas, ya tienes las herramientas para comunicarte en situaciones básicas reales. Los tiempos complejos vienen después.</p></div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     MÓDULO 6 — CLASSROOM INSTRUCTIONS A2
-══════════════════════════════════ -->
-<div class="mod-card" id="mod6">
-  <div class="mod-hdr" onclick="tog('mod6')">
-    <div class="mod-num" style="background:rgba(26,106,160,.15);color:#5DADE2">M·06</div>
-    <div class="mod-info">
-      <h3>Advanced Classroom English · Inglés de Aula Avanzado A2</h3>
-      <p>Discussions, questions, feedback & student interaction in English</p>
-      <div class="dots-row">
-        <div class="dots" id="d6"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <span class="dots-label" id="dl6">0 de 3 actividades</span>
-      </div>
-    </div>
-    <span class="mod-dur">Semana 6 · ~70 min</span>
-  </div>
-  <div class="mod-body" id="body-mod6">
-    <div class="tags">
-      <span class="tag tb">MCER: A2</span>
-      <span class="tag td">Interacción en el aula</span>
-      <span class="tag ti">Función: Retroalimentación</span>
-    </div>
-
-    <div class="stag" style="font-size:9px;margin:1rem 0 .75rem">Frases para retroalimentar en inglés</div>
-    <div class="vocab-grid">
-      <div class="vocab-card" onclick="speak('Well done! Congratulations!')">
-        <div class="vc-en" style="font-size:.95rem">Well done! Congratulations!</div>
-        <div class="vc-es">¡Bien hecho! ¡Felicitaciones!</div>
-        <div class="vc-tip">Para celebrar logros públicamente</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Almost! Try again, please.')">
-        <div class="vc-en" style="font-size:.95rem">Almost! Try again, please.</div>
-        <div class="vc-es">¡Casi! Intenta de nuevo, por favor.</div>
-        <div class="vc-tip">Corrección amable sin desanimar</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Can you explain that, please?')">
-        <div class="vc-en" style="font-size:.95rem">Can you explain that, please?</div>
-        <div class="vc-es">¿Puedes explicar eso, por favor?</div>
-        <div class="vc-tip">Invitar a profundizar la respuesta</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('That's a great question!')">
-        <div class="vc-en" style="font-size:.95rem">That's a great question!</div>
-        <div class="vc-es">¡Esa es una excelente pregunta!</div>
-        <div class="vc-tip">Validar la curiosidad del estudiante</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Let's review together.')">
-        <div class="vc-en" style="font-size:.95rem">Let's review together.</div>
-        <div class="vc-es">Revisemos juntos.</div>
-        <div class="vc-tip">Para repasar con todo el grupo</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('I need your attention, please.')">
-        <div class="vc-en" style="font-size:.95rem">I need your attention, please.</div>
-        <div class="vc-es">Necesito tu atención, por favor.</div>
-        <div class="vc-tip">Gestión del aula con respeto</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('You have two minutes left.')">
-        <div class="vc-en" style="font-size:.95rem">You have two minutes left.</div>
-        <div class="vc-es">Te quedan dos minutos.</div>
-        <div class="vc-tip">Control del tiempo en actividades</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Please work quietly.')">
-        <div class="vc-en" style="font-size:.95rem">Please work quietly.</div>
-        <div class="vc-es">Por favor trabajen en silencio.</div>
-        <div class="vc-tip">Instrucción de ambiente de trabajo</div>
-        <div class="vc-play">🔊 Escuchar</div>
-      </div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-title">🧠 Ejercicio 6 · Retroalimentación efectiva</div>
-      <div class="ex-q">Un estudiante da una respuesta incorrecta pero hizo un buen intento. ¿Cuál frase en inglés es más apropiada pedagógicamente?</div>
-      <div class="ex-opts" id="q6-opts">
-        <div class="ex-opt" onclick="resp(this,'q6','A')">A. "That's wrong. Next student."</div>
-        <div class="ex-opt" onclick="resp(this,'q6','B')">B. "Almost! Try again, please." ✓</div>
-        <div class="ex-opt" onclick="resp(this,'q6','C')">C. "No, that is incorrect."</div>
-        <div class="ex-opt" onclick="resp(this,'q6','D')">D. "Please pay more attention."</div>
-      </div>
-      <div class="ex-feedback" id="fb6"></div>
-    </div>
-
-    <div class="actividad">
-      <div class="act-hdr"><span class="act-badge a-practica">Práctica avanzada</span><h4>Actividad 6.1 · Inglés en los momentos de retroalimentación</h4></div>
-      <p>Esta semana, usa al menos 3 frases de retroalimentación en inglés durante tus clases. "Well done!", "Almost — try again" y "That's a great question" son las más naturales para empezar. No necesitas una clase de inglés: necesitas un momento de inglés.</p>
-      <ul class="chk-list" id="ck6">
-        <li class="chk-item" onclick="chk(this,'d6','dl6',3)"><div class="chk-box"></div><span>Memoricé 8 frases de retroalimentación en inglés</span></li>
-        <li class="chk-item" onclick="chk(this,'d6','dl6',3)"><div class="chk-box"></div><span>Usé "Well done!" y "Almost, try again" en mis clases</span></li>
-        <li class="chk-item" onclick="chk(this,'d6','dl6',3)"><div class="chk-box"></div><span>Preparé una cartelera con mis 5 frases favoritas de aula en inglés</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     MÓDULO 7 — LISTENING COMPREHENSION A2
-══════════════════════════════════ -->
-<div class="mod-card" id="mod7">
-  <div class="mod-hdr" onclick="tog('mod7')">
-    <div class="mod-num" style="background:rgba(39,174,96,.1);color:#6EE7A0">M·07</div>
-    <div class="mod-info">
-      <h3>Listening Comprehension A2 · Comprensión Auditiva</h3>
-      <p>Entender inglés hablado · Estrategias para cuando no entiendes</p>
-      <div class="dots-row">
-        <div class="dots" id="d7"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <span class="dots-label" id="dl7">0 de 3 actividades</span>
-      </div>
-    </div>
-    <span class="mod-dur">Semana 7 · ~65 min</span>
-  </div>
-  <div class="mod-body" id="body-mod7">
-    <div class="tags">
-      <span class="tag tb">MCER: A2</span>
-      <span class="tag td">Habilidad: Listening</span>
-      <span class="tag ti">Estrategia: Top-down</span>
-    </div>
-
-    <p style="font-size:14px;color:rgba(255,255,255,.6);margin:1rem 0 1.25rem;line-height:1.8">
-      El listening es la habilidad más difícil para hispanohablantes porque el inglés conecta palabras, reduce sonidos y habla más rápido que parece. Estas estrategias te enseñan a entender aunque no captes cada palabra.
-    </p>
-
-    <div class="stag" style="font-size:9px;margin-bottom:.75rem">Frases para cuando no entiendes — ¡úsalas sin vergüenza!</div>
-    <div class="vocab-grid">
-      <div class="vocab-card" onclick="speak('Could you repeat that, please?')">
-        <div class="vc-en" style="font-size:.9rem">Could you repeat that, please?</div>
-        <div class="vc-es">¿Podría repetir eso, por favor?</div>
-        <div class="vc-tip">La más útil y más educada</div>
-        <div class="vc-play">🔊 Practicar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Could you speak more slowly?')">
-        <div class="vc-en" style="font-size:.9rem">Could you speak more slowly?</div>
-        <div class="vc-es">¿Podría hablar más despacio?</div>
-        <div class="vc-tip">Para angloparlantes nativos</div>
-        <div class="vc-play">🔊 Practicar</div>
-      </div>
-<div class="vocab-card" onclick="speak('I'm sorry, I don't understand.')">
-        <div class="vc-en" style="font-size:.9rem">I'm sorry, I don't understand.</div>
-        <div class="vc-es">Lo siento, no entiendo.</div>
-        <div class="vc-tip">Honestidad comunicativa</div>
-        <div class="vc-play">🔊 Practicar</div>
-      </div>
-<div class="vocab-card" onclick="speak('What does "..." mean?')">
-        <div class="vc-en" style="font-size:.9rem">What does "..." mean?</div>
-        <div class="vc-es">¿Qué significa "..."?</div>
-        <div class="vc-tip">Para vocabulario desconocido</div>
-        <div class="vc-play">🔊 Practicar</div>
-      </div>
-<div class="vocab-card" onclick="speak('How do you spell that?')">
-        <div class="vc-en" style="font-size:.9rem">How do you spell that?</div>
-        <div class="vc-es">¿Cómo se escribe eso?</div>
-        <div class="vc-tip">Para nombres y términos técnicos</div>
-        <div class="vc-play">🔊 Practicar</div>
-      </div>
-<div class="vocab-card" onclick="speak('Can you write it down?')">
-        <div class="vc-en" style="font-size:.9rem">Can you write it down?</div>
-        <div class="vc-es">¿Puede escribirlo?</div>
-        <div class="vc-tip">Apoyo visual cuando el audio falla</div>
-        <div class="vc-play">🔊 Practicar</div>
-      </div>
-    </div>
-
-    <div class="stag" style="font-size:9px;margin:.75rem 0">Mini-audio: Escucha y comprende</div>
-    <div class="dialogue">
-      <div style="background:rgba(232,160,32,.06);border-radius:var(--rs);padding:.75rem;margin-bottom:.75rem;font-size:12px;color:rgba(255,255,255,.5)">
-        📻 Escucha este anuncio escolar en inglés. No necesitas entender cada palabra — solo el mensaje general.
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Audio</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Attention, students! Tomorrow we have a special assembly at nine o'clock in the morning. All students must bring their student ID. Thank you. <button class="dial-btn" onclick="speak('Attention students! Tomorrow we have a special assembly at nine o clock in the morning. All students must bring their student ID. Thank you.')">🔊</button></div>
-          <div class="dial-es">Atención, estudiantes: Mañana tenemos una asamblea especial a las nueve de la mañana. Todos los estudiantes deben traer su carné estudiantil. Gracias.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-title">🧠 Ejercicio 7 · Comprensión del anuncio</div>
-      <div class="ex-q">Según el anuncio que escuchaste, ¿qué deben traer los estudiantes a la asamblea?</div>
-      <div class="ex-opts" id="q7-opts">
-        <div class="ex-opt" onclick="resp(this,'q7','A')">A. Their textbooks</div>
-        <div class="ex-opt" onclick="resp(this,'q7','B')">B. Their student ID ✓</div>
-        <div class="ex-opt" onclick="resp(this,'q7','C')">C. Their notebooks</div>
-        <div class="ex-opt" onclick="resp(this,'q7','D')">D. Their pencils</div>
-      </div>
-      <div class="ex-feedback" id="fb7"></div>
-    </div>
-
-    <div class="actividad">
-      <div class="act-hdr"><span class="act-badge a-escucha">Escucha activa</span><h4>Actividad 7.1 · 10 minutos diarios de inglés real</h4></div>
-      <p>Cada día esta semana, escucha 10 minutos de inglés real: una canción en inglés, un video de YouTube en inglés con subtítulos, o un podcast educativo simple. No necesitas entender todo — el oído se entrena con exposición constante.</p>
-      <ul class="chk-list" id="ck7">
-        <li class="chk-item" onclick="chk(this,'d7','dl7',3)"><div class="chk-box"></div><span>Escuché inglés real durante 10 min al día por 5 días</span></li>
-        <li class="chk-item" onclick="chk(this,'d7','dl7',3)"><div class="chk-box"></div><span>Practiqué las frases "Could you repeat that?" y "Could you speak more slowly?"</span></li>
-        <li class="chk-item" onclick="chk(this,'d7','dl7',3)"><div class="chk-box"></div><span>Identifiqué 5 palabras nuevas de lo que escuché esta semana</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     MÓDULO 8 — MI PRIMER DIÁLOGO COMPLETO
-══════════════════════════════════ -->
-<div class="mod-card" id="mod8">
-  <div class="mod-hdr" onclick="tog('mod8')">
-    <div class="mod-num" style="background:rgba(232,160,32,.15);color:var(--o)">M·08</div>
-    <div class="mod-info">
-      <h3>My First Complete Dialogue · Mi Primer Diálogo Completo</h3>
-      <p>Integración de todo lo aprendido · Conversación real A2 · Tu diploma</p>
-      <div class="dots-row">
-        <div class="dots" id="d8"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <span class="dots-label" id="dl8">0 de 3 actividades</span>
-      </div>
-    </div>
-    <span class="mod-dur">Semana 8 · ~75 min</span>
-  </div>
-  <div class="mod-body" id="body-mod8">
-    <div class="tags">
-      <span class="tag tb">MCER: A2 completado</span>
-      <span class="tag td">Integración final</span>
-      <span class="tag ti">Función: Conversación real</span>
-    </div>
-
-    <p style="font-size:14px;color:rgba(255,255,255,.6);margin:1rem 0 1.25rem;line-height:1.8">
-      Has llegado al módulo final. Este es el momento de integrar todo: el abecedario, los saludos, los números, el vocabulario del aula, el presente simple y las estrategias de listening. ¡Tu primer diálogo completo en inglés!
-    </p>
-
-    <div class="stag" style="font-size:9px;margin-bottom:.75rem">Diálogo completo A2 — Primer día de clase en inglés</div>
-    <div class="dialogue">
-      <div class="dial-line">
-        <span class="dial-who">Teacher A</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Good morning! Are you the new English teacher? <button class="dial-btn" onclick="speak('Good morning! Are you the new English teacher?')">🔊</button></div>
-          <div class="dial-es">¡Buenos días! ¿Eres el/la nuevo/a docente de inglés?</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who b">Teacher B</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Yes, I am! My name is María. I'm from Cali. Nice to meet you! <button class="dial-btn" onclick="speak('Yes I am! My name is Maria. I am from Cali. Nice to meet you!')">🔊</button></div>
-          <div class="dial-es">¡Sí! Mi nombre es María. Soy de Cali. ¡Mucho gusto!</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Teacher A</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Nice to meet you too! I'm Carlos. I teach mathematics. How many students do you have? <button class="dial-btn" onclick="speak('Nice to meet you too! I am Carlos. I teach mathematics. How many students do you have?')">🔊</button></div>
-          <div class="dial-es">¡Igualmente! Soy Carlos. Enseño matemáticas. ¿Cuántos estudiantes tienes?</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who b">Teacher B</span>
-        <div class="dial-bubble">
-          <div class="dial-en">I have thirty-five students in my class. They are very enthusiastic! <button class="dial-btn" onclick="speak('I have thirty five students in my class. They are very enthusiastic!')">🔊</button></div>
-          <div class="dial-es">Tengo treinta y cinco estudiantes en mi clase. ¡Son muy entusiastas!</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Teacher A</span>
-        <div class="dial-bubble">
-          <div class="dial-en">That's great! Do you need anything for your classroom? <button class="dial-btn" onclick="speak('That is great! Do you need anything for your classroom?')">🔊</button></div>
-          <div class="dial-es">¡Qué bueno! ¿Necesitas algo para tu aula?</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who b">Teacher B</span>
-        <div class="dial-bubble">
-          <div class="dial-en">Yes, please! I need a whiteboard marker and some textbooks. Thank you very much! <button class="dial-btn" onclick="speak('Yes please! I need a whiteboard marker and some textbooks. Thank you very much!')">🔊</button></div>
-          <div class="dial-es">¡Sí, por favor! Necesito un marcador de tablero y algunos libros de texto. ¡Muchas gracias!</div>
-        </div>
-      </div>
-      <div class="dial-line">
-        <span class="dial-who">Teacher A</span>
-        <div class="dial-bubble">
-          <div class="dial-en">You're welcome! Good luck with your first class! <button class="dial-btn" onclick="speak('You are welcome! Good luck with your first class!')">🔊</button></div>
-          <div class="dial-es">¡De nada! ¡Buena suerte en tu primera clase!</div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:.75rem">
-        <button class="audio-btn" onclick="speak('Good morning! Are you the new English teacher? Yes I am! My name is Maria. I am from Cali. Nice to meet you! Nice to meet you too! I am Carlos. I teach mathematics. How many students do you have? I have thirty five students in my class. They are very enthusiastic! That is great! Do you need anything for your classroom? Yes please! I need a whiteboard marker and some textbooks. Thank you very much! You are welcome! Good luck with your first class!')" style="font-size:13px;padding:8px 20px">
-          🔊 Escuchar el diálogo completo
-        </button>
-      </div>
-    </div>
-
-    <div class="exercise">
-      <div class="ex-title">🧠 Ejercicio Final · Comprensión global</div>
-      <div class="ex-q">En el diálogo, ¿cuántos estudiantes tiene Teacher B en su clase?</div>
-      <div class="ex-opts" id="q8-opts">
-        <div class="ex-opt" onclick="resp(this,'q8','A')">A. Twenty-five students</div>
-        <div class="ex-opt" onclick="resp(this,'q8','B')">B. Forty-five students</div>
-        <div class="ex-opt" onclick="resp(this,'q8','C')">C. Thirty-five students ✓</div>
-        <div class="ex-opt" onclick="resp(this,'q8','D')">D. Fifteen students</div>
-      </div>
-      <div class="ex-feedback" id="fb8"></div>
-    </div>
-
-    <div class="actividad">
-      <div class="act-hdr"><span class="act-badge a-habla">Proyecto final</span><h4>Actividad 8.1 · Mi presentación oral A2</h4></div>
-      <p>Graba un audio o video de ti mismo presentándote en inglés durante al menos 60 segundos. Incluye: nombre, ciudad, institución, qué área enseñas, cuántos estudiantes tienes y qué aprendiste en este curso. Este es tu registro personal de que llegaste al nivel A2.</p>
-      <ul class="chk-list" id="ck8">
-        <li class="chk-item" onclick="chk(this,'d8','dl8',3)"><div class="chk-box"></div><span>Practiqué el diálogo completo hasta poder decirlo de memoria</span></li>
-        <li class="chk-item" onclick="chk(this,'d8','dl8',3)"><div class="chk-box"></div><span>Grabé mi presentación oral de 60 segundos en inglés</span></li>
-        <li class="chk-item" onclick="chk(this,'d8','dl8',3)"><div class="chk-box"></div><span>Compartí algo aprendido de inglés con mis estudiantes</span></li>
-      </ul>
-    </div>
-
-    <div style="background:var(--n);border:1px solid rgba(232,160,32,.25);border-radius:var(--r);padding:1.5rem;margin-top:1.25rem;text-align:center">
-      <div style="font-size:2rem;margin-bottom:.75rem">🎉</div>
-      <h3 style="font-family:'Playfair Display',serif;color:white;margin-bottom:.5rem">¡Felicitaciones, maestro!</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;max-width:480px;margin:0 auto">
-        Has completado el Curso 09 de Inglés A1-A2. Pasaste de cero a poder saludar, presentarte, gestionar tu aula y sostener una conversación básica en inglés. Eso es el nivel A2 — y es un logro real. Ahora ve por el Curso 10: Inglés B1-B2 académico.
-      </p>
-      <a class="btn-p" href="#diploma" style="margin-top:1rem;display:inline-flex">Generar mi diploma →</a>
-    </div>
-  </div>
-</div>
-
-</div>
-</section>
+<section id="modulos"><div class="con"><div class="stag">Estructura · 6 módulos · 42 preguntas con bloqueo</div><h2 class="stitle">6 módulos · Filosofía SABI: que verdaderamente APRENDAN</h2><div style="background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.2);border-radius:10px;padding:.75rem 1rem;margin-bottom:1.5rem;font-size:12px;color:rgba(255,255,255,.7)"><strong style="color:#6EE7A0">Sistema de bloqueo real:</strong> Cada módulo requiere 5/7 correctas (70%) para avanzar. Puedes reintentar cuantas veces necesites.</div><div class="mod-card" id="mod1"><div class="mod-hdr" onclick="modToggle(1)"><div class="mod-num" style="background:#1D9E7515;color:#1D9E75">M·01</div><div class="mod-info"><h3>Fonética inglesa: Los 44 sonidos</h3><p>Vocales · Consonantes · IPA · Pares mínimos</p><div class="dots-row"><div class="dots" id="d1"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span class="dots-label" id="dl1">0 de 7 preguntas</span></div></div><div class="lock-msg">🔒 Completa el módulo anterior con 70%+ para desbloquear</div><span class="mod-dur">Sem 1</span></div><div class="mod-body" id="body-mod1" style="display:none"><div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:1rem;background:#1D9E7508;border:1px solid #1D9E7518;border-radius:10px;padding:1rem">El inglés tiene 44 fonemas distintos del español. Los 20 sonidos vocálicos son el mayor desafío: el español tiene 5 vocales fijas; el inglés tiene cortas, largas y diptongos que CAMBIAN el significado. Un maestro que no distingue /ɪ/ de /iː/ enseña 'ship' como 'sheep'. La fonética no es opcional — es la base.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem"><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">/ɪ/ corta — 'bit','sit','him'</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Vocal breve y relajada. Labios sin tensar. DIFERENTE a 'bee'. Contraste: bit/beat · ship/sheep · hit/heat</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">/iː/ larga — 'beat','see','feel'</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Vocal larga con labios estirados. Sostenida el doble. Error típico: acortar esta vocal y decir 'bit' en vez de 'beat'</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">/ʌ/ — 'cup','bus','love'</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">No existe en español. Centro-baja, labios neutros. ≠ 'a' española. Errores: 'cop' por 'cup', 'boss' por 'bus'</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">/æ/ — 'cat','bad','man'</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Más abierta que la 'a' española. Mandíbula baja, labios estirados. cat ≠ cut ≠ cot</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">/θ/ — 'think','three','bath'</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Lengua entre dientes. NO es 's' ni 'z'. think ≠ sink · three ≠ tree · bath ≠ bass</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">/ð/ — 'the','this','mother'</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Igual posición que /θ/ pero con voz. the·this·there·mother·father</div></div></div><div class="exam-block" id="eb-1"><div class="exam-hdr"><div class="exam-badge">📝 EVALUACIÓN</div><div><div class="exam-title">7 preguntas · Comprensión real requerida</div><div class="exam-req">Mínimo 5/7 correctas (70%) para desbloquear el siguiente módulo</div></div></div><div class="exam-score"><div class="exam-score-bar"><div class="exam-score-fill" id="esf-1" style="width:0%"></div></div><div class="exam-score-txt" id="est-1">0 de 7 respondidas</div></div><div class="exam-q" id="eq-1-1"><div class="exam-q-txt">1. ¿Cuántos fonemas tiene el inglés y cuántas letras tiene el alfabeto inglés?</div><div class="exam-opts" id="eo-1-1"><div class="exam-opt" onclick="examResp(this,1,1,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>26 fonemas y 26 letras — coinciden perfectamente</div><div class="exam-opt" onclick="examResp(this,1,1,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>44 fonemas y 26 letras — hay más sonidos que letras, por eso la ortografía no predice la pronunciación</div><div class="exam-opt" onclick="examResp(this,1,1,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>26 fonemas y 44 letras</div><div class="exam-opt" onclick="examResp(this,1,1,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>El inglés tiene los mismos fonemas que el español</div></div><div class="exam-fb" id="ef-1-1"></div></div><div class="exam-q" id="eq-1-2"><div class="exam-q-txt">2. El par mínimo 'ship' /ʃɪp/ y 'sheep' /ʃiːp' ilustra:</div><div class="exam-opts" id="eo-1-2"><div class="exam-opt" onclick="examResp(this,1,2,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Que las palabras son sinónimos en inglés formal</div><div class="exam-opt" onclick="examResp(this,1,2,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>La diferencia entre /ɪ/ (vocal breve, relajada) y /iː/ (vocal larga, labios estirados). 'Ship'=barco, 'sheep'=oveja. Un maestro que no distingue estos sonidos enseña vocabulario con pronunciación incorrecta</div><div class="exam-opt" onclick="examResp(this,1,2,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Que ambas se pronuncian igual — solo difieren en escritura</div><div class="exam-opt" onclick="examResp(this,1,2,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Una diferencia consonántica que no afecta la comprensión</div></div><div class="exam-fb" id="ef-1-2"></div></div><div class="exam-q" id="eq-1-3"><div class="exam-q-txt">3. El sonido /θ/ en 'think','three','bath' se produce:</div><div class="exam-opts" id="eo-1-3"><div class="exam-opt" onclick="examResp(this,1,3,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Como la 's' del español — son equivalentes</div><div class="exam-opt" onclick="examResp(this,1,3,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Con la punta de la lengua tocando suavemente el borde de los dientes superiores, sin voz. Es exclusivo del inglés — no existe en español, francés ni portugués</div><div class="exam-opt" onclick="examResp(this,1,3,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Como la 'z' del español castellano</div><div class="exam-opt" onclick="examResp(this,1,3,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Igual que la 'd' española intervocálica</div></div><div class="exam-fb" id="ef-1-3"></div></div><div class="exam-q" id="eq-1-4"><div class="exam-q-txt">4. ¿Cómo afecta el 'schwa' /ə/ a la pronunciación natural del inglés?</div><div class="exam-opts" id="eo-1-4"><div class="exam-opt" onclick="examResp(this,1,4,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>No afecta — es solo una vocal reducida sin importancia pedagógica</div><div class="exam-opt" onclick="examResp(this,1,4,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Es el fonema más frecuente del inglés. En sílabas átonas, casi todas las vocales se reducen a /ə/: 'banana'=/bəˈnænə/, 'teacher'=/ˈtiːtʃə/. Sin el schwa, el inglés suena artificial y difícil de comprender</div><div class="exam-opt" onclick="examResp(this,1,4,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Es igual a la 'a' española</div><div class="exam-opt" onclick="examResp(this,1,4,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Solo aparece en palabras académicas difíciles</div></div><div class="exam-fb" id="ef-1-4"></div></div><div class="exam-q" id="eq-1-5"><div class="exam-q-txt">5. En el sistema IPA, ¿qué indica la marca ˈ (apóstrofe elevado) antes de una sílaba?</div><div class="exam-opts" id="eo-1-5"><div class="exam-opt" onclick="examResp(this,1,5,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Que la sílaba es opcional y puede omitirse</div><div class="exam-opt" onclick="examResp(this,1,5,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Que esa sílaba lleva el acento principal. Ej: 'photograph' /ˈfəʊtəɡræf/ — acento en 'fo-'. 'Photography' /fəˈtɒɡrəfi/ — acento en 'to-'. El acento cambia al derivar la palabra</div><div class="exam-opt" onclick="examResp(this,1,5,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Que la vocal es larga</div><div class="exam-opt" onclick="examResp(this,1,5,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Que hay una pausa antes de esa sílaba</div></div><div class="exam-fb" id="ef-1-5"></div></div><div class="exam-q" id="eq-1-6"><div class="exam-q-txt">6. ¿Qué son las consonantes 'voiced' y 'voiceless' y por qué importan para el maestro?</div><div class="exam-opts" id="eo-1-6"><div class="exam-opt" onclick="examResp(this,1,6,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Consonantes que se escriben con mayúscula o minúscula</div><div class="exam-opt" onclick="examResp(this,1,6,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Los pares de consonantes que comparten el mismo punto y modo de articulación pero difieren en la vibración de las cuerdas vocales. /p/-/b/, /t/-/d/, /k/-/ɡ/, /f/-/v/, /s/-/z/, /θ/-/ð/. Confundirlos cambia el significado: price/prize, sink/zinc</div><div class="exam-opt" onclick="examResp(this,1,6,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Consonantes fuerte y débiles sin relación fonológica</div><div class="exam-opt" onclick="examResp(this,1,6,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Solo relevantes en fonética avanzada, no en A1-A2</div></div><div class="exam-fb" id="ef-1-6"></div></div><div class="exam-q" id="eq-1-7"><div class="exam-q-txt">7. ¿Por qué el maestro colombiano de inglés DEBE conocer el Alfabeto Fonético Internacional (IPA)?</div><div class="exam-opts" id="eo-1-7"><div class="exam-opt" onclick="examResp(this,1,7,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>No debe — el IPA es solo para lingüistas académicos</div><div class="exam-opt" onclick="examResp(this,1,7,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Porque el inglés tiene ortografía NO fonética. Sin IPA, el maestro no puede saber cómo se pronuncia una palabra nueva sin escucharla. Con IPA, puede leer cualquier diccionario Oxford/Cambridge y pronunciar correctamente palabras que nunca ha escuchado</div><div class="exam-opt" onclick="examResp(this,1,7,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>El diccionario en línea con audio reemplaza completamente el IPA</div><div class="exam-opt" onclick="examResp(this,1,7,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>El IPA es demasiado difícil para enseñarlo a estudiantes colombianos</div></div><div class="exam-fb" id="ef-1-7"></div></div><div class="exam-result" id="er-1"><div class="exam-result-pct" id="erp-1"></div><div class="exam-result-msg" id="erm-1"></div><button class="exam-retry" onclick="examRetry(1)" id="err-1" style="display:none">🔄 Intentar de nuevo</button></div><button class="exam-submit" id="es-1" onclick="examCheck(1,7,5)" disabled>Verificar mis respuestas →</button></div></div></div>
+<div class="mod-card locked" id="mod2"><div class="mod-hdr" onclick="modToggle(2)"><div class="mod-num" style="background:#D85A3015;color:#D85A30">M·02</div><div class="mod-info"><h3>Gramática A1-A2: Estructura esencial</h3><p>Presente simple · Presente continuo · Past simple · Auxiliares</p><div class="dots-row"><div class="dots" id="d2"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span class="dots-label" id="dl2">0 de 7 preguntas</span></div></div><div class="lock-msg">🔒 Completa el módulo anterior con 70%+ para desbloquear</div><span class="mod-dur">Sem 2</span></div><div class="mod-body" id="body-mod2" style="display:none"><div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:1rem;background:#1D9E7508;border:1px solid #1D9E7518;border-radius:10px;padding:1rem">La gramática inglesa A1-A2 no es solo conjugar verbos — es entender cómo el inglés ESTRUCTURA el pensamiento diferente al español. Los auxiliares (do/does/did) no existen en español. El orden SVO es inflexible. La distinción present simple/continuous marca diferencia de significado total. Sin entender ESTO, el maestro enseña gramática mecánica sin comprensión.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem"><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Orden SVO obligatorio</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">En inglés: Sujeto + Verbo + Objeto — SIEMPRE. No hay inversión como en español. 'Me gusta el café' → 'I like coffee' (no: 'Like I coffee'). Este orden es inflexible.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Auxiliar DO/DOES/DID</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Para preguntas y negaciones en presente/pasado simple: Do you like coffee? / She doesn't know. / Did they come? — El auxiliar NO existe en español. Es el error #1 de los hispanohablantes.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Simple vs Continuous</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Simple: hábitos/hechos permanentes. Continuous: acción en progreso AHORA. 'I teach English' (mi profesión) vs 'I am teaching English' (en este momento). El tiempo cambia el significado completamente.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Pasado simple irregular</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">go→went, have→had, be→was/were, see→saw, come→came, take→took, make→made, know→knew. Los 50 verbos irregulares más frecuentes cubren el 95% del uso real.</div></div></div><div class="exam-block" id="eb-2"><div class="exam-hdr"><div class="exam-badge">📝 EVALUACIÓN</div><div><div class="exam-title">7 preguntas · Comprensión real requerida</div><div class="exam-req">Mínimo 5/7 correctas (70%) para desbloquear el siguiente módulo</div></div></div><div class="exam-score"><div class="exam-score-bar"><div class="exam-score-fill" id="esf-2" style="width:0%"></div></div><div class="exam-score-txt" id="est-2">0 de 7 respondidas</div></div><div class="exam-q" id="eq-2-1"><div class="exam-q-txt">1. ¿Cuál es la diferencia de significado entre 'I teach English' y 'I am teaching English'?</div><div class="exam-opts" id="eo-2-1"><div class="exam-opt" onclick="examResp(this,2,1,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Son sinónimos — ambas formas son intercambiables</div><div class="exam-opt" onclick="examResp(this,2,1,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>'I teach English' = presente simple = hábito/profesión/hecho permanente (soy maestro de inglés). 'I am teaching English' = presente continuo = acción en progreso en este momento (ahora mismo estoy en clase). El tiempo gramatical cambia el significado completamente</div><div class="exam-opt" onclick="examResp(this,2,1,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Solo difieren en formalidad — la segunda es más formal</div><div class="exam-opt" onclick="examResp(this,2,1,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>La segunda es el futuro próximo en inglés coloquial</div></div><div class="exam-fb" id="ef-2-1"></div></div><div class="exam-q" id="eq-2-2"><div class="exam-q-txt">2. Para hacer una pregunta en presente simple con el verbo 'work', ¿cuál es la estructura correcta?</div><div class="exam-opts" id="eo-2-2"><div class="exam-opt" onclick="examResp(this,2,2,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>'Work you here?' — igual que en español con inversión</div><div class="exam-opt" onclick="examResp(this,2,2,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>'Do you work here?' — se usa el auxiliar DO + sujeto + verbo base. Con he/she/it: 'Does she work here?' El auxiliar cambia pero el verbo base NO lleva -s</div><div class="exam-opt" onclick="examResp(this,2,2,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>'You work here?' — se eleva la entonación solamente</div><div class="exam-opt" onclick="examResp(this,2,2,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>'Are you work here?' — se usa el auxiliar BE</div></div><div class="exam-fb" id="ef-2-2"></div></div><div class="exam-q" id="eq-2-3"><div class="exam-q-txt">3. ¿Cuándo se usa 'was' y cuándo 'were' en inglés?</div><div class="exam-opts" id="eo-2-3"><div class="exam-opt" onclick="examResp(this,2,3,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>'Was' siempre, 'were' solo en textos formales</div><div class="exam-opt" onclick="examResp(this,2,3,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>'Was' con I/he/she/it (singular). 'Were' con you/we/they (plural y el 'you' singular). 'I was tired. She was happy. We were busy. They were late.' También en condicionales: 'If I were you...' (formal/hipotético)</div><div class="exam-opt" onclick="examResp(this,2,3,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>'Were' para el pasado, 'was' para el presente</div><div class="exam-opt" onclick="examResp(this,2,3,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Son completamente intercambiables en inglés coloquial</div></div><div class="exam-fb" id="ef-2-3"></div></div><div class="exam-q" id="eq-2-4"><div class="exam-q-txt">4. ¿Qué forma verbal usa el inglés para expresar planes futuros próximos y ciertos?</div><div class="exam-opts" id="eo-2-4"><div class="exam-opt" onclick="examResp(this,2,4,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>El futuro simple 'will' es la única opción para el futuro</div><div class="exam-opt" onclick="examResp(this,2,4,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>'Be going to' para planes previstos: 'I am going to visit my students tomorrow'. 'Will' para decisiones espontáneas o predicciones: 'I will help you' (decisión en el momento). La distinción going to/will es fundamental desde A2</div><div class="exam-opt" onclick="examResp(this,2,4,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>El presente simple para todo el futuro</div><div class="exam-opt" onclick="examResp(this,2,4,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>El presente continuo nunca puede expresar futuro</div></div><div class="exam-fb" id="ef-2-4"></div></div><div class="exam-q" id="eq-2-5"><div class="exam-q-txt">5. ¿Qué son los verbos modales y cuáles son los más importantes en A1-A2?</div><div class="exam-opts" id="eo-2-5"><div class="exam-opt" onclick="examResp(this,2,5,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Verbos que expresan emociones — como 'love' y 'hate'</div><div class="exam-opt" onclick="examResp(this,2,5,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Auxiliares que expresan posibilidad, capacidad, obligación o permiso: can (capacidad/permiso), could (pasado de can/posibilidad suave), must (obligación fuerte), should (consejo), may/might (posibilidad). NO llevan -s en 3a persona: 'She can swim' (no 'She cans')</div><div class="exam-opt" onclick="examResp(this,2,5,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Verbos irregulares que cambian completamente en pasado</div><div class="exam-opt" onclick="examResp(this,2,5,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Solo 'can' y 'must' son modales — los demás son regulares</div></div><div class="exam-fb" id="ef-2-5"></div></div><div class="exam-q" id="eq-2-6"><div class="exam-q-txt">6. En inglés, ¿cómo se forma el plural de sustantivos y cuáles son las excepciones más importantes?</div><div class="exam-opts" id="eo-2-6"><div class="exam-opt" onclick="examResp(this,2,6,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Siempre agregando -s al final sin excepción</div><div class="exam-opt" onclick="examResp(this,2,6,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>La regla general es añadir -s (cats, books). Se añade -es después de -s,-x,-z,-ch,-sh (buses, boxes, watches). Cambio de -y a -ies (baby→babies). Plurales irregulares: man→men, woman→women, child→children, foot→feet, tooth→teeth, mouse→mice</div><div class="exam-opt" onclick="examResp(this,2,6,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Solo se cambia la vocal de la palabra, siempre</div><div class="exam-opt" onclick="examResp(this,2,6,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>El inglés no tiene plural — el contexto lo indica</div></div><div class="exam-fb" id="ef-2-6"></div></div><div class="exam-q" id="eq-2-7"><div class="exam-q-txt">7. ¿Por qué el artículo 'the' en inglés es más complejo que el artículo definido en español?</div><div class="exam-opts" id="eo-2-7"><div class="exam-opt" onclick="examResp(this,2,7,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>No es más complejo — funciona exactamente igual que 'el/la/los/las'</div><div class="exam-opt" onclick="examResp(this,2,7,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>'The' no cambia por género ni número (a diferencia del español: el/la/los/las). Pero su uso tiene reglas específicas: se usa con referencias específicas conocidas, con países únicos (the USA, the UK, not Colombia), con instrumentos musicales, y con ciertos sustantivos colectivos. Su omisión también tiene reglas complejas</div><div class="exam-opt" onclick="examResp(this,2,7,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>'The' solo se usa con sustantivos específicos del inglés formal</div><div class="exam-opt" onclick="examResp(this,2,7,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>El inglés no usa artículos — 'the' es opcional siempre</div></div><div class="exam-fb" id="ef-2-7"></div></div><div class="exam-result" id="er-2"><div class="exam-result-pct" id="erp-2"></div><div class="exam-result-msg" id="erm-2"></div><button class="exam-retry" onclick="examRetry(2)" id="err-2" style="display:none">🔄 Intentar de nuevo</button></div><button class="exam-submit" id="es-2" onclick="examCheck(2,7,5)" disabled>Verificar mis respuestas →</button></div></div></div>
+<div class="mod-card locked" id="mod3"><div class="mod-hdr" onclick="modToggle(3)"><div class="mod-num" style="background:#D4A84315;color:#D4A843">M·03</div><div class="mod-info"><h3>Vocabulario estratégico A1-A2</h3><p>Campos semánticos · Colocaciones · Word families · Frecuencia</p><div class="dots-row"><div class="dots" id="d3"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span class="dots-label" id="dl3">0 de 7 preguntas</span></div></div><div class="lock-msg">🔒 Completa el módulo anterior con 70%+ para desbloquear</div><span class="mod-dur">Sem 3</span></div><div class="mod-body" id="body-mod3" style="display:none"><div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:1rem;background:#1D9E7508;border:1px solid #1D9E7518;border-radius:10px;padding:1rem">El vocabulario no se enseña como listas de palabras aisladas — se enseña en contexto, en familias y en colocaciones. Las 2000 palabras más frecuentes del inglés cubren el 95% del lenguaje cotidiano. Un maestro que conoce las 'word families' (teach/teacher/teaching/teachable) multiplica el vocabulario que puede enseñar eficientemente.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem"><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Las 100 palabras más frecuentes</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">the, be, to, of, and, a, in, that, have, it, for, not, on, with, he, as, you, do, at, this... Estas 100 palabras representan el 50% de todo texto en inglés. Dominarlas con pronunciación correcta es prioridad absoluta.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Word families — multiplicar vocabulario</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">teach→teacher, teaching, taught, teachable, unteachable. work→worker, working, worked, workable. Una raíz = 5-8 palabras. Enseñar familias léxicas multiplica el aprendizaje.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Colocaciones — cómo van juntas</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Make a decision (no 'do a decision'). Do homework (no 'make homework'). Have breakfast. Take a shower. Los verbos comodín make/do/have/take tienen collocations fijas — aprenderlas evita errores muy frecuentes.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Phrasal verbs esenciales A1-A2</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">turn on/off, put on/off, give up, look for, get up, wake up, go on, come back, find out, take off. Los phrasal verbs son inglés natural — evitarlos hace la comunicación artificial.</div></div></div><div class="exam-block" id="eb-3"><div class="exam-hdr"><div class="exam-badge">📝 EVALUACIÓN</div><div><div class="exam-title">7 preguntas · Comprensión real requerida</div><div class="exam-req">Mínimo 5/7 correctas (70%) para desbloquear el siguiente módulo</div></div></div><div class="exam-score"><div class="exam-score-bar"><div class="exam-score-fill" id="esf-3" style="width:0%"></div></div><div class="exam-score-txt" id="est-3">0 de 7 respondidas</div></div><div class="exam-q" id="eq-3-1"><div class="exam-q-txt">1. ¿Qué es una 'colocación léxica' y por qué es fundamental enseñarla desde A1?</div><div class="exam-opts" id="eo-3-1"><div class="exam-opt" onclick="examResp(this,3,1,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Una lista de palabras que riman en inglés</div><div class="exam-opt" onclick="examResp(this,3,1,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>La combinación de palabras que los hablantes nativos usan juntas de forma natural y predecible: 'make a decision' (no 'do a decision'), 'do homework' (no 'make homework'), 'have breakfast' (no 'take breakfast'). Las colocaciones incorrectas delatan al no nativo</div><div class="exam-opt" onclick="examResp(this,3,1,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Cualquier combinación de sustantivo + adjetivo</div><div class="exam-opt" onclick="examResp(this,3,1,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Palabras con origen etimológico común</div></div><div class="exam-fb" id="ef-3-1"></div></div><div class="exam-q" id="eq-3-2"><div class="exam-q-txt">2. Las 'word families' o familias léxicas, ¿cómo aumentan la eficiencia del aprendizaje?</div><div class="exam-opts" id="eo-3-2"><div class="exam-opt" onclick="examResp(this,3,2,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>No tienen impacto — cada palabra debe aprenderse por separado</div><div class="exam-opt" onclick="examResp(this,3,2,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Una raíz genera múltiples palabras por afijación. 'Create'→creation, creator, creative, creatively, creativity, recreate, procreate. Aprender la raíz + los sufijos/prefijos más comunes multiplica el vocabulario accesible. Un alumno A2 con 500 raíces puede acceder a 2500+ palabras</div><div class="exam-opt" onclick="examResp(this,3,2,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Solo funcionan en inglés formal o académico</div><div class="exam-opt" onclick="examResp(this,3,2,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Los prefijos y sufijos del inglés son impredecibles — no ayudan</div></div><div class="exam-fb" id="ef-3-2"></div></div><div class="exam-q" id="eq-3-3"><div class="exam-q-txt">3. ¿Cuál es la diferencia entre 'do' y 'make' en las colocaciones más frecuentes del inglés?</div><div class="exam-opts" id="eo-3-3"><div class="exam-opt" onclick="examResp(this,3,3,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Son completamente intercambiables — no hay diferencia</div><div class="exam-opt" onclick="examResp(this,3,3,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>'Make' se usa principalmente para crear, producir o causar algo: make a cake, make a decision, make a mistake, make money, make friends. 'Do' se usa para actividades, tareas y procesos: do homework, do exercise, do research, do business, do a favor</div><div class="exam-opt" onclick="examResp(this,3,3,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>'Make' es más formal que 'do' en todos los contextos</div><div class="exam-opt" onclick="examResp(this,3,3,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>'Do' se usa solo con actividades físicas</div></div><div class="exam-fb" id="ef-3-3"></div></div><div class="exam-q" id="eq-3-4"><div class="exam-q-txt">4. ¿Qué son los 'phrasal verbs' y cuál es su importancia para la comprensión del inglés real?</div><div class="exam-opts" id="eo-3-4"><div class="exam-opt" onclick="examResp(this,3,4,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Verbos muy formales usados en documentos académicos</div><div class="exam-opt" onclick="examResp(this,3,4,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Combinaciones de verbo + partícula (preposición o adverbio) que forman una nueva unidad de significado: 'give up' (rendirse, no 'dar arriba'), 'find out' (descubrir), 'turn on' (encender), 'look after' (cuidar). Son esenciales en inglés cotidiano y sin ellos la comprensión oral falla</div><div class="exam-opt" onclick="examResp(this,3,4,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Verbos irregulares con conjugación especial</div><div class="exam-opt" onclick="examResp(this,3,4,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Solo aparecen en inglés americano coloquial, no en el formal</div></div><div class="exam-fb" id="ef-3-4"></div></div><div class="exam-q" id="eq-3-5"><div class="exam-q-txt">5. ¿Cómo se organiza estratégicamente la enseñanza del vocabulario A1-A2 para maximizar la retención?</div><div class="exam-opts" id="eo-3-5"><div class="exam-opt" onclick="examResp(this,3,5,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Con listas largas de palabras para memorizar el fin de semana</div><div class="exam-opt" onclick="examResp(this,3,5,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Con el principio de frecuencia + contexto + repetición espaciada: enseñar primero las 500 palabras más frecuentes (cubren el 75% del uso real), siempre en oraciones y contextos reales, y revisarlas en intervalos crecientes (1 día, 3 días, 1 semana, 1 mes). Las tarjetas tipo Anki aplican este principio</div><div class="exam-opt" onclick="examResp(this,3,5,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Con traducciones directas al español de cada palabra</div><div class="exam-opt" onclick="examResp(this,3,5,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Memorizando el diccionario en orden alfabético</div></div><div class="exam-fb" id="ef-3-5"></div></div><div class="exam-q" id="eq-3-6"><div class="exam-q-txt">6. Los 'false friends' entre inglés y español: ¿cuáles son los más peligrosos en A1-A2?</div><div class="exam-opts" id="eo-3-6"><div class="exam-opt" onclick="examResp(this,3,6,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>No existen falsos amigos entre inglés y español — son lenguas muy diferentes</div><div class="exam-opt" onclick="examResp(this,3,6,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Palabras de apariencia similar pero significado diferente: 'embarrassed'=avergonzado (no embarazada), 'library'=biblioteca (no librería), 'actually'=en realidad (no actualmente), 'sensible'=sensato (no sensible), 'exit'=salida (no éxito). Son errores muy frecuentes y a veces embarazosos</div><div class="exam-opt" onclick="examResp(this,3,6,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Solo existen entre inglés y francés, no español</div><div class="exam-opt" onclick="examResp(this,3,6,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Los falsos amigos solo ocurren en nivel avanzado</div></div><div class="exam-fb" id="ef-3-6"></div></div><div class="exam-q" id="eq-3-7"><div class="exam-q-txt">7. ¿Qué estrategias de aprendizaje léxico debe enseñar el maestro a sus estudiantes desde A1?</div><div class="exam-opts" id="eo-3-7"><div class="exam-opt" onclick="examResp(this,3,7,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Traducción directa de cada palabra al español y memorización</div><div class="exam-opt" onclick="examResp(this,3,7,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Contextualización (aprender en oraciones, no aisladas), asociación (conectar con palabras conocidas o imágenes mentales), repetición espaciada (revisar en intervalos crecientes), uso activo (producir oraciones propias con cada palabra nueva), y agrupación semántica (por campos de significado)</div><div class="exam-opt" onclick="examResp(this,3,7,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Memorización de listas sin contexto — es el método más eficiente</div><div class="exam-opt" onclick="examResp(this,3,7,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Escuchar canciones en inglés sin ninguna instrucción explícita</div></div><div class="exam-fb" id="ef-3-7"></div></div><div class="exam-result" id="er-3"><div class="exam-result-pct" id="erp-3"></div><div class="exam-result-msg" id="erm-3"></div><button class="exam-retry" onclick="examRetry(3)" id="err-3" style="display:none">🔄 Intentar de nuevo</button></div><button class="exam-submit" id="es-3" onclick="examCheck(3,7,5)" disabled>Verificar mis respuestas →</button></div></div></div>
+<div class="mod-card locked" id="mod4"><div class="mod-hdr" onclick="modToggle(4)"><div class="mod-num" style="background:#7F77DD15;color:#7F77DD">M·04</div><div class="mod-info"><h3>Habilidades comunicativas A1-A2</h3><p>Listening · Speaking · Reading · Writing con propósito</p><div class="dots-row"><div class="dots" id="d4"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span class="dots-label" id="dl4">0 de 7 preguntas</span></div></div><div class="lock-msg">🔒 Completa el módulo anterior con 70%+ para desbloquear</div><span class="mod-dur">Sem 4</span></div><div class="mod-body" id="body-mod4" style="display:none"><div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:1rem;background:#1D9E7508;border:1px solid #1D9E7518;border-radius:10px;padding:1rem">Las 4 habilidades no son iguales en dificultad ni en prioridad. Para el maestro colombiano de inglés, la pronunciación y la comprensión oral son las más críticas y las más descuidadas. Un maestro que no puede sostener una conversación espontánea en inglés no puede enseñar speaking — no importa qué tan bien explique la gramática.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem"><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Listening: estrategias reales</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Top-down: usar contexto, conocimiento previo, imágenes. Bottom-up: procesar cada sonido individual. Los mejores oyentes usan ambos. Entrenamiento: podcasts con transcripción, dictados graduados, BBC Learning English.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Speaking: fluidez vs precisión</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Fluidez = comunicar sin pausas largas. Precisión = gramática y pronunciación correctas. En A1-A2, priorizar fluidez. Un mensaje comunicado con errores es mejor que el silencio por miedo al error. La precisión llega con el nivel.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Reading: lectura extensiva</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Leer mucho material fácil (nivel i-1) es más efectivo que leer poco material difícil. Graded readers (libros simplificados por nivel) son la herramienta más poderosa para el desarrollo lector en L2.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Writing: del mensaje a la forma</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">En A1-A2: emails simples, formularios, descripciones breves. El objetivo no es perfección gramatical — es comunicación escrita clara. La retroalimentación debe centrarse en el mensaje antes que en los errores de forma.</div></div></div><div class="exam-block" id="eb-4"><div class="exam-hdr"><div class="exam-badge">📝 EVALUACIÓN</div><div><div class="exam-title">7 preguntas · Comprensión real requerida</div><div class="exam-req">Mínimo 5/7 correctas (70%) para desbloquear el siguiente módulo</div></div></div><div class="exam-score"><div class="exam-score-bar"><div class="exam-score-fill" id="esf-4" style="width:0%"></div></div><div class="exam-score-txt" id="est-4">0 de 7 respondidas</div></div><div class="exam-q" id="eq-4-1"><div class="exam-q-txt">1. ¿Qué es la estrategia 'top-down' en la comprensión auditiva (listening)?</div><div class="exam-opts" id="eo-4-1"><div class="exam-opt" onclick="examResp(this,4,1,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Escuchar desde el principio hasta el final del audio</div><div class="exam-opt" onclick="examResp(this,4,1,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Usar el conocimiento previo, el contexto, los títulos, imágenes y la situación comunicativa para PREDECIR el contenido antes y durante la escucha. El oyente experto forma hipótesis y las confirma o corrige mientras escucha — no procesa cada palabra</div><div class="exam-opt" onclick="examResp(this,4,1,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Escuchar solo las palabras más importantes</div><div class="exam-opt" onclick="examResp(this,4,1,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Una técnica para textos escritos, no para audio</div></div><div class="exam-fb" id="ef-4-1"></div></div><div class="exam-q" id="eq-4-2"><div class="exam-q-txt">2. ¿Cuál es la diferencia pedagógica entre enseñar 'fluidez' y enseñar 'precisión' en speaking?</div><div class="exam-opts" id="eo-4-2"><div class="exam-opt" onclick="examResp(this,4,2,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Son lo mismo — fluidez significa hablar correctamente</div><div class="exam-opt" onclick="examResp(this,4,2,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Fluidez = capacidad de comunicar con continuidad, sin pausas largas ni bloqueos. Precisión = gramática, vocabulario y pronunciación correctos. En etapas iniciales, las actividades de fluidez (role plays, debates, conversación libre) tienen prioridad. La corrección excesiva en producción libre inhibe la fluidez</div><div class="exam-opt" onclick="examResp(this,4,2,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>La precisión siempre debe ser el primer objetivo, sin excepción</div><div class="exam-opt" onclick="examResp(this,4,2,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>La fluidez es solo para hablantes avanzados — A1 debe enfocarse solo en precisión</div></div><div class="exam-fb" id="ef-4-2"></div></div><div class="exam-q" id="eq-4-3"><div class="exam-q-txt">3. ¿Qué es la 'lectura extensiva' y por qué es más efectiva que la lectura intensiva para el desarrollo lector en inglés?</div><div class="exam-opts" id="eo-4-3"><div class="exam-opt" onclick="examResp(this,4,3,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>La lectura de textos muy largos y complejos</div><div class="exam-opt" onclick="examResp(this,4,3,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Leer grandes cantidades de material FÁCIL (nivel ligeramente inferior al actual) con comprensión y placer, sin diccionario. Nation 2024: la lectura extensiva es el método más eficiente para expandir vocabulario en contexto, mejorar la intuición gramatical y aumentar la velocidad de lectura</div><div class="exam-opt" onclick="examResp(this,4,3,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Es un método solo para nivel avanzado</div><div class="exam-opt" onclick="examResp(this,4,3,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Es menos efectiva que leer textos difíciles con diccionario</div></div><div class="exam-fb" id="ef-4-3"></div></div><div class="exam-q" id="eq-4-4"><div class="exam-q-txt">4. ¿Cuáles son las estrategias de 'feedback' más efectivas para la escritura en inglés A1-A2?</div><div class="exam-opts" id="eo-4-4"><div class="exam-opt" onclick="examResp(this,4,4,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Corregir todos los errores de gramática con tinta roja</div><div class="exam-opt" onclick="examResp(this,4,4,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Retroalimentación selectiva: elegir 2-3 tipos de error para corregir por tarea (no todos), retroalimentación en el contenido antes que en la forma ('tu mensaje fue claro/confuso porque...'), y 'error correction codes' donde el alumno identifica y corrige sus propios errores</div><div class="exam-opt" onclick="examResp(this,4,4,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>No dar ninguna retroalimentación — el alumno aprende solo</div><div class="exam-opt" onclick="examResp(this,4,4,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Siempre reescribir el texto del alumno correctamente</div></div><div class="exam-fb" id="ef-4-4"></div></div><div class="exam-q" id="eq-4-5"><div class="exam-q-txt">5. Para el maestro colombiano de inglés, ¿qué nivel mínimo de competencia comunicativa oral se requiere para enseñar efectivamente?</div><div class="exam-opts" id="eo-4-5"><div class="exam-opt" onclick="examResp(this,4,5,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>A2 — suficiente para enseñar los contenidos básicos del currículo</div><div class="exam-opt" onclick="examResp(this,4,5,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>B2 como mínimo absoluto (MCER). El MEN Colombia exige B2 para los maestros de inglés de básica y media. Un maestro B2 puede: sostener conversaciones espontáneas, explicar conceptos gramaticales en inglés, dar instrucciones de clase, y modelar la producción oral que espera de sus alumnos</div><div class="exam-opt" onclick="examResp(this,4,5,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>A1 — el maestro solo necesita saber un poco más que sus alumnos</div><div class="exam-opt" onclick="examResp(this,4,5,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>No importa el nivel del maestro si enseña bien la gramática del libro</div></div><div class="exam-fb" id="ef-4-5"></div></div><div class="exam-q" id="eq-4-6"><div class="exam-q-txt">6. ¿Cómo integrar la tecnología efectivamente en la clase de inglés A1-A2?</div><div class="exam-opts" id="eo-4-6"><div class="exam-opt" onclick="examResp(this,4,6,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Usando YouTube y Netflix sin instrucción explícita adicional</div><div class="exam-opt" onclick="examResp(this,4,6,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Con propósito pedagógico claro: apps de fonética (ELSA Speak para pronunciación con IA), plataformas de práctica oral (Flipgrid, Speakometer), recursos de lectura gradada (Oxford Owl, Newsela), y herramientas de escritura colaborativa (Google Docs con comentarios en inglés)</div><div class="exam-opt" onclick="examResp(this,4,6,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Prohibir toda tecnología — distrae el aprendizaje</div><div class="exam-opt" onclick="examResp(this,4,6,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Con solo un video por clase sin actividades de seguimiento</div></div><div class="exam-fb" id="ef-4-6"></div></div><div class="exam-q" id="eq-4-7"><div class="exam-q-txt">7. ¿Cuál es el objetivo final de la formación en inglés A1-A2 para el maestro colombiano según la filosofía SABI?</div><div class="exam-opts" id="eo-4-7"><div class="exam-opt" onclick="examResp(this,4,7,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Pasar el examen de suficiencia del MEN con el mínimo requerido</div><div class="exam-opt" onclick="examResp(this,4,7,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Que el maestro verdaderamente sepa inglés — que pueda hablarlo, escucharlo, leerlo y escribirlo con competencia real, y que desde esa competencia genuina pueda enseñar a sus estudiantes lo que realmente sabe. Nadie puede enseñar lo que no sabe: el maestro A2 que enseña A2 desde la experiencia real enseña infinitamente mejor que el que enseña A2 desde un libro que nunca ha vivido</div><div class="exam-opt" onclick="examResp(this,4,7,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Memorizar las reglas gramaticales del nivel para explicarlas</div><div class="exam-opt" onclick="examResp(this,4,7,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Obtener el certificado para cumplir el requisito administrativo</div></div><div class="exam-fb" id="ef-4-7"></div></div><div class="exam-result" id="er-4"><div class="exam-result-pct" id="erp-4"></div><div class="exam-result-msg" id="erm-4"></div><button class="exam-retry" onclick="examRetry(4)" id="err-4" style="display:none">🔄 Intentar de nuevo</button></div><button class="exam-submit" id="es-4" onclick="examCheck(4,7,5)" disabled>Verificar mis respuestas →</button></div></div></div>
+<div class="mod-card locked" id="mod5"><div class="mod-hdr" onclick="modToggle(5)"><div class="mod-num" style="background:#1B7FA615;color:#1B7FA6">M·05</div><div class="mod-info"><h3>Inglés A2 en acción: Comunicación real</h3><p>Situaciones · Funciones comunicativas · Corrección en contexto</p><div class="dots-row"><div class="dots" id="d5"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span class="dots-label" id="dl5">0 de 7 preguntas</span></div></div><div class="lock-msg">🔒 Completa el módulo anterior con 70%+ para desbloquear</div><span class="mod-dur">Sem 5</span></div><div class="mod-body" id="body-mod5" style="display:none"><div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:1rem;background:#1D9E7508;border:1px solid #1D9E7518;border-radius:10px;padding:1rem">El nivel A2 puede comunicar en situaciones cotidianas predecibles. Pero 'puede comunicar' no significa comunicar con precisión fonética, gramática correcta y vocabulario apropiado — significa que el mensaje básico llega. Este módulo trabaja las FUNCIONES comunicativas clave del A2 con el nivel de precisión que exige la filosofía SABI.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem"><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Funciones A2 esenciales</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Presentarse/presentar a otros · Describir rutinas · Hablar de la familia · Pedir/dar información · Hablar de experiencias pasadas simples · Expresar preferencias · Hacer/rechazar invitaciones · Pedir en restaurantes/tiendas</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Errores sistemáticos del hispanohablante A2</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Omitir sujeto: 'Is raining' ❌ → 'It is raining' ✓ | Tercera persona sin -s: 'She work' ❌ → 'She works' ✓ | Preguntas sin auxiliar: 'What you want?' ❌ → 'What do you want?' ✓</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Pronunciación en el habla conectada</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">En inglés natural, las palabras se conectan: 'What are you doing?' → 'Whadda ya doin?' | 'I don't know' → 'I dunno' | 'Want to' → 'wanna'. El maestro debe conocer estas reducciones para comprender el inglés nativo.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Corrección de errores: cuándo y cómo</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Durante fluidez: no interrumpir. Después: reformulación ('Ah, so you want to say that she works...') o corrección explícita colectiva. El 'recasting' (reformular lo dicho correctamente sin señalarlo) es la técnica más natural.</div></div></div><div class="exam-block" id="eb-5"><div class="exam-hdr"><div class="exam-badge">📝 EVALUACIÓN</div><div><div class="exam-title">7 preguntas · Comprensión real requerida</div><div class="exam-req">Mínimo 5/7 correctas (70%) para desbloquear el siguiente módulo</div></div></div><div class="exam-score"><div class="exam-score-bar"><div class="exam-score-fill" id="esf-5" style="width:0%"></div></div><div class="exam-score-txt" id="est-5">0 de 7 respondidas</div></div><div class="exam-q" id="eq-5-1"><div class="exam-q-txt">1. ¿Por qué en inglés SIEMPRE se necesita un sujeto explícito, a diferencia del español?</div><div class="exam-opts" id="eo-5-1"><div class="exam-opt" onclick="examResp(this,5,1,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>No siempre — el inglés también omite el sujeto en contextos formales</div><div class="exam-opt" onclick="examResp(this,5,1,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>El inglés es una lengua de 'sujeto obligatorio' — el verbo no puede aparecer sin sujeto explícito. 'Is raining' es incorrecto; debe ser 'It is raining'. 'Is necessary' → 'It is necessary'. El 'it' expletivo llena la posición de sujeto aunque no tenga referente semántico</div><div class="exam-opt" onclick="examResp(this,5,1,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Solo en tiempos compuestos el sujeto es obligatorio</div><div class="exam-opt" onclick="examResp(this,5,1,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>El sujeto es obligatorio solo en preguntas</div></div><div class="exam-fb" id="ef-5-1"></div></div><div class="exam-q" id="eq-5-2"><div class="exam-q-txt">2. La tercera persona del singular en presente simple requiere -s/-es. ¿Cuál es el impacto de omitirla?</div><div class="exam-opts" id="eo-5-2"><div class="exam-opt" onclick="examResp(this,5,2,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Es un error menor que los nativos ignoran fácilmente</div><div class="exam-opt" onclick="examResp(this,5,2,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Es uno de los errores más frecuentes y notables de los hispanohablantes. 'She work here', 'He go to school', 'My mother speak English' — aunque el mensaje llega, marca inmediatamente al hablante como no nativo con competencia limitada. En contextos formales y profesionales, tiene impacto negativo</div><div class="exam-opt" onclick="examResp(this,5,2,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Solo importa en inglés escrito formal, no en habla cotidiana</div><div class="exam-opt" onclick="examResp(this,5,2,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Los nativos también lo omiten frecuentemente en habla rápida</div></div><div class="exam-fb" id="ef-5-2"></div></div><div class="exam-q" id="eq-5-3"><div class="exam-q-txt">3. ¿Qué son las 'connected speech features' y por qué el maestro A2 debe conocerlas?</div><div class="exam-opts" id="eo-5-3"><div class="exam-opt" onclick="examResp(this,5,3,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Características del inglés escrito muy formal</div><div class="exam-opt" onclick="examResp(this,5,3,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Fenómenos que ocurren en el habla natural rápida: linking (the_end), elision (mos' people), assimilation (ten boys→tem boys), reduction (want to→wanna, going to→gonna, don't know→dunno). Sin conocerlos, el maestro no entiende el inglés hablado real</div><div class="exam-opt" onclick="examResp(this,5,3,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Solo ocurren en dialectos no estándar del inglés</div><div class="exam-opt" onclick="examResp(this,5,3,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Fenómenos que deben evitarse en la enseñanza formal</div></div><div class="exam-fb" id="ef-5-3"></div></div><div class="exam-q" id="eq-5-4"><div class="exam-q-txt">4. ¿Cómo se usa correctamente el 'past simple' para hablar de experiencias pasadas en A2?</div><div class="exam-opts" id="eo-5-4"><div class="exam-opt" onclick="examResp(this,5,4,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Igual que el presente simple pero con una partícula de tiempo</div><div class="exam-opt" onclick="examResp(this,5,4,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Con verbos regulares: infinitivo + -ed (worked, studied, visited). Con irregulares: forma de pasado memorizada (went, had, saw, came, took). Forma negativa: didn't + verbo BASE. Pregunta: Did + sujeto + verbo BASE. 'Did you go? Yes, I went. No, I didn't go.'</div><div class="exam-opt" onclick="examResp(this,5,4,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>El pasado simple se forma con 'was/were' + verbo principal siempre</div><div class="exam-opt" onclick="examResp(this,5,4,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Solo hay pasado simple para verbos irregulares</div></div><div class="exam-fb" id="ef-5-4"></div></div><div class="exam-q" id="eq-5-5"><div class="exam-q-txt">5. ¿Qué función comunicativa cumplen las 'question tags' y cuál es su importancia pragmática?</div><div class="exam-opts" id="eo-5-5"><div class="exam-opt" onclick="examResp(this,5,5,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Son preguntas formales usadas solo en contextos académicos</div><div class="exam-opt" onclick="examResp(this,5,5,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Las 'question tags' (It's cold, isn't it? You're a teacher, aren't you? She didn't come, did she?) expresan búsqueda de confirmación o invitación al diálogo. Son omnipresentes en el inglés británico cotidiano. La regla: si la oración es positiva, el tag es negativo, y viceversa</div><div class="exam-opt" onclick="examResp(this,5,5,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Son errores que deben evitarse en el inglés estándar</div><div class="exam-opt" onclick="examResp(this,5,5,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Solo existen en inglés australiano</div></div><div class="exam-fb" id="ef-5-5"></div></div><div class="exam-q" id="eq-5-6"><div class="exam-q-txt">6. ¿Cómo debe el maestro A2 MODELAR la pronunciación para sus estudiantes?</div><div class="exam-opts" id="eo-5-6"><div class="exam-opt" onclick="examResp(this,5,6,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Reproduciendo el audio del libro de texto sin corrección adicional</div><div class="exam-opt" onclick="examResp(this,5,6,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Produciendo él mismo los sonidos con claridad exagerada, señalando la posición articulatoria (lengua, labios, flujo de aire), usando pares mínimos para entrenar la percepción, y dando retroalimentación específica: no 'mal pronunciado' sino 'la lengua debe estar entre los dientes para /θ/'</div><div class="exam-opt" onclick="examResp(this,5,6,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Poniendo el audio del libro y pidiendo que repitan sin más instrucción</div><div class="exam-opt" onclick="examResp(this,5,6,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Solo corrigiendo cuando el estudiante pregunta específicamente</div></div><div class="exam-fb" id="ef-5-6"></div></div><div class="exam-q" id="eq-5-7"><div class="exam-q-txt">7. La filosofía SABI aplicada al inglés A1-A2: ¿qué significa que el maestro 'verdaderamente sepa' inglés?</div><div class="exam-opts" id="eo-5-7"><div class="exam-opt" onclick="examResp(this,5,7,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Que tenga un certificado oficial de nivel B2 o superior</div><div class="exam-opt" onclick="examResp(this,5,7,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Que pueda USAR el inglés con autonomía: comunicarse en situaciones reales imprevistas, corregir su propia pronunciación usando el IPA, entender podcasts y videos sin transcripción, escribir emails y textos sin traducir mentalmente del español, y enseñar explicando en inglés cuando sea posible. El conocimiento activo, no el declarativo</div><div class="exam-opt" onclick="examResp(this,5,7,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Que haya memorizado todas las reglas gramaticales del nivel</div><div class="exam-opt" onclick="examResp(this,5,7,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Que haya completado todos los módulos del curso SABI</div></div><div class="exam-fb" id="ef-5-7"></div></div><div class="exam-result" id="er-5"><div class="exam-result-pct" id="erp-5"></div><div class="exam-result-msg" id="erm-5"></div><button class="exam-retry" onclick="examRetry(5)" id="err-5" style="display:none">🔄 Intentar de nuevo</button></div><button class="exam-submit" id="es-5" onclick="examCheck(5,7,5)" disabled>Verificar mis respuestas →</button></div></div></div>
+<div class="mod-card locked" id="mod6"><div class="mod-hdr" onclick="modToggle(6)"><div class="mod-num" style="background:#D4A84315;color:#D4A843">M·06</div><div class="mod-info"><h3>Evaluación y preparación para exámenes de inglés</h3><p>IELTS · B2 First · TOEFL · Exámenes MEN Colombia</p><div class="dots-row"><div class="dots" id="d6"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span class="dots-label" id="dl6">0 de 7 preguntas</span></div></div><div class="lock-msg">🔒 Completa el módulo anterior con 70%+ para desbloquear</div><span class="mod-dur">Sem 6</span></div><div class="mod-body" id="body-mod6" style="display:none"><div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:1rem;background:#1D9E7508;border:1px solid #1D9E7518;border-radius:10px;padding:1rem">El maestro colombiano de inglés que conoce los exámenes internacionales puede orientar a sus estudiantes hacia certificaciones que transforman trayectorias de vida: IELTS para migración y estudios en el exterior, B2 First Cambridge para validación académica, y el examen de suficiencia del MEN para su propia carrera profesional.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem"><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">IELTS — International English Language Testing System</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">4 módulos: Listening (30 min), Reading (60 min), Writing (60 min), Speaking (11-14 min cara a cara con evaluador). Bandas del 1-9. Para universidades: mínimo 6.0-6.5. Para migración a Canadá/Australia: 6.0-7.0. Disponible en Cali (British Council).</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Cambridge B2 First (FCE)</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Reconocido por universidades europeas. 5 secciones: Reading & Use of English, Writing, Listening, Speaking. Puntaje 140-190 (aprobado=160+). Válido permanentemente. Más fácil de preparar con materiales estructurados.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">TOEFL iBT</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">Preferido por universidades norteamericanas. Puntaje 0-120. Internet-based test: 4 secciones integradas. Para universidades top EE.UU.: 100+. Para canadienses: 80-90. Disponible en centros autorizados en Colombia.</div></div><div class="phon-card"><div style="font-size:13px;font-weight:700;color:#F5C96A">Examen MEN Colombia</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:4px">El MEN aplica pruebas de suficiencia para maestros de inglés (mínimo B2). El SABER PRO para licenciados incluye inglés. Las secretarías de educación tienen sus propios procesos de certificación. Conocer el formato es ventaja competitiva.</div></div></div><div class="exam-block" id="eb-6"><div class="exam-hdr"><div class="exam-badge">📝 EVALUACIÓN</div><div><div class="exam-title">7 preguntas · Comprensión real requerida</div><div class="exam-req">Mínimo 5/7 correctas (70%) para desbloquear el siguiente módulo</div></div></div><div class="exam-score"><div class="exam-score-bar"><div class="exam-score-fill" id="esf-6" style="width:0%"></div></div><div class="exam-score-txt" id="est-6">0 de 7 respondidas</div></div><div class="exam-q" id="eq-6-1"><div class="exam-q-txt">1. ¿Cuáles son las 4 secciones del IELTS y qué mide cada una?</div><div class="exam-opts" id="eo-6-1"><div class="exam-opt" onclick="examResp(this,6,1,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Solo tiene 2 secciones: escrita y oral</div><div class="exam-opt" onclick="examResp(this,6,1,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Listening (4 grabaciones, 40 preguntas, 30 min), Reading (3 textos, 40 preguntas, 60 min), Writing (Tarea 1: describir un gráfico/150 palabras + Tarea 2: ensayo/250 palabras, 60 min), Speaking (3 partes, 11-14 min cara a cara con evaluador)</div><div class="exam-opt" onclick="examResp(this,6,1,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Tiene 6 secciones equivalentes a los niveles del MCER</div><div class="exam-opt" onclick="examResp(this,6,1,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Solo reading y writing — las habilidades orales no se evalúan</div></div><div class="exam-fb" id="ef-6-1"></div></div><div class="exam-q" id="eq-6-2"><div class="exam-q-txt">2. ¿Qué diferencia el TOEFL iBT del IELTS en términos de formato y reconocimiento?</div><div class="exam-opts" id="eo-6-2"><div class="exam-opt" onclick="examResp(this,6,2,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Son idénticos — solo difieren en el nombre</div><div class="exam-opt" onclick="examResp(this,6,2,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>El TOEFL iBT es computarizado, integra las 4 habilidades (las tareas de writing y speaking requieren escuchar/leer primero), y es preferido por universidades norteamericanas. El IELTS tiene speaking presencial con evaluador humano y es preferido en países de la Commonwealth. Ambos son aceptados globalmente pero tienen fortalezas regionales</div><div class="exam-opt" onclick="examResp(this,6,2,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>El TOEFL solo se acepta en EE.UU. y el IELTS solo en Europa</div><div class="exam-opt" onclick="examResp(this,6,2,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>El TOEFL es más fácil porque es computarizado</div></div><div class="exam-fb" id="ef-6-2"></div></div><div class="exam-q" id="eq-6-3"><div class="exam-q-txt">3. ¿Cuál es la estrategia más efectiva para preparar el IELTS Writing Task 2 (ensayo académico)?</div><div class="exam-opts" id="eo-6-3"><div class="exam-opt" onclick="examResp(this,6,3,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Escribir sobre cualquier tema sin estructura específica</div><div class="exam-opt" onclick="examResp(this,6,3,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Dominar una estructura de 4-5 párrafos: introducción con paráfrasis del tema + posición, 2 párrafos de desarrollo con ejemplos específicos, conclusión. Usar vocabulario académico variado, conectores lógicos (however, furthermore, therefore), y demostrar pensamiento complejo: no solo afirmar sino argumentar con evidencia</div><div class="exam-opt" onclick="examResp(this,6,3,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Memorizar ensayos modelo y reproducirlos en el examen</div><div class="exam-opt" onclick="examResp(this,6,3,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Escribir el máximo de palabras posible sin importar la organización</div></div><div class="exam-fb" id="ef-6-3"></div></div><div class="exam-q" id="eq-6-4"><div class="exam-q-txt">4. ¿Qué criterios usa el evaluador del IELTS Speaking para calificar la producción oral?</div><div class="exam-opts" id="eo-6-4"><div class="exam-opt" onclick="examResp(this,6,4,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Solo la pronunciación y la gramática</div><div class="exam-opt" onclick="examResp(this,6,4,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>4 criterios iguales: Fluency & Coherence (hablar sin pausas largas, ideas conectadas), Lexical Resource (variedad y precisión del vocabulario), Grammatical Range & Accuracy (variedad y corrección gramatical), Pronunciation (claridad y uso de características prosódicas). Una banda diferente en cada criterio</div><div class="exam-opt" onclick="examResp(this,6,4,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Solo si el evaluador entiende el mensaje</div><div class="exam-opt" onclick="examResp(this,6,4,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>La velocidad y cantidad de palabras producidas</div></div><div class="exam-fb" id="ef-6-4"></div></div><div class="exam-q" id="eq-6-5"><div class="exam-q-txt">5. ¿Cómo preparar a los estudiantes para el examen MEN de suficiencia en inglés?</div><div class="exam-opts" id="eo-6-5"><div class="exam-opt" onclick="examResp(this,6,5,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Solo practicando los ejercicios del libro de texto del colegio</div><div class="exam-opt" onclick="examResp(this,6,5,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>Conociendo el formato exacto: el MEN aplica pruebas basadas en el MCER, con secciones de comprensión lectora, uso del inglés (gramática y vocabulario en contexto), comprensión auditiva, y producción escrita. La preparación incluye: práctica de exámenes Cambridge de nivel equivalente, expansión de vocabulario académico, y práctica de reading con textos auténticos</div><div class="exam-opt" onclick="examResp(this,6,5,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>El examen MEN solo evalúa gramática — sin lectura ni escritura</div><div class="exam-opt" onclick="examResp(this,6,5,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>No tiene sentido prepararse — el examen mide el nivel real que no puede mejorarse con preparación</div></div><div class="exam-fb" id="ef-6-5"></div></div><div class="exam-q" id="eq-6-6"><div class="exam-q-txt">6. ¿Qué es el MCER (Marco Común Europeo de Referencia) y cómo orienta la enseñanza y evaluación del inglés en Colombia?</div><div class="exam-opts" id="eo-6-6"><div class="exam-opt" onclick="examResp(this,6,6,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Un examen de inglés creado por el gobierno europeo</div><div class="exam-opt" onclick="examResp(this,6,6,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>El Marco Común Europeo de Referencia para las Lenguas: el sistema de niveles A1-A2-B1-B2-C1-C2 con descriptores de competencia para cada habilidad. Es el referente de todos los exámenes internacionales (IELTS, Cambridge, TOEFL tienen equivalencias MCER) y de la política de inglés del MEN Colombia</div><div class="exam-opt" onclick="examResp(this,6,6,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Solo se aplica en Europa — no es relevante para Colombia</div><div class="exam-opt" onclick="examResp(this,6,6,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>Un manual de gramática del inglés estándar</div></div><div class="exam-fb" id="ef-6-6"></div></div><div class="exam-q" id="eq-6-7"><div class="exam-q-txt">7. La filosofía SABI en los exámenes internacionales de inglés:</div><div class="exam-opts" id="eo-6-7"><div class="exam-opt" onclick="examResp(this,6,7,0,1)" data-idx="0"><div class="exam-opt-letter">A</div>Los exámenes internacionales son solo para estudiantes adinerados — no tienen valor pedagógico</div><div class="exam-opt" onclick="examResp(this,6,7,1,1)" data-idx="1"><div class="exam-opt-letter">B</div>El maestro que conoce profundamente el IELTS, el FCE y el TOEFL puede transformar la trayectoria de sus estudiantes: una banda 7.0 en el IELTS puede abrir una beca en el UK, un FCE B2 puede validar años de trabajo, un TOEFL 100 puede abrir una maestría en EE.UU. Nadie puede orientar para lo que no conoce — conocer estos exámenes es parte del saber del maestro SABI</div><div class="exam-opt" onclick="examResp(this,6,7,2,1)" data-idx="2"><div class="exam-opt-letter">C</div>Los exámenes son solo herramientas de medición — no tienen valor en sí mismos</div><div class="exam-opt" onclick="examResp(this,6,7,3,1)" data-idx="3"><div class="exam-opt-letter">D</div>El maestro solo debe preparar para las pruebas Saber del MEN</div></div><div class="exam-fb" id="ef-6-7"></div></div><div class="exam-result" id="er-6"><div class="exam-result-pct" id="erp-6"></div><div class="exam-result-msg" id="erm-6"></div><button class="exam-retry" onclick="examRetry(6)" id="err-6" style="display:none">🔄 Intentar de nuevo</button></div><button class="exam-submit" id="es-6" onclick="examCheck(6,7,5)" disabled>Verificar mis respuestas →</button></div></div></div></div></section>
 
 <!-- DIPLOMA -->
 
@@ -1831,17 +800,8 @@ function chk(el, dotsId, labelId, total) {
 }
 
 /* ══ EJERCICIOS ══ */
-const CORRECT = {'q1':'B','q2':'B','q3':'B','q4':'B','q5':'C','q6':'B','q7':'B','q8':'C'};
-const FEEDBACK = {
-  'q1': {ok:'✓ Correcto. La letra E en inglés se pronuncia "i:" (larga). Por eso "eat" se escribe con E pero suena "it". Este es uno de los cambios más importantes del alfabeto inglés.', no:'No exactamente. La letra E en inglés, cuando se dice su nombre, suena como "i:" larga — no como la E española.'},
-  'q2': {ok:'✓ Perfecto. Good afternoon se usa desde el mediodía hasta aproximadamente las 6pm. Good evening empieza al anochecer. Good night es SOLO para despedirse antes de dormir.', no:'No del todo. A las 2:30pm ya es "afternoon" (tarde). Morning termina al mediodía, evening empieza al anochecer.'},
-  'q3': {ok:'✓ Correcto. Fifteen = quince. Recuerda la diferencia de pronunciación: fif-TEEN (quince) vs FIF-ty (cincuenta). El énfasis cambia la palabra completamente.', no:'Fifteen = quince. Ojo con la diferencia: fifteen (15) suena fif-TEEN, fifty (50) suena FIF-ty.'},
-  'q4': {ok:'✓ Excelente. "Open your notebooks, page twenty" es la instrucción correcta. Open=abrir, notebooks=cuadernos, page=página. Esta es una de las instrucciones más usadas en cualquier aula del mundo.', no:'La instrucción para abrir cuadernos es "Open your notebooks". Close=cerrar, Look=mirar, Take=tomar — todos tienen significados diferentes.'},
-  'q5': {ok:'✓ Muy bien. Con he/she/it el verbo TO BE es siempre "is". I am → She IS → We are. Esta es la regla más importante del inglés básico y hay que memorizarla.', no:'Con she (ella) el verbo TO BE es siempre "is": She IS a teacher. Recuerda: I am, You are, He/She/It IS, We/They are.'},
-  'q6': {ok:'✓ Excelente elección pedagógica. "Almost! Try again, please" valida el esfuerzo del estudiante mientras lo invita a mejorar. Es retroalimentación formativa en inglés — exactamente lo que aprendiste en el Curso 03.', no:'La opción B es más efectiva pedagógicamente. "Almost! Try again" reconoce el esfuerzo y motiva. Las otras opciones pueden desanimar al estudiante.'},
-  'q7': {ok:'✓ Correcto. El anuncio menciona "student ID" (carné estudiantil). Pudiste entender aunque no captaras todas las palabras — eso es comprensión auditiva contextual, la estrategia más importante en A2.', no:'El anuncio dice "students must bring their student ID" — deben traer su carné estudiantil (opción B). El listening no requiere entender cada palabra, sino las palabras clave.'},
-  'q8': {ok:'✓ ¡Perfecto! "Thirty-five students" = 35 estudiantes. Has completado el módulo final con éxito. Tu comprensión del inglés A2 está probada. ¡Ve por el diploma!', no:'Teacher B dice "I have thirty-five students in my class" — 35 estudiantes. Vuelve a escuchar el diálogo completo con el botón de audio y vuelve a intentarlo.'}
-};
+// CORRECT manejado por examResp()
+// FEEDBACK manejado por examResp()
 
 function resp(el, qId, letra) {
   const opts = document.getElementById(qId + '-opts');
@@ -2102,734 +1062,206 @@ setTimeout(function(){
   document.querySelectorAll('.yr').forEach(function(el){el.textContent=new Date().getFullYear();});
 },100);
 </script>
-
-<!-- ═══════════════════════════════════════════════════
-     SABI CLUB DE CONVERSACIÓN · Inglés A1-A2
-     Se integra en el curso usando el avatar SABI existente
-     ═══════════════════════════════════════════════════ -->
-<style>
-#sabiChat{position:fixed;bottom:88px;right:16px;width:330px;
-  background:linear-gradient(180deg,#0D1B3E 0%,#0A1228 100%);
-  border:1px solid rgba(232,160,32,.35);border-radius:18px;
-  box-shadow:0 12px 48px rgba(0,0,0,.65);
-  display:none;flex-direction:column;z-index:9500;overflow:hidden;
-  font-family:"DM Sans",sans-serif;animation:scIn .25s ease-out}
-@keyframes scIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-#sabiChat.open{display:flex}
-.sc-hd{display:flex;align-items:center;gap:9px;padding:11px 15px;
-  background:rgba(232,160,32,.07);border-bottom:1px solid rgba(232,160,32,.14)}
-.sc-hd-av{width:34px;height:34px;border-radius:50%;
-  border:2px solid rgba(232,160,32,.5);overflow:hidden;flex-shrink:0}
-.sc-hd-av img{width:100%;height:100%;object-fit:cover;object-position:center 8%;transform:scale(1.12)}
-.sc-hd-info strong{display:block;font-size:12px;color:#F5C96A;font-weight:600}
-.sc-hd-info span{font-size:10px;color:rgba(255,255,255,.4)}
-.sc-x{background:rgba(255,255,255,.08);border:none;color:rgba(255,255,255,.45);
-  width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:14px;
-  display:flex;align-items:center;justify-content:center;transition:all .2s;margin-left:auto}
-.sc-x:hover{background:rgba(255,255,255,.18);color:#fff}
-.sc-chips{padding:7px 11px;display:flex;gap:5px;overflow-x:auto;flex-shrink:0;
-  border-bottom:1px solid rgba(255,255,255,.05)}
-.sc-chips::-webkit-scrollbar{display:none}
-.sc-chip{border:1px solid rgba(232,160,32,.22);background:rgba(232,160,32,.05);
-  color:rgba(255,255,255,.68);border-radius:11px;padding:3px 9px;
-  font-size:11px;white-space:nowrap;cursor:pointer;flex-shrink:0;
-  font-family:"DM Sans",sans-serif;transition:all .15s}
-.sc-chip:hover{background:rgba(232,160,32,.14);color:#F5C96A}
-.sc-msgs{flex:1;overflow-y:auto;padding:11px;
-  display:flex;flex-direction:column;gap:8px;max-height:240px;min-height:100px}
-.sc-msgs::-webkit-scrollbar{width:3px}
-.sc-msgs::-webkit-scrollbar-thumb{background:rgba(232,160,32,.18);border-radius:2px}
-.sc-m{display:flex;gap:6px;align-items:flex-end;animation:smIn .2s ease-out}
-@keyframes smIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.sc-m.u{flex-direction:row-reverse}
-.sc-mb{max-width:88%;border-radius:11px;padding:8px 11px;font-size:12px;line-height:1.55}
-.sc-m.b .sc-mb{background:rgba(255,255,255,.07);color:rgba(255,255,255,.9)}
-.sc-m.u .sc-mb{background:#27AE60;color:#fff}
-.sc-dots{display:flex;gap:3px;align-items:center;padding:3px 0}
-.sc-dots span{width:5px;height:5px;background:rgba(255,255,255,.3);border-radius:50%;animation:scd .9s infinite}
-.sc-dots span:nth-child(2){animation-delay:.15s}
-.sc-dots span:nth-child(3){animation-delay:.3s}
-@keyframes scd{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.sc-inp-row{padding:9px 11px;border-top:1px solid rgba(255,255,255,.06);
-  display:flex;gap:5px;align-items:center;flex-shrink:0}
-.sc-inp{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
-  border-radius:8px;padding:8px 10px;color:#fff;font-family:"DM Sans",sans-serif;
-  font-size:12px;outline:none;transition:border-color .2s}
-.sc-inp:focus{border-color:rgba(232,160,32,.4)}
-.sc-inp::placeholder{color:rgba(255,255,255,.2)}
-.sc-b{width:32px;height:32px;border-radius:8px;border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;font-size:14px;
-  transition:all .2s;flex-shrink:0}
-.sc-b.send{background:#27AE60;color:#fff}
-.sc-b.send:hover{background:#1e8449}
-.sc-b.mic{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)}
-.sc-b.mic:hover{background:rgba(255,255,255,.15)}
-.sc-b.mic.rec{background:#c0392b!important}
-#sabiChatBtn{position:fixed;bottom:88px;right:16px;
-  background:linear-gradient(135deg,#E8A020,#B8720A);color:#fff;
-  border:none;border-radius:50px;padding:9px 16px 9px 11px;cursor:pointer;
-  display:flex;align-items:center;gap:7px;
-  font-family:"DM Sans",sans-serif;font-size:12px;font-weight:600;
-  box-shadow:0 4px 20px rgba(232,160,32,.45);transition:all .2s;z-index:9499;
-  animation:scbG 2.5s ease-in-out infinite}
-@keyframes scbG{0%,100%{box-shadow:0 4px 20px rgba(232,160,32,.45)}50%{box-shadow:0 4px 28px rgba(232,160,32,.75)}}
-#sabiChatBtn:hover{transform:translateY(-2px)}
-#sabiChatBtn.gone{display:none}
-.scb-dot{width:8px;height:8px;border-radius:50%;background:#27AE60;
-  animation:scbD .9s ease-in-out infinite;flex-shrink:0}
-@keyframes scbD{0%,100%{opacity:1}50%{opacity:.3}}
-</style>
-
-<button id="sabiChatBtn" onclick="scOpen()">
-  <span class="scb-dot"></span>💬 Conversa con SABI en inglés
-</button>
-
-<div id="sabiChat">
-  <div class="sc-hd">
-    <div class="sc-hd-av"><img id="scAvImg" src="" alt="SABI"></div>
-    <div class="sc-hd-info">
-      <strong>Prof. Sarah · Inglés A1-A2</strong>
-      <span id="scStat">Lista para conversar</span>
-    </div>
-    <button class="sc-x" onclick="scClose()">✕</button>
-  </div>
-  <div class="sc-chips" id="scChips"></div>
-  <div class="sc-msgs" id="scMsgs"></div>
-  <div class="sc-inp-row">
-    <input class="sc-inp" id="scInp" placeholder="Write in English…"
-      onkeydown="if(event.key==='Enter')scSend()">
-    <button class="sc-b mic" id="scMic" onclick="scMicToggle()" title="Hablar">🎤</button>
-    <button class="sc-b send" onclick="scSend()" title="Enviar">➤</button>
-  </div>
-</div>
-
 <script>
-(function(){
-  var LANG   = 'en-US';
-  var CHIPS  = ["Hello! 👋", "My name is...", "I"m a teacher", "How do you say...?", "Can you repeat?", "Let"s practice pronunciation", "Great!"];
-  var SYSTEM = `You are Prof. Sarah, a warm English teacher for Colombian teachers at SABI CENTEC Cali. Respond in simple English (A1-A2 level). Gently correct mistakes: show the correct form. Add phonetic hints like /θ/ when useful. Keep responses SHORT — 2-3 sentences max. Always ask a follow-up question. Celebrate effort: Excellent! Well done! Perfect!`;
-  var GREET  = 'Hello! I\'m Prof. Sarah 👋 I\'m here to help you practice English right inside this course. What\'s your name?';
-  var hist   = [], busy = false, recOn = false, started = false;
+// ══ SISTEMA DE EVALUACIÓN CON BLOQUEO ══
+// Respuestas por módulo
+var _scores = {}; // {modNum: {answered: 0, correct: 0, total: N}}
+var _modPassed = {1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false};
+var _modAnswers = {}; // {modNum: {qNum: {answered: bool, correct: bool}}}
 
-  // Copiar imagen del avatar SABI ya existente en el curso
-  function syncAvatar(){
-    var imgs = document.querySelectorAll('img[alt="SABI"]');
-    var chatImg = document.getElementById('scAvImg');
-    if(imgs.length && chatImg) chatImg.src = imgs[0].src;
-  }
-
-  // Chips
-  function buildChips(){
-    var el = document.getElementById('scChips');
-    if(!el) return;
-    el.innerHTML = '';
-    CHIPS.forEach(function(c){
-      var b = document.createElement('button');
-      b.className = 'sc-chip';
-      b.textContent = c;
-      b.onclick = function(){ scSendText(c); };
-      el.appendChild(b);
+function examResp(el, modNum, qNum, selectedIdx, correctIdx) {
+  var opts = document.getElementById('eo-' + modNum + '-' + qNum);
+  if (!opts || opts.dataset.done) return;
+  opts.dataset.done = '1';
+  
+  var isCorrect = (selectedIdx === correctIdx);
+  
+  // Marcar la opción seleccionada
+  el.classList.add(isCorrect ? 'correct' : 'wrong');
+  
+  // Mostrar la correcta si se equivocó
+  if (!isCorrect) {
+    var allOpts = opts.querySelectorAll('.exam-opt');
+    allOpts.forEach(function(o, i) {
+      if (i === correctIdx) o.classList.add('show-correct');
+      o.dataset.done = '1';
     });
   }
-
-  window.scOpen = function(){
-    syncAvatar();
-    buildChips();
-    document.getElementById('sabiChat').classList.add('open');
-    document.getElementById('sabiChatBtn').classList.add('gone');
-    if(!started){
-      started = true;
-      hist = [{role:'assistant', content:GREET}];
-      scAddMsg('b', GREET);
-      scSpeak(GREET);
-    }
-  };
-
-  window.scClose = function(){
-    document.getElementById('sabiChat').classList.remove('open');
-    document.getElementById('sabiChatBtn').classList.remove('gone');
-  };
-
-  window.scSend = function(){
-    var inp = document.getElementById('scInp');
-    var t = inp.value.trim();
-    if(!t||busy) return;
-    inp.value = '';
-    scSendText(t);
-  };
-
-  window.scSendText = function(text){
-    if(busy) return;
-    scAddMsg('u', text);
-    hist.push({role:'user', content:text});
-    busy = true;
-    scStat('Pensando…');
-    var box = document.getElementById('scMsgs');
-    var d = document.createElement('div');
-    d.className = 'sc-m b'; d.id = 'sc-tp';
-    d.innerHTML = '<div class="sc-mb"><div class="sc-dots"><span></span><span></span><span></span></div></div>';
-    box.appendChild(d); box.scrollTop = box.scrollHeight;
-
-    fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:400,
-        system:SYSTEM,
-        messages:hist.slice(-12)
-      })
-    })
-    .then(function(r){return r.json();})
-    .then(function(data){
-      var tp=document.getElementById('sc-tp'); if(tp)tp.remove();
-      var reply=(data.content&&data.content[0])?data.content[0].text:'Try again!';
-      hist.push({role:'assistant',content:reply});
-      scAddMsg('b',reply);
-      scStat('Lista para conversar');
-      scSpeak(reply);
-      busy=false;
-    })
-    .catch(function(){
-      var tp=document.getElementById('sc-tp'); if(tp)tp.remove();
-      scAddMsg('b','Error de conexión. Intenta de nuevo.');
-      scStat('Lista para conversar');
-      busy=false;
+  
+  // Deshabilitar todas las opciones
+  opts.querySelectorAll('.exam-opt').forEach(function(o) {
+    o.setAttribute('data-done', '1');
+    o.style.pointerEvents = 'none';
+  });
+  
+  // Mostrar feedback
+  var fb = document.getElementById('ef-' + modNum + '-' + qNum);
+  if (fb) {
+    var fbText = isCorrect ? 
+      el.parentElement.parentElement.querySelector('.exam-fb')?.getAttribute('data-ok') || '' :
+      el.parentElement.parentElement.querySelector('.exam-fb')?.getAttribute('data-no') || '';
+    fb.classList.add('show', isCorrect ? 'ok' : 'no');
+  }
+  
+  // Actualizar score del módulo
+  if (!_scores[modNum]) _scores[modNum] = {answered: 0, correct: 0};
+  _scores[modNum].answered++;
+  if (isCorrect) _scores[modNum].correct++;
+  
+  // Actualizar barra de progreso del examen
+  var totalQ = parseInt(document.getElementById('eb-' + modNum)
+    ?.querySelectorAll('.exam-q').length) || 7;
+  var fill = document.getElementById('esf-' + modNum);
+  var txt  = document.getElementById('est-' + modNum);
+  if (fill) fill.style.width = (_scores[modNum].answered / totalQ * 100) + '%';
+  if (txt)  txt.textContent = _scores[modNum].answered + ' de ' + totalQ + ' respondidas';
+  
+  // Actualizar puntos de progreso del módulo header
+  var dots = document.getElementById('d' + modNum);
+  var dl   = document.getElementById('dl' + modNum);
+  if (dots) {
+    var dotEls = dots.querySelectorAll('.dot');
+    dotEls.forEach(function(d, i) {
+      if (i < _scores[modNum].answered) d.classList.add('on');
     });
-  };
-
-  function scSpeak(text){
-    // Usar la función del curso si existe, si no usar speechSynthesis directo
-    var clean=text.replace(/<[^>]+>/g,'').replace(/[😊👋🇬🇧🇫🇷🇧🇷🇩🇪🇨🇳]/g,'').substring(0,280);
-    if(window.sabiHablar){
-      window.sabiHablar(clean, {lang:LANG, rate:0.85});
-    } else if(window.speechSynthesis){
-      var u=new SpeechSynthesisUtterance(clean);
-      u.lang=LANG; u.rate=0.85; u.pitch=1.1;
-      speechSynthesis.speak(u);
+  }
+  if (dl) dl.textContent = _scores[modNum].answered + ' de ' + totalQ + ' respondidas';
+  
+  // Habilitar botón de verificación cuando todas respondidas
+  if (_scores[modNum].answered >= totalQ) {
+    var btn = document.getElementById('es-' + modNum);
+    if (btn) {
+      btn.disabled = false;
+      btn.classList.add('unlocked');
     }
   }
-
-  window.scMicToggle = function(){
-    var btn=document.getElementById('scMic');
-    if(!recOn){
-      recOn=true; btn.classList.add('rec'); btn.textContent='⏹';
-      scStat('Escuchando…');
-      if('webkitSpeechRecognition' in window||'SpeechRecognition' in window){
-        var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-        var sr=new SR();
-        sr.lang=LANG; sr.interimResults=false;
-        sr.onresult=function(e){
-          document.getElementById('scInp').value=e.results[0][0].transcript;
-          scMicStop(); window.scSend();
-        };
-        sr.onerror=sr.onend=function(){scMicStop();};
-        sr.start(); window._scSR=sr;
-      }else{
-        setTimeout(function(){
-          scMicStop();
-          scAddMsg('b','Tu navegador no soporta micrófono. Escribe tu mensaje.');
-        },1200);
-      }
-    }else scMicStop();
-  };
-
-  function scMicStop(){
-    recOn=false;
-    var btn=document.getElementById('scMic');
-    btn.classList.remove('rec'); btn.textContent='🎤';
-    scStat('Lista para conversar');
-    try{if(window._scSR)window._scSR.stop();}catch(e){}
-  }
-
-  function scAddMsg(who,text){
-    var box=document.getElementById('scMsgs');
-    var d=document.createElement('div');
-    d.className='sc-m '+who;
-    d.innerHTML='<div class="sc-mb">'+text.replace(/\n/g,'<br>')+'</div>';
-    box.appendChild(d); box.scrollTop=box.scrollHeight;
-  }
-
-  function scStat(txt){
-    var el=document.getElementById('scStat');
-    if(el)el.textContent=txt;
-  }
-})();
-</script>
-<!-- ═══ FIN SABI CLUB DE CONVERSACIÓN ═══ -->
-
-<!-- ═══════════════════════════════════════════════════════════════
-     SABI AGENTES INTELIGENTES — Sistema de actualización continua
-     3 agentes: Auditor · Scholar · Coach
-     Fuentes: TALIS 2025, Hattie 2024, OCDE Tendencias 2025,
-              UNESCO Digital Education Outlook 2026, HolonIQ 2026
-     ═══════════════════════════════════════════════════════════════ -->
-<style>
-#sabiAgentes{position:fixed;bottom:16px;left:16px;z-index:9100;font-family:"DM Sans",sans-serif}
-#sabiAgBtn{
-  background:linear-gradient(135deg,#0B1E3D,#1A3066);
-  border:1px solid rgba(212,168,67,.5);color:rgba(255,255,255,.9);
-  border-radius:50px;padding:9px 16px 9px 10px;cursor:pointer;
-  display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;
-  box-shadow:0 4px 20px rgba(0,0,0,.4);transition:all .2s;
-  animation:agPulse 3s ease-in-out infinite;
-}
-@keyframes agPulse{0%,100%{box-shadow:0 4px 20px rgba(0,0,0,.4),0 0 0 0 rgba(212,168,67,.3)}
-  50%{box-shadow:0 4px 20px rgba(0,0,0,.4),0 0 0 8px rgba(212,168,67,0)}}
-#sabiAgBtn:hover{transform:translateY(-2px)}
-#sabiAgBtn.hidden{display:none}
-.sag-dot{width:8px;height:8px;border-radius:50%;background:#1D9E75;
-  animation:sagD .9s ease-in-out infinite;flex-shrink:0}
-@keyframes sagD{0%,100%{opacity:1}50%{opacity:.3}}
-
-#sabiAgPanel{
-  display:none;width:360px;
-  background:linear-gradient(180deg,#0D1B3E 0%,#0A1228 100%);
-  border:1px solid rgba(212,168,67,.3);border-radius:18px;
-  box-shadow:0 16px 56px rgba(0,0,0,.7);
-  overflow:hidden;animation:sagIn .25s ease-out;
-  margin-bottom:8px;
-}
-@keyframes sagIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-#sabiAgPanel.open{display:block}
-
-.sag-hd{
-  display:flex;align-items:center;gap:10px;padding:14px 16px;
-  background:rgba(212,168,67,.07);border-bottom:1px solid rgba(212,168,67,.12);
-}
-.sag-hd-ico{
-  width:38px;height:38px;border-radius:50%;flex-shrink:0;
-  background:linear-gradient(135deg,#D4A843,#B8902A);
-  display:flex;align-items:center;justify-content:center;font-size:18px;
-  box-shadow:0 0 0 4px rgba(212,168,67,.2);
-}
-.sag-hd-info strong{display:block;font-size:13px;color:#F5C96A;font-weight:600}
-.sag-hd-info span{font-size:11px;color:rgba(255,255,255,.4)}
-.sag-x{margin-left:auto;background:rgba(255,255,255,.08);border:none;
-  color:rgba(255,255,255,.45);width:26px;height:26px;border-radius:50%;
-  cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
-.sag-x:hover{background:rgba(255,255,255,.18);color:#fff}
-
-.sag-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.07)}
-.sag-tab{flex:1;padding:10px 4px;font-size:11px;font-weight:600;text-align:center;
-  cursor:pointer;color:rgba(255,255,255,.35);border-bottom:2px solid transparent;
-  transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;
-  font-family:"DM Sans",sans-serif}
-.sag-tab.on{color:#F5C96A;border-bottom-color:#D4A843}
-
-.sag-body{padding:14px;max-height:320px;overflow-y:auto}
-.sag-body::-webkit-scrollbar{width:3px}
-.sag-body::-webkit-scrollbar-thumb{background:rgba(212,168,67,.2);border-radius:2px}
-
-/* Perfil selector */
-.sag-perfil{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-  border-radius:10px;padding:10px;margin-bottom:12px;
-}
-.sag-perfil-lbl{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:7px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
-.sag-roles{display:flex;flex-wrap:wrap;gap:5px}
-.sag-role{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);
-  color:rgba(255,255,255,.65);border-radius:20px;padding:4px 10px;
-  font-size:11px;cursor:pointer;font-family:"DM Sans",sans-serif;transition:all .15s}
-.sag-role:hover{background:rgba(255,255,255,.12)}
-.sag-role.sel{background:#1D9E75;color:#fff;border-color:#1D9E75}
-
-/* Progreso */
-.sag-prog{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-  border-radius:10px;padding:12px;margin-bottom:12px;
-}
-.sag-prog-title{font-size:12px;color:rgba(255,255,255,.7);margin-bottom:8px;font-weight:600}
-.sag-prog-bar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:6px}
-.sag-prog-fill{height:100%;background:linear-gradient(90deg,#1D9E75,#27AE60);border-radius:3px;transition:width .8s}
-.sag-prog-stats{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.4)}
-
-/* Tarjetas de tendencia */
-.sag-trend{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-  border-radius:10px;padding:12px;margin-bottom:10px;
-  border-left:3px solid #7F77DD;border-radius:0 10px 10px 0;
-}
-.sag-trend-src{font-size:10px;color:#AFA9EC;font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;margin-bottom:4px}
-.sag-trend-title{font-size:13px;color:rgba(255,255,255,.9);font-weight:600;margin-bottom:5px}
-.sag-trend-body{font-size:12px;color:rgba(255,255,255,.6);line-height:1.6}
-.sag-trend-effect{
-  display:inline-block;margin-top:6px;font-size:10px;font-weight:700;
-  background:rgba(29,158,117,.15);color:#1D9E75;border-radius:6px;
-  padding:2px 8px;
 }
 
-/* Mensajes coach */
-.sag-coach-msg{
-  background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.15);
-  border-radius:10px;padding:12px;margin-bottom:10px;
-}
-.sag-coach-role{font-size:10px;color:#D4A843;font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;margin-bottom:5px}
-.sag-coach-txt{font-size:13px;color:rgba(255,255,255,.85);line-height:1.65}
-.sag-coach-cta{
-  display:block;margin-top:8px;font-size:12px;color:#F5C96A;
-  font-weight:600;cursor:pointer;
-}
-
-/* Alertas del auditor */
-.sag-alert{
-  border-radius:10px;padding:10px 12px;margin-bottom:8px;
-  display:flex;align-items:flex-start;gap:8px;
-}
-.sag-alert.warn{background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.2)}
-.sag-alert.ok{background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.2)}
-.sag-alert.info{background:rgba(127,119,221,.1);border:1px solid rgba(127,119,221,.2)}
-.sag-alert-ico{font-size:16px;flex-shrink:0}
-.sag-alert-txt{font-size:12px;line-height:1.55}
-.sag-alert.warn .sag-alert-txt{color:rgba(245,201,106,.9)}
-.sag-alert.ok .sag-alert-txt{color:rgba(29,158,117,.9)}
-.sag-alert.info .sag-alert-txt{color:rgba(175,169,236,.9)}
-
-/* Ask SABI */
-.sag-ask{padding:12px 14px;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:6px}
-.sag-inp{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
-  border-radius:8px;padding:8px 10px;color:#fff;font-family:"DM Sans",sans-serif;
-  font-size:12px;outline:none;}
-.sag-inp:focus{border-color:rgba(212,168,67,.4)}
-.sag-inp::placeholder{color:rgba(255,255,255,.2)}
-.sag-send{width:32px;height:32px;border-radius:8px;border:none;
-  background:#1D9E75;color:#fff;cursor:pointer;font-size:14px;
-  display:flex;align-items:center;justify-content:center}
-.sag-send:hover{background:#0F6E56}
-.sag-resp{padding:0 14px 12px;font-size:12px;color:rgba(255,255,255,.75);
-  line-height:1.6;display:none}
-.sag-resp.show{display:block}
-.sag-typing-ag{display:flex;gap:3px;align-items:center;padding:4px 14px 10px}
-.sag-typing-ag span{width:4px;height:4px;background:rgba(255,255,255,.3);
-  border-radius:50%;animation:agt .9s infinite}
-.sag-typing-ag span:nth-child(2){animation-delay:.15s}
-.sag-typing-ag span:nth-child(3){animation-delay:.3s}
-@keyframes agt{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-</style>
-
-<div id="sabiAgentes">
-  <div id="sabiAgPanel">
-    <div class="sag-hd">
-      <div class="sag-hd-ico">🔭</div>
-      <div class="sag-hd-info">
-        <strong>SABI Agentes Inteligentes</strong>
-        <span id="sagSubtitle">Auditor · Scholar · Coach</span>
-      </div>
-      <button class="sag-x" onclick="sagClose()">✕</button>
-    </div>
-    <div class="sag-tabs">
-      <button class="sag-tab on" onclick="sagTab('auditor',this)">🔍 Auditor</button>
-      <button class="sag-tab" onclick="sagTab('scholar',this)">🌍 Scholar</button>
-      <button class="sag-tab" onclick="sagTab('coach',this)">🏆 Coach</button>
-    </div>
-
-    <!-- TAB AUDITOR -->
-    <div id="sagAuditor" class="sag-body">
-      <div class="sag-perfil">
-        <div class="sag-perfil-lbl">Tu perfil docente</div>
-        <div class="sag-roles">
-          <button class="sag-role sel" onclick="setRol('maestro',this)">Maestro/a</button>
-          <button class="sag-role" onclick="setRol('coordinador',this)">Coordinador/a</button>
-          <button class="sag-role" onclick="setRol('rector',this)">Rector/a</button>
-          <button class="sag-role" onclick="setRol('orientador',this)">Orientador/a</button>
-          <button class="sag-role" onclick="setRol('tutor',this)">Tutor/a</button>
-          <button class="sag-role" onclick="setRol('pedagogo',this)">Pedagogo/a</button>
-        </div>
-      </div>
-      <div class="sag-prog">
-        <div class="sag-prog-title" id="sagProgTitle">Progreso en este curso</div>
-        <div class="sag-prog-bar"><div class="sag-prog-fill" id="sagProgFill" style="width:0%"></div></div>
-        <div class="sag-prog-stats">
-          <span id="sagProgPct">Calculando…</span>
-          <span id="sagProgMods">— módulos</span>
-        </div>
-      </div>
-      <div id="sagAlerts"></div>
-    </div>
-
-    <!-- TAB SCHOLAR -->
-    <div id="sagScholar" class="sag-body" style="display:none">
-      <div id="sagTrends"></div>
-    </div>
-
-    <!-- TAB COACH -->
-    <div id="sagCoach" class="sag-body" style="display:none">
-      <div id="sagCoachMsgs"></div>
-    </div>
-
-    <!-- ASK SABI -->
-    <div class="sag-ask">
-      <input class="sag-inp" id="sagInp" placeholder="Pregunta al sistema SABI…"
-        onkeydown="if(event.key==='Enter')sagAsk()">
-      <button class="sag-send" onclick="sagAsk()">➤</button>
-    </div>
-    <div class="sag-typing-ag" id="sagTyping" style="display:none">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="sag-resp" id="sagResp"></div>
-  </div>
-
-  <button id="sabiAgBtn" onclick="sagOpen()">
-    <span class="sag-dot"></span>SABI Agentes · Actualización docente
-  </button>
-</div>
-
-<script>
-(function(){
-var rol = 'maestro';
-var sagOpen_flag = false;
-
-// ═══ TENDENCIAS INTERNACIONALES (investigación real) ═══
-var TENDENCIAS = [
-  {src:'OCDE · Tendencias 2025',
-   title:'El docente como gestor de emociones',
-   body:'TALIS 2025 (55 países) revela: la clave ya no está solo en transmitir conocimientos sino en enseñar gestión emocional. El liderazgo y autonomía docente crean un círculo virtuoso de aprendizaje.',
-   effect:'Impacto TALIS 2025: d=0.52'},
-  {src:'Hattie · Visible Learning 2024',
-   title:'Feedback efectivo: el efecto más poderoso',
-   body:'Con 300 millones de estudiantes analizados, Hattie confirma: la retroalimentación formativa tiene un efecto de d=0.70 — la intervención más poderosa disponible para cualquier docente, sin costo adicional.',
-   effect:'Efecto: d=0.70 (muy alto)'},
-  {src:'OCDE · Digital Education Outlook 2026',
-   title:'IA pedagógica ética y con propósito',
-   body:'"La IA generativa debe utilizarse de forma selectiva y con un propósito pedagógico para enriquecer el aprendizaje, sin sustituir el esfuerzo cognitivo ni debilitar las relaciones humanas que son la esencia de la educación." — OCDE 2026',
-   effect:'Adopción responsable: 2026'},
-  {src:'McKinsey Education · 2025',
-   title:'Aprendizaje personalizado: 76% de impacto',
-   body:'El 76% de los docentes reconoce el impacto positivo de rutas de aprendizaje personalizadas. Plataformas adaptativas que ajustan contenido en tiempo real son la tendencia más efectiva del e-learning 2025.',
-   effect:'McKinsey 2025: +76% mejora'},
-  {src:'UNESCO · Marco IA Educación 2025',
-   title:'El docente aumentado, no reemplazado',
-   body:'"La IA no reemplaza al educador — le devuelve el centro a lo humano, dándole capacidades para acompañar a cada estudiante de forma única." La formación docente en IA ética es la prioridad global UNESCO 2025.',
-   effect:'UNESCO 2025: prioridad global'},
-  {src:'HolonIQ · 2026',
-   title:'Gobernanza de IA en instituciones educativas',
-   body:'"La adopción se acelera donde las funciones están definidas y la gobernanza se fortalece. En 2026, las instituciones invertirán en IA ética, transparente y con credibilidad pedagógica." — HolonIQ 2026',
-   effect:'HolonIQ 2026: tendencia #1'},
-  {src:'Microlearning · Rev. Metropolitana 2025',
-   title:'Microaprendizaje: cápsulas que sí funcionan',
-   body:'Investigación 2025 confirma: microcontenidos de 5-15 minutos mejoran pronunciación, comprensión auditiva y motivación docente. Infografías, videos cortos y apps educativas son las herramientas más efectivas.',
-   effect:'Retención: +40% vs clases largas'},
-  {src:'OCDE · Tendencias 2025',
-   title:'5 mega-tendencias que configuran la educación',
-   body:'Baja natalidad, educación socioemocional, educación financiera, retorno a oficios y envejecimiento poblacional. El docente del siglo XXI debe preparar estudiantes para un mundo radicalmente diferente.',
-   effect:'Informe OCDE 2025'},
-  {src:'Tecnológico de Monterrey · 2026',
-   title:'Aprendizaje a lo largo de la vida',
-   body:'"Nacemos aprendiendo y nos morimos aprendiendo." El aprendizaje permanente (Lifelong Learning) es estructural y multianual. Las instituciones deben crear trayectorias modulares y flexibles.',
-   effect:'UNESCO: tendencia estructural'},
-  {src:'Visible Learning · Hattie',
-   title:'Las 5 estrategias con mayor efecto probado',
-   body:'1) Feedback formativo (d=0.70) · 2) Instrucción directa explícita (d=0.60) · 3) Aprendizaje metacognitivo (d=0.60) · 4) Colaboración entre pares (d=0.53) · 5) Mapas conceptuales (d=0.60). Todas aplicables sin tecnología.',
-   effect:'Base: 240M estudiantes'}
-];
-
-// ═══ MENSAJES COACH POR ROL ═══
-var COACH = {
-  maestro:[
-    'Maestro/a: cada módulo que completas no es solo un certificado — es evidencia de que tu vocación es más fuerte que el agotamiento. TALIS 2025 dice que los docentes con mayor autonomía son los más felices y efectivos. Tú estás construyendo esa autonomía.',
-    'La investigación de Hattie con 240 millones de estudiantes lo confirma: lo que más impacta el aprendizaje no es la tecnología — eres TÚ. Tu presencia, tu retroalimentación, tu relación con cada estudiante. Sigue formándote.',
-    '¿Sabías que completar este módulo te acerca al perfil docente que la OCDE identifica como "maestro de alto impacto"? Son aquellos que reflexionan sobre su práctica y experimentan continuamente. Eso es exactamente lo que estás haciendo.',
-    'Microlearning tip: Los estudios muestran que 15-20 minutos de aprendizaje enfocado retienen 40% más que sesiones largas. Cada módulo de SABI está diseñado así — pensando en tu tiempo y en tu cerebro.'
-  ],
-  coordinador:[
-    'Coordinador/a: tu rol es el más estratégico de la institución. TALIS 2025 muestra que los coordinadores que se forman continuamente multiplican el impacto en TODOS los docentes de su equipo. Cada módulo tuyo vale por 20.',
-    'La OCDE señala que el liderazgo pedagógico distribuido — donde el coordinador forma comunidades de práctica — es la intervención con mayor efecto en la calidad educativa institucional. Estás en el camino correcto.',
-    'Tu formación en SABI te da herramientas para liderar el cambio pedagógico con evidencia. Cuando propones una nueva metodología a tu equipo docente, ahora puedes respaldarla con investigación internacional.',
-    'Reto coordinador: ¿Cuántos de tus docentes han completado al menos 1 curso SABI este mes? Considera crear una comunidad de práctica interna donde compartan sus aprendizajes.'
-  ],
-  rector:[
-    'Rector/a: liderar una institución educativa en 2025-2026 exige conocimiento actualizado de las tendencias globales. Tu formación en SABI no es opcional — es la base de las decisiones estratégicas que tomarás esta semana.',
-    'UNESCO Digital Education Outlook 2026 lo señala claro: las instituciones que invierten en formación docente continua y gobernanza de IA ética son las que lideran los rankings de calidad educativa. Estás tomando la decisión correcta.',
-    'Como rector/a, tienes el poder de crear una cultura de aprendizaje continuo en toda tu institución. Un rector que se forma envía el mensaje más poderoso posible: el aprendizaje nunca termina.',
-    'Dato para tu PEI: Las escuelas donde el rector participa activamente en formación docente tienen 34% menos rotación de personal y 28% más satisfacción familiar (McKinsey Education 2025).'
-  ],
-  orientador:[
-    'Orientador/a: tu rol nunca ha sido más crucial. TALIS 2025 confirma que el bienestar socioemocional es la tendencia pedagógica #1 a nivel mundial. Eres el profesional más necesario de la escuela del siglo XXI.',
-    'La investigación de Hattie muestra que las intervenciones socioemocionales tienen un efecto de d=0.48 sobre el rendimiento académico. Tu trabajo no es "apoyo" — es parte central del proceso de aprendizaje.',
-    'Recurso actualizado: El modelo CASEL (Collaborative for Academic, Social, and Emotional Learning) 2025 integra SEL con justicia social y equidad. Sus recursos están disponibles gratuitamente en casel.org.',
-    'Tu formación en SABI te hace mejor orientador/a: cuando conoces las metodologías activas que usan tus docentes, puedes acompañar a los estudiantes con mayor contexto y efectividad.'
-  ],
-  tutor:[
-    'Tutor/a: eres el vínculo más directo entre la institución y las familias. Tu formación continua no solo mejora tu trabajo — construye confianza en toda la comunidad educativa.',
-    'El aprendizaje personalizado — tendencia #1 de McKinsey 2025 — empieza contigo. Como tutor/a tienes información única sobre cada estudiante que, bien usada, puede transformar su trayectoria.',
-    'UNESCO 2025 enfatiza: la tutoría efectiva es la estrategia más equitativa en educación. Cada estudiante que acompañas recibe una atención que no encontraría en ningún otro espacio.',
-    'Microlearning para tutores: Los estudios muestran que tutorías de 20-30 minutos semanales con seguimiento constante tienen mayor impacto que una reunión mensual larga. La consistencia supera la intensidad.'
-  ],
-  pedagogo:[
-    'Pedagogo/a: eres el experto en aprendizaje que la institución necesita escuchar más. Tu formación en SABI te posiciona como el puente entre la investigación internacional y la práctica cotidiana del aula.',
-    'El enfoque de educación basada en evidencias (EBE) que propone Hattie es exactamente tu campo. Con 300 millones de estudiantes analizados, ahora tienes la base empírica para proponer cambios sistémicos en tu institución.',
-    'OCDE Digital Education Outlook 2026 destaca: los pedagogos que integran análisis de datos educativos con conocimiento pedagógico profundo son los líderes del cambio más efectivos. Eso te describe.',
-    'Reto pedagógico: ¿Has documentado el efecto de alguna intervención en tu institución? La investigación-acción (Kemmis & McTaggart) es accesible para cualquier pedagogo y produce conocimiento valioso para toda Colombia.'
-  ]
-};
-
-// ═══ DETECTAR PROGRESO DEL CURSO ═══
-function detectProgress(){
-  var dots = document.querySelectorAll('.dot.done, .dot.active');
-  var total = document.querySelectorAll('.dot').length;
-  var completed = document.querySelectorAll('.mod-done[style*="block"]').length;
-  var modCards = document.querySelectorAll('.mod-card').length;
+function examCheck(modNum, total, minPass) {
+  if (!_scores[modNum]) return;
+  var correct  = _scores[modNum].correct || 0;
+  var pct      = Math.round(correct / total * 100);
+  var passed   = correct >= minPass;
   
-  // Intentar leer de la barra de progreso si existe
-  var pb = document.getElementById('pb');
-  var pct = 0;
-  if(pb){
-    var w = pb.style.width||'0%';
-    pct = parseInt(w)||0;
-  } else if(modCards > 0){
-    pct = Math.round((completed/Math.max(modCards,1))*100);
+  var resultDiv = document.getElementById('er-'  + modNum);
+  var pctEl     = document.getElementById('erp-' + modNum);
+  var msgEl     = document.getElementById('erm-' + modNum);
+  var retryBtn  = document.getElementById('err-' + modNum);
+  var submitBtn = document.getElementById('es-'  + modNum);
+  
+  if (resultDiv) {
+    resultDiv.classList.add('show', passed ? 'pass' : 'fail');
+    if (pctEl) pctEl.textContent = pct + '%  (' + correct + '/' + total + ' correctas)';
+    if (msgEl) {
+      msgEl.textContent = passed
+        ? '✅ ¡Excelente! Has demostrado comprensión real. El siguiente módulo está desbloqueado.'
+        : '❌ Necesitas ' + minPass + '/' + total + ' correctas (' + Math.round(minPass/total*100) + '%) para avanzar. Revisa el contenido y vuelve a intentarlo.';
+    }
+    if (retryBtn) retryBtn.style.display = passed ? 'none' : 'inline-block';
   }
   
-  return {pct:pct, mods:modCards, done:completed};
-}
-
-// ═══ RENDER AUDITOR ═══
-function renderAuditor(){
-  var p = detectProgress();
-  var fill = document.getElementById('sagProgFill');
-  var pctEl = document.getElementById('sagProgPct');
-  var modsEl = document.getElementById('sagProgMods');
-  var alerts = document.getElementById('sagAlerts');
-  
-  if(fill) fill.style.width = p.pct+'%';
-  if(pctEl) pctEl.textContent = p.pct+'% completado';
-  if(modsEl) modsEl.textContent = p.mods+' módulos en total';
-  
-  var html = '';
-  
-  if(p.pct === 0){
-    html += '<div class="sag-alert info"><span class="sag-alert-ico">💡</span><div class="sag-alert-txt">¡Bienvenido/a! Haz clic en cualquier módulo para comenzar. Cada módulo toma ~60 minutos. Sin fechas límite.</div></div>';
-  } else if(p.pct < 50){
-    html += '<div class="sag-alert warn"><span class="sag-alert-ico">🔥</span><div class="sag-alert-txt">Vas avanzando. Recuerda: la consistencia supera a la intensidad. 20 minutos diarios construyen más que sesiones maratón.</div></div>';
-  } else if(p.pct < 100){
-    html += '<div class="sag-alert ok"><span class="sag-alert-ico">⭐</span><div class="sag-alert-txt">¡Más de la mitad completada! Estás en el grupo del 23% de docentes que terminan sus cursos de formación. TALIS 2025 te pone entre los mejores.</div></div>';
-  } else {
-    html += '<div class="sag-alert ok"><span class="sag-alert-ico">🎓</span><div class="sag-alert-txt">¡Curso completado! Eres parte de la nueva generación de docentes que se forman con evidencia internacional. Tu diploma CENTEC te espera.</div></div>';
+  if (passed) {
+    _modPassed[modNum] = true;
+    // Desbloquear el siguiente módulo
+    var nextMod = document.getElementById('mod' + (modNum + 1));
+    if (nextMod) {
+      nextMod.classList.remove('locked');
+      // Animación de desbloqueo
+      nextMod.style.animation = 'none';
+      nextMod.offsetHeight; // reflow
+      nextMod.style.border = '1px solid rgba(29,158,117,.4)';
+      setTimeout(function() { nextMod.style.border = ''; }, 3000);
+    }
+    // Marcar módulo como completado
+    var modCard = document.getElementById('mod' + modNum);
+    if (modCard && !modCard.querySelector('.done-badge')) {
+      modCard.classList.add('done');
+      var badge = document.createElement('div');
+      badge.className = 'done-badge';
+      badge.textContent = '✓ Completado · ' + pct + '%';
+      modCard.appendChild(badge);
+    }
+    // Actualizar barra global
+    var passedCount = Object.values(_modPassed).filter(Boolean).length;
+    var pbEl = document.getElementById('pb');
+    if (pbEl) pbEl.style.width = Math.round(passedCount / 8 * 100) + '%';
+    // Reproducir mensaje de SABI
+    if (window.sabiHablaMotivacion) window.sabiHablaMotivacion();
   }
   
-  // Alerta de tendencia del día
-  var t = TENDENCIAS[new Date().getDate() % TENDENCIAS.length];
-  html += '<div class="sag-alert info"><span class="sag-alert-ico">🌍</span><div class="sag-alert-txt"><strong style="color:#AFA9EC">Tendencia del día:</strong><br>'+t.title+' — '+t.src+'</div></div>';
-  
-  if(alerts) alerts.innerHTML = html;
+  if (submitBtn) submitBtn.style.display = 'none';
 }
 
-// ═══ RENDER SCHOLAR ═══
-function renderScholar(){
-  var el = document.getElementById('sagTrends');
-  if(!el) return;
-  var html = '';
-  // Mostrar 4 tendencias rotando según el día
-  var start = (new Date().getDate() * 3) % TENDENCIAS.length;
-  for(var i=0;i<4;i++){
-    var t = TENDENCIAS[(start+i)%TENDENCIAS.length];
-    html += '<div class="sag-trend">';
-    html += '<div class="sag-trend-src">'+t.src+'</div>';
-    html += '<div class="sag-trend-title">'+t.title+'</div>';
-    html += '<div class="sag-trend-body">'+t.body+'</div>';
-    html += '<span class="sag-trend-effect">'+t.effect+'</span>';
-    html += '</div>';
-  }
-  el.innerHTML = html;
-}
-
-// ═══ RENDER COACH ═══
-function renderCoach(){
-  var el = document.getElementById('sagCoachMsgs');
-  if(!el) return;
-  var msgs = COACH[rol] || COACH.maestro;
-  var html = '';
-  // Mostrar 2 mensajes según el día
-  var start = new Date().getDate() % msgs.length;
-  for(var i=0;i<2;i++){
-    var m = msgs[(start+i)%msgs.length];
-    html += '<div class="sag-coach-msg">';
-    html += '<div class="sag-coach-role">Para '+rol+'s · SABI Coach</div>';
-    html += '<div class="sag-coach-txt">'+m+'</div>';
-    html += '</div>';
-  }
-  // Reto personalizado
-  html += '<div class="sag-coach-msg" style="border-color:rgba(29,158,117,.25)">';
-  html += '<div class="sag-coach-role" style="color:#1D9E75">Reto de la semana</div>';
-  html += '<div class="sag-coach-txt">Completa al menos 1 módulo hoy. Comparte con un colega la tendencia pedagógica más sorprendente que encontraste en la pestaña Scholar. El aprendizaje compartido multiplica el impacto.</div>';
-  html += '</div>';
-  el.innerHTML = html;
-}
-
-// ═══ PREGUNTAR AL SISTEMA ═══
-function sagAsk(){
-  var inp = document.getElementById('sagInp');
-  var resp = document.getElementById('sagResp');
-  var typing = document.getElementById('sagTyping');
-  var q = inp.value.trim();
-  if(!q) return;
-  inp.value = '';
-  resp.classList.remove('show');
-  typing.style.display = 'flex';
+function examRetry(modNum) {
+  // Reset del módulo para nuevo intento
+  _scores[modNum] = {answered: 0, correct: 0};
   
-  var system = 'Eres SABI, el asistente de actualización docente de CENTEC Cali. El docente tiene perfil: '+rol+'. Tienes acceso a: TALIS 2025, Hattie Visible Learning (300M estudiantes), OCDE Tendencias 2025, UNESCO Digital Education 2026, HolonIQ 2026, McKinsey Education 2025. Responde en español, máximo 3 oraciones, con al menos UN dato de investigación específico. Sé directo, motivador y práctico.';
+  var eb = document.getElementById('eb-' + modNum);
+  if (!eb) return;
   
-  fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:300,
-      system:system,
-      messages:[{role:'user',content:q}]
-    })
-  })
-  .then(function(r){return r.json();})
-  .then(function(data){
-    typing.style.display='none';
-    var txt=(data.content&&data.content[0])?data.content[0].text:'Error de conexión.';
-    resp.textContent=txt;
-    resp.classList.add('show');
-  })
-  .catch(function(){
-    typing.style.display='none';
-    resp.textContent='Error de conexión. Verifica tu internet.';
-    resp.classList.add('show');
+  // Reset todas las preguntas
+  eb.querySelectorAll('.exam-opts').forEach(function(opts) {
+    delete opts.dataset.done;
+    opts.querySelectorAll('.exam-opt').forEach(function(o) {
+      o.classList.remove('correct','wrong','show-correct');
+      o.removeAttribute('data-done');
+      o.style.pointerEvents = '';
+    });
   });
+  
+  // Reset feedbacks
+  eb.querySelectorAll('.exam-fb').forEach(function(fb) {
+    fb.classList.remove('show','ok','no');
+    fb.textContent = '';
+  });
+  
+  // Reset score bar
+  var fill = document.getElementById('esf-' + modNum);
+  var txt  = document.getElementById('est-' + modNum);
+  var total = eb.querySelectorAll('.exam-q').length;
+  if (fill) fill.style.width = '0%';
+  if (txt)  txt.textContent = '0 de ' + total + ' respondidas';
+  
+  // Reset resultado
+  var res = document.getElementById('er-' + modNum);
+  if (res) res.classList.remove('show','pass','fail');
+  
+  // Reset dots
+  var dots = document.getElementById('d' + modNum);
+  if (dots) dots.querySelectorAll('.dot').forEach(function(d) { d.classList.remove('on'); });
+  var dl = document.getElementById('dl' + modNum);
+  if (dl) dl.textContent = '0 de ' + total + ' respondidas';
+  
+  // Re-habilitar botón
+  var btn = document.getElementById('es-' + modNum);
+  if (btn) { btn.disabled = true; btn.classList.remove('unlocked'); btn.style.display = ''; }
 }
 
-// ═══ CONTROLES ═══
-window.sagOpen = function(){
-  document.getElementById('sabiAgPanel').classList.add('open');
-  document.getElementById('sabiAgBtn').classList.add('hidden');
-  sagOpen_flag=true;
-  renderAuditor(); renderScholar(); renderCoach();
+// Toggle módulo — solo si no está bloqueado
+window.modToggle = function(n) {
+  var card = document.getElementById('mod' + n);
+  if (!card || card.classList.contains('locked')) {
+    // Mostrar mensaje de por qué está bloqueado
+    var prevNum = n - 1;
+    if (window.sabiHablar) {
+      window.sabiHablar('Para acceder al módulo ' + n + ', primero completa el módulo ' + prevNum + ' con al menos un 70% de respuestas correctas. ¡Tú puedes!', {lang:'es-CO'});
+    }
+    return;
+  }
+  var body = document.getElementById('body-mod' + n);
+  if (!body) return;
+  var isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  card.classList.toggle('open', !isOpen);
 };
-window.sagClose = function(){
-  document.getElementById('sabiAgPanel').classList.remove('open');
-  document.getElementById('sabiAgBtn').classList.remove('hidden');
-  sagOpen_flag=false;
-};
-window.sagTab = function(id,btn){
-  document.querySelectorAll('.sag-tab').forEach(function(b){b.classList.remove('on');});
-  btn.classList.add('on');
-  ['sagAuditor','sagScholar','sagCoach'].forEach(function(t){
-    document.getElementById(t).style.display='none';
-  });
-  var map={auditor:'sagAuditor',scholar:'sagScholar',coach:'sagCoach'};
-  document.getElementById(map[id]).style.display='block';
-};
-window.setRol = function(r,btn){
-  rol=r;
-  document.querySelectorAll('.sag-role').forEach(function(b){b.classList.remove('sel');});
-  btn.classList.add('sel');
-  document.getElementById('sagSubtitle').textContent=r.charAt(0).toUpperCase()+r.slice(1)+' · SABI Agentes';
-  renderCoach();
-};
-window.sagAsk = sagAsk;
 
-// Auto-actualizar progreso cada 30 segundos
-setInterval(function(){if(sagOpen_flag)renderAuditor();},30000);
-})();
+// Abrir el módulo 1 automáticamente
+document.addEventListener('DOMContentLoaded', function() {
+  var body1 = document.getElementById('body-mod1');
+  if (body1) body1.style.display = 'block';
+  var mod1 = document.getElementById('mod1');
+  if (mod1) mod1.classList.add('open');
+});
 </script>
-<!-- ═══ FIN SABI AGENTES ═══ -->
-
 </body>
 </html>
