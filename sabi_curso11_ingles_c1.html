@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SABI C11: sabi_curso11_ingles_c1.html — CENTEC Cali</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+
+:root{
+  --navy:#0B1E3D; --gold:#D4A843; --teal:#1D9E75; --coral:#D85A30;
+  --purple:#7F77DD; --blue:#1B7FA6; --sage:#2E7D5A; --cream:#FAF8F3;
+  --fh:'Crimson Pro',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --r:10px; --rl:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fb);background:var(--cream);color:var(--navy);
+  line-height:1.6;font-size:16px;min-height:100vh}
+
+/* NAV */
+.nav{
+  background:var(--navy);padding:12px 28px;
+  display:flex;align-items:center;gap:16px;
+  position:sticky;top:0;z-index:200;
+  border-bottom:2px solid var(--gold);
+}
+.nav-brand{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--gold)}
+.nav-tag{font-size:11px;color:rgba(212,168,67,.6);letter-spacing:1.5px;
+  text-transform:uppercase;font-weight:300}
+.nav-pill{margin-left:auto;background:rgba(212,168,67,.12);
+  border:1px solid rgba(212,168,67,.3);color:var(--gold);
+  padding:4px 14px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* HERO (algorithmic-art: textura geométrica animada) */
+.hero{
+  background:var(--navy);padding:52px 32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(212,168,67,.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(29,158,117,.08) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4A843' fill-opacity='0.03'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{position:relative;max-width:780px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-block;background:rgba(212,168,67,.15);
+  border:1px solid rgba(212,168,67,.35);color:var(--gold);
+  padding:5px 18px;border-radius:20px;font-size:11px;
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:var(--fh);font-size:clamp(26px,4vw,42px);
+  font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px;
+}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.7);font-size:15px;
+  max-width:560px;margin:0 auto 24px;line-height:1.75}
+.hero-stats{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.hstat{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  padding:10px 20px;border-radius:28px;
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;color:#fff;
+}
+.hstat strong{color:var(--gold)}
+
+/* WRAP */
+.wrap{max-width:840px;margin:0 auto;padding:28px 20px}
+
+/* INFO BAR */
+.info-bar{
+  background:#fff;border:1px solid rgba(11,30,61,.07);
+  border-radius:var(--rl);padding:14px 20px;
+  display:flex;align-items:center;gap:20px;
+  font-size:13px;color:#64748b;margin-bottom:24px;
+  box-shadow:0 2px 12px rgba(11,30,61,.06);
+}
+.info-bar span strong{color:var(--navy)}
+.info-bar span:last-child{margin-left:auto;font-style:italic;color:#94a3b8}
+
+/* TARJETA MÓDULO */
+.mod{
+  background:#fff;border-radius:var(--rl);
+  border:1px solid rgba(11,30,61,.07);
+  box-shadow:0 3px 16px rgba(11,30,61,.08);
+  margin-bottom:24px;overflow:hidden;
+  transition:box-shadow .25s var(--ease),transform .25s var(--ease);
+}
+.mod:hover{
+  box-shadow:0 6px 28px rgba(11,30,61,.13);
+  transform:translateY(-2px);
+}
+
+/* HEADER MÓDULO */
+.mhdr{
+  display:flex;align-items:center;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.mhdr .mnum{
+  background:var(--ac,var(--teal));
+  color:#fff;font-family:var(--fh);
+  font-size:26px;font-weight:700;
+  width:68px;min-height:80px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.mhdr .minfo{padding:16px 20px;flex:1}
+.mhdr .mtitle{
+  font-family:var(--fh);font-size:18px;
+  font-weight:700;color:var(--navy);margin-bottom:3px;
+}
+.mhdr .msub{font-size:12px;color:#64748b;margin-bottom:6px}
+.mhdr .mmeta{display:flex;gap:10px;align-items:center}
+.mhdr .mdur{
+  background:rgba(11,30,61,.06);color:var(--navy);
+  padding:2px 10px;border-radius:6px;font-size:11px;font-weight:500;
+}
+.mhdr .mlock{font-size:11px;color:#94a3b8;display:flex;align-items:center;gap:4px}
+.mhdr .mchev{
+  margin-right:18px;font-size:18px;color:#94a3b8;
+  transition:transform .3s var(--ease);flex-shrink:0;
+}
+.mhdr.open .mchev{transform:rotate(180deg)}
+/* barra de progreso micro */
+.mpbar{position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:rgba(11,30,61,.05)}
+.mpfill{height:100%;width:0%;background:var(--ac,var(--teal));
+  transition:width .7s var(--ease)}
+
+/* CUERPO MÓDULO */
+.mbody{display:none;animation:sdown .3s var(--ease)}
+.mbody.open{display:block}
+@keyframes sdown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+/* CAJA INTRO (Ag3 Emocional: engancha con dato + pregunta) */
+.intro{
+  margin:22px 26px;padding:18px 22px;
+  border-radius:var(--r);
+  border-left:4px solid var(--ac,var(--teal));
+  background:linear-gradient(135deg,rgba(29,158,117,.06),rgba(29,158,117,.02));
+  font-size:14px;line-height:1.8;color:#334155;
+}
+.intro strong{color:var(--navy)}
+
+/* CARDS DE CONTENIDO (frontend-design + learn: andamiaje visual) */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;padding:0 26px 22px;
+}
+.card{
+  border-radius:var(--r);border:1px solid rgba(11,30,61,.08);
+  overflow:hidden;background:#fff;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(11,30,61,.1)}
+.card-hd{
+  padding:12px 16px;
+  background:var(--ca,var(--teal));
+  display:flex;align-items:center;gap:10px;
+}
+.card-ico{
+  width:30px;height:30px;background:rgba(255,255,255,.2);
+  border-radius:7px;display:flex;align-items:center;
+  justify-content:center;font-size:15px;flex-shrink:0;
+}
+.card-title{
+  font-family:var(--fh);font-size:14px;font-weight:700;
+  color:#fff;line-height:1.25;
+}
+.card-bd{padding:13px 16px;font-size:13px;line-height:1.75;color:#374151}
+.card-bd strong{color:var(--navy)}
+.card-reflect{
+  margin-top:10px;padding:9px 13px;
+  background:rgba(11,30,61,.04);border-radius:7px;
+  font-size:12px;color:#475569;font-style:italic;
+  border-left:3px solid var(--ca,var(--teal));
+}
+
+/* ZONA EXAMEN */
+.zona{padding:0 26px 26px}
+.ehdr{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 20px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--navy),#1e3a6e);
+  color:#fff;margin-bottom:18px;
+}
+.ehdr .eico{font-size:22px}
+.ehdr .etit{font-family:var(--fh);font-size:16px;font-weight:700;margin-bottom:2px}
+.ehdr .esub{font-size:11px;opacity:.7}
+.ehdr .epct{margin-left:auto;text-align:right}
+.ehdr .enum{font-size:20px;font-weight:700;color:var(--gold)}
+.ehdr .elbl{font-size:10px;opacity:.65}
+
+/* BARRA PROGRESO EXAMEN */
+.ebar{height:5px;background:rgba(11,30,61,.08);border-radius:3px;
+  margin-bottom:18px;overflow:hidden}
+.efill{height:100%;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  border-radius:3px;width:0%;transition:width .5s var(--ease)}
+
+/* PREGUNTA */
+.eq{
+  background:#fff;border-radius:var(--r);
+  border:1px solid rgba(11,30,61,.08);
+  padding:20px 22px;margin-bottom:14px;
+  transition:border-color .25s,box-shadow .25s;
+}
+.eq.ok{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,158,117,.12)}
+.eq.no{border-color:var(--coral);box-shadow:0 0 0 2px rgba(216,90,48,.1)}
+.eq .qhdr{display:flex;gap:10px;margin-bottom:14px;align-items:flex-start}
+.eq .qn{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.eq .qtx{font-size:14.5px;line-height:1.65;color:var(--navy);font-weight:500}
+
+/* OPCIONES */
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:11px 15px;border-radius:var(--r);
+  border:1.5px solid rgba(11,30,61,.09);
+  cursor:pointer;background:#fff;
+  font-size:13.5px;color:#374151;
+  text-align:left;width:100%;
+  transition:all .2s var(--ease);
+}
+.opt:hover{border-color:var(--navy);background:rgba(11,30,61,.025)}
+.opt .mk{
+  width:21px;height:21px;border-radius:50%;
+  border:2px solid #cbd5e1;color:#94a3b8;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0;
+  transition:all .2s;margin-top:1px;
+}
+.opt.sel .mk{border-color:var(--navy);background:var(--navy);color:#fff}
+.opt.good{border-color:var(--teal);background:rgba(29,158,117,.06)}
+.opt.good .mk{border-color:var(--teal);background:var(--teal);color:#fff}
+.opt.bad{border-color:var(--coral);background:rgba(216,90,48,.05)}
+.opt.bad .mk{border-color:var(--coral);background:var(--coral);color:#fff}
+
+/* BOTÓN VERIFICAR */
+.btncheck{
+  display:block;width:100%;margin-top:14px;
+  padding:13px;border:none;border-radius:var(--r);
+  background:var(--navy);color:var(--gold);
+  font-family:var(--fb);font-size:13.5px;font-weight:600;
+  letter-spacing:.4px;cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.btncheck:hover{background:#1a3a6e;transform:translateY(-1px)}
+.btncheck:disabled{background:#94a3b8;color:#fff;cursor:not-allowed;transform:none}
+
+/* FEEDBACK (learn skill: feedback formativo profundo) */
+.fb{
+  display:none;margin-top:12px;padding:15px 18px;
+  border-radius:var(--r);font-size:13px;line-height:1.8;
+}
+.fb.ok{
+  background:linear-gradient(135deg,rgba(29,158,117,.09),rgba(29,158,117,.04));
+  border-left:4px solid var(--teal);color:#14532d;
+}
+.fb.no{
+  background:linear-gradient(135deg,rgba(216,90,48,.08),rgba(216,90,48,.03));
+  border-left:4px solid var(--coral);color:#7c2d12;
+}
+.fb .fbt{font-weight:700;margin-bottom:6px;font-size:13.5px}
+.fb .fbr{
+  margin-top:9px;padding:9px 13px;
+  background:rgba(0,0,0,.04);border-radius:7px;
+  font-style:italic;font-size:12px;
+}
+
+/* RESULTADO MÓDULO */
+.rmod{text-align:center;padding:30px 22px;display:none}
+.rmod.show{display:block;animation:rin .45s var(--ease)}
+@keyframes rin{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.rmod .rico{font-size:52px;margin-bottom:14px}
+.rmod .rpct{
+  font-family:var(--fh);font-size:44px;font-weight:700;
+  color:var(--teal);margin-bottom:8px;
+}
+.rmod .rmsg{font-size:15px;color:#374151;margin-bottom:18px}
+.rmod .rrow{display:flex;justify-content:center;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.rmod .rstat{
+  background:rgba(11,30,61,.05);padding:10px 18px;
+  border-radius:var(--r);font-size:12px;color:#64748b;
+}
+.rmod .rstat strong{display:block;font-size:18px;color:var(--navy);font-weight:700}
+.btnnx{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--teal),var(--sage));
+  color:#fff;padding:13px 30px;border-radius:28px;border:none;
+  font-size:14px;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 16px rgba(29,158,117,.28);
+  transition:all .25s var(--ease);
+}
+.btnnx:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(29,158,117,.38)}
+.btnrt{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(11,30,61,.07);color:var(--navy);
+  padding:11px 24px;border-radius:28px;border:none;
+  font-size:13px;cursor:pointer;margin-left:10px;
+  transition:all .25s;
+}
+.btnrt:hover{background:rgba(11,30,61,.12)}
+
+/* PANEL LATERAL PROGRESO */
+.sidebar{
+  position:fixed;right:18px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:7px;z-index:100;
+}
+.sdot{
+  width:9px;height:9px;border-radius:50%;
+  border:2px solid rgba(11,30,61,.18);cursor:pointer;
+  transition:all .3s;title:'';
+}
+.sdot.done{background:var(--teal);border-color:var(--teal)}
+.sdot.cur{background:var(--gold);border-color:var(--gold);transform:scale(1.5)}
+.sdot.lock{background:rgba(11,30,61,.08)}
+
+/* TOAST */
+.toast{
+  position:fixed;top:18px;left:50%;
+  transform:translateX(-50%) translateY(-120px);
+  background:var(--navy);color:#fff;
+  padding:12px 26px;border-radius:30px;
+  font-size:13.5px;font-weight:500;
+  border:1px solid rgba(212,168,67,.3);
+  box-shadow:0 8px 28px rgba(11,30,61,.25);
+  z-index:999;transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* FOOTER */
+.footer{
+  background:var(--navy);color:rgba(255,255,255,.55);
+  text-align:center;padding:36px 20px;margin-top:40px;
+  font-size:12.5px;border-top:1px solid rgba(212,168,67,.2);
+}
+.footer .fl{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.footer strong{color:var(--gold)}
+
+/* BLOOM BADGES */
+.bloom{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:2px 9px;border-radius:10px;
+  font-size:10px;font-weight:700;letter-spacing:.4px;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.b1{background:#eff6ff;color:#1d4ed8}
+.b2{background:#f0fdf4;color:#166534}
+.b3{background:#fefce8;color:#854d0e}
+.b4{background:#fff7ed;color:#9a3412}
+.b5{background:#fdf4ff;color:#7e22ce}
+.b6{background:#f5f3ff;color:#5b21b6}
+
+@media(max-width:600px){
+  .wrap{padding:16px 12px}
+  .cards{grid-template-columns:1fr;padding:0 14px 16px}
+  .sidebar{display:none}
+  .hero{padding:32px 16px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div>
+    <div class="nav-brand">🔭 SABI CENTEC</div>
+    <div class="nav-tag">Autoformación Docente de Excelencia</div>
+  </div>
+  <div class="nav-pill">Curso 11 · sabi_curso11_ingles_c1.html</div>
+</nav>
+
+<div class="sidebar"><div class="sdot lock" data-n="1" title="Módulo 1" onclick="S.toggle(1)"></div>
+<div class="sdot lock" data-n="2" title="Módulo 2" onclick="S.toggle(2)"></div>
+<div class="sdot lock" data-n="3" title="Módulo 3" onclick="S.toggle(3)"></div>
+<div class="sdot lock" data-n="4" title="Módulo 4" onclick="S.toggle(4)"></div></div>
+<div class="toast"></div>
+<div class="wrap">
+  <div class="info-bar">
+    <span>📚 <strong>4 módulos</strong></span>
+    <span>❓ <strong>28 preguntas</strong></span>
+    <span>🏆 <strong>Mínimo 70% por módulo</strong></span>
+    <span>Filosofía SABI — que verdaderamente aprendan</span>
+  </div>
+  
+<div class="mod" id="mod1" style="--ac:#1D9E75">
+  <div class="mhdr" id="h1" data-lock="0" onclick="S.toggle(1)" style="--ac:#1D9E75">
+    <div class="mnum" style="background:#1D9E75">1</div>
+    <div class="minfo">
+      <div class="mtitle">C1 Academic English — Precision and Complexity</div>
+      <div class="msub">Nominalisation · Hedging · Complex syntax · Cohesion · Academic register</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 1-2</span>
+        
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b1"><div class="intro">C1 is the level where language stops being an obstacle and becomes an instrument of precision. At C1 you express complex ideas with nuance, write publication-quality texts, and participate in international academic discussions as an intellectual peer. This module targets the specific features that distinguish C1 from B2.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🧠</div>
+    <div class="card-title">Nominalisation — Signature of academic English</div>
+  </div>
+  <div class="card-bd">Nominalisation converts verbs/adjectives into nouns, creating the formal dense style of academic writing. Examples: analyse becomes analysis, implement becomes implementation, significant becomes significance. Instead of: Teachers use technology more effectively when they are trained well. Academic C1: The effectiveness of technology use increases significantly with adequate teacher training. This creates information density, formal register, and objectivity.<div class="card-reflect">💭 Rewrite 5 sentences from your professional context using nominalisation.</div></div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">💡</div>
+    <div class="card-title">Hedging — Academic caution and precision</div>
+  </div>
+  <div class="card-bd">Hedging signals claims are based on evidence, not absolute truth. Hedging language: modal verbs (may, might, could), adverbs (apparently, arguably, generally), verbs (suggest, indicate, appear, tend to). Strong claim: Technology improves learning. Hedged: Technology appears to improve certain aspects of learning under specific conditions. Hedging is not weakness — it is precision. Over-claiming undermines academic credibility more than under-claiming.<div class="card-reflect">💭 Rewrite 3 strong claims using appropriate hedging language.</div></div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🎯</div>
+    <div class="card-title">Complex Sentence Structures — C1 Syntax</div>
+  </div>
+  <div class="card-bd">C1 syntax uses: relative clauses (The methodology that we developed, which has since been adopted by three other schools), participle clauses (Having established the baseline data, we proceeded to), cleft sentences for emphasis (It was the formative feedback, not the summative assessment, that produced the improvement), and fronted adverbials (Under the right conditions, collaborative learning significantly outperforms individual study).<div class="card-reflect">💭 Write 5 complex sentences about your teaching practice using these structures.</div></div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🔬</div>
+    <div class="card-title">Cohesion — Making texts flow as connected wholes</div>
+  </div>
+  <div class="card-bd">Cohesion connects sentences into a unified argument. Tools: reference (this, these, such), substitution (This approach, like other student-centred methods...), conjunction (however, therefore, consequently, in addition, nevertheless), lexical chains (learning, acquisition, development, mastery all in one paragraph). The test: can a reader follow your argument without re-reading? If not, add cohesion.<div class="card-reflect">💭 Take a paragraph you have written. Identify all cohesion devices. Add 3 more.</div></div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q1_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">🟡 Which sentence best demonstrates C1 academic nominalisation?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,1,0)">
+  <span class="mk">A</span><span>We found that students improved when teachers gave feedback frequently</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,1)">
+  <span class="mk">B</span><span>Frequent feedback provision by teachers resulted in statistically significant improvements in student performance</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,2)">
+  <span class="mk">C</span><span>Teachers gave feedback and students got better results</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,3)">
+  <span class="mk">D</span><span>The students improved a lot because the teachers helped them often</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Frequent feedback provision (nominalise provide), resulted in (formal verb), statistically significant improvements (nominalised improve + precision modifier), in student performance (nominalise perform). This creates the density and formality of academic writing. Option A is natural spoken English. Option C is informal. Option D uses very (informal quantifier). Academic principle: nouns carry the meaning; verbs are functional connectors. <div class='fbr'>💭 Rewrite 5 sentences from your professional practice using nominalisation. Notice how the register transforms.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Nominalisation: verbs/adjectives become nouns. Provide becomes provision, improve becomes improvement. Creates academic density and objectivity.</div>
+  </div>
+</div>
+<div class="eq" id="q1_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">🔴 A colleague submits: Technology is great for learning. All students learn better with technology. Which C1 revision is most appropriate?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,2,0)">
+  <span class="mk">A</span><span>Technology is very great for learning. Most students learn better with it.</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,1)">
+  <span class="mk">B</span><span>Technology may represent a valuable pedagogical resource; however, its effectiveness appears to depend significantly on implementation quality, student access, and the specific learning objectives being targeted.</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,2)">
+  <span class="mk">C</span><span>Technology could be good sometimes maybe.</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,3)">
+  <span class="mk">D</span><span>Research shows technology is good. This is because students like it.</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,2,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Option B demonstrates four C1 features: hedging (may represent, appears to depend), concession structure (however), nominalisation (effectiveness, implementation quality), and nuanced qualification (depends on three specific variables). It transforms a vague absolute claim into a precise defensible statement. C1 writing is not about avoiding commitment — it is about committing precisely. More precise claims are more credible, not weaker. <div class='fbr'>💭 Find 3 absolute claims in an education text and revise each with appropriate hedging and qualification.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>C1 revision: hedge absolutes, add specificity, use nominalisation, add concession. More precise = more credible, not weaker.</div>
+  </div>
+</div>
+<div class="eq" id="q1_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">🟠 Which cleft sentence correctly emphasises the key variable in a research finding?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,3,0)">
+  <span class="mk">A</span><span>Formative feedback produced the improvement more than the summative assessment did</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,1)">
+  <span class="mk">B</span><span>It was the formative feedback, not the summative assessment, that produced the measurable improvement in student outcomes</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,2)">
+  <span class="mk">C</span><span>The improvement happened because formative feedback was what made it happen</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,3)">
+  <span class="mk">D</span><span>Formative feedback was important for improvement more than other things</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,3,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ It was X that Y — the standard cleft structure for emphasis. It was the formative feedback (focused element), not the summative assessment (contrast), that produced the measurable improvement (predicate). This structure highlights the key causal variable in academic writing. Option A is grammatically correct but lacks the emphasis effect. Option C is redundant. Option D is vague. Cleft sentences are a signature C1 academic structure that signals analytical precision. <div class='fbr'>💭 Write 3 cleft sentences about key findings or insights from your professional experience.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Cleft sentence: It was X that Y. Highlights the key causal element. Signals analytical precision in academic argument.</div>
+  </div>
+</div>
+<div class="eq" id="q1_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">🟢 Which sentence correctly uses a C1 participle clause?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,4,0)">
+  <span class="mk">A</span><span>We analysed the data and then we identified three patterns</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,1)">
+  <span class="mk">B</span><span>Having analysed the data from three academic years, we identified three distinct patterns in student progression</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,2)">
+  <span class="mk">C</span><span>After we analysed the data we found three patterns in it</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,3)">
+  <span class="mk">D</span><span>We did the analysis and then patterns were found by us</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,4,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Having analysed the data from three academic years (perfect participle clause — action completed before main verb), we identified (main verb) three distinct patterns in student progression. Participle clauses compress information, signal sequence or causality, and create formal register. Option A is grammatically correct but lacks academic sophistication. Option C is informal. Option D mixes active and passive awkwardly. Participle clauses are among the clearest markers of C1 written proficiency. <div class='fbr'>💭 Write 5 sentences using participle clauses to describe stages of a professional investigation or project.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Participle clauses: Having done X, we did Y. Compresses information, signals sequence, creates formal academic register.</div>
+  </div>
+</div>
+<div class="eq" id="q1_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">🟡 Which paragraph opening best demonstrates C1 cohesion?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,5,0)">
+  <span class="mk">A</span><span>Now I will talk about something else. It is also important.</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,1)">
+  <span class="mk">B</span><span>Building on the evidence presented in the previous section, this analysis examines a related but distinct phenomenon: the differential impact of formative assessment strategies across student ability levels.</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,2)">
+  <span class="mk">C</span><span>The next thing is formative assessment. This is when teachers assess students.</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,3)">
+  <span class="mk">D</span><span>Formative assessment is the next topic. It relates to what was said before.</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,5,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Building on the evidence presented in the previous section (backward reference), this analysis examines (forward-pointing topic announcement), a related but distinct phenomenon (precise relationship marker), the differential impact (topic with analytical precision), across student ability levels (scope specification). Every element serves a cohesion or precision function. Options C and D announce the topic without connecting it to what preceded. Cohesive paragraphs look backward and forward simultaneously. <div class='fbr'>💭 Write a paragraph opening that references the previous paragraph and announces the current one's focus.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>C1 paragraph openings: reference to previous section + topic announcement + relationship specification + scope. All elements serve cohesion.</div>
+  </div>
+</div>
+<div class="eq" id="q1_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">🟠 In a paper on inclusive education, which conclusion demonstrates appropriate C1 academic scope?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,6,0)">
+  <span class="mk">A</span><span>In conclusion, inclusive education is good and teachers should use it</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,1)">
+  <span class="mk">B</span><span>This study provides preliminary evidence suggesting that, under the conditions examined in three Cali secondary schools, inclusive pedagogical practices may contribute to improved outcomes for students with and without learning differences, though further investigation with larger samples would be needed to establish generalisability.</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,2)">
+  <span class="mk">C</span><span>In conclusion we found inclusive education works and this is important.</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,3)">
+  <span class="mk">D</span><span>The findings show that inclusive education is good for all students everywhere.</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,6,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Option B demonstrates C1 conclusion language: scope limitation (three Cali secondary schools), hedged claim (may contribute to), balanced scope (students with and without learning differences), and explicit limitation (further investigation needed, generalisability). Academic conclusions do not overstate — they state what the evidence supports and acknowledge what it does not. Explicit limitations increase credibility. Option D overstates (all students everywhere) in a way no three-school study can support. <div class='fbr'>💭 Write a 3-sentence conclusion for a small professional investigation you have conducted or could conduct.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Academic conclusions: scope limitation + hedged claim + balanced scope + explicit limitations. Stating limitations increases credibility.</div>
+  </div>
+</div>
+<div class="eq" id="q1_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">🔵 What distinguishes C1 from B2 in terms of the educator's contribution to international discourse?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,7,0)">
+  <span class="mk">A</span><span>Only the level of English proficiency — ideas are equally valuable at any level</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,1)">
+  <span class="mk">B</span><span>C1 enables full participation as knowledge producer: publishing peer-reviewed work, critiquing literature with precision, presenting nuanced arguments in real-time discussion, and leading international projects. The ideas of Colombian educators are equally valuable at B2 — what C1 adds is precision and legibility to make those ideas actionable in international academic contexts.</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,2)">
+  <span class="mk">C</span><span>C1 educators have better ideas than B2 educators</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,3)">
+  <span class="mk">D</span><span>The difference is only relevant for English teachers</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,7,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This distinction is critical: Colombian educators have valuable insights at every language level. What C1 adds is precision and legibility — making those insights accessible to international audiences with the specificity that academic publication requires. The ideas come from the Colombian context; C1 language makes them sharable with the world. That is the professional purpose of C1 — contribution to global educational knowledge, not only personal advancement. <div class='fbr'>💭 Write the opening paragraph of a paper you would most want to publish about your educational context.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>C1 adds precision and legibility to valuable ideas that exist at every level. Colombian insights deserve C1 language to reach international audiences that need them.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r1"></div></div></div>
+
+<div class="mod" id="mod2" style="--ac:#1B7FA6">
+  <div class="mhdr" id="h2" data-lock="1" onclick="S.toggle(2)" style="--ac:#1B7FA6">
+    <div class="mnum" style="background:#1B7FA6">2</div>
+    <div class="minfo">
+      <div class="mtitle">C1 Academic Writing — Research and Publication</div>
+      <div class="msub">Literature review · Argumentation · Methodology · Discussion · Revision</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 3-4</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b2"><div class="intro">C1 academic writing produces texts that contribute to knowledge — not just demonstrate reading. This module develops: synthesising literature, constructing original arguments, describing methodology with precision, and writing discussions that go beyond results to implications.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🧠</div>
+    <div class="card-title">Literature Review — Synthesis not summary</div>
+  </div>
+  <div class="card-bd">A literature review is not a list of what each author said — it is a structured argument using multiple sources as evidence. Techniques: thematic organisation (not chronological), synthesis moves (While Smith argues X, Jones and Chen suggest Y, which together indicate Z), critical engagement (these studies do not address the specific conditions present in Colombian secondary schools), and gap identification (No study to date has examined formative assessment in post-conflict educational contexts).<div class="card-reflect">💭 Write a 200-word literature review paragraph synthesising at least 3 sources.</div></div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">💡</div>
+    <div class="card-title">Argumentation — Building the case</div>
+  </div>
+  <div class="card-bd">Academic argument structure (Toulmin model): Claim (what you argue), Grounds (evidence), Warrant (logical connection between grounds and claim), Qualifier (limitations), Rebuttal (anticipation of counter-arguments). Applied: Claim: formative assessment improves equity. Grounds: data showing smaller achievement gaps. Warrant: frequent feedback allows lower-performing students to course-correct before falling behind. Rebuttal: while some argue that formative assessment benefits higher performers most, this study's disaggregated data shows the opposite.<div class="card-reflect">💭 Construct a complete Toulmin argument for one claim from your professional experience.</div></div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🎯</div>
+    <div class="card-title">Methodology — Writing with precision</div>
+  </div>
+  <div class="card-bd">Methodology writing elements: participant description (who and how many), context specificity (where and when), data collection procedures (what and how), analytical approach (how you interpreted), limitations acknowledgment. Passive voice is standard: Data were collected over two semesters. Interviews were conducted with 12 participants. Thematic analysis was employed. Precision principle: another researcher should be able to replicate your study from your methodology description alone.<div class="card-reflect">💭 Write a 150-word methodology description for an investigation you have conducted or could conduct.</div></div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🔬</div>
+    <div class="card-title">Discussion — Beyond results to implications</div>
+  </div>
+  <div class="card-bd">Discussion elements: interpretive claim (what results mean), connection to literature (how your findings relate to existing knowledge), alternative interpretations (what else could explain the results), practical implications (what practitioners should do differently), and research implications (what should be studied next). Common error: restating results in the discussion. Results = what happened. Discussion = why it matters, what mechanism explains it, what it means for theory and practice.<div class="card-reflect">💭 Write a 150-word discussion paragraph. Go beyond what happened to why it matters.</div></div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q2_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">🟡 Which sentence demonstrates C1 synthesis in a literature review?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,1,0)">
+  <span class="mk">A</span><span>Smith (2020) says formative assessment is good. Jones (2021) also says it is good.</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,1)">
+  <span class="mk">B</span><span>While convergent evidence from multiple meta-analyses strongly supports the effectiveness of formative assessment in high-income contexts, considerably less research has examined its implementation within the resource constraints and sociocultural diversity characteristic of Colombian secondary education.</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,2)">
+  <span class="mk">C</span><span>Research shows formative assessment is effective (Smith 2020, Jones 2021).</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,3)">
+  <span class="mk">D</span><span>Many researchers have studied formative assessment and found it is effective.</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Option B demonstrates advanced synthesis: acknowledges strength of existing evidence (convergent evidence, strongly supports), names specific limitations of that evidence (high-income contexts), and identifies the gap this study addresses (Colombian secondary education with its specific characteristics). This move justifies the new study — without it a reader asks why the study is needed. Synthesis is not summary — it is using sources to build the argument for your own contribution. <div class='fbr'>💭 Write a 3-sentence synthesis paragraph using 3 real or hypothetical sources on a topic from your professional area.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Literature review synthesis: acknowledge existing evidence + name its limitations + identify the gap. This move justifies why your study is needed.</div>
+  </div>
+</div>
+<div class="eq" id="q2_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">🔴 Which discussion paragraph correctly distinguishes results from interpretation?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,2,0)">
+  <span class="mk">A</span><span>The results showed students improved by 15%. This means students improved by 15%.</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,1)">
+  <span class="mk">B</span><span>Student outcomes improved by 15% in the formative assessment group relative to controls. This improvement may suggest that the frequency of feedback, rather than its content, was the primary driver — a hypothesis consistent with Sadler's claim that timing is neurologically more significant than specificity at the acquisition stage.</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,2)">
+  <span class="mk">C</span><span>The results showed students improved. In the discussion I will discuss the improvement.</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,3)">
+  <span class="mk">D</span><span>Students improved. This is a good result for formative assessment.</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,2,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Option B separates: results (15% improvement), interpretation (frequency rather than content was the driver), theoretical connection (Sadler's neurological claim), and appropriate hedging (may suggest, hypothesis). The interpretive move goes beyond the data to propose a mechanism. Option A restates the result without interpreting it. The discussion is where the author's thinking is most visible — and most valuable. Results tell what happened; discussion explains why and what it means. <div class='fbr'>💭 Take one result from your professional practice. Write a 3-sentence discussion that interprets its significance and connects it to theory.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Discussion: result (what happened) + interpretation (why, what mechanism) + theoretical connection + hedged claim. Never restate results.</div>
+  </div>
+</div>
+<div class="eq" id="q2_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">🟠 Which methodology description best meets C1 precision standards?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,3,0)">
+  <span class="mk">A</span><span>I collected data from some students over a few months</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,1)">
+  <span class="mk">B</span><span>Data were collected from 47 grade 9 students (26 female, 21 male, mean age 14.3 years) at a public secondary school in Cali, Colombia, over two academic semesters. Semi-structured interviews (n=12), classroom observation protocols (n=18 sessions), and student performance records were employed to triangulate findings. Thematic analysis following Braun and Clarke's six-phase framework was used.</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,2)">
+  <span class="mk">C</span><span>We studied students and used different methods to get data</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,3)">
+  <span class="mk">D</span><span>The study was done with secondary school students in Colombia using qualitative methods</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,3,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This description includes all required elements: participant description (47 students, gender, mean age), context (public school, Cali), timeframe (two semesters), data collection instruments (3 instruments with sample sizes), triangulation rationale, and analytical framework (Braun and Clarke with specific framework). Another researcher could replicate this study from this description — the precision criterion. Vague methodology undermines the credibility of any findings presented. <div class='fbr'>💭 Write a methodology description for an investigation. Include: participants, context, instruments, and analytical approach.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Methodology precision: who (n, demographics), where (context), when (timeframe), how (instruments with n), analytical approach. Replicable = credible.</div>
+  </div>
+</div>
+<div class="eq" id="q2_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">🟢 Which thesis statement is most appropriate for an academic paper on inclusive education in Colombia?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,4,0)">
+  <span class="mk">A</span><span>Inclusive education is important for all students</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,1)">
+  <span class="mk">B</span><span>This paper argues that the successful implementation of inclusive education in Colombian secondary schools requires not only legislative compliance but the development of specific pedagogical competencies that current teacher training programmes insufficiently address.</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,2)">
+  <span class="mk">C</span><span>Inclusive education is good and teachers need to learn about it</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,3)">
+  <span class="mk">D</span><span>I will argue that teachers need better training for inclusive education</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,4,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This thesis statement: specific context (Colombian secondary schools), two-part argument (legislative compliance AND pedagogical competencies), implicit critique (current training insufficiently addresses), and analytical scope (teacher training programmes). It is a claim that can be argued, evidenced, and contested — the three criteria for an academic thesis. Option A is a value statement, not an argument. Options B and D use I will argue which is acceptable but less academic than the declarative form. <div class='fbr'>💭 Write a thesis statement for a paper on: assessment in post-conflict contexts, technology access inequity, or teacher burnout in Colombian schools.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Academic thesis: specific context + two-part argument + implicit critique + clear scope. Must be arguable, evidenceable, and contestable.</div>
+  </div>
+</div>
+<div class="eq" id="q2_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">🟡 Which literature review sentence correctly identifies a research gap?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,5,0)">
+  <span class="mk">A</span><span>No one has written about this topic before</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,1)">
+  <span class="mk">B</span><span>While substantial literature documents the benefits of collaborative learning in high-resource environments, a notable gap exists in the examination of collaborative learning within the constraints of large class sizes, limited technology access, and high student diversity characteristic of Colombian public secondary schools — the conditions under which most of the world's students are educated.</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,2)">
+  <span class="mk">C</span><span>Previous studies have not been done on this topic</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,3)">
+  <span class="mk">D</span><span>The literature does not have anything about Colombia</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,5,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This gap statement: acknowledges strength of existing evidence (substantial literature), specifies the gap precisely (collaborative learning in high-resource vs Colombian public schools), names defining context characteristics (class sizes, technology, diversity), and universalises the local gap (conditions under which most of the world's students are educated). The final move transforms a parochial concern into an internationally significant contribution. Your local gap matters globally — make that argument explicitly. <div class='fbr'>💭 Write a research gap statement for your professional context. Connect the local gap to its global significance.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Research gap: acknowledge existing evidence + specify what is missing + name context characteristics + connect local gap to global significance.</div>
+  </div>
+</div>
+<div class="eq" id="q2_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">🟠 A reviewer comments: Your argument would be stronger if you addressed the most obvious counter-argument. Which revision best addresses this?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,6,0)">
+  <span class="mk">A</span><span>Delete the counter-argument section entirely</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,1)">
+  <span class="mk">B</span><span>Add: Some people might disagree but they are wrong</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,2)">
+  <span class="mk">C</span><span>Incorporate: It might be objected that the improvements documented reflect the novelty effect rather than sustained impact. This concern has merit insofar as short-term interventions consistently overestimate long-term effects. However, the two-year duration of this study, combined with triangulated evidence sources, suggests that improvements persisted beyond the initial engagement phase, diminishing the plausibility of a pure novelty explanation.</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,3)">
+  <span class="mk">D</span><span>Remove any mention of limitations to make the argument appear stronger</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,6,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This counter-argument response: names the counter-argument precisely (novelty effect), concedes its validity partially (this concern has merit insofar as), and refutes with specific evidence (two-year duration, triangulated sources). The phrase diminishing the plausibility rather than eliminating the possibility maintains appropriate hedging. Academic arguments do not defeat counter-arguments — they explain why the evidence better supports the main claim. Acknowledging and addressing counter-arguments increases credibility. <div class='fbr'>💭 Identify the strongest counter-argument to one claim from your professional practice. Write a response: concede the valid part, refute with evidence.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Counter-argument response: name precisely + concede partial validity + refute with specific evidence + hedge appropriately. Addressing counter-arguments increases credibility.</div>
+  </div>
+</div>
+<div class="eq" id="q2_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">🔵 Why is the revision process more important than the first draft in C1 academic writing?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,7,0)">
+  <span class="mk">A</span><span>Because first drafts are always wrong and need complete rewriting</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,1)">
+  <span class="mk">B</span><span>Because revision is where thinking deepens — the first draft externalises ideas, revision sharpens them. At C1, revision involves: checking every claim is supported by evidence, strengthening hedging where claims outrun the data, improving cohesion between paragraphs, testing whether the argument is followable, and ensuring discussion goes beyond results to interpretation. Professional academic writers typically revise 3 to 5 times before submission.</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,2)">
+  <span class="mk">C</span><span>Because grammar should only be corrected in the final version</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,3)">
+  <span class="mk">D</span><span>Because reviewers require multiple drafts before any paper can be submitted</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,7,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ The revision process is where academic writing becomes academic thinking. The first draft discovers what you want to say. Revision discovers whether you said it with sufficient precision, evidence, and coherence for a critical reader. C1 revision is not proofreading — it is re-seeing: does this argument hold? Does this evidence support this claim? Does this paragraph connect to the next? The discipline of deep revision develops not just better writing but better thinking — which is the ultimate purpose of academic writing. <div class='fbr'>💭 Take a piece of professional writing and revise it using 5 criteria: claims-evidence, hedging, cohesion, accessibility, discussion depth.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Revision is where writing becomes thinking. 3-5 revisions before submission is professional standard. Each pass serves a different function: argument, language, cohesion, accessibility.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r2"></div></div></div>
+
+<div class="mod" id="mod3" style="--ac:#D85A30">
+  <div class="mhdr" id="h3" data-lock="1" onclick="S.toggle(3)" style="--ac:#D85A30">
+    <div class="mnum" style="background:#D85A30">3</div>
+    <div class="minfo">
+      <div class="mtitle">C1 Professional Communication — Leading Internationally</div>
+      <div class="msub">Facilitation · Mentoring in English · Research presentations · Intercultural leadership</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 5-6</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b3"><div class="intro">At C1 you move from participating in international professional contexts to leading them. This module builds the specific language of C1 professional leadership: facilitating complex discussions, mentoring colleagues in English, presenting research to mixed audiences, and navigating intercultural collaboration.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🧠</div>
+    <div class="card-title">Facilitating Complex Professional Discussions</div>
+  </div>
+  <div class="card-bd">C1 facilitation language: opening (I would like to invite you to consider...), redirecting (That is a valuable point — connecting it to what Maria said earlier...), synthesising (It seems the group is converging on the idea that...), managing disagreement (I notice we have two distinct perspectives here — what do they share?), closing (Before we conclude, let us articulate the key commitments we are taking away). The facilitator shapes the quality of collective thinking without dominating it.<div class="card-reflect">💭 Write a 15-line facilitation script for a professional development session on your area of expertise.</div></div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">💡</div>
+    <div class="card-title">Mentoring in English — Coaching language at C1</div>
+  </div>
+  <div class="card-bd">Mentoring language: diagnostic (What do you see as the primary challenge in that situation?), exploratory (What would need to be true for that approach to succeed?), challenge (I wonder if there might be an assumption worth examining there), affirmation (The precision with which you articulated that concern is exactly the clarity we need), and action (What is the one thing you will do differently based on our conversation?). Mentoring in English is adapting your style to English pragmatic conventions — not just translating it.<div class="card-reflect">💭 Write a 10-exchange mentoring dialogue in English for a colleague working through a professional challenge.</div></div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🎯</div>
+    <div class="card-title">Research Presentations to Mixed Audiences</div>
+  </div>
+  <div class="card-bd">Presenting research to audiences with mixed language levels: explicit signposting (I am going to make three claims and for each I will present the evidence), visual support that reduces language dependency (graphs carry the argument), generative comprehension checks (What questions does this finding raise for you?), and cultural sensitivity in evidence standards (what counts as strong evidence varies across cultures). The Colombian teacher presenting internationally brings authentic data from an underrepresented context — which immediately differentiates the contribution.<div class="card-reflect">💭 Prepare 5 slides with speaker notes for a 5-minute presentation of your most important professional finding.</div></div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🔬</div>
+    <div class="card-title">Intercultural Leadership — Reading the room across cultures</div>
+  </div>
+  <div class="card-bd">Leading international teams: reading communication styles (high-context vs low-context), managing time orientation differences (some cultures expect detailed agendas; others prefer emergent discussion), navigating disagreement conventions (indirect vs direct), and building trust across cultural distance. The Colombian communication style — warm, relational, and concrete — is a genuine asset in intercultural leadership when combined with C1 precision. The combination produces leaders who are both effective and trusted.<div class="card-reflect">💭 What aspects of your Colombian professional communication style do you most want to maintain in international leadership roles?</div></div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q3_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">🟡 Which facilitator move best handles a dominant participant?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,1,0)">
+  <span class="mk">A</span><span>Tell them directly to stop talking so much</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,1)">
+  <span class="mk">B</span><span>Thank you for that perspective, Juan Carlos — it raises an important dimension. I would like to open that question to the group: what do others think about the relationship between assessment frequency and student anxiety? Let us hear from those who have not yet spoken.</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,2)">
+  <span class="mk">C</span><span>Ignore them and hope others speak more</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,3)">
+  <span class="mk">D</span><span>Ask them to leave the discussion</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This facilitation move: acknowledges without reinforcing (Thank you — not elaborating), pivots to group ownership (I would like to open that question), adds analytical depth (relationship between assessment and anxiety), and explicitly invites underrepresented voices (those who have not yet spoken). Skilled facilitation is invisible — participants feel guided without feeling controlled. The question reframe redistributes participation while enriching the discussion simultaneously. <div class='fbr'>💭 Write 5 facilitator moves for: agreement-building, time management, drawing out a quiet participant, handling conflict, closing productively.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Facilitation moves: acknowledge + redirect to group + add analytical depth + invite underrepresented voices. Manage dominance invisibly.</div>
+  </div>
+</div>
+<div class="eq" id="q3_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">🔴 A mentee says: I tried the new feedback strategy and it did not work at all. What is the most effective C1 mentoring response?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,2,0)">
+  <span class="mk">A</span><span>That is because you did it wrong. Try again correctly.</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,1)">
+  <span class="mk">B</span><span>Tell me more about what happened — what specifically did not go as expected? And from the students' perspective, what do you think they experienced? This situation sounds like it contains really useful information about the gap between the strategy as designed and the strategy as implemented — which is often where the most important learning is.</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,2)">
+  <span class="mk">C</span><span>I am sorry it did not work. Maybe try something different.</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,3)">
+  <span class="mk">D</span><span>The strategy always works. You must have misunderstood the instructions.</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,2,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This mentoring response: diagnostic invitation (Tell me more about what specifically), perspective-taking prompt (from the students' perspective), and reframing failure as data (contains really useful information). It avoids blaming, dismissing, or abandoning the strategy. The reframe (gap between strategy as designed and as implemented) introduces a sophisticated professional distinction that advances the mentee's thinking. Mentoring is deepening the mentee's capacity to understand their own practice — not fixing their problems. <div class='fbr'>💭 Write a mentoring response to: My students just do not seem motivated, no matter what I try.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Mentoring: diagnostic question + perspective-taking + reframing failure as data. Deepen thinking, do not fix problems.</div>
+  </div>
+</div>
+<div class="eq" id="q3_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">🟠 Which presentation slide title best serves a C1-level research presentation?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,3,0)">
+  <span class="mk">A</span><span>Results</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,1)">
+  <span class="mk">B</span><span>Good Results from My School</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,2)">
+  <span class="mk">C</span><span>Differential Outcomes: How Community-Connected PBL Affected Students at Three Ability Levels Differently</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,3)">
+  <span class="mk">D</span><span>Our School Project Was Successful</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,3,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Differential Outcomes (precise academic language), How (analytical question), Community-Connected PBL (specific methodology with distinguishing modifier), Affected Students at Three Ability Levels Differently (specific population, specific finding, key word: differently). This title announces a finding (not just a topic), signals the key distinction (differential — worked differently for different groups), and contains the research question. Academic presentations answer questions — the title tells the audience what question is being answered. <div class='fbr'>💭 Write slide titles for a 5-slide presentation that tells the story of your most important professional investigation as a complete argument.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Research slide titles: announce a finding + signal key distinction + contain the research question. Titles tell the story before slides explain it.</div>
+  </div>
+</div>
+<div class="eq" id="q3_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">🟢 In a cross-cultural meeting, a Japanese colleague says: That might be difficult when you propose an idea. What does this most likely mean?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,4,0)">
+  <span class="mk">A</span><span>They are uncertain and need more information</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,1)">
+  <span class="mk">B</span><span>They literally mean the idea has some practical difficulties</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,2)">
+  <span class="mk">C</span><span>In high-context cultures, particularly Japanese professional culture, that might be difficult frequently signals a polite but clear disagreement or refusal. The appropriate C1 response: acknowledge the concern (I appreciate you raising the difficulty dimension), invite elaboration (Could you help me understand what specific aspects you see as challenging?), and be prepared to modify or abandon the proposal.</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,3)">
+  <span class="mk">D</span><span>They are enthusiastic but cautious about details</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,4,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ High-context communication (Hofstede) is essential intercultural knowledge for C1 professional leadership. In high-context cultures, full meaning is embedded in context and implication — not explicit words. That might be difficult from a Japanese colleague is often a decisive no communicated respectfully. The C1 leader recognises the indirect signal, responds to the real message, and creates space for the concern to be expressed more fully. Colombian culture is moderate-context — this distinction requires deliberate attention in international settings. <div class='fbr'>💭 How does high vs low-context communication apply across different regions of Colombia? When might a colleague signal disagreement indirectly in your context?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>High-context communication: meaning in implication. That might be difficult often means no. Respond to the real message, not the surface words.</div>
+  </div>
+</div>
+<div class="eq" id="q3_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">🟡 An international working group has one US colleague wanting immediate action and one German colleague wanting thorough analysis first. How do you lead effectively?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,5,0)">
+  <span class="mk">A</span><span>Side with the US colleague — efficiency is always more important</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,1)">
+  <span class="mk">B</span><span>Side with the German colleague — thorough analysis prevents mistakes</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,2)">
+  <span class="mk">C</span><span>Acknowledge both orientations explicitly: I notice we have two valuable professional instincts here — the drive to action and the commitment to analysis. Both reflect important values. Could we agree on a time-boxed analysis phase (30 minutes maximum) followed by committed action steps? This way we honour both the need for rigour and the need for momentum.</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,3)">
+  <span class="mk">D</span><span>Ask the group to vote on which approach to use</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,5,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This leadership move names underlying values explicitly (drive to action, commitment to analysis), reframes them as complementary rather than conflicting, and proposes a time-boxed synthesis (30 minutes + action steps). This is intercultural leadership at its best: you do not choose sides — you find a design that honours both. Colombian professional culture, combining warmth and pragmatism, is well-positioned for this kind of synthesis leadership in international contexts. <div class='fbr'>💭 Describe a situation where you successfully bridged two conflicting professional orientations. What was the synthesis you found?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Intercultural leadership: name underlying values + propose synthesis design. Do not choose sides — honour both orientations in the structure.</div>
+  </div>
+</div>
+<div class="eq" id="q3_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">🟠 How does a C1 Colombian educator most effectively position their professional contribution internationally?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,6,0)">
+  <span class="mk">A</span><span>By apologising for not being from a more prestigious system</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,1)">
+  <span class="mk">B</span><span>By claiming Colombian education is superior to other systems</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,2)">
+  <span class="mk">C</span><span>By naming the distinctive assets of the Colombian context: experience with education in post-conflict settings, innovation under resource constraints, expertise educating highly diverse populations, and proximity to the equity challenges that affect most of the world's students. These are genuine assets the international education community needs and often lacks.</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,3)">
+  <span class="mk">D</span><span>By focusing only on methodology and avoiding mention of Colombia</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,6,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Most of the world's students experience education under conditions closer to Colombia than to Finland or Singapore. The expertise developed educating children affected by poverty, displacement, violence, and cultural diversity is directly relevant to the majority of the world's educational challenges. The C1 Colombian educator who positions these experiences as assets — not apologising for them — contributes something that well-resourced systems genuinely cannot provide. Your context is your comparative advantage. <div class='fbr'>💭 Write a 90-second professional introduction in English that positions your Colombian educational context as a genuine international asset.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Colombian educational assets internationally: post-conflict education, resource-constrained innovation, diversity expertise, equity proximity. Not deficits — comparative advantages.</div>
+  </div>
+</div>
+<div class="eq" id="q3_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">🔵 What is the most important C1 leadership quality that transcends language level?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,7,0)">
+  <span class="mk">A</span><span>Grammatical accuracy in all professional communication</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,1)">
+  <span class="mk">B</span><span>Native-like pronunciation and accent</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,2)">
+  <span class="mk">C</span><span>Intellectual generosity: advancing others' ideas as vigorously as your own, crediting contributions explicitly, making space for less confident voices, and building collective intelligence rather than demonstrating individual brilliance. This quality is recognisable in any language at any level — and it is what makes C1 professionals genuinely influential rather than merely impressive.</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,3)">
+  <span class="mk">D</span><span>Ability to speak without pausing or hesitating</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,7,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Intellectual generosity — advancing others' ideas, crediting contributions, making space for emerging voices — distinguishes genuine leaders from impressive performers at every language level. It is also the quality that makes Colombian educators particularly effective internationally: the relational intelligence central to Colombian professional culture translates directly into the trust-building that international collaboration requires. C1 language enables you to express this quality with precision — but the quality itself comes from your professional values. <div class='fbr'>💭 How will you practice intellectual generosity in your next professional interaction in English?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Intellectual generosity transcends language: advance others' ideas, credit contributions, make space for emerging voices. This is what makes leaders genuinely influential.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r3"></div></div></div>
+
+<div class="mod" id="mod4" style="--ac:#7F77DD">
+  <div class="mhdr" id="h4" data-lock="1" onclick="S.toggle(4)" style="--ac:#7F77DD">
+    <div class="mnum" style="background:#7F77DD">4</div>
+    <div class="minfo">
+      <div class="mtitle">C1 in Colombia — Bridging Worlds and Building Legacy</div>
+      <div class="msub">International exchanges · Publication in English · Mentoring colleagues · Professional legacy</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 7-8</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b4"><div class="intro">This final module translates C1 competence into concrete professional opportunities in the Colombian context and designs the path forward. C1 is not the end — it is the beginning of full participation in the international educational community that your students deserve.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🧠</div>
+    <div class="card-title">International Exchanges for Colombian Teachers</div>
+  </div>
+  <div class="card-bd">Fulbright Distinguished Awards in Teaching: for experienced Colombian teachers (5+ years, typically B2-C1 English) to study in the US for 3-5 months. British Council exchanges: collaborative partnerships between Colombian and UK schools. OEA-GCUB scholarships for postgraduate study. Becas Colfuturo for masters and PhD programs. C1 English is not the only requirement — but it is consistently a decisive differentiating factor in competitive selection processes.<div class="card-reflect">💭 Research one international exchange program relevant to your profile. What are the exact language requirements?</div></div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">💡</div>
+    <div class="card-title">Publishing Your Professional Insights</div>
+  </div>
+  <div class="card-bd">Practitioner journals for Colombian teachers: PROFILE — Issues in Teachers Professional Development (Universidad Nacional, indexed, open access). Colombian Applied Linguistics Journal (Universidad Distrital). IATEFL Voices (English language education). Writing process: read 5 published articles in your target journal, identify the argument structure, write your abstract first (the clearest statement of your contribution), then build the full paper. PROFILE specifically values practitioner research from Colombian classroom contexts — your local experience is your comparative advantage.<div class="card-reflect">💭 Read one article in PROFILE journal. What is its argument structure? How would you structure your own contribution?</div></div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🎯</div>
+    <div class="card-title">Mentoring the Next Generation in English</div>
+  </div>
+  <div class="card-bd">At C1, you can mentor colleagues through their language development journey. Effective language mentoring: diagnose accurately (where specifically is the gap?), design targeted practice (not generic study), celebrate progress visibly (the B1 milestone is significant for an adult learner), and connect language development to professional opportunity (why does this matter for you specifically?). The C1 teacher who mentors 10 A2 colleagues to B1 multiplies their language impact by 10 — the highest-return investment of C1 proficiency.<div class="card-reflect">💭 Design a 3-month mentoring plan for an A2 colleague. What specific activities, resources, and milestones would you include?</div></div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🔬</div>
+    <div class="card-title">Your Professional Legacy in English</div>
+  </div>
+  <div class="card-bd">The Colombian teacher at C1 who publishes, exchanges, and mentors in English builds a legacy that extends across careers and borders. Legacy document: a professional portfolio in English (publications, presentations, international connections, exchange experiences). This portfolio is simultaneously a professional development record, a career document, and a model for your students of what lifelong learning looks like. The deeper legacy: every student who sees their teacher engaged in international professional life receives evidence that their Colombian context is globally relevant — and that the border between their classroom and the world's best conversations is crossable.<div class="card-reflect">💭 Design your 3-year professional legacy plan in English: what will you publish, present, exchange, and mentor?</div></div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q4_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">🟡 Which description of the Fulbright program for Colombian teachers is most accurate for application purposes?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(4,1,0)">
+  <span class="mk">A</span><span>Fulbright is only for English teachers</span>
+</button>
+<button class="opt" onclick="S.pick(4,1,1)">
+  <span class="mk">B</span><span>Fulbright Distinguished Awards in Teaching is open to all subjects. Secondary teachers with 5+ years experience and typically B2-C1 English are eligible for 3-5 months of professional development at a US university. Key criteria beyond English: demonstrated impact in Colombian schools, a clear professional development plan, and evidence of ability to bring learning back to Colombian colleagues. C1 English significantly strengthens competitive applications.</span>
+</button>
+<button class="opt" onclick="S.pick(4,1,2)">
+  <span class="mk">C</span><span>Fulbright requires native-level English — C1 is insufficient</span>
+</button>
+<button class="opt" onclick="S.pick(4,1,3)">
+  <span class="mk">D</span><span>Fulbright only accepts university professors</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(4,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Accurate knowledge of international exchange opportunities is essential for planning. Fulbright Distinguished Awards in Teaching is specifically designed for exceptional K-12 teachers — not university professors. The subject area is open — mathematics, science, history, and other subjects are as eligible as English. C1 level positions a Colombian teacher competitively in the selection. Research shows Colombian teachers who apply with accurate understanding of criteria have significantly higher success rates. <div class='fbr'>💭 Write a 200-word statement of purpose for a hypothetical Fulbright application. What is your professional development goal and how will you bring it back to Colombia?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Fulbright DAT: all subjects, 5+ years, B2-C1 English, 3-5 months US university. Impact + return plan are key selection criteria.</div>
+  </div>
+</div>
+<div class="eq" id="q4_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">🔴 Which PROFILE journal submission strategy is most likely to succeed for a first-time Colombian author?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(4,2,0)">
+  <span class="mk">A</span><span>Submit the most ambitious theoretical paper for maximum impact</span>
+</button>
+<button class="opt" onclick="S.pick(4,2,1)">
+  <span class="mk">B</span><span>Submit a practitioner inquiry article documenting a specific classroom innovation with clear evidence of student impact — exactly the type PROFILE explicitly seeks. Include: specific educational context, the problem identified, the intervention designed, the evidence collected, and implications for colleagues in similar contexts. PROFILE reviewers specifically value authentic Colombian classroom voices. Your context is your comparative advantage.</span>
+</button>
+<button class="opt" onclick="S.pick(4,2,2)">
+  <span class="mk">C</span><span>Wait until you have a PhD before submitting to any journal</span>
+</button>
+<button class="opt" onclick="S.pick(4,2,3)">
+  <span class="mk">D</span><span>Submit only in English and avoid any reference to the Colombian context</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(4,2,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ PROFILE is Colombia's premier indexed education journal committed to publishing practitioner research from Colombian classrooms. First-time authors are not at a disadvantage — the journal actively seeks authentic practitioner voices. The practitioner inquiry format (problem + intervention + evidence + implications) is achievable at C1 level and draws directly on professional knowledge that Colombian teachers have and international researchers often lack. Your first PROFILE submission may be higher-impact for Colombian education than submitting to an international journal. <div class='fbr'>💭 Design the outline for a PROFILE submission. What is your classroom problem? What was your intervention? What is your evidence?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>PROFILE seeks authentic Colombian practitioner voices. Classroom context + clear evidence + practical implications = exactly what they publish.</div>
+  </div>
+</div>
+<div class="eq" id="q4_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">🟠 A 52-year-old colleague at A2 says: It is too late for me. Language learning is for young people. How do you respond with evidence and mentoring?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(4,3,0)">
+  <span class="mk">A</span><span>You are right — it is harder after 40. Maybe just maintain A2.</span>
+</button>
+<button class="opt" onclick="S.pick(4,3,1)">
+  <span class="mk">B</span><span>I understand that concern and it is understandable. However, the research does not support it. Adults learn language differently from children — more systematically, with stronger metacognitive awareness, and with richer world knowledge to connect new language to. The timeline is longer, but the ceiling is not lower. At 52 with your professional depth and motivation, B1 is completely achievable in 12-18 months with consistent practice. The question is not whether you can — it is what you would do differently in your last decade of teaching if you could access international communities and resources.</span>
+</button>
+<button class="opt" onclick="S.pick(4,3,2)">
+  <span class="mk">C</span><span>Language learning is indeed much harder after 40.</span>
+</button>
+<button class="opt" onclick="S.pick(4,3,3)">
+  <span class="mk">D</span><span>Just try and see what happens.</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(4,3,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This mentoring response: validates the concern (I understand, it is understandable), corrects the misconception with evidence (adult learning advantages), provides realistic encouragement (B1 in 12-18 months), and reframes from capability to purpose (what would you do differently). The purpose question is the most powerful motivational tool for adult learners — because purpose, not aptitude, predicts adult language learning success across all research. <div class='fbr'>💭 What is YOUR purpose for continuing to develop your English beyond C1? Write it in 3 sentences you could share with a colleague.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Adult learning: systematic + metacognitive + world knowledge advantages. The real question is purpose — what would you do differently with full international access?</div>
+  </div>
+</div>
+<div class="eq" id="q4_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">🟢 Which professional legacy statement best reflects the C1 educator's potential impact?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(4,4,0)">
+  <span class="mk">A</span><span>I want to improve my own English for personal enrichment</span>
+</button>
+<button class="opt" onclick="S.pick(4,4,1)">
+  <span class="mk">B</span><span>When I look back at my career, I want to have published practitioner research that helped Colombian colleagues improve their practice, mentored at least 10 colleagues to B1 proficiency, participated in 2 international exchange programs, and been part of the generation of Colombian educators who proved that public school teachers from Cali can contribute to global educational knowledge — not just receive it.</span>
+</button>
+<button class="opt" onclick="S.pick(4,4,2)">
+  <span class="mk">C</span><span>I want to have a good LinkedIn profile in English</span>
+</button>
+<button class="opt" onclick="S.pick(4,4,3)">
+  <span class="mk">D</span><span>I plan to learn English as a hobby after retirement</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(4,4,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This legacy statement is specific (publications, 10 colleagues, 2 exchanges), generational in scope (part of a generation), and explicitly addresses the Colombian contribution to global knowledge (not just receive it). Professional legacy thinking transforms language development from personal advancement to collective mission. The teacher who mentors 10 colleagues to B1 multiplies their English impact by 10 — that is the highest-return investment of C1 proficiency available. <div class='fbr'>💭 Write YOUR professional legacy statement in English. Make it specific, generational, and rooted in your Colombian context.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Professional legacy: specific achievements + generational scope + Colombian contribution to global knowledge. Transforms personal advancement to collective mission.</div>
+  </div>
+</div>
+<div class="eq" id="q4_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">🟡 What is the most critical element in designing a 3-month English mentoring plan for a B1 colleague?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(4,5,0)">
+  <span class="mk">A</span><span>A rigorous grammar syllabus covering all B1-B2 structures</span>
+</button>
+<button class="opt" onclick="S.pick(4,5,1)">
+  <span class="mk">B</span><span>Connecting every activity to the mentee's specific professional goals: weekly 30-minute professional conversation, biweekly feedback on one specific feature (this month: hedging language), curated education articles at B1-B2 level, and monthly professional writing with specific revision feedback. The critical element: showing the connection between today's language practice and the professional opportunity it opens tomorrow.</span>
+</button>
+<button class="opt" onclick="S.pick(4,5,2)">
+  <span class="mk">C</span><span>Daily homework assignments that the mentor checks every day</span>
+</button>
+<button class="opt" onclick="S.pick(4,5,3)">
+  <span class="mk">D</span><span>An intensive 3-week bootcamp followed by 2 months of independent practice</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(4,5,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ The critical element is relevance to professional goals — not the specific activities. Research on adult language learning consistently shows that motivation predicts success more than method. When a colleague sees the direct connection between their improving hedging language and their ability to write a PROFILE submission, the practice becomes intrinsically motivated. The mentor's role is not only to design activities — it is to make the connection between today's practice and tomorrow's opportunity visible and compelling. <div class='fbr'>💭 Design a specific 3-month mentoring plan for a B1 colleague. Weekly activities, monthly milestones, and final goal.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Mentoring critical element: connect every activity to the mentee's specific professional goals. Motivation predicts success more than method.</div>
+  </div>
+</div>
+<div class="eq" id="q4_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">🟠 What has the C1 Colombian educator most importantly proven by reaching this level?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(4,6,0)">
+  <span class="mk">A</span><span>That they have natural linguistic talent</span>
+</button>
+<button class="opt" onclick="S.pick(4,6,1)">
+  <span class="mk">B</span><span>That Colombian teachers can compete internationally</span>
+</button>
+<button class="opt" onclick="S.pick(4,6,2)">
+  <span class="mk">C</span><span>That it is possible — for any Colombian public school teacher, at any age, with any starting level, to develop professional English competence through consistent practice and professional purpose. This proof is not just personal — it is pedagogical. Every teacher who reaches C1 becomes living evidence for their students that the barriers between Colombian education and global opportunity are not fixed, not absolute, and not final.</span>
+</button>
+<button class="opt" onclick="S.pick(4,6,3)">
+  <span class="mk">D</span><span>That English is more important than Spanish</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(4,6,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ This is the deepest insight of the entire English curriculum in SABI CENTEC. The C1 teacher does not just have better English — they embody a proof of possibility that transforms what their students believe is achievable. In Colombian classrooms where many students do not believe they belong in international conversations, a teacher who has crossed that threshold with discipline and purpose is the most powerful piece of evidence available. SABI: that they truly learn — and what the C1 teacher proves is that learning without limits is possible from anywhere in Colombia. <div class='fbr'>💭 How will you share your C1 journey with your students? What will you tell them about what you learned about yourself in the process?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>C1 proof of possibility: living evidence that any Colombian teacher, at any age, can develop global professional competence. This is what students most need to witness.</div>
+  </div>
+</div>
+<div class="eq" id="q4_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">🔵 Upon completing this C1 course, what is your commitment to the students you will teach for the rest of your career?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(4,7,0)">
+  <span class="mk">A</span><span>To use only English in every class from now on</span>
+</button>
+<button class="opt" onclick="S.pick(4,7,1)">
+  <span class="mk">B</span><span>To never stop developing — to model for every student that learning is lifelong, that difficulty is the path not the obstacle, that the Colombian context is globally valuable, and that the gap between your classroom in Cali and the world's best educational conversations is closeable — because you closed it yourself, one lesson at a time, over years of consistent practice and professional purpose.</span>
+</button>
+<button class="opt" onclick="S.pick(4,7,2)">
+  <span class="mk">C</span><span>To require all students to reach C1 English</span>
+</button>
+<button class="opt" onclick="S.pick(4,7,3)">
+  <span class="mk">D</span><span>To keep your English development private so students are not intimidated</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(4,7,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ The culmination of the SABI English curriculum. The commitment is not to a language level — it is to a model of professional life that your students observe every day: curiosity, persistence, global aspiration rooted in local purpose. The C1 teacher who continues developing — who shares their journey with students, who celebrates each milestone, who brings international insights back to the classroom — is SABI at its fullest. Nadie puede ensenar lo que no sabe. You know both worlds. And you will keep knowing more. <div class='fbr'>💭 Write a letter to your future students explaining what you learned about learning itself from your English journey — to be read at the start of your next school year.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>C1 commitment: model lifelong learning visibly and joyfully. The gap between your classroom and the world's best conversations is closeable — you proved it. Share that proof with every student.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r4"></div></div></div>
+</div>
+<footer class="footer">
+  <div class="fl">SABI CENTEC MAESTROS</div>
+  <div>Plataforma de Autoformación Docente · Colegio CENTEC · Cali, Colombia</div>
+  <div style="margin-top:6px;opacity:.75">Autor: <strong>Alexander Rojas Zamorano</strong></div>
+  <div style="margin-top:4px;font-style:italic;opacity:.55">"Nadie puede enseñar lo que no sabe"</div>
+</footer>
+<script>
+const S={
+  mods:{},prog:{},
+  init(){
+    try{const d=localStorage.getItem('sabi_p');if(d)this.prog=JSON.parse(d)}catch(e){}
+    this.repaint();this.unlock();
+  },
+  save(){try{localStorage.setItem('sabi_p',JSON.stringify(this.prog))}catch(e){}},
+  repaint(){
+    document.querySelectorAll('.sdot').forEach(d=>{
+      const n=+d.dataset.n;
+      d.className='sdot'+(this.prog['m'+n]?.ok?' done':' lock');
+    });
+  },
+  toggle(n){
+    const h=document.getElementById('h'+n),b=document.getElementById('b'+n);
+    if(!b)return;
+    if(h?.dataset.lock==='1'){S.toast('🔒 Completa el módulo anterior con 70%+ para continuar');return;}
+    const op=b.classList.toggle('open');
+    h?.classList.toggle('open',op);
+    h?.querySelector('.mchev') && (h.querySelector('.mchev').textContent=op?'▲':'▽');
+  },
+  pick(mn,qn,i){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    q.querySelectorAll('.opt').forEach((o,j)=>{
+      o.classList.toggle('sel',j===i);
+      o.querySelector('.mk').textContent=j===i?'●':String.fromCharCode(65+j);
+    });
+    const b=q.querySelector('.btncheck');
+    if(b){b.disabled=false;b.dataset.sel=i;}
+  },
+  check(mn,qn,ci){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    const b=q.querySelector('.btncheck');
+    const sel=+(b?.dataset.sel??-1);
+    if(sel<0){S.toast('Selecciona una opción primero');return;}
+    const ok=sel===ci;
+    q.querySelectorAll('.opt').forEach((o,i)=>{
+      if(i===ci)o.classList.add('good');
+      else if(i===sel&&!ok)o.classList.add('bad');
+      o.style.pointerEvents='none';
+    });
+    q.classList.add(ok?'ok':'no');
+    q.dataset.done='1';
+    b.disabled=true;b.textContent=ok?'✓ Correcto':'✗ Incorrecto';
+    q.querySelector('.fb.'+(ok?'ok':'no')).style.display='block';
+    if(!S.mods[mn])S.mods[mn]={ok:0,t:0};
+    S.mods[mn].t++;if(ok)S.mods[mn].ok++;
+    S.progBar(mn);
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    if(done>=tot)setTimeout(()=>S.result(mn),600);
+  },
+  progBar(mn){
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    const pct=Math.round(done/tot*100);
+    const f=document.querySelector('#b'+mn+' .efill');if(f)f.style.width=pct+'%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width=pct+'%';
+    const en=document.querySelector('#b'+mn+' .enum');
+    if(en&&S.mods[mn])en.textContent=Math.round(S.mods[mn].ok/(S.mods[mn].t||1)*100)+'%';
+  },
+  result(mn){
+    const d=S.mods[mn]||{ok:0,t:7};
+    const pct=Math.round(d.ok/d.t*100),pass=pct>=70;
+    const r=document.getElementById('r'+mn);if(!r)return;
+    r.innerHTML=`
+      <div class="rico">${pass?'🏆':'📚'}</div>
+      <div class="rpct">${pct}%</div>
+      <div class="rmsg">${pass
+        ?'<strong style="color:var(--teal)">¡Módulo dominado!</strong><br>Demostraste comprensión real del contenido.'
+        :'Necesitas <strong>70%</strong> para avanzar.<br>Revisa el contenido y vuelve a intentar.'}</div>
+      <div class="rrow">
+        <div class="rstat"><strong>${d.ok}</strong>Correctas</div>
+        <div class="rstat"><strong>${d.t-d.ok}</strong>A reforzar</div>
+        <div class="rstat"><strong>${pct}%</strong>Logro</div>
+      </div>
+      ${pass
+        ?`<button class="btnnx" onclick="S.next(${mn})">Siguiente módulo →</button>`
+        :`<button class="btnrt" onclick="S.retry(${mn})">🔄 Intentar de nuevo</button>`}`;
+    r.classList.add('show');
+    if(pass){
+      S.prog['m'+mn]={ok:true,pct};S.save();S.repaint();
+      S.toast(pct===100?'🌟 ¡Perfecto! 100% de logro':`✅ Módulo ${mn} — ${pct}% logrado`);
+    }
+  },
+  next(mn){
+    const nh=document.getElementById('h'+(mn+1));
+    if(nh){nh.dataset.lock='0';nh.querySelector('.mlock')?.remove();}
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.toggle(mn+1);
+    document.getElementById('h'+(mn+1))?.scrollIntoView({behavior:'smooth',block:'center'});
+  },
+  retry(mn){
+    const b=document.getElementById('b'+mn);if(!b)return;
+    b.querySelectorAll('.eq').forEach(q=>{
+      delete q.dataset.done;
+      q.classList.remove('ok','no');
+      q.querySelectorAll('.opt').forEach((o,i)=>{
+        o.classList.remove('sel','good','bad');
+        o.style.pointerEvents='';
+        o.querySelector('.mk').textContent=String.fromCharCode(65+i);
+      });
+      b.querySelectorAll('.fb').forEach(f=>f.style.display='none');
+      const bc=q.querySelector('.btncheck');
+      if(bc){bc.disabled=true;bc.textContent='Verificar respuesta';delete bc.dataset.sel;}
+    });
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.mods[mn]={ok:0,t:0};
+    const f=b.querySelector('.efill');if(f)f.style.width='0%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width='0%';
+  },
+  unlock(){
+    document.querySelectorAll('[data-lock]').forEach(h=>{
+      const n=+h.id.replace('h','');
+      if(n<=1){h.dataset.lock='0';return;}
+      if(S.prog['m'+(n-1)]?.ok)h.dataset.lock='0';
+    });
+  },
+  toast(msg){
+    let t=document.querySelector('.toast');
+    if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t);}
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3200);
+  }
+};
+document.addEventListener('DOMContentLoaded',()=>S.init());
+</script>
+</body>
+</html>
