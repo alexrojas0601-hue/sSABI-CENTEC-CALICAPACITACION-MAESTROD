@@ -102,7 +102,7 @@
       '#sdots .cw div.c{background:#fff;outline:1px solid #B9AE93}',
       '#sdots .cw div.c.ok{background:#DDF3EA}',
       '#sdots .cw div.c.bad{background:#F8DDD6}',
-      '#sdots .cw input{width:100%;height:100%;border:0;background:transparent;text-align:center;font:700 clamp(10px,2.4vw,15px) "DM Sans",sans-serif;text-transform:uppercase;color:' + C.navy + ';padding:0;box-sizing:border-box}',
+      '#sdots .cw input{min-width:0;width:100%;height:100%;border:0;background:transparent;text-align:center;font:700 clamp(10px,2.4vw,15px) "DM Sans",sans-serif;text-transform:uppercase;color:' + C.navy + ';padding:0;box-sizing:border-box}',
       '#sdots .cw small{position:absolute;left:1px;top:0;font-size:8px;line-height:1;color:' + C.soft + ';pointer-events:none}',
       '#sdots .clues{font-size:13px}',
       '#sdots .clues p{margin:4px 0}',
@@ -221,7 +221,7 @@
     grid.forEach(function (row) { row.forEach(function (v, j) { if (!v) row[j] = AB[Math.floor(Math.random() * AB.length)]; }); });
     var found = {};
     el.innerHTML = '<h3>Sopa de letras</h3><p class="lead">Toca la primera y la última letra de cada palabra. Al encontrarla verás su definición.</p>' +
-      '<div class="ws" style="grid-template-columns:repeat(' + N + ',1fr)">' + grid.map(function (row, r) { return row.map(function (v, c) { return '<span data-r="' + r + '" data-c="' + c + '">' + v + '</span>'; }).join(''); }).join('') + '</div>' +
+      '<div class="ws" style="grid-template-columns:repeat(' + N + ',minmax(0,1fr))">' + grid.map(function (row, r) { return row.map(function (v, c) { return '<span data-r="' + r + '" data-c="' + c + '">' + v + '</span>'; }).join(''); }).join('') + '</div>' +
       '<div class="wl">' + placed.map(function (p) { return '<span data-w="' + p.w + '">' + p.w + '</span>'; }).join('') + '</div><div id="sd-def"></div><button class="btn o" id="sd-new">Nueva sopa</button>';
     var first = null;
     $$('.ws span', el).forEach(function (s) {
@@ -286,7 +286,7 @@
     }
     function clues(d) { return words.filter(function (w) { return w.d === d; }).map(function (w) { return '<p><b>' + w.n + '.</b> ' + esc(w.g.d) + ' <span style="color:#999">(' + w.g.w.length + ')</span></p>'; }).join(''); }
     el.innerHTML = '<h3>Crucigrama</h3><p class="lead">Pistas de razonamiento y concepto, tomadas del glosario del curso. ' + words.length + ' palabras.</p>' +
-      '<div class="cw" style="grid-template-columns:repeat(' + C1 + ',1fr);max-width:' + Math.min(560, C1 * 38) + 'px">' + html + '</div>' +
+      '<div class="cw" style="grid-template-columns:repeat(' + C1 + ',minmax(0,1fr));max-width:' + Math.min(560, C1 * 38) + 'px">' + html + '</div>' +
       '<button class="btn t" id="sd-chk">Comprobar</button><button class="btn o" id="sd-show">Revelar</button><button class="btn o" id="sd-new">Nuevo</button><div id="sd-res"></div>' +
       '<div class="grid2 clues"><div><h4>→ Horizontales</h4>' + clues('H') + '</div><div><h4>↓ Verticales</h4>' + clues('V') + '</div></div>';
     $$('.cw input', el).forEach(function (inp, i, all) { inp.oninput = function () { this.value = this.value.toUpperCase(); if (this.value && all[i + 1]) all[i + 1].focus(); }; });

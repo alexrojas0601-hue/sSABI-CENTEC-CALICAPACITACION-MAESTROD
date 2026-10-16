@@ -1000,7 +1000,9 @@ domina la didáctica</h1>
     var ts = (Date.now()/1000|0).toString(36).toUpperCase().slice(-4);
     return 'SC'+('0'+num).slice(-2)+n+ts;
   }
-  
+
+  window.updNom = function(v){
+    var d = document.getElementById('dipl-nom');
     var cd = document.getElementById('cod-display');
     var cw = document.getElementById('cod-wrap');
     if(d) d.textContent = v.trim() || 'Tu Nombre Completo';
@@ -1050,7 +1052,7 @@ domina la didáctica</h1>
 </footer>
 
 <script>
-document.getElementById('dipl-year').textContent=new Date().getFullYear();
+(document.getElementById('dipl-year')||{}).textContent=new Date().getFullYear();
 function tog(id){
   const body=document.getElementById('body-'+id);
   const all=document.querySelectorAll('.mod-body');
@@ -1566,7 +1568,7 @@ setTimeout(function(){
 <script>
 (function(){
   var LANG   = 'en-US';
-  var CHIPS  = ["Let"s discuss pedagogy", "How would you teach this?", "What"s your opinion on CLIL?", "Could you give an example?", "From a didactic perspective...", "That raises an interesting point"];
+  var CHIPS  = ["Let's discuss pedagogy", "How would you teach this?", "What's your opinion on CLIL?", "Could you give an example?", "From a didactic perspective...", "That raises an interesting point"];
   var SYSTEM = `You are Prof. Sarah, advanced English teacher for Colombian teachers at SABI CENTEC Cali. C1 level — natural, sophisticated English. Correct only subtle errors. Discuss pedagogy, CLIL, Task-Based Learning. Challenge with complex academic topics. SHORT responses 2-4 sentences.`;
   var GREET  = 'Hello! Ready for C1-level conversation? Let\'s discuss your teaching practice. What\'s been your biggest pedagogical challenge lately?';
   var hist   = [], busy = false, recOn = false, started = false;
@@ -2191,5 +2193,6 @@ setInterval(function(){if(sagOpen_flag)renderAuditor();},30000);
 </script>
 <!-- ═══ FIN SABI AGENTES ═══ -->
 
+<script src="sabi_dots.js" defer></script>
 </body>
 </html>

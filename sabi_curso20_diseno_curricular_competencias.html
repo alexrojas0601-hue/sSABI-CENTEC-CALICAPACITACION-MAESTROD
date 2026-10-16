@@ -496,7 +496,9 @@ tus estudiantes para
     var ts = (Date.now()/1000|0).toString(36).toUpperCase().slice(-4);
     return 'SC'+('0'+num).slice(-2)+n+ts;
   }
-  
+
+  window.updNom = function(v){
+    var d = document.getElementById('dipl-nom');
     var cd = document.getElementById('cod-display');
     var cw = document.getElementById('cod-wrap');
     if(d) d.textContent = v.trim() || 'Tu Nombre Completo';
@@ -545,7 +547,7 @@ tus estudiantes para
 </footer>
 <script>
 
-document.getElementById('yr').textContent = new Date().getFullYear();
+(document.getElementById('yr')||{}).textContent = new Date().getFullYear();
 function tog(id){
   const body=document.getElementById('body-'+id);
   const all=document.querySelectorAll('.mod-body');
@@ -582,7 +584,6 @@ function resp(el,qId,letra){
   const fb=document.getElementById('fb'+qId.replace('q',''));
   if(fb&&FEEDBACK[qId]){fb.innerHTML=isOk?FEEDBACK[qId].ok:FEEDBACK[qId].no;fb.className='ex-feedback show '+(isOk?'ex-ok':'ex-no')}
 }
-if(!n){alert('Por favor escribe tu nombre completo antes de generar el diploma.');return}window.print()}
 window.addEventListener('scroll',()=>{const h=document.documentElement;const pct=Math.round((h.scrollTop/(h.scrollHeight-h.clientHeight))*100);const actPct=totalActs>0?Math.round((doneActs/totalActs)*100):0;document.getElementById('pb').style.width=Math.max(pct*0.3,actPct)+'%'},{passive:true});
 
 Object.assign(CORRECT,{q1:"C",q2:"D",q3:"B",q4:"C",});
@@ -805,5 +806,6 @@ setTimeout(function(){
   document.querySelectorAll('.yr').forEach(function(el){el.textContent=new Date().getFullYear();});
 },100);
 </script>
+<script src="sabi_dots.js" defer></script>
 </body>
 </html>
