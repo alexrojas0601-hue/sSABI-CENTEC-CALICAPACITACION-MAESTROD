@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SABI Taller de Aula · CENTEC</title>
+<meta name="description" content="Fábrica didáctica SABI CENTEC: experimentos, fichas de matemáticas, comprensión lectora, ayudas didácticas y comandos IA para que los niños verdaderamente aprendan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="taller/taller.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html" title="Volver al portal SABI CENTEC MAESTROS">
+    <span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    <span><b>SABI Taller de Aula</b><small>CENTEC · Fábrica didáctica para que los niños verdaderamente aprendan</small></span>
+  </a>
+  <label class="grado">Grado
+    <select id="grado" aria-label="Grado"></select>
+  </label>
+</header>
+<nav class="tabs" id="tabs" aria-label="Módulos"></nav>
+<main id="app" tabindex="-1"></main>
+<footer class="pie">SABI CENTEC MAESTROS · Cali, Colombia · «Nadie puede enseñar lo que no sabe» · Contenido original alineado a DBA y EBC del MEN</footer>
+<script src="taller/core.js"></script>
+<script src="taller/mate.js"></script>
+<script src="taller/ayudas.js"></script>
+<script src="taller/contenido.js"></script>
+<script>SABI_TALLER.iniciar();</script>
+</body>
+</html>
