@@ -3,7 +3,7 @@
    Cada ítem: { q: html con [[0]] [[1]]… donde van las respuestas, a: [respuestas], k: [tipo de verificación], sol: html } */
 (function () {
   'use strict';
-  var T = window.SABI_TALLER, M = T.mate = {}, esc = T.esc, fmt = T.fmt, peso = T.peso, sig = T.sig, F = T.fhtml;
+  var T = window.SABI_TALLER, M = T.mate = {}, esc = T.esc, fmt = T.fmt, fmt1 = function (v) { return T.fmt(v); }, peso = T.peso, sig = T.sig, F = T.fhtml;
   var TEMAS = M.TEMAS = { calculo: [], problemas: [], series: [], geometria: [], dinero: [], error: [] };
   M.TIPOS = [
     { id: 'calculo', n: 'Cálculo a medida', ic: '🧮', d: 'Operaciones graduadas por grado y dificultad' },
@@ -64,7 +64,7 @@
         t++;
       } while (t < 60 && ((modo === 'con' && !hay) || (modo === 'sin' && hay)));
       var s = ns.reduce(function (a, b) { return a + b; }, 0), v = !(o && o.formato === 'horizontal') && g <= 5;
-      return it(v ? vert(ns, '+') : ns.map(fmt).join(' + ') + ' = [[0]]', s, 'num', ns.map(fmt).join(' + ') + ' = <b>' + fmt(s) + '</b>' + (modo === 'con' ? ' (con llevadas)' : ''), v);
+      return it(v ? vert(ns, '+') : ns.map(fmt1).join(' + ') + ' = [[0]]', s, 'num', ns.map(fmt1).join(' + ') + ' = <b>' + fmt(s) + '</b>' + (modo === 'con' ? ' (con llevadas)' : ''), v);
     } });
   tema('calculo', { id: 'resta', n: 'Resta (con y sin prestar)', g: [1, 6], cols: 2, opciones: ['llevar', 'formato'], idea: 'Restamos por columnas de derecha a izquierda. Si arriba hay menos que abajo, <b>desagrupamos</b>: pedimos una decena a la columna vecina y la convertimos en 10 unidades. Comprobamos sumando: resta + sustraendo = minuendo.',
     gen: function (r, dif, g, o) {
@@ -129,7 +129,7 @@
     gen: function (r, dif) {
       function D(n, d) { return fmt(n / Math.pow(10, d), d); }
       if (dif === 3) {
-        if (r.chance(0.5)) { var x = r.int(11, 999), dx = r.int(1, 2), p = r.pick([10, 100, 1000]), res = x * p / Math.pow(10, dx); return it(D(x, dx) + ' × ' + fmt(p) + ' = [[0]]', fmt(res), 'num', 'La coma se corre ' + String(p).length - 1 + ' lugares: <b>' + fmt(res) + '</b>'); }
+        if (r.chance(0.5)) { var x = r.int(11, 999), dx = r.int(1, 2), p = r.pick([10, 100, 1000]), res = x * p / Math.pow(10, dx); return it(D(x, dx) + ' × ' + fmt(p) + ' = [[0]]', fmt(res), 'num', 'La coma se corre ' + (String(p).length - 1) + ' lugares: <b>' + fmt(res) + '</b>'); }
         var y = r.int(11, 99), k = r.int(2, 9); return it(D(y, 1) + ' × ' + k + ' = [[0]]', fmt(y * k / 10, 1), 'num', y + ' × ' + k + ' = ' + y * k + ' y dejamos 1 decimal: <b>' + fmt(y * k / 10, 1) + '</b>');
       }
       var d1 = dif === 1 ? 1 : r.int(1, 2), d2 = dif === 1 ? 1 : r.int(1, 2), a = r.int(10, 999), b = r.int(10, 999), op = dif === 1 || r.chance(0.5) ? '+' : MINUS;
@@ -253,7 +253,7 @@
     } });
   tema('calculo', { id: 'derivadas', n: 'Derivadas de polinomios', g: [11, 11], cols: 2, idea: 'La derivada mide la <b>rapidez de cambio</b>. Regla de la potencia: la derivada de a·xⁿ es a·n·xⁿ⁻¹; la de una constante es 0, y la derivada de una suma es la suma de las derivadas.',
     gen: function (r, dif) {
-      var deg = [r.int(2, dif === 1 ? 3 : 5), 1, 0], cs = deg.map(function () { return (r.int(1, 9)) * r.sign(); }); if (dif === 3) { deg.splice(1, 0, deg[0] - 1 > 1 ? deg[0] - 1 : 2); cs.push(r.int(1, 9) * r.sign()); }
+      var deg = [r.int(dif === 3 ? 3 : 2, dif === 1 ? 3 : 5), 1, 0]; if (dif === 3) deg.splice(1, 0, deg[0] - 1); var cs = deg.map(function () { return (r.int(1, 9)) * r.sign(); });
       function v(dg) { return dg === 0 ? '' : dg === 1 ? 'x' : 'x' + sup(dg); }
       var f = polyStr(deg.map(function (dg, i) { return [cs[i], v(dg)]; })), d = deg.map(function (dg, i) { return [cs[i] * dg, v(dg - 1)]; }).filter(function (t) { return t[0]; });
       var ans = polyStr(d), plain = d.map(function (t, i) { var dg = t[1] ? (t[1] === 'x' ? 1 : +t[1].replace(/\D/g, '')) : 0; return (t[0] < 0 ? '-' : (i ? '+' : '')) + Math.abs(t[0]) + (dg ? 'x' + (dg > 1 ? '^' + dg : '') : ''); }).join('');
@@ -263,7 +263,7 @@
   /* =================== PROBLEMAS COTIDIANOS =================== */
   var OBJ = [['mango', 'mangos', 'm'], ['naranja', 'naranjas', 'f'], ['carrito', 'carritos', 'm'], ['galleta', 'galletas', 'f'], ['globo', 'globos', 'm'], ['flor', 'flores', 'f'], ['canica', 'canicas', 'f'], ['lápiz', 'lápices', 'm'], ['chontaduro', 'chontaduros', 'm'], ['mariposa', 'mariposas', 'f']];
   function cu(o) { return o[2] === 'm' ? '¿Cuántos' : '¿Cuántas'; }
-  var PROD = [['pandebono', 800, 1500], ['empanada', 1000, 2500], ['jugo de lulo', 2000, 4500], ['buñuelo', 800, 1500], ['cuaderno', 3000, 8000], ['lápiz', 500, 1500], ['borrador', 500, 1200], ['bolsa de leche', 3000, 5000], ['pandeyuca', 800, 1500], ['salpicón', 2500, 5000]];
+  var PROD = [['pandebono', 800, 1500, 'pandebonos', 'm'], ['empanada', 1000, 2500, 'empanadas', 'f'], ['jugo de lulo', 2000, 4500, 'jugos de lulo', 'm'], ['buñuelo', 800, 1500, 'buñuelos', 'm'], ['cuaderno', 3000, 8000, 'cuadernos', 'm'], ['lápiz', 500, 1500, 'lápices', 'm'], ['borrador', 500, 1200, 'borradores', 'm'], ['bolsa de leche', 3000, 5000, 'bolsas de leche', 'f'], ['pandeyuca', 800, 1500, 'pandeyucas', 'm'], ['salpicón', 2500, 5000, 'salpicones', 'm']];
   function precio(r, p) { return Math.round(r.int(p[1], p[2]) / 100) * 100; }
   function billete(t) { return [1000, 2000, 5000, 10000, 20000, 50000, 100000].filter(function (b) { return b >= t; })[0] || Math.ceil(t / 100000) * 100000; }
   function P(g, n, idea, gen) { tema('problemas', { id: 'p' + TEMAS.problemas.length, n: n, g: g, cols: 1, idea: idea, gen: gen }); }
@@ -273,7 +273,7 @@
   P([1, 3], 'Comparar cantidades', IDEA_RES, function (r, dif) { var o = r.pick(OBJ), n1 = r.pick(NOM), n2 = r.pick(NOM.filter(function (x) { return x !== n1; })), m = dif === 1 ? 20 : dif === 2 ? 99 : 999, a = r.int(5, m), b = r.int(1, a - 1); return it(n1 + ' tiene ' + a + ' ' + o[1] + ' y ' + n2 + ' tiene ' + b + '. ' + cu(o) + ' ' + o[1] + ' más tiene ' + n1 + '? [[0]]', a - b, 'num', 'Comparamos restando: ' + a + ' ' + MINUS + ' ' + b + ' = <b>' + (a - b) + '</b>'); });
   P([2, 5], 'En la tienda escolar', IDEA_RES, function (r, dif) {
     var p = r.pick(PROD), pr = precio(r, p), q = r.int(2, dif === 1 ? 3 : 6), nm = r.pick(NOM), tot = pr * q;
-    if (dif === 1) return it(nm + ' compra ' + q + ' ' + p[0] + (p[0].slice(-1) === 'o' || p[0].slice(-1) === 'a' ? 's' : 'es') + ' a ' + peso(pr) + ' cada uno. ¿Cuánto paga? [[0]]', tot, 'num', q + ' × ' + peso(pr) + ' = <b>' + peso(tot) + '</b>');
+    if (dif === 1) return it(nm + ' compra ' + q + ' ' + p[3] + ' a ' + peso(pr) + (p[4] === 'f' ? ' cada una' : ' cada uno') + '. ¿Cuánto paga? [[0]]', tot, 'num', q + ' × ' + peso(pr) + ' = <b>' + peso(tot) + '</b>');
     var p2 = r.pick(PROD.filter(function (x) { return x !== p; })), pr2 = precio(r, p2), q2 = dif === 3 ? r.int(1, 3) : 0; tot += pr2 * q2; var B = billete(tot);
     return it(nm + ' compra ' + q + ' × ' + p[0] + ' a ' + peso(pr) + (q2 ? ' y ' + q2 + ' × ' + p2[0] + ' a ' + peso(pr2) : '') + '. Paga con un billete de ' + peso(B) + '. ¿Cuánto le devuelven? [[0]]', B - tot, 'num', 'Total: ' + peso(tot) + '. Vueltas: ' + peso(B) + ' ' + MINUS + ' ' + peso(tot) + ' = <b>' + peso(B - tot) + '</b>');
   });
@@ -294,7 +294,7 @@
   P([8, 11], 'Interés simple', IDEA_RES, function (r, dif) { var C = r.int(1, 20) * 100000, i = r.int(2, 12), t = r.int(1, 5), I = C * i * t / 100; if (dif === 1) return it('¿Cuánto interés simple produce ' + peso(C) + ' al ' + i + ' % anual durante ' + t + ' año(s)? [[0]]', I, 'num', 'I = C·i·t = ' + peso(C) + ' × ' + i + '/100 × ' + t + ' = <b>' + peso(I) + '</b>'); if (dif === 2) return it('Si inviertes ' + peso(C) + ' al ' + i + ' % de interés simple anual, ¿cuánto tendrás en total después de ' + t + ' año(s)? [[0]]', C + I, 'num', 'C + I = ' + peso(C) + ' + ' + peso(I) + ' = <b>' + peso(C + I) + '</b>'); return it('Un capital de ' + peso(C) + ' produjo ' + peso(I) + ' de interés simple en ' + t + ' año(s). ¿Cuál fue la tasa anual? [[0]] %', i, 'num', 'i = I ÷ (C·t) = <b>' + i + ' %</b>'); });
   P([8, 11], 'Boletas para la Feria (sistemas)', IDEA_RES, function (r) { var pa = r.int(4, 9) * 1000, pn = r.int(2, pa / 1000 - 1) * 1000, a = r.int(5, 40), n = r.int(5, 40); return it('Para un evento de la Feria de Cali se vendieron ' + (a + n) + ' boletas: las de adulto a ' + peso(pa) + ' y las de niño a ' + peso(pn) + '. Se recaudaron ' + peso(a * pa + n * pn) + '. ¿Cuántas boletas de niño se vendieron? [[0]]', n, 'num', 'a + n = ' + (a + n) + '; ' + fmt(pa) + 'a + ' + fmt(pn) + 'n = ' + fmt(a * pa + n * pn) + ' → <b>n = ' + n + '</b>'); });
   P([10, 11], 'Interés compuesto', IDEA_RES, function (r) { var C = r.int(1, 10) * 1000000, i = r.pick([2, 3, 5, 8, 10]), t = r.int(2, 5), M2 = Math.round(C * Math.pow(1 + i / 100, t)); return it('Inviertes ' + peso(C) + ' al ' + i + ' % de interés compuesto anual. ¿Cuánto tendrás después de ' + t + ' años? (redondea al peso) [[0]]', M2, 'peso1', 'M = C(1 + i)ᵗ = ' + peso(C) + ' × ' + fmt(1 + i / 100) + sup(t) + ' ≈ <b>' + peso(M2) + '</b>'); });
-  P([9, 11], 'Probabilidad', IDEA_RES, function (r, dif) { if (dif === 1) { var rj = r.int(1, 9), az = r.int(1, 9), vd = r.int(1, 9), n = rj + az + vd; return it('Una bolsa tiene ' + rj + ' balotas rojas, ' + az + ' azules y ' + vd + ' verdes. Si sacas una al azar, ¿cuál es la probabilidad de que sea roja? (fracción) [[0]]', T.fstr(T.frac(rj, n)), 'frac', 'Casos favorables / casos posibles = ' + rj + '/' + n + ' = <b>' + T.fstr(T.frac(rj, n)) + '</b>'); } if (dif === 2) { var s = r.int(2, 12), f = 6 - Math.abs(7 - s); return it('Se lanzan dos dados. ¿Cuál es la probabilidad de que la suma sea ' + s + '? (fracción) [[0]]', T.fstr(T.frac(f, 36)), 'frac', 'Hay ' + f + ' combinaciones de 36 → <b>' + T.fstr(T.frac(f, 36)) + '</b>'); } var R2 = r.int(3, 8), N = R2 + r.int(2, 8), fr = T.frac(R2 * (R2 - 1), N * (N - 1)); return it('Una caja tiene ' + R2 + ' fichas rojas de ' + N + '. Se sacan dos sin devolver la primera. ¿Probabilidad de que ambas sean rojas? [[0]]', T.fstr(fr), 'frac', R2 + '/' + N + ' × ' + (R2 - 1) + '/' + (N - 1) + ' = <b>' + T.fstr(fr) + '</b>'); });
+  P([9, 11], 'Probabilidad', IDEA_RES, function (r, dif) { if (dif === 1) { var rj = r.int(1, 9), az = r.int(1, 9), vd = r.int(1, 9), n = rj + az + vd; return it('Una bolsa tiene ' + rj + (rj === 1 ? ' balota roja, ' : ' balotas rojas, ') + az + (az === 1 ? ' azul y ' : ' azules y ') + vd + (vd === 1 ? ' verde.' : ' verdes.') + ' Si sacas una al azar, ¿cuál es la probabilidad de que sea roja? (fracción) [[0]]', T.fstr(T.frac(rj, n)), 'frac', 'Casos favorables / casos posibles = ' + rj + '/' + n + ' = <b>' + T.fstr(T.frac(rj, n)) + '</b>'); } if (dif === 2) { var s = r.int(2, 12), f = 6 - Math.abs(7 - s); return it('Se lanzan dos dados. ¿Cuál es la probabilidad de que la suma sea ' + s + '? (fracción) [[0]]', T.fstr(T.frac(f, 36)), 'frac', 'Hay ' + f + ' combinaciones de 36 → <b>' + T.fstr(T.frac(f, 36)) + '</b>'); } var R2 = r.int(3, 8), N = R2 + r.int(2, 8), fr = T.frac(R2 * (R2 - 1), N * (N - 1)); return it('Una caja tiene ' + R2 + ' fichas rojas de ' + N + '. Se sacan dos sin devolver la primera. ¿Probabilidad de que ambas sean rojas? [[0]]', T.fstr(fr), 'frac', R2 + '/' + N + ' × ' + (R2 - 1) + '/' + (N - 1) + ' = <b>' + T.fstr(fr) + '</b>'); });
   P([8, 11], 'Sombras y triángulos semejantes', IDEA_RES, function (r) { var h = r.int(1, 2), s = r.int(1, 3), k = r.int(3, 9); return it('Un palo de ' + h + ' m proyecta una sombra de ' + s + ' m. A la misma hora, la sombra de un samán mide ' + s * k + ' m. ¿Cuánto mide el samán? [[0]] m', h * k, 'num', 'Triángulos semejantes: ' + h + '/' + s + ' = x/' + s * k + ' → <b>x = ' + h * k + ' m</b>'); });
   P([10, 11], 'Movimiento uniformemente acelerado', IDEA_RES, function (r, dif) { var a = r.int(1, 5), t = r.int(2, 8), v0 = dif === 1 ? 0 : r.int(1, 10); if (dif === 1) return it('Un carro parte del reposo con aceleración de ' + a + ' m/s². ¿Qué distancia recorre en ' + t + ' s? [[0]] m', a * t * t / 2, 'num', 'd = ½·a·t² = ½ × ' + a + ' × ' + t * t + ' = <b>' + fmt(a * t * t / 2) + ' m</b>'); return it('Un móvil lleva ' + v0 + ' m/s y acelera a ' + a + ' m/s² durante ' + t + ' s. ¿Qué velocidad alcanza? [[0]] m/s', v0 + a * t, 'num', 'v = v₀ + a·t = ' + v0 + ' + ' + a + ' × ' + t + ' = <b>' + (v0 + a * t) + ' m/s</b>'); });
   P([9, 11], 'Consumo de energía en casa', IDEA_RES, function (r) { var W = r.pick([10, 60, 100, 150, 1000, 1500]), h = r.int(1, 8), d = 30, k = r.int(6, 9) * 100, kwh = W * h * d / 1000; return it('Un aparato de ' + W + ' W se usa ' + h + ' h al día durante 30 días. Si el kWh costara ' + peso(k) + ', ¿cuánto costaría ese consumo? [[0]]', Math.round(kwh * k), 'peso1', W + ' W × ' + h + ' h × 30 = ' + fmt(kwh) + ' kWh; × ' + peso(k) + ' = <b>' + peso(Math.round(kwh * k)) + '</b>'); });
@@ -326,26 +326,26 @@
       var d = dif === 1 ? r.pick([1, 2, 5, 10]) : dif === 2 ? r.pick([3, 4, 25, 50, -2, -5]) : r.pick([7, 9, 15, 100, -7, -25]), s = d < 0 ? r.int(-d * 7, -d * 7 + 60) : r.int(0, 60), seq = [];
       for (var i = 0; i < 7; i++) seq.push(s + d * i);
       var h = r.sample([2, 3, 4, 5, 6], 2).sort(), a = [], q = seq.map(function (v, i) { if (h.indexOf(i) > -1) { a.push(v); return '[[' + (a.length - 1) + ']]'; } return '<b>' + fmt(v) + '</b>'; }).join(' , ');
-      return it(q, a, 'num', 'Salto de ' + (d > 0 ? '+' : '') + d + ': ' + seq.map(fmt).join(', '));
+      return it(q, a, 'num', 'Salto de ' + (d > 0 ? '+' : '') + d + ': ' + seq.map(fmt1).join(', '));
     } });
   tema('series', { id: 'aritmetica', n: 'Sucesiones aritméticas', g: [3, 8], cols: 1, idea: 'En una sucesión aritmética la <b>diferencia</b> entre términos consecutivos es constante. La regla se escribe «sumar d» y permite predecir cualquier término.',
     gen: function (r, dif, g) {
       var d = dif === 3 && g >= 6 ? r.int(-12, 12) || 7 : r.int(2, dif === 1 ? 10 : 25), a = r.int(dif === 3 ? -20 : 1, 60), seq = [0, 1, 2, 3].map(function (i) { return a + d * i; });
       if (dif === 3 && g >= 6 && r.chance(0.4)) { var dd = r.int(1, 9) / 10; a = r.int(1, 20); seq = [0, 1, 2, 3].map(function (i) { return Math.round((a + dd * i) * 10) / 10; }); return it(seq.map(function (v) { return fmt(v); }).join(' ; ') + ' ; [[0]] ; [[1]]', [fmt(Math.round((a + dd * 4) * 10) / 10), fmt(Math.round((a + dd * 5) * 10) / 10)], 'num', 'Regla: sumar ' + fmt(dd)); }
-      return it(seq.map(fmt).join(' ; ') + ' ; [[0]] ; [[1]] — Regla: ________', [a + 4 * d, a + 5 * d], 'num', 'Regla: <b>' + (d > 0 ? 'sumar ' + d : 'restar ' + -d) + '</b> → ' + fmt(a + 4 * d) + ', ' + fmt(a + 5 * d));
+      return it(seq.map(fmt1).join(' ; ') + ' ; [[0]] ; [[1]] — Regla: ________', [a + 4 * d, a + 5 * d], 'num', 'Regla: <b>' + (d > 0 ? 'sumar ' + d : 'restar ' + -d) + '</b> → ' + fmt(a + 4 * d) + ', ' + fmt(a + 5 * d));
     } });
   tema('series', { id: 'geometrica', n: 'Sucesiones geométricas', g: [4, 9], cols: 1, idea: 'En una sucesión geométrica cada término se obtiene <b>multiplicando</b> el anterior por el mismo número (la razón). Crecen (o decrecen) mucho más rápido que las aritméticas.',
     gen: function (r, dif) {
       var k = dif === 1 ? r.pick([2, 10]) : dif === 2 ? r.pick([3, 5]) : r.pick([-2, -3]), a = r.int(1, dif === 1 ? 9 : 4), seq = [0, 1, 2, 3].map(function (i) { return a * Math.pow(k, i); });
-      if (dif === 2 && r.chance(0.4)) { var b = r.pick([2, 3]), A = r.int(1, 5) * Math.pow(b, 5); seq = [0, 1, 2, 3].map(function (i) { return A / Math.pow(b, i); }); return it(seq.map(fmt).join(' ; ') + ' ; [[0]] ; [[1]]', [A / Math.pow(b, 4), A / Math.pow(b, 5)], 'num', 'Regla: <b>dividir entre ' + b + '</b>'); }
-      return it(seq.map(fmt).join(' ; ') + ' ; [[0]] ; [[1]]', [a * Math.pow(k, 4), a * Math.pow(k, 5)], 'num', 'Regla: <b>multiplicar por ' + fmt(k) + '</b>');
+      if (dif === 2 && r.chance(0.4)) { var b = r.pick([2, 3]), A = r.int(1, 5) * Math.pow(b, 5); seq = [0, 1, 2, 3].map(function (i) { return A / Math.pow(b, i); }); return it(seq.map(fmt1).join(' ; ') + ' ; [[0]] ; [[1]]', [A / Math.pow(b, 4), A / Math.pow(b, 5)], 'num', 'Regla: <b>dividir entre ' + b + '</b>'); }
+      return it(seq.map(fmt1).join(' ; ') + ' ; [[0]] ; [[1]]', [a * Math.pow(k, 4), a * Math.pow(k, 5)], 'num', 'Regla: <b>multiplicar por ' + fmt(k) + '</b>');
     } });
   tema('series', { id: 'mixta', n: 'Patrones con dos reglas', g: [5, 9], cols: 1, idea: 'Algunos patrones alternan <b>dos reglas</b> (por ejemplo +3, ×2, +3, ×2…). Observa los cambios de dos en dos para descubrirlas.',
     gen: function (r) {
       var A = r.int(1, 9), x = r.int(1, 6), k = r.int(2, 3), suma = r.chance(0.5), seq = [A];
       for (var i = 1; i < 7; i++) { var p = seq[i - 1]; seq.push(i % 2 ? p + x : (suma ? p * k : p - r.int(0, 0) - 1)); }
       if (!suma) { seq = [A + 20]; for (var j = 1; j < 7; j++) seq.push(j % 2 ? seq[j - 1] + x + 2 : seq[j - 1] - x); }
-      return it(seq.slice(0, 5).map(fmt).join(' ; ') + ' ; [[0]] ; [[1]]', [seq[5], seq[6]], 'num', suma ? 'Reglas alternas: <b>+' + x + ', ×' + k + '</b>' : 'Reglas alternas: <b>+' + (x + 2) + ', −' + x + '</b>');
+      return it(seq.slice(0, 5).map(fmt1).join(' ; ') + ' ; [[0]] ; [[1]]', [seq[5], seq[6]], 'num', suma ? 'Reglas alternas: <b>+' + x + ', ×' + k + '</b>' : 'Reglas alternas: <b>+' + (x + 2) + ', −' + x + '</b>');
     } });
   tema('series', { id: 'especiales', n: 'Números cuadrados, triangulares y Fibonacci', g: [5, 10], cols: 1, idea: 'Hay sucesiones famosas: <b>cuadrados</b> (1, 4, 9, 16…), <b>triangulares</b> (1, 3, 6, 10…: se suma 2, 3, 4…) y <b>Fibonacci</b> (cada término es la suma de los dos anteriores), presente en girasoles y piñas.',
     gen: function (r, dif) {
@@ -354,7 +354,7 @@
       else if (t === 1) seq = [0, 1, 2, 3, 4, 5].map(function (i) { var n = s + i; return n * (n + 1) / 2; });
       else if (t === 2) { var a = r.int(1, 5), b = r.int(a, a + 5); seq = [a, b]; while (seq.length < 6) seq.push(seq[seq.length - 1] + seq[seq.length - 2]); }
       else seq = [0, 1, 2, 3, 4, 5].map(function (i) { return Math.pow(s + i, 3); });
-      return it(seq.slice(0, 4).map(fmt).join(' ; ') + ' ; [[0]] ; [[1]]', [seq[4], seq[5]], 'num', ['Cuadrados', 'Triangulares', 'Tipo Fibonacci', 'Cubos'][t] + ': <b>' + fmt(seq[4]) + ', ' + fmt(seq[5]) + '</b>');
+      return it(seq.slice(0, 4).map(fmt1).join(' ; ') + ' ; [[0]] ; [[1]]', [seq[4], seq[5]], 'num', ['Cuadrados', 'Triangulares', 'Tipo Fibonacci', 'Cubos'][t] + ': <b>' + fmt(seq[4]) + ', ' + fmt(seq[5]) + '</b>');
     } });
   function palitos(tipo, n) {
     var s = '', u = 22, x0 = 6, y0 = 6;
@@ -373,8 +373,8 @@
   tema('series', { id: 'terminoN', n: 'Término general', g: [7, 11], cols: 1, idea: 'En una sucesión aritmética, aₙ = a₁ + (n − 1)·d. En una geométrica, aₙ = a₁·rⁿ⁻¹. Con la fórmula ya no hay que escribir todos los términos.',
     gen: function (r, dif) {
       var a = r.int(-10, 15), d = r.int(2, 9) * r.sign(), seq = [0, 1, 2, 3].map(function (i) { return a + d * i; });
-      if (dif === 1) { var n = r.int(15, 40); return it(seq.map(fmt).join(' ; ') + ' ; … ¿Cuál es el término ' + n + '? [[0]]', a + (n - 1) * d, 'num', 'a' + n + ' = ' + a + ' + (' + n + ' − 1)·(' + d + ') = <b>' + fmt(a + (n - 1) * d) + '</b>'); }
-      if (dif === 2) return it(seq.map(fmt).join(' ; ') + ' ; … Escribe aₙ en la forma dn + c: [[0]]', d + 'n' + (a - d >= 0 ? '+' : '') + (a - d), 'poly', 'aₙ = ' + a + ' + (n − 1)(' + d + ') = <b>' + polyStr([[d, 'n'], [a - d, '']]) + '</b>');
+      if (dif === 1) { var n = r.int(15, 40); return it(seq.map(fmt1).join(' ; ') + ' ; … ¿Cuál es el término ' + n + '? [[0]]', a + (n - 1) * d, 'num', 'a' + n + ' = ' + a + ' + (' + n + ' − 1)·(' + d + ') = <b>' + fmt(a + (n - 1) * d) + '</b>'); }
+      if (dif === 2) return it(seq.map(fmt1).join(' ; ') + ' ; … Escribe aₙ en la forma dn + c: [[0]]', d + 'n' + (a - d >= 0 ? '+' : '') + (a - d), 'poly', 'aₙ = ' + a + ' + (n − 1)(' + d + ') = <b>' + polyStr([[d, 'n'], [a - d, '']]) + '</b>');
       var A = r.int(1, 5), k = r.pick([2, 3]), m = r.int(5, 9); return it([0, 1, 2, 3].map(function (i) { return fmt(A * Math.pow(k, i)); }).join(' ; ') + ' ; … ¿Cuál es el término ' + m + '? [[0]]', A * Math.pow(k, m - 1), 'num', 'a' + m + ' = ' + A + '·' + k + sup(m - 1) + ' = <b>' + fmt(A * Math.pow(k, m - 1)) + '</b>');
     } });
 
@@ -383,9 +383,9 @@
   function cuadricula(W, H, u) { var s = ''; for (var x = 0; x <= W; x++) s += '<line x1="' + x * u + '" y1="0" x2="' + x * u + '" y2="' + H * u + '" stroke="#cfd6e0"/>'; for (var y = 0; y <= H; y++) s += '<line x1="0" y1="' + y * u + '" x2="' + W * u + '" y2="' + y * u + '" stroke="#cfd6e0"/>'; return s; }
   tema('geometria', { id: 'figuras', n: 'Reconozco figuras', g: [0, 2], cols: 1, idea: 'Las figuras se reconocen por sus <b>lados y esquinas</b>: el triángulo tiene 3 lados, el cuadrado 4 lados iguales, el rectángulo 4 lados (dos largos y dos cortos) y el círculo es redondo, sin esquinas.',
     gen: function (r, dif) {
-      var NOMS = ['círculos', 'cuadrados', 'triángulos', 'estrellas'], n = dif === 1 ? 6 : dif === 2 ? 9 : 12, celdas = r.sample(Array.from({ length: 18 }, function (_, i) { return i; }), n), s = '', cnt = [0, 0, 0, 0];
+      var NOMS = ['círculos', 'cuadrados', 'triángulos', 'estrellas'], CU = ['¿Cuántos', '¿Cuántos', '¿Cuántos', '¿Cuántas'], n = dif === 1 ? 6 : dif === 2 ? 9 : 12, celdas = r.sample(Array.from({ length: 18 }, function (_, i) { return i; }), n), s = '', cnt = [0, 0, 0, 0];
       celdas.forEach(function (c) { var t = r.int(0, dif === 1 ? 2 : 3); cnt[t]++; s += figura(t, r.pick(COL.slice(0, 5)), (c % 6) * 40 + 6, Math.floor(c / 6) * 40 + 6, 30); });
-      var obj = r.int(0, dif === 1 ? 2 : 3); return it(svg(246, 126, s) + '<br>¿Cuántos <b>' + NOMS[obj] + '</b> hay? [[0]]', cnt[obj], 'num', 'Hay <b>' + cnt[obj] + '</b> ' + NOMS[obj]);
+      var obj = r.int(0, dif === 1 ? 2 : 3); return it(svg(246, 126, s) + '<br>' + CU[obj] + ' <b>' + NOMS[obj] + '</b> hay? [[0]]', cnt[obj], 'num', 'Hay <b>' + cnt[obj] + '</b> ' + NOMS[obj]);
     } });
   function polyomino(r, dif) {
     var W = r.int(3, 6), H = r.int(2, 5), cells = {}, add = function (x0, y0, w, h) { for (var x = x0; x < x0 + w; x++) for (var y = y0; y < y0 + h; y++) cells[x + ',' + y] = 1; };

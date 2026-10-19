@@ -403,7 +403,7 @@
       pasos: [
         "Equilibra la regla vacía sobre el lápiz cerca de la marca de 15 cm y anota dónde quedó el apoyo.",
         "Pon 2 monedas apiladas a 6 cm del apoyo, del lado izquierdo.",
-        "Del lado derecho pon 1 moneda y muévela hasta lograr el equilibrio; mide su distancia al apoyo.",
+        "Del lado derecho pon 1 moneda y desplázala hasta lograr el equilibrio; mide su distancia al apoyo.",
         "Repite con otras combinaciones: 3 monedas a 4 cm, 4 monedas a 3 cm, 1 moneda a 12 cm.",
         "Multiplica en cada caso número de monedas × distancia, a cada lado.",
         "Escribe una regla que relacione ambos productos."
