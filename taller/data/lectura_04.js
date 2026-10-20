@@ -4,7 +4,7 @@
   T.lectura["04"] = [
     {
       id: "LC04-1",
-      titulo: "La cometa de Salomé",
+      titulo: "La cometa atrapada en el samán",
       tipo: "narrativo",
       dba: "DBA Lenguaje 4.°, n.º 6: organiza la información de sus lecturas con estrategias que le ayudan a comprender e interpretar el texto",
       parrafos: [

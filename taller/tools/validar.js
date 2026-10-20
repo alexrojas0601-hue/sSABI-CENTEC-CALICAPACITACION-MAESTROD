@@ -24,8 +24,10 @@ const vacio = v => v == null || (typeof v === 'string' && !v.trim()) || (Array.i
 
 /* ---------------- CIENCIAS ---------------- */
 const EJES = { materia: 8, fuerza: 8, energia: 8, vida: 8, quimica: 8, tierra: 3 };
-const PROHIBIDO_TODOS = /\b(lej[ií]a|\bcloro\b|hipoclorito|amon[ií]aco|[aá]cido sulf[uú]rico|[aá]cido clorh[ií]drico|[aá]cido n[ií]trico|[aá]cido muri[aá]tico|soda c[aá]ustica|hidr[oó]xido de sodio|gasolina|thinner|varsol|mercurio|alcohol antis[eé]ptico encendido|toma ?corriente|tomacorriente|enchufe|110 ?v|120 ?v|l[aá]ser|mirar (directamente )?al sol|pila de bot[oó]n|bater[ií]a de carro|pólvora|polvora)/i;
+const PROHIBIDO_TODOS = /\b(lej[ií]a|\bcloro\b|hipoclorito|amon[ií]aco|[aá]cido sulf[uú]rico|[aá]cido clorh[ií]drico|[aá]cido n[ií]trico|[aá]cido muri[aá]tico|soda c[aá]ustica|hidr[oó]xido de sodio|gasolina|thinner|varsol|alcohol antis[eé]ptico encendido|toma ?corriente|tomacorriente|enchufe|110 ?v|120 ?v|l[aá]ser|mirar (directamente )?al sol|pila de bot[oó]n|bater[ií]a de carro|pólvora|polvora)/i;
 /* límites de palabra conscientes de tildes: «muévela» no es «vela» */
+/* el metal mercurio va en minúscula; «Mercurio» con mayúscula es el planeta y se permite */
+const MERCURIO = /(?<![\p{L}])(mercurio|MERCURIO)(?![\p{L}])/u;
 const FUEGO = /(?<![\p{L}])(vela|velas|f[oó]sforo|f[oó]sforos|cerilla|encendedor|mechero|llama|fuego|quemar)(?![\p{L}])/iu;
 const RIESGO_MEDIO = /\b(agua caliente|hirviendo|hervir|estufa|horno|microondas|plancha|cuchillo|bistur[ií]|tijeras de punta|vidrio|vela|f[oó]sforo|encendedor|mechero|alcohol)\b/i;
 function validarCiencias(g) {
@@ -51,6 +53,7 @@ function validarCiencias(g) {
     const accion = [].concat(x.materiales || [], x.pasos || []).join(' ');
     const todo = accion + ' ' + (x.seguridad || '');
     if (PROHIBIDO_TODOS.test(accion)) E(f, k + ' usa material/acción prohibida: "' + accion.match(PROHIBIDO_TODOS)[0] + '"');
+    if (MERCURIO.test(accion)) E(f, k + ' usa material prohibido: mercurio');
     if (['tr', '01', '02', '03', '04', '05'].includes(g) && FUEGO.test(accion)) E(f, k + ' usa fuego en grado ' + g + ' (prohibido hasta 5.°)');
     if (RIESGO_MEDIO.test(accion) && x.riesgo !== 'medio') E(f, k + ' usa "' + accion.match(RIESGO_MEDIO)[0] + '" → riesgo debe ser "medio"');
     if (x.riesgo === 'medio' && !/adult|docente|profesor/i.test(todo)) E(f, k + ' riesgo medio sin indicar supervisión de adulto/docente');

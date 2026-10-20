@@ -37,11 +37,11 @@ recorrer todas las pestañas y grados, 0 errores de consola, y revisar impresió
 - [x] Guardar el Prompt Maestro v2 en el proyecto de Claude (claude/PROMPT_MAESTRO_SABI_v2.md)
 
 ## Pendientes menores (para el próximo Dot o el docente)
-- DBA de Transición (lenguaje): reemplazar paráfrasis por texto literal cuando se pueda leer el PDF oficial de Colombia Aprende.
-- CN11-28 (electroforesis) usa 3 pilas de 9 V en serie (27 V CC): decisión del coordinador de ciencias.
+- DBA de Transición (lenguaje): el PDF oficial (colombiaaprende.edu.co/sites/default/files/files_public/2026-06/dba_transicion-min_0.pdf) requiere autorización de acceso; reemplazar paráfrasis por texto literal cuando se pueda leer el PDF oficial de Colombia Aprende.
+- ✓ CN11-28 (electroforesis) reducido a 2 pilas de 9 V (18 V) conectadas por el docente.
 - Repeticiones intencionales entre grados con mayor enfoque cuantitativo en el grado superior (p. ej., poleas, refracción, cristales): revisar si se desean eliminar.
-- Lectura: LC02-1 y LC04-1 comparten título («La cometa de Salomé»); diversificar.
-- El validador bloquea «Mercurio» también como planeta (reformular en los textos).
+- ✓ LC04-1 renombrado «La cometa atrapada en el samán».
+- ✓ Validador: «Mercurio» con mayúscula (planeta) permitido; el metal en minúscula sigue prohibido. «muévela» ya no se confunde con «vela».
 
 ## Reglas
 Seguridad infantil y rigor según los esquemas. Nunca inventar normativa, cifras ni autores. Auditores independientes de los autores.
