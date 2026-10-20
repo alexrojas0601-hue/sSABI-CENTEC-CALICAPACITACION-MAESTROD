@@ -24,17 +24,24 @@ recorrer todas las pestañas y grados, 0 errores de consola, y revisar impresió
 - [x] Matemáticas `taller/mate.js` (44.040 ítems probados: 0 fallos de autoverificación)
 - [x] Validador `taller/tools/validar.js`
 - [x] DBA Ciencias (verificados)
-- [ ] DBA Matemáticas · [ ] DBA Lenguaje
-- [ ] Comandos IA + Prompt Maestro (`taller/data/comandos.js`)
-- [ ] Ciencias: tr ✓ · 01 ✓ · 02 ✓ · 03 · 04 · 05 · 06 · 07 · 08 · 09 · 10 · 11 (marcar ✓ al validar 50)
-- [ ] Lectura: tr ✓ · 01 ✓ · 02 ✓ · 03 ✓ · 04 ✓ · 05 ✓ · 06 ✓ · 07 · 08 ✓ · 09 · 10 ✓ · 11 ✓
-- [ ] `taller/ayudas.js` (10 ayudas didácticas)
-- [ ] `taller/contenido.js` (vistas: inicio, ciencia, lectura, comandos, DBA)
-- [ ] Auditoría independiente: seguridad y exactitud de experimentos; respuestas de lecturas
-- [ ] Enlace al Taller desde `index.html` (añadir, sin cambiar el diseño existente) y desde el tutor Dots
-- [ ] Prueba completa en navegador + impresión
-- [ ] Publicar (commit + push a `main`); Cloudflare Pages se actualiza solo si está conectado
+- [x] DBA Matemáticas · [x] DBA Lenguaje (1.°–11.° literales del PDF oficial MEN V.2; Transición en paráfrasis `verificado:false`, pendiente cotejar con el PDF de Transición)
+- [x] Comandos IA + Prompt Maestro (`taller/data/comandos.js`: 93 comandos con alias, Prompt Maestro v2 de 1.694 palabras)
+- [x] Ciencias: tr ✓ · 01 ✓ · 02 ✓ · 03 ✓ · 04 ✓ · 05 ✓ · 06 ✓ · 07 ✓ · 08 ✓ · 09 ✓ · 10 ✓ · 11 ✓ (600 experimentos)
+- [x] Lectura: tr ✓ · 01 ✓ · 02 ✓ · 03 ✓ · 04 ✓ · 05 ✓ · 06 ✓ · 07 ✓ · 08 ✓ · 09 ✓ · 10 ✓ · 11 ✓ (72 textos)
+- [x] `taller/ayudas.js` (10 ayudas didácticas)
+- [x] `taller/contenido.js` (vistas: inicio, ciencia, lectura, comandos, DBA)
+- [x] Auditoría independiente: seguridad y exactitud de experimentos; respuestas de lecturas (2026-10-20: ~50 duplicados entre grados reescritos, cifras recalculadas, preguntas ambiguas corregidas)
+- [x] Enlace al Taller desde `index.html` (menú y pie) y desde el tutor Dots (ruta sugerida)
+- [x] Prueba completa en navegador (`python3 taller/tools/prueba_navegador.py`: 270 vistas, 0 errores) · impresión revisada en capturas; falta prueba física del plegado del minilibro
+- [x] Publicar (commit + push a `main`); Cloudflare Pages se actualiza solo si está conectado
 - [ ] Guardar el Prompt Maestro v2 en el proyecto de Claude
+
+## Pendientes menores (para el próximo Dot o el docente)
+- DBA de Transición (lenguaje): reemplazar paráfrasis por texto literal cuando se pueda leer el PDF oficial de Colombia Aprende.
+- CN11-28 (electroforesis) usa 3 pilas de 9 V en serie (27 V CC): decisión del coordinador de ciencias.
+- Repeticiones intencionales entre grados con mayor enfoque cuantitativo en el grado superior (p. ej., poleas, refracción, cristales): revisar si se desean eliminar.
+- Lectura: LC02-1 y LC04-1 comparten título («La cometa de Salomé»); diversificar.
+- El validador bloquea «Mercurio» también como planeta (reformular en los textos).
 
 ## Reglas
 Seguridad infantil y rigor según los esquemas. Nunca inventar normativa, cifras ni autores. Auditores independientes de los autores.

@@ -76,7 +76,7 @@
       causas: [
         { causa: "Un carro ocupa el espacio de varias bicicletas y lleva a una persona", efecto: "la bicicleta aprovecha mejor la vía" },
         { causa: "Menos viajes se hacen en motor", efecto: "se reduce el humo que respiran los peatones" },
-        { causa: "Las ciclorrutas actuales son solo líneas pintadas", efecto: "los ciclistas siguen expuestos al peligro" }
+        { causa: "Una ciclorruta está aislada con bordillos", efecto: "protege al ciclista más que una línea pintada en el asfalto" }
       ],
       argumenta: [
         { p: "Evalúa la solidez del argumento del calor: ¿la respuesta del autor es suficiente? ¿Qué evidencia le faltaría?", criterios: ["Identifica la objeción y la respuesta del autor", "Señala que menciona «ciudades de clima cálido» sin nombrarlas ni dar datos", "Propone qué evidencia concreta fortalecería el argumento"] },
@@ -129,10 +129,10 @@
         ]
       ],
       literal: [
-        { p: "¿Cuántas puertas tiene la sala del prisionero?", r: "una sala con tres puertas", s: [1, 0] },
+        { p: "¿Cuántas puertas tiene la sala del prisionero?", r: "tres puertas", s: [1, 0] },
         { p: "Según el texto, ¿qué tres criterios usa un sistema de recomendación?", r: "lo que ya miré, lo que miraron personas parecidas a mí y lo que mantiene mis ojos más tiempo en la pantalla", s: [2, 1] },
         { p: "¿Qué ejemplos antiguos menciona la objeción?", r: "los periódicos elegían sus noticias y los almacenes decidían qué poner en la vitrina", s: [3, 0] },
-        { p: "¿Qué es, según la conclusión, el primer acto de libertad?", r: "Pensar es, en el fondo, el primer acto de libertad", s: [4, 4] }
+        { p: "¿Qué es, según la conclusión, el primer acto de libertad?", r: "Pensar", s: [4, 4] }
       ],
       entrelineas: [
         { p: "¿Qué función cumple la imagen del prisionero en el texto?", op: ["Es una analogía que permite entender cómo se limita una elección sin obligarla", "Es un caso real que el autor presenció", "Demuestra que las plataformas son cárceles ilegales", "Sirve para entretener antes del tema principal"], c: 0, s: [2, 0], ex: "«Funcionan de un modo parecido» conecta la sala con las plataformas: es una analogía. No es un hecho real ni una acusación legal." },
@@ -193,8 +193,8 @@
         [
           "Las raíces en forma de zancos, típicas del mangle rojo, cumplen otra función: frenan las olas y atrapan sedimentos.",
           "Por eso los manglares actúan como un muro vivo que protege las costas de la erosión y reduce el impacto de las marejadas.",
-          "Entre esas raíces encuentran refugio peces jóvenes, cangrejos, camarones y piangüas, un molusco que sostiene la economía y la cocina de muchas familias del Pacífico.",
-          "Las comunidades negras del Pacífico conocen bien estos ritmos: saben en qué momento de la marea conviene entrar al manglar y qué zonas deben dejarse descansar."
+          "Entre esas raíces encuentran refugio peces jóvenes, cangrejos, camarones y pianguas, un molusco que sostiene la economía y la cocina de muchas familias del Pacífico.",
+          "Las comunidades negras del Pacífico conocen bien los ritmos de la marea: saben en qué momento de la marea conviene entrar al manglar y qué zonas deben dejarse descansar."
         ],
         [
           "Hay un servicio menos visible, pero igual de importante.",
@@ -212,11 +212,11 @@
       literal: [
         { p: "¿Entre qué ciudades crecen los manglares mencionados?", r: "entre Buenaventura y Tumaco", s: [0, 0] },
         { p: "¿Por dónde expulsan la sal algunas especies?", r: "a través de pequeñas glándulas en las hojas", s: [1, 2] },
-        { p: "¿Qué animales encuentran refugio entre las raíces?", r: "peces jóvenes, cangrejos, camarones y piangüas", s: [2, 2] },
+        { p: "¿Qué animales encuentran refugio entre las raíces?", r: "peces jóvenes, cangrejos, camarones y pianguas", s: [2, 2] },
         { p: "¿En qué grupo de ecosistemas incluyen los científicos a los manglares?", r: "ecosistemas de «carbono azul»", s: [3, 3] }
       ],
       entrelineas: [
-        { p: "¿Cuál es el propósito principal del texto?", op: ["Explicar cómo funcionan los manglares y por qué es importante conservarlos", "Vender paquetes turísticos al Pacífico", "Narrar la vida de un pescador de piangüa", "Comparar el Pacífico con el Caribe"], c: 0, s: [4, 2], ex: "El texto describe adaptaciones y servicios del manglar y cierra con la idea de protegerlo. No hay narración personal, venta ni comparación entre costas." },
+        { p: "¿Cuál es el propósito principal del texto?", op: ["Explicar cómo funcionan los manglares y por qué es importante conservarlos", "Vender paquetes turísticos al Pacífico", "Narrar la vida de una recolectora de piangua", "Comparar el Pacífico con el Caribe"], c: 0, s: [4, 2], ex: "El texto describe adaptaciones y servicios del manglar y cierra con la idea de protegerlo. No hay narración personal, venta ni comparación entre costas." },
         { p: "¿Qué se puede inferir sobre la expresión «como si fueran pequeños tubos para respirar»?", op: ["Que las raíces tienen pulmones", "Que es una comparación para explicar que esas raíces ayudan a obtener oxígeno", "Que las raíces sirven para beber agua dulce", "Que el autor no sabe para qué sirven"], c: 1, s: [1, 3], ex: "«Como si» señala una comparación, y la oración relaciona esas raíces con la falta de oxígeno del barro." },
         { p: "¿Qué tono predomina en el texto?", op: ["Alarmista y exagerado", "Divulgativo y explicativo, con una advertencia final", "Humorístico", "Neutral, sin ninguna valoración"], c: 1, s: [4, 2], ex: "Explica con lenguaje claro y termina con una valoración («no es un lujo ambiental»), sin exagerar cifras." },
         { p: "¿Qué supone el autor al decir que proteger el manglar cuida «la comida»?", op: ["Que la gente come hojas de mangle", "Que especies que viven en el manglar alimentan a comunidades costeras", "Que el manglar produce frutas tropicales", "Que el carbono es un alimento"], c: 1, s: [2, 2], ex: "El párrafo 3 vincula la piangua con «la economía y la cocina de muchas familias»." }
@@ -291,9 +291,9 @@
       ],
       literal: [
         { p: "¿A cuántos estudiantes se aplicó la encuesta?", r: "a 80 estudiantes de grado décimo", s: [0, 0] },
-        { p: "¿Qué porcentaje no leyó ningún libro por gusto?", r: "el 30 % no leyó ningún libro por gusto", s: [1, 1] },
+        { p: "¿Qué porcentaje no leyó ningún libro por gusto?", r: "el 30 %", s: [1, 1] },
         { p: "¿Qué porcentaje lee con más frecuencia en papel?", r: "el 30 % en papel", s: [2, 1] },
-        { p: "¿Cuál fue la razón más común para no leer más?", r: "La falta de tiempo fue la respuesta más común", s: [3, 1] }
+        { p: "¿Cuál fue la razón más común para no leer más?", r: "La falta de tiempo", s: [3, 1] }
       ],
       entrelineas: [
         { p: "¿Qué error comete el miembro del comité al decir que «los jóvenes colombianos ya no leen»?", op: ["Generaliza a todo un país a partir de una muestra pequeña y contradice los propios datos", "Usa porcentajes equivocados", "Confunde lectura en papel con lectura digital", "No menciona la falta de tiempo"], c: 0, s: [4, 1], ex: "El texto explica que la muestra es de un solo grado y colegio, y que el 70 % sí leyó al menos un libro: es una generalización apresurada." },
@@ -370,7 +370,7 @@
         ],
         [
           "Mi propuesta es sencilla: antes de repetir la frase, pregúntennos.",
-          "Vengan a una feria escolar, a un torneo, a una tarde de tareas en una casa de Comuna 15.",
+          "Vengan a una feria escolar, a un torneo, a una tarde de tareas en una casa de la Comuna 15.",
           "Tal vez descubran que no somos la generación perezosa, sino una generación que trabaja de otra manera y que también necesita ser escuchada."
         ]
       ],

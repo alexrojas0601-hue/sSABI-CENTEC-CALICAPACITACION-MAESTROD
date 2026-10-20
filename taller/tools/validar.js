@@ -25,7 +25,8 @@ const vacio = v => v == null || (typeof v === 'string' && !v.trim()) || (Array.i
 /* ---------------- CIENCIAS ---------------- */
 const EJES = { materia: 8, fuerza: 8, energia: 8, vida: 8, quimica: 8, tierra: 3 };
 const PROHIBIDO_TODOS = /\b(lej[ií]a|\bcloro\b|hipoclorito|amon[ií]aco|[aá]cido sulf[uú]rico|[aá]cido clorh[ií]drico|[aá]cido n[ií]trico|[aá]cido muri[aá]tico|soda c[aá]ustica|hidr[oó]xido de sodio|gasolina|thinner|varsol|mercurio|alcohol antis[eé]ptico encendido|toma ?corriente|tomacorriente|enchufe|110 ?v|120 ?v|l[aá]ser|mirar (directamente )?al sol|pila de bot[oó]n|bater[ií]a de carro|pólvora|polvora)/i;
-const FUEGO = /\b(vela|velas|f[oó]sforo|f[oó]sforos|cerilla|encendedor|mechero|llama|fuego|quemar)\b/i;
+/* límites de palabra conscientes de tildes: «muévela» no es «vela» */
+const FUEGO = /(?<![\p{L}])(vela|velas|f[oó]sforo|f[oó]sforos|cerilla|encendedor|mechero|llama|fuego|quemar)(?![\p{L}])/iu;
 const RIESGO_MEDIO = /\b(agua caliente|hirviendo|hervir|estufa|horno|microondas|plancha|cuchillo|bistur[ií]|tijeras de punta|vidrio|vela|f[oó]sforo|encendedor|mechero|alcohol)\b/i;
 function validarCiencias(g) {
   const f = 'ciencias_' + g + '.js';

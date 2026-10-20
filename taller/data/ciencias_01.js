@@ -41,7 +41,7 @@
       riesgo: "bajo",
       tiempo: 30,
       reto: "¿Cómo harías para que un cubo de hielo dure más tiempo sin derretirse? Prueba envolviéndolo en tela, papel o papel aluminio.",
-      conexion: "En Cali hace calor: por eso el raspao y las cholaos se derriten rápido si no te los comes pronto."
+      conexion: "En Cali hace calor: por eso el raspao y los cholados se derriten rápido si no te los comes pronto."
     },
     {
       id: "CN01-03",
@@ -90,13 +90,13 @@
       dba: "DBA 2 de 1.°: los materiales y objetos se distinguen por características como su tamaño y textura",
       pregunta: "¿Cómo podemos separar las piedritas de la arena?",
       prediccion: "¿Qué crees que se quedará en el colador y qué pasará por los huecos?",
-      materiales: ["1 colador plástico de cocina", "1 vaso de arena seca", "1 puñado de piedritas", "2 platones plásticos"],
+      materiales: ["1 colador plástico de cocina", "1 vaso de arena seca", "5 piedras medianas (más grandes que una tapa de gaseosa)", "2 platones plásticos"],
       pasos: ["Mezcla la arena y las piedritas en un platón.", "Pon el colador encima del otro platón.", "Echa la mezcla en el colador.", "Mueve el colador despacio.", "Mira qué se queda arriba y qué cae abajo."],
       observa: "Qué partes de la mezcla se quedan en el colador y cuáles caen al platón.",
       resultado: "Las piedritas se quedan en el colador y la arena cae al platón de abajo.",
       porque: "Una mezcla es juntar dos o más cosas que se pueden volver a separar. Los huecos del colador son más grandes que los granos de arena, pero más pequeños que las piedritas. Por eso la arena pasa y las piedritas se quedan. Separamos la mezcla por el tamaño de sus partes.",
       conceptos: ["mezcla", "separar", "tamaño"],
-      seguridad: "Mueve el colador despacio para que la arena no salte a los ojos. Lávate las manos al terminar.",
+      seguridad: "Las piedras no se llevan a la boca. Mueve el colador despacio para que la arena no salte a los ojos. Lávate las manos al terminar.",
       riesgo: "bajo",
       tiempo: 15,
       reto: "Mezcla arroz crudo con harina. ¿Puedes separarlos con el mismo colador?",
@@ -257,7 +257,7 @@
       riesgo: "bajo",
       tiempo: 10,
       reto: "Haz un paracaídas con una bolsa plástica y un muñequito. ¿Cae más lento?",
-      conexion: "Las semillas de algunos árboles, como las del guásimo o del mamoncillo de monte, giran en el aire y caen despacio para viajar lejos."
+      conexion: "Las semillas con alas de algunos árboles, como la caoba, giran en el aire y caen despacio para viajar lejos."
     },
     {
       id: "CN01-14",
@@ -578,7 +578,7 @@
       id: "CN01-30",
       eje: "vida",
       titulo: "El apio que bebe colores",
-      dba: "DBA 3 de 1.°: los seres vivos (plantas y animales) se alimentan y necesitan agua",
+      dba: "DBA 3 de 1.°: los seres vivos (plantas y animales) tienen características comunes, como alimentarse",
       pregunta: "¿Cómo llega el agua desde el vaso hasta las hojas de una planta?",
       prediccion: "¿De qué color crees que se pondrán las hojas del apio mañana?",
       materiales: ["2 ramas de apio con hojas", "2 vasos plásticos con agua", "colorante de alimentos azul y rojo", "1 lupa"],
@@ -797,7 +797,7 @@
       id: "CN01-41",
       eje: "quimica",
       titulo: "El clavo que se oxida",
-      dba: "DBA 2 de 1.°: los materiales se distinguen por sus características y cambian según el ambiente",
+      dba: "DBA 2 de 1.°: existe gran variedad de materiales con características distintas",
       pregunta: "¿Qué necesita un clavo de hierro para oxidarse?",
       prediccion: "¿Cuál clavo crees que se pondrá color naranja primero: el seco, el del agua o el del agua con sal?",
       materiales: ["3 clavos de acero sin pintar (puntillas)", "3 vasos plásticos marcados", "agua", "1 cucharada de sal"],
@@ -807,7 +807,7 @@
       resultado: "El clavo en agua con sal se oxida primero, luego el del agua. El clavo seco casi no cambia. Si el clavo tiene una capa protectora (galvanizado), tarda mucho más en oxidarse.",
       porque: "El hierro de los clavos se combina con el agua y con el oxígeno del aire y forma una sustancia nueva, naranja y quebradiza: el óxido. Es un cambio químico. La sal hace que ese cambio ocurra más rápido. Sin agua, el hierro casi no se oxida.",
       conceptos: ["óxido", "hierro", "cambio químico"],
-      seguridad: "El docente entrega los clavos; tómalos con cuidado por la cabeza. No toques el óxido con la boca y lávate las manos al terminar.",
+      seguridad: "El docente entrega los clavos; tómalos con cuidado por la cabeza; al final el docente los recoge y los cuenta. No toques el óxido con la boca y lávate las manos al terminar.",
       riesgo: "bajo",
       tiempo: 15,
       reto: "¿Qué pasa si pintas un clavo con esmalte de uñas antes de meterlo al agua?",

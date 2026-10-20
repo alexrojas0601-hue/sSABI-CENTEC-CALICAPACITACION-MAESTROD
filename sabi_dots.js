@@ -165,7 +165,8 @@
       (k.dominar ? '<h4>Qué debo…</h4><div class="grid2">' + [['memorizar', '🧩 Memorizar'], ['comprender', '💡 Comprender'], ['ejecutar', '🛠 Saber ejecutar'], ['decidir', '⚖️ Saber decidir']].map(function (p) {
         return '<div class="box"><b>' + p[1] + '</b><ul>' + (k.dominar[p[0]] || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>';
       }).join('') + '</div>' : '') +
-      '<h4>Ruta sugerida</h4><div class="box">1. Lee el módulo del curso → 2. <a href="#" data-go="glosario">Glosario</a> → 3. <a href="#" data-go="mapa">Mapa mental</a> y <a href="#" data-go="flujo">fluxograma</a> → 4. <a href="#" data-go="flash">Flashcards</a>, <a href="#" data-go="sopa">sopa</a> y <a href="#" data-go="cruci">crucigrama</a> → 5. <a href="#" data-go="error">Detecta el error</a> y <a href="#" data-go="caso">caso</a> → 6. <a href="#" data-go="recu">Recuperación activa</a> → 7. <a href="#" data-go="cierre">Cierre</a>.</div>';
+      '<h4>Ruta sugerida</h4><div class="box">1. Lee el módulo del curso → 2. <a href="#" data-go="glosario">Glosario</a> → 3. <a href="#" data-go="mapa">Mapa mental</a> y <a href="#" data-go="flujo">fluxograma</a> → 4. <a href="#" data-go="flash">Flashcards</a>, <a href="#" data-go="sopa">sopa</a> y <a href="#" data-go="cruci">crucigrama</a> → 5. <a href="#" data-go="error">Detecta el error</a> y <a href="#" data-go="caso">caso</a> → 6. <a href="#" data-go="recu">Recuperación activa</a> → 7. <a href="#" data-go="cierre">Cierre</a>.</div>' +
+      '<div class="box">🧰 Para llevarlo al aula con tus estudiantes: <a href="sabi_taller.html">SABI Taller de Aula</a> (experimentos, fichas de matemáticas, comprensión lectora, ayudas didácticas y comandos IA).</div>';
   };
 
   R.glosario = function (el) {

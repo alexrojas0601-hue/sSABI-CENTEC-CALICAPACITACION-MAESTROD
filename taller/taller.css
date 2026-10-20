@@ -150,3 +150,88 @@ table.t td.e{height:30px}
   a{color:inherit;text-decoration:none}
   .opt.ok,.opt.bad{background:#fff;border-color:#ccc}
 }
+/* ---------- ayudas didácticas y vistas de contenido (añadido) ---------- */
+.hero .lemas{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.hero .lemas span{background:rgba(255,255,255,.12);border:1px solid rgba(212,168,67,.6);border-radius:999px;padding:4px 12px;font-size:13.5px}
+.home .card small{display:block;margin-bottom:6px}
+.home .card .cnt{font-weight:700;color:var(--teal);font-size:13px}
+.seg{border:1.5px solid #E0C068;background:#FFF8E1;border-radius:10px;padding:8px 12px;margin:8px 0;font-size:13.5px}
+.seg.medio{border:2px solid var(--red);background:#FDEDE8}
+.grupo{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--soft);margin:10px 0 2px}
+.md h2,.md h3,.md h4,.md h5{margin:14px 0 6px}
+.md blockquote{border-left:4px solid var(--gold);margin:8px 0;padding:4px 12px;background:#FFFBEF}
+.md code{background:#F1EBDC;border-radius:4px;padding:0 4px}
+.qbox.act{outline:2px solid var(--gold)}
+.texto mark{background:#FFE08A;border-radius:3px;padding:0 2px;font-weight:700}
+ol.orden{padding-left:22px}
+ol.orden li{border:1px solid var(--line);border-radius:8px;padding:4px 8px;margin:4px 0;background:#fff}
+ol.orden li>span:first-child{display:inline}
+ol.orden li>span:last-child{float:right;white-space:nowrap}
+ol.orden li::after{content:"";display:block;clear:both}
+ol.orden li.ok{border-color:var(--teal);background:#DDF3EA}ol.orden li.bad{border-color:var(--red);background:#F8DDD6}
+.causa{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0}
+.causa select{flex:1;min-width:0;max-width:100%;border:1px solid #D9CFB6;border-radius:8px;padding:6px 8px;background:#fffdf8}
+.causa select.ok{border-color:var(--teal);background:#DDF3EA}.causa select.bad{border-color:var(--red);background:#F8DDD6}
+.crit{display:flex;gap:6px;align-items:flex-start;font-size:13.5px;margin:3px 0}
+.hoja .cab{font-weight:700;color:var(--navy);margin-bottom:4px}
+.caja{display:inline-block;width:34px;height:34px;border:2px solid var(--navy);border-radius:6px;vertical-align:middle;position:relative;margin:2px}
+.caja.grande{width:44px;height:50px}
+.caja small{position:absolute;top:-2px;left:3px;font-size:10px;color:var(--soft)}
+.candado{background:#FBFAF6}
+.sopa{border-collapse:collapse;font:700 16px ui-monospace,Menlo,Consolas,monospace;margin:6px 0}
+.sopa td{width:26px;height:26px;text-align:center;border:1px solid #D5CCB6;padding:0}
+.sopa td.m{background:#FFE08A;color:var(--navy)}
+@media(max-width:600px){.sopa{font-size:12px}.sopa td{width:19px;height:19px}}
+ul.pal{list-style:none;padding:0;margin:4px 0;columns:2;font-weight:700;letter-spacing:.5px}
+.cruci-wrap{overflow-x:auto;max-width:100%}
+.cruci{border-collapse:collapse;margin:8px 0}
+.cruci td{width:28px;height:28px;padding:0;text-align:center;font:700 15px "DM Sans",sans-serif;position:relative}
+.cruci td.l{border:1.5px solid #333;background:#fff}
+.cruci td sup{position:absolute;top:1px;left:2px;font-size:8.5px;font-weight:500;line-height:1}
+@media(max-width:600px){.cruci td{width:21px;height:21px;font-size:12px}}
+ol.pistas li{margin:3px 0;font-size:13.5px}
+.tablero{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,minmax(64px,auto));gap:4px;margin:10px 0}
+.cas{border:2px solid var(--navy);border-radius:8px;padding:4px 6px;font-size:12px;display:flex;flex-direction:column;background:#fff;min-width:0;overflow-wrap:anywhere}
+.cas b{font-size:15px}
+.cas.q{background:#FFF8E1}.cas.sube{background:#E3F4EC}.cas.baja{background:#FBE7E1}
+@media(max-width:600px){.cas{font-size:10px;padding:2px 3px}.cas b{font-size:12px}}
+.tarjeta{display:flex;flex-direction:column;min-height:130px}
+.tarjeta p{flex:1;margin:4px 0}
+.tarjeta .inv{transform:rotate(180deg);font-size:11.5px;color:var(--soft);border-top:1px dotted #bbb;padding-top:4px}
+.estacion ol{padding-left:20px;margin:6px 0}
+.carta{min-height:80px;font-size:13.5px}
+.carta.q{border-color:var(--blue);background:#EEF6FB}.carta.a{border-color:var(--gold);background:#FFF8E6}
+.domino{display:grid;grid-template-columns:1fr 1fr;padding:0;overflow:hidden}
+.domino>div{padding:10px;font-size:13px;min-height:70px}
+.domino>div:first-child{border-right:2px solid #333;background:#FFF8E6}
+.comic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media(max-width:700px){.comic{grid-template-columns:minmax(0,1fr)}}
+.vineta{border:2.5px solid #222;border-radius:6px;padding:8px;display:flex;flex-direction:column;gap:6px;min-height:230px;position:relative;break-inside:avoid}
+.vineta>small{position:absolute;top:2px;right:6px;font-weight:700}
+.globo{border:1.5px solid #333;border-radius:16px;padding:6px 10px;font-size:13px;background:#fff;position:relative}
+.globo.vacio{background:#FCFCFA}
+.pers{flex:1;display:flex;align-items:center;justify-content:center;font-size:34px;min-height:50px}
+.solapa{padding:0;margin:8px 0}
+.solapa .fr{padding:10px 12px;min-height:70px}
+.solapa .fr .n{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;align-items:center;justify-content:center}
+.solapa .dobla{text-align:center;font-size:10.5px;color:#888;border-top:1.5px dotted #888;line-height:1.6}
+.solapa .in{padding:8px 12px;background:#FBFAF6;font-size:13px}
+.solapa.portada{text-align:center}
+.bolsillo{margin-top:10px;min-height:90px;background:#FFF8E6}
+.minib{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto auto;border:1.5px solid #333}
+.mb-p{border:1px dashed #999;padding:8px;min-height:240px;font-size:12.5px;display:flex;flex-direction:column;gap:4px;position:relative;min-width:0;overflow-wrap:anywhere}
+.mb-p.inv{transform:rotate(180deg)}
+.mb-n{font-size:10px;color:var(--soft);text-transform:uppercase;letter-spacing:.4px}
+.mb-portada{text-align:center;margin:auto 0}
+@media(max-width:600px){.mb-p{min-height:170px;font-size:10px;padding:4px}}
+@media print{
+  .tablero{grid-template-rows:repeat(5,30mm)}
+  .mb-p{min-height:88mm}
+  .comic{grid-template-columns:repeat(3,1fr)}
+  .vineta{min-height:80mm}
+  .sopa td.m{background:#FFE08A!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .qbox.act{outline:0}
+  .texto mark{background:none;font-weight:700}
+}
+.hoja table.t td{overflow-wrap:anywhere}
+@media(max-width:900px){#q-list,#c-list{max-height:340px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:6px}}

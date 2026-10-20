@@ -153,7 +153,7 @@
       literal: [
         { p: "¿Cómo se llamaba el gallinazo?", r: "Lisandro", s: [0, 0] },
         { p: "¿En qué se revolcó Lisandro para parecer garza?", r: "en la harina que había caído de un camión", s: [1, 1] },
-        { p: "¿Qué insectos llenaron la orilla?", r: "las moscas llenaron el lugar", s: [2, 1] },
+        { p: "¿Qué insectos llenaron la orilla?", r: "las moscas", s: [2, 1] },
         { p: "¿Quién se acercó a hablar con Lisandro?", r: "la garza más vieja", s: [3, 0] }
       ],
       entrelineas: [
@@ -198,7 +198,7 @@
       ],
       literal: [
         { p: "¿Cuántos libros tiene la biblioteca?", r: "más de dos mil libros", s: [0, 0] },
-        { p: "¿Dónde nació doña Mercedes?", r: "nacida en Guapi", s: [0, 1] },
+        { p: "¿Dónde nació doña Mercedes?", r: "en Guapi", s: [0, 1] },
         { p: "¿Con cuántos libros empezó la biblioteca?", r: "los cuarenta libros", s: [1, 1] },
         { p: "¿Qué frase tenía el separador?", r: "Quien lee, nunca está solo", s: [5, 0] }
       ],
@@ -251,7 +251,7 @@
       entrelineas: [
         { p: "¿Para qué menciona Martín a las familias que trabajan lejos?", op: ["Para reconocer una opinión distinta y proponer una solución", "Para burlarse de esas familias", "Para cambiar de opinión y apoyar el celular a los diez años", "Para contar su historia personal"], c: 0, s: [4, 0], ex: "Dice «Sé que algunas familias necesitan…» y propone un teléfono sencillo: reconoce la otra postura sin abandonar la suya, porque en la conclusión mantiene su opinión." },
         { p: "¿Cuál es la tesis (la idea principal que defiende) del texto?", op: ["Que es mejor esperar hasta los doce años o más para tener celular propio", "Que los celulares son malos y deberían prohibirse para todos", "Que los niños deben dormir más de doce horas", "Que los padres deben comprar celulares a sus hijos"], c: 0, s: [0, 2], ex: "Martín la anuncia al inicio («creo que es mejor esperar…») y la repite en la conclusión. No dice que el celular sea malo: lo llama «herramienta útil»." },
-        { p: "¿Qué tipo de razones usa Martín en el tercer párrafo?", op: ["Una observación de su barrio y su experiencia personal", "Una cifra de un estudio científico", "La opinión de un médico famoso"], c: 0, s: [3, 1], ex: "Habla de lo que ve «en mi barrio» y de lo que él prefiere; no cita estudios ni expertos en ese párrafo." }
+        { p: "¿Qué tipo de apoyo usa Martín para su tercera razón?", op: ["Una observación de su barrio y su experiencia personal", "Una cifra de un estudio científico", "La opinión de un médico famoso"], c: 0, s: [3, 1], ex: "Habla de lo que ve «en mi barrio» y de lo que él prefiere; no cita estudios ni expertos para esa razón." }
       ],
       contexto: [
         { w: "conclusión", s: [5, 0], op: ["Parte final que resume la idea que se defiende", "Primera razón del texto", "Una pregunta para el lector"], c: 0, ex: "Aparece en el último párrafo y repite la posición de Martín: es el cierre del texto." },

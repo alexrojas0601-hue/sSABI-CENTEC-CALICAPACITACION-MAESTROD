@@ -89,7 +89,7 @@
       literal: [
         { p: "¿En qué año fueron declarados Parque Nacional Natural?", r: "en 1968", s: [0, 1] },
         { p: "¿Qué les ocurre a las nubes cuando chocan contra la montaña?", r: "se quedan atrapadas entre los árboles", s: [1, 1] },
-        { p: "¿Qué sustancia tóxica usa la minería ilegal para contaminar las quebradas?", r: "mercurio", s: [3, 1] },
+        { p: "¿Con qué sustancia tóxica contamina las quebradas la minería ilegal?", r: "mercurio", s: [3, 1] },
         { p: "¿Qué ríos que bajan de estas montañas nombra el texto?", r: "el Pance, el Meléndez, el Cali y el Cañaveralejo", s: [2, 0] }
       ],
       entrelineas: [

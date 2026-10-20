@@ -105,8 +105,8 @@
       ],
       literal: [
         { p: "¿Cuántos vasos rinde la receta?", r: "cuatro vasos", s: [0, 1] },
-        { p: "¿De qué color es la pulpa del lulo?", r: "la pulpa verde", s: [2, 2] },
-        { p: "¿Quién debe cortar los lulos?", r: "Pide a un adulto que corte los lulos", s: [2, 1] },
+        { p: "¿De qué color es la pulpa del lulo?", r: "verde", s: [2, 2] },
+        { p: "¿Quién debe cortar los lulos?", r: "un adulto", s: [2, 1] },
         { p: "¿Qué se añade en el paso 6?", r: "el agua fría y el hielo picado", s: [2, 5] }
       ],
       entrelineas: [
@@ -152,9 +152,9 @@
         ["Yo cierro mi ventana despacio", "para no despertar al viento,", "y escribo en mi cuaderno", "cada secreto que me ha contado."]
       ],
       literal: [
-        { p: "¿A qué huele el viento cuando llega?", r: "trae olor a mango biche", s: [0, 2] },
+        { p: "¿A qué fruta huele el viento cuando llega?", r: "mango biche", s: [0, 2] },
         { p: "¿De dónde dice el viento que viene?", r: "viene del mar", s: [1, 0] },
-        { p: "¿Qué le lleva el viento al río Cali?", r: "le lleva barcos", s: [4, 2] },
+        { p: "¿Qué le lleva el viento al río Cali?", r: "barcos", s: [4, 2] },
         { p: "¿Dónde duerme el viento por la noche?", r: "en los brazos de la montaña", s: [6, 1] }
       ],
       entrelineas: [
@@ -170,7 +170,7 @@
       dondelopone: [
         { a: "El viento atravesó las montañas antes de llegar.", s: [1, 1] },
         { a: "La luna se compara con una lámpara.", s: [6, 2] },
-        { a: "Desde una radio se escapa música.", s: [2, 3] }
+        { a: "El dueño de la radio es un hombre mayor.", s: [2, 3] }
       ],
       orden: ["El viento llega en la tarde a la ventana.", "Cuenta que viene del mar y que subió la cordillera.", "El samán y el río juegan con el viento.", "Por la noche el viento duerme en la montaña.", "La voz del poema cierra la ventana y escribe en su cuaderno."],
       causas: [
@@ -242,7 +242,7 @@
         ["Estoy segura de que, si trabajamos juntos, el parque volverá a ser un lugar alegre para todos.", "Quedo atenta a su respuesta.", "Atentamente, Valentina Ortiz, estudiante de cuarto grado."]
       ],
       literal: [
-        { p: "¿Cuántos años tiene Valentina?", r: "tengo diez años", s: [1, 0] },
+        { p: "¿Cuántos años tiene Valentina?", r: "diez años", s: [1, 0] },
         { p: "¿Qué problema tiene una de las bancas?", r: "tiene clavos salidos", s: [1, 2] },
         { p: "¿Cuándo propone Valentina hacer la minga?", r: "el primer sábado de cada mes", s: [3, 0] },
         { p: "¿Cuántas canecas pide Valentina?", r: "dos canecas", s: [3, 2] }

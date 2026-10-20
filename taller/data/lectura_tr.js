@@ -7,7 +7,7 @@
       id: "LCTR-1",
       titulo: "El paraguas amarillo",
       tipo: "narrativo",
-      dba: "DBA Transición n.º 9: establece relaciones e interpreta imágenes, letras, objetos y personajes que encuentra en distintos tipos de textos",
+      dba: "DBA de Transición (MEN 2016, sin número verificado), dimensión comunicativa: establece relaciones e interpreta imágenes, letras, objetos y personajes que encuentra en distintos tipos de textos",
       parrafos: [
         ["Sofía tiene un paraguas amarillo.", "Su abuela se lo regaló."],
         ["Un día llovió mucho en el parque.", "Sofía vio un gatito mojado debajo de un banco.", "El gatito temblaba de frío."],
@@ -47,7 +47,7 @@
       id: "LCTR-2",
       titulo: "La cometa de Simón",
       tipo: "narrativo",
-      dba: "DBA Transición n.º 12: establece relaciones entre las causas y consecuencias de los acontecimientos que le suceden a él o a su alrededor",
+      dba: "DBA de Transición (MEN 2016, sin número verificado), establece relaciones entre las causas y consecuencias de los acontecimientos que le suceden a él o a su alrededor",
       parrafos: [
         ["En agosto hace mucho viento en Cali.", "Simón y su papá hicieron una cometa roja."],
         ["La cometa subió alto, alto, hasta las nubes.", "De pronto, el viento la llevó a un árbol."],
@@ -87,7 +87,7 @@
       id: "LCTR-3",
       titulo: "El colibrí y la tortuga",
       tipo: "fabula",
-      dba: "DBA Transición n.º 6: demuestra consideración y respeto al relacionarse con otros; n.º 9: interpreta personajes en distintos tipos de textos",
+      dba: "DBA de Transición (MEN 2016, sin número verificado), demuestra consideración y respeto al relacionarse con otros; interpreta personajes en distintos tipos de textos",
       parrafos: [
         ["En un jardín vivían un colibrí muy rápido y una tortuga muy lenta.", "El colibrí se reía de la tortuga."],
         ["Un día, el colibrí se enredó en una telaraña.", "«¡Ayuda!», gritó asustado."],
@@ -128,7 +128,7 @@
       id: "LCTR-4",
       titulo: "La iguana del parque",
       tipo: "informativo",
-      dba: "DBA Transición n.º 9: establece relaciones e interpreta imágenes, letras, objetos y personajes que encuentra en distintos tipos de textos",
+      dba: "DBA de Transición (MEN 2016, sin número verificado), dimensión comunicativa: establece relaciones e interpreta imágenes, letras, objetos y personajes que encuentra en distintos tipos de textos",
       parrafos: [
         ["La iguana es un reptil de color verde.", "En Cali vive en los árboles de los parques."],
         ["La iguana tiene una cola muy larga.", "Le gusta tomar el sol en las ramas."],
@@ -150,7 +150,7 @@
         { w: "persigas", s: [3, 1], op: ["La alimentes", "Corras detrás de ella", "La dibujes"], c: 1, ex: "Va junto a «no la molestes»: perseguir es correr detrás de alguien para atraparlo." }
       ],
       dondelopone: [
-        { a: "La iguana solo come plantas y frutas.", s: [2, 1] },
+        { a: "La iguana nunca se come a otros animales.", s: [2, 1] },
         { a: "A la iguana le gusta el calor del sol.", s: [1, 1] }
       ],
       orden: ["Cómo es la iguana y dónde vive.", "Cómo es su cola y qué le gusta.", "Qué come.", "Cómo debemos tratarla."],
@@ -168,7 +168,7 @@
       id: "LCTR-5",
       titulo: "Lulada para compartir",
       tipo: "instructivo",
-      dba: "DBA Transición n.º 4: reconoce que es parte de una familia, comunidad y territorio con costumbres y tradiciones; n.º 2: hábitos de cuidado personal",
+      dba: "DBA de Transición (MEN 2016, sin número verificado), reconoce que es parte de una familia, comunidad y territorio con costumbres y tradiciones; hábitos de cuidado personal",
       parrafos: [
         ["Hoy vamos a preparar una lulada, una bebida del Valle del Cauca."],
         ["Necesitas: cuatro lulos, agua, azúcar y hielo."],
@@ -208,7 +208,7 @@
       id: "LCTR-6",
       titulo: "La Madremonte cuida el bosque",
       tipo: "leyenda",
-      dba: "DBA Transición n.º 4: reconoce que es parte de una comunidad y un territorio con costumbres, valores y tradiciones; n.º 12: causas y consecuencias",
+      dba: "DBA de Transición (MEN 2016, sin número verificado), reconoce que es parte de una comunidad y un territorio con costumbres, valores y tradiciones; relaciona causas y consecuencias",
       parrafos: [
         ["Dicen los abuelos que en las montañas del Valle vive la Madremonte.", "Ella tiene un vestido de hojas y musgo."],
         ["La Madremonte cuida los árboles, los ríos y los animales.", "Cuando alguien tira basura en el bosque, ella sopla un viento fuerte."],

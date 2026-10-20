@@ -59,7 +59,7 @@
       literal: [
         { p: "¿Qué encontró Matías debajo del pupitre?", r: "una caja de colores nueva", s: [0, 1] },
         { p: "¿A qué olían los colores?", r: "olían a madera", s: [1, 0] },
-        { p: "¿Quién le regaló los colores a Valentina?", r: "Me los regaló mi tía", s: [2, 2] },
+        { p: "¿Quién le regaló los colores a Valentina?", r: "mi tía", s: [2, 2] },
         { p: "¿Qué color le prestó Valentina a Matías?", r: "el color verde", s: [3, 0] }
       ],
       entrelineas: [
@@ -85,7 +85,7 @@
       ],
       argumenta: [
         { p: "¿Hizo bien Matías al devolver los colores, aunque nadie lo vio? Explica.", criterios: ["Toma una posición clara", "Usa al menos una razón del cuento", "Explica qué significa ser honesto con sus palabras"] },
-        { p: "¿Qué crees que habría pasado si Matías se quedaba con los colores?", criterios: ["Imagina una consecuencia posible", "Piensa en cómo se sentiría Valentina", "Relaciona con algo que le haya pasado"] }
+        { p: "¿Qué crees que habría pasado si Matías se hubiera quedado con los colores?", criterios: ["Imagina una consecuencia posible", "Piensa en cómo se sentiría Valentina", "Relaciona con algo que le haya pasado"] }
       ],
       autor: "Texto original SABI CENTEC"
     },
@@ -103,7 +103,7 @@
       literal: [
         { p: "¿Qué le gritaba el colibrí a la tortuga?", r: "¡Lenta, lentísima!", s: [0, 1] },
         { p: "¿Hacia dónde caminaba Tula?", r: "hacia el estanque", s: [1, 0] },
-        { p: "¿Qué cayó una tarde?", r: "un aguacero tan fuerte", s: [1, 1] },
+        { p: "¿Qué cayó una tarde?", r: "un aguacero", s: [1, 1] },
         { p: "¿Hasta dónde llevó Tula al colibrí?", r: "hasta un lugar seco", s: [2, 1] }
       ],
       entrelineas: [
@@ -186,8 +186,8 @@
       ],
       literal: [
         { p: "¿Cuántos lulos se necesitan?", r: "4 lulos maduros", s: [0, 0] },
-        { p: "¿Qué se hace en el paso 1?", r: "Lávate las manos", s: [1, 0] },
-        { p: "¿A quién hay que pedirle que pique los lulos?", r: "Pide a un adulto", s: [1, 1] },
+        { p: "¿Qué se hace en el paso 1?", r: "Lávate las manos y lava bien los lulos", s: [1, 0] },
+        { p: "¿A quién hay que pedirle que pique los lulos?", r: "a un adulto", s: [1, 1] },
         { p: "¿Con qué se machaca el lulo?", r: "con una cuchara de palo", s: [1, 2] }
       ],
       entrelineas: [

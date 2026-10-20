@@ -137,7 +137,7 @@
         ["Colombia es uno de los países con más clases de colibríes.", "Si siembras flores, los colibríes visitarán tu casa."]
       ],
       literal: [
-        { p: "¿Cómo es el colibrí?", r: "un ave muy pequeña", s: [0, 0] },
+        { p: "¿Qué tipo de animal es el colibrí?", r: "un ave muy pequeña", s: [0, 0] },
         { p: "¿Hacia dónde puede volar el colibrí?", r: "hacia atrás", s: [1, 1] },
         { p: "¿Cómo es su pico?", r: "largo y delgado", s: [2, 0] },
         { p: "¿Qué toma de las flores?", r: "el néctar", s: [2, 1] }

@@ -183,7 +183,7 @@
       riesgo: "bajo",
       tiempo: 15,
       reto: "Agrega 3 gotas de jabón lavaloza y agita otra vez. ¿Se separan igual de rápido?",
-      conexion: "El aceite usado de la cocina no se debe botar por el lavaplatos: flota en el agua de los ríos y daña a los peces. En Cali se puede llevar a puntos de recolección."
+      conexion: "El aceite usado de la cocina no se debe botar por el lavaplatos: flota en el agua de los ríos y daña a los peces. En muchos barrios hay puntos de recolección de aceite usado."
     },
     {
       id: "CN02-08",
@@ -377,7 +377,7 @@
       dba: "EBC Ciencias Naturales 1.°–3.° · Entorno físico: identifica tipos de movimiento en objetos y las fuerzas que los producen",
       pregunta: "Si soltamos al mismo tiempo dos hojas iguales, una plana y otra arrugada, ¿cuál llega primero al piso?",
       prediccion: "¿Llegarán juntas o una antes que la otra? ¿Cuál?",
-      materiales: ["2 hojas de papel iguales", "1 silla firme o un compañero alto"],
+      materiales: ["2 hojas de papel iguales", "1 espacio libre del salón"],
       pasos: [
         "Sostén las dos hojas planas a la misma altura y suéltalas a la vez. Observa.",
         "Arruga una de las hojas hasta hacer una bola.",
@@ -389,7 +389,7 @@
       resultado: "La bola de papel cae recto y llega primero; la hoja plana se mece y baja despacio.",
       porque: "Las dos hojas pesan lo mismo y la gravedad las hala igual hacia abajo. Pero al caer tienen que empujar el aire. La hoja plana choca con mucho aire, que la frena; la bola choca con menos aire y cae más rápido. El aire hace una fuerza contra lo que se mueve en él.",
       conceptos: ["gravedad", "caída", "resistencia del aire"],
-      seguridad: "Si usas una silla, que un adulto o el docente la sostenga y la silla esté firme; mejor sostener las hojas de pie con el brazo estirado.",
+      seguridad: "Suelta las hojas de pie, con el brazo estirado; nadie se sube a sillas ni mesas.",
       riesgo: "bajo",
       tiempo: 15,
       reto: "Construye un paracaídas con una bolsa plástica, hilo y un muñequito de plastilina para que caiga lo más lento posible.",
@@ -787,7 +787,7 @@
       riesgo: "bajo",
       tiempo: 30,
       reto: "¿Suelta más agua una rama al sol o una rama a la sombra? Pon dos bolsas y compáralas.",
-      conexion: "Los árboles de los parques de Cali, como los samanes, sueltan agua al aire y por eso bajo ellos se siente más fresco."
+      conexion: "Los árboles de los parques de Cali, como los samanes, dan sombra y sueltan vapor de agua al aire; por eso bajo ellos se siente más fresco."
     },
     {
       id: "CN02-31",
@@ -995,7 +995,7 @@
       resultado: "Se forma mucha espuma con burbujas y el globo se infla un poco.",
       porque: "Al juntarse el bicarbonato y el vinagre se forma una sustancia nueva: un gas llamado dióxido de carbono. Ese gas forma las burbujas y, como ocupa espacio, llena el globo. Este cambio es químico porque aparece algo nuevo que antes no estaba, y no se puede devolver a como era.",
       conceptos: ["cambio químico", "gas", "sustancia nueva", "reacción"],
-      seguridad: "No acerques la cara a la botella. No te tomes la mezcla. Si el globo se infla mucho, no lo aprietes: puede soltarse.",
+      seguridad: "No acerques la cara a la botella. No te tomes la mezcla. Si el globo se infla mucho, no lo aprietes: puede soltarse. Avisa si eres alérgico al látex y, si un globo se revienta, el docente recoge los pedazos: pueden ahogar si se llevan a la boca.",
       riesgo: "bajo",
       tiempo: 15,
       reto: "¿Se infla más el globo con más bicarbonato? Prueba con 1, 2 y 3 cucharaditas y compara.",
@@ -1059,7 +1059,7 @@
       dba: "EBC Ciencias Naturales 1.°–3.° · Me aproximo al conocimiento como científico natural: observa, hace conjeturas y registra cambios en los materiales",
       pregunta: "¿Qué se disuelve más rápido en agua: un pedazo de panela entero o la misma panela rallada?",
       prediccion: "¿Cuál crees que desaparecerá primero en el agua? ¿Ayudará revolver?",
-      materiales: ["2 pedacitos de panela del mismo tamaño", "1 rallador plástico o una bolsa y un mazo de madera", "3 vasos plásticos transparentes con la misma cantidad de agua del grifo", "1 cuchara", "reloj"],
+      materiales: ["3 pedacitos de panela del mismo tamaño", "1 rallador plástico o una bolsa y un mazo de madera", "3 vasos plásticos transparentes con la misma cantidad de agua del grifo", "1 cuchara", "reloj"],
       pasos: [
         "Ralla o machaca uno de los pedacitos de panela dentro de la bolsa.",
         "Echa el pedacito entero en el vaso 1, sin revolver.",
@@ -1140,9 +1140,9 @@
       materiales: ["1 esponjilla de lana de acero para lavar ollas (de las que se oxidan, no de acero inoxidable)", "3 platos plásticos pequeños", "agua", "1 cucharadita de sal", "guantes de cocina"],
       pasos: [
         "Con los guantes puestos, el docente separa la esponjilla en 3 pedazos.",
-        "Pon un pedazo seco en el plato 1.",
-        "Moja el pedazo 2 con agua y ponlo en su plato.",
-        "Moja el pedazo 3 con agua con sal y ponlo en su plato.",
+        "Mira cómo el docente pone un pedazo seco en el plato 1.",
+        "Mira cómo moja el pedazo 2 con agua y lo pone en su plato.",
+        "Mira cómo moja el pedazo 3 con agua con sal y lo pone en su plato.",
         "Observa los tres pedazos cada día durante 4 días sin tocarlos.",
         "Dibuja el color de cada uno."
       ],
@@ -1151,7 +1151,7 @@
       resultado: "El pedazo mojado con agua y sal se oxida primero y el mojado con agua después; el seco casi no cambia.",
       porque: "La esponjilla está hecha de hierro. Cuando el hierro está en contacto con el oxígeno del aire y con agua, se forma una sustancia nueva de color naranja llamada óxido o herrumbre. Es un cambio químico. La sal hace que ocurra más rápido. Sin agua, la oxidación es muy lenta.",
       conceptos: ["oxidación", "cambio químico", "hierro", "herrumbre"],
-      seguridad: "Usa guantes: los hilos de la esponjilla pueden chuzar. No te frotes los ojos. Bota los pedazos en la basura al terminar.",
+      seguridad: "Solo el docente toca la esponjilla, con guantes: sus hilos pueden chuzar y soltar astillas; los niños observan sin tocar. No te frotes los ojos. Bota los pedazos en la basura al terminar.",
       riesgo: "bajo",
       tiempo: 15,
       reto: "Unta un pedazo con aceite antes de mojarlo. ¿Se oxida igual? ¿Por qué crees que se pintan las rejas?",
@@ -1306,14 +1306,14 @@
       ],
       observa: "Cuánto cambió cada material después de 4 semanas.",
       registro: { columnas: ["Material", "¿Cómo estaba después de 4 semanas?"] },
-      resultado: "La cáscara de banano casi desapareció; la hoja y el papel están rotos y oscuros; la bolsa plástica y la tapa siguen casi iguales.",
+      resultado: "La cáscara de banano está oscura, blanda y en parte deshecha (en tierra seca o fría puede cambiar menos); la hoja y el papel están rotos y oscuros; la bolsa plástica y la tapa siguen casi iguales.",
       porque: "En el suelo viven seres muy pequeños, como lombrices, hongos y bacterias, que se alimentan de restos de plantas y papel y los deshacen. Esto se llama descomposición y devuelve nutrientes al suelo. El plástico no lo pueden comer, por eso dura cientos de años y contamina. Separar los residuos ayuda a cuidar la Tierra.",
       conceptos: ["descomposición", "residuos orgánicos", "plástico", "reciclaje"],
       seguridad: "Usa siempre guantes y lávate las manos al terminar. No acerques la nariz a los restos. Si ves moho, no lo toques ni lo huelas. Trata con cuidado a las lombrices y déjalas en la tierra.",
       riesgo: "bajo",
       tiempo: 30,
       reto: "Entierra un pedazo de bolsa «biodegradable» de supermercado. ¿Se deshace de verdad en 4 semanas?",
-      conexion: "En Cali existe la separación en la fuente con bolsas de colores: blanca para aprovechables, negra para no aprovechables y verde para orgánicos."
+      conexion: "En Colombia el código nacional de colores para separar en la fuente usa blanca para aprovechables, negra para no aprovechables y verde para orgánicos."
     }
   ];
 })(window.SABI_TALLER = window.SABI_TALLER || {});

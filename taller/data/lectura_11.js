@@ -108,12 +108,14 @@
           "Una segunda respuesta mira el deber.",
           "El filósofo Immanuel Kant sostuvo que mentir es siempre incorrecto, incluso cuando se hace con buena intención.",
           "Para él, quien miente trata al otro como alguien a quien se puede manejar, y no como una persona capaz de recibir la verdad y decidir por sí misma.",
-          "Además, si todos mintiéramos cuando nos conviene, la confianza que sostiene la palabra humana se derrumbaría."
+          "Además, si todos mintiéramos cuando nos conviene, la confianza que sostiene la palabra humana se derrumbaría.",
+         "Desde esta mirada, el valor moral de una acción no depende de sus resultados, sino de la regla que la guía."
         ],
         [
           "Ninguna de las dos posiciones resuelve el problema por completo.",
           "La primera corre el riesgo de justificar cualquier engaño mientras parezca útil, pues casi siempre podemos convencernos de que una mentira hará bien.",
-          "La segunda puede parecer rígida, porque no distingue entre engañar para aprovecharse de alguien y callar un detalle para no herir sus sentimientos."
+          "La segunda puede parecer rígida, porque no distingue entre engañar para aprovecharse de alguien y callar un detalle para no herir sus sentimientos.",
+         "Entre ambos extremos queda el terreno de las conversaciones cotidianas, donde ninguna fórmula general parece suficiente."
         ],
         [
           "Tal vez la pregunta mejore si dejamos de pensar en la mentira como un acto aislado y la miramos como parte de una relación.",
@@ -190,7 +192,8 @@
           "El problema es que el horario escolar no se corre con él.",
           "Si un estudiante se duerme a medianoche y debe levantarse a las cinco y media para llegar al colegio, duerme unas cinco horas y media.",
           "Las asociaciones médicas especializadas en sueño recomiendan, para jóvenes de trece a dieciocho años, entre ocho y diez horas por noche.",
-          "La diferencia se acumula día tras día como una deuda que el cuerpo intenta cobrar los fines de semana."
+          "La diferencia se acumula día tras día como una deuda que el cuerpo intenta cobrar los fines de semana.",
+         "Pero dormir hasta el mediodía del domingo no salda del todo esa deuda y, además, vuelve a correr el reloj para el lunes."
         ],
         [
           "Dormir poco no es solo una cuestión de cansancio.",
@@ -200,7 +203,8 @@
         [
           "Las pantallas complican el panorama.",
           "La luz que emiten, especialmente en la gama azul, puede retrasar la liberación de melatonina, y los contenidos interesantes mantienen la mente activa.",
-          "Así, la biología corre el reloj y el celular lo empuja todavía más."
+          "Así, la biología corre el reloj y el celular lo empuja todavía más.",
+         "Por eso no basta con acostarse temprano si el celular sigue encendido junto a la almohada."
         ],
         [
           "Nada de esto significa que la disciplina no importe.",
@@ -210,7 +214,7 @@
         ]
       ],
       literal: [
-        { p: "¿Cuántos años tiene Andrés?", r: "de dieciséis años", s: [0, 0] },
+        { p: "¿Cuántos años tiene Andrés?", r: "dieciséis años", s: [0, 0] },
         { p: "¿Cuándo libera el cerebro la melatonina?", r: "cuando oscurece", s: [1, 1] },
         { p: "¿Cuántas horas de sueño recomiendan para jóvenes de trece a dieciocho años?", r: "entre ocho y diez horas por noche", s: [2, 2] },
         { p: "¿Qué medidas sencillas propone el texto?", r: "mantener horarios regulares incluso el fin de semana, dejar las pantallas un rato antes de acostarse y exponerse a la luz natural en la mañana", s: [5, 2] }
@@ -293,8 +297,8 @@
       ],
       literal: [
         { p: "¿Cuántos estudiantes del colegio C respondieron la encuesta?", r: "80 del colegio C", s: [0, 0] },
-        { p: "¿Qué porcentaje dijo que usa estas herramientas varias veces por semana?", r: "el 35 % que las usa varias veces por semana", s: [1, 1] },
-        { p: "¿Cuál es el promedio de quienes nunca usan las herramientas?", r: "4,1 para quienes nunca las usan", s: [1, 2] },
+        { p: "¿Qué porcentaje dijo que usa estas herramientas varias veces por semana?", r: "el 35 %", s: [1, 1] },
+        { p: "¿Cuál es el promedio de quienes nunca usan las herramientas?", r: "4,1", s: [1, 2] },
         { p: "¿Qué aclara el pie de página sobre el colegio A?", r: "el colegio A no tiene biblioteca abierta en la tarde y que muchos de sus estudiantes trabajan después de clase", s: [2, 2] }
       ],
       entrelineas: [
@@ -355,7 +359,8 @@
           "Suele decirse que la culpa es de las autoridades, y en parte es cierto.",
           "Faltan controles a quienes vierten residuos, faltan recursos para las plantas de tratamiento y sobran promesas que se olvidan después de cada campaña electoral.",
           "Pero sería cómodo detenerse ahí.",
-          "Cada bolsa que alguien lanza por la ventana de un bus y cada colchón que se deja junto a una quebrada son decisiones de ciudadanos, no de funcionarios."
+          "Cada bolsa que alguien lanza por la ventana de un bus y cada colchón que se deja junto a una quebrada son decisiones de ciudadanos, no de funcionarios.",
+         "Y el agua no distingue entre la basura que permitió un funcionario negligente y la que arrojó un vecino descuidado."
         ],
         [
           "Tampoco sirve el discurso de la culpa colectiva que no exige nada a nadie.",
@@ -374,9 +379,9 @@
         ]
       ],
       literal: [
-        { p: "¿Qué escultura aparece en las fotos del río Cali?", r: "el Gato del Río", s: [0, 0] },
+        { p: "¿Qué figura aparece mirando desde la orilla en las fotos del río Cali?", r: "el Gato del Río", s: [0, 0] },
         { p: "¿De dónde bajan los ríos de Cali?", r: "bajan de los Farallones", s: [1, 2] },
-        { p: "¿Qué tareas corresponden a las empresas según la columnista?", r: "inversión y manejo de residuos para las empresas", s: [3, 2] },
+        { p: "¿Qué tareas corresponden a las empresas según la columnista?", r: "inversión y manejo de residuos", s: [3, 2] },
         { p: "¿Ante quién presenta sus datos el curso que adopta una quebrada?", r: "ante la junta de acción comunal", s: [4, 1] }
       ],
       entrelineas: [
@@ -459,7 +464,7 @@
         ]
       ],
       literal: [
-        { p: "¿Cuánto tiempo llevaba la canoa bocabajo?", r: "llevaba tres años bocabajo", s: [0, 0] },
+        { p: "¿Cuánto tiempo llevaba la canoa bocabajo?", r: "tres años", s: [0, 0] },
         { p: "¿De qué madera era el casco de la canoa?", r: "madera de chachajo", s: [0, 1] },
         { p: "¿A qué edad salió el abuelo a pescar por primera vez con su padre?", r: "a los once años", s: [2, 2] },
         { p: "¿Cuánto plazo propuso Yesid pedir al comprador?", r: "un mes de plazo", s: [4, 2] }
@@ -484,7 +489,7 @@
         "Un comprador ofrece dinero por la canoa del abuelo",
         "Yesid le cuenta al abuelo que van a vender la canoa",
         "Yesid pasa la noche diseñando un plan",
-        "La madre acepta dar un mes de plazo",
+        "Yesid propone pedir al comprador un mes de plazo",
         "El abuelo y Yesid reparan la canoa",
         "La Esperanza vuelve al agua"
       ],

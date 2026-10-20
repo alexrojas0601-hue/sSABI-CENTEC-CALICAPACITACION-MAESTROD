@@ -18,7 +18,7 @@
         { p: "¿De dónde llegó Yeimi a Cali?", r: "desde Guapi", s: [0, 0] },
         { p: "¿Quién le regaló el cununo?", r: "su abuela Eustaquia", s: [0, 1] },
         { p: "¿Qué propusieron los compañeros?", r: "que ella tocara el cununo", s: [1, 1] },
-        { p: "¿Qué hizo el rector durante la presentación?", r: "hasta el rector se puso a bailar", s: [3, 2] }
+        { p: "¿Qué hizo el rector durante la presentación?", r: "se puso a bailar", s: [3, 2] }
       ],
       entrelineas: [
         { p: "¿Cómo se sentía Yeimi la noche antes de la presentación?", op: ["Nerviosa", "Aburrida", "Brava con sus compañeros", "Tranquila"], c: 0, s: [1, 2], ex: "No pudo dormir y le sudaban las manos al pensar en el público: son señales de nervios. No estaba tranquila ni brava; ella aceptó tocar." },
@@ -62,7 +62,7 @@
       literal: [
         { p: "¿Qué se pega a los pelitos del cuerpo de la abeja?", r: "el polen", s: [0, 1] },
         { p: "¿Cómo se llama el viaje del polen de flor en flor?", r: "polinización", s: [1, 1] },
-        { p: "¿Qué hace la reina en la colmena?", r: "La reina pone los huevos", s: [2, 1] },
+        { p: "¿Qué hace la reina en la colmena?", r: "pone los huevos", s: [2, 1] },
         { p: "¿Cómo se llama la abeja colombiana sin aguijón que menciona el texto?", r: "la angelita", s: [3, 0] }
       ],
       entrelineas: [
@@ -112,7 +112,7 @@
       entrelineas: [
         { p: "¿Por qué el vaso debe ser transparente?", op: ["Para poder ver cómo crece la semilla", "Para que pese menos", "Para que el agua no se salga", "Porque es más barato"], c: 0, s: [2, 1], ex: "El paso 2 dice que los fríjoles van contra la pared del vaso «para que puedas verlos»; eso solo sirve si el vaso deja ver." },
         { p: "¿Para qué se escribe la fecha en el cuaderno?", op: ["Para saber cuántos días tarda la planta en cambiar", "Para que el cuaderno se vea bonito", "Para avisar que el experimento terminó"], c: 0, s: [2, 4], ex: "El propósito es ver cómo nace la planta «día a día»; con la fecha se compara qué cambió y cuándo." },
-        { p: "Según el texto, ¿qué necesita la semilla para germinar y crecer?", op: ["Agua en la medida justa y luz", "Oscuridad total", "Mucha agua, hasta que se encharque"], c: 0, s: [3, 1], ex: "Se humedece el algodón y se pone el vaso donde llegue luz; el texto advierte que el exceso de agua pudre las semillas." }
+        { p: "Según el texto, ¿qué necesita la plantita para crecer bien en el germinador?", op: ["Agua en la medida justa y luz", "Oscuridad total", "Mucha agua, hasta que se encharque"], c: 0, s: [3, 1], ex: "Se humedece el algodón y se pone el vaso donde llegue luz; el texto advierte que el exceso de agua pudre las semillas." }
       ],
       contexto: [
         { w: "humedécelo", s: [2, 0], op: ["Mójalo un poco", "Sécalo al sol", "Córtalo en pedazos"], c: 0, ex: "Se hace «con agua» y «sin que quede encharcado»: es mojarlo solo un poco." },
@@ -150,10 +150,10 @@
         ["Abuelo de tantos años,", "guardián de nuestro lugar,", "prometo cuidar tu tronco", "para que puedas durar."]
       ],
       literal: [
-        { p: "¿A qué se parecen las ramas del samán?", r: "sus ramas son un paraguas", s: [0, 2] },
+        { p: "¿A qué se parecen las ramas del samán?", r: "un paraguas", s: [0, 2] },
         { p: "¿Qué hacen los perros al mediodía?", r: "se duermen bajo su sombra", s: [1, 1] },
         { p: "¿Qué pájaros cantan en sus ramas?", r: "azulejos y torcazas", s: [2, 1] },
-        { p: "¿Qué hace el samán cuando el cielo se nubla?", r: "el samán dobla sus hojas", s: [4, 2] }
+        { p: "¿Qué hace el samán cuando el cielo se nubla?", r: "dobla sus hojas", s: [4, 2] }
       ],
       entrelineas: [
         { p: "¿Por qué el poema llama «abuelo» al samán?", op: ["Porque es un árbol muy viejo y querido", "Porque tiene barba blanca", "Porque es el papá del poeta"], c: 0, s: [6, 0], ex: "Dice «abuelo de tantos años»: lo llama así por su edad y por el cariño que le tiene." },
@@ -165,8 +165,8 @@
         { w: "corteza", s: [5, 1], op: ["La capa de afuera del tronco", "Una hoja seca", "La raíz del árbol"], c: 0, ex: "Es «arrugada» y se le puede poner el oído encima: es la piel del tronco." }
       ],
       dondelopone: [
-        { a: "Los animales usan el árbol como hogar.", s: [2, 2] },
-        { a: "El samán es muy alto.", s: [3, 3] },
+        { a: "Los pájaros construyen algo en lo alto del árbol.", s: [2, 2] },
+        { a: "La parte más alta del samán parece llegar hasta el cielo.", s: [3, 3] },
         { a: "La voz del poema se compromete a proteger el árbol.", s: [6, 2] }
       ],
       orden: ["Las ramas del samán son como un paraguas.", "Los perros duermen bajo su sombra.", "Los pájaros hacen sus casas en las ramas.", "Los niños juegan bajo el árbol.", "El samán dobla sus hojas al llegar la noche.", "La voz del poema promete cuidar el árbol."],
@@ -239,7 +239,7 @@
       ],
       literal: [
         { p: "¿Qué piden los estudiantes?", r: "una biblioteca en el patio durante el recreo", s: [1, 0] },
-        { p: "¿Cuántas razones dan?", r: "Tenemos tres razones", s: [2, 0] },
+        { p: "¿Cuántas razones dan?", r: "tres razones", s: [2, 0] },
         { p: "¿Dónde guardarían los libros?", r: "en un baúl con candado", s: [3, 1] },
         { p: "¿Quiénes firman la carta?", r: "Los estudiantes de tercero B", s: [5, 1] }
       ],
