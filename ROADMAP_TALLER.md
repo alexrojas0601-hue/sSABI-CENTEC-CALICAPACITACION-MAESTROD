@@ -34,7 +34,7 @@ recorrer todas las pestañas y grados, 0 errores de consola, y revisar impresió
 - [x] Enlace al Taller desde `index.html` (menú y pie) y desde el tutor Dots (ruta sugerida)
 - [x] Prueba completa en navegador (`python3 taller/tools/prueba_navegador.py`: 270 vistas, 0 errores) · impresión revisada en capturas; falta prueba física del plegado del minilibro
 - [x] Publicar (commit + push a `main`); Cloudflare Pages se actualiza solo si está conectado
-- [ ] Guardar el Prompt Maestro v2 en el proyecto de Claude
+- [x] Guardar el Prompt Maestro v2 en el proyecto de Claude (claude/PROMPT_MAESTRO_SABI_v2.md)
 
 ## Pendientes menores (para el próximo Dot o el docente)
 - DBA de Transición (lenguaje): reemplazar paráfrasis por texto literal cuando se pueda leer el PDF oficial de Colombia Aprende.
