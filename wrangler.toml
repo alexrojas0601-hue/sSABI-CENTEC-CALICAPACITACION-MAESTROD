@@ -1,0 +1,9 @@
+# Capacitación Maestros en Cloudflare (para usar el ingreso único SABI necesita estar en *.sabicentec.com)
+# Pasos: Cloudflare → Workers & Pages → Create → Import a repository → este repositorio →
+#        luego Settings → Domains → Add Domain → capacitacion.sabicentec.com
+name = "sabicentec-capacitacion"
+compatibility_date = "2026-01-01"
+
+[assets]
+directory = "."
+not_found_handling = "404-page"
