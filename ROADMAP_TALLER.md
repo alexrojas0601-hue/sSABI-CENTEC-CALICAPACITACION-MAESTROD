@@ -37,8 +37,10 @@ recorrer todas las pestañas y grados, 0 errores de consola, y revisar impresió
 - [x] Guardar el Prompt Maestro v2 en el proyecto de Claude (claude/PROMPT_MAESTRO_SABI_v2.md)
 - [x] Pasada de auditoría 2026-10-23 (Dot de continuidad): `validar.js todo` 0 errores/0 avisos; navegador 270 vistas, 0 errores. La prueba ahora excluye `sabicentec.com/assets/sabi-sesion.js` (script de sesión externo del ecosistema, inalcanzable sin red; no es un error de la app). Revisión de seguridad de Transición: sin hallazgos.
 - [x] Segunda pasada 2026-10-23 (Dot de continuidad, ejecución programada): `validar.js todo` 0 errores/0 avisos (600 experimentos, 72 lecturas con evidencia literal verificada, 93 comandos, DBA de 3 áreas); navegador 270 vistas, 0 errores de consola, 0 desbordes a 390 px, 150 sopas/crucigramas sin fallos; enlaces del Taller en `index.html` presentes. Sin cambios de contenido necesarios.
+- [x] Tercera pasada 2026-10-23 (auditor independiente, 1.° y 2.°: 100 experimentos y 12 lecturas): CN01-27 corregido (la hoja se sostiene frente al espejo; antes se volteaba de arriba abajo, no de lado); LC01-6 «el Mohán le esconde los anzuelos» (evita la lectura ambigua «sus anzuelos»); CN01-30, CN01-32 y CN01-40 pasan a riesgo «medio» por uso de cuchillo del docente (regla del esquema). Validador OK; navegador 270 vistas, 0 errores.
 
 ## Pendientes menores (para el próximo Dot o el docente)
+- CN01-24 (LED con 2 pilas AA): la Parte C del Prompt Maestro pide «LED con resistencia»; decidir si se añade una resistencia de 100 Ω o se deja como está (sin riesgo para el niño, solo puede dañarse el LED).
 - DBA de Transición (lenguaje): el PDF oficial (colombiaaprende.edu.co/sites/default/files/files_public/2026-06/dba_transicion-min_0.pdf) requiere autorización de acceso; reemplazar paráfrasis por texto literal cuando se pueda leer el PDF oficial de Colombia Aprende.
 - ✓ CN11-28 (electroforesis) reducido a 2 pilas de 9 V (18 V) conectadas por el docente.
 - Repeticiones intencionales entre grados con mayor enfoque cuantitativo en el grado superior (p. ej., poleas, refracción, cristales): revisar si se desean eliminar.

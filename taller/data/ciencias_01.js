@@ -522,7 +522,7 @@
       pregunta: "¿Cómo se ve tu nombre escrito cuando lo miras en un espejo?",
       prediccion: "¿Las letras se verán igual, al revés o de cabeza?",
       materiales: ["1 espejo de plástico (acrílico) de juguete", "1 hoja", "1 marcador", "1 linterna"],
-      pasos: ["Escribe tu nombre en letras grandes.", "Pon el espejo de pie frente a la hoja.", "Mira tu nombre en el espejo.", "Levanta tu mano derecha frente al espejo y mira qué mano levanta tu imagen.", "En el salón oscuro, alumbra el espejo con la linterna y busca la mancha de luz en la pared."],
+      pasos: ["Escribe tu nombre en letras grandes.", "Sostén la hoja frente al espejo, con tu nombre mirando hacia él.", "Mira tu nombre en el espejo.", "Levanta tu mano derecha frente al espejo y mira qué mano levanta tu imagen.", "En el salón oscuro, alumbra el espejo con la linterna y busca la mancha de luz en la pared."],
       observa: "Cómo aparecen las letras en el espejo y hacia dónde rebota la luz de la linterna.",
       resultado: "Tu nombre se ve con las letras volteadas de lado. La imagen parece levantar la otra mano. La luz de la linterna rebota en el espejo y aparece en otra parte de la pared.",
       porque: "Los espejos son superficies muy lisas que hacen rebotar la luz: eso se llama reflexión. La luz rebota hacia nosotros y vemos una imagen. En esa imagen, lo de la izquierda se ve a la derecha, por eso las letras parecen escritas al revés. La sombra es distinta: es falta de luz, no un reflejo.",
@@ -588,7 +588,7 @@
       porque: "Las plantas toman agua por la raíz y la llevan hasta las hojas por unos tubitos muy delgados que tienen dentro del tallo. El colorante viaja con el agua, por eso vemos su camino. Las plantas no comen tierra: toman agua y sales del suelo y fabrican su alimento con la luz.",
       conceptos: ["planta", "tallo", "agua"],
       seguridad: "Solo el docente corta el apio. El agua con colorante no se toma.",
-      riesgo: "bajo",
+      riesgo: "medio",
       tiempo: 15,
       reto: "Prueba con una flor blanca, como un clavel. ¿Cambia de color?",
       conexion: "Los cultivos de caña del Valle del Cauca se riegan porque la planta necesita llevar agua hasta sus hojas."
@@ -628,7 +628,7 @@
       porque: "Los alimentos sueltan partecitas tan pequeñas que no se ven y que viajan por el aire. Cuando respiras, entran a la nariz y el sentido del olfato las detecta. El cerebro recuerda los olores, por eso puedes reconocerlos. Oler también te avisa de peligros, como la comida dañada.",
       conceptos: ["olfato", "nariz", "olor"],
       seguridad: "Huele moviendo el aire con la mano, nunca metas la nariz en el vaso. Avisa al docente si tienes alergias. Solo el docente pica la cebolla.",
-      riesgo: "bajo",
+      riesgo: "medio",
       tiempo: 20,
       reto: "Tápate la nariz y prueba un pedacito de manzana (si no tienes alergias). ¿Sientes igual su sabor?",
       conexion: "En la galería de Cali puedes reconocer las frutas por su olor: guayaba, maracuyá, mango, lulo."
@@ -788,7 +788,7 @@
       porque: "Cuando partimos la manzana, su parte de adentro toca el aire. Unas sustancias de la fruta se combinan con el oxígeno del aire y forman otras nuevas de color café: es un cambio químico. El limón protege la tajada porque hace más lento ese cambio.",
       conceptos: ["oxígeno", "aire", "cambio químico"],
       seguridad: "Solo el docente parte la manzana. No comas las tajadas que estuvieron en el experimento.",
-      riesgo: "bajo",
+      riesgo: "medio",
       tiempo: 60,
       reto: "Prueba con banano o aguacate. ¿También se ponen oscuros?",
       conexion: "Por eso en las fruterías de Cali le echan limón o naranja a la ensalada de frutas."

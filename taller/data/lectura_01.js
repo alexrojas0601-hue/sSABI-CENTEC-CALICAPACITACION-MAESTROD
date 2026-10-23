@@ -212,14 +212,14 @@
       parrafos: [
         ["En los ríos de Colombia, los pescadores cuentan la historia del Mohán.", "El Mohán es un hombre grande, con barba larga y sombrero de paja."],
         ["Vive en una cueva debajo del agua.", "Le gusta tocar el tiple en la orilla del río."],
-        ["Cuando alguien ensucia el río, el Mohán esconde sus anzuelos.", "Cuando alguien cuida el agua, le llena la red de peces."],
+        ["Cuando alguien ensucia el río, el Mohán le esconde los anzuelos.", "Cuando alguien cuida el agua, le llena la red de peces."],
         ["Por eso, los pescadores dicen: «Cuida el río y el río te cuidará»."]
       ],
       literal: [
         { p: "¿Cómo es la barba del Mohán?", r: "barba larga", s: [0, 1] },
         { p: "¿Dónde vive el Mohán?", r: "en una cueva debajo del agua", s: [1, 0] },
         { p: "¿Qué instrumento toca?", r: "el tiple", s: [1, 1] },
-        { p: "¿Qué esconde el Mohán cuando ensucian el río?", r: "sus anzuelos", s: [2, 0] }
+        { p: "¿Qué esconde el Mohán cuando ensucian el río?", r: "los anzuelos", s: [2, 0] }
       ],
       entrelineas: [
         { p: "¿Qué quiere enseñar esta leyenda?", op: ["Que pescar es aburrido", "Que hay que cuidar el agua de los ríos", "Que el tiple es difícil de tocar"], c: 1, s: [3, 0], ex: "El dicho final, «Cuida el río y el río te cuidará», resume la enseñanza." },
@@ -235,7 +235,7 @@
       ],
       orden: ["Los pescadores cuentan la historia del Mohán.", "El Mohán vive en una cueva bajo el agua.", "Si ensucian el río, esconde los anzuelos.", "Si cuidan el agua, llena la red de peces."],
       causas: [
-        { causa: "Alguien ensucia el río", efecto: "el Mohán esconde sus anzuelos" },
+        { causa: "Alguien ensucia el río", efecto: "el Mohán le esconde los anzuelos" },
         { causa: "Alguien cuida el agua", efecto: "el Mohán le llena la red de peces" }
       ],
       argumenta: [
