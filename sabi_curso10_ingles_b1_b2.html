@@ -1755,10 +1755,10 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
 const S={
   mods:{},prog:{},
   init(){
-    try{const d=localStorage.getItem('sabi_p');if(d)this.prog=JSON.parse(d)}catch(e){}
+    try{const d=localStorage.getItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''));if(d)this.prog=JSON.parse(d)}catch(e){}
     this.repaint();this.unlock();
   },
-  save(){try{localStorage.setItem('sabi_p',JSON.stringify(this.prog))}catch(e){}},
+  save(){try{localStorage.setItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''),JSON.stringify(this.prog))}catch(e){}},
   repaint(){
     document.querySelectorAll('.sdot').forEach(d=>{
       const n=+d.dataset.n;

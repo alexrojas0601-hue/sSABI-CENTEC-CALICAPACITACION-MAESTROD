@@ -864,9 +864,13 @@ function showTab(id, btn) {
 
 /* ═══════════════ INIT ═══════════════ */
 window.addEventListener('load', () => {
-  setLang('en', document.querySelector('.lt.on'));
+  const q = (location.search.match(/[?&]lang=(en|fr|pt|de|zh)/) || [])[1] || 'en';
+  const b = [...document.querySelectorAll('.lt')].find(x => (x.getAttribute('onclick')||'').includes("'"+q+"'")) || document.querySelector('.lt.on');
+  setLang(q, b);
 });
 </script>
+<!-- Club de Diálogo SABI: conversaciones guiadas con voz que funcionan sin IA (IA opcional vía window.SABI_IA_ENDPOINT) -->
+<script src="club/club.js"></script>
 <script src="https://superacion.sabicentec.com/sabi-puerta.js" data-rol="docente" data-texto="SABI para docentes" defer></script>
 </body>
 </html>

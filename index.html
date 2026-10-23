@@ -1131,8 +1131,16 @@ async function sendAI(text){
   history.push({role:'user',content:text});
   addTyping();
   setStatus('thinking');
+  const IA_URL = (function(){try{return window.SABI_IA_ENDPOINT||localStorage.getItem('sabi:ia_endpoint')||'';}catch(e){return window.SABI_IA_ENDPOINT||'';}})();
+  if(!IA_URL){
+    /* Sin servidor de IA configurado: el Club de Diálogo SABI funciona siempre, con voz y micrófono */
+    document.getElementById('typi')?.remove();
+    const code = ({en:'en',fr:'fr',pt:'pt',de:'de',zh:'zh'})[String(lang).slice(0,2)] || 'en';
+    addMsg('bot','🎙 Para practicar conversación con voz, corrección y puntaje de pronunciación entra al <a href="sabi_club_idiomas.html?lang='+code+'" style="color:#F2C84B;font-weight:600">Club de Diálogo SABI →</a> (diez escenarios reales de la vida docente).');
+    setStatus('idle'); busy=false; return;
+  }
   try{
-    const res = await fetch('https://api.anthropic.com/v1/messages',{
+    const res = await fetch(IA_URL,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
