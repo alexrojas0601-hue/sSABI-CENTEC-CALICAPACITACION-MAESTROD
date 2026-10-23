@@ -46,3 +46,35 @@ recorrer todas las pestañas y grados, 0 errores de consola, y revisar impresió
 ## Reglas
 Seguridad infantil y rigor según los esquemas. Nunca inventar normativa, cifras ni autores. Auditores independientes de los autores.
 Nunca reemplazar diseño existente: solo añadir. Commits con autor «Alexander Rojas Zamorano <alexrojas0601@gmail.com>».
+
+---
+
+# ROADMAP · Experiencia SABI v2 en los 25 cursos (iniciada 2026-10-22)
+
+Meta: que sean los mejores cursos gratuitos y certificados para docentes del entorno digital: acogedores,
+rigurosos, con voz, práctica, comprobación y transferencia al aula.
+
+## Hecho en esta fase
+- [x] Motor `sabi_dots.js` v2 (sin cambiar el diseño de los cursos): 🏁 Hoy (sesión guiada de 15-20 min),
+      🎧 audio-lección narrada, 🔊 «Escuchar el curso» (lee la página desde donde estás, resaltando), 🎯 reto
+      diagnóstico antes/después, 🔐 escape room de 4 candados, 🔀 ordena el proceso, 📅 reto de 7 días en el aula
+      con evidencia, 🗣 escucha y repite con puntaje de pronunciación (idiomas), 🖨 kit imprimible (/worksheet,
+      /minibook), 🎓 certificado gratuito (al aprobar todos los módulos con ≥70 %), 🏅 logros, racha e insignias.
+- [x] `kb/plus/<curso>.js` para los 25 cursos (esquema `kb/plus/_ESQUEMA_PLUS.md`).
+- [x] Evaluaciones de plantilla reemplazadas en 16, 19, 23, 24 y 25; tarjetas «Contenido profundo sobre…» rellenas
+      (`python3 taller/tools/aplicar_plus.py`, idempotente: volver a ejecutarlo si cambian los kb).
+- [x] Progreso por curso: la clave `sabi_p` era compartida entre todos los cursos (aprobar M1 de un curso marcaba
+      M1 en otro); ahora es `sabi_p:<curso>`.
+- [x] Club de Diálogo (`sabi_club_idiomas.html` + `club/club.js` + `club/data/<idioma>.js`): 10 escenarios por
+      idioma con voz, micrófono, corrección del error típico, pistas, vocabulario, racha y minutos hablados. Funciona
+      sin IA. IA opcional: definir `window.SABI_IA_ENDPOINT` (proxy propio, nunca una clave en el navegador).
+- [x] `index.html`: el avatar ya no muestra «Error de conexión» sin IA; invita al Club de Diálogo.
+- [x] Curso 11: módulos genéricos «Contenido en desarrollo» reconstruidos.
+
+## Pendiente (para los Dots o el equipo)
+- [ ] Revisión humana del contenido nuevo (todo está «en revisión»): docentes de área por curso.
+- [ ] Reconstrucción profunda (Bloom N1-N6, rúbricas, casos, 800-1.200 palabras por módulo) de los cursos con
+      menos contenido en la página: 12, 13, 14, 15, 16, 19, 23, 24, 25 (1-2 módulos cada uno).
+- [ ] Agregar DOI verificados a las fuentes de `kb/*.js` (exigencia del Prompt Maestro).
+- [ ] Más escenarios del Club (meta: 30 por idioma) y conversación libre con IA mediante un Worker propio.
+- [ ] Prueba física del minilibro impreso y del certificado en PDF.
