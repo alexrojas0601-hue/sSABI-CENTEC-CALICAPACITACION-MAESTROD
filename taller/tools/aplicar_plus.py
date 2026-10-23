@@ -6,7 +6,8 @@
 3. Rellena las tarjetas con texto provisional («Contenido profundo sobre…») con `cards` (kb/<curso>.js).
 
 Solo cambia textos; no toca el diseño ni la lógica del curso. Uso (desde la raíz):
-    python3 taller/tools/aplicar_plus.py
+    python3 taller/tools/aplicar_plus.py            # todos los cursos
+    python3 taller/tools/aplicar_plus.py 24 25      # solo los cursos indicados
 """
 import glob, html, json, os, re, subprocess, sys
 
@@ -33,6 +34,8 @@ for f in sorted(glob.glob('sabi_curso*.html')):
     if os.path.getsize(f) < 2000:
         continue
     curso = f[:-5]
+    if sys.argv[1:] and not any(curso.startswith('sabi_curso%02d' % int(n)) for n in sys.argv[1:]):
+        continue
     if not os.path.exists('kb/%s.js' % curso):
         continue
     base, kb = cargar(curso)
