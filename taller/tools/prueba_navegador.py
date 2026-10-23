@@ -23,7 +23,7 @@ URL = f'http://127.0.0.1:{PUERTO}/sabi_taller.html'
 GRADOS = ['tr', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11']
 TABS = ['inicio', 'ciencia', 'mate', 'lectura', 'ayudas', 'comandos', 'dba']
 AYUDAS = ['worksheet', 'escape', 'detective', 'boardgame', 'stations', 'manipulative', 'comic', 'lapbook', 'puzzle', 'minibook']
-BLOQUEADOS = ('superacion.sabicentec.com', 'fonts.googleapis.com', 'fonts.gstatic.com')
+BLOQUEADOS = ('superacion.sabicentec.com', 'sabicentec.com/assets/sabi-sesion.js', 'fonts.googleapis.com', 'fonts.gstatic.com')
 
 capturas = None
 if '--capturas' in sys.argv:

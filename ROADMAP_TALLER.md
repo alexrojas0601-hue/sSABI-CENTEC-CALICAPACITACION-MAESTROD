@@ -35,6 +35,7 @@ recorrer todas las pestañas y grados, 0 errores de consola, y revisar impresió
 - [x] Prueba completa en navegador (`python3 taller/tools/prueba_navegador.py`: 270 vistas, 0 errores) · impresión revisada en capturas; falta prueba física del plegado del minilibro
 - [x] Publicar (commit + push a `main`); Cloudflare Pages se actualiza solo si está conectado
 - [x] Guardar el Prompt Maestro v2 en el proyecto de Claude (claude/PROMPT_MAESTRO_SABI_v2.md)
+- [x] Pasada de auditoría 2026-10-23 (Dot de continuidad): `validar.js todo` 0 errores/0 avisos; navegador 270 vistas, 0 errores. La prueba ahora excluye `sabicentec.com/assets/sabi-sesion.js` (script de sesión externo del ecosistema, inalcanzable sin red; no es un error de la app). Revisión de seguridad de Transición: sin hallazgos.
 
 ## Pendientes menores (para el próximo Dot o el docente)
 - DBA de Transición (lenguaje): el PDF oficial (colombiaaprende.edu.co/sites/default/files/files_public/2026-06/dba_transicion-min_0.pdf) requiere autorización de acceso; reemplazar paráfrasis por texto literal cuando se pueda leer el PDF oficial de Colombia Aprende.
