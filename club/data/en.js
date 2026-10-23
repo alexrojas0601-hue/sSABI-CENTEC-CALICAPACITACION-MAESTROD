@@ -25,7 +25,7 @@ window.SABI_CLUB.en = {
             { t: "I'm of Cali, Colombia.", es: "Soy de Cali, Colombia.", ok: false,
               fix: "Para el lugar de origen se usa «from», no «of»: «I'm from Cali»." }
           ],
-          clave: ["from", "Colombia"],
+          clave: ["I'm from", "from Cali"],
           tip: "«Where are you from?» lleva la preposición al final. Responde con «I'm from…» o «I come from…»." },
         { bot: "Cali! That sounds wonderful. So, what do you teach?", es: "¡Cali! Suena maravilloso. Y bueno, ¿qué enseñas?",
           opciones: [
@@ -34,7 +34,7 @@ window.SABI_CLUB.en = {
             { t: "I teach the mathematics.", es: "Enseño las matemáticas.", ok: false,
               fix: "Las asignaturas van sin artículo en inglés: «I teach math», no «the mathematics»." }
           ],
-          clave: ["teach", "math"],
+          clave: ["teach math", "fifth graders"],
           tip: "En EE. UU. se dice «math»; en el Reino Unido, «maths». «Fifth graders» = estudiantes de quinto." },
         { bot: "Great! How long have you been a teacher?", es: "¡Genial! ¿Hace cuánto eres docente?",
           opciones: [
@@ -90,16 +90,16 @@ window.SABI_CLUB.en = {
             { t: "Good morning. Yes, please take a sit.", es: "Buenos días. Sí, tomen asiento, por favor.", ok: false,
               fix: "«Sit» es el verbo; el sustantivo es «seat»: «take a seat» o simplemente «sit down»." }
           ],
-          clave: ["sit", "please"],
-          tip: "«Seat» /siːt/ tiene vocal larga; «sit» /sɪt/, corta. Alarga la «i» de «seat»." },
+          clave: ["sit down", "take your seats"],
+          tip: "«Seat» /siːt/ tiene vocal larga; «sit» /sɪt/, corta. Alarga la vocal de «seat»." },
         { bot: "Okay! What do we need today, teacher?", es: "¡Listo! ¿Qué necesitamos hoy, profe?",
           opciones: [
             { t: "Open your books to page 20.", es: "Abran sus libros en la página 20.", ok: true },
             { t: "Please take out your books and open them to page 20.", es: "Por favor, saquen sus libros y ábranlos en la página 20.", ok: true },
             { t: "Open your books in the page 20.", es: "Abran sus libros en la página 20.", ok: false,
-              fix: "En inglés de EE. UU. se dice «open your books to page 20», sin artículo antes de «page 20»." }
+              fix: "Se dice «open your books to page 20» (o «turn to page 20»): preposición «to», no «in», y sin artículo antes de «page 20»." }
           ],
-          clave: ["open", "books", "page"],
+          clave: ["to page", "take out"],
           tip: "Imperativo = verbo sin sujeto: «Open», «Take out», «Listen». Añade «please» para suavizar." },
         { bot: "Sorry, teacher, I don't have my book.", es: "Perdón, profe, no tengo mi libro.",
           opciones: [
@@ -108,7 +108,7 @@ window.SABI_CLUB.en = {
             { t: "No problem. Share with your companion.", es: "No hay problema. Comparte con tu compañero.", ok: false,
               fix: "«Compañero de clase» es «partner» o «classmate». «Companion» significa acompañante." }
           ],
-          clave: ["share", "partner"],
+          clave: ["partner", "Sofia"],
           tip: "«Partner» = compañero de trabajo en pareja; «classmate» = compañero de curso." },
         { bot: "Okay. What do we do now?", es: "Bueno. ¿Y ahora qué hacemos?",
           opciones: [
@@ -117,7 +117,7 @@ window.SABI_CLUB.en = {
             { t: "Read the text and make the exercises.", es: "Lean el texto y hagan los ejercicios.", ok: false,
               fix: "Con ejercicios, tareas y actividades se usa «do», no «make»: «do the exercises»." }
           ],
-          clave: ["read", "answer"],
+          clave: ["answer the questions", "answer questions"],
           tip: "Usa secuenciadores: «first», «then», «after that». Ayudan a que los niños sigan el orden." },
         { bot: "Teacher, how do you say \"borrador\" in English?", es: "Profe, ¿cómo se dice «borrador» en inglés?",
           opciones: [
@@ -126,7 +126,7 @@ window.SABI_CLUB.en = {
             { t: "In English it says \"eraser.\"", es: "En inglés se dice «eraser».", ok: false,
               fix: "«Se dice» se traduce como «we say» o «it's», no «it says» (que significa «dice» un texto o letrero)." }
           ],
-          clave: ["say", "eraser"],
+          clave: ["it's", "we say"],
           tip: "Celebra las preguntas: «Good question!» anima a los estudiantes a seguir preguntando en inglés." },
         { bot: "I finished! Can I go to the bathroom?", es: "¡Terminé! ¿Puedo ir al baño?",
           opciones: [
@@ -135,7 +135,7 @@ window.SABI_CLUB.en = {
             { t: "Yes, but return back quickly.", es: "Sí, pero vuelve rápido.", ok: false,
               fix: "«Return back» es redundante: «return» ya significa volver. Di «come back» o «return»." }
           ],
-          clave: ["come back", "yes"],
+          clave: ["come back", "you can", "you may"],
           tip: "En EE. UU. en la escuela se dice «bathroom» o «restroom»; «toilet» suena demasiado directo." },
         { bot: "I'm back! What's next?", es: "¡Ya volví! ¿Qué sigue?",
           opciones: [
@@ -144,7 +144,7 @@ window.SABI_CLUB.en = {
             { t: "Now, work in couples and check your answers.", es: "Ahora trabajen en parejas y revisen sus respuestas.", ok: false,
               fix: "Para trabajo en parejas se dice «in pairs». «Couple» se usa para parejas sentimentales." }
           ],
-          clave: ["pairs", "answers"],
+          clave: ["pairs", "raise your hand"],
           tip: "Modela la instrucción con gestos: junta dos dedos al decir «pairs» y levanta la mano al decir «raise your hand»." }
       ],
       cierre: { bot: "Okay, teacher! This is fun!", es: "¡Listo, profe! ¡Esto es divertido!" },
@@ -183,7 +183,7 @@ window.SABI_CLUB.en = {
             { t: "Yes, here you have.", es: "Sí, aquí tiene.", ok: false,
               fix: "«Aquí tiene» no se traduce palabra por palabra. Se dice «Here you go» o «Here you are»." }
           ],
-          clave: ["here", "passport"],
+          clave: ["here you go", "here's my passport"],
           tip: "Al entregar algo: «Here you go». Al recibirlo, la otra persona dice «Thank you» o «Thanks»." },
         { bot: "Thank you. Would you like a room with one bed or two?", es: "Gracias. ¿Quiere una habitación con una cama o con dos?",
           opciones: [
@@ -201,7 +201,7 @@ window.SABI_CLUB.en = {
             { t: "Yes. At what hour is the breakfast?", es: "Sí. ¿A qué hora es el desayuno?", ok: false,
               fix: "Se pregunta «What time is breakfast?». «Hour» es un período de 60 minutos, y las comidas van sin «the»." }
           ],
-          clave: ["what time", "breakfast"],
+          clave: ["what time", "Wi-Fi"],
           tip: "412 se lee «four twelve». Los números de habitación se dicen en grupos." },
         { bot: "Breakfast is from 6:30 to 10 a.m. in the lobby, and the Wi-Fi is free. The password is on your key card. Anything else?", es: "El desayuno es de 6:30 a 10 a. m. en el lobby, y el wifi es gratis. La clave está en su tarjeta. ¿Algo más?",
           opciones: [
@@ -210,7 +210,7 @@ window.SABI_CLUB.en = {
             { t: "Yes. How I can go to Lincoln Elementary School?", es: "Sí. ¿Cómo puedo ir a la escuela Lincoln?", ok: false,
               fix: "En las preguntas, el auxiliar va antes del sujeto: «How can I get to…?», no «How I can…»." }
           ],
-          clave: ["how", "get to"],
+          clave: ["how can I", "best way"],
           tip: "«Get to» un lugar = llegar a. Es más natural que «arrive to», que además es incorrecto." },
         { bot: "It's about fifteen minutes by car. You can take a taxi or a rideshare from the entrance. Should I call a taxi for you in the morning?", es: "Son unos quince minutos en carro. Puede tomar un taxi o un carro por aplicación en la entrada. ¿Le pido un taxi en la mañana?",
           opciones: [
@@ -219,7 +219,7 @@ window.SABI_CLUB.en = {
             { t: "Yes, please. You are very kind. Thanks for all.", es: "Sí, por favor. Es muy amable. Gracias por todo.", ok: false,
               fix: "«Gracias por todo» es «Thanks for everything», no «for all»." }
           ],
-          clave: ["yes", "thanks"],
+          clave: ["thank you", "thanks for everything"],
           tip: "«That would be great» es una forma amable y natural de aceptar un ofrecimiento." }
       ],
       cierre: { bot: "You're welcome! I'll take care of it. Have a good night, and enjoy Orlando!", es: "¡Con gusto! Yo me encargo. ¡Que pase buena noche y disfrute Orlando!" },
@@ -249,7 +249,7 @@ window.SABI_CLUB.en = {
             { t: "Very good, thanks. The people here is very friendly.", es: "Muy bien, gracias. La gente aquí es muy amable.", ok: false,
               fix: "«People» es plural en inglés: «people are», no «people is»." }
           ],
-          clave: ["going", "friendly"],
+          clave: ["going well", "friendly", "pretty well", "welcoming"],
           tip: "«Everyone» va en singular (everyone is), pero «people» va en plural (people are)." },
         { bot: "Glad to hear it. Coffee? Fair warning: it's terrible.", es: "Me alegra. ¿Un café? Te advierto: es malísimo.",
           opciones: [
@@ -258,7 +258,7 @@ window.SABI_CLUB.en = {
             { t: "Yes, thanks. I'm agree with you, the coffee here is bad.", es: "Sí, gracias. Estoy de acuerdo contigo, el café aquí es malo.", ok: false,
               fix: "«Agree» es un verbo: «I agree with you». Nunca «I'm agree»." }
           ],
-          clave: ["coffee", "love"],
+          clave: ["sure", "love", "thanks", "risk"],
           tip: "«I'd love some» es la forma natural de aceptar comida o bebida. «Picky» = exigente, quisquilloso." },
         { bot: "Ha! Speaking of Colombia, how are classes different over there?", es: "¡Ja! Hablando de Colombia, ¿en qué se diferencian las clases allá?",
           opciones: [
@@ -267,7 +267,7 @@ window.SABI_CLUB.en = {
             { t: "The classes are more big, with like thirty-five students.", es: "Los grupos son más grandes, como de treinta y cinco estudiantes.", ok: false,
               fix: "Los adjetivos de una sílaba forman el comparativo con -er: «bigger», no «more big»." }
           ],
-          clave: ["bigger", "students"],
+          clave: ["bigger", "group work"],
           tip: "«Big» dobla la consonante: big → bigger, hot → hotter. Los largos usan «more»: more interesting." },
         { bot: "Thirty-five! Wow. How do you manage that?", es: "¡Treinta y cinco! Uf. ¿Cómo lo manejas?",
           opciones: [
@@ -276,7 +276,7 @@ window.SABI_CLUB.en = {
             { t: "It depends of the group, but we use routines.", es: "Depende del grupo, pero usamos rutinas.", ok: false,
               fix: "En inglés se dice «depend on», no «depend of»: «It depends on the group»." }
           ],
-          clave: ["routines", "roles"],
+          clave: ["roles", "timekeeper"],
           tip: "Preposiciones fijas: depend on, listen to, arrive at/in, think about. Apréndelas en bloque." },
         { bot: "Smart. I'm struggling with my eighth graders this semester. They're so chatty.", es: "Inteligente. Estoy batallando con mis estudiantes de octavo este semestre. Hablan muchísimo.",
           opciones: [
@@ -285,7 +285,7 @@ window.SABI_CLUB.en = {
             { t: "You should to try roles. In my school it works.", es: "Deberías probar los roles. En mi colegio funciona.", ok: false,
               fix: "Después de los modales (should, can, must, could) va el verbo sin «to»: «You should try roles»." }
           ],
-          clave: ["try", "roles"],
+          clave: ["tried", "could try", "roles"],
           tip: "«Have you tried + -ing?» es una forma amable de sugerir sin sonar a orden." },
         { bot: "That's a good idea. I'll give it a shot. Hey, a few of us are going out for tacos on Friday. Want to join?", es: "Buena idea. Lo voy a intentar. Oye, varios vamos a salir a comer tacos el viernes. ¿Te unes?",
           opciones: [
@@ -323,7 +323,7 @@ window.SABI_CLUB.en = {
             { t: "Hello, Mrs. Lee. Thank you for assist to the meeting.", es: "Hola, señora Lee. Gracias por asistir a la reunión.", ok: false,
               fix: "«Assist» significa ayudar. «Asistir a» es «attend» o «come to»: «Thank you for coming» o «for attending»." }
           ],
-          clave: ["thank you", "coming"],
+          clave: ["for coming", "glad you came"],
           tip: "Empieza con calidez y un objetivo común («support Daniel»). Baja la ansiedad antes de hablar de problemas." },
         { bot: "His math grade dropped this term. What's going on?", es: "Su nota de matemáticas bajó este periodo. ¿Qué está pasando?",
           opciones: [
@@ -332,7 +332,7 @@ window.SABI_CLUB.en = {
             { t: "He doesn't make his homeworks.", es: "Él no hace sus tareas.", ok: false,
               fix: "«Homework» es incontable (sin -s) y va con «do»: «He doesn't do his homework»." }
           ],
-          clave: ["homework", "assignments"],
+          clave: ["missing", "assignments", "turned in"],
           tip: "«Turn in» = entregar un trabajo. «Assignment» sí es contable: one assignment, two assignments." },
         { bot: "I had no idea. He always tells me he finished everything at school.", es: "No tenía idea. Él siempre me dice que terminó todo en el colegio.",
           opciones: [
@@ -350,7 +350,7 @@ window.SABI_CLUB.en = {
             { t: "No problem. I can send you an email each Friday with the pending works.", es: "No hay problema. Puedo enviarle un correo cada viernes con los trabajos pendientes.", ok: false,
               fix: "«Work» en el sentido de trabajo escolar es incontable: «pending work» o «missing assignments», no «works»." }
           ],
-          clave: ["email", "every"],
+          clave: ["send", "weekly", "every"],
           tip: "Con días repetidos se usa plural sin artículo: «on Tuesdays» = los martes." },
         { bot: "That would really help. Is there anything else I should know?", es: "Eso me ayudaría mucho. ¿Hay algo más que deba saber?",
           opciones: [
@@ -359,7 +359,7 @@ window.SABI_CLUB.en = {
             { t: "Yes, he is very sensible with his classmates and very creative.", es: "Sí, es muy sensible con sus compañeros y muy creativo.", ok: false,
               fix: "Falso amigo: «sensible» en inglés significa sensato. «Sensible» (emocional) es «sensitive»." }
           ],
-          clave: ["creative", "class"],
+          clave: ["participates", "creative", "most creative", "respect"],
           tip: "Cierra la parte difícil con una fortaleza real del estudiante: la familia escucha mejor el plan." },
         { bot: "That's so good to hear. So, what's the plan, then?", es: "Qué bueno escuchar eso. Entonces, ¿cuál es el plan?",
           opciones: [
@@ -398,7 +398,7 @@ window.SABI_CLUB.en = {
             { t: "No, no. Don't be worry, I just want to talk.", es: "No, no. No te preocupes, solo quiero hablar.", ok: false,
               fix: "«Worry» es verbo: «Don't worry». Si usas «be», necesitas el adjetivo: «Don't be worried»." }
           ],
-          clave: ["not at all", "just"],
+          clave: ["not at all", "chat", "how you're doing"],
           tip: "Un tono suave y una sonrisa bajan la defensa. «Not at all» = para nada." },
         { bot: "Oh. Okay. I'm fine, I guess.", es: "Ah. Bueno. Estoy bien, supongo.",
           opciones: [
@@ -407,7 +407,7 @@ window.SABI_CLUB.en = {
             { t: "I have noticed that you don't participate never.", es: "He notado que nunca participas.", ok: false,
               fix: "El inglés no usa doble negación: «you never participate» o «you don't ever participate»." }
           ],
-          clave: ["noticed", "class"],
+          clave: ["noticed", "speak much", "quiet"],
           tip: "Describe lo que observas sin juzgar: «I've noticed…» abre la conversación mejor que «Why don't you…?»." },
         { bot: "I just get nervous. What if I say something wrong and everyone laughs?", es: "Es que me pongo nervioso. ¿Y si digo algo mal y todos se ríen?",
           opciones: [
@@ -416,7 +416,7 @@ window.SABI_CLUB.en = {
             { t: "I understand. Everybody commit mistakes, it's normal.", es: "Te entiendo. Todos cometemos errores, es normal.", ok: false,
               fix: "Los errores se «make»: «make mistakes». Y «everybody» es singular: «everybody makes mistakes»." }
           ],
-          clave: ["mistakes", "learn"],
+          clave: ["mistakes help", "makes mistakes", "learn"],
           tip: "Valida la emoción primero («I understand») y luego reencuadra: el error no nos detiene, nos enseña." },
         { bot: "Maybe... but it's still scary to talk in front of everybody.", es: "Puede ser… pero igual me da miedo hablar delante de todos.",
           opciones: [
@@ -425,7 +425,7 @@ window.SABI_CLUB.en = {
             { t: "I propose you to speak first with a partner.", es: "Te propongo hablar primero con un compañero.", ok: false,
               fix: "«Propose» no funciona con objeto + «to». Di «I suggest (that) you talk with a partner first» o «How about…?»." }
           ],
-          clave: ["partner", "first"],
+          clave: ["what if", "how about", "partner"],
           tip: "La estrategia «think-pair-share» reduce la ansiedad: pensar solo, hablar en pareja y después con el grupo." },
         { bot: "That sounds easier. I think I could do that.", es: "Eso suena más fácil. Creo que podría hacerlo.",
           opciones: [
@@ -434,7 +434,7 @@ window.SABI_CLUB.en = {
             { t: "Perfect. I'll give you time for think before.", es: "Perfecto. Te daré tiempo para pensar antes.", ok: false,
               fix: "Para expresar propósito con un verbo se usa «to»: «time to think», no «for think»." }
           ],
-          clave: ["time", "think"],
+          clave: ["time to think", "a minute"],
           tip: "El tiempo de espera (wait time) de unos segundos aumenta la calidad y cantidad de respuestas." },
         { bot: "Thanks. Can I ask you something? Do you really think I'm good at this subject?", es: "Gracias. ¿Le puedo preguntar algo? ¿De verdad cree que soy bueno en esta materia?",
           opciones: [
@@ -443,7 +443,7 @@ window.SABI_CLUB.en = {
             { t: "Of course! You are very smart. I'm sure that you will success.", es: "¡Claro! Eres muy inteligente. Estoy seguro de que tendrás éxito.", ok: false,
               fix: "«Success» es sustantivo; el verbo es «succeed»: «you will succeed»." }
           ],
-          clave: ["yes", "work"],
+          clave: ["yes", "written work", "essays", "absolutely"],
           tip: "Elogia con evidencia concreta («your essays show…»), no solo con «you're smart»: motiva el esfuerzo." }
       ],
       cierre: { bot: "Okay. I'll try tomorrow. Thanks for talking with me.", es: "Bueno. Mañana lo intento. Gracias por hablar conmigo." },
@@ -472,7 +472,7 @@ window.SABI_CLUB.en = {
             { t: "Yes, I hear you good.", es: "Sí, te escucho bien.", ok: false,
               fix: "«Good» es adjetivo; con verbos se usa el adverbio «well». Lo más natural: «I can hear you fine/well»." }
           ],
-          clave: ["hear", "yes"],
+          clave: ["can hear you", "fine", "perfectly"],
           tip: "En llamadas se usa «can» con verbos de percepción: «I can hear you», «I can see your screen»." },
         { bot: "Great! So, tell me a little about your students.", es: "¡Genial! Cuéntame un poco de tus estudiantes.",
           opciones: [
@@ -481,7 +481,7 @@ window.SABI_CLUB.en = {
             { t: "Actually I have two groups of seventh grade.", es: "Actualmente tengo dos grupos de séptimo.", ok: false,
               fix: "Falso amigo: «actually» significa «en realidad». «Actualmente» es «currently»: «I currently have two seventh-grade groups»." }
           ],
-          clave: ["seventh", "they're"],
+          clave: ["seventh grade", "they're", "currently"],
           tip: "«Seventh-grade groups» lleva guion porque funciona como adjetivo antes del sustantivo." },
         { bot: "Perfect, mine are the same age! What kind of project do you have in mind?", es: "¡Perfecto, los míos tienen la misma edad! ¿Qué tipo de proyecto tienes en mente?",
           opciones: [
@@ -490,7 +490,7 @@ window.SABI_CLUB.en = {
             { t: "I was thinking in a project of videos about their cities.", es: "Estaba pensando en un proyecto de videos sobre sus ciudades.", ok: false,
               fix: "«Pensar en» se dice «think about» o «think of», no «think in». Además: «a video project»." }
           ],
-          clave: ["videos", "cities"],
+          clave: ["exchange videos", "short videos"],
           tip: "«Each other» = entre ellos, mutuamente: «They ask each other questions»." },
         { bot: "I love that! How often should we meet online?", es: "¡Me encanta! ¿Cada cuánto deberíamos reunirnos en línea?",
           opciones: [
@@ -508,16 +508,16 @@ window.SABI_CLUB.en = {
             { t: "In the mornings, in the nine more or less.", es: "En las mañanas, a eso de las nueve.", ok: false,
               fix: "La hora aproximada se dice «at around nine» o «at about nine», no «in the nine more or less»." }
           ],
-          clave: ["morning", "nine"],
+          clave: ["around nine", "work best"],
           tip: "«What time works for you?» = ¿qué hora te sirve? Responde con «… works for me»." },
-        { bot: "With the time difference it's a bit early for me, but we can make it work. Can you send me an email to confirm?", es: "Con la diferencia horaria es un poco temprano para mí, pero lo podemos lograr. ¿Me envías un correo para confirmar?",
+        { bot: "With the time difference that's pretty early for me, but we can make it work. Can you send me an email to confirm?", es: "Con la diferencia horaria es bastante temprano para mí, pero lo podemos lograr. ¿Me envías un correo para confirmar?",
           opciones: [
             { t: "Sure, I'll send it today.", es: "Claro, lo envío hoy.", ok: true },
             { t: "Of course. I'll send you an email this afternoon with a draft of the plan.", es: "Por supuesto. Te envío un correo esta tarde con un borrador del plan.", ok: true },
             { t: "Of course, I send you an email this afternoon.", es: "Claro, te envío un correo esta tarde.", ok: false,
               fix: "Para promesas o decisiones del momento se usa «will»: «I'll send you an email». El presente simple no sirve aquí." }
           ],
-          clave: ["send", "email"],
+          clave: ["I'll send", "send it today"],
           tip: "En español decimos «te envío» en presente; en inglés la promesa necesita «I'll»." }
       ],
       cierre: { bot: "Perfect! This is going to be amazing. Talk soon!", es: "¡Perfecto! Esto va a quedar increíble. ¡Hablamos pronto!" },
@@ -547,7 +547,7 @@ window.SABI_CLUB.en = {
             { t: "Overall, it was a good lesson. Let me give you some advices.", es: "En general, fue una buena clase. Déjame darte algunos consejos.", ok: false,
               fix: "«Advice» es incontable: «some advice» o «a piece of advice», nunca «advices»." }
           ],
-          clave: ["overall", "lesson"],
+          clave: ["went well", "strengths"],
           tip: "Empieza por las fortalezas: la persona queda más abierta a escuchar lo que debe mejorar." },
         { bot: "Okay, that's a relief. What do you think worked?", es: "Bueno, qué alivio. ¿Qué crees que funcionó?",
           opciones: [
@@ -565,7 +565,7 @@ window.SABI_CLUB.en = {
             { t: "You must improve the instructions; many students didn't understood.", es: "Debes mejorar las instrucciones; muchos estudiantes no entendieron.", ok: false,
               fix: "Después de «didn't» va el verbo en forma base: «didn't understand». El pasado ya lo marca «did»." }
           ],
-          clave: ["instructions", "clearer"],
+          clave: ["could be clearer", "I'd focus"],
           tip: "Suaviza con modales: «could», «might», «I'd focus on…» suenan a apoyo, no a orden." },
         { bot: "Yeah, I noticed some confusion. Any specific strategies?", es: "Sí, noté algo de confusión. ¿Alguna estrategia concreta?",
           opciones: [
@@ -583,7 +583,7 @@ window.SABI_CLUB.en = {
             { t: "Yes. You can eventually use a timer if you need it.", es: "Sí. Eventualmente puedes usar un temporizador si lo necesitas.", ok: false,
               fix: "Falso amigo: «eventually» significa «al final, con el tiempo». Para «eventualmente / si hace falta» di «if needed» u «occasionally»." }
           ],
-          clave: ["timer", "closure"],
+          clave: ["timer", "closure", "rushed"],
           tip: "«Run out of time» = quedarse sin tiempo. «Closure» = cierre de la clase." },
         { bot: "Good idea. So, what's my main goal for next week?", es: "Buena idea. Entonces, ¿cuál es mi meta principal para la próxima semana?",
           opciones: [
@@ -592,7 +592,7 @@ window.SABI_CLUB.en = {
             { t: "Your main goal is to give more clearly instructions.", es: "Tu meta principal es dar instrucciones más claras.", ok: false,
               fix: "El adjetivo va antes del sustantivo: «clearer instructions». O usa el adverbio después: «give instructions more clearly»." }
           ],
-          clave: ["goal", "model"],
+          clave: ["model the first step", "check understanding", "twofold"],
           tip: "Una o dos metas concretas y observables funcionan mejor que una lista larga de mejoras." },
         { bot: "Got it. Thanks for being so supportive. Can you observe me again next week?", es: "Entendido. Gracias por apoyarme tanto. ¿Puedes observarme otra vez la próxima semana?",
           opciones: [
@@ -631,7 +631,7 @@ window.SABI_CLUB.en = {
             { t: "Yes! Your conference was very interesting.", es: "¡Sí! Su conferencia fue muy interesante.", ok: false,
               fix: "En inglés, una charla es «talk», «presentation» o «session». «Conference» es el congreso completo." }
           ],
-          clave: ["very", "practical"],
+          clave: ["practical", "yes", "really"],
           tip: "«I really did» retoma el auxiliar de la pregunta («Did you…?») y suena muy natural." },
         { bot: "Thank you! Where are you joining us from?", es: "¡Gracias! ¿Desde dónde nos acompaña?",
           opciones: [
@@ -640,7 +640,7 @@ window.SABI_CLUB.en = {
             { t: "From Colombia. I work like a teacher in a school of Cali.", es: "De Colombia. Trabajo como docente en un colegio de Cali.", ok: false,
               fix: "Para la profesión se usa «as»: «I work as a teacher». «Like» compara («como si fuera»). Y mejor «a school in Cali»." }
           ],
-          clave: ["from", "school"],
+          clave: ["at a", "school in", "coordinate"],
           tip: "«K–11» se lee «K through eleven» y describe los grados que ofrece un colegio." },
         { bot: "How wonderful! What did you find most relevant for your context?", es: "¡Qué maravilla! ¿Qué le pareció más pertinente para su contexto?",
           opciones: [
@@ -658,7 +658,7 @@ window.SABI_CLUB.en = {
             { t: "Yes. How we can give feedback to forty students without spend hours?", es: "Sí. ¿Cómo podemos dar retroalimentación a cuarenta estudiantes sin gastar horas?", ok: false,
               fix: "En la pregunta el auxiliar va antes del sujeto: «How can we…?». Y tras «without» va -ing: «without spending hours»." }
           ],
-          clave: ["how", "feedback"],
+          clave: ["how can we", "how would you", "forty"],
           tip: "«Feedback» es incontable: «some feedback», «a piece of feedback», nunca «feedbacks»." },
         { bot: "Great question. I'd suggest sorting the tickets into three piles instead of grading them, and then grouping students for the next lesson.", es: "Excelente pregunta. Sugeriría clasificar los tickets en tres montones en lugar de calificarlos, y luego agrupar a los estudiantes para la clase siguiente.",
           opciones: [
@@ -667,7 +667,7 @@ window.SABI_CLUB.en = {
             { t: "Very useful. So you don't qualify them?", es: "Muy útil. ¿Entonces no los califica?", ok: false,
               fix: "«Calificar» trabajos es «grade» (EE. UU.) o «mark». «Qualify» significa cumplir requisitos o clasificar(se)." }
           ],
-          clave: ["grade", "so"],
+          clave: ["grade", "so you", "purpose"],
           tip: "Parafrasear («So the purpose is…?») demuestra escucha activa y confirma que entendiste." },
         { bot: "Exactly. Formative assessment is about adjusting teaching, not filling the gradebook. Is there anything else?", es: "Exacto. La evaluación formativa se trata de ajustar la enseñanza, no de llenar la planilla de notas. ¿Algo más?",
           opciones: [
@@ -676,7 +676,7 @@ window.SABI_CLUB.en = {
             { t: "Do you mind if I contact with you later?", es: "¿Le molesta si me contacto con usted más adelante?", ok: false,
               fix: "«Contact» es transitivo: «contact you», sin «with». «Contactarse con» no se traduce literal." }
           ],
-          clave: ["contact", "share"],
+          clave: ["contact you", "share", "emailed"],
           tip: "«Would you mind if I + pasado…?» es muy cortés. Responder «Not at all» significa que no hay problema." },
         { bot: "Not at all, I'd love that! Here's my card.", es: "¡Para nada, me encantaría! Aquí tiene mi tarjeta.",
           opciones: [
@@ -685,7 +685,7 @@ window.SABI_CLUB.en = {
             { t: "Thank you! I look forward to stay in touch.", es: "¡Gracias! Espero que sigamos en contacto.", ok: false,
               fix: "En «look forward to», «to» es preposición y va seguida de -ing: «I look forward to staying in touch»." }
           ],
-          clave: ["thank you", "pleasure"],
+          clave: ["pleasure", "meet", "talking"],
           tip: "«I'll be in touch» = estaré en contacto. Cierre profesional y amable para networking." }
       ],
       cierre: { bot: "Likewise. Good luck with your project in Cali!", es: "Igualmente. ¡Mucha suerte con su proyecto en Cali!" },
@@ -715,7 +715,7 @@ window.SABI_CLUB.en = {
             { t: "Of course. Some years ago, I started a project of financial education with my students of fifth grade.", es: "Por supuesto. Hace algunos años empecé un proyecto de educación financiera con mis estudiantes de quinto grado.", ok: false,
               fix: "En inglés el modificador va antes del sustantivo: «a financial literacy project with my fifth graders», no «project of… students of fifth grade»." }
           ],
-          clave: ["years ago", "project"],
+          clave: ["financial literacy", "fifth graders", "launched"],
           tip: "Abre con contexto breve (cuándo, con quién, qué) y anticipa el impacto: engancha a la audiencia." },
         { bot: "Interesting. What prompted you to try it?", es: "Interesante. ¿Qué motivó su decisión de intentarlo?",
           opciones: [
@@ -724,7 +724,7 @@ window.SABI_CLUB.en = {
             { t: "My students had problems with percentages, and they didn't find the sense.", es: "Mis estudiantes tenían problemas con los porcentajes y no les encontraban el sentido.", ok: false,
               fix: "«Encontrarle sentido» se dice «see the point» o «make sense of it». «Find the sense» no es natural en inglés." }
           ],
-          clave: ["students", "percentages"],
+          clave: ["struggled", "why math mattered", "meaningless", "real decisions"],
           tip: "«Struggle with» = tener dificultades con. Suena más preciso y profesional que «have problems with»." },
         { bot: "So what did the project actually involve?", es: "¿Y en qué consistía realmente el proyecto?",
           opciones: [
@@ -733,7 +733,7 @@ window.SABI_CLUB.en = {
             { t: "They ran a little store in the school and did the accountability.", es: "Administraron una tiendita en el colegio y llevaron la contabilidad.", ok: false,
               fix: "Falso amigo: «accountability» es responsabilidad o rendición de cuentas. «Contabilidad» es «bookkeeping» o «accounting»." }
           ],
-          clave: ["store", "profit"],
+          clave: ["school store", "kept track", "tracked", "profit"],
           tip: "Usa verbos de acción en serie (set, tracked, calculated) para que el relato sea vívido y concreto." },
         { bot: "And what results did you see? Do you have evidence, or is it more of an impression?", es: "¿Y qué resultados vio? ¿Tiene evidencia o es más bien una impresión?",
           opciones: [
@@ -742,7 +742,7 @@ window.SABI_CLUB.en = {
             { t: "Both. The results were notorious: the scores went up a lot.", es: "Ambas. Los resultados fueron notorios: las notas subieron mucho.", ok: false,
               fix: "Falso amigo: «notorious» significa «de mala fama». Para «notorio, evidente» usa «noticeable» o «remarkable»." }
           ],
-          clave: ["scores", "improved"],
+          clave: ["improved", "rose", "percentage"],
           tip: "Matizar la evidencia («I'd be cautious…») aumenta tu credibilidad ante un público académico." },
         { bot: "That's an honest caveat. What was the biggest challenge along the way?", es: "Es una salvedad honesta. ¿Cuál fue el mayor reto en el camino?",
           opciones: [
@@ -751,7 +751,7 @@ window.SABI_CLUB.en = {
             { t: "The time. The project lasted more than I thought, and I had to eliminate other contents.", es: "El tiempo. El proyecto duró más de lo que pensé y tuve que eliminar otros contenidos.", ok: false,
               fix: "Los sustantivos en sentido general van sin «the» («Time»). Con duración se dice «lasted longer than», y «content» suele ser incontable." }
           ],
-          clave: ["time", "longer"],
+          clave: ["took", "longer", "twice as long", "planned"],
           tip: "«Twice as long as…» = el doble de lo que… Estructura útil para comparar con precisión." },
         { bot: "If a colleague wanted to replicate this, what would you advise them?", es: "Si un colega quisiera replicarlo, ¿qué le aconsejaría?",
           opciones: [
@@ -760,7 +760,7 @@ window.SABI_CLUB.en = {
             { t: "I would recommend them to start small and to involve the families.", es: "Les recomendaría empezar en pequeño e involucrar a las familias.", ok: false,
               fix: "«Recommend» no admite objeto + «to». Di «I'd recommend that they start small» o «I'd recommend starting small»." }
           ],
-          clave: ["start small", "goal"],
+          clave: ["start small", "goal", "standards", "advise"],
           tip: "«Advise someone to…» sí es correcto; «recommend someone to…» no. Son verbos con patrones distintos." },
         { bot: "Looking back, what did this experience teach you as an educator?", es: "En retrospectiva, ¿qué le enseñó esta experiencia como docente?",
           opciones: [
@@ -769,7 +769,7 @@ window.SABI_CLUB.en = {
             { t: "That if students would see the point, they would learn more.", es: "Que si los estudiantes vieran el sentido, aprenderían más.", ok: false,
               fix: "En la cláusula con «if» no se usa «would»: «if students saw the point, they would learn more» o «if they see…, they learn…»." }
           ],
-          clave: ["learn", "meaningful"],
+          clave: ["meaningful", "learn more when", "relevance", "mistakes"],
           tip: "Cierra con una idea memorable y breve: el público recuerda la última frase más que los datos." }
       ],
       cierre: { bot: "Thank you. That was both inspiring and refreshingly honest.", es: "Gracias. Fue a la vez inspirador y de una honestidad refrescante." },

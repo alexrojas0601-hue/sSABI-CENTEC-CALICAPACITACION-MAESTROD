@@ -13,7 +13,7 @@ window.SABI_CLUB.fr = {
           opciones: [
             { t: "Bonjour, je m'appelle Luisa. Enchantée.", es: "Buenos días, me llamo Luisa. Mucho gusto.", ok: true },
             { t: "Bonjour, madame. Je m'appelle Luisa Gómez. Je suis ravie de vous rencontrer.", es: "Buenos días, señora. Me llamo Luisa Gómez. Estoy encantada de conocerla.", ok: true },
-            { t: "Bonjour, je m'appelle Luisa. Enchantée de te connaître, Claire.", es: "Hola, me llamo Luisa. Encantada de conocerte, Claire.", ok: false,
+            { t: "Bonjour, je m'appelle Luisa. Enchantée de te connaître, Claire.", es: "Buenos días, me llamo Luisa. Encantada de conocerte, Claire.", ok: false,
               fix: "Con una directora a la que acabas de conocer se usa «vous» y el apellido: «Enchantée de vous rencontrer, madame». Tutear sería demasiado familiar." }
           ],
           clave: ["je m'appelle", "enchanté"],
@@ -25,7 +25,7 @@ window.SABI_CLUB.fr = {
             { t: "Je viens de la Colombie, de Cali.", es: "Vengo de Colombia, de Cali.", ok: false,
               fix: "Con países femeninos, después de «venir de» no va artículo: «Je viens de Colombie»." }
           ],
-          clave: ["viens", "Colombie"],
+          clave: ["viens de Colombie", "viens de Cali"],
           tip: "Pero con el artículo sí se dice «la Colombie est belle». Solo desaparece tras «de» de origen." },
         { bot: "Cali ! Quelle chance. Et qu'est-ce que vous enseignez ?", es: "¡Cali! Qué suerte. ¿Y qué enseña usted?",
           opciones: [
@@ -34,7 +34,7 @@ window.SABI_CLUB.fr = {
             { t: "Je suis professeure de les mathématiques.", es: "Soy profesora de matemáticas.", ok: false,
               fix: "Después de «professeur(e) de» la asignatura va sin artículo: «Je suis professeure de mathématiques»." }
           ],
-          clave: ["enseigne", "mathématiques"],
+          clave: ["j'enseigne", "enseigne les"],
           tip: "Con el verbo «enseigner» la materia lleva artículo: «j'enseigne les maths». Con «professeur de», no." },
         { bot: "Très bien ! Vous êtes enseignante depuis combien de temps ?", es: "¡Muy bien! ¿Desde hace cuánto es docente?",
           opciones: [
@@ -43,7 +43,7 @@ window.SABI_CLUB.fr = {
             { t: "J'enseigne pour huit ans.", es: "Enseño desde hace ocho años.", ok: false,
               fix: "Para algo que empezó en el pasado y continúa se usa «depuis»: «J'enseigne depuis huit ans». «Pour» indica una duración prevista." }
           ],
-          clave: ["depuis", "ans"],
+          clave: ["depuis", "métier"],
           tip: "En francés se usa el presente con «depuis»: «j'enseigne depuis…», igual que «enseño desde hace…»." },
         { bot: "Et vos élèves, ils ont quel âge ?", es: "¿Y sus estudiantes qué edad tienen?",
           opciones: [
@@ -52,7 +52,7 @@ window.SABI_CLUB.fr = {
             { t: "Ils sont dix et onze ans.", es: "Tienen diez y once años.", ok: false,
               fix: "La edad se expresa con «avoir», como en español: «Ils ont dix ans», no «ils sont»." }
           ],
-          clave: ["ont", "ans"],
+          clave: ["ils ont", "ont entre"],
           tip: "La palabra «ans» es obligatoria: «il a dix ans», nunca solo «il a dix»." },
         { bot: "Parfait. Vous avez des questions ?", es: "Perfecto. ¿Tiene alguna pregunta?",
           opciones: [
@@ -61,10 +61,10 @@ window.SABI_CLUB.fr = {
             { t: "Oui, où est la salle de les professeurs ?", es: "Sí, ¿dónde está la sala de los profesores?", ok: false,
               fix: "«De + les» se contrae siempre en «des»: «la salle des professeurs»." }
           ],
-          clave: ["où", "salle"],
+          clave: ["salle des", "pourriez-vous"],
           tip: "«Pourriez-vous…?» es la forma más cortés de pedir algo. En Francia la cortesía formal es muy valorada." }
       ],
-      cierre: { bot: "Bien sûr, suivez-moi. Bienvenue dans notre collège !", es: "Claro, sígame. ¡Bienvenida a nuestro colegio!" },
+      cierre: { bot: "Bien sûr, suivez-moi. Bienvenue dans notre établissement !", es: "Claro, sígame. ¡Bienvenida a nuestro colegio!" },
       vocab: [
         { t: "la directrice", es: "la directora, rectora" },
         { t: "enchanté(e)", es: "mucho gusto" },
@@ -90,7 +90,7 @@ window.SABI_CLUB.fr = {
             { t: "Bonjour. Oui, assis-toi, s'il te plaît.", es: "Buenos días. Sí, siéntate, por favor.", ok: false,
               fix: "El imperativo de «s'asseoir» es «assieds-toi» (tú) o «asseyez-vous» (ustedes). «Assis» es el participio." }
           ],
-          clave: ["assieds-toi", "s'il te plaît"],
+          clave: ["assieds-toi", "asseyez-vous"],
           tip: "Con un niño se usa «tu»; con el grupo, «vous». Por eso: «s'il te plaît» / «s'il vous plaît»." },
         { bot: "D'accord ! On travaille sur quelle page ?", es: "¡Listo! ¿En qué página trabajamos?",
           opciones: [
@@ -99,7 +99,7 @@ window.SABI_CLUB.fr = {
             { t: "Ouvrez vos livres dans la page vingt.", es: "Abran sus libros en la página veinte.", ok: false,
               fix: "Con páginas se usa «à»: «à la page vingt», no «dans la page»." }
           ],
-          clave: ["ouvrez", "page"],
+          clave: ["à la page", "prenez"],
           tip: "El imperativo de «vous» es igual al presente sin sujeto: «vous ouvrez» → «Ouvrez»." },
         { bot: "Maîtresse, j'ai oublié mon livre...", es: "Profe, se me olvidó el libro…",
           opciones: [
@@ -108,7 +108,7 @@ window.SABI_CLUB.fr = {
             { t: "Pas de problème. Regarde avec ton compagnon.", es: "No hay problema. Mira con tu compañero.", ok: false,
               fix: "«Compañero de clase» es «camarade» o «voisin» (el de al lado). «Compagnon» suele significar pareja o acompañante." }
           ],
-          clave: ["voisin", "pas grave"],
+          clave: ["voisin", "pas grave", "suivre", "pas de problème"],
           tip: "«Ce n'est pas grave» = no pasa nada. Calma al niño y mantiene el ritmo de la clase." },
         { bot: "Merci. Et maintenant, on fait quoi ?", es: "Gracias. ¿Y ahora qué hacemos?",
           opciones: [
@@ -117,7 +117,7 @@ window.SABI_CLUB.fr = {
             { t: "Lisez le texte et répondez les questions.", es: "Lean el texto y respondan las preguntas.", ok: false,
               fix: "«Répondre» lleva siempre «à»: «répondre aux questions» (à + les = aux)." }
           ],
-          clave: ["lisez", "répondez"],
+          clave: ["aux questions", "en silence"],
           tip: "Secuenciadores útiles: «d'abord», «puis», «ensuite», «enfin». Ordenan la tarea para los niños." },
         { bot: "Maîtresse, comment on dit « borrador » en français ?", es: "Profe, ¿cómo se dice «borrador» en francés?",
           opciones: [
@@ -126,7 +126,7 @@ window.SABI_CLUB.fr = {
             { t: "On dit « un gomme ».", es: "Se dice «un borrador».", ok: false,
               fix: "«Gomme» es femenino: «une gomme». El género no siempre coincide con el español; apréndelo siempre con su artículo." }
           ],
-          clave: ["on dit", "gomme"],
+          clave: ["« gomme »", "une gomme"],
           tip: "«On dit…» = se dice… El pronombre «on» es muy frecuente en el francés oral." },
         { bot: "J'ai fini ! Je peux aller aux toilettes ?", es: "¡Terminé! ¿Puedo ir al baño?",
           opciones: [
@@ -135,7 +135,7 @@ window.SABI_CLUB.fr = {
             { t: "Oui, mais retourne vite.", es: "Sí, pero vuelve rápido.", ok: false,
               fix: "Para volver al lugar donde estás tú se usa «revenir»: «Reviens vite». «Retourner» es volver a otro lugar." }
           ],
-          clave: ["oui", "reviens"],
+          clave: ["reviens", "vas-y", "y aller"],
           tip: "«Vas-y» lleva -s ante «y» para facilitar la pronunciación: /va.zi/." },
         { bot: "Je suis revenu ! Qu'est-ce qu'on fait maintenant ?", es: "¡Ya volví! ¿Qué hacemos ahora?",
           opciones: [
@@ -144,7 +144,7 @@ window.SABI_CLUB.fr = {
             { t: "Maintenant, travaillez en couples et comparez vos réponses.", es: "Ahora trabajen en parejas y comparen sus respuestas.", ok: false,
               fix: "Trabajar en parejas es «travailler par deux» o «en binômes». «Couple» se usa para parejas sentimentales." }
           ],
-          clave: ["par deux", "réponses"],
+          clave: ["par deux", "levez la main"],
           tip: "Acompaña cada consigna con un gesto: muestra dos dedos para «par deux» y levanta la mano al decir «levez la main»." }
       ],
       cierre: { bot: "D'accord, maîtresse ! C'est trop bien !", es: "¡Listo, profe! ¡Esto está buenísimo!" },
@@ -174,7 +174,7 @@ window.SABI_CLUB.fr = {
             { t: "Bonsoir, j'ai une réserve au nom de Rodríguez.", es: "Buenas noches, tengo una reserva a nombre de Rodríguez.", ok: false,
               fix: "La reserva de hotel es «une réservation». «Une réserve» es una provisión o una reserva natural." }
           ],
-          clave: ["réservation", "nom"],
+          clave: ["une réservation", "j'ai réservé"],
           tip: "Después de las 18 h se saluda con «Bonsoir». «Au nom de…» = a nombre de…" },
         { bot: "Un instant... Oui, trois nuits. Votre passeport, s'il vous plaît ?", es: "Un momento… Sí, tres noches. ¿Su pasaporte, por favor?",
           opciones: [
@@ -194,14 +194,14 @@ window.SABI_CLUB.fr = {
           ],
           clave: ["côté", "s'il vous plaît"],
           tip: "Contracciones obligatorias: de + le = du, de + les = des, à + le = au, à + les = aux." },
-        { bot: "C'est noté. Voici votre carte : chambre 412, au quatrième étage. Vous avez des questions ?", es: "Anotado. Aquí está su tarjeta: habitación 412, en el cuarto piso. ¿Tiene alguna pregunta?",
+        { bot: "C'est noté. Voici votre carte : chambre 412, au quatrième étage. Vous avez des questions ?", es: "Anotado. Aquí está su tarjeta: habitación 412, en el cuarto piso (quinto nivel, contando la planta baja). ¿Tiene alguna pregunta?",
           opciones: [
             { t: "À quelle heure est le petit-déjeuner ?", es: "¿A qué hora es el desayuno?", ok: true },
             { t: "Oui : le petit-déjeuner est servi à quelle heure, et le wifi est gratuit ?", es: "Sí: ¿a qué hora sirven el desayuno y el wifi es gratis?", ok: true },
             { t: "Oui. Le déjeuner est à quelle heure ?", es: "Sí. ¿A qué hora es el desayuno?", ok: false,
               fix: "En Francia «le déjeuner» es el almuerzo del mediodía. El desayuno es «le petit-déjeuner»." }
           ],
-          clave: ["quelle heure", "petit-déjeuner"],
+          clave: ["petit-déjeuner", "wifi"],
           tip: "En Francia, el «étage» se cuenta desde el primer piso sobre la calle: el «rez-de-chaussée» es la planta baja." },
         { bot: "Le petit-déjeuner est servi de 7 h à 10 h, et le wifi est gratuit. Autre chose ?", es: "El desayuno se sirve de 7 a 10, y el wifi es gratis. ¿Algo más?",
           opciones: [
@@ -210,7 +210,7 @@ window.SABI_CLUB.fr = {
             { t: "Oui. Je peux aller au collège Jean-Moulin en pied ?", es: "Sí. ¿Puedo ir a pie al colegio Jean-Moulin?", ok: false,
               fix: "«A pie» es «à pied», no «en pied». Con vehículos sí va «en»: en bus, en voiture." }
           ],
-          clave: ["comment", "aller"],
+          clave: ["comment je peux", "meilleur moyen"],
           tip: "En Francia el «collège» es la secundaria básica (11 a 15 años), no la universidad." },
         { bot: "C'est à vingt minutes en bus ou à trente minutes à pied. L'arrêt est juste devant l'hôtel. Vous voulez un plan du quartier ?", es: "Queda a veinte minutos en bus o a treinta a pie. La parada está justo enfrente del hotel. ¿Quiere un mapa del barrio?",
           opciones: [
@@ -219,7 +219,7 @@ window.SABI_CLUB.fr = {
             { t: "Oui, merci. Vous êtes très aimable. Merci pour tous.", es: "Sí, gracias. Es muy amable. Gracias por todo.", ok: false,
               fix: "«Por todo» se dice «pour tout» (singular, invariable aquí), no «pour tous»." }
           ],
-          clave: ["merci", "oui"],
+          clave: ["merci beaucoup", "merci pour tout"],
           tip: "«Volontiers» es una forma elegante de aceptar un ofrecimiento: «con mucho gusto»." }
       ],
       cierre: { bot: "Avec plaisir. Bonne soirée et bon séjour à Marseille !", es: "Con gusto. ¡Buena noche y que disfrute su estadía en Marsella!" },
@@ -254,11 +254,11 @@ window.SABI_CLUB.fr = {
         { bot: "Tant mieux. Un café ? Je vous préviens, il est horrible.", es: "Qué bien. ¿Un café? Le advierto: es horrible.",
           opciones: [
             { t: "Volontiers, merci.", es: "Con gusto, gracias.", ok: true },
-            { t: "Avec plaisir, je prends le risque ! En Colombie, on est assez exigeants pour le café.", es: "¡Con mucho gusto, me arriesgo! En Colombia somos bastante exigentes con el café.", ok: true },
+            { t: "Avec plaisir, je prends le risque ! En Colombie, on est assez exigeants en matière de café.", es: "¡Con mucho gusto, me arriesgo! En Colombia somos bastante exigentes con el café.", ok: true },
             { t: "Oui, merci. Mais je le préfère sans sucre et avec de la lait.", es: "Sí, gracias. Pero lo prefiero sin azúcar y con leche.", ok: false,
               fix: "«Lait» es masculino en francés: «du lait» (de + le = du)." }
           ],
-          clave: ["volontiers", "merci"],
+          clave: ["volontiers", "avec plaisir"],
           tip: "Falsos géneros frecuentes: le lait, le sang, le nez (masculinos); la mer, la dent (femeninos)." },
         { bot: "Ha ! Au fait, en Colombie, les classes sont différentes ?", es: "¡Ja! A propósito, ¿en Colombia las clases son diferentes?",
           opciones: [
@@ -267,7 +267,7 @@ window.SABI_CLUB.fr = {
             { t: "Oui, les classes sont plus grandes, avec trente-cinq étudiants.", es: "Sí, los grupos son más grandes, con treinta y cinco estudiantes.", ok: false,
               fix: "En el colegio se dice «élèves». «Étudiants» se reserva para la universidad." }
           ],
-          clave: ["élèves", "classes"],
+          clave: ["élèves", "plus chargées"],
           tip: "«Une classe chargée» = un grupo con muchos estudiantes. «On» reemplaza a «nous» en el habla cotidiana." },
         { bot: "Trente-cinq ! Et comment vous faites ?", es: "¡Treinta y cinco! ¿Y cómo hace?",
           opciones: [
@@ -276,7 +276,7 @@ window.SABI_CLUB.fr = {
             { t: "Ça dépend du groupe, mais en général on use des routines.", es: "Depende del grupo, pero en general usamos rutinas.", ok: false,
               fix: "«Usar» es «utiliser». «User» significa desgastar." }
           ],
-          clave: ["routines", "rôles"],
+          clave: ["utilise", "grâce aux routines", "rôles"],
           tip: "«Grâce à» introduce una causa positiva; «à cause de», una negativa." },
         { bot: "Malin. Moi, j'ai du mal avec mes quatrièmes cette année, ils sont très bavards. Au fait, on peut se tutoyer ?", es: "Muy astuto. Yo estoy batallando con mis estudiantes de octavo este año, hablan muchísimo. A propósito, ¿nos podemos tutear?",
           opciones: [
@@ -285,7 +285,7 @@ window.SABI_CLUB.fr = {
             { t: "Bien sûr ! Vous pourriez essayer des rôles.", es: "¡Claro! Podría intentar con roles.", ok: false,
               fix: "Si aceptas tutear, sé coherente y pasa al «tu»: «Tu pourrais essayer…». Seguir con «vous» sonaría distante." }
           ],
-          clave: ["bien sûr", "rôles"],
+          clave: ["tu pourrais", "essaie"],
           tip: "En Francia, quien propone el «tu» suele ser la persona de más edad o antigüedad. Aceptar es lo habitual." },
         { bot: "Bonne idée, je vais tester. Dis, vendredi, on va manger une pizza après les cours avec quelques collègues. Tu viens ?", es: "Buena idea, voy a probar. Oye, el viernes vamos a comer pizza después de clases con algunos colegas. ¿Vienes?",
           opciones: [
@@ -294,7 +294,7 @@ window.SABI_CLUB.fr = {
             { t: "Oui ! Je suis très excitée de découvrir la ville.", es: "¡Sí! Estoy muy emocionada de conocer la ciudad.", ok: false,
               fix: "«Excité(e)» puede tener connotación sexual o de agitación. Di «J'ai hâte de découvrir la ville» o «Je suis ravie»." }
           ],
-          clave: ["oui", "plaisir"],
+          clave: ["avec plaisir", "volontiers"],
           tip: "«J'ai hâte de…» = tengo muchas ganas de… Es la forma natural de expresar entusiasmo." }
       ],
       cierre: { bot: "Génial ! On part vers dix-sept heures. À vendredi !", es: "¡Genial! Salimos hacia las cinco de la tarde. ¡Nos vemos el viernes!" },
@@ -324,7 +324,7 @@ window.SABI_CLUB.fr = {
             { t: "Bonjour, madame Martin. Merci pour venir.", es: "Buenos días, señora Martin. Gracias por venir.", ok: false,
               fix: "Tras «merci» con un verbo se usa «de» + infinitivo pasado: «Merci d'être venue». «Merci pour» va con sustantivos: «merci pour votre visite»." }
           ],
-          clave: ["merci", "venue"],
+          clave: ["d'être venue", "soyez venue"],
           tip: "«Je vous en prie» es muy cortés. Empieza con calidez y un objetivo común: ayudar a Hugo." },
         { bot: "Sa moyenne en maths a baissé ce trimestre. Qu'est-ce qui se passe ?", es: "Su promedio en matemáticas bajó este trimestre. ¿Qué está pasando?",
           opciones: [
@@ -342,16 +342,16 @@ window.SABI_CLUB.fr = {
             { t: "Je comprends. Il doit écrire ses devoirs dans la agenda.", es: "Entiendo. Él debe anotar sus tareas en la agenda.", ok: false,
               fix: "«Agenda» es masculino en francés, y ante vocal hay elisión: «dans l'agenda», «son agenda»." }
           ],
-          clave: ["agenda", "ensemble"],
+          clave: ["son agenda", "ensemble"],
           tip: "Evita culpar. «Ensemble» y «on» transmiten corresponsabilidad entre familia y colegio." },
         { bot: "D'accord. Mais je travaille tard le mardi et le jeudi.", es: "De acuerdo. Pero trabajo hasta tarde los martes y los jueves.",
           opciones: [
             { t: "Pas de souci. Je peux vous envoyer un e-mail chaque semaine.", es: "No se preocupe. Puedo enviarle un correo cada semana.", ok: true },
             { t: "Aucun problème. Je vous enverrai un court message chaque vendredi avec le travail à rendre.", es: "Ningún problema. Le enviaré un mensaje corto cada viernes con los trabajos por entregar.", ok: true },
-            { t: "Pas de problème. Je vous enverrai un e-mail chaque vendredi, si vous êtes d'accord avec.", es: "No hay problema. Le enviaré un correo cada viernes, si está de acuerdo.", ok: false,
-              fix: "«D'accord avec» necesita un complemento («d'accord avec moi»). Si no lo hay, di solo «si vous êtes d'accord»." }
+            { t: "Pas de problème. Je peux vous envoyer un e-mail chaque vendredi avec les devoirs pendants.", es: "No hay problema. Puedo enviarle un correo cada viernes con las tareas pendientes.", ok: false,
+              fix: "Calco del español: «pendant» significa «durante». Las tareas pendientes son «les devoirs à rendre» o «les devoirs en retard»." }
           ],
-          clave: ["e-mail", "chaque"],
+          clave: ["chaque semaine", "à rendre"],
           tip: "Para días que se repiten se usa «le» + día en singular: «le mardi» = los martes." },
         { bot: "Ça m'aiderait beaucoup. Il y a autre chose que je devrais savoir ?", es: "Eso me ayudaría mucho. ¿Hay algo más que deba saber?",
           opciones: [
@@ -360,7 +360,7 @@ window.SABI_CLUB.fr = {
             { t: "Oui, il est un élève très créatif et respecté.", es: "Sí, es un estudiante muy creativo y respetado.", ok: false,
               fix: "Con un sustantivo precedido de artículo se usa «c'est»: «C'est un élève très créatif». «Il est» va con adjetivos: «il est créatif»." }
           ],
-          clave: ["créatif", "classe"],
+          clave: ["participe", "l'un des"],
           tip: "Cierra la parte difícil con una fortaleza real del estudiante: la familia escucha mejor el plan." },
         { bot: "Ça fait plaisir à entendre. Alors, on fait comment ?", es: "Qué alegría escuchar eso. Entonces, ¿cómo hacemos?",
           opciones: [
@@ -408,7 +408,7 @@ window.SABI_CLUB.fr = {
             { t: "J'ai remarqué que tu ne participes pas jamais.", es: "He notado que nunca participas.", ok: false,
               fix: "«Jamais» reemplaza a «pas»; no se combinan: «tu ne participes jamais»." }
           ],
-          clave: ["remarqué", "classe"],
+          clave: ["parles peu", "discret"],
           tip: "Describe lo que observas sin juzgar. «J'ai remarqué que…» abre la conversación mejor que «Pourquoi tu ne… ?»." },
         { bot: "Je stresse. Et si je dis une bêtise et que tout le monde rigole ?", es: "Me estreso. ¿Y si digo una tontería y todos se ríen?",
           opciones: [
@@ -417,16 +417,16 @@ window.SABI_CLUB.fr = {
             { t: "Je comprends. C'est normal, tu ne dois pas avoir de la peur.", es: "Te entiendo. Es normal, no debes tener miedo.", ok: false,
               fix: "«Avoir peur» es una expresión fija sin artículo: «tu ne dois pas avoir peur»." }
           ],
-          clave: ["erreurs", "apprendre"],
+          clave: ["erreur", "apprendre", "apprentissage"],
           tip: "Expresiones sin artículo con «avoir»: avoir peur, avoir faim, avoir raison, avoir besoin." },
         { bot: "Peut-être... mais parler devant tout le monde, ça me fait peur.", es: "Puede ser… pero hablar delante de todos me da miedo.",
           opciones: [
             { t: "Et si tu partageais d'abord avec un camarade ?", es: "¿Y si primero lo compartes con un compañero?", ok: true },
             { t: "Je te propose quelque chose : tu en parles d'abord avec un camarade, puis tu partages son idée avec la classe.", es: "Te propongo algo: primero lo hablas con un compañero y luego compartes su idea con la clase.", ok: true },
-            { t: "Je te propose de que tu parles d'abord avec un camarade.", es: "Te propongo que hables primero con un compañero.", ok: false,
-              fix: "«Proposer» funciona con «de» + infinitivo: «Je te propose de parler d'abord avec un camarade». «De que» no existe." }
+            { t: "Je te propose parler d'abord avec un camarade.", es: "Te propongo hablar primero con un compañero.", ok: false,
+              fix: "«Proposer» pide «de» antes del infinitivo: «Je te propose de parler d'abord avec un camarade». En español no va preposición; en francés, sí." }
           ],
-          clave: ["d'abord", "camarade"],
+          clave: ["et si tu", "propose quelque chose"],
           tip: "«Et si + imperfecto ?» = ¿y si…? Es una forma suave de sugerir: «Et si on essayait ?»." },
         { bot: "Ça, ça a l'air plus facile. Je pense que je peux le faire.", es: "Eso sí parece más fácil. Creo que puedo hacerlo.",
           opciones: [
@@ -435,7 +435,7 @@ window.SABI_CLUB.fr = {
             { t: "Parfait. Avant de parler, je te laisserai un minute pour réfléchir.", es: "Perfecto. Antes de hablar, te dejaré un minuto para pensar.", ok: false,
               fix: "«Minute» es femenino en francés: «une minute»." }
           ],
-          clave: ["temps", "réfléchir"],
+          clave: ["du temps", "une minute"],
           tip: "El tiempo de espera (temps de réflexion) de unos segundos mejora la calidad de las respuestas." },
         { bot: "Merci. Je peux vous demander un truc ? Vous pensez vraiment que je suis bon dans cette matière ?", es: "Gracias. ¿Le puedo preguntar algo? ¿De verdad cree que soy bueno en esta materia?",
           opciones: [
@@ -444,7 +444,7 @@ window.SABI_CLUB.fr = {
             { t: "Bien sûr ! Tes rédactions sont excellentes, je te le assure.", es: "¡Claro! Tus redacciones son excelentes, te lo aseguro.", ok: false,
               fix: "Ante vocal, «le» se elide obligatoriamente: «je te l'assure»." }
           ],
-          clave: ["oui", "excellents"],
+          clave: ["oui", "excellents", "absolument", "vraie réflexion"],
           tip: "Elogia con evidencia concreta («tes rédactions montrent…»): motiva más que un simple «tu es intelligent»." }
       ],
       cierre: { bot: "D'accord. J'essaierai demain. Merci d'avoir pris le temps.", es: "Bueno. Mañana lo intento. Gracias por tomarse el tiempo." },
@@ -469,20 +469,20 @@ window.SABI_CLUB.fr = {
         { bot: "Bonjour ! Vous m'entendez bien ? Ma connexion est un peu lente.", es: "¡Buenos días! ¿Me escucha bien? Mi conexión está un poco lenta.",
           opciones: [
             { t: "Oui, je vous entends bien.", es: "Sí, la escucho bien.", ok: true },
-            { t: "Oui, parfaitement. Merci d'avoir pris le temps pour cet appel.", es: "Sí, perfectamente. Gracias por sacar tiempo para esta llamada.", ok: true },
+            { t: "Oui, parfaitement. Merci d'avoir pris le temps d'organiser cet appel.", es: "Sí, perfectamente. Gracias por sacar tiempo para organizar esta llamada.", ok: true },
             { t: "Oui, je vous écoute bien.", es: "Sí, la escucho bien.", ok: false,
               fix: "Percibir el sonido es «entendre». «Écouter» es escuchar con atención: «Je vous entends bien»." }
           ],
-          clave: ["entends", "oui"],
+          clave: ["je vous entends", "parfaitement"],
           tip: "Ojo: «entendre» = oír; «comprendre» = entender. «Je vous entends» no significa «le entiendo»." },
         { bot: "Super ! Alors, parlez-moi un peu de vos élèves.", es: "¡Súper! Entonces, hábleme un poco de sus estudiantes.",
           opciones: [
-            { t: "J'ai des élèves de douze et treize ans.", es: "Tengo estudiantes de doce y trece años.", ok: true },
+            { t: "J'ai des élèves de douze et treize ans. Ils sont très curieux.", es: "Tengo estudiantes de doce y trece años. Son muy curiosos.", ok: true },
             { t: "J'ai deux classes de septième année, l'équivalent de la cinquième chez vous. Ils sont curieux et très motivés.", es: "Tengo dos grupos de séptimo, el equivalente a la cinquième de ustedes. Son curiosos y muy motivados.", ok: true },
-            { t: "Actuellement, j'ai deux groupes de septième. Ils ont très motivés.", es: "Actualmente tengo dos grupos de séptimo. Están muy motivados.", ok: false,
-              fix: "«Motivé» es un adjetivo y va con «être»: «Ils sont très motivés». («Actuellement» sí es correcto: significa «actualmente».)" }
+            { t: "Actuellement, j'ai deux groupes de septième ; mes élèves ont douze et treize années.", es: "Actualmente tengo dos grupos de séptimo; mis estudiantes tienen doce y trece años.", ok: false,
+              fix: "La edad se dice siempre con «ans»: «ils ont douze et treize ans». «Année» es el año como período: «une bonne année», «la septième année»." }
           ],
-          clave: ["élèves", "ans"],
+          clave: ["ans", "ils sont", "classes"],
           tip: "Los cursos franceses cuentan al revés: la «sixième» es el primer año del collège y la «troisième», el último." },
         { bot: "Parfait, les miens ont le même âge ! Vous avez quel projet en tête ?", es: "¡Perfecto, los míos tienen la misma edad! ¿Qué proyecto tiene en mente?",
           opciones: [
@@ -491,7 +491,7 @@ window.SABI_CLUB.fr = {
             { t: "Je pensais en un projet de vidéos sur leurs villes.", es: "Pensaba en un proyecto de videos sobre sus ciudades.", ok: false,
               fix: "«Pensar en» se dice «penser à»: «Je pensais à un projet vidéo»." }
           ],
-          clave: ["vidéos", "villes"],
+          clave: ["pourraient échanger", "pensais à"],
           tip: "El condicional («ils pourraient», «ils se poseraient») suaviza las propuestas y suena colaborativo." },
         { bot: "J'adore ! On se réunit en ligne à quelle fréquence ?", es: "¡Me encanta! ¿Cada cuánto nos reunimos en línea?",
           opciones: [
@@ -509,7 +509,7 @@ window.SABI_CLUB.fr = {
             { t: "Le matin, à les huit heures plus ou moins.", es: "En la mañana, a eso de las ocho.", ok: false,
               fix: "La hora aproximada es «vers huit heures» o «à huit heures environ». «À les» siempre se contrae en «aux», y con horas no va artículo." }
           ],
-          clave: ["vers", "heures"],
+          clave: ["vers huit", "chez moi"],
           tip: "«Chez moi» = en mi casa o en mi país. Muy útil para hablar de husos horarios." },
         { bot: "Ici, ce sera l'après-midi, c'est parfait pour mes élèves. Vous pouvez m'envoyer un e-mail pour confirmer ?", es: "Aquí será por la tarde, es perfecto para mis estudiantes. ¿Me puede enviar un correo para confirmar?",
           opciones: [
@@ -518,7 +518,7 @@ window.SABI_CLUB.fr = {
             { t: "Bien sûr, je vous envoie un e-mail ce après-midi.", es: "Claro, le envío un correo esta tarde.", ok: false,
               fix: "Ante sustantivo masculino que empieza por vocal o h muda, «ce» pasa a «cet»: «cet après-midi»." }
           ],
-          clave: ["e-mail", "envoie"],
+          clave: ["bien sûr", "l'envoie", "plaisir", "enverrai"],
           tip: "Orden de pronombres: «je vous l'envoie» (a usted + lo). Primero «vous», luego «le»." }
       ],
       cierre: { bot: "Parfait ! Ça va être génial. À bientôt !", es: "¡Perfecto! Va a quedar genial. ¡Hasta pronto!" },
@@ -548,7 +548,7 @@ window.SABI_CLUB.fr = {
             { t: "En général, c'était une bonne classe. Commençons par le positif.", es: "En general, fue una buena clase. Empecemos por lo positivo.", ok: false,
               fix: "La sesión de clase es «un cours» o «une séance». «La classe» designa el grupo de estudiantes o el aula." }
           ],
-          clave: ["séance", "commençons"],
+          clave: ["séance", "bien marché", "points forts", "axe"],
           tip: "Empieza por las fortalezas: la persona queda más abierta a escuchar lo que debe mejorar." },
         { bot: "Ouf, ça me rassure. Qu'est-ce qui a bien fonctionné, selon vous ?", es: "Uf, qué alivio. Según usted, ¿qué funcionó bien?",
           opciones: [
@@ -557,7 +557,7 @@ window.SABI_CLUB.fr = {
             { t: "L'expérience était très intéressante ; les élèves ont fait beaucoup d'attention.", es: "El experimento fue muy interesante; los estudiantes prestaron mucha atención.", ok: false,
               fix: "«Faire attention» no admite «beaucoup de». Di «ils ont été très attentifs» o «ils ont fait très attention»." }
           ],
-          clave: ["accroche", "élèves"],
+          clave: ["accroche", "impliqués", "captivés"],
           tip: "Sé específico: nombra la acción concreta («l'expérience du début») para que pueda repetirla." },
         { bot: "Merci, j'y ai beaucoup travaillé. Et qu'est-ce que je dois améliorer ?", es: "Gracias, le dediqué mucho trabajo. ¿Y qué debo mejorar?",
           opciones: [
@@ -593,7 +593,7 @@ window.SABI_CLUB.fr = {
             { t: "L'objectif, c'est que vous donnez des consignes plus claires.", es: "La meta es que dé instrucciones más claras.", ok: false,
               fix: "Tras «l'objectif est que» se usa subjuntivo: «que vous donniez». Más simple: «L'objectif, c'est de donner des consignes plus claires»." }
           ],
-          clave: ["objectif", "étape"],
+          clave: ["modéliser", "première étape"],
           tip: "Una o dos metas concretas y observables funcionan mejor que una lista larga de mejoras." },
         { bot: "Compris. Merci pour votre bienveillance. Vous pourrez revenir m'observer la semaine prochaine ?", es: "Entendido. Gracias por su amabilidad. ¿Podrá volver a observarme la próxima semana?",
           opciones: [
@@ -602,7 +602,7 @@ window.SABI_CLUB.fr = {
             { t: "Bien sûr. J'assisterai votre cours jeudi.", es: "Claro. Asistiré a su clase el jueves.", ok: false,
               fix: "«Asistir a» un evento es «assister à»: «J'assisterai à votre cours». Sin «à», «assister quelqu'un» significa ayudarlo." }
           ],
-          clave: ["jeudi", "bien sûr"],
+          clave: ["viendrai", "assisterai à"],
           tip: "«La bienveillance» (amabilidad, buena voluntad) es un valor central en la pedagogía francesa actual." }
       ],
       cierre: { bot: "Parfait. Je vous remercie vraiment. À jeudi !", es: "Perfecto. De verdad se lo agradezco. ¡Hasta el jueves!" },
@@ -632,7 +632,7 @@ window.SABI_CLUB.fr = {
             { t: "Oui ! Votre conférence a été très intéressant.", es: "¡Sí! Su conferencia fue muy interesante.", ok: false,
               fix: "«Conférence» es femenino, así que el adjetivo concuerda: «très intéressante»." }
           ],
-          clave: ["oui", "concret"],
+          clave: ["concret", "beaucoup", "énormément"],
           tip: "«Ça vous a plu ?» = ¿le gustó? El verbo «plaire» funciona como «gustar»: la cosa es el sujeto." },
         { bot: "Merci ! Vous venez d'où ?", es: "¡Gracias! ¿De dónde viene?",
           opciones: [
@@ -641,7 +641,7 @@ window.SABI_CLUB.fr = {
             { t: "De Colombie. Je travaille comme professeur à Cali depuis il y a dix ans.", es: "De Colombia. Trabajo como profesor en Cali desde hace diez años.", ok: false,
               fix: "«Desde hace» se dice solo «depuis»: «depuis dix ans». «Il y a» significa «hace» (pasado puntual): «il y a dix ans»." }
           ],
-          clave: ["Colombie", "enseigne"],
+          clave: ["j'enseigne", "je coordonne"],
           tip: "«Un établissement» (scolaire) es el término formal para cualquier institución educativa." },
         { bot: "Formidable ! Qu'est-ce qui vous a semblé le plus pertinent pour votre contexte ?", es: "¡Formidable! ¿Qué le pareció lo más pertinente para su contexto?",
           opciones: [
@@ -659,7 +659,7 @@ window.SABI_CLUB.fr = {
             { t: "Oui. Comment nous pouvons donner un retour à quarante élèves sans passer des heures ?", es: "Sí. ¿Cómo podemos dar retroalimentación a cuarenta estudiantes sin pasar horas?", ok: false,
               fix: "En una pregunta formal con «comment» se invierte el sujeto: «Comment pouvons-nous…?», o se usa «Comment est-ce qu'on peut…?»." }
           ],
-          clave: ["comment", "retour"],
+          clave: ["comment donner", "adapteriez-vous"],
           tip: "En un congreso, la inversión («adapteriez-vous») suena más formal y elegante que la entonación sola." },
         { bot: "Excellente question. Je conseille de trier les tickets en trois piles au lieu de les noter, puis de regrouper les élèves pour la séance suivante.", es: "Excelente pregunta. Aconsejo clasificar los tickets en tres montones en lugar de calificarlos, y luego agrupar a los estudiantes para la sesión siguiente.",
           opciones: [
@@ -668,7 +668,7 @@ window.SABI_CLUB.fr = {
             { t: "Très utile. Donc vous ne les qualifiez pas ?", es: "Muy útil. ¿Entonces no los califica?", ok: false,
               fix: "«Calificar» trabajos es «noter» o «évaluer». «Qualifier» significa describir o calificar de (adjetivo): «qualifier de difficile»." }
           ],
-          clave: ["notez", "donc"],
+          clave: ["notez pas", "mettre une note"],
           tip: "Parafrasear («L'objectif est donc… ?») demuestra escucha activa y confirma que entendiste." },
         { bot: "Exactement. L'évaluation formative sert à ajuster l'enseignement, pas à remplir le carnet de notes. Autre chose ?", es: "Exacto. La evaluación formativa sirve para ajustar la enseñanza, no para llenar la planilla de notas. ¿Algo más?",
           opciones: [
@@ -677,7 +677,7 @@ window.SABI_CLUB.fr = {
             { t: "Je peux contacter avec vous plus tard ?", es: "¿Puedo contactarme con usted más adelante?", ok: false,
               fix: "«Contacter» es transitivo directo: «vous contacter», sin «avec»." }
           ],
-          clave: ["contacter", "résultats"],
+          clave: ["vous contacter", "vous écrire"],
           tip: "El condicional («pourrais», «permettriez») es la clave de la cortesía en francés profesional." },
         { bot: "Avec grand plaisir ! Voici ma carte.", es: "¡Con mucho gusto! Aquí tiene mi tarjeta.",
           opciones: [
@@ -686,10 +686,10 @@ window.SABI_CLUB.fr = {
             { t: "Merci ! Je reste à l'attente de vos nouvelles.", es: "¡Gracias! Quedo atento a sus noticias.", ok: false,
               fix: "Se dice «dans l'attente de vos nouvelles» o «au plaisir d'échanger à nouveau». «À l'attente de» no es correcto." }
           ],
-          clave: ["merci", "plaisir"],
+          clave: ["plaisir", "rencontrer", "échanger"],
           tip: "«Au plaisir !» es una despedida cordial y profesional, muy usada en Francia." }
       ],
-      cierre: { bot: "Moi aussi. Bonne chance pour votre projet à Cali !", es: "Igualmente. ¡Mucha suerte con su proyecto en Cali!" },
+      cierre: { bot: "Le plaisir était partagé. Bonne chance pour votre projet à Cali !", es: "El placer fue mutuo. ¡Mucha suerte con su proyecto en Cali!" },
       vocab: [
         { t: "la séance", es: "la sesión" },
         { t: "un ticket de sortie", es: "un ticket de salida" },
@@ -716,7 +716,7 @@ window.SABI_CLUB.fr = {
             { t: "Bien sûr. Il y a quelques années, j'ai commencé un projet d'éducation financière avec mes élèves de cinquième grade.", es: "Claro. Hace algunos años empecé un proyecto de educación financiera con mis estudiantes de quinto grado.", ok: false,
               fix: "«Cinquième grade» no existe en francés. Di «mes élèves de dix ans» o usa el equivalente francés: «mes élèves de CM2»." }
           ],
-          clave: ["il y a", "projet"],
+          clave: ["élèves de dix ans", "lancé"],
           tip: "Los grados no se traducen literalmente: indica la edad o el equivalente local para que el público entienda." },
         { bot: "Intéressant. Qu'est-ce qui vous a donné envie de vous lancer ?", es: "Interesante. ¿Qué le dio ganas de lanzarse?",
           opciones: [
@@ -725,7 +725,7 @@ window.SABI_CLUB.fr = {
             { t: "Mes élèves avaient des problèmes avec les pourcentages et ils ne trouvaient pas le sens.", es: "Mis estudiantes tenían problemas con los porcentajes y no les encontraban el sentido.", ok: false,
               fix: "«Encontrarle sentido» se dice «y trouver du sens» o «en voir l'intérêt». «Trouver le sens» no es natural aquí." }
           ],
-          clave: ["élèves", "pourcentages"],
+          clave: ["avaient du mal", "aucun sens"],
           tip: "Tras «je voulais que» va subjuntivo: «qu'ils voient». Es una marca de nivel avanzado." },
         { bot: "Concrètement, en quoi consistait le projet ?", es: "En concreto, ¿en qué consistía el proyecto?",
           opciones: [
@@ -734,7 +734,7 @@ window.SABI_CLUB.fr = {
             { t: "Ils ont géré une boutique et ont fixé les prix eux-mêmes, ce qui les a beaucoup plu.", es: "Administraron una tienda y fijaron ellos mismos los precios, lo que les gustó mucho.", ok: false,
               fix: "«Plaire» rige complemento indirecto («plaire à quelqu'un»): «ce qui leur a beaucoup plu», no «les»." }
           ],
-          clave: ["boutique", "prix"],
+          clave: ["petite boutique", "bénéfices", "marge"],
           tip: "El imperfecto («fixaient», «suivaient») describe acciones repetidas durante el proyecto." },
         { bot: "Et quels résultats avez-vous observés ? Des données, ou plutôt une impression ?", es: "¿Y qué resultados observó? ¿Datos o más bien una impresión?",
           opciones: [
@@ -743,7 +743,7 @@ window.SABI_CLUB.fr = {
             { t: "Les deux. Les résultats ont été notoires : les notes ont beaucoup augmenté.", es: "Ambas cosas. Los resultados fueron notorios: las notas subieron mucho.", ok: false,
               fix: "«Notoire» significa «conocido por todos» (y a menudo es negativo). Para «notorio, evidente» usa «nets» o «remarquables»." }
           ],
-          clave: ["résultats", "progressé"],
+          clave: ["améliorés", "progressé"],
           tip: "Matizar la evidencia («la prudence s'impose») aumenta tu credibilidad ante un público académico." },
         { bot: "C'est une nuance honnête. Quel a été le plus grand défi ?", es: "Es un matiz honesto. ¿Cuál fue el mayor reto?",
           opciones: [
@@ -752,7 +752,7 @@ window.SABI_CLUB.fr = {
             { t: "Le temps. Le projet a duré plus que je pensais, et j'ai dû éliminer d'autres contenus.", es: "El tiempo. El proyecto duró más de lo que pensaba y tuve que eliminar otros contenidos.", ok: false,
               fix: "Con duraciones se usa «plus longtemps que». Lo correcto: «plus longtemps que prévu» o «plus longtemps que je ne le pensais»." }
           ],
-          clave: ["temps", "prévu"],
+          clave: ["que prévu", "plus longtemps", "deux fois plus"],
           tip: "«Deux fois plus de… que» = el doble de… que. Estructura precisa para comparar cantidades." },
         { bot: "Si un collègue voulait reproduire l'expérience, que lui conseilleriez-vous ?", es: "Si un colega quisiera replicar la experiencia, ¿qué le aconsejaría?",
           opciones: [
@@ -770,7 +770,7 @@ window.SABI_CLUB.fr = {
             { t: "Que si les élèves verraient l'utilité, ils apprendraient plus.", es: "Que si los estudiantes vieran la utilidad, aprenderían más.", ok: false,
               fix: "Después de «si» nunca va condicional: «si les élèves voyaient l'utilité, ils apprendraient davantage»." }
           ],
-          clave: ["élèves", "sens"],
+          clave: ["a du sens", "apprennent mieux", "pertinence", "moteur"],
           tip: "Cierra con una idea memorable y breve: el público recuerda la última frase más que los datos." }
       ],
       cierre: { bot: "Merci. C'était à la fois inspirant et d'une honnêteté rafraîchissante.", es: "Gracias. Fue a la vez inspirador y de una honestidad refrescante." },
