@@ -29,6 +29,9 @@ const PROHIBIDO_TODOS = /\b(lej[ií]a|\bcloro\b|hipoclorito|amon[ií]aco|[aá]ci
 /* el metal mercurio va en minúscula; «Mercurio» con mayúscula es el planeta y se permite */
 const MERCURIO = /(?<![\p{L}])(mercurio|MERCURIO)(?![\p{L}])/u;
 const FUEGO = /(?<![\p{L}])(vela|velas|f[oó]sforo|f[oó]sforos|cerilla|encendedor|mechero|llama|fuego|quemar)(?![\p{L}])/iu;
+/* Parte C: «electricidad solo con pilas (LED con resistencia)». Se ignoran aparatos comerciales (linterna LED, bombillo LED…) */
+const APARATO_LED = /(linterna|l[aá]mpara|bombillo|bombilla|foco|tira|pantalla|flash)s?\s+(de\s+)?LED/giu;
+const LED = /(?<![\p{L}])LEDs?(?![\p{L}])/u;
 const RIESGO_MEDIO = /\b(agua caliente|hirviendo|hervir|estufa|horno|microondas|plancha|cuchillo|bistur[ií]|tijeras de punta|vidrio|vela|f[oó]sforo|encendedor|mechero|alcohol)\b/i;
 function validarCiencias(g) {
   const f = 'ciencias_' + g + '.js';
@@ -56,6 +59,7 @@ function validarCiencias(g) {
     if (MERCURIO.test(accion)) E(f, k + ' usa material prohibido: mercurio');
     if (['tr', '01', '02', '03', '04', '05'].includes(g) && FUEGO.test(accion)) E(f, k + ' usa fuego en grado ' + g + ' (prohibido hasta 5.°)');
     if (RIESGO_MEDIO.test(accion) && x.riesgo !== 'medio') E(f, k + ' usa "' + accion.match(RIESGO_MEDIO)[0] + '" → riesgo debe ser "medio"');
+    if (LED.test([].concat(x.materiales || []).join(' ').replace(APARATO_LED, '')) && !/resistencia/i.test(JSON.stringify(x))) W(f, k + ' tiene LED en materiales y no menciona resistencia (Parte C: LED con resistencia)');
     if (x.riesgo === 'medio' && !/adult|docente|profesor/i.test(todo)) E(f, k + ' riesgo medio sin indicar supervisión de adulto/docente');
   });
   Object.keys(EJES).forEach(e => { if ((cuenta[e] || 0) < EJES[e]) E(f, 'eje ' + e + ': ' + (cuenta[e] || 0) + ' (mínimo ' + EJES[e] + ')'); });
