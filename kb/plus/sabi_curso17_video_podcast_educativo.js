@@ -1,0 +1,68 @@
+// SABI CENTEC · Experiencia SABI v2 · Curso 17 · Producción de video y podcast educativo
+// Estado: en revisión (lo aprueba el docente responsable del área de tecnología e informática).
+// Evidencia: Mayer (2001, principios de aprendizaje multimedia); Guo, Kim y Rubin (2014); Brame (2016).
+// Normativa: Ley 1581 de 2012, Ley 1098 de 2006, Ley 23 de 1982.
+Object.assign(window.SABI_KB = window.SABI_KB || {}, {
+  audio: {
+    titulo: "Un video publicado enseña",
+    guion: [
+      "Hola, soy SABI. ¿Cuántas veces has explicado lo mismo, año tras año, a grupos distintos? Imagina que esa explicación quedara grabada, clara y corta, para que tus estudiantes la vean cuando la necesiten, incluso en el MIO camino a casa. No necesitas un estudio de televisión. Necesitas una buena idea, un guion sencillo y lo que ya tienes en el bolsillo: tu celular.",
+      "La idea central es que el guion manda. Un video educativo funciona mejor cuando persigue un solo objetivo de aprendizaje, empieza con un gancho que despierta una pregunta, desarrolla la idea con un ejemplo y cierra con una tarea concreta. El investigador Richard Mayer mostró que aprendemos mejor cuando se elimina lo que distrae, cuando se señala lo importante y cuando la voz explica lo que la imagen muestra. Y un estudio de Philip Guo y sus colegas, en dos mil catorce, encontró que los videos cortos mantienen mejor la atención que los largos.",
+      "Te cuento el caso del profesor Andrés, de Matemáticas de sexto en CENTEC. Su primer video sobre suma de fracciones duró dieciocho minutos, lo grabó de espaldas a la ventana y el ventilador sonaba más que su voz. Además, aparecían dos estudiantes en primer plano. Andrés reescribió el guion en una sola página, dividió el tema en tres videos cortos, se puso de frente a la ventana, compró un micrófono de solapa económico y apagó el ventilador. Y grabó solo sus manos y el tablero, sin estudiantes.",
+      "El error más frecuente es obsesionarse con la cámara y olvidar el sonido. Una imagen sencilla se tolera; un audio con eco o ruido hace que el estudiante abandone. Otro error es publicar la cara o el nombre de estudiantes sin autorización escrita de sus representantes legales. En Colombia, la Ley mil quinientos ochenta y uno de dos mil doce protege los datos personales, y la imagen de un niño es un dato que exige especial cuidado según el Código de la Infancia y la Adolescencia. Y uno más: usar música comercial sin permiso, que puede violar los derechos de autor.",
+      "¿Qué puedes hacer mañana? Elige un tema que repites cada año y escribe un guion de media página con gancho, desarrollo y cierre. Graba una prueba de un minuto frente a una ventana, con el celular en horizontal y apoyado en algo firme. Escúchala con audífonos y pregúntate si se entiende cada palabra. Si quieres empezar aún más sencillo, graba un audio corto tipo podcast con una pregunta para que tus estudiantes la piensen camino al colegio.",
+      "Te dejo una pregunta para pensar: ¿qué explicación tuya merece quedar disponible para cualquier estudiante, a cualquier hora? Escríbela hoy y ponle fecha de grabación. Un video perfecto que nunca sale no enseña a nadie; uno sencillo y claro, sí. Nos escuchamos en la próxima lección."
+    ]
+  },
+  quiz: [
+    { q: "El profesor Andrés quiere grabar la suma de fracciones heterogéneas y su borrador dura 18 minutos con cinco subtemas. ¿Qué decisión de guion es mejor?",
+      o: ["Mantener los 18 minutos y acelerar la reproducción al publicar", "Dividirlo en videos cortos, cada uno con un solo objetivo", "Agregar música de fondo para que la duración se sienta más amena", "Grabarlo completo y pedir a los estudiantes que tomen apuntes"],
+      c: 1, n: "N3",
+      fb: "Guo, Kim y Rubin (2014) observaron que los videos cortos sostienen mejor la atención, y Mayer recomienda segmentar la información para no saturar. Un objetivo por video facilita el repaso. Acelerar la reproducción no reduce la carga de información. La música de fondo puede distraer según el principio de coherencia. Tomar apuntes ayuda, pero no corrige un video demasiado largo y disperso." },
+    { q: "La profesora Carolina tiene un celular de gama media y $50.000 de presupuesto para su primer video. ¿En qué debería invertir primero?",
+      o: ["En un aro de luz de colores para que el video se vea moderno", "En una aplicación de pago con filtros y efectos de transición", "En un micrófono de solapa, porque el audio claro es prioritario", "En un trípode profesional para grabar en varios ángulos a la vez"],
+      c: 2, n: "N4",
+      fb: "Con presupuesto limitado, el audio es la inversión más rentable: una imagen sencilla se tolera, pero un audio con ruido o eco hace difícil seguir la explicación. La luz puede resolverse gratis con una ventana de frente. Los filtros y transiciones son decorativos y, según el principio de coherencia de Mayer, pueden distraer. Para apoyar el celular basta una superficie firme o un soporte económico." },
+    { q: "Durante la feria de ciencias, un docente graba a estudiantes de 4.° explicando su experimento y quiere subir el video al canal público del colegio. ¿Qué debe hacer primero?",
+      o: ["Publicarlo, porque es un evento escolar y las familias ya lo saben", "Tener autorización escrita de los representantes legales para usar la imagen", "Pedir permiso verbal a los niños y publicarlo con sus nombres completos", "Subirlo en privado y compartir el enlace en grupos abiertos de WhatsApp"],
+      c: 1, n: "N3",
+      fb: "La imagen de un niño es un dato personal protegido por la Ley 1581 de 2012, y la Ley 1098 de 2006 exige proteger su interés superior. Para publicarla se necesita autorización previa y expresa de sus representantes legales, con una finalidad clara. Que sea un evento escolar no la reemplaza. El permiso de los niños no es suficiente y menos con sus nombres. Un enlace compartido en grupos abiertos equivale a publicarlo." },
+    { q: "Al editar, la profesora Sandra quiere poner una canción famosa de fondo en su video sobre ecosistemas. ¿Qué opción es la adecuada?",
+      o: ["Usarla si el video no tiene publicidad ni fines comerciales", "Usar solo los primeros treinta segundos de la canción", "Usarla citando en la descripción el nombre del artista", "Usar música con licencia libre o propia, y solo si no distrae"],
+      c: 3, n: "N4",
+      fb: "La Ley 23 de 1982 protege los derechos de autor en Colombia; usar música comercial sin licencia puede infringirlos, aunque no haya fines comerciales, se use un fragmento corto o se cite al artista. Las plataformas además pueden bloquear o silenciar el video. Lo adecuado es usar música con licencia libre o propia. Desde la pedagogía, Mayer advierte que la música de fondo puede competir con la voz." },
+    { q: "Un docente graba de espaldas a una ventana muy iluminada y su rostro aparece oscuro. ¿Qué ajuste resuelve mejor el problema sin costo?",
+      o: ["Girar para quedar de frente a la ventana, con la luz en el rostro", "Subir el brillo en la edición hasta que el rostro se vea claro", "Encender la luz del techo y mantener la ventana detrás", "Grabar de noche para evitar la luz de la ventana por completo"],
+      c: 0, n: "N3",
+      fb: "La luz natural de frente es la iluminación más sencilla y económica: ilumina el rostro de forma pareja. Con la ventana detrás, la cámara expone para el fondo brillante y el rostro queda oscuro. Subir el brillo en edición aumenta el ruido y quema el fondo. La luz del techo suele producir sombras duras y no compensa el contraluz. Grabar de noche elimina la mejor fuente de luz disponible." },
+    { q: "La profesora Liliana quiere un podcast para sus estudiantes de 10.° que viajan una hora en bus. ¿Qué formato es más coherente con el aprendizaje?",
+      o: ["Episodios de una hora leyendo textualmente el libro de texto", "Episodios sin estructura, conversando de lo que surja ese día", "Episodios breves con una pregunta guía, un ejemplo y un cierre de repaso", "Episodios que reproducen el audio completo de cada clase presencial"],
+      c: 2, n: "N4",
+      fb: "Un buen episodio educativo tiene una estructura clara: pregunta guía, desarrollo con ejemplo y cierre que invite a recordar o aplicar. Leer el libro textualmente no aprovecha el formato y fatiga. La conversación sin estructura dificulta identificar lo esencial. Grabar la clase completa genera audios largos con ruido y referencias visuales que no se entienden sin ver el tablero." },
+    { q: "En el canal del colegio, varios estudiantes con baja audición no pueden seguir los videos de ciencias. ¿Qué mejora es prioritaria?",
+      o: ["Agregar subtítulos revisados y sincronizados con la voz", "Subir el volumen general del audio de todos los videos", "Hablar más despacio sin cambiar nada más en el video", "Publicar solo videos con animaciones y sin narración"],
+      c: 0, n: "N3",
+      fb: "Los subtítulos sincronizados y revisados son una medida básica de accesibilidad: permiten seguir el contenido a estudiantes con baja audición y a cualquiera que vea el video sin sonido. Los automáticos sirven de borrador, pero deben corregirse. Subir el volumen o hablar despacio no resuelve la barrera. Eliminar la narración pierde la explicación, que es central en el aprendizaje multimedia." },
+    { q: "En su video, un docente lee en voz alta exactamente el mismo párrafo largo que aparece escrito en pantalla. ¿Qué principio de Mayer está desatendiendo?",
+      o: ["El principio de personalización, que pide un tono conversacional", "El principio de contigüidad, que pide juntar imagen y texto", "El principio de segmentación, que pide dividir en partes cortas", "El principio de redundancia, que desaconseja duplicar texto y narración"],
+      c: 3, n: "N2",
+      fb: "Según el principio de redundancia, presentar a la vez narración y el mismo texto extenso en pantalla puede sobrecargar, porque el estudiante intenta leer y escuchar simultáneamente. Es mejor narrar con apoyos visuales y palabras clave. La personalización se refiere al tono conversacional, la contigüidad a ubicar juntos imagen y texto relacionados, y la segmentación a dividir en partes. Todos son útiles, pero aquí el problema es la duplicación." },
+    { q: "El profesor Julián quiere publicar en YouTube, TikTok e Instagram a la vez, pero solo tiene dos horas semanales. ¿Qué plan es más realista?",
+      o: ["Publicar a diario en las tres plataformas durante el primer mes", "Elegir una plataforma prioritaria con frecuencia sostenible y reutilizar", "Esperar a tener veinte videos listos antes de publicar el primero", "Delegar la grabación a estudiantes sin revisar el contenido final"],
+      c: 1, n: "N5",
+      fb: "Con dos horas semanales, la constancia vale más que la cantidad. Elegir una plataforma prioritaria, fijar una frecuencia que se pueda sostener y adaptar fragmentos para otras redes es un plan viable. Publicar a diario en tres redes lleva al abandono. Esperar veinte videos retrasa el aprendizaje del propio proceso. Delegar sin revisión expone al docente a errores de contenido o de privacidad." },
+    { q: "Después de publicar tres videos, la profesora Rocío quiere saber si están ayudando a aprender. ¿Qué evidencia es más útil?",
+      o: ["El número de «me gusta» de cada video durante la primera semana", "La cantidad de seguidores nuevos que ganó el canal del colegio", "Comparar preguntas de comprensión antes y después de verlos", "El tiempo total que dedicó a editar cada uno de los tres videos"],
+      c: 2, n: "N5",
+      fb: "Si el propósito es aprender, la evidencia debe medir aprendizaje: preguntas cortas antes y después de ver el video, o el desempeño en la tarea asociada. Los «me gusta» y los seguidores miden popularidad, no comprensión. El tiempo de edición dice algo sobre el esfuerzo del docente, no sobre el efecto en los estudiantes. La retención de audiencia puede complementar, pero no reemplaza la verificación del aprendizaje." }
+  ],
+  retos: [
+    { dia: 1, titulo: "El tema que repito", accion: "Elige un tema que explicas cada año y redacta su objetivo de aprendizaje en una sola frase.", evidencia: "Foto de la frase con el objetivo escrito.", tiempo: "10 min" },
+    { dia: 2, titulo: "Guion de media página", accion: "Escribe el guion con gancho, contexto, desarrollo con un ejemplo y cierre con una tarea concreta.", evidencia: "Guion en una página con las cuatro partes marcadas.", tiempo: "20 min" },
+    { dia: 3, titulo: "Prueba de luz y sonido", accion: "Graba un minuto frente a una ventana, con el celular horizontal y apoyado; escúchalo con audífonos y ajusta.", evidencia: "Captura del encuadre y nota sobre el ruido detectado.", tiempo: "15 min" },
+    { dia: 4, titulo: "Grabación sin estudiantes", accion: "Graba el video completo mostrando solo tu rostro, tus manos o el tablero, sin datos ni imagen de estudiantes.", evidencia: "Archivo del video y duración final.", tiempo: "30 min" },
+    { dia: 5, titulo: "Edición básica", accion: "Corta silencios y errores, agrega subtítulos revisados y una imagen de apoyo, sin música comercial.", evidencia: "Captura de la línea de tiempo con subtítulos.", tiempo: "40 min" },
+    { dia: 6, titulo: "Prueba con el grupo", accion: "Comparte el video con un grupo y aplica tres preguntas de comprensión antes y después de verlo.", evidencia: "Conteo de aciertos antes y después de ver el video.", tiempo: "20 min" },
+    { dia: 7, titulo: "Reflexión y ajuste", accion: "Analiza los resultados y los comentarios, decide qué mejorar en el próximo video y fija una frecuencia de publicación realista.", evidencia: "Párrafo de reflexión con la fecha del siguiente video.", tiempo: "15 min" }
+  ]
+});
