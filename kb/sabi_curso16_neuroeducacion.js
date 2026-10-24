@@ -116,12 +116,12 @@ window.SABI_KB = {
     { n: "N6 Crear", i: "Diseña una guía breve para familias sobre sueño, estrés y estudio con fundamento científico." }
   ],
   fuentes: [
-    "OCDE (2007). Understanding the Brain: The Birth of a Learning Science. OECD Publishing.",
-    "Dekker, S., Lee, N. C., Howard-Jones, P. y Jolles, J. (2012). Neuromyths in education: Prevalence and predictors of misconceptions among teachers. Frontiers in Psychology.",
-    "Pashler, H., McDaniel, M., Rohrer, D. y Bjork, R. (2008). Learning styles: Concepts and evidence. Psychological Science in the Public Interest.",
-    "Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. Cognitive Science.",
-    "Roediger, H. L. y Karpicke, J. D. (2006). Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science.",
-    "Dunlosky, J., Rawson, K., Marsh, E., Nathan, M. y Willingham, D. (2013). Improving students’ learning with effective learning techniques. Psychological Science in the Public Interest.",
+    "OCDE (2007). Understanding the Brain: The Birth of a Learning Science. OECD Publishing. · DOI: 10.1787/9789264029132-en",
+    "Dekker, S., Lee, N. C., Howard-Jones, P. y Jolles, J. (2012). Neuromyths in education: Prevalence and predictors of misconceptions among teachers. Frontiers in Psychology. · DOI: 10.3389/fpsyg.2012.00429",
+    "Pashler, H., McDaniel, M., Rohrer, D. y Bjork, R. (2008). Learning styles: Concepts and evidence. Psychological Science in the Public Interest. · DOI: 10.1111/j.1539-6053.2009.01038.x",
+    "Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. Cognitive Science. · DOI: 10.1207/s15516709cog1202_4",
+    "Roediger, H. L. y Karpicke, J. D. (2006). Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science. · DOI: 10.1111/j.1467-9280.2006.01693.x",
+    "Dunlosky, J., Rawson, K., Marsh, E., Nathan, M. y Willingham, D. (2013). Improving students’ learning with effective learning techniques. Psychological Science in the Public Interest. · DOI: 10.1177/1529100612453266",
     "Dehaene, S. (2019). ¿Cómo aprendemos? Los cuatro pilares con los que la educación puede potenciar los talentos de nuestro cerebro. Siglo XXI Editores."
   ],
   cards: {

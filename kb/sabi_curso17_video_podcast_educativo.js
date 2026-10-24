@@ -115,9 +115,9 @@ window.SABI_KB = {
     { n: "N6 Crear", i: "Diseña un plan de contenido de 90 días con fechas, formatos y plataformas." }
   ],
   fuentes: [
-    "Mayer, R. E. (2001). Multimedia Learning. Cambridge University Press.",
-    "Guo, P. J., Kim, J. y Rubin, R. (2014). How video production affects student engagement: An empirical study of MOOC videos. ACM Conference on Learning at Scale.",
-    "Brame, C. J. (2016). Effective educational videos: Principles and guidelines for maximizing student learning from video content. CBE—Life Sciences Education.",
+    "Mayer, R. E. (2001). Multimedia Learning. Cambridge University Press. · DOI: 10.1017/CBO9781139164603",
+    "Guo, P. J., Kim, J. y Rubin, R. (2014). How video production affects student engagement: An empirical study of MOOC videos. ACM Conference on Learning at Scale. · DOI: 10.1145/2556325.2566239",
+    "Brame, C. J. (2016). Effective educational videos: Principles and guidelines for maximizing student learning from video content. CBE—Life Sciences Education. · DOI: 10.1187/cbe.16-03-0125",
     "Ley 1581 de 2012 — Régimen general de protección de datos personales (Colombia).",
     "Ley 1098 de 2006 — Código de la Infancia y la Adolescencia (Colombia).",
     "Ley 23 de 1982 — Sobre derechos de autor (Colombia)."

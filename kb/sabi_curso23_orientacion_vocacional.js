@@ -116,9 +116,9 @@ window.SABI_KB = {
   ],
   fuentes: [
     "Holland, J. L. (1997). Making Vocational Choices (3.ª ed.). Psychological Assessment Resources",
-    "Super, D. E. (1980). A life-span, life-space approach to career development. Journal of Vocational Behavior",
-    "Savickas, M. L. y otros (2009). Life designing: A paradigm for career construction in the 21st century. Journal of Vocational Behavior",
-    "Mitchell, K., Levin, A. y Krumboltz, J. (1999). Planned happenstance. Journal of Counseling & Development",
+    "Super, D. E. (1980). A life-span, life-space approach to career development. Journal of Vocational Behavior · DOI: 10.1016/0001-8791(80)90056-1",
+    "Savickas, M. L. y otros (2009). Life designing: A paradigm for career construction in the 21st century. Journal of Vocational Behavior · DOI: 10.1016/j.jvb.2009.04.004",
+    "Mitchell, K., Levin, A. y Krumboltz, J. (1999). Planned happenstance: Constructing unexpected career opportunities. Journal of Counseling & Development · DOI: 10.1002/j.1556-6676.1999.tb02431.x",
     "Ley 30 de 1992 y Ley 749 de 2002 — Educación superior y ciclos propedéuticos (Congreso de Colombia)",
     "Ley 115 de 1994 — Ley General de Educación, artículo 13",
     "Ministerio de Educación Nacional — Observatorio Laboral para la Educación y SNIES"

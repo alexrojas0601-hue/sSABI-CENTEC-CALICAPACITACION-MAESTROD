@@ -121,6 +121,7 @@ window.SABI_KB = {
     "Brown, T. (2009). Change by Design. HarperBusiness",
     "Ries, E. (2011). The Lean Startup. Crown Business",
     "Drucker, P. (1985). Innovation and Entrepreneurship. Harper & Row",
-    "Yunus, M. (2010). Building Social Business. PublicAffairs"
+    "Yunus, M. (2010). Building Social Business. PublicAffairs",
+    "Martin, B. C., McNally, J. J. y Kay, M. J. (2013). Examining the formation of human capital in entrepreneurship: A meta-analysis of entrepreneurship education outcomes. Journal of Business Venturing · DOI: 10.1016/j.jbusvent.2012.03.002"
   ]
 };

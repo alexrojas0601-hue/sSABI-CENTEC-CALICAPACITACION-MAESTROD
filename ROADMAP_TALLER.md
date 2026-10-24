@@ -77,8 +77,10 @@ rigurosos, con voz, práctica, comprobación y transferencia al aula.
 
 ## Pendiente (para los Dots o el equipo)
 - [ ] Revisión humana del contenido nuevo (todo está «en revisión»): docentes de área por curso.
-- [ ] Reconstrucción profunda (Bloom N1-N6, rúbricas, casos, 800-1.200 palabras por módulo) de los cursos con
-      menos contenido en la página: 12, 13, 14, 15, 16, 19, 23, 24, 25 (1-2 módulos cada uno).
-- [ ] Agregar DOI verificados a las fuentes de `kb/*.js` (exigencia del Prompt Maestro).
-- [ ] Más escenarios del Club (meta: 30 por idioma) y conversación libre con IA mediante un Worker propio.
+- [x] Reconstrucción profunda: todos los cursos tienen ahora 3 o más módulos. 2026-10-24: módulo 3 en 12 (francés para el
+      aula y DELF), 13 (del portuñol al portugués y Celpe-Bras) y 14 (mandarín y alemán en el aula), auditados por un Dot
+      distinto (datos DELF/Celpe-Bras/HSK/Goethe verificados; Lyster y Ranta 1997 con DOI). Pendiente: los módulos 1-2 de
+      12, 13 y 14 traen cifras sin fuente y texto sin tildes; las fichas del portal dicen «6 módulos» para el curso 14.
+- [x] DOI verificados en las fuentes de `kb/*.js` (36 DOI: 31 en fuentes existentes y 5 en artículos añadidos; registro en `docs/VERIFICACION_DOI.md`). Sin fuente revisada por pares: cursos 09, 12, 13, 14 y 20.
+- [ ] Más escenarios del Club (meta: 30 por idioma; validador listo: `node club/tools/validar_club.js`) y conversación libre con IA mediante un Worker propio.
 - [ ] Prueba física del minilibro impreso y del certificado en PDF.

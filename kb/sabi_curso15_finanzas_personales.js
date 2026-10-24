@@ -326,6 +326,7 @@ window.SABI_KB = {
   "Decreto 1278 de 2002 — Estatuto de Profesionalización Docente (Colombia)",
   "Código Sustantivo del Trabajo, artículo 249 — Cesantías (Colombia)",
   "OCDE (2020). Recomendación del Consejo sobre Alfabetización Financiera",
-  "Superintendencia Financiera de Colombia. Material de educación financiera para el consumidor"
+  "Superintendencia Financiera de Colombia. Material de educación financiera para el consumidor",
+  "Lusardi, A. y Mitchell, O. S. (2014). The economic importance of financial literacy: Theory and evidence. Journal of Economic Literature · DOI: 10.1257/jel.52.1.5"
  ]
 };

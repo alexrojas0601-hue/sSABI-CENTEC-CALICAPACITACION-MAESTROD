@@ -121,6 +121,6 @@ window.SABI_KB = {
     "Decreto 1377 de 2013 — Reglamentación parcial de la Ley 1581 de 2012 (compilado en el Decreto 1074 de 2015).",
     "Ley 1098 de 2006 — Código de la Infancia y la Adolescencia (Colombia).",
     "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar (Colombia).",
-    "Wenger, E. (1998). Communities of Practice: Learning, Meaning, and Identity. Cambridge University Press."
+    "Wenger, E. (1998). Communities of Practice: Learning, Meaning, and Identity. Cambridge University Press. · DOI: 10.1017/CBO9780511803932"
   ]
 };

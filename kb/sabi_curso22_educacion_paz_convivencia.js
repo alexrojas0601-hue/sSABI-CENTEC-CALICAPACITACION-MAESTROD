@@ -122,6 +122,6 @@ window.SABI_KB = {
     "Ministerio de Educación Nacional (2013). Guía 49: Guías pedagógicas para la convivencia escolar",
     "Ministerio de Educación Nacional (2004). Estándares Básicos de Competencias Ciudadanas",
     "Fisher, R. y Ury, W. (1981). Getting to Yes. Houghton Mifflin",
-    "Galtung, J. (1969). Violence, Peace, and Peace Research. Journal of Peace Research"
+    "Galtung, J. (1969). Violence, Peace, and Peace Research. Journal of Peace Research · DOI: 10.1177/002234336900600301"
   ]
 };

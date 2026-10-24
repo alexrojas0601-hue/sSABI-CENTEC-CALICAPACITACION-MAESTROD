@@ -120,7 +120,7 @@ window.SABI_KB = {
     "Ley 1098 de 2006 — Código de la Infancia y la Adolescencia (Colombia).",
     "Ley 1273 de 2009 — Protección de la información y de los datos, delitos informáticos (Colombia).",
     "Wardle, C. y Derakhshan, H. (2017). Information Disorder: Toward an interdisciplinary framework. Consejo de Europa.",
-    "Vosoughi, S., Roy, D. y Aral, S. (2018). The spread of true and false news online. Science.",
+    "Vosoughi, S., Roy, D. y Aral, S. (2018). The spread of true and false news online. Science. · DOI: 10.1126/science.aap9559",
     "UNESCO (2021). Recomendación sobre la Ética de la Inteligencia Artificial."
   ],
   cards: {

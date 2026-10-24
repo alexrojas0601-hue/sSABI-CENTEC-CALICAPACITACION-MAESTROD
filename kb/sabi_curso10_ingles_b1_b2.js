@@ -119,6 +119,7 @@ window.SABI_KB = {
     "Ministerio de Educación Nacional (2006). Guía 22: Estándares Básicos de Competencias en Lenguas Extranjeras: Inglés",
     "Ministerio de Educación Nacional (2016). Derechos Básicos de Aprendizaje: Inglés, grados 6 a 11",
     "Ley 1651 de 2013 — Ley de Bilingüismo (Colombia)",
-    "Jenkins, J. (2000). The Phonology of English as an International Language. Oxford University Press"
+    "Jenkins, J. (2000). The Phonology of English as an International Language. Oxford University Press",
+    "Jenkins, J. (2002). A sociolinguistically based, empirically researched pronunciation syllabus for English as an International Language. Applied Linguistics, 23(1), 83-103 · DOI: 10.1093/applin/23.1.83"
   ]
 };

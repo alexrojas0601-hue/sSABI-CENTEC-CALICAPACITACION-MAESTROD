@@ -115,11 +115,11 @@ window.SABI_KB = {
   ],
   fuentes: [
     "Black, P. y Wiliam, D. — Inside the Black Box: Raising Standards Through Classroom Assessment (1998)",
-    "Hattie, J. y Timperley, H. — The Power of Feedback (Review of Educational Research, 2007)",
+    "Hattie, J. y Timperley, H. — The Power of Feedback (Review of Educational Research, 2007) · DOI: 10.3102/003465430298487",
     "Wiliam, D. — Embedded Formative Assessment (2011)",
     "Decreto 1290 de 2009 — Evaluación del aprendizaje y promoción de estudiantes (Colombia)",
     "Decreto 1075 de 2015 — Decreto Único Reglamentario del Sector Educación (Colombia)",
     "Ministerio de Educación Nacional — Derechos Básicos de Aprendizaje",
-    "Sadler, D. R. — Formative assessment and the design of instructional systems (Instructional Science, 1989)"
+    "Sadler, D. R. — Formative assessment and the design of instructional systems (Instructional Science, 1989) · DOI: 10.1007/BF00117714"
   ]
 };

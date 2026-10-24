@@ -119,6 +119,6 @@ window.SABI_KB = {
     "Ministerio de Educación Nacional (2013). Competencias TIC para el desarrollo profesional docente",
     "Ley 1581 de 2012 — Régimen general de protección de datos personales (Colombia)",
     "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar (Colombia) y Decreto 1965 de 2013",
-    "Mishra, P. y Koehler, M. J. (2006). Technological Pedagogical Content Knowledge. Teachers College Record, 108(6)"
+    "Mishra, P. y Koehler, M. J. (2006). Technological Pedagogical Content Knowledge: A Framework for Teacher Knowledge. Teachers College Record, 108(6), 1017-1054 · DOI: 10.1111/j.1467-9620.2006.00684.x"
   ]
 };

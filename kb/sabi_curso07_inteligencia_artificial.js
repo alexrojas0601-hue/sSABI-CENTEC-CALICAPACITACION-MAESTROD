@@ -118,7 +118,7 @@ window.SABI_KB = {
     "UNESCO (2021). Recomendación sobre la Ética de la Inteligencia Artificial",
     "UNESCO (2023). Guía para el uso de IA generativa en educación e investigación",
     "Departamento Nacional de Planeación (2019). Documento CONPES 3975: Política Nacional para la Transformación Digital e Inteligencia Artificial",
-    "Turing, A. M. (1950). Computing Machinery and Intelligence. Mind, 59(236)",
+    "Turing, A. M. (1950). Computing Machinery and Intelligence. Mind, 59(236), 433-460 · DOI: 10.1093/mind/LIX.236.433",
     "Vaswani, A. y otros (2017). Attention Is All You Need. Advances in Neural Information Processing Systems",
     "Ley 1581 de 2012 — Régimen general de protección de datos personales (Colombia)"
   ]

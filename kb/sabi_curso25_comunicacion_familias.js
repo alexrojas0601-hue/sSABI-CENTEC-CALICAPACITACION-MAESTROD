@@ -122,7 +122,8 @@ window.SABI_KB = {
     "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar",
     "Epstein, J. L. (1995). School/family/community partnerships: Caring for the children we share. Phi Delta Kappan",
     "Henderson, A. y Mapp, K. (2002). A New Wave of Evidence. SEDL",
-    "Bronfenbrenner, U. (1979). The Ecology of Human Development. Harvard University Press"
+    "Bronfenbrenner, U. (1979). The Ecology of Human Development. Harvard University Press",
+    "Jeynes, W. (2012). A meta-analysis of the efficacy of different types of parental involvement programs for urban students. Urban Education · DOI: 10.1177/0042085912445643"
   ],
   cards: {
     "La familia como aliada — Mas alla de la reunion de padres": "Ver a la familia como aliada implica pasar de una relación de informe y queja a una de colaboración. La investigación sintetizada por Henderson y Mapp (2002) muestra que el involucramiento familiar se asocia con mejores resultados escolares, especialmente cuando se vincula con el aprendizaje. Joyce Epstein propone seis tipos de involucramiento: apoyo a la crianza, comunicación entre casa y escuela, voluntariado, aprendizaje en casa, participación en decisiones y colaboración con la comunidad. Cada tipo ofrece puertas distintas, de modo que una familia que no puede asistir en horario laboral puede participar de otras formas. En Colombia, la Ley 1098 de 2006 consagra la corresponsabilidad y el Decreto 1286 de 2005 regula el consejo y la asociación de padres. Prácticas concretas para CENTEC: enviar al menos un mensaje positivo por estudiante en cada periodo, diseñar tareas que inviten a conversar en familia, invitar a padres a compartir su oficio en clase y consultar a las familias antes de decisiones que les afectan. La alianza se construye con pequeños gestos constantes, no con un evento anual.",

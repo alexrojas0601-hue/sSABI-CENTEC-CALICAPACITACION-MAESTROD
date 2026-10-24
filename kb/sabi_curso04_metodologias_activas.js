@@ -117,7 +117,7 @@ window.SABI_KB = {
     "Bergmann, J. y Sams, A. — Flip Your Classroom: Reach Every Student in Every Class Every Day (2012)",
     "Johnson, D. W. y Johnson, R. T. — Cooperation and Competition: Theory and Research (1989)",
     "Kapp, K. M. — The Gamification of Learning and Instruction (2012)",
-    "Ryan, R. M. y Deci, E. L. — Self-determination theory and the facilitation of intrinsic motivation (American Psychologist, 2000)",
+    "Ryan, R. M. y Deci, E. L. — Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being (American Psychologist, 2000) · DOI: 10.1037/0003-066X.55.1.68",
     "Dewey, J. — Experiencia y educación (1938)"
   ]
 };

@@ -114,10 +114,10 @@ window.SABI_KB = {
     { n: "N6 Crear", i: "Diseña un acuerdo de aula y una rutina emocional semanal para su grupo." }
   ],
   fuentes: [
-    "Salovey, P. y Mayer, J. D. — Emotional Intelligence (Imagination, Cognition and Personality, 1990)",
+    "Salovey, P. y Mayer, J. D. — Emotional Intelligence (Imagination, Cognition and Personality, 1990) · DOI: 10.2190/DUGG-P24E-52WK-6CDG",
     "Mayer, J. D. y Salovey, P. — What is emotional intelligence? (1997)",
     "Brackett, M. — Permission to Feel (2019)",
-    "Edmondson, A. — Psychological Safety and Learning Behavior in Work Teams (Administrative Science Quarterly, 1999)",
+    "Edmondson, A. — Psychological Safety and Learning Behavior in Work Teams (Administrative Science Quarterly, 1999) · DOI: 10.2307/2666999",
     "Rosenberg, M. B. — Comunicación No Violenta: un lenguaje de vida",
     "Hatfield, E., Cacioppo, J. T. y Rapson, R. L. — Emotional Contagion (1994)",
     "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar (Colombia)"

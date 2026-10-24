@@ -119,6 +119,7 @@ window.SABI_KB = {
     "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar (Colombia)",
     "Ley 1098 de 2006 — Código de la Infancia y la Adolescencia (Colombia)",
     "CAST — Universal Design for Learning Guidelines",
+    "Capp, M. J. — The effectiveness of universal design for learning: a meta-analysis of literature between 2013 and 2016 (International Journal of Inclusive Education, 2017) · DOI: 10.1080/13603116.2017.1325074",
     "Booth, T. y Ainscow, M. — Index for Inclusion (Índice de Inclusión)",
     "UNESCO — Declaración de Salamanca y Marco de Acción (1994)"
   ]

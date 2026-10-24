@@ -119,7 +119,7 @@ window.SABI_KB = {
     "Decreto 1072 de 2015 — Decreto Único Reglamentario del Sector Trabajo (Colombia)",
     "Resolución 2646 de 2008 — Ministerio de la Protección Social (Colombia), factores de riesgo psicosocial",
     "Ley 1616 de 2013 — Ley de Salud Mental (Colombia)",
-    "Gross, J. J. — The emerging field of emotion regulation: An integrative review (Review of General Psychology, 1998)",
+    "Gross, J. J. — The emerging field of emotion regulation: An integrative review (Review of General Psychology, 1998) · DOI: 10.1037/1089-2680.2.3.271",
     "Kabat-Zinn, J. — Full Catastrophe Living (1990)"
   ]
 };

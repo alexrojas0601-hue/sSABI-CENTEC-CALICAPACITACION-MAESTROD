@@ -325,7 +325,7 @@ window.SABI_KB = {
   "Ministerio de Educación Nacional (2006). Guía 22: Estándares Básicos de Competencias en Lenguas Extranjeras: Inglés",
   "Ministerio de Educación Nacional (2016). Derechos Básicos de Aprendizaje de Inglés, grados 6.° a 11.°",
   "Ley 1651 de 2013 — Ley de Bilingüismo (Colombia)",
-  "Coyle, D., Hood, P. y Marsh, D. (2010). CLIL: Content and Language Integrated Learning. Cambridge University Press",
+  "Coyle, D., Hood, P. y Marsh, D. (2010). CLIL: Content and Language Integrated Learning. Cambridge University Press · DOI: 10.1017/9781009024549",
   "Harmer, J. The Practice of English Language Teaching. Pearson"
  ]
 };

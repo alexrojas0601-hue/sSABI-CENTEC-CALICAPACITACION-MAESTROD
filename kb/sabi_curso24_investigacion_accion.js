@@ -116,12 +116,12 @@ window.SABI_KB = {
     { n: "N6 Crear", i: "Redacta y socializa el informe de un ciclo completo de investigación-acción." }
   ],
   fuentes: [
-    "Lewin, K. (1946). Action research and minority problems. Journal of Social Issues",
+    "Lewin, K. (1946). Action research and minority problems. Journal of Social Issues · DOI: 10.1111/j.1540-4560.1946.tb02295.x",
     "Stenhouse, L. (1975). An Introduction to Curriculum Research and Development. Heinemann",
     "Kemmis, S. y McTaggart, R. (1988). The Action Research Planner. Deakin University Press",
     "Elliott, J. (1991). Action Research for Educational Change. Open University Press",
-    "Fals Borda, O. (1987). The application of participatory action-research in Latin America. International Sociology",
-    "Braun, V. y Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology",
+    "Fals Borda, O. (1987). The application of participatory action-research in Latin America. International Sociology · DOI: 10.1177/026858098700200401",
+    "Braun, V. y Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology · DOI: 10.1191/1478088706qp063oa",
     "Ley 1581 de 2012 — Protección de datos personales (Congreso de Colombia)"
   ],
   cards: {
