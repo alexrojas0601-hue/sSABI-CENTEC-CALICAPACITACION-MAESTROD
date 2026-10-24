@@ -42,7 +42,7 @@ window.SABI_KB = {
     items: [
       { y: "1994", e: "Ley 115 incluye la lengua extranjera entre las áreas obligatorias y fundamentales." },
       { y: "2001", e: "El Consejo de Europa publica el Marco Común Europeo de Referencia para las Lenguas (MCER)." },
-      { y: "2004", e: "El MEN lanza el Programa Nacional de Bilingüismo, con el MCER como referente." },
+      { y: "2004", e: "El MEN lanza el Programa Nacional de Bilingüismo 2004-2019, con el MCER como referente: A2 para docentes de primaria y de otras áreas, B2 para docentes de inglés." },
       { y: "2006", e: "El MEN publica la Guía 22: Estándares Básicos de Competencias en Lenguas Extranjeras: Inglés." },
       { y: "2013", e: "Ley 1651, conocida como Ley de Bilingüismo, modifica la Ley 115 en lo relativo a lenguas extranjeras." },
       { y: "2016", e: "El MEN publica los Derechos Básicos de Aprendizaje y el Currículo Sugerido de Inglés." },
@@ -119,6 +119,9 @@ window.SABI_KB = {
     "Ministerio de Educación Nacional (2006). Guía 22: Estándares Básicos de Competencias en Lenguas Extranjeras: Inglés",
     "Ministerio de Educación Nacional (2016). Derechos Básicos de Aprendizaje: Inglés, grados 6 a 11",
     "Ley 1651 de 2013 — Ley de Bilingüismo (Colombia)",
-    "Ley 115 de 1994 — Ley General de Educación (Colombia)"
+    "Ley 115 de 1994 — Ley General de Educación (Colombia)",
+    "Lyster, R. y Ranta, L. (1997). Corrective feedback and learner uptake. Studies in Second Language Acquisition, 19(1), 37-66 · DOI: 10.1017/S0272263197001034",
+    "Munro, M. J. y Derwing, T. M. (1995). Foreign accent, comprehensibility, and intelligibility in the speech of second language learners. Language Learning, 45(1), 73-97 · DOI: 10.1111/j.1467-1770.1995.tb00963.x",
+    "Kim, S. K. y Webb, S. (2022). The effects of spaced practice on second language learning: A meta-analysis. Language Learning, 72(1), 269-319 · DOI: 10.1111/lang.12479"
   ]
 };

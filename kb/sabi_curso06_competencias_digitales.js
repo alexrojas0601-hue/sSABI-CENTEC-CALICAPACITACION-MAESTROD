@@ -46,7 +46,9 @@ window.SABI_KB = {
       { y: "2013", e: "Comisión Europea publica la primera versión de DigComp (Ferrari)." },
       { y: "2013", e: "Ley 1620 crea el Sistema Nacional de Convivencia Escolar y define el ciberacoso escolar." },
       { y: "2017", e: "Comisión Europea publica DigCompEdu (Redecker), marco específico para educadores." },
-      { y: "2022", e: "Se publica DigComp 2.2, con ejemplos actualizados que incluyen interacción con sistemas de IA." }
+      { y: "2022", e: "Se publica DigComp 2.2, con ejemplos actualizados que incluyen interacción con sistemas de IA." },
+      { y: "2023", e: "La UNESCO publica la Orientación para la IA generativa en la educación y la investigación." },
+      { y: "2024", e: "La UNESCO publica los Marcos de competencias en IA para docentes y para estudiantes." }
     ]
   },
   w5h1: {
@@ -119,6 +121,14 @@ window.SABI_KB = {
     "Ministerio de Educación Nacional (2013). Competencias TIC para el desarrollo profesional docente",
     "Ley 1581 de 2012 — Régimen general de protección de datos personales (Colombia)",
     "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar (Colombia) y Decreto 1965 de 2013",
+    "UNESCO (2023). Guidance for generative AI in education and research (Orientación para la IA generativa en la educación y la investigación)",
+    "Miao, F. y Cukurova, M. (2024). AI competency framework for teachers. UNESCO",
+    "UNESCO (2024). AI competency framework for students",
+    "Hamilton, E. R., Rosenberg, J. M. y Akcaoglu, M. (2016). The Substitution Augmentation Modification Redefinition (SAMR) Model: a Critical Review and Suggestions for its Use. TechTrends, 60(5), 433-441 · DOI: 10.1007/s11528-016-0091-y",
+    "Kirschner, P. A. y De Bruyckere, P. (2017). The myths of the digital native and the multitasker. Teaching and Teacher Education, 67, 135-142 · DOI: 10.1016/j.tate.2017.06.001",
+    "Wineburg, S. y McGrew, S. (2019). Lateral Reading and the Nature of Expertise. Teachers College Record, 121(11) · DOI: 10.1177/016146811912101102",
+    "Guo, P. J., Kim, J. y Rubin, R. (2014). How video production affects student engagement: an empirical study of MOOC videos. Proceedings of L@S 2014, 41-50 · DOI: 10.1145/2556325.2566239",
+    "Liang, W., Yuksekgonul, M., Mao, Y., Wu, E. y Zou, J. (2023). GPT detectors are biased against non-native English writers. Patterns, 4(7), 100779 · DOI: 10.1016/j.patter.2023.100779",
     "Mishra, P. y Koehler, M. J. (2006). Technological Pedagogical Content Knowledge: A Framework for Teacher Knowledge. Teachers College Record, 108(6), 1017-1054 · DOI: 10.1111/j.1467-9620.2006.00684.x"
   ]
 };

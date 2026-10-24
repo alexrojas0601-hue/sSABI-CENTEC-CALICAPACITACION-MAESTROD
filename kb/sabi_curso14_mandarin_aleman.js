@@ -8,7 +8,7 @@ window.SABI_KB = {
   "Al finalizar, el docente podrá usar der, die y das con cada sustantivo alemán y reconocer los cuatro casos gramaticales.",
   "Al finalizar, el docente podrá formar oraciones principales en alemán con el verbo conjugado en segunda posición (nivel A1 del MCER)."
  ],
- "intuitiva": "Mandarín y alemán son dos retos distintos para un hispanohablante. El mandarín es como una melodía: la misma sílaba cambia de significado según el tono con que se pronuncia (mā, má, mǎ, mà), pero su gramática es sorprendentemente simple: el verbo no se conjuga, no hay género ni artículos y el tiempo se marca con palabras como «ayer». El alemán es como un rompecabezas de piezas que encajan con reglas precisas: tres géneros (der, die, das), cuatro casos que cambian los artículos y un verbo que siempre ocupa el segundo lugar en la oración principal. Elegir uno u otro depende del objetivo profesional del docente.",
+ "intuitiva": "Mandarín y alemán son dos retos distintos para un hispanohablante. El mandarín es como una melodía: la misma sílaba cambia de significado según el tono con que se pronuncia (mā, má, mǎ, mà), pero su gramática es sorprendentemente simple: el verbo no se conjuga, no hay género ni artículos y el tiempo se marca con palabras como «ayer». El alemán es como un rompecabezas de piezas que encajan con reglas precisas: tres géneros (der, die, das), cuatro casos que cambian los artículos y un verbo que ocupa el segundo lugar en la oración enunciativa principal. Elegir uno u otro depende del objetivo profesional del docente.",
  "glosario": [
   {
    "w": "NIHAO",
@@ -22,8 +22,8 @@ window.SABI_KB = {
   },
   {
    "w": "XUESHENG",
-   "t": "学生 (xuéshēng)",
-   "d": "Estudiante en mandarín; no cambia en plural. Ejemplo: 我的学生 (wǒ de xuéshēng), «mis estudiantes» o «mi estudiante», según el contexto."
+   "t": "学生 (xuésheng)",
+   "d": "Estudiante en mandarín; no cambia en plural. Ejemplo: 我的学生 (wǒ de xuésheng), «mis estudiantes» o «mi estudiante», según el contexto."
   },
   {
    "w": "XIEXIE",
@@ -165,7 +165,7 @@ window.SABI_KB = {
   "que": "Bases de mandarín (tonos, pinyin, gramática SVO, cultura) y de alemán (género, casos, verbos, orden V2).",
   "cuando": "Mandarín en las semanas 1–4 y alemán en las semanas 5–8, con 30 a 45 minutos diarios.",
   "donde": "En casa con audio nativo, en grupos de práctica de CENTEC y en instituciones como el Goethe-Institut de Bogotá.",
-  "porque": "Porque son lenguas poco estudiadas en Colombia que abren becas y cooperación educativa, y porque el docente que aprende modela el aprendizaje para sus estudiantes.",
+  "porque": "Porque abren becas y cooperación educativa con China y con los países de habla alemana, y porque el docente que aprende modela el aprendizaje para sus estudiantes.",
   "como": "Tonos primero con gestos y grabación propia; en alemán, cada sustantivo con su artículo y práctica de frases con el verbo en segunda posición."
  },
  "flujo": {
@@ -324,6 +324,9 @@ window.SABI_KB = {
   "ISO 7098 — Romanización del chino",
   "Goethe-Institut. Descripción de los exámenes Goethe-Zertifikat A1 a C2",
   "Klafki, W. (1958). Didaktische Analyse als Kern der Unterrichtsvorbereitung",
-  "Duden. Die deutsche Rechtschreibung"
+  "Duden. Die deutsche Rechtschreibung",
+  "Wang, Y., Spence, M. M., Jongman, A. y Sereno, J. A. (1999). Training American listeners to perceive Mandarin tones. Journal of the Acoustical Society of America, 106(6), 3649-3658. DOI 10.1121/1.428217",
+  "Baills, F., Suárez-González, N., González-Fuente, S. y Prieto, P. (2019). Observing and producing pitch gestures facilitates the learning of Mandarin Chinese tones and words. Studies in Second Language Acquisition, 41(1), 33-58. DOI 10.1017/S0272263118000074",
+  "Karpicke, J. D. y Roediger, H. L. (2008). The critical importance of retrieval for learning. Science, 319(5865), 966-968. DOI 10.1126/science.1152408"
  ]
 };

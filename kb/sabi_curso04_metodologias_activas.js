@@ -116,8 +116,9 @@ window.SABI_KB = {
     "Barrows, H. S. y Tamblyn, R. M. — Problem-Based Learning: An Approach to Medical Education (1980)",
     "Bergmann, J. y Sams, A. — Flip Your Classroom: Reach Every Student in Every Class Every Day (2012)",
     "Johnson, D. W. y Johnson, R. T. — Cooperation and Competition: Theory and Research (1989)",
-    "Kapp, K. M. — The Gamification of Learning and Instruction (2012)",
+    "Sailer, M. y Homner, L. — The Gamification of Learning: a Meta-analysis (Educational Psychology Review, 2020) · DOI: 10.1007/s10648-019-09498-w",
     "Ryan, R. M. y Deci, E. L. — Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being (American Psychologist, 2000) · DOI: 10.1037/0003-066X.55.1.68",
-    "Dewey, J. — Experiencia y educación (1938)"
+    "Hmelo-Silver, C. E. — Problem-Based Learning: What and How Do Students Learn? (Educational Psychology Review, 2004) · DOI: 10.1023/B:EDPR.0000034022.16470.f3",
+    "van Alten, D. C. D., Phielix, C., Janssen, J. y Kester, L. — Effects of flipping the classroom on learning outcomes and satisfaction: A meta-analysis (Educational Research Review, 2019) · DOI: 10.1016/j.edurev.2019.05.003"
   ]
 };

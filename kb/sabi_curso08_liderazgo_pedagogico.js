@@ -115,12 +115,12 @@ window.SABI_KB = {
     { n: "N6 Crear", i: "Diseña un programa de inducción y mentoría para docentes nuevos de CENTEC." }
   ],
   fuentes: [
+    "Robinson, V. M. J., Lloyd, C. A. y Rowe, K. J. (2008). The impact of leadership on student outcomes. Educational Administration Quarterly, 44(5), 635-674 · DOI: 10.1177/0013161X08321509",
+    "Leithwood, K., Harris, A. y Hopkins, D. (2008). Seven strong claims about successful school leadership. School Leadership and Management, 28(1), 27-42 · DOI: 10.1080/13632430701800060",
     "Spillane, J. P. (2006). Distributed Leadership. Jossey-Bass",
     "Wenger, E. (1998). Communities of Practice: Learning, Meaning, and Identity. Cambridge University Press · DOI: 10.1017/CBO9780511803932",
-    "Lave, J. y Wenger, E. (1991). Situated Learning: Legitimate Peripheral Participation. Cambridge University Press · DOI: 10.1017/CBO9780511815355",
     "Kotter, J. P. (1996). Leading Change. Harvard Business School Press",
-    "Leithwood, K., Harris, A. y Hopkins, D. (2008). Seven strong claims about successful school leadership. School Leadership and Management, 28(1), 27-42 · DOI: 10.1080/13632430701800060",
-    "Maslach, C. y Jackson, S. E. (1981). The measurement of experienced burnout. Journal of Occupational Behaviour, 2(2), 99-113 · DOI: 10.1002/job.4030020205",
-    "Ministerio de Educación Nacional (2008). Guía 34: Guía para el mejoramiento institucional"
+    "Kraft, M. A., Blazar, D. y Hogan, D. (2018). The effect of teacher coaching on instruction and achievement: A meta-analysis of the causal evidence. Review of Educational Research, 88(4), 547-588 · DOI: 10.3102/0034654318759268",
+    "Ingersoll, R. M. y Strong, M. (2011). The impact of induction and mentoring programs for beginning teachers. Review of Educational Research, 81(2), 201-233 · DOI: 10.3102/0034654311403323"
   ]
 };

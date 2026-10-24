@@ -87,7 +87,7 @@ window.SABI_KB = {
   recuperacion: [
     { p: "Explica con tus palabras qué hace que una evaluación sea formativa.", modelo: "Una evaluación es formativa no por el instrumento, sino por el uso que se hace de la evidencia. Si la información sobre lo que el estudiante sabe se usa durante el proceso para decidir los siguientes pasos, ajustar la enseñanza o que el estudiante mejore su trabajo, es formativa. El mismo examen puede ser formativo o sumativo según para qué se use." },
     { p: "Describe los niveles de retroalimentación de Hattie y Timperley y cuál es menos eficaz.", modelo: "Hay cuatro niveles: tarea (si la respuesta es correcta y qué falta), proceso (las estrategias usadas para hacer la tarea), autorregulación (cómo el estudiante monitorea y dirige su propio trabajo) y persona (elogios sobre el individuo, como «eres muy pilo»). Este último es el menos eficaz porque no da información útil para mejorar." },
-    { p: "¿Qué establece el Decreto 1290 de 2009 que todo docente debe conocer?", modelo: "Reglamenta la evaluación del aprendizaje y la promoción en básica y media. Ordena que cada institución construya su Sistema Institucional de Evaluación de los Estudiantes (SIEE), define la escala nacional (Superior, Alto, Básico y Bajo), establece propósitos de la evaluación como identificar ritmos y estilos de aprendizaje, y fija derechos y deberes de estudiantes y familias." },
+    { p: "¿Qué establece el Decreto 1290 de 2009 que todo docente debe conocer?", modelo: "Reglamenta la evaluación del aprendizaje y la promoción en básica y media. Ordena que cada institución construya su Sistema Institucional de Evaluación de los Estudiantes (SIEE), define la escala nacional (Superior, Alto, Básico y Bajo), establece propósitos de la evaluación, como reorientar los procesos educativos y apoyar a quienes presentan debilidades, y fija derechos y deberes de estudiantes y familias. Aunque el artículo 3 menciona «estilos de aprendizaje», no debe leerse como diagnóstico de estilos visual, auditivo o kinestésico, que la investigación no respalda." },
     { p: "¿Cómo construirías una rúbrica con tus estudiantes?", modelo: "Partiría de la meta y del DBA. Mostraría ejemplos de trabajos de distinta calidad y pediría al grupo identificar qué diferencia uno bueno de uno débil. Con esas ideas redactaríamos criterios y describiríamos niveles en lenguaje comprensible. Luego la probaríamos evaluando un ejemplo y la ajustaríamos antes de usarla en autoevaluación y coevaluación." }
   ],
   caso: {
@@ -114,11 +114,11 @@ window.SABI_KB = {
     { n: "N6 Crear", i: "Diseña una unidad con ciclo completo de evaluación formativa alineado a un DBA." }
   ],
   fuentes: [
-    "Black, P. y Wiliam, D. — Inside the Black Box: Raising Standards Through Classroom Assessment (1998)",
+    "Black, P. y Wiliam, D. — Assessment and Classroom Learning (Assessment in Education: Principles, Policy & Practice, 1998) · DOI: 10.1080/0969595980050102; versión para docentes: Inside the Black Box (Phi Delta Kappan, 1998)",
     "Hattie, J. y Timperley, H. — The Power of Feedback (Review of Educational Research, 2007) · DOI: 10.3102/003465430298487",
     "Wiliam, D. — Embedded Formative Assessment (2011)",
-    "Decreto 1290 de 2009 — Evaluación del aprendizaje y promoción de estudiantes (Colombia)",
-    "Decreto 1075 de 2015 — Decreto Único Reglamentario del Sector Educación (Colombia)",
+    "Decreto 1290 de 2009 — Evaluación del aprendizaje y promoción de estudiantes (Colombia), compilado en el Decreto 1075 de 2015",
+    "Wisniewski, B., Zierer, K. y Hattie, J. — The Power of Feedback Revisited: A Meta-Analysis of Educational Feedback Research (Frontiers in Psychology, 2020) · DOI: 10.3389/fpsyg.2019.03087",
     "Ministerio de Educación Nacional — Derechos Básicos de Aprendizaje",
     "Sadler, D. R. — Formative assessment and the design of instructional systems (Instructional Science, 1989) · DOI: 10.1007/BF00117714"
   ]

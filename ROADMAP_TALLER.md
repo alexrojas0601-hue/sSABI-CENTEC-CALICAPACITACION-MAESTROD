@@ -84,3 +84,23 @@ rigurosos, con voz, práctica, comprobación y transferencia al aula.
 - [x] DOI verificados en las fuentes de `kb/*.js` (36 DOI: 31 en fuentes existentes y 5 en artículos añadidos; registro en `docs/VERIFICACION_DOI.md`). Sin fuente revisada por pares: cursos 09, 12, 13, 14 y 20.
 - [ ] Más escenarios del Club (meta: 30 por idioma; validador listo: `node club/tools/validar_club.js`) y conversación libre con IA mediante un Worker propio.
 - [ ] Prueba física del minilibro impreso y del certificado en PDF.
+
+---
+
+# ROADMAP · Revisión integral de los cursos y Tendencias 2026 (iniciada 2026-10-24)
+
+Estándar común para Dots autores, auditores y tareas programadas: `docs/ESTANDAR_CURSOS_SABI.md`.
+Informe por curso (qué se corrigió, fuentes con DOI, auditoría independiente, qué queda para revisión humana):
+`docs/revision/cursoNN.md`.
+
+- [x] Cursos 01-14: revisados por un Dot autor y auditados por un Dot distinto. Hallazgos graves corregidos: preguntas
+      rotas que impedían aprobar módulos (01, 04, 05, 06, 07, 08), decenas de cifras inventadas con autores reales y
+      años falsos, neuromitos, normativa mal citada, claves siempre en B y texto sin tildes. Tarjetas «Actualización 2026».
+- [x] Cursos nuevos 26 Ciencia de la lectura, 27 Pensamiento computacional, 28 Alfabetización de datos y
+      29 Educación climática y ODS: 3 módulos, 21 preguntas, kb y kb/plus, auditados. Bloque «Tendencias 2026» en index.html.
+- [x] index.html: el encabezado del bloque de Idiomas desbordaba a 390 px (botón «Club de Idiomas 3D»); corregido.
+- [ ] Cursos 15-25: revisados por el Dot autor; falta la auditoría independiente (en curso).
+- [ ] Ampliar 17, 18, 20, 21 y 22 (1 pregunta y 2-4 tarjetas por módulo) al estándar de 6-8 tarjetas y 7 preguntas.
+- [ ] Revisión humana de lo marcado en cada informe (normas no abiertas en la fuente oficial, cifras de fuentes secundarias).
+- [ ] Las tarjetas del catálogo en index.html aún tienen cifras sin fuente (p. ej. «68 % FOMAG 2024», «32 % TALIS 2024»,
+      «3er país con más ciberataques», «CENTEC Futuro PEI 2026+»).

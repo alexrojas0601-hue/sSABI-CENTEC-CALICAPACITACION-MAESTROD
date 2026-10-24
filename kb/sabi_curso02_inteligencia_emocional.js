@@ -41,7 +41,7 @@ window.SABI_KB = {
     titulo: "Hitos de la inteligencia emocional en educación",
     items: [
       { y: "1990", e: "Salovey y Mayer publican «Emotional Intelligence» en Imagination, Cognition and Personality." },
-      { y: "1993", e: "Hatfield, Cacioppo y Rapson publican su trabajo sobre el contagio emocional." },
+      { y: "1993", e: "Hatfield, Cacioppo y Rapson publican su artículo sobre el contagio emocional; el libro llega en 1994." },
       { y: "1994", e: "Se funda CASEL, que impulsa el aprendizaje socioemocional en las escuelas." },
       { y: "1995", e: "Daniel Goleman publica «Emotional Intelligence» y populariza el concepto." },
       { y: "1997", e: "Mayer y Salovey presentan el modelo de cuatro ramas de habilidades." },
@@ -116,10 +116,10 @@ window.SABI_KB = {
   fuentes: [
     "Salovey, P. y Mayer, J. D. — Emotional Intelligence (Imagination, Cognition and Personality, 1990) · DOI: 10.2190/DUGG-P24E-52WK-6CDG",
     "Mayer, J. D. y Salovey, P. — What is emotional intelligence? (1997)",
-    "Brackett, M. — Permission to Feel (2019)",
+    "Rivers, S. E., Brackett, M. A. y colegas — Improving the social and emotional climate of classrooms: a clustered randomized controlled trial testing the RULER approach (Prevention Science, 2013) · DOI: 10.1007/s11121-012-0305-2",
     "Edmondson, A. — Psychological Safety and Learning Behavior in Work Teams (Administrative Science Quarterly, 1999) · DOI: 10.2307/2666999",
     "Rosenberg, M. B. — Comunicación No Violenta: un lenguaje de vida",
-    "Hatfield, E., Cacioppo, J. T. y Rapson, R. L. — Emotional Contagion (1994)",
+    "Hatfield, E., Cacioppo, J. T. y Rapson, R. L. — Emotional contagion (Current Directions in Psychological Science, 1993) · DOI: 10.1111/1467-8721.ep10770953",
     "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar (Colombia)"
   ]
 };

@@ -42,12 +42,12 @@ window.SABI_KB = {
     items: [
       { y: "1950", e: "Alan Turing publica «Computing Machinery and Intelligence» y propone el juego de la imitación." },
       { y: "1956", e: "Taller de Dartmouth: se consolida el campo de la «inteligencia artificial»." },
-      { y: "1997", e: "Deep Blue de IBM vence al campeón mundial de ajedrez Garri Kaspárov." },
       { y: "2012", e: "AlexNet gana el reto ImageNet e impulsa el aprendizaje profundo." },
       { y: "2017", e: "Investigadores de Google publican la arquitectura Transformer." },
       { y: "2019", e: "Colombia aprueba el CONPES 3975, política de transformación digital e inteligencia artificial." },
       { y: "2021", e: "La UNESCO adopta la Recomendación sobre la Ética de la Inteligencia Artificial." },
-      { y: "2022", e: "OpenAI lanza ChatGPT al público y masifica la IA generativa." }
+      { y: "2022", e: "OpenAI lanza ChatGPT al público y masifica la IA generativa." },
+      { y: "2025", e: "Colombia aprueba el CONPES 4144, Política Nacional de Inteligencia Artificial, con acciones hasta 2030." }
     ]
   },
   w5h1: {
@@ -116,10 +116,11 @@ window.SABI_KB = {
   ],
   fuentes: [
     "UNESCO (2021). Recomendación sobre la Ética de la Inteligencia Artificial",
-    "UNESCO (2023). Guía para el uso de IA generativa en educación e investigación",
-    "Departamento Nacional de Planeación (2019). Documento CONPES 3975: Política Nacional para la Transformación Digital e Inteligencia Artificial",
-    "Turing, A. M. (1950). Computing Machinery and Intelligence. Mind, 59(236), 433-460 · DOI: 10.1093/mind/LIX.236.433",
-    "Vaswani, A. y otros (2017). Attention Is All You Need. Advances in Neural Information Processing Systems",
-    "Ley 1581 de 2012 — Régimen general de protección de datos personales (Colombia)"
+    "UNESCO (2023). Guía para la IA generativa en la educación y la investigación · DOI: 10.54675/EWZM9535",
+    "UNESCO (2024). Marco de competencias en IA para docentes · DOI: 10.54675/ZJTE2084",
+    "Departamento Nacional de Planeación (2025). Documento CONPES 4144: Política Nacional de Inteligencia Artificial",
+    "Ley 1581 de 2012 — Régimen general de protección de datos personales (Colombia)",
+    "Weber-Wulff, D. y otros (2023). Testing of detection tools for AI-generated text. International Journal for Educational Integrity, 19, 26 · DOI: 10.1007/s40979-023-00146-z",
+    "Bastani, H. y otros (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. PNAS, 122(26), e2422633122 · DOI: 10.1073/pnas.2422633122"
   ]
 };

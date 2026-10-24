@@ -399,8 +399,8 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
   <div class="mhdr" id="h1" data-lock="0" onclick="S.toggle(1)" style="--ac:#1D9E75">
     <div class="mnum" style="background:#1D9E75">1</div>
     <div class="minfo">
-      <div class="mtitle">Fundamentos de IA para el Maestro No Técnico</div>
-      <div class="msub">¿Qué es la IA? · Machine Learning · IA generativa · Mitos vs realidades · Historia</div>
+      <div class="mtitle">Fundamentos de IA para el maestro no técnico</div>
+      <div class="msub">¿Qué es la IA? · Aprendizaje automático · IA generativa · Alucinaciones · Historia · Colombia</div>
       <div class="mmeta">
         <span class="mdur">⏱ Sem 1-2</span>
         
@@ -409,35 +409,50 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
     <span class="mchev">▽</span>
     <div class="mpbar"><div class="mpfill"></div></div>
   </div>
-  <div class="mbody" id="b1"><div class="intro">🧠 <strong>EL CONOCIMIENTO QUE CAMBIÓ TODO:</strong> En noviembre de 2022 ChatGPT llegó a 1 millón de usuarios en 5 días — más rápido que cualquier tecnología en la historia. Para enero de 2024 ya era usada por estudiantes colombianos en todas las ciudades. El maestro que no entiende qué es la IA generativa — no solo cómo usarla — no puede enseñarla críticamente, no puede diseñar evaluaciones que midan el aprendizaje real, y no puede proteger a sus estudiantes de sus riesgos. Este módulo desmonta los mitos y construye la comprensión conceptual que el maestro SABI necesita.</div><div class="cards">
+  <div class="mbody" id="b1"><div class="intro">🧠 <strong>IDEA CENTRAL:</strong> ChatGPT se lanzó el 30 de noviembre de 2022 y, según anunció OpenAI, superó el millón de usuarios en cinco días. Hoy muchos estudiantes usan IA generativa con o sin permiso. El maestro no necesita programar, pero sí entender <strong>qué es, qué no es y por qué se equivoca</strong>: sin esa comprensión no puede enseñarla con criterio, diseñar evaluaciones que midan aprendizaje real ni proteger a sus estudiantes. Este módulo desmonta mitos y construye esa base conceptual.</div><div class="cards">
 <div class="card" style="--ca:#1D9E75">
   <div class="card-hd">
     <div class="card-ico">🧠</div>
-    <div class="card-title">¿Qué es la Inteligencia Artificial? — Desmontando el mito</div>
+    <div class="card-title">¿Qué es la inteligencia artificial? — Desmontando el mito</div>
   </div>
-  <div class="card-bd">La IA no es ciencia ficción ni robot con consciencia. Es: sistemas computacionales que realizan tareas que normalmente requieren inteligencia humana. Subcampos: Machine Learning (aprende de datos), Deep Learning (redes neuronales profundas), IA Generativa (produce contenido nuevo). Lo que la IA NO hace: comprender, sentir, tener intenciones, o razonar como un humano. Lo que sí hace: reconocer patrones en datos masivos y producir outputs estadísticamente probables.<div class="card-reflect">💭 ¿Cuál es tu mayor mito sobre la IA que quieres clarificar?</div></div>
+  <div class="card-bd">Idea intuitiva: la IA no es un robot con conciencia; es software que hace tareas que antes exigían inteligencia humana, como reconocer una cara, traducir o redactar.<br><br>Definición: la inteligencia artificial es el campo que construye sistemas computacionales capaces de realizar tareas como percibir, clasificar, predecir o generar contenido a partir de datos. Tres términos que conviene distinguir:<br>• <strong>Aprendizaje automático</strong> (<em>machine learning</em>): el sistema ajusta su comportamiento a partir de ejemplos, sin que alguien escriba cada regla.<br>• <strong>Aprendizaje profundo</strong>: aprendizaje automático con redes neuronales artificiales de muchas capas (son modelos matemáticos, no neuronas).<br>• <strong>IA generativa</strong>: modelos que producen texto, imagen, audio o código nuevos.<br><br>Lo que hace: detecta patrones estadísticos en enormes cantidades de datos y produce la salida más probable. Lo que no hace: tener intenciones, experiencia o comprensión del mundo como una persona, ni garantizar que lo que dice sea verdad. Esa diferencia es la base de todo uso pedagógico responsable.<div class="card-reflect">💭 ¿Cuál es la idea sobre la IA que más te gustaría aclarar con tus estudiantes?</div></div>
 </div>
 <div class="card" style="--ca:#1B7FA6">
   <div class="card-hd">
     <div class="card-ico">💡</div>
     <div class="card-title">IA generativa — Cómo funciona lo que ya usas</div>
   </div>
-  <div class="card-bd">ChatGPT, Gemini, Copilot: predicen el texto más probable dada una secuencia de palabras. Son entrenados en billones de textos de internet — heredan sus patrones, sesgos y errores. 'Alucinaciones': cuando la IA genera información falsa con total confianza. Esto ocurre porque la IA no verifica — predice. Para el maestro: ningún output de IA debe usarse sin verificación. La IA es un borrador poderoso — no una fuente confiable autónoma.<div class="card-reflect">💭 ¿Has recibido información incorrecta de una IA sin darte cuenta?</div></div>
+  <div class="card-bd">Un modelo de lenguaje (ChatGPT, Gemini, Copilot, Claude) se entrena con enormes colecciones de texto y aprende a predecir el siguiente fragmento (<em>token</em>) de una secuencia. Por eso redacta con fluidez: produce lo que suele seguir a lo que se le escribió.<br><br>Consecuencias para el aula:<br>(1) <strong>Alucinaciones</strong>: el modelo puede generar datos, citas o leyes falsas con total seguridad. La revisión de Ji y otros (2023, <em>ACM Computing Surveys</em>, 55(12), 1-38, DOI <a href="https://doi.org/10.1145/3571730" target="_blank" rel="noopener">10.1145/3571730</a>) describe el fenómeno en la generación de lenguaje. Walters y Wilder (2023, <em>Scientific Reports</em>, 13, 14045, DOI <a href="https://doi.org/10.1038/s41598-023-41032-5" target="_blank" rel="noopener">10.1038/s41598-023-41032-5</a>) pidieron revisiones de literatura a ChatGPT: el 55 % de las referencias de GPT-3.5 y el 18 % de las de GPT-4 eran inventadas.<br>(2) <strong>Sesgos</strong>: el modelo hereda los patrones y prejuicios de sus datos.<br>(3) <strong>Variabilidad</strong>: la misma instrucción puede dar respuestas distintas.<br><br>Regla práctica: la IA es un borrador rápido, no una fuente. Todo lo que llegue al aula se verifica.<div class="card-reflect">💭 ¿Recuerdas alguna respuesta de IA que parecía correcta y no lo era?</div></div>
 </div>
 <div class="card" style="--ca:#7F77DD">
   <div class="card-hd">
     <div class="card-ico">🎯</div>
     <div class="card-title">Historia de la IA — De Turing a ChatGPT</div>
   </div>
-  <div class="card-bd">1950: Alan Turing propone la prueba de Turing. 1956: el término 'inteligencia artificial' se acuña en Dartmouth. 1997: Deep Blue (IBM) vence a Kasparov en ajedrez. 2012: AlexNet revoluciona el reconocimiento de imágenes con Deep Learning. 2017: la arquitectura Transformer (que usa ChatGPT) es publicada por Google. 2022: ChatGPT democratiza la IA generativa. 2024: la IA está en el aula colombiana — quiéranlo o no. El maestro que conoce esta historia comprende el salto cualitativo que representa.<div class="card-reflect">💭 ¿En qué punto de esta historia ubicas tu primera experiencia real con IA?</div></div>
+  <div class="card-bd">Una línea de tiempo ayuda a ver que la IA no apareció de la nada:<br>• <strong>1950</strong>: Alan Turing publica «Computing Machinery and Intelligence» y propone el «juego de la imitación» (<em>Mind</em>, 59(236), 433-460, DOI <a href="https://doi.org/10.1093/mind/LIX.236.433" target="_blank" rel="noopener">10.1093/mind/LIX.236.433</a>).<br>• <strong>1956</strong>: en el taller de Dartmouth, convocado por John McCarthy y otros, se consolida el nombre «inteligencia artificial».<br>• <strong>1997</strong>: Deep Blue, de IBM, vence a Garri Kaspárov en un encuentro de ajedrez.<br>• <strong>2012</strong>: la red AlexNet gana el reto ImageNet e impulsa el aprendizaje profundo.<br>• <strong>2017</strong>: investigadores de Google publican la arquitectura <em>Transformer</em> («Attention Is All You Need»), base de los modelos de lenguaje actuales.<br>• <strong>2022</strong>: OpenAI abre ChatGPT al público y masifica la IA generativa.<br><br>Lectura pedagógica: hubo décadas de avances y de «inviernos» con expectativas frustradas. Conocer la historia ayuda a desconfiar tanto del pánico como de las promesas exageradas.<div class="card-reflect">💭 ¿En qué punto de esta línea de tiempo ubicas tu primera experiencia con IA?</div></div>
 </div>
 <div class="card" style="--ca:#D85A30">
   <div class="card-hd">
     <div class="card-ico">🔬</div>
-    <div class="card-title">IA en Colombia — El estado actual y los desafíos locales</div>
+    <div class="card-title">IA en Colombia — Políticas y desafíos locales</div>
   </div>
-  <div class="card-bd">Colombia aprobó la Política Nacional de Inteligencia Artificial en 2019 (actualizada 2023). El SENA ofrece formación en IA desde 2022. MinTIC promueve la adopción de IA en el sector público. Desafío principal: la brecha digital hace que la IA no llegue equitativamente a todas las instituciones. El maestro en zona rural y el de Bogotá no tienen el mismo acceso — pero el debate sobre IA les afecta a ambos.<div class="card-reflect">💭 ¿Cómo ha llegado la IA a tu institución específicamente?</div></div>
-</div></div>
+  <div class="card-bd">Colombia tiene dos documentos de política pública que el docente debe conocer:<br>• <strong>CONPES 3975 de 2019</strong>: Política Nacional para la Transformación Digital e Inteligencia Artificial.<br>• <strong>CONPES 4144 de 2025</strong>: Política Nacional de Inteligencia Artificial, aprobada el 14 de febrero de 2025, con más de cien acciones hasta 2030. Uno de sus ejes es el desarrollo de capacidades y talento digital, que incluye competencias digitales para docentes y estudiantes (Departamento Nacional de Planeación y MinTIC).<br><br>Desafío principal: la brecha digital. No todas las sedes tienen conectividad estable ni equipos suficientes, y muchos estudiantes acceden a la IA solo desde un celular. Esto no exime de la conversación: los estudiantes ya se encuentran con sistemas de IA en redes sociales, buscadores y aplicaciones, y necesitan criterio para usarlos.<br><br>Para CENTEC: la pregunta no es si la IA llegará al aula, sino si llegará con guía pedagógica o sin ella.<div class="card-reflect">💭 ¿Cómo ha llegado la IA a tu institución: por política, por los estudiantes o por iniciativa docente?</div></div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🧩</div>
+    <div class="card-title">Ejemplo resuelto en CENTEC y errores frecuentes</div>
+  </div>
+  <div class="card-bd">Caso con nombres ficticios. La profesora Daniela, de Ciencias Sociales de noveno, quiere que sus estudiantes entiendan qué es una alucinación.<br>Paso 1: proyecta una respuesta de IA sobre la Independencia que incluye un dato falso (por ejemplo, que Simón Bolívar nació en 1784; nació el 24 de julio de 1783).<br>Paso 2: pide a parejas predecir: «¿todo es correcto?».<br>Paso 3: cada pareja verifica tres datos en el libro de texto y en una fuente institucional.<br>Paso 4: discuten por qué la IA se equivocó con tanta seguridad (predice texto probable, no consulta hechos).<br>Paso 5: boleto de salida: «Explica con una analogía de tu vida diaria cómo produce texto un chatbot».<br><br>Errores frecuentes: decir que la IA «piensa» o «sabe»; pedirle a la misma IA que confirme sus datos; rechazar toda la herramienta por un error; usarla sin explicar cómo funciona.<br>Indicadores: N1 define alucinación; N2 explica la predicción de texto con una analogía; N4 detecta datos falsos en un texto generado.<div class="card-reflect">💭 ¿Qué dato de tu área podrías usar para mostrar una alucinación?</div></div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🆕</div>
+    <div class="card-title">Actualización 2026: lo que dice la evidencia</div>
+  </div>
+  <div class="card-bd">1. <strong>Orientaciones de la UNESCO (2023).</strong> La <em>Guía para la IA generativa en la educación y la investigación</em> (DOI <a href="https://doi.org/10.54675/EWZM9535" target="_blank" rel="noopener">10.54675/EWZM9535</a>) propone un enfoque centrado en el ser humano, validar las herramientas antes de usarlas y una edad mínima de 13 años para su uso en clase. La UNESCO informó que, en una encuesta a más de 450 escuelas y universidades, menos del 10 % tenía orientaciones institucionales sobre IA generativa.<br>2. <strong>Marcos de competencias en IA (UNESCO, 2024).</strong> El de docentes (DOI <a href="https://doi.org/10.54675/ZJTE2084" target="_blank" rel="noopener">10.54675/ZJTE2084</a>) define 15 competencias en 5 dimensiones: mentalidad centrada en el ser humano, ética de la IA, fundamentos y aplicaciones, IA en la pedagogía e IA para el desarrollo profesional, con tres niveles (adquirir, profundizar, crear). El de estudiantes (DOI <a href="https://doi.org/10.54675/JKJB9835" target="_blank" rel="noopener">10.54675/JKJB9835</a>) define 12 competencias en 4 dimensiones.<br>3. <strong>Errores con citas.</strong> Aunque los modelos mejoran, siguen inventando referencias (Walters y Wilder, 2023). Verificar sigue siendo obligatorio. <em>Contenido en revisión por el equipo docente responsable.</em><div class="card-reflect">💭 ¿En qué nivel del marco docente de la UNESCO te ubicas hoy: adquirir, profundizar o crear?</div></div>
+</div>
+</div>
 <div class="zona">
   <div class="ehdr">
     <div class="eico">🎯</div>
@@ -455,175 +470,211 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
 <div class="eq" id="q1_1">
   <div class="qhdr">
     <div class="qn">1</div>
-    <div class="qtx">🟡 Un estudiante afirma: 'La IA piensa como los humanos — solo que más rápido'. ¿Cuál es la corrección pedagógica más precisa?</div>
+    <div class="qtx">🟡 Un estudiante afirma: «La IA piensa como los humanos, solo que más rápido». ¿Cuál es la corrección más precisa?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(1,1,0)">
-  <span class="mk">A</span><span>Es correcto — la IA procesa información de la misma forma que el cerebro humano, solo con mayor velocidad</span>
+  <span class="mk">A</span><span>Es correcto: procesa la información igual que el cerebro, pero con mayor velocidad</span>
 </button>
 <button class="opt" onclick="S.pick(1,1,1)">
-  <span class="mk">B</span><span>Depende de la IA — algunos sistemas piensan como humanos y otros no</span>
+  <span class="mk">B</span><span>Depende del modelo: los más nuevos ya comprenden el mundo como una persona</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,2)">
+  <span class="mk">C</span><span>Predice texto probable a partir de patrones; no comprende ni verifica la verdad</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,3)">
+  <span class="mk">D</span><span>Es imposible saberlo, así que no conviene hablar de ese tema con estudiantes</span>
 </button></div>
   <button class="btncheck" onclick="S.check(1,1,2)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Esta corrección es fundamental para que los estudiantes usen la IA críticamente: si creen que 'piensa', le delegarán el juicio sin cuestionar sus outputs. La IA predice patrones estadísticos — no comprende, no razona causalmente, no tiene experiencia, y no puede verificar si lo que produce es verdad. El estudiante que comprende esto usa la IA como herramienta poderosa — no como autoridad. <div class='fbr'>💭 ¿Cómo explicarías esta distinción a tus estudiantes usando una analogía de su vida cotidiana?</div></div>
+    <div>✅ Correcto. Un modelo de lenguaje calcula la continuación más probable según los patrones de sus datos; no tiene experiencia ni verifica si lo que dice es cierto. Si los estudiantes creen que «piensa», le delegan el juicio. A y B le atribuyen comprensión humana; D renuncia a una conversación necesaria. <div class='fbr'>💭 ¿Qué analogía cotidiana usarías para explicar esta diferencia?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA predice patrones estadísticos — no piensa, no comprende, no verifica.</div>
+    <div>Pista: recuerda qué hace un modelo de lenguaje en cada paso: ¿consulta hechos o calcula probabilidades?</div>
   </div>
 </div>
 <div class="eq" id="q1_2">
   <div class="qhdr">
     <div class="qn">2</div>
-    <div class="qtx">🔴 Una IA genera un texto que afirma que 'el Libertador Simón Bolívar nació en Caracas en 1784'. ¿Cuál es la respuesta más rigurosa para enseñar pensamiento crítico?</div>
+    <div class="qtx">🔴 Una IA afirma que Simón Bolívar nació en Caracas en 1784. ¿Cuál es la respuesta más rigurosa para formar pensamiento crítico?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(1,2,0)">
-  <span class="mk">A</span><span>Aceptar el dato — la IA tiene acceso a más información que cualquier humano</span>
+  <span class="mk">A</span><span>Verificar en fuentes confiables, corregir el dato (1783) y analizar por qué falló</span>
 </button>
 <button class="opt" onclick="S.pick(1,2,1)">
-  <span class="mk">B</span><span>Rechazar todo lo que produce la IA — si falla en un dato no es confiable para nada</span>
+  <span class="mk">B</span><span>Aceptar el dato porque la IA tiene acceso a más información que cualquier persona</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,2)">
+  <span class="mk">C</span><span>Rechazar todo lo que produzca la IA, porque si falla una vez nunca es confiable</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,3)">
+  <span class="mk">D</span><span>Pedirle a la misma IA que revise su respuesta y aceptar lo que diga la segunda vez</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(1,2,2)" disabled>
+  <button class="btncheck" onclick="S.check(1,2,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Este ejercicio de verificación es el más importante para el pensamiento crítico en la era de la IA. La fecha correcta es 1783. La IA 'alucinó' con una fecha plausible pero incorrecta — con total confianza. El proceso de verificación (fuente primaria + fuente secundaria confiable) es exactamente la habilidad de alfabetización informacional que el maestro debe enseñar y modelar. <div class='fbr'>💭 ¿Qué protocolo de verificación enseñas a tus estudiantes para los outputs de IA?</div></div>
+    <div>✅ Correcto. Bolívar nació el 24 de julio de 1783. La IA produjo una fecha plausible pero falsa con total seguridad: una alucinación. Lo formativo es verificar en fuentes confiables y explicar por qué ocurre. B confía ciegamente; C desecha una herramienta útil; D no sirve, porque la autoverificación del modelo tampoco es confiable. <div class='fbr'>💭 ¿Qué protocolo de verificación enseñas a tus estudiantes?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA puede producir información falsa con total confianza — la verificación siempre es obligatoria.</div>
+    <div>Pista: busca la opción que no confía ciegamente ni descarta todo, sino que contrasta con fuentes.</div>
   </div>
 </div>
 <div class="eq" id="q1_3">
   <div class="qhdr">
     <div class="qn">3</div>
-    <div class="qtx">🟠 ¿Por qué los sesgos de la IA son un problema especialmente relevante para el contexto educativo colombiano?</div>
+    <div class="qtx">🟠 ¿Por qué los sesgos de la IA son especialmente relevantes para el aula colombiana?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(1,3,0)">
-  <span class="mk">A</span><span>Los sesgos de la IA son iguales de problemáticos en todos los países — no hay diferencia por contexto</span>
+  <span class="mk">A</span><span>Porque solo afectan a los países que desarrollan los modelos, no a los que los usan</span>
 </button>
 <button class="opt" onclick="S.pick(1,3,1)">
-  <span class="mk">B</span><span>Los sesgos de la IA no son relevantes para la educación — solo para la política y los medios</span>
+  <span class="mk">B</span><span>Porque los datos de entrenamiento están dominados por otros idiomas y contextos</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,2)">
+  <span class="mk">C</span><span>Porque en Colombia los modelos funcionan sin sesgos, ya que se ajustan al país</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,3)">
+  <span class="mk">D</span><span>Porque los sesgos solo importan en política y medios, no en materiales educativos</span>
 </button></div>
   <button class="btncheck" onclick="S.check(1,3,1)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Los modelos de IA principales fueron entrenados mayoritariamente en inglés y en contenido digital producido por poblaciones con acceso privilegiado a internet — lo que excluye y distorsiona la representación de las comunidades colombianas más vulnerables. Un maestro que usa IA sin filtro crítico puede estar reproduciendo esas distorsiones en el aula. <div class='fbr'>💭 ¿Has verificado alguna vez si los ejemplos que una IA produce son culturalmente pertinentes para tus estudiantes colombianos?</div></div>
+    <div>✅ Correcto. Los modelos aprenden sobre todo de contenido digital en inglés y de poblaciones con más acceso a internet; por eso pueden representar mal o estereotipar a comunidades colombianas, sus variantes del español o su historia. Un docente que usa sus salidas sin filtro puede reproducir esas distorsiones. A, C y D niegan un riesgo real. <div class='fbr'>💭 ¿Has revisado si los ejemplos que produce una IA son pertinentes para tus estudiantes?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA reproduce los sesgos de sus datos — que sistemáticamente subrepresentan el contexto colombiano.</div>
+    <div>Pista: piensa en de dónde vienen los textos con los que aprenden los modelos.</div>
   </div>
 </div>
 <div class="eq" id="q1_4">
   <div class="qhdr">
     <div class="qn">4</div>
-    <div class="qtx">🟢 ¿Cuál es la diferencia entre 'automatización de tareas' e 'inteligencia artificial' en el contexto educativo?</div>
+    <div class="qtx">🟢 ¿Cuál es la diferencia entre automatización e inteligencia artificial en una plataforma educativa?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(1,4,0)">
-  <span class="mk">A</span><span>Son sinónimos — ambos describen lo mismo en diferentes palabras</span>
+  <span class="mk">A</span><span>Son sinónimos: ambos términos describen exactamente el mismo tipo de sistema</span>
 </button>
 <button class="opt" onclick="S.pick(1,4,1)">
-  <span class="mk">B</span><span>Automatización: sistemas que realizan tareas repetitivas predefinidas sin aprendizaje (una hoja de cálculo que calcula promedios). IA: sistemas que aprenden de datos y mejoran con la experiencia (un sistema que personaliza el contenido según el progreso del estudiante). En educación: muchas herramientas llamadas 'IA' son realmente automatización sofisticada — la distinción importa para evaluar las promesas de las plataformas educativas</span>
+  <span class="mk">B</span><span>La automatización siempre es superior porque es más confiable y predecible</span>
 </button>
 <button class="opt" onclick="S.pick(1,4,2)">
-  <span class="mk">C</span><span>La automatización es siempre superior a la IA — es más confiable y predecible</span>
+  <span class="mk">C</span><span>La distinción no importa al docente; solo es relevante para los ingenieros</span>
 </button>
 <button class="opt" onclick="S.pick(1,4,3)">
-  <span class="mk">D</span><span>La distinción no importa para el maestro — solo importa para los técnicos</span>
+  <span class="mk">D</span><span>La automatización sigue reglas fijas; la IA ajusta su comportamiento con datos</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(1,4,1)" disabled>
+  <button class="btncheck" onclick="S.check(1,4,3)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Esta distinción protege al maestro del marketing de plataformas educativas: muchas prometen 'IA personalizada' pero ofrecen automatización básica (si el estudiante falla 3 veces, ofrecer el video explicativo). La IA real en educación adapta el contenido, el ritmo y el nivel de dificultad basándose en patrones aprendidos de millones de estudiantes. Exigir la distinción es ejercer pensamiento crítico como consumidor de tecnología educativa. <div class='fbr'>💭 ¿Las plataformas educativas que usas hacen IA real o automatización llamada IA?</div></div>
+    <div>✅ Correcto. Una regla como «si falla tres veces, mostrar el video» es automatización; un sistema que ajusta el contenido a partir de patrones aprendidos es IA. Muchas plataformas llaman «IA» a reglas sencillas. Distinguirlas permite evaluar con criterio lo que promete un proveedor. A confunde los términos; B y C restan importancia a la diferencia. <div class='fbr'>💭 ¿Las plataformas que usas hacen IA o automatización con otro nombre?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Automatización ≠ IA. La distinción es crucial para evaluar críticamente las promesas de plataformas educativas.</div>
+    <div>Pista: pregúntate si el sistema sigue una regla escrita por alguien o aprende de datos.</div>
   </div>
 </div>
 <div class="eq" id="q1_5">
   <div class="qhdr">
     <div class="qn">5</div>
-    <div class="qtx">🟠 ¿Cuáles son los impactos positivos más documentados de la IA en el aprendizaje cuando se usa pedagógicamente bien?</div>
+    <div class="qtx">🟠 ¿Qué dice la evidencia reciente sobre el efecto de la IA generativa en el aprendizaje de los estudiantes?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(1,5,0)">
-  <span class="mk">A</span><span>Solo tiene impactos negativos en el aprendizaje — produce dependencia y reduce el pensamiento crítico</span>
+  <span class="mk">A</span><span>Que siempre perjudica, porque produce dependencia y reduce el pensamiento crítico</span>
 </button>
 <button class="opt" onclick="S.pick(1,5,1)">
-  <span class="mk">B</span><span>La IA no ha demostrado ningún impacto positivo en el aprendizaje — solo en la productividad del maestro</span>
+  <span class="mk">B</span><span>Que depende del diseño: con guía pedagógica puede ayudar; sin ella, puede perjudicar</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,2)">
+  <span class="mk">C</span><span>Que nunca ha mostrado efectos en el aprendizaje, solo en la productividad docente</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,3)">
+  <span class="mk">D</span><span>Que siempre mejora el aprendizaje, sin importar cómo la usen los estudiantes</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(1,5,2)" disabled>
+  <button class="btncheck" onclick="S.check(1,5,1)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La distinción es crítica: la IA usada pedagógicamente bien tiene impactos positivos significativos. La usada sin criterio pedagógico tiene impactos negativos (delegación del pensamiento, homogeneización del aprendizaje). El maestro que conoce los usos de mayor impacto positivo puede aprovechar la IA en lugar de temerla o ignorarla. <div class='fbr'>💭 ¿Cuál de estos impactos positivos quieres aprovechar primero en tu práctica pedagógica?</div></div>
+    <div>✅ Correcto. En un experimento con casi mil estudiantes de secundaria, el acceso libre a GPT-4 mejoró la práctica, pero quienes lo usaron sin salvaguardas rindieron 17 % menos al retirar la herramienta; un tutor con salvaguardas mitigó ese daño (Bastani y otros, 2025, <em>PNAS</em>, DOI <a href="https://doi.org/10.1073/pnas.2422633122" target="_blank" rel="noopener">10.1073/pnas.2422633122</a>). Un tutor de IA diseñado con buenas prácticas superó una clase activa en física universitaria (Kestin y otros, 2025, <em>Scientific Reports</em>, DOI <a href="https://doi.org/10.1038/s41598-025-97652-6" target="_blank" rel="noopener">10.1038/s41598-025-97652-6</a>). A, C y D generalizan sin matices. <div class='fbr'>💭 ¿Qué salvaguardas pondrías para que la IA no reemplace el esfuerzo de tus estudiantes?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA bien usada pedagógicamente tiene impactos positivos documentados — el criterio pedagógico es la diferencia.</div>
+    <div>Pista: la evidencia no dice «siempre» ni «nunca»; busca la opción condicional.</div>
   </div>
 </div>
 <div class="eq" id="q1_6">
   <div class="qhdr">
     <div class="qn">6</div>
-    <div class="qtx">🟡 ¿Cómo introduces la IA como tema de aprendizaje explícito en tu área — sin necesitar ser experto técnico?</div>
+    <div class="qtx">🟡 ¿Cómo puedes introducir la IA como tema de aprendizaje en tu área sin ser experto técnico?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(1,6,0)">
-  <span class="mk">A</span><span>No es posible — la IA solo puede enseñarla un maestro de tecnología e informática</span>
+  <span class="mk">A</span><span>Delegar el tema al docente de Tecnología, porque solo él puede enseñarlo</span>
 </button>
 <button class="opt" onclick="S.pick(1,6,1)">
-  <span class="mk">B</span><span>Solo en secundaria — en primaria es demasiado complejo para los estudiantes</span>
+  <span class="mk">B</span><span>Esperar a secundaria, porque en primaria el tema es demasiado complejo</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,2)">
+  <span class="mk">C</span><span>Guiar preguntas críticas sobre un caso real: qué hace, con qué datos, a quién afecta</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,3)">
+  <span class="mk">D</span><span>Mostrar videos de robots futuristas para despertar el interés de los estudiantes</span>
 </button></div>
   <button class="btncheck" onclick="S.check(1,6,2)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Este enfoque de 5 preguntas no requiere que el maestro sea técnico — requiere que haga las preguntas correctas y facilite la investigación crítica de los estudiantes. Las 5 preguntas aplicadas al contexto específico (la IA en la pandemia colombiana, el algoritmo de TikTok, el sistema de justicia) producen pensamiento crítico real sobre la IA en su vida cotidiana. <div class='fbr'>💭 ¿Cuál de las 5 preguntas usarías como punto de entrada en tu próxima clase?</div></div>
+    <div>✅ Correcto. No se necesita programar para preguntar: ¿qué hace este sistema?, ¿con qué datos aprendió?, ¿quién gana y quién pierde?, ¿cómo comprobamos lo que dice?, ¿qué haríamos distinto? Aplicadas a casos cercanos (el algoritmo de una red social, un traductor), producen pensamiento crítico. A y B excluyen sin razón; D alimenta mitos en lugar de comprensión. <div class='fbr'>💭 ¿Con cuál de esas preguntas abrirías tu próxima clase?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA como tema no requiere expertise técnico — requiere las preguntas críticas correctas y un contexto real relevante.</div>
+    <div>Pista: el punto de entrada no es técnico; es una buena pregunta sobre un caso real.</div>
   </div>
 </div>
 <div class="eq" id="q1_7">
   <div class="qhdr">
     <div class="qn">7</div>
-    <div class="qtx">🔵 ¿Por qué el maestro que comprende la IA conceptualmente — aunque no técnicamente — está mejor preparado para el siglo XXI que el que la usa sin comprenderla?</div>
+    <div class="qtx">🔵 ¿Por qué el docente que comprende la IA conceptualmente está mejor preparado que el que solo la usa?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(1,7,0)">
-  <span class="mk">A</span><span>La comprensión técnica es lo único que importa — la conceptual no tiene valor práctico</span>
+  <span class="mk">A</span><span>Porque puede verificar, enseñar sus límites y diseñar tareas que midan aprendizaje</span>
 </button>
 <button class="opt" onclick="S.pick(1,7,1)">
-  <span class="mk">B</span><span>Usar la IA sin comprenderla produce el mismo resultado que comprenderla y usarla</span>
+  <span class="mk">B</span><span>Porque la comprensión conceptual reemplaza la necesidad de usar las herramientas</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,2)">
+  <span class="mk">C</span><span>Porque así puede prohibirla con mejores argumentos frente a los estudiantes</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,3)">
+  <span class="mk">D</span><span>No hay diferencia: usarla sin comprenderla produce los mismos resultados</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(1,7,1)" disabled>
+  <button class="btncheck" onclick="S.check(1,7,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La comprensión conceptual de la IA permite: enseñarla críticamente (no delegarle el pensamiento), evaluar pedagógicamente sus outputs (no aceptarlos sin verificar), diseñar evaluaciones que la IA no puede reemplazar, y proteger a los estudiantes de sus riesgos (sesgos, desinformación, dependencia). La comprensión técnica sin criterio pedagógico produce un maestro que usa la IA para automatizar — no para transformar el aprendizaje. <div class='fbr'>💭 ¿Cuál aspecto de la IA quieres comprender más profundamente para enseñarla mejor?</div></div>
+    <div>✅ Correcto. Comprender cómo funciona la IA permite anticipar errores y sesgos, enseñar a usarla con criterio, diseñar evaluaciones que no se resuelvan solo con ella y proteger a los estudiantes. B confunde comprender con no usar; C reduce el objetivo a prohibir; D ignora que el uso sin comprensión multiplica errores. <div class='fbr'>💭 ¿Qué aspecto de la IA quieres comprender mejor para enseñarlo?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Comprensión conceptual + criterio pedagógico supera a la comprensión técnica sin criterio pedagógico.</div>
+    <div>Pista: piensa en qué puede hacer el docente gracias a entender cómo funciona la herramienta.</div>
   </div>
 </div>
 </div>
@@ -633,8 +684,8 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
   <div class="mhdr" id="h2" data-lock="1" onclick="S.toggle(2)" style="--ac:#1B7FA6">
     <div class="mnum" style="background:#1B7FA6">2</div>
     <div class="minfo">
-      <div class="mtitle">IA Generativa en la Práctica Docente</div>
-      <div class="msub">Prompts efectivos · ChatGPT pedagógico · Gemini · Uso ético · Casos colombianos</div>
+      <div class="mtitle">IA generativa en la práctica docente</div>
+      <div class="msub">Instrucciones (prompts) · Usos de mayor valor · Herramientas 2026 · Verificación · Ética del docente</div>
       <div class="mmeta">
         <span class="mdur">⏱ Sem 3-4</span>
         <span class="mlock">🔒 Completa el anterior</span>
@@ -643,35 +694,50 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
     <span class="mchev">▽</span>
     <div class="mpbar"><div class="mpfill"></div></div>
   </div>
-  <div class="mbody" id="b2"><div class="intro">🛠️ <strong>DEL MIEDO AL DOMINIO:</strong> El 54% de los maestros colombianos ha probado ChatGPT al menos una vez (MEN 2024). Pero solo el 18% lo usa de forma sistemática en su práctica pedagógica. La brecha entre 'probar' y 'dominar' está en el arte de escribir prompts efectivos — y en el criterio pedagógico para evaluar sus outputs. Este módulo cierra esa brecha.</div><div class="cards">
+  <div class="mbody" id="b2"><div class="intro">🛠️ <strong>DEL MIEDO AL CRITERIO:</strong> La IA generativa puede ahorrar tiempo de planeación sin bajar la calidad, siempre que el docente ponga el propósito, el contexto y la revisión. En un ensayo con 259 docentes de ciencias en Inglaterra, quienes usaron ChatGPT con una guía redujeron cerca de un 31 % el tiempo semanal de planeación y un panel no encontró diferencias de calidad (Education Endowment Foundation, 2024). Este módulo enseña a pedir bien, elegir la herramienta y verificar siempre.</div><div class="cards">
 <div class="card" style="--ca:#1D9E75">
   <div class="card-hd">
     <div class="card-ico">🧠</div>
-    <div class="card-title">El arte del prompt — La habilidad más importante para usar IA bien</div>
+    <div class="card-title">El arte de la instrucción (prompt) — Cuatro elementos</div>
   </div>
-  <div class="card-bd">Un prompt efectivo tiene 4 elementos: (1) ROL: define quién es la IA ('Eres un experto en pedagogía colombiana'). (2) TAREA: define exactamente qué hacer ('Diseña 5 preguntas de nivel Bloom N4-N5 sobre fotosíntesis para grado 8'). (3) CONTEXTO: da información relevante ('El grupo tiene estudiantes con dislexia y el contexto es rural'). (4) FORMATO: define cómo quieres el output ('En formato de tabla con: pregunta, nivel Bloom, distractor más frecuente'). Sin estos 4 elementos, el output es genérico e inútil.<div class="card-reflect">💭 ¿Cuál de los 4 elementos omites más frecuentemente cuando usas IA?</div></div>
+  <div class="card-bd">Una instrucción efectiva suele tener cuatro elementos:<br>(1) <strong>Rol</strong>: «Actúa como docente de Ciencias Naturales de grado 8 en Colombia».<br>(2) <strong>Tarea</strong>: «Diseña cinco preguntas de análisis sobre fotosíntesis».<br>(3) <strong>Contexto</strong>: «Grupo de 30 estudiantes, dos con dificultades lectoras, sin laboratorio; DBA de la unidad».<br>(4) <strong>Formato</strong>: «Tabla con pregunta, nivel de Bloom y respuesta esperada».<br><br>Por qué ayuda: el modelo produce lo más probable según lo que recibe; si la instrucción es vaga, la respuesta será genérica. Con rol, tarea, contexto y formato, el borrador se acerca a lo que necesitas.<br><br>Matiz honesto: esta estructura es una recomendación práctica de uso, no un hallazgo de investigación con tamaño de efecto. Funciona como lista de comprobación.<br><br>Privacidad: el contexto se describe sin datos personales. Nunca nombres, documentos, notas ni diagnósticos de estudiantes (Ley 1581 de 2012).<div class="card-reflect">💭 ¿Cuál de los cuatro elementos omites con más frecuencia?</div></div>
 </div>
 <div class="card" style="--ca:#1B7FA6">
   <div class="card-hd">
     <div class="card-ico">💡</div>
-    <div class="card-title">ChatGPT para el maestro — 7 usos con mayor impacto pedagógico</div>
+    <div class="card-title">Usos de mayor valor pedagógico — La IA propone, el docente decide</div>
   </div>
-  <div class="card-bd">(1) Generar borradores de rubrica (para revisar y ajustar). (2) Crear múltiples representaciones del mismo concepto (DUA). (3) Diseñar bancos de preguntas por nivel Bloom. (4) Adaptar textos a diferentes niveles de lectura. (5) Generar escenarios ABP con contexto local. (6) Producir retroalimentación borrador para revisar. (7) Crear material diferenciado para diferentes perfiles. En todos: la IA propone — el maestro decide.<div class="card-reflect">💭 ¿Cuál de los 7 usos añadiría más valor a tu práctica esta semana?</div></div>
+  <div class="card-bd">Usos en los que la IA suele aportar sin reemplazar el juicio docente:<br>(1) Borradores de rúbricas para revisar y ajustar.<br>(2) Varias representaciones de un mismo concepto (ejemplos, analogías, esquemas), útiles en el marco del Diseño Universal para el Aprendizaje.<br>(3) Bancos de preguntas por nivel de Bloom, que luego se depuran.<br>(4) Adaptación de un texto a distintos niveles de lectura.<br>(5) Situaciones problema con contexto local para el aprendizaje basado en proyectos.<br>(6) Borradores de retroalimentación que el docente personaliza.<br><br>Evidencia: el ensayo de la Education Endowment Foundation (2024) con 259 docentes de ciencias de Year 7 y Year 8 (estudiantes de 11 a 13 años) en 68 colegios ingleses encontró que quienes usaron ChatGPT con una guía dedicaron 56,2 minutos semanales a planear, frente a 81,5 del grupo de comparación (≈31 % menos), sin diferencias de calidad apreciables según un panel independiente. Los autores piden cautela porque la muestra de materiales revisados fue limitada.<br><br>En todos los casos: la IA propone y el docente decide.<div class="card-reflect">💭 ¿Cuál de estos usos te ahorraría más tiempo con calidad esta semana?</div></div>
 </div>
 <div class="card" style="--ca:#7F77DD">
   <div class="card-hd">
     <div class="card-ico">🎯</div>
-    <div class="card-title">Gemini, Copilot, Claude — El ecosistema de IAs disponibles</div>
+    <div class="card-title">Herramientas disponibles en 2026 — Criterios para elegir</div>
   </div>
-  <div class="card-bd">No hay una sola IA — hay un ecosistema. Gemini (Google): mejor integrado con Google Workspace, útil para maestros que ya usan Classroom. Copilot (Microsoft): integrado con Office 365, útil para quienes usan Word y Teams. Claude (Anthropic): mayor capacidad de análisis de documentos largos, mejor para revisión de materiales extensos. ChatGPT (OpenAI): el más conocido, con versión gratuita funcional. El criterio de elección: ¿cuál se integra mejor con las herramientas que ya uso?<div class="card-reflect">💭 ¿Cuál IA has probado? ¿Con cuál criterio la elegiste?</div></div>
+  <div class="card-bd">Hay varios asistentes de uso general: ChatGPT (OpenAI), Gemini (Google), Copilot (Microsoft) y Claude (Anthropic), entre otros. Sus capacidades cambian cada pocos meses, así que conviene elegir por criterios estables:<br>(1) <strong>Integración</strong> con lo que ya usas (Google Workspace, Microsoft 365).<br>(2) <strong>Edad mínima y términos de uso</strong>, revisados en la fuente oficial. A octubre de 2026: los términos de OpenAI exigen al menos 13 años y permiso de padres o acudientes para menores de 18; los de Claude para consumidores exigen 18 años; Google permite a menores de 13 usar Gemini con una cuenta supervisada que los padres activan en Family Link.<br>(3) <strong>Privacidad</strong>: qué datos guarda el servicio y si se usan para entrenar modelos.<br>(4) <strong>Costo y conectividad</strong> reales de tus estudiantes.<br><br>Para primaria, lo prudente es que el docente use la herramienta en modo demostrativo. Antes de pedir a estudiantes que creen cuentas, revisa términos, autorización de las familias y la política institucional.<div class="card-reflect">💭 ¿Con qué criterio elegiste la herramienta de IA que usas?</div></div>
 </div>
 <div class="card" style="--ca:#D85A30">
   <div class="card-hd">
     <div class="card-ico">🔬</div>
-    <div class="card-title">Verificación de outputs — El paso que muchos omiten</div>
+    <div class="card-title">Verificación de resultados — El paso que no se omite</div>
   </div>
-  <div class="card-bd">El protocolo de verificación de cualquier output de IA: (1) ¿Los hechos mencionados son verificables con fuentes primarias? (2) ¿Los ejemplos son pertinentes para el contexto colombiano? (3) ¿El nivel de Bloom que afirma el output corresponde realmente a la pregunta? (4) ¿Hay sesgos culturales o de género en el contenido? (5) ¿El lenguaje es apropiado para el nivel de mis estudiantes? Sin este protocolo, el maestro puede usar material incorrecto o inapropiado sin saberlo.<div class="card-reflect">💭 ¿Verificas sistemáticamente los outputs de IA antes de usarlos con tus estudiantes?</div></div>
-</div></div>
+  <div class="card-bd">Protocolo de cinco preguntas antes de llevar al aula cualquier resultado de IA:<br>(1) <strong>Hechos</strong>: ¿cada dato, fecha, cita o norma se puede comprobar en una fuente primaria o institucional?<br>(2) <strong>Pertinencia</strong>: ¿los ejemplos tienen sentido para estudiantes de Cali y de la Comuna 15?<br>(3) <strong>Nivel</strong>: ¿la pregunta realmente exige el nivel de Bloom que dice?<br>(4) <strong>Sesgos</strong>: ¿hay estereotipos de género, etnia, región o clase?<br>(5) <strong>Lenguaje</strong>: ¿es claro y adecuado para la edad?<br><br>Por qué es obligatorio: los modelos inventan referencias y datos con apariencia de certeza (Walters y Wilder, 2023). Pedirle a la misma IA que se autoverifique no garantiza nada.<br><br>Responsabilidad: un error en una guía es del docente que la entregó, venga de un libro, de internet o de una IA. Registrar qué tuviste que corregir te dice cuánto confiar en la herramienta para cada tarea.<div class="card-reflect">💭 ¿Verificas sistemáticamente los resultados de IA antes de usarlos con estudiantes?</div></div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🧩</div>
+    <div class="card-title">Ejemplo resuelto en CENTEC y errores frecuentes</div>
+  </div>
+  <div class="card-bd">Caso con nombres ficticios. El profesor Óscar, de Matemáticas de séptimo, necesita una guía diferenciada sobre proporcionalidad.<br>Paso 1: escribe la instrucción con rol, tarea, contexto (sin nombres: «tres estudiantes requieren apoyo en lectura, cuatro avanzan rápido») y formato (tabla con tres niveles).<br>Paso 2: revisa la respuesta con el protocolo de cinco preguntas: encuentra un problema con un precio irreal y una respuesta mal calculada.<br>Paso 3: corrige, cambia los ejemplos por compras en una tienda del barrio y resuelve él mismo cada ejercicio.<br>Paso 4: anota en su registro: «Tiempo: 20 minutos; correcciones: 2».<br>Paso 5: en clase cuenta a sus estudiantes que usó IA para el borrador y que revisó todo.<br><br>Errores frecuentes: pegar datos personales en la instrucción; usar el resultado sin resolver los ejercicios; ocultar el uso de IA mientras se les exige transparencia a los estudiantes.<br>Indicadores: N3 redacta una instrucción completa; N4 detecta errores en el borrador; N5 decide qué conservar.<div class="card-reflect">💭 ¿Qué registro llevarías de las correcciones que haces a la IA?</div></div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🆕</div>
+    <div class="card-title">Actualización 2026: lo que dice la evidencia</div>
+  </div>
+  <div class="card-bd">1. <strong>Ahorro de tiempo con guía.</strong> El ensayo de la Education Endowment Foundation (diciembre de 2024) halló cerca de un 31 % menos de tiempo de planeación cuando los docentes usaron ChatGPT con una guía de uso, sin diferencias de calidad apreciables. Es un estudio en ciencias de secundaria en Inglaterra; en otros contextos hay que comprobarlo.<br>2. <strong>Referencias inventadas.</strong> En Walters y Wilder (2023, DOI <a href="https://doi.org/10.1038/s41598-023-41032-5" target="_blank" rel="noopener">10.1038/s41598-023-41032-5</a>), además de las referencias falsas, el 43 % de las referencias reales de GPT-3.5 y el 24 % de las de GPT-4 tenían errores importantes.<br>3. <strong>Marco docente de la UNESCO (2024).</strong> Ubica el uso pedagógico de la IA después de una mentalidad centrada en el ser humano y de la ética: primero el propósito, luego la herramienta (DOI <a href="https://doi.org/10.54675/ZJTE2084" target="_blank" rel="noopener">10.54675/ZJTE2084</a>).<br>4. <strong>Términos de uso.</strong> Las edades mínimas y políticas de datos cambian; se revisan en la fuente oficial antes de cada periodo. <em>Contenido en revisión por el equipo docente responsable.</em><div class="card-reflect">💭 ¿Qué guía de uso de IA podrían construir juntos los docentes de tu área?</div></div>
+</div>
+</div>
 <div class="zona">
   <div class="ehdr">
     <div class="eico">🎯</div>
@@ -689,181 +755,211 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
 <div class="eq" id="q2_1">
   <div class="qhdr">
     <div class="qn">1</div>
-    <div class="qtx">🟡 Quieres que ChatGPT te ayude a diseñar una actividad ABP para grado 9 de ciencias sociales sobre conflicto armado colombiano. ¿Cuál prompt produce el mejor resultado?</div>
+    <div class="qtx">🟡 Quieres que una IA te ayude a diseñar un problema de ABP para grado 9 sobre construcción de paz. ¿Qué instrucción producirá un mejor borrador?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(2,1,0)">
-  <span class="mk">A</span><span>'Diseña una actividad sobre el conflicto colombiano para grado 9'</span>
+  <span class="mk">A</span><span>«Diseña una actividad completa y creativa sobre el conflicto colombiano para grado noveno»</span>
 </button>
 <button class="opt" onclick="S.pick(2,1,1)">
-  <span class="mk">B</span><span>'Actúa como experto en pedagogía colombiana. Diseña un problema ABP para estudiantes de grado 9 (14-15 años) en una institución oficial de Cali, sobre el proceso de paz y reintegración de excombatientes. El problema debe: ser auténtico y relevante para el contexto colombiano, tener múltiples perspectivas válidas, requerir los conceptos de democracia y conflicto del DBA de ciencias sociales, y tener una solución que el grupo pueda presentar a una audiencia real. Formato: título del problema, situación desequilibradora, preguntas generadoras, recursos sugeridos, y rúbrica de evaluación con 4 criterios'</span>
+  <span class="mk">B</span><span>«Cuéntame todo sobre el conflicto armado para enseñárselo a mis estudiantes de bachillerato»</span>
 </button>
 <button class="opt" onclick="S.pick(2,1,2)">
-  <span class="mk">C</span><span>'Cuéntame sobre el conflicto armado colombiano para enseñárselo a mis estudiantes'</span>
+  <span class="mk">C</span><span>«¿Cuáles son las mejores actividades del mundo para enseñar el tema del conflicto armado?»</span>
 </button>
 <button class="opt" onclick="S.pick(2,1,3)">
-  <span class="mk">D</span><span>'¿Cuáles son las mejores actividades para enseñar conflicto?'</span>
+  <span class="mk">D</span><span>«Eres docente de Sociales: diseña un problema ABP para grado 9 en Cali, con DBA y rúbrica»</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(2,1,1)" disabled>
+  <button class="btncheck" onclick="S.check(2,1,3)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Este prompt tiene los 4 elementos: ROL (experto en pedagogía colombiana), TAREA (diseña problema ABP con especificaciones exactas), CONTEXTO (grado 9, Cali, institución oficial, DBA), y FORMATO (componentes específicos del output). La diferencia con el prompt genérico es radical: el primero produce un borrador utilizable en minutos; el segundo produce algo genérico que requiere reescritura total. <div class='fbr'>💭 ¿Cuándo usarás este prompt con un tema de tu próxima unidad?</div></div>
+    <div>✅ Correcto. La instrucción D tiene rol, tarea, contexto (grado, ciudad, DBA) y formato (rúbrica en tabla); por eso el borrador será más útil. Las demás son vagas y producen respuestas genéricas que hay que rehacer. Aun así, el resultado se verifica y se ajusta. <div class='fbr'>💭 ¿Qué tema de tu próxima unidad podrías trabajar con una instrucción así?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>El prompt con los 4 elementos produce output utilizable — el genérico produce trabajo adicional.</div>
+    <div>Pista: cuenta en cada opción cuántos de los cuatro elementos aparecen.</div>
   </div>
 </div>
 <div class="eq" id="q2_2">
   <div class="qhdr">
     <div class="qn">2</div>
-    <div class="qtx">🔴 Un maestro usa ChatGPT para generar 7 preguntas de evaluación para su examen de química. Las aplica sin revisión. Al calificar, descubre que 2 preguntas tienen respuestas incorrectas según el libro de texto. ¿Cuál es la evaluación más rigurosa?</div>
+    <div class="qtx">🔴 Un docente aplica sin revisar un examen de química generado por IA y luego descubre dos preguntas con la clave equivocada. ¿Cuál es la evaluación más rigurosa?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(2,2,0)">
-  <span class="mk">A</span><span>Es un problema de ChatGPT — el maestro hizo lo correcto usando una herramienta disponible</span>
+  <span class="mk">A</span><span>La responsabilidad es de la herramienta, porque el docente usó un recurso disponible</span>
 </button>
 <button class="opt" onclick="S.pick(2,2,1)">
-  <span class="mk">B</span><span>El maestro tiene responsabilidad pedagógica y ética: usó material no verificado con sus estudiantes. La IA puede 'alucinar' información científica — especialmente en química donde las reacciones y los nombres de compuestos son específicos y verificables. El protocolo obligatorio: todo output de IA que vaya al aula debe ser verificado con fuentes primarias (libro de texto, base de datos científica, criterio experto). El error no es usar la IA — es no verificar</span>
+  <span class="mk">B</span><span>Usó material no verificado: la responsabilidad pedagógica es suya y debía revisarlo</span>
 </button>
 <button class="opt" onclick="S.pick(2,2,2)">
-  <span class="mk">C</span><span>El error fue de los estudiantes — debieron identificar las preguntas incorrectas</span>
+  <span class="mk">C</span><span>Los estudiantes debieron detectar las preguntas incorrectas durante el examen</span>
 </button>
 <button class="opt" onclick="S.pick(2,2,3)">
-  <span class="mk">D</span><span>No es un problema grave — 2 preguntas incorrectas de 7 es un margen aceptable de error</span>
+  <span class="mk">D</span><span>No es grave, porque dos preguntas de siete es un margen de error aceptable</span>
 </button></div>
   <button class="btncheck" onclick="S.check(2,2,1)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La responsabilidad pedagógica del maestro incluye la calidad del material que usa con sus estudiantes — independientemente de la fuente. Un texto de internet, un libro, o un output de IA: todos requieren el mismo criterio de verificación antes de llegar al aula. El maestro que delega la verificación a la IA está renunciando a su responsabilidad profesional. <div class='fbr'>💭 ¿Tienes un protocolo de verificación para cualquier material que usas con tus estudiantes — incluyendo los generados por IA?</div></div>
+    <div>✅ Correcto. El material que llega al aula es responsabilidad del docente, venga de donde venga. La IA puede inventar o confundir datos científicos; por eso todo examen se resuelve y se contrasta con fuentes antes de aplicarlo. El error no fue usar IA, sino no verificar. A, C y D trasladan o minimizan la responsabilidad. <div class='fbr'>💭 ¿Tienes un protocolo de verificación para todo el material que usas?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>El error no es usar la IA — es no verificar sus outputs antes de aplicarlos con estudiantes.</div>
+    <div>Pista: pregúntate quién responde ante los estudiantes por la calidad de un examen.</div>
   </div>
 </div>
 <div class="eq" id="q2_3">
   <div class="qhdr">
     <div class="qn">3</div>
-    <div class="qtx">🟠 ¿Por qué el mismo prompt produce outputs de calidad muy diferente según qué IA se usa y en qué momento?</div>
+    <div class="qtx">🟠 ¿Por qué la misma instrucción puede producir resultados de calidad distinta según la herramienta o el momento?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(2,3,0)">
-  <span class="mk">A</span><span>Los outputs son siempre iguales — la calidad depende solo del prompt, no de la IA</span>
+  <span class="mk">A</span><span>Porque los modelos difieren en entrenamiento, se actualizan y generan con variabilidad</span>
 </button>
 <button class="opt" onclick="S.pick(2,3,1)">
-  <span class="mk">B</span><span>Los outputs son iguales entre IAs — solo cambia el estilo visual de la respuesta</span>
+  <span class="mk">B</span><span>Porque la calidad depende solo de la instrucción y no del modelo que la procesa</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,2)">
+  <span class="mk">C</span><span>Porque los resultados son idénticos entre herramientas y solo cambia el diseño visual</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,3)">
+  <span class="mk">D</span><span>Porque los modelos copian la respuesta de una base de datos que cambia cada día</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(2,3,1)" disabled>
+  <button class="btncheck" onclick="S.check(2,3,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Esta variabilidad tiene dos implicaciones prácticas para el maestro: (1) Probar el mismo prompt en 2 IAs diferentes y comparar — frecuentemente produce outputs complementarios. (2) No asumir que un output de hoy será igual mañana — las IAs se actualizan constantemente. El maestro que entiende esta variabilidad usa la IA con mayor criterio y menor dependencia. <div class='fbr'>💭 ¿Has probado el mismo prompt en dos IAs diferentes para comparar los outputs?</div></div>
+    <div>✅ Correcto. Cada modelo se entrena con datos y métodos distintos, se actualiza con frecuencia y genera con cierta aleatoriedad. Por eso conviene comparar resultados y no asumir que lo de hoy será igual mañana. B y C niegan las diferencias; D describe mal el funcionamiento: los modelos no copian de una base de respuestas. <div class='fbr'>💭 ¿Has comparado la misma instrucción en dos herramientas?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Los outputs de IA son variables por naturaleza — el criterio pedagógico del maestro es el elemento estable.</div>
+    <div>Pista: recuerda cómo produce texto un modelo y qué pasa cuando se actualiza.</div>
   </div>
 </div>
 <div class="eq" id="q2_4">
   <div class="qhdr">
     <div class="qn">4</div>
-    <div class="qtx">🟢 ¿Cuáles son los límites éticos del uso de IA generativa por el maestro en la preparación de materiales de clase?</div>
+    <div class="qtx">🟢 ¿Cuál de estos es un límite ético del uso de IA por el docente al preparar clases?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(2,4,0)">
-  <span class="mk">A</span><span>No hay límites éticos — la IA es solo una herramienta como el libro de texto</span>
+  <span class="mk">A</span><span>No hay límites: la IA es una herramienta igual que el libro de texto</span>
 </button>
 <button class="opt" onclick="S.pick(2,4,1)">
-  <span class="mk">B</span><span>El uso de IA para preparar clases es siempre antiético — el maestro debe preparar todo manualmente</span>
+  <span class="mk">B</span><span>Todo uso de IA para preparar clases es antiético y debe evitarse</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,2)">
+  <span class="mk">C</span><span>Basta con que el material quede bonito; la fuente no importa</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,3)">
+  <span class="mk">D</span><span>No ingresar datos personales de estudiantes y verificar lo que se entrega</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(2,4,1)" disabled>
+  <button class="btncheck" onclick="S.check(2,4,3)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Estos límites éticos no son restrictivos — son habilitadores: el maestro que los conoce puede usar la IA con confianza y transparencia. El límite más importante es la verificación: la IA puede producir información incorrecta, y la responsabilidad de la calidad del material siempre es del maestro. La transparencia con los estudiantes sobre el uso de IA modela exactamente el comportamiento que se quiere que ellos desarrollen. <div class='fbr'>💭 ¿Serías transparente con tus estudiantes sobre cuándo y cómo usas IA en la preparación de tus clases?</div></div>
+    <div>✅ Correcto. Dos límites claros: proteger los datos personales de los estudiantes (Ley 1581 de 2012; los de niños, niñas y adolescentes tienen protección reforzada) y verificar el contenido antes de usarlo. A esto se suma la transparencia: contar cuándo se usó IA. A ignora riesgos reales; B prohíbe usos legítimos; C descuida la calidad. <div class='fbr'>💭 ¿Les contarías a tus estudiantes cuándo y cómo usas IA para preparar tus clases?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Los límites éticos del uso de IA no son prohibiciones — son condiciones para un uso responsable y transparente.</div>
+    <div>Pista: busca la opción que protege a los estudiantes y la calidad del material.</div>
   </div>
 </div>
 <div class="eq" id="q2_5">
   <div class="qhdr">
     <div class="qn">5</div>
-    <div class="qtx">🟡 Diseña un prompt para que una IA te ayude a diferenciar el contenido de una clase para tres perfiles: estudiantes con dificultades, nivel esperado, y alta capacidad.</div>
+    <div class="qtx">🟡 Quieres que una IA te ayude a diferenciar una clase de fotosíntesis de grado 8 para tres perfiles. ¿Qué instrucción es más adecuada?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(2,5,0)">
-  <span class="mk">A</span><span>'Diferencia esta clase para diferentes niveles de estudiantes' — simple y directo</span>
+  <span class="mk">A</span><span>«Diferencia esta clase para diferentes niveles de estudiantes, por favor»</span>
 </button>
 <button class="opt" onclick="S.pick(2,5,1)">
-  <span class="mk">B</span><span>'Dame material para estudiantes buenos, regulares y con dificultades'</span>
+  <span class="mk">B</span><span>«Dame material para estudiantes buenos, regulares y con dificultades»</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,2)">
+  <span class="mk">C</span><span>«Fotosíntesis grado 8: misma meta, tres rutas de apoyo descritas sin nombres, en tabla»</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,3)">
+  <span class="mk">D</span><span>«Haz la clase más fácil para los que no entienden y más difícil para los demás, en tabla»</span>
 </button></div>
   <button class="btncheck" onclick="S.check(2,5,2)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Este prompt produce outputs directamente utilizables porque especifica exactamente: el contenido (fotosíntesis, grado 8), los perfiles (con características específicas — no solo 'básico/medio/avanzado'), el tipo de diferenciación (en el proceso, no en el objetivo), y el formato (tabla comparativa). Un prompt genérico produce diferenciación superficial; este produce diferenciación pedagógicamente fundamentada. <div class='fbr'>💭 ¿Cuándo usarás este prompt para diferenciar tu próxima clase?</div></div>
+    <div>✅ Correcto. La opción C precisa tema, grado, meta común, perfiles descritos sin datos personales y formato. Diferenciar es variar el apoyo y el camino hacia la misma meta, no rebajar el objetivo. A es vaga; B y D etiquetan a los estudiantes y cambian la meta en lugar del apoyo. <div class='fbr'>💭 ¿Qué perfiles de aprendizaje describirías sin identificar a nadie?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La especificidad del prompt determina la utilidad del output para la práctica real.</div>
+    <div>Pista: la buena diferenciación mantiene la meta y varía el camino.</div>
   </div>
 </div>
 <div class="eq" id="q2_6">
   <div class="qhdr">
     <div class="qn">6</div>
-    <div class="qtx">🟠 Un estudiante de grado 11 usa ChatGPT para preparar su ensayo de grado sobre paz y posconflicto en Colombia. ¿Cuál es el uso más pedagógicamente apropiado?</div>
+    <div class="qtx">🟠 Un estudiante de once usa IA para preparar su ensayo sobre paz y posconflicto. ¿Cuál es el uso más apropiado pedagógicamente?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(2,6,0)">
-  <span class="mk">A</span><span>Prohibirle completamente el uso de IA — el ensayo debe ser 100% de su autoría</span>
+  <span class="mk">A</span><span>Prohibirle cualquier uso de IA, porque el ensayo debe ser cien por ciento suyo</span>
 </button>
 <button class="opt" onclick="S.pick(2,6,1)">
-  <span class="mk">B</span><span>Permitirle que la IA escriba el ensayo completo — así aprende a usar las herramientas del siglo XXI</span>
+  <span class="mk">B</span><span>Usarla para explorar perspectivas y organizar ideas, con fuentes y voz propias</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,2)">
+  <span class="mk">C</span><span>Dejar que la IA escriba el ensayo completo para que aprenda a usar la tecnología</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,3)">
+  <span class="mk">D</span><span>Permitir que copie párrafos de la IA siempre que cambie algunas palabras</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(2,6,2)" disabled>
+  <button class="btncheck" onclick="S.check(2,6,1)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Este uso aprovecha la IA como herramienta de investigación y organización del pensamiento — sin delegarle el pensamiento crítico. La IA puede generar perspectivas que el estudiante no había considerado, ampliar su vocabulario conceptual, y ayudar a estructurar argumentos. Pero la investigación en fuentes locales, la posición argumentativa propia, y la redacción final son del estudiante. Esta es la colaboración humano-IA más productiva pedagógicamente. <div class='fbr'>💭 ¿Cómo enseñas a tus estudiantes a colaborar productivamente con la IA sin delegarle el pensamiento?</div></div>
+    <div>✅ Correcto. La IA puede ayudar a generar preguntas, mostrar perspectivas y ordenar un esquema; la investigación en fuentes, la postura argumentada y la redacción final son del estudiante, que además declara cómo la usó. A pierde una oportunidad formativa; C y D delegan el pensamiento y la escritura. <div class='fbr'>💭 ¿Cómo enseñas a colaborar con la IA sin delegarle el pensamiento?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA como herramienta de investigación y andamiaje — el pensamiento crítico y la posición argumentativa son del estudiante.</div>
+    <div>Pista: separa lo que la herramienta puede apoyar de lo que el estudiante debe hacer.</div>
   </div>
 </div>
 <div class="eq" id="q2_7">
   <div class="qhdr">
     <div class="qn">7</div>
-    <div class="qtx">🔵 ¿Por qué el maestro que domina el uso pedagógico de la IA — con criterio crítico — es más valioso en 2024 que el que la evita completamente?</div>
+    <div class="qtx">🔵 ¿Por qué el docente que usa la IA con criterio aporta más que el que la evita por completo?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(2,7,0)">
-  <span class="mk">A</span><span>No es más valioso — los maestros que evitan la IA protegen mejor la integridad académica</span>
+  <span class="mk">A</span><span>Porque los estudiantes ya la usan, y él puede guiarlos y diseñar mejores tareas</span>
 </button>
 <button class="opt" onclick="S.pick(2,7,1)">
-  <span class="mk">B</span><span>Son igualmente valiosos — la IA es opcional en la práctica docente moderna</span>
+  <span class="mk">B</span><span>Porque quien la evita por completo protege mejor la integridad académica de su curso</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,2)">
+  <span class="mk">C</span><span>Porque usarla mucho garantiza mejores resultados en cualquier situación</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,3)">
+  <span class="mk">D</span><span>No hay diferencia, porque la IA es opcional en la docencia actual</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(2,7,1)" disabled>
+  <button class="btncheck" onclick="S.check(2,7,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La síntesis del módulo: la IA ya está en el aula colombiana — en los teléfonos de los estudiantes, en las plataformas que usan. El maestro que la evita no protege a sus estudiantes de ella — los deja sin guía crítica en un entorno que ya los rodea. El maestro que la comprende y la usa con criterio puede enseñar a usarla responsablemente, diseñar evaluaciones que midan el aprendizaje real, y aprovechar sus fortalezas para ampliar su propio impacto. <div class='fbr'>💭 ¿Cuál es tu próximo paso concreto para dominar el uso pedagógico de la IA con criterio crítico?</div></div>
+    <div>✅ Correcto. La IA ya está en los celulares de los estudiantes. Evitarla no los protege: los deja sin guía. El docente que la entiende puede enseñar a usarla con responsabilidad, rediseñar evaluaciones y ahorrar tiempo con calidad. B confunde evitar con proteger; C ignora que usar más no es usar mejor; D desconoce el contexto. <div class='fbr'>💭 ¿Cuál es tu siguiente paso concreto para usar la IA con criterio?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>El maestro que comprende la IA puede enseñarla críticamente, aprovecharla pedagógicamente, y proteger a sus estudiantes de sus riesgos.</div>
+    <div>Pista: piensa en lo que pasa con los estudiantes cuando el docente no habla del tema.</div>
   </div>
 </div>
 </div>
@@ -873,8 +969,8 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
   <div class="mhdr" id="h3" data-lock="1" onclick="S.toggle(3)" style="--ac:#D85A30">
     <div class="mnum" style="background:#D85A30">3</div>
     <div class="minfo">
-      <div class="mtitle">Evaluación en la Era de la IA — Rediseñar para el Aprendizaje Real</div>
-      <div class="msub">Evaluación auténtica · Anti-IA · Proceso visible · Defensa oral · Nuevas rúbricas</div>
+      <div class="mtitle">Evaluación en la era de la IA — Rediseñar para el aprendizaje real</div>
+      <div class="msub">Prueba de autenticidad · Evaluación del proceso · Sustentación oral · Rúbricas · Detectores</div>
       <div class="mmeta">
         <span class="mdur">⏱ Sem 5-6</span>
         <span class="mlock">🔒 Completa el anterior</span>
@@ -883,35 +979,50 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
     <span class="mchev">▽</span>
     <div class="mpbar"><div class="mpfill"></div></div>
   </div>
-  <div class="mbody" id="b3"><div class="intro">🎯 <strong>EL CAMBIO QUE NO PODEMOS IGNORAR:</strong> ChatGPT puede obtener un 80% en el ICFES de lenguaje, aprobar la mayoría de las preguntas abiertas de los exámenes colombianos estándar, y escribir ensayos indistinguibles de los de estudiantes de grado 11. Si el maestro continúa evaluando con los mismos instrumentos de 2022, ya no está midiendo el aprendizaje del estudiante — está midiendo parcialmente cuánto sabe usar la IA. Este módulo enseña cómo rediseñar la evaluación para el aprendizaje real en 2024.</div><div class="cards">
+  <div class="mbody" id="b3"><div class="intro">🎯 <strong>EL CAMBIO QUE NO PODEMOS IGNORAR:</strong> Si una tarea genérica para la casa se puede resolver pegándola en un chatbot, ya no sabemos si mide el aprendizaje del estudiante o su acceso a la herramienta. La respuesta no es «cazar» la IA con detectores, que no son confiables, sino <strong>rediseñar la evaluación</strong>: contexto propio, proceso visible y sustentación. Ese rediseño, además, es mejor evaluación con o sin IA.</div><div class="cards">
 <div class="card" style="--ca:#1D9E75">
   <div class="card-hd">
     <div class="card-ico">🧠</div>
-    <div class="card-title">El test de autenticidad — ¿Tu evaluación mide aprendizaje o mide IA?</div>
+    <div class="card-title">La prueba de autenticidad — ¿Tu evaluación mide aprendizaje o mide IA?</div>
   </div>
-  <div class="card-bd">Pregunta clave para cualquier instrumento de evaluación: '¿Podría una IA completar esta evaluación con A o B sin que el estudiante haya aprendido nada?' Si la respuesta es sí, la evaluación no mide aprendizaje — mide acceso y habilidad para usar IA. El test de autenticidad: (1) Tiene contexto específico no replicable por IA (situación local, datos propios). (2) Requiere proceso visible (borradores, registros de investigación). (3) Incluye componente oral o de defensa. Tres capas juntas = evaluación auténtica.<div class="card-reflect">💭 ¿Cuántas de tus evaluaciones actuales pasan el test de autenticidad?</div></div>
+  <div class="card-bd">Pregunta clave para cualquier instrumento: «¿podría una IA completar esta tarea con buena nota sin que el estudiante haya aprendido nada?». Si la respuesta es sí, la tarea mide sobre todo acceso a la herramienta.<br><br>Tres capas que hacen auténtica una evaluación:<br>(1) <strong>Contexto específico</strong>: datos propios, una salida al barrio, una experiencia vivida en clase, una entrevista a un familiar. La IA no tiene esa información.<br>(2) <strong>Proceso visible</strong>: borradores fechados, bitácora de investigación, decisiones registradas.<br>(3) <strong>Componente oral</strong>: explicar y defender el trabajo.<br><br>Ninguna capa sola es suficiente; juntas hacen que la IA sea una ayuda posible, pero no un reemplazo. Límite: la prueba no busca prohibir; algunas tareas pueden permitir IA de forma explícita, siempre que el estudiante declare cómo la usó y demuestre lo aprendido.<br><br>Ejercicio rápido: toma tu última tarea para la casa y pásala por la pregunta clave. Si falla, añade al menos dos capas.<div class="card-reflect">💭 ¿Cuántas de tus evaluaciones actuales pasan la prueba de autenticidad?</div></div>
 </div>
 <div class="card" style="--ca:#1B7FA6">
   <div class="card-hd">
     <div class="card-ico">💡</div>
-    <div class="card-title">Evaluación de proceso — La dimensión que la IA no puede falsificar</div>
+    <div class="card-title">Evaluación del proceso — Lo que la IA no puede reemplazar</div>
   </div>
-  <div class="card-bd">El proceso de aprendizaje (cómo el estudiante llegó al producto) es lo que la IA menos puede replicar. Estrategias: (1) Borradores sucesivos con reflexión sobre cambios. (2) Diario de investigación (qué buscaste, qué encontraste, qué descartaste y por qué). (3) Documentación de errores y correcciones. (4) Mapa de fuentes usadas con evaluación crítica de cada una. La IA puede producir el producto final — el proceso de pensamiento del estudiante es insustituible.<div class="card-reflect">💭 ¿Cuánto pesa el proceso vs el producto en tus evaluaciones actuales?</div></div>
+  <div class="card-bd">El proceso (cómo llegó el estudiante al producto) es más difícil de delegar que el producto final. Estrategias:<br>(1) <strong>Borradores sucesivos</strong> con una nota breve: «qué cambié y por qué».<br>(2) <strong>Bitácora de investigación</strong>: qué busqué, qué encontré, qué descarté y por qué.<br>(3) <strong>Registro de errores y correcciones</strong>, coherente con la pedagogía del error.<br>(4) <strong>Mapa de fuentes</strong> con una valoración de la confiabilidad de cada una.<br>(5) <strong>Declaración de uso de IA</strong>: qué herramienta, para qué y qué se cambió de su respuesta.<br><br>Por qué funciona: la evaluación formativa se basa en recoger evidencia del aprendizaje durante el camino para ajustar la enseñanza; el proceso visible es justamente esa evidencia.<br><br>Límite práctico: revisar procesos toma tiempo. Conviene muestrear (revisar a fondo algunos borradores por sesión) y usar listas de cotejo cortas, en lugar de calificar cada paso.<div class="card-reflect">💭 ¿Cuánto pesa el proceso frente al producto en tus evaluaciones?</div></div>
 </div>
 <div class="card" style="--ca:#7F77DD">
   <div class="card-hd">
     <div class="card-ico">🎯</div>
-    <div class="card-title">Defensa oral — El verificador más preciso del aprendizaje</div>
+    <div class="card-title">Sustentación oral — Una evidencia directa de comprensión</div>
   </div>
-  <div class="card-bd">La defensa oral: 5-10 minutos donde el estudiante responde preguntas sobre lo que produjo. Funciona porque: si el estudiante aprendió, puede explicar su razonamiento — independientemente de quién escribió el texto. Si no aprendió, la brecha es evidente en segundos — sin necesitar detectores de IA. Además produce aprendizaje adicional (el estudiante que defiende consolida su comprensión). Adaptación para grupos grandes: defensa grupal (el grupo responde preguntas sobre el trabajo colectivo).<div class="card-reflect">💭 ¿Incorporas algún componente de explicación oral en tus evaluaciones actuales?</div></div>
+  <div class="card-bd">La sustentación es una conversación breve, de tres a diez minutos, en la que el estudiante explica su trabajo y responde preguntas: «¿por qué elegiste esta fuente?», «¿qué pasaría si cambiaras este dato?», «explícame este párrafo con tus palabras».<br><br>Por qué es útil: quien comprendió puede justificar sus decisiones, sin importar qué herramientas usó; quien no comprendió suele mostrar la brecha rápido, sin necesidad de detectores. Además, explicar en voz alta obliga a recuperar y organizar lo aprendido, lo que fortalece la memoria.<br><br>Adaptaciones para grupos de 35 o más:<br>• Sustentación grupal con una pregunta individual para cada integrante.<br>• Muestreo: cada periodo sustenta un tercio del grupo, elegido al azar.<br>• Audio breve grabado en clase.<br><br>Cuidados: preguntas preparadas y una rúbrica corta para ser justos; ajustes razonables para estudiantes con ansiedad o dificultades de comunicación, de acuerdo con el Decreto 1421 de 2017. Una sustentación no debe convertirse en interrogatorio.<div class="card-reflect">💭 ¿Qué componente de explicación oral podrías agregar a tu próxima evaluación?</div></div>
 </div>
 <div class="card" style="--ca:#D85A30">
   <div class="card-hd">
     <div class="card-ico">🔬</div>
-    <div class="card-title">Nuevas rúbricas para la era de la IA — Evaluar lo que importa</div>
+    <div class="card-title">Rúbricas para la era de la IA — Evaluar lo que importa</div>
   </div>
-  <div class="card-bd">Las rúbricas del siglo XXI incluyen: (1) Criterio de evidencia: ¿el estudiante sustenta sus afirmaciones con fuentes verificadas? (2) Criterio de perspectiva propia: ¿hay pensamiento original del estudiante más allá de la síntesis? (3) Criterio de proceso: ¿hay evidencia del proceso de aprendizaje? (4) Criterio de contextualización: ¿conecta el contenido con su realidad? Estas dimensiones no las puede cumplir la IA sin la participación activa del estudiante.<div class="card-reflect">💭 ¿Cuál criterio añadirías a tu rúbrica actual para que mida el aprendizaje real?</div></div>
-</div></div>
+  <div class="card-bd">Criterios que valoran lo que el estudiante aporta, más allá de un texto pulido:<br>(1) <strong>Evidencia</strong>: ¿sustenta sus afirmaciones con fuentes verificadas y bien citadas?<br>(2) <strong>Perspectiva propia</strong>: ¿hay una postura argumentada, más allá de resumir?<br>(3) <strong>Proceso</strong>: ¿hay borradores, bitácora o decisiones documentadas?<br>(4) <strong>Contextualización</strong>: ¿conecta el contenido con su realidad o con datos propios?<br>(5) <strong>Uso transparente de herramientas</strong>: ¿declara qué apoyos usó y cómo los revisó?<br><br>Cómo redactarlos: cada criterio con tres o cuatro niveles descritos con conductas observables («cita al menos dos fuentes verificadas y explica por qué son confiables»), no con adjetivos («excelente», «bueno»).<br><br>Qué pierde peso: ortografía perfecta, extensión y formato. Siguen importando, pero una herramienta los resuelve fácilmente, así que no deben dominar la nota.<br><br>Comparte la rúbrica antes de la tarea: así funciona también como guía de aprendizaje.<div class="card-reflect">💭 ¿Qué criterio añadirías a tu rúbrica actual para medir aprendizaje real?</div></div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🧩</div>
+    <div class="card-title">Ejemplo resuelto en CENTEC y errores frecuentes</div>
+  </div>
+  <div class="card-bd">Caso con nombres ficticios. El profesor Andrés, de Lenguaje de décimo, recibe ensayos muy pulidos y parecidos, y dos citan un libro que no existe.<br>Paso 1: descarta usar un detector como prueba.<br>Paso 2: rediseña la tarea: «¿Cómo aparece la violencia en un cuento colombiano leído en clase y cómo se relaciona con un relato de tu familia o tu barrio?» (contexto propio).<br>Paso 3: pide un borrador inicial en clase, una bitácora de fuentes y una declaración de uso de IA (proceso).<br>Paso 4: programa sustentaciones de cinco minutos con tres preguntas fijas (oral).<br>Paso 5: comparte la rúbrica con cinco criterios desde el inicio.<br><br>Resultado esperado: la IA puede ayudar a mejorar la redacción, pero el ensayo exige pensamiento propio.<br>Errores frecuentes: sancionar con base en un detector; prohibir sin enseñar; evaluar solo el producto; no avisar las reglas antes de la tarea.<br>Indicadores: N5 juzga si una tarea es resoluble solo con IA; N6 diseña una tarea con tres capas y rúbrica.<div class="card-reflect">💭 ¿Qué tarea tuya rediseñarías primero con estas tres capas?</div></div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🆕</div>
+    <div class="card-title">Actualización 2026: lo que dice la evidencia</div>
+  </div>
+  <div class="card-bd">1. <strong>Los detectores no son confiables.</strong> Weber-Wulff y otros (2023, <em>International Journal for Educational Integrity</em>, 19, 26, DOI <a href="https://doi.org/10.1007/s40979-023-00146-z" target="_blank" rel="noopener">10.1007/s40979-023-00146-z</a>) probaron 14 herramientas, incluida Turnitin, y concluyeron que no son precisas ni confiables; además, parafrasear o disfrazar el texto reduce mucho su desempeño. OpenAI retiró en 2023 su propio clasificador por baja precisión.<br>2. <strong>Pueden discriminar.</strong> Liang y otros (2023, <em>Patterns</em>, 4(7), 100779, DOI <a href="https://doi.org/10.1016/j.patter.2023.100779" target="_blank" rel="noopener">10.1016/j.patter.2023.100779</a>) encontraron que los detectores marcan con frecuencia como «escritos por IA» textos en inglés de personas cuya lengua materna no es el inglés.<br>3. <strong>Mejor producto no es más aprendizaje.</strong> En un experimento con 117 universitarios, quienes usaron ChatGPT mejoraron más la nota del ensayo, pero no ganaron más conocimiento ni transferencia; los autores advierten sobre la «pereza metacognitiva» (Fan y otros, 2025, <em>British Journal of Educational Technology</em>, 56(2), 489-530, DOI <a href="https://doi.org/10.1111/bjet.13544" target="_blank" rel="noopener">10.1111/bjet.13544</a>). <em>Contenido en revisión por el equipo docente responsable.</em><div class="card-reflect">💭 ¿Qué evidencia usarías en tu institución para no sancionar con detectores?</div></div>
+</div>
+</div>
 <div class="zona">
   <div class="ehdr">
     <div class="eico">🎯</div>
@@ -929,169 +1040,211 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
 <div class="eq" id="q3_1">
   <div class="qhdr">
     <div class="qn">1</div>
-    <div class="qtx">🟡 Diseña una versión 'anti-IA' de un ensayo argumentativo estándar sobre un tema de tu área.</div>
+    <div class="qtx">🟡 Quieres rediseñar un ensayo argumentativo genérico para que mida aprendizaje real en la era de la IA. ¿Qué cambio es más eficaz?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(3,1,0)">
-  <span class="mk">A</span><span>Prohibir el uso de cualquier tecnología durante la escritura — solo lápiz y papel</span>
+  <span class="mk">A</span><span>Prohibir toda tecnología y exigir que se escriba solo a mano en casa</span>
 </button>
 <button class="opt" onclick="S.pick(3,1,1)">
-  <span class="mk">B</span><span>Cambiar el tipo de evaluación a examen oral — así la IA no puede intervenir en absoluto</span>
+  <span class="mk">B</span><span>Cambiarlo por un examen oral y eliminar cualquier producto escrito</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,2)">
+  <span class="mk">C</span><span>Pedir más páginas, porque un texto largo es más difícil de generar</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,3)">
+  <span class="mk">D</span><span>Añadir contexto propio, borradores en clase y una sustentación breve</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(3,1,2)" disabled>
+  <button class="btncheck" onclick="S.check(3,1,3)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Esta versión anti-IA no prohíbe la tecnología — la hace irrelevante para el fraude porque las 3 capas requieren lo que la IA no puede proporcionar: el contexto específico local (la situación real del municipio/barrio), el proceso de pensamiento documentado, y la defensa del razonamiento propio. El resultado es también pedagógicamente más rico que el ensayo estándar. <div class='fbr'>💭 ¿Cuándo rediseñarás tu próxima evaluación con estas 3 capas?</div></div>
+    <div>✅ Correcto. Las tres capas (contexto que la IA no tiene, proceso visible y explicación oral) hacen que la herramienta no pueda reemplazar el aprendizaje, sin prohibirla. A no impide copiar a mano; B elimina la escritura, que también hay que aprender; C solo hace la tarea más larga, no más auténtica. <div class='fbr'>💭 ¿Cuándo rediseñarás tu próxima evaluación con estas capas?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La evaluación auténtica hace la IA irrelevante para el fraude — y produce aprendizaje más profundo.</div>
+    <div>Pista: busca la opción que combina contexto, proceso y explicación del estudiante.</div>
   </div>
 </div>
 <div class="eq" id="q3_2">
   <div class="qhdr">
     <div class="qn">2</div>
-    <div class="qtx">🔴 Los detectores de IA (como GPTZero o Turnitin AI) detectan al 100% el uso de IA generativa en los textos de los estudiantes. ¿Esta afirmación es verdadera o falsa?</div>
+    <div class="qtx">🔴 «Los detectores de IA identifican con total precisión los textos generados.» ¿Qué dice la evidencia?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(3,2,0)">
-  <span class="mk">A</span><span>Verdadera — los detectores son altamente confiables y deben usarse como evidencia disciplinaria</span>
+  <span class="mk">A</span><span>Es verdad: son confiables y pueden usarse como prueba para sancionar</span>
 </button>
 <button class="opt" onclick="S.pick(3,2,1)">
-  <span class="mk">B</span><span>Verdadera solo para textos en inglés — en español no funcionan bien</span>
+  <span class="mk">B</span><span>Es falso: fallan con frecuencia y pueden acusar injustamente a estudiantes</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,2)">
+  <span class="mk">C</span><span>Es verdad solo en español, porque fueron diseñados para ese idioma</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,3)">
+  <span class="mk">D</span><span>Es verdad si se usan varios detectores a la vez y se promedian todos sus resultados</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(3,2,2)" disabled>
+  <button class="btncheck" onclick="S.check(3,2,1)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Los detectores de IA no son herramientas de evidencia disciplinaria confiables — tienen tasas de falsos positivos documentadas que hacen injusto usarlos como única evidencia de sanción. El estudiante que escribe con estilo académico puede ser marcado como IA por el algoritmo. La solución: diseñar evaluaciones auténticas (que la IA no puede completar sin el aprendizaje del estudiante) en lugar de detectar su uso posterior. <div class='fbr'>💭 ¿Estás usando detectores de IA para sancionar a estudiantes? ¿Conoces su tasa de falsos positivos?</div></div>
+    <div>✅ Correcto. Weber-Wulff y otros (2023) concluyeron que las herramientas probadas no son precisas ni confiables, y Liang y otros (2023) mostraron que marcan injustamente textos en inglés de personas que no lo tienen como lengua materna. Por eso no deben ser la única prueba de una sanción. A convierte una herramienta poco fiable en prueba; C no tiene respaldo; promediar herramientas poco confiables (D) no corrige el problema de fondo. <div class='fbr'>💭 ¿Conoces los riesgos de las herramientas de detección que se usan en tu institución?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Los detectores de IA tienen altas tasas de falsos positivos — no son confiables como única evidencia disciplinaria.</div>
+    <div>Pista: recuerda qué encontraron los estudios que probaron estas herramientas.</div>
   </div>
 </div>
 <div class="eq" id="q3_3">
   <div class="qhdr">
     <div class="qn">3</div>
-    <div class="qtx">🟠 ¿Por qué la evaluación auténtica diseñada para la era de la IA es también la evaluación pedagógicamente más valiosa independientemente de la IA?</div>
+    <div class="qtx">🟠 ¿Por qué la evaluación auténtica es valiosa incluso si la IA no existiera?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(3,3,0)">
-  <span class="mk">A</span><span>No es la más valiosa — es solo una respuesta temporal a un problema tecnológico</span>
+  <span class="mk">A</span><span>Porque mide la aplicación en contexto y el razonamiento, no solo la reproducción</span>
 </button>
 <button class="opt" onclick="S.pick(3,3,1)">
-  <span class="mk">B</span><span>Es igual de valiosa que la evaluación tradicional — solo cambia el formato</span>
+  <span class="mk">B</span><span>Porque es una solución temporal mientras se perfeccionan los detectores</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,2)">
+  <span class="mk">C</span><span>Porque produce el mismo resultado que un examen tradicional con otro formato</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,3)">
+  <span class="mk">D</span><span>Porque permite calificar más rápido que cualquier otro instrumento</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(3,3,1)" disabled>
+  <button class="btncheck" onclick="S.check(3,3,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Esta es la ironía productiva de la era de la IA en educación: al diseñar evaluaciones que la IA no puede reemplazar, los maestros están diseñando evaluaciones pedagógicamente más ricas que las que tenían antes. La evaluación auténtica con contexto local, proceso visible, y defensa oral siempre fue más válida que el examen de preguntas abiertas genérico — la IA solo lo hace urgente. <div class='fbr'>💭 ¿Cómo cambiarás tu enfoque de evaluación para hacerlo más auténtico — independientemente del desafío de la IA?</div></div>
+    <div>✅ Correcto. Pedir aplicar lo aprendido en situaciones reales, mostrar el proceso y justificar decisiones siempre fue una evidencia más rica del aprendizaje que reproducir información. La IA solo hizo urgente ese rediseño. B la reduce a un parche; C ignora la diferencia en lo que se mide; D es falso: suele exigir más tiempo de revisión. <div class='fbr'>💭 ¿Qué cambiarías en tu evaluación aunque la IA no existiera?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA hizo urgente lo que siempre fue pedagógicamente superior: la evaluación auténtica con contexto real.</div>
+    <div>Pista: piensa en qué tipo de desempeño se observa en cada forma de evaluar.</div>
   </div>
 </div>
 <div class="eq" id="q3_4">
   <div class="qhdr">
     <div class="qn">4</div>
-    <div class="qtx">🟢 ¿Cuál es la forma más efectiva de enseñar a los estudiantes el uso ético y estratégico de la IA para su aprendizaje?</div>
+    <div class="qtx">🟢 ¿Cuál es la forma más eficaz de enseñar a los estudiantes un uso ético y estratégico de la IA?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(3,4,0)">
-  <span class="mk">A</span><span>Prohibir completamente el uso de IA — es la única forma de garantizar que aprendan solos</span>
+  <span class="mk">A</span><span>Prohibir su uso en todo momento para garantizar que aprendan solos</span>
 </button>
 <button class="opt" onclick="S.pick(3,4,1)">
-  <span class="mk">B</span><span>Permitir cualquier uso de IA sin guía — los estudiantes aprenden mejor explorando libremente</span>
+  <span class="mk">B</span><span>Permitir cualquier uso sin guía, porque se aprende mejor explorando</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,2)">
+  <span class="mk">C</span><span>Acordar usos permitidos por actividad y pedir que declaren cómo la usaron</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,3)">
+  <span class="mk">D</span><span>Enseñar únicamente los comandos técnicos más avanzados de cada herramienta</span>
 </button></div>
   <button class="btncheck" onclick="S.check(3,4,2)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ El contrato de IA hace explícito lo que generalmente es implícito: las normas del uso ético de la IA en el contexto educativo. Al construirlo juntos, los estudiantes internalizan las normas en lugar de simplemente seguirlas externamente. El portafolio de uso de IA añade metacognición: el estudiante reflexiona sobre cómo la IA afectó su propio proceso de aprendizaje — la habilidad más transferible para su vida futura. <div class='fbr'>💭 ¿Cuándo construirás el contrato de uso de IA con tu grupo?</div></div>
+    <div>✅ Correcto. Un acuerdo de aula construido con los estudiantes, que diga qué usos se permiten en cada tarea, más una declaración de uso, vuelve explícitas las normas y promueve la reflexión sobre el propio aprendizaje. A no forma criterio; B deja a los estudiantes sin guía, y la exploración sin guía suele ser menos eficaz para principiantes; D confunde dominio técnico con criterio. <div class='fbr'>💭 ¿Cuándo construirás con tu grupo un acuerdo de uso de IA?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Enseñar el uso ético de la IA explícitamente produce usuarios críticos — no dependientes ni rechazadores.</div>
+    <div>Pista: busca la opción que hace explícitas las reglas y la reflexión del estudiante.</div>
   </div>
 </div>
 <div class="eq" id="q3_5">
   <div class="qhdr">
     <div class="qn">5</div>
-    <div class="qtx">🟡 Un estudiante de grado 10 argumenta: 'Si la IA puede hacer este ensayo, es porque el ensayo no mide nada importante'. ¿Cuál es la respuesta pedagógica más rigurosa?</div>
+    <div class="qtx">🟡 Un estudiante de décimo dice: «Si la IA puede hacer este ensayo, es porque el ensayo no mide nada importante». ¿Cuál es la respuesta pedagógica más rigurosa?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(3,5,0)">
-  <span class="mk">A</span><span>El estudiante está equivocado — los ensayos siempre son válidos como instrumento de evaluación</span>
+  <span class="mk">A</span><span>Decirle que se equivoca, porque los ensayos siempre son instrumentos válidos</span>
 </button>
 <button class="opt" onclick="S.pick(3,5,1)">
-  <span class="mk">B</span><span>El estudiante tiene razón parcialmente — pero la IA no puede hacer TODOS los tipos de ensayo</span>
+  <span class="mk">B</span><span>Darle la razón y eliminar los ensayos del plan de estudios del área</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,2)">
+  <span class="mk">C</span><span>Responder que la IA no sabe escribir ensayos y que su argumento es falso</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,3)">
+  <span class="mk">D</span><span>Reconocer su punto y preguntar qué ensayo no podría hacer la IA por él</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(3,5,2)" disabled>
+  <button class="btncheck" onclick="S.check(3,5,3)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La respuesta valida el argumento del estudiante (que tiene razón en la premisa) y lo desafía a ir más allá: si la IA puede hacer este ensayo, entonces el problema no es el ensayo como formato — es cómo está diseñado. La pregunta generadora ('¿qué tipo de ensayo la IA NO podría escribir en tu lugar?') produce el razonamiento más profundo sobre evaluación auténtica que cualquier explicación del maestro. <div class='fbr'>💭 ¿Cuál sería la respuesta de tus estudiantes a esa pregunta generadora?</div></div>
+    <div>✅ Correcto. El estudiante tiene razón en parte: si la IA puede hacer la tarea, el problema está en el diseño, no en el formato. Devolverle la pregunta («¿qué ensayo no podría escribir la IA en tu lugar?») lo lleva a pensar en contexto propio, proceso y postura personal. A y C niegan algo evidente; B desecha la escritura, que sigue siendo necesaria. <div class='fbr'>💭 ¿Qué responderían tus estudiantes a esa pregunta?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA que puede hacer una evaluación no invalida el formato — invalida ese diseño específico. La pregunta es cómo rediseñarlo.</div>
+    <div>Pista: busca la respuesta que valida la observación y la convierte en una pregunta.</div>
   </div>
 </div>
 <div class="eq" id="q3_6">
   <div class="qhdr">
     <div class="qn">6</div>
-    <div class="qtx">🟠 ¿Cuál es el impacto de la IA en la evaluación sumativa de alto impacto en Colombia (ICFES/Saber) y qué implica para el maestro?</div>
+    <div class="qtx">🟠 Las pruebas Saber 11 se presentan de forma individual y sin acceso a IA. ¿Qué implica esto para la práctica en clase?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(3,6,0)">
-  <span class="mk">A</span><span>El ICFES ya actualizó todas sus pruebas para eliminar el impacto de la IA — no hay implicaciones</span>
+  <span class="mk">A</span><span>Que los estudiantes deben poder razonar solos; la IA no debe sustituir la práctica</span>
 </button>
 <button class="opt" onclick="S.pick(3,6,1)">
-  <span class="mk">B</span><span>La IA no puede impactar el ICFES porque es una prueba presencial</span>
+  <span class="mk">B</span><span>Que la IA no afecta la preparación, porque la prueba es presencial y vigilada</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,2)">
+  <span class="mk">C</span><span>Que conviene practicar siempre con IA para que respondan más rápido en la prueba</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,3)">
+  <span class="mk">D</span><span>Que la evaluación auténtica perjudica los resultados en pruebas estandarizadas</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(3,6,2)" disabled>
+  <button class="btncheck" onclick="S.check(3,6,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Las implicaciones para el maestro son concretas: si el ICFES mide habilidades que la IA no puede reemplazar (razonamiento en contexto, análisis situacional), el maestro que desarrolla esas habilidades con evaluación auténtica está preparando mejor a sus estudiantes para las pruebas de alto impacto — no peor. La evaluación auténtica y la preparación para pruebas estandarizadas no son opuestos — cuando las pruebas están bien diseñadas, se complementan. <div class='fbr'>💭 ¿Qué habilidades del ICFES puedes desarrollar con evaluación auténtica en lugar de preparación mecánica?</div></div>
+    <div>✅ Correcto. Si durante la práctica la IA hace el trabajo, el estudiante puede rendir menos cuando no la tiene: en el experimento de Bastani y otros (2025), quienes practicaron con GPT-4 sin salvaguardas obtuvieron 17 % menos en el examen sin la herramienta. La práctica con IA debe tener límites (pistas, no respuestas) y combinarse con práctica autónoma. B ignora ese efecto; C lo agrava; D no tiene respaldo. <div class='fbr'>💭 ¿Qué parte de la práctica de tus estudiantes debe hacerse siempre sin IA?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>El ICFES está adaptándose a la era de la IA — el maestro que desarrolla pensamiento crítico auténtico prepara mejor para las pruebas de alto impacto.</div>
+    <div>Pista: piensa en qué pasa cuando se retira una ayuda que hizo el trabajo por el estudiante.</div>
   </div>
 </div>
 <div class="eq" id="q3_7">
   <div class="qhdr">
     <div class="qn">7</div>
-    <div class="qtx">🔵 ¿Por qué el rediseño de la evaluación en respuesta a la IA es una oportunidad pedagógica — no solo un desafío?</div>
+    <div class="qtx">🔵 ¿Por qué el rediseño de la evaluación ante la IA es una oportunidad pedagógica y no solo un problema?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(3,7,0)">
-  <span class="mk">A</span><span>Es solo un desafío — la IA complica el trabajo del maestro sin ningún beneficio compensatorio</span>
+  <span class="mk">A</span><span>Porque permite dejar de evaluar y concentrarse solo en enseñar contenidos</span>
 </button>
 <button class="opt" onclick="S.pick(3,7,1)">
-  <span class="mk">B</span><span>Es neutral — el rediseño no produce ni oportunidades ni desafíos adicionales</span>
+  <span class="mk">B</span><span>Porque obliga a medir comprensión y aplicación en lugar de reproducción</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,2)">
+  <span class="mk">C</span><span>Porque la IA puede calificar sola todos los trabajos de los estudiantes</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,3)">
+  <span class="mk">D</span><span>No es una oportunidad: solo añade trabajo sin ningún beneficio para el aula</span>
 </button></div>
   <button class="btncheck" onclick="S.check(3,7,1)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La síntesis del módulo: la IA forzó a la educación a confrontar una verdad incómoda que siempre existió — que mucha evaluación medía memorización y reproducción, no aprendizaje real. El maestro que rediseña su evaluación en respuesta a la IA no está solo protegiéndose de un problema tecnológico — está mejorando fundamentalmente su práctica pedagógica. El desafío de la IA es la oportunidad de hacer lo que siempre debió hacerse. <div class='fbr'>💭 ¿Cuál evaluación rediseñarás esta semana para que mida aprendizaje real — independientemente de la IA?</div></div>
+    <div>✅ Correcto. La IA hizo visible que muchas tareas medían reproducción. Rediseñarlas para exigir contexto, proceso y explicación mejora la evaluación en sí misma. A abandona la evaluación; C delega un juicio que es del docente (y la Unión Europea, por ejemplo, considera de alto riesgo los sistemas de IA que evalúan resultados de aprendizaje); D ignora el beneficio. <div class='fbr'>💭 ¿Qué evaluación rediseñarás esta semana?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA no creó el problema de la evaluación superficial — lo hizo visible y urgente. El rediseño es la oportunidad que siempre estuvo pendiente.</div>
+    <div>Pista: pregúntate qué se empieza a medir cuando una tarea ya no se puede copiar.</div>
   </div>
 </div>
 </div>
@@ -1101,8 +1254,8 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
   <div class="mhdr" id="h4" data-lock="1" onclick="S.toggle(4)" style="--ac:#7F77DD">
     <div class="mnum" style="background:#7F77DD">4</div>
     <div class="minfo">
-      <div class="mtitle">Ética de la IA — Debates que el Maestro debe Liderar</div>
-      <div class="msub">Sesgos algorítmicos · Privacidad · Derechos digitales · Democracia · Futuro del trabajo</div>
+      <div class="mtitle">Ética de la IA — Debates que el maestro debe liderar</div>
+      <div class="msub">Sesgos algorítmicos · Privacidad y Ley 1581 · Desinformación y deepfakes · Futuro del trabajo</div>
       <div class="mmeta">
         <span class="mdur">⏱ Sem 7-8</span>
         <span class="mlock">🔒 Completa el anterior</span>
@@ -1111,35 +1264,50 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
     <span class="mchev">▽</span>
     <div class="mpbar"><div class="mpfill"></div></div>
   </div>
-  <div class="mbody" id="b4"><div class="intro">⚖️ <strong>LA RESPONSABILIDAD QUE NADIE MÁS TIENE:</strong> El maestro colombiano es el adulto de referencia con quien más horas pasan los adolescentes fuera del hogar. Cuando se debate el impacto de la IA en el trabajo, en la democracia, en los derechos humanos — ¿quién facilita esa conversación con los jóvenes colombianos? El maestro SABI. Este módulo no da respuestas — da las herramientas para hacer las preguntas correctas.</div><div class="cards">
+  <div class="mbody" id="b4"><div class="intro">⚖️ <strong>LA RESPONSABILIDAD FORMATIVA:</strong> Los estudiantes conviven con algoritmos que recomiendan, clasifican y generan contenido. ¿Quién les ayuda a preguntarse quién gana, quién pierde y cómo se comprueba lo que ven? El aula. Este módulo no da respuestas cerradas: da casos documentados, normas vigentes y herramientas para que el docente facilite <strong>conversaciones éticas con evidencia</strong>.</div><div class="cards">
 <div class="card" style="--ca:#1D9E75">
   <div class="card-hd">
     <div class="card-ico">🧠</div>
-    <div class="card-title">Sesgos algorítmicos — Cuando la IA discrimina sin saberlo</div>
+    <div class="card-title">Sesgos algorítmicos — Cuando la IA discrimina sin intención</div>
   </div>
-  <div class="card-bd">Los algoritmos aprenden de datos humanos — y reproducen las desigualdades históricas. Casos documentados: (1) Sistemas de reconocimiento facial con mayor error en personas afrodescendientes. (2) Algoritmos de crédito que discriminan por código postal (correlacionado con etnia y pobreza). (3) Sistemas de recomendación que refuerzan cámaras de eco y polarización política. Para Colombia: los algoritmos de selección de beneficiarios de programas sociales pueden reproducir sesgos contra las comunidades más vulnerables.<div class="card-reflect">💭 ¿Puedes nombrar un caso colombiano donde un algoritmo podría estar tomando decisiones injustas?</div></div>
+  <div class="card-bd">Un sesgo algorítmico es un error sistemático que favorece o perjudica a ciertos grupos. Suele venir de los datos con que se entrenó el sistema o de las variables elegidas, no de una intención explícita.<br><br>Casos documentados:<br>(1) <strong>Reconocimiento facial</strong>: Buolamwini y Gebru (2018, <em>Proceedings of Machine Learning Research</em>, 81, 77-91) mostraron que sistemas comerciales de clasificación de género fallaban mucho más con mujeres de piel oscura (errores de hasta 34,7 %) que con hombres de piel clara (hasta 0,8 %).<br>(2) <strong>Salud</strong>: Obermeyer y otros (2019, <em>Science</em>, 366(6464), 447-453, DOI <a href="https://doi.org/10.1126/science.aax2342" target="_blank" rel="noopener">10.1126/science.aax2342</a>) hallaron que un algoritmo usado en Estados Unidos subestimaba la necesidad de atención de pacientes negros porque usaba el gasto en salud como variable sustituta de la necesidad.<br>(3) <strong>Generadores de imágenes</strong>: tienden a reproducir estereotipos de profesiones y género.<br><br>Lección clave: una variable «neutral» (gasto, barrio, tipo de teléfono) puede funcionar como sustituto de raza o pobreza. Para Colombia, la pregunta es qué variables usan los sistemas que deciden sobre personas.<div class="card-reflect">💭 ¿Qué decisión en tu entorno podría estar tomando un algoritmo con variables sustitutas?</div></div>
 </div>
 <div class="card" style="--ca:#1B7FA6">
   <div class="card-hd">
     <div class="card-ico">💡</div>
-    <div class="card-title">Privacidad y vigilancia — El precio de la conveniencia digital</div>
+    <div class="card-title">Privacidad y datos — Lo que dice la ley colombiana</div>
   </div>
-  <div class="card-bd">Cada búsqueda en Google, cada like en Instagram, cada movimiento rastreado por el teléfono es un dato que alimenta modelos de IA. El modelo de negocio de la mayoría de plataformas gratuitas: tus datos son el producto. Para los adolescentes colombianos: las plataformas que usan gratuitamente están construyendo perfiles detallados que pueden afectar sus opciones futuras. El maestro que enseña esto le da a sus estudiantes una herramienta de empoderamiento — no de paranoia.<div class="card-reflect">💭 ¿Sabes qué datos de tus estudiantes recopilan las plataformas que usas en el aula?</div></div>
+  <div class="card-bd">Muchas plataformas gratuitas financian su servicio con datos de uso. Para el aula, la norma base es la <strong>Ley 1581 de 2012</strong> (protección de datos personales):<br>• Exige autorización previa, expresa e informada para tratar datos personales.<br>• Define como sensibles, entre otros, los datos de salud, y les da protección especial.<br>• Su artículo 7 establece reglas especiales para los datos de niños, niñas y adolescentes; la Corte Constitucional (Sentencia C-748 de 2011) condicionó su tratamiento a que responda a su interés superior.<br><br>La Superintendencia de Industria y Comercio, en la <strong>Circular Externa 002 de 2024</strong> (21 de agosto), dio instrucciones para el tratamiento de datos personales en sistemas de IA: responsabilidad demostrada, estudios de impacto de privacidad cuando haya alto riesgo, seguridad y respeto a los derechos de los titulares; y aclaró que un dato accesible en internet no por eso es de naturaleza pública.<br><br>Regla de aula: nunca ingresar nombres, documentos, notas, fotos ni diagnósticos de estudiantes en herramientas de IA. Describir casos en forma anónima.<div class="card-reflect">💭 ¿Sabes qué datos recogen las plataformas que usas con tus estudiantes?</div></div>
 </div>
 <div class="card" style="--ca:#7F77DD">
   <div class="card-hd">
     <div class="card-ico">🎯</div>
-    <div class="card-title">IA y democracia — El desafío que Colombia ya enfrenta</div>
+    <div class="card-title">IA, desinformación y democracia — Aprender a verificar</div>
   </div>
-  <div class="card-bd">En las elecciones colombianas de 2022 y 2023, se documentaron: deepfakes de figuras políticas, bots que amplificaban narrativas falsas, y algoritmos que personalizaban mensajes según el perfil psicológico del votante. Los adolescentes colombianos que votan por primera vez son especialmente vulnerables a estas manipulaciones — a menos que tengan las herramientas críticas para identificarlas. El maestro que enseña literacidad digital crítica está protegiendo la democracia colombiana.<div class="card-reflect">💭 ¿Tus estudiantes pueden identificar un deepfake o un bot en redes sociales?</div></div>
+  <div class="card-bd">Un <em>deepfake</em> es un video, audio o imagen sintéticos que imitan a una persona real haciendo o diciendo algo que no ocurrió. A esto se suman cuentas automatizadas que amplifican mensajes y recomendaciones que personalizan lo que cada persona ve.<br><br>Lo que dice la investigación: en un experimento con un video falso de un líder político, Vaccari y Chadwick (2020, <em>Social Media + Society</em>, 6(1), DOI <a href="https://doi.org/10.1177/2056305120903408" target="_blank" rel="noopener">10.1177/2056305120903408</a>) encontraron que el video engañaba a pocos, pero aumentaba la incertidumbre, y esa incertidumbre reducía la confianza en las noticias en redes sociales. El daño no es solo creer lo falso; también es dejar de creer lo verdadero.<br><br>Habilidades para enseñar:<br>(1) Buscar el origen: ¿quién lo publicó primero?<br>(2) Contrastar con medios reconocidos y verificadores.<br>(3) Revisar indicios técnicos (voz, labios, luz), sabiendo que cada vez son menos visibles.<br>(4) Pausar antes de compartir.<br><br>Los jóvenes que votarán por primera vez necesitan estas habilidades antes de ejercer el voto.<div class="card-reflect">💭 ¿Tus estudiantes saben qué hacer antes de compartir un video sorprendente?</div></div>
 </div>
 <div class="card" style="--ca:#D85A30">
   <div class="card-hd">
     <div class="card-ico">🔬</div>
-    <div class="card-title">Futuro del trabajo en Colombia — La conversación que los estudiantes necesitan</div>
+    <div class="card-title">Futuro del trabajo — Una conversación con datos</div>
   </div>
-  <div class="card-bd">McKinsey 2024: en Colombia, el 35% de los empleos actuales tienen alta exposición a la automatización por IA en los próximos 10 años. Los más afectados: trabajos administrativos rutinarios, transporte, manufactura básica, y servicios de atención al cliente. Los menos afectados: trabajos que requieren creatividad compleja, relaciones humanas profundas, y juicio ético. El maestro que no habla de esto con sus estudiantes los está dejando sin preparación para su futuro.<div class="card-reflect">💭 ¿Has tenido una conversación con tus estudiantes sobre cómo la IA afectará sus opciones de carrera?</div></div>
-</div></div>
+  <div class="card-bd">La Organización Internacional del Trabajo actualizó en 2025 su índice de exposición de las ocupaciones a la IA generativa (Documento de trabajo 140). Hallazgos principales:<br>• Una de cada cuatro personas trabajadoras en el mundo está en una ocupación con algún grado de exposición.<br>• Las ocupaciones administrativas y de oficina son las más expuestas.<br>• Solo alrededor del 3,3 % del empleo mundial está en la categoría de mayor exposición, con más proporción de mujeres (4,7 %) que de hombres (2,4 %).<br>• La exposición es mayor en países de ingresos altos (34 %) que en los de ingresos bajos (11 %).<br>• Para la mayoría de los empleos, la OIT espera <strong>transformación</strong> más que desaparición.<br><br>Cómo usarlo en orientación vocacional: exposición no es igual a desempleo. Conviene analizar qué tareas de una profesión cambiarían, qué habilidades se vuelven más valiosas (juicio, comunicación, trabajo con personas, uso crítico de herramientas) y cómo se relaciona con la formación técnica del SENA.<br><br>Evita cifras de fuentes sin metodología pública: muchas «predicciones» circulan sin respaldo.<div class="card-reflect">💭 ¿Has conversado con tus estudiantes sobre cómo la IA cambia las profesiones que les interesan?</div></div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🧩</div>
+    <div class="card-title">Ejemplo resuelto en CENTEC y errores frecuentes</div>
+  </div>
+  <div class="card-bd">Caso con nombres ficticios. La profesora Lina, de Ética de undécimo, organiza un debate: «¿Debería un algoritmo decidir quién recibe un subsidio?».<br>Paso 1: presenta un caso hipotético: un sistema que asigna puntajes usando barrio, tipo de vivienda y consumo de servicios.<br>Paso 2: equipos con roles: familia afectada, entidad pública, ingeniera de datos y Defensoría.<br>Paso 3: cada equipo busca evidencia (Obermeyer y otros, 2019, como ejemplo de variable sustituta) y prepara dos argumentos y una pregunta.<br>Paso 4: Lina modera con preguntas: «¿qué variable podría ser sustituta de pobreza?», «¿cómo se apelaría una decisión?».<br>Paso 5: cierre individual: una propuesta de regla para usar algoritmos en decisiones públicas.<br><br>Errores frecuentes: dar la respuesta «correcta» al inicio; debatir sin evidencia; dar su opinión política en lugar de modelar el análisis; usar casos con personas reales identificables.<br>Indicadores: N4 identifica variables sustitutas; N5 valora riesgos y beneficios; N6 propone una regla justificada.<div class="card-reflect">💭 ¿Qué caso cercano a tus estudiantes usarías para un debate así?</div></div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🆕</div>
+    <div class="card-title">Actualización 2026: lo que dice la normativa</div>
+  </div>
+  <div class="card-bd">1. <strong>Recomendación de la UNESCO sobre la ética de la IA (2021).</strong> Adoptada por los 193 Estados miembros en noviembre de 2021; pone en el centro los derechos humanos, la transparencia, la equidad y la supervisión humana.<br>2. <strong>Unión Europea, Reglamento (UE) 2024/1689.</strong> Clasifica como de alto riesgo los sistemas de IA que deciden la admisión a centros educativos, evalúan resultados de aprendizaje, asignan el nivel educativo o vigilan conductas prohibidas en exámenes (anexo III). Aunque no rige en Colombia, es una referencia útil para pensar qué decisiones educativas no deberían dejarse a un sistema sin supervisión humana.<br>3. <strong>Colombia, Ley 2489 de 2025 y Decreto 0769 de 2026.</strong> Promueven entornos digitales sanos y seguros para niños, niñas y adolescentes. El decreto (16 de julio de 2026) pide a los colegios actualizar el PEI y el Manual de Convivencia con prevención de riesgos digitales y rutas frente al ciberacoso, y prevé lineamientos de MinTIC para que los desarrolladores, incluidos los de IA, evalúen sesgos y apliquen privacidad desde el diseño. <em>Contenido en revisión por el equipo docente responsable.</em><div class="card-reflect">💭 ¿Qué debería incluir el Manual de Convivencia de CENTEC sobre IA y entornos digitales?</div></div>
+</div>
+</div>
 <div class="zona">
   <div class="ehdr">
     <div class="eico">🎯</div>
@@ -1157,181 +1325,211 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
 <div class="eq" id="q4_1">
   <div class="qhdr">
     <div class="qn">1</div>
-    <div class="qtx">🟡 Un algoritmo de selección de beneficiarios del programa 'Familias en Acción' usa el código postal como variable. ¿Por qué esto puede ser éticamente problemático?</div>
+    <div class="qtx">🟡 Un algoritmo hipotético para asignar subsidios usa el barrio de residencia como variable. ¿Por qué puede ser problemático?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(4,1,0)">
-  <span class="mk">A</span><span>No es problemático — el código postal es solo información geográfica neutral</span>
+  <span class="mk">A</span><span>No lo es: el barrio es solo información geográfica neutral y objetiva</span>
 </button>
 <button class="opt" onclick="S.pick(4,1,1)">
-  <span class="mk">B</span><span>El código postal en Colombia está altamente correlacionado con variables socioeconómicas y étnicas: las comunidades afrodescendientes e indígenas tienen mayor concentración en ciertos códigos postales. Usar el código postal como variable puede producir que el algoritmo discrimine indirectamente por etnia — aunque no lo haga explícitamente. Esto es discriminación algorítmica indirecta — uno de los sesgos más difíciles de detectar y más frecuentes</span>
+  <span class="mk">B</span><span>Solo sería problemático si los programadores lo incluyeran con la intención de excluir</span>
 </button>
 <button class="opt" onclick="S.pick(4,1,2)">
-  <span class="mk">C</span><span>Es problemático solo si el algoritmo lo hace intencionalmente</span>
+  <span class="mk">C</span><span>Solo importa si las personas afectadas presentan una queja formal</span>
 </button>
 <button class="opt" onclick="S.pick(4,1,3)">
-  <span class="mk">D</span><span>Solo es problemático si los beneficiarios del programa lo reportan — sin reporte no hay problema</span>
+  <span class="mk">D</span><span>El barrio puede ser sustituto de pobreza o etnia y discriminar indirectamente</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(4,1,1)" disabled>
+  <button class="btncheck" onclick="S.check(4,1,3)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La discriminación algorítmica indirecta es el sesgo más frecuente y más difícil de detectar: el algoritmo no discrimina por etnia explícitamente — usa variables proxy que están correlacionadas con la etnia. El código postal, el tipo de teléfono, el operador de celular, y el historial de navegación pueden ser proxies de raza y clase socioeconómica. El maestro que enseña esto le da a sus estudiantes la capacidad de cuestionar sistemas que parecen objetivos. <div class='fbr'>💭 ¿Puedes nombrar otros ejemplos de variables proxy en el contexto colombiano?</div></div>
+    <div>✅ Correcto. Es discriminación indirecta: el sistema no menciona etnia ni clase, pero usa una variable muy correlacionada con ellas. Obermeyer y otros (2019) documentaron un caso similar en salud con el gasto como sustituto de la necesidad. A supone neutralidad; B y C ignoran que el daño ocurre aunque no haya intención ni queja. <div class='fbr'>💭 ¿Qué otras variables sustitutas reconoces en el contexto colombiano?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La discriminación algorítmica indirecta usa proxies de raza y clase — sin mencionarlas explícitamente.</div>
+    <div>Pista: piensa en qué otras características de las personas se relacionan con el lugar donde viven.</div>
   </div>
 </div>
 <div class="eq" id="q4_2">
   <div class="qhdr">
     <div class="qn">2</div>
-    <div class="qtx">🔴 Un estudiante dice: 'La IA es más objetiva que los humanos — porque no tiene emociones ni prejuicios'. ¿Cuál es la respuesta pedagógica más rigurosa?</div>
+    <div class="qtx">🔴 Un estudiante dice: «La IA es más objetiva que los humanos porque no tiene emociones ni prejuicios». ¿Cuál es la respuesta más rigurosa?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(4,2,0)">
-  <span class="mk">A</span><span>Es correcto — la IA efectivamente elimina los sesgos humanos de la toma de decisiones</span>
+  <span class="mk">A</span><span>Tiene razón: la IA elimina los sesgos humanos de las decisiones</span>
 </button>
 <button class="opt" onclick="S.pick(4,2,1)">
-  <span class="mk">B</span><span>La IA es completamente subjetiva — nunca debe usarse para tomar decisiones que afecten a personas</span>
+  <span class="mk">B</span><span>Aprende de datos humanos y puede reproducir sesgos con apariencia de objetividad</span>
+</button>
+<button class="opt" onclick="S.pick(4,2,2)">
+  <span class="mk">C</span><span>La IA es totalmente subjetiva y por eso nunca debería usarse para nada importante</span>
+</button>
+<button class="opt" onclick="S.pick(4,2,3)">
+  <span class="mk">D</span><span>La objetividad depende solo de la velocidad con que el sistema procesa</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(4,2,2)" disabled>
+  <button class="btncheck" onclick="S.check(4,2,1)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La creencia de que la IA es objetiva es uno de los mitos más peligrosos de la era digital. Los sistemas de IA aprenden de datos humanos — heredan sistemáticamente los sesgos históricos de esos datos. Paradójicamente, pueden ser más peligrosos que el juicio humano porque presentan sus sesgos con la apariencia de objetividad matemática. El estudiante que comprende esto es un ciudadano más capaz de cuestionar sistemas que se presentan como neutrales. <div class='fbr'>💭 ¿Cómo explicarías este concepto a tus estudiantes usando un caso colombiano concreto?</div></div>
+    <div>✅ Correcto. Los sistemas aprenden de datos producidos por personas e instituciones, con sus desigualdades. Por eso pueden reproducir sesgos y, además, presentarlos como resultados «matemáticos». A repite el mito; C exagera en sentido contrario, porque con supervisión y auditoría la IA puede ser útil; D confunde rapidez con objetividad. <div class='fbr'>💭 ¿Qué caso usarías para explicar este punto a tus estudiantes?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA hereda los sesgos de sus datos — y los presenta con apariencia de objetividad matemática.</div>
+    <div>Pista: recuerda de dónde aprenden los sistemas de IA.</div>
   </div>
 </div>
 <div class="eq" id="q4_3">
   <div class="qhdr">
     <div class="qn">3</div>
-    <div class="qtx">🟠 ¿Por qué la capacidad de identificar un deepfake o un bot en redes sociales es una competencia ciudadana urgente para los jóvenes colombianos?</div>
+    <div class="qtx">🟠 ¿Qué daño adicional de los deepfakes documentaron Vaccari y Chadwick (2020)?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(4,3,0)">
-  <span class="mk">A</span><span>No es urgente — Colombia no tiene exposición significativa a deepfakes o bots</span>
+  <span class="mk">A</span><span>Que engañan a casi todas las personas que los ven por primera vez</span>
 </button>
 <button class="opt" onclick="S.pick(4,3,1)">
-  <span class="mk">B</span><span>Solo es relevante para los adultos que votan — los menores de edad no necesitan esta habilidad</span>
+  <span class="mk">B</span><span>Que solo afectan a adultos mayores y no a los jóvenes que usan redes</span>
+</button>
+<button class="opt" onclick="S.pick(4,3,2)">
+  <span class="mk">C</span><span>Que aumentan la incertidumbre y reducen la confianza en las noticias</span>
+</button>
+<button class="opt" onclick="S.pick(4,3,3)">
+  <span class="mk">D</span><span>Que desaparecen solos cuando las plataformas actualizan sus sistemas</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(4,3,1)" disabled>
+  <button class="btncheck" onclick="S.check(4,3,2)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Los adolescentes colombianos que votan por primera vez (18 años) habrán estado expuestos a contenido manipulado en redes sociales desde la adolescencia. La capacidad de identificar deepfakes, bots, y narrativas algorítmicamente amplificadas es una competencia de ciudadanía democrática que debe desarrollarse antes de que se ejerza el voto. El maestro que la enseña está protegiendo la democracia colombiana desde el aula. <div class='fbr'>💭 ¿Tus estudiantes pueden identificar señales de un deepfake? ¿Les has enseñado cómo?</div></div>
+    <div>✅ Correcto. En su experimento, el video falso engañó a pocos, pero generó incertidumbre, y esa incertidumbre redujo la confianza en las noticias en redes sociales. Por eso enseñar a verificar protege tanto de creer lo falso como de desconfiar de todo. A exagera el engaño directo; B y D no tienen respaldo. <div class='fbr'>💭 ¿Cómo enseñarías a verificar sin caer en la desconfianza total?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La literacidad digital crítica es ciudadanía democrática — especialmente en el contexto de la democracia colombiana.</div>
+    <div>Pista: el hallazgo no fue sobre engañar a muchos, sino sobre la confianza.</div>
   </div>
 </div>
 <div class="eq" id="q4_4">
   <div class="qhdr">
     <div class="qn">4</div>
-    <div class="qtx">🟢 ¿Cuál es la diferencia entre 'automatización' y 'desplazamiento laboral por IA' y por qué importa para la orientación vocacional en Colombia?</div>
+    <div class="qtx">🟢 Según la actualización 2025 de la OIT sobre IA generativa y empleo, ¿qué conclusión es correcta?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(4,4,0)">
-  <span class="mk">A</span><span>Son lo mismo — ambos describen la pérdida de empleos por tecnología</span>
+  <span class="mk">A</span><span>La mayoría de los empleos se transformarán más de lo que desaparecerán</span>
 </button>
 <button class="opt" onclick="S.pick(4,4,1)">
-  <span class="mk">B</span><span>Automatización: tecnología reemplaza tareas específicas dentro de un trabajo — pero el trabajo en sí persiste transformado. Desplazamiento laboral: la tecnología elimina el empleo completo. La distinción importa para la orientación vocacional: los empleos que serán más resilientes no son los que evitan la tecnología — son los que requieren habilidades que la IA no puede reemplazar: creatividad compleja, empatía aplicada, juicio ético, liderazgo situacional</span>
+  <span class="mk">B</span><span>La mitad de todos los empleos del mundo desaparecerá en los próximos años</span>
 </button>
 <button class="opt" onclick="S.pick(4,4,2)">
-  <span class="mk">C</span><span>El desplazamiento laboral por IA solo afecta a países desarrollados — Colombia no está en riesgo</span>
+  <span class="mk">C</span><span>Las ocupaciones administrativas son las menos expuestas a la IA generativa</span>
 </button>
 <button class="opt" onclick="S.pick(4,4,3)">
-  <span class="mk">D</span><span>La automatización siempre crea más empleos de los que destruye — no hay razón para preocuparse</span>
+  <span class="mk">D</span><span>Los países de ingresos bajos tienen la mayor exposición de todo el mundo</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(4,4,1)" disabled>
+  <button class="btncheck" onclick="S.check(4,4,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Esta distinción tiene implicaciones directas para las conversaciones de orientación vocacional: los estudiantes que eligen carreras basándose en la demanda laboral de 2024 pueden no estar considerando cómo esa demanda cambiará en los próximos 10-15 años. El maestro que entiende la diferencia puede facilitar conversaciones más precisas sobre el futuro del trabajo en Colombia. <div class='fbr'>💭 ¿Cómo integras la perspectiva del futuro del trabajo en tus conversaciones de orientación con estudiantes?</div></div>
+    <div>✅ Correcto. La OIT estima que una de cada cuatro personas trabajadoras está en una ocupación con algún grado de exposición y espera, para la mayoría, transformación de tareas más que desaparición del empleo. B exagera; C invierte el hallazgo (las administrativas son las más expuestas); D también lo invierte (la exposición es mayor en países de ingresos altos). <div class='fbr'>💭 ¿Cómo integrarías estos datos en la orientación vocacional de tus estudiantes?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La orientación vocacional en la era de la IA debe considerar la resiliencia de las habilidades — no solo la demanda laboral de hoy.</div>
+    <div>Pista: distingue entre «exposición» de una ocupación y pérdida del empleo.</div>
   </div>
 </div>
 <div class="eq" id="q4_5">
   <div class="qhdr">
     <div class="qn">5</div>
-    <div class="qtx">🟡 Facilita un debate en el aula sobre la siguiente pregunta: '¿Debería la IA tener derechos?'. ¿Qué marco pedagógico usarías para garantizar que produzca pensamiento crítico real?</div>
+    <div class="qtx">🟡 Quieres facilitar un debate sobre «¿debería un algoritmo decidir quién recibe un subsidio?». ¿Qué diseño produce más pensamiento crítico?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(4,5,0)">
-  <span class="mk">A</span><span>Es una pregunta demasiado filosófica para el aula colombiana — no tiene relevancia práctica</span>
+  <span class="mk">A</span><span>Explicar primero la respuesta correcta y luego abrir un espacio de preguntas al grupo</span>
 </button>
 <button class="opt" onclick="S.pick(4,5,1)">
-  <span class="mk">B</span><span>Solo hay una respuesta correcta — la IA no puede tener derechos porque no es persona</span>
+  <span class="mk">B</span><span>Dejar que opine libremente quien quiera, sin preparación previa</span>
+</button>
+<button class="opt" onclick="S.pick(4,5,2)">
+  <span class="mk">C</span><span>Evitar el tema porque es demasiado político para el aula</span>
+</button>
+<button class="opt" onclick="S.pick(4,5,3)">
+  <span class="mk">D</span><span>Roles asignados, evidencia previa y preguntas del docente que profundizan</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(4,5,2)" disabled>
+  <button class="btncheck" onclick="S.check(4,5,3)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Este marco pedagógico produce pensamiento crítico real porque: (1) La pregunta es genuinamente abierta — no tiene respuesta correcta establecida. (2) El anclaje en casos concretos colombianos evita la abstracción vacía. (3) La asignación de roles fuerza a los estudiantes a construir argumentos para posiciones que pueden no ser las propias. (4) Las preguntas generadoras del docente mantienen el nivel de análisis. Este tipo de debate produce las habilidades más valiosas y más resistentes a la automatización. <div class='fbr'>💭 ¿Cuándo facilitarás un debate de este tipo con tu grupo?</div></div>
+    <div>✅ Correcto. Una pregunta abierta, roles que obligan a argumentar desde otras posiciones, evidencia preparada y preguntas que profundizan producen análisis en lugar de opiniones sueltas. A cierra el debate antes de empezar; B produce intercambio sin argumentos; C priva a los estudiantes de una formación ciudadana necesaria. <div class='fbr'>💭 ¿Cuándo facilitarás un debate de este tipo?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>El debate sobre ética de la IA produce exactamente las habilidades que la IA no puede reemplazar.</div>
+    <div>Pista: busca la opción que combina preparación, roles y guía del docente.</div>
   </div>
 </div>
 <div class="eq" id="q4_6">
   <div class="qhdr">
     <div class="qn">6</div>
-    <div class="qtx">🟠 ¿Por qué el maestro colombiano que enseña ética de la IA está haciendo una contribución a la democracia — no solo a la educación tecnológica?</div>
+    <div class="qtx">🟠 Una docente quiere pegar en un chatbot público la lista de su grupo con notas y diagnósticos para pedir adaptaciones. ¿Qué indica la normativa colombiana?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(4,6,0)">
-  <span class="mk">A</span><span>La ética de la IA no tiene relación con la democracia — es solo un tema tecnológico</span>
+  <span class="mk">A</span><span>Puede hacerlo si usa una herramienta gratuita, conocida y bien calificada</span>
 </button>
 <button class="opt" onclick="S.pick(4,6,1)">
-  <span class="mk">B</span><span>El maestro no tiene suficiente conocimiento técnico para enseñar ética de la IA responsablemente</span>
+  <span class="mk">B</span><span>Debe describir los casos sin datos identificables: son datos protegidos</span>
+</button>
+<button class="opt" onclick="S.pick(4,6,2)">
+  <span class="mk">C</span><span>Puede hacerlo si borra la conversación del chatbot al terminar la consulta</span>
+</button>
+<button class="opt" onclick="S.pick(4,6,3)">
+  <span class="mk">D</span><span>Solo necesita el permiso verbal del coordinador académico de la sede</span>
 </button></div>
   <button class="btncheck" onclick="S.check(4,6,1)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La democracia en el siglo XXI requiere ciudadanos que puedan: evaluar críticamente la información producida y amplificada por algoritmos, identificar manipulación digital, comprender cómo los sistemas de IA afectan la distribución del poder, y participar informadamente en debates sobre la regulación de la IA. El maestro que facilita estas conversaciones está formando los ciudadanos que la democracia colombiana necesita para el siglo XXI. <div class='fbr'>💭 ¿Cuál debate de ética de la IA facilitarás con tus estudiantes este semestre?</div></div>
+    <div>✅ Correcto. La Ley 1581 de 2012 protege los datos personales, da protección especial a los sensibles (como la salud) y reglas especiales a los de niños, niñas y adolescentes. La SIC (Circular 002 de 2024) exige además responsabilidad demostrada en sistemas de IA. Describir los perfiles de forma anónima permite pedir ideas sin exponer a nadie. A, C y D no cumplen la exigencia de autorización y protección. <div class='fbr'>💭 ¿Cómo reformularías esa consulta para que sea completamente anónima?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Enseñar ética de la IA es formar ciudadanos para la democracia del siglo XXI.</div>
+    <div>Pista: piensa en qué tipo de datos aparecen en la lista y quiénes son sus titulares.</div>
   </div>
 </div>
 <div class="eq" id="q4_7">
   <div class="qhdr">
     <div class="qn">7</div>
-    <div class="qtx">🔵 ¿Por qué el maestro SABI que comprende la ética de la IA es más relevante en 2024 que el que solo sabe usar las herramientas?</div>
+    <div class="qtx">🔵 ¿Por qué el docente que comprende la ética de la IA aporta más a largo plazo que quien solo domina las herramientas?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(4,7,0)">
-  <span class="mk">A</span><span>Son igualmente relevantes — el uso de herramientas y la ética son complementarios pero no jerarquizables</span>
+  <span class="mk">A</span><span>Porque las herramientas cambian y los criterios éticos sirven para evaluar cualquiera</span>
 </button>
 <button class="opt" onclick="S.pick(4,7,1)">
-  <span class="mk">B</span><span>El que sabe usar las herramientas es más relevante — las habilidades técnicas tienen más demanda</span>
+  <span class="mk">B</span><span>Porque la ética reemplaza la necesidad de aprender a usar las herramientas</span>
+</button>
+<button class="opt" onclick="S.pick(4,7,2)">
+  <span class="mk">C</span><span>Porque quien domina herramientas siempre las usa de manera irresponsable</span>
+</button>
+<button class="opt" onclick="S.pick(4,7,3)">
+  <span class="mk">D</span><span>No aporta más: lo único relevante en el mercado laboral son las habilidades técnicas</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(4,7,1)" disabled>
+  <button class="btncheck" onclick="S.check(4,7,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La síntesis del módulo y del curso: las herramientas de IA cambiarán en 6 meses — los principios éticos para evaluarlas son estables. El maestro que comprende la ética puede aprender cualquier nueva herramienta de IA en días porque tiene el marco para evaluarla. El que solo sabe usar la herramienta actual necesita empezar de cero con cada nueva versión. En la era de la IA, el criterio ético es el activo más duradero. <div class='fbr'>💭 ¿Cuál es tu próximo paso para desarrollar tu comprensión de la ética de la IA?</div></div>
+    <div>✅ Correcto. Las versiones y las funciones cambian cada pocos meses; los criterios (derechos, equidad, privacidad, transparencia, supervisión humana) sirven para evaluar cualquier herramienta nueva. Lo ideal es combinar ambas cosas. B y D separan dos saberes complementarios; C es una generalización injusta. <div class='fbr'>💭 ¿Qué criterio ético aplicarás a la próxima herramienta que pruebes?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La ética de la IA es el activo más duradero en la era donde las herramientas cambian cada 6 meses.</div>
+    <div>Pista: piensa en qué conocimiento sigue siendo útil cuando cambia la herramienta.</div>
   </div>
 </div>
 </div>
@@ -1341,8 +1539,8 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
   <div class="mhdr" id="h5" data-lock="1" onclick="S.toggle(5)" style="--ac:#D4A843">
     <div class="mnum" style="background:#D4A843">5</div>
     <div class="minfo">
-      <div class="mtitle">IA para el Aula Colombiana — Implementación Práctica</div>
-      <div class="msub">Plan de implementación · Contexto rural · Sin conectividad · Casos de éxito · Próximos pasos</div>
+      <div class="mtitle">IA para el aula colombiana — Implementación práctica</div>
+      <div class="msub">Plan de cuatro semanas · Sin conectividad · Pilotos con evidencia · Indicadores · Lo insustituible</div>
       <div class="mmeta">
         <span class="mdur">⏱ Sem 9-10</span>
         <span class="mlock">🔒 Completa el anterior</span>
@@ -1351,35 +1549,50 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
     <span class="mchev">▽</span>
     <div class="mpbar"><div class="mpfill"></div></div>
   </div>
-  <div class="mbody" id="b5"><div class="intro">🇨🇴 <strong>LA PREGUNTA QUE CIERRA EL CURSO:</strong> ¿Cómo implementa la IA un maestro de una institución oficial en Cali, Buenaventura, Tumaco o Quibdó — con los recursos que tiene, en su contexto real, con sus estudiantes específicos? Este módulo transforma el conocimiento conceptual del curso en un plan de implementación realista para el contexto colombiano. Sin excusas. Sin esperar las condiciones perfectas. Con lo que hay.</div><div class="cards">
+  <div class="mbody" id="b5"><div class="intro">🇨🇴 <strong>LA PREGUNTA QUE CIERRA EL CURSO:</strong> ¿Cómo implementa la IA un docente de una institución oficial de Cali, con los equipos, la conectividad y los estudiantes que tiene? Este módulo convierte lo aprendido en un <strong>plan realista</strong>: empezar pequeño, proteger los datos, medir aprendizaje y no solo actividad, y decidir con evidencia propia.</div><div class="cards">
 <div class="card" style="--ca:#1D9E75">
   <div class="card-hd">
     <div class="card-ico">🧠</div>
-    <div class="card-title">El plan de 4 semanas — Implementación progresiva sin agotamiento</div>
+    <div class="card-title">El plan de cuatro semanas — Implementar sin agotarse</div>
   </div>
-  <div class="card-bd">Semana 1: Explorar (yo mismo uso la IA para un tema real de mi área — sin mostrarla a los estudiantes todavía). Semana 2: Adaptar (uso la IA para producir material diferenciado y lo aplico — sin decirle a los estudiantes). Semana 3: Introducir (primera actividad donde los estudiantes usan IA con guía explícita del maestro). Semana 4: Reflexionar (evaluación colectiva: ¿qué aprendimos sobre usar IA para aprender?). Este plan evita el agotamiento de implementar todo a la vez.<div class="card-reflect">💭 ¿En cuál semana de este plan estás actualmente?</div></div>
+  <div class="card-bd">Una implementación gradual reduce errores y carga:<br>• <strong>Semana 1, explorar</strong>: el docente usa la IA en una tarea propia de bajo riesgo (un borrador de rúbrica o ejemplos) y registra cuánto tuvo que corregir.<br>• <strong>Semana 2, adaptar</strong>: produce material diferenciado, lo verifica y lo aplica. Cuenta a los estudiantes que usó IA para el borrador.<br>• <strong>Semana 3, introducir</strong>: primera actividad en la que los estudiantes usan IA con guía explícita, reglas claras y declaración de uso (si la edad y los términos lo permiten; en primaria, modo demostrativo).<br>• <strong>Semana 4, reflexionar</strong>: evaluación colectiva: ¿qué aprendimos?, ¿cuándo ayudó y cuándo estorbó?<br><br>Por qué así: cada paso deja evidencia antes de avanzar, y el docente gana criterio antes de exponer a los estudiantes. La transparencia en la semana 2 modela lo que luego se pedirá a ellos.<br><br>Ajuste: si en la semana 1 el registro muestra muchas correcciones para una tarea, esa tarea no es buena candidata. Mejor elegir otra.<div class="card-reflect">💭 ¿En qué semana de este plan estás hoy?</div></div>
 </div>
 <div class="card" style="--ca:#1B7FA6">
   <div class="card-hd">
     <div class="card-ico">💡</div>
-    <div class="card-title">Sin conectividad — IA offline y asincrónica en contextos rurales</div>
+    <div class="card-title">Sin conectividad — Opciones realistas</div>
   </div>
-  <div class="card-bd">Para instituciones sin conectividad confiable: (1) IA offline: aplicaciones que funcionan sin internet (LM Studio con modelos pequeños en dispositivos locales). (2) Contenido descargado: el maestro descarga materiales de IA en casa y los lleva en USB. (3) Estrategia asincrónica: los estudiantes preparan preguntas en clase, el maestro las consulta en la IA fuera del aula, y devuelve las respuestas en la siguiente sesión. Ningún contexto colombiano está completamente excluido de aprovechar algo de la IA — con adaptación.<div class="card-reflect">💭 ¿Qué adaptación es más factible para tu contexto específico?</div></div>
+  <div class="card-bd">En sedes con conectividad débil hay alternativas:<br>(1) <strong>Uso asincrónico</strong>: los estudiantes formulan preguntas en clase, el docente las consulta fuera del aula, verifica las respuestas y las trae impresas para analizarlas (incluidos los errores).<br>(2) <strong>Material preparado fuera</strong>: guías, ejemplos y bancos de preguntas generados y verificados en casa o en la sala de sistemas, llevados en papel o memoria USB.<br>(3) <strong>Modelos locales</strong>: existen aplicaciones que ejecutan modelos pequeños sin internet en un computador. Requieren un equipo con buena memoria, suelen ser menos precisos y también alucinan; son una opción para el docente, no para cada estudiante.<br>(4) <strong>Aprender sobre la IA sin usarla</strong>: analizar casos, comparar una respuesta impresa con el libro, debatir sesgos. Esto es alfabetización en IA tan valiosa como el uso directo.<br><br>Equidad: si solo algunos estudiantes tienen acceso en casa, las tareas no deben depender de la IA; de lo contrario, se amplía la brecha.<div class="card-reflect">💭 ¿Qué adaptación es más viable para tu sede?</div></div>
 </div>
 <div class="card" style="--ca:#7F77DD">
   <div class="card-hd">
     <div class="card-ico">🎯</div>
-    <div class="card-title">Casos de éxito colombianos — Lo que ya está funcionando</div>
+    <div class="card-title">Pilotos con evidencia — Decidir con datos propios</div>
   </div>
-  <div class="card-bd">(1) Colegio Nuevo Chile (Bogotá): estudiantes de grado 10 usan ChatGPT para investigar y luego debaten las 'alucinaciones' encontradas — desarrollando pensamiento crítico. (2) Institución educativa rural en Nariño: el maestro descarga materiales de IA en la semana para aplicarlos sin internet. (3) INEM de Cali: portafolio digital donde los estudiantes documentan su colaboración con IA. (4) Escuela Normal de Medellín: maestros en formación aprenden a escribir prompts pedagógicos efectivos. Estos casos demuestran que la implementación es posible con los recursos existentes.<div class="card-reflect">💭 ¿Qué de estos casos es replicable en tu institución?</div></div>
+  <div class="card-bd">Ante dudas institucionales («produce dependencia y deshonestidad»), un piloto bien diseñado genera evidencia local, que suele convencer más que cualquier estadística externa:<br>(1) <strong>Pregunta</strong>: «¿Usar IA para generar retroalimentación borrador mejora la calidad de las revisiones de los ensayos de grado 10?».<br>(2) <strong>Alcance</strong>: dos o tres docentes, un periodo, una sola práctica.<br>(3) <strong>Comparación</strong>: un grupo con la práctica y otro sin ella, o el mismo grupo antes y después.<br>(4) <strong>Indicadores</strong>: desempeño en tareas sin IA, calidad del trabajo con rúbrica, tiempo docente y percepción de los estudiantes.<br>(5) <strong>Reglas éticas</strong>: datos anónimos, autorización de las familias cuando se use una herramienta con estudiantes, nada de datos sensibles.<br>(6) <strong>Informe</strong> de una página para el consejo académico, con lo que funcionó y lo que no.<br><br>Así, quien decide puede ampliar, ajustar o detener la práctica con evidencia, y el debate deja de ser de opiniones. El error del piloto también enseña.<div class="card-reflect">💭 ¿Qué pregunta probarías en un piloto de un periodo?</div></div>
 </div>
 <div class="card" style="--ca:#D85A30">
   <div class="card-hd">
     <div class="card-ico">🔬</div>
-    <div class="card-title">Los próximos 5 años — IA en la educación colombiana</div>
+    <div class="card-title">Indicadores de aprendizaje — Más que actividad</div>
   </div>
-  <div class="card-bd">Las predicciones con mayor evidencia para Colombia 2025-2030: (1) Tutores personalizados de IA estarán disponibles para más estudiantes (acceso ampliado vía SENA y MinTIC). (2) Las evaluaciones de alto impacto (ICFES) seguirán adaptándose para medir habilidades que la IA no puede reemplazar. (3) La brecha de alfabetización en IA entre maestros aumentará si no hay formación sistemática. (4) Los maestros que dominen la IA pedagógicamente tendrán mayor demanda y reconocimiento. El momento de formarse es ahora — no cuando la IA ya sea el estándar.<div class="card-reflect">💭 ¿Cuál es tu plan de desarrollo en IA para los próximos 12 meses?</div></div>
-</div></div>
+  <div class="card-bd">Más actividades con IA no significan más aprendizaje. Cuatro indicadores que triangulan la evidencia:<br>(1) <strong>Desempeño sin la herramienta</strong>: pruebas o tareas cortas que el estudiante resuelve solo. Es clave, porque practicar con ayuda puede mejorar la práctica sin mejorar el aprendizaje (Bastani y otros, 2025).<br>(2) <strong>Calidad del trabajo</strong> evaluada con rúbrica: evidencia, perspectiva propia, proceso.<br>(3) <strong>Metacognición</strong>: el estudiante explica cuándo la IA lo ayudó a entender y cuándo lo sustituyó.<br>(4) <strong>Uso autónomo y crítico</strong>: verifica, declara y decide sin que el docente lo pida.<br><br>Señales de alerta: notas de tareas que suben mientras las pruebas en clase bajan; textos muy parecidos entre sí; estudiantes que no pueden explicar lo que entregaron.<br><br>La motivación y el número de actividades son datos útiles del proceso, pero no prueban aprendizaje. Registra los indicadores en una tabla sencilla por periodo.<div class="card-reflect">💭 ¿Cuál de estos indicadores medirás primero?</div></div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🧩</div>
+    <div class="card-title">Ejemplo resuelto en CENTEC y errores frecuentes</div>
+  </div>
+  <div class="card-bd">Caso con nombres ficticios. El rector de una institución oficial teme que la IA genere trampa. La profesora Marcela, de Inglés de noveno, le propone un piloto.<br>Paso 1: escucha la preocupación y la toma como información: el riesgo de deshonestidad es real.<br>Paso 2: propone una pregunta: «¿Un asistente configurado para dar pistas y no respuestas mejora la escritura en inglés?».<br>Paso 3: durante un periodo, dos grupos usan la IA solo en clase, con reglas y declaración de uso; otro grupo trabaja sin ella. Nadie ingresa datos personales.<br>Paso 4: compara escritos hechos en clase sin IA, con la misma rúbrica, al inicio y al final.<br>Paso 5: presenta un informe de una página con resultados, problemas y una recomendación.<br><br>Errores frecuentes: usar la IA a escondidas contra una orientación institucional; medir solo satisfacción; generalizar con un solo grupo; olvidar a los estudiantes sin conectividad en casa.<br>Indicadores: N4 analiza la resistencia; N5 elige indicadores; N6 diseña un piloto ético.<div class="card-reflect">💭 ¿Qué preocupación de tu institución podrías convertir en una pregunta de piloto?</div></div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🆕</div>
+    <div class="card-title">Actualización 2026: lo que dice la evidencia</div>
+  </div>
+  <div class="card-bd">1. <strong>El diseño manda.</strong> En un experimento controlado en física universitaria con 194 estudiantes, un tutor de IA diseñado con principios de buena enseñanza (pasos guiados, retroalimentación, no dar la respuesta de entrada) produjo más aprendizaje en menos tiempo que una clase activa (Kestin y otros, 2025, <em>Scientific Reports</em>, 15, 17458, DOI <a href="https://doi.org/10.1038/s41598-025-97652-6" target="_blank" rel="noopener">10.1038/s41598-025-97652-6</a>). Es un estudio en un solo curso universitario: no se generaliza sin más a la básica.<br>2. <strong>Sin salvaguardas, daño.</strong> Bastani y otros (2025, <em>PNAS</em>, 122(26), e2422633122, DOI <a href="https://doi.org/10.1073/pnas.2422633122" target="_blank" rel="noopener">10.1073/pnas.2422633122</a>): el acceso libre a GPT-4 mejoró la práctica (48 %), pero bajó 17 % el desempeño al retirarlo; con un tutor con salvaguardas (127 % en práctica) ese daño se mitigó en buena medida.<br>3. <strong>Política nacional.</strong> El CONPES 4144 de 2025 incluye el desarrollo de competencias digitales para docentes y estudiantes, y el Decreto 0769 de 2026 pide actualizar el PEI con prevención de riesgos digitales. <em>Contenido en revisión por el equipo docente responsable.</em><div class="card-reflect">💭 ¿Qué salvaguardas incluirías en el asistente que usen tus estudiantes?</div></div>
+</div>
+</div>
 <div class="zona">
   <div class="ehdr">
     <div class="eico">🎯</div>
@@ -1397,179 +1610,216 @@ body{font-family:var(--fb);background:var(--cream);color:var(--navy);
 <div class="eq" id="q5_1">
   <div class="qhdr">
     <div class="qn">1</div>
-    <div class="qtx">🟡 Eres maestro en una institución rural de Cauca sin conectividad confiable. ¿Cuál es el plan de implementación de IA más realista para tu contexto?</div>
+    <div class="qtx">🟡 Trabajas en una sede rural del Cauca sin conectividad confiable. ¿Cuál es el plan más realista para aprovechar la IA?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(5,1,0)">
-  <span class="mk">A</span><span>No es posible implementar IA sin conectividad — esperaré a que el gobierno resuelva el acceso</span>
+  <span class="mk">A</span><span>Esperar a que el Gobierno resuelva el acceso antes de hacer cualquier cosa</span>
 </button>
 <button class="opt" onclick="S.pick(5,1,1)">
-  <span class="mk">B</span><span>Solo las instituciones urbanas con buena conectividad pueden aprovechar la IA — las rurales quedan excluidas</span>
+  <span class="mk">B</span><span>Preparar y verificar material fuera del aula y enseñar sobre la IA con casos</span>
+</button>
+<button class="opt" onclick="S.pick(5,1,2)">
+  <span class="mk">C</span><span>Pedir a cada estudiante que use datos móviles propios para conectarse en clase</span>
+</button>
+<button class="opt" onclick="S.pick(5,1,3)">
+  <span class="mk">D</span><span>Concluir que la IA solo sirve en colegios urbanos y dejar el tema de lado</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(5,1,2)" disabled>
+  <button class="btncheck" onclick="S.check(5,1,1)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Este plan demuestra que la brecha digital no excluye completamente del beneficio de la IA — requiere creatividad y adaptación. El punto más poderoso: los estudiantes rurales pueden aprender sobre la IA sin usarla directamente — y ese conocimiento es ciudadanía digital crítica aplicable a su contexto. La excusa de 'no tenemos conectividad' no es la única respuesta posible. <div class='fbr'>💭 ¿Cuál de estos pasos implementarías esta semana en tu contexto?</div></div>
+    <div>✅ Correcto. El docente puede usar la IA fuera del aula para preparar y verificar material, traer respuestas impresas para analizarlas y enseñar alfabetización en IA con casos. Eso no exige conectividad en el salón. A y D renuncian; C traslada el costo a las familias y amplía la brecha. <div class='fbr'>💭 ¿Cuál de estas acciones podrías hacer esta semana?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La falta de conectividad no excluye completamente de aprovechar la IA — requiere creatividad y adaptación.</div>
+    <div>Pista: piensa en qué parte del trabajo puede hacer el docente fuera del salón.</div>
   </div>
 </div>
 <div class="eq" id="q5_2">
   <div class="qhdr">
     <div class="qn">2</div>
-    <div class="qtx">🔴 Un rector de una institución oficial de Cali dice: 'No quiero que mis maestros usen IA — produce dependencia y deshonestidad académica'. ¿Cuál es la respuesta más constructiva del maestro SABI?</div>
+    <div class="qtx">🔴 Un rector dice: «No quiero que mis docentes usen IA; produce dependencia y deshonestidad». ¿Cuál es la respuesta más constructiva?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(5,2,0)">
-  <span class="mk">A</span><span>Seguir las instrucciones del rector — la jerarquía institucional es inapelable</span>
+  <span class="mk">A</span><span>Usarla de todas formas, porque la innovación está por encima del rector</span>
 </button>
 <button class="opt" onclick="S.pick(5,2,1)">
-  <span class="mk">B</span><span>Usar la IA de todas formas — la innovación pedagógica supera la autoridad del rector</span>
+  <span class="mk">B</span><span>Quejarse en el grupo de mensajería de docentes para presionar un cambio</span>
 </button>
 <button class="opt" onclick="S.pick(5,2,2)">
-  <span class="mk">C</span><span>Proponer una conversación informada: compartir con el rector los datos sobre el uso real de IA por parte de los estudiantes (ya ocurre sin guía del maestro), los riesgos de no enseñar uso crítico, y los beneficios documentados cuando el maestro la usa con criterio. Proponer un piloto: 3 maestros implementan IA con evaluación rigurosa durante un semestre. Los datos del piloto informan la política institucional. El rector que decide con información es un mejor tomador de decisiones</span>
+  <span class="mk">C</span><span>Proponer un piloto pequeño, ético y evaluado que responda a su preocupación</span>
 </button>
 <button class="opt" onclick="S.pick(5,2,3)">
-  <span class="mk">D</span><span>Quejarse en el grupo de WhatsApp de maestros — el cambio institucional viene de la presión colectiva</span>
+  <span class="mk">D</span><span>Obedecer sin comentar, porque la decisión del rector no se puede discutir</span>
 </button></div>
   <button class="btncheck" onclick="S.check(5,2,2)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La respuesta del maestro SABI ante la resistencia institucional es proponer con datos — no confrontar con autoridad ni ceder sin argumentar. El piloto con evaluación rigurosa es la estrategia más efectiva: produce evidencia local (de la propia institución) que es más convincente que cualquier estadística externa. El rector que toma decisiones con evidencia puede cambiar de posición con dignidad. <div class='fbr'>💭 ¿Tienes datos locales sobre cómo tus estudiantes están usando la IA actualmente — con o sin guía del maestro?</div></div>
+    <div>✅ Correcto. La preocupación tiene fundamento (Bastani y otros, 2025, documentaron dependencia sin salvaguardas). Un piloto con reglas, datos anónimos e indicadores de aprendizaje genera evidencia local para decidir. A rompe la confianza institucional; B no construye; D renuncia a aportar evidencia al debate. <div class='fbr'>💭 ¿Qué datos locales tienes hoy sobre cómo usan la IA tus estudiantes?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Ante la resistencia institucional: proponer con datos, pilotar con rigor, y evaluar con honestidad.</div>
+    <div>Pista: busca la opción que toma en serio la preocupación y la convierte en evidencia.</div>
   </div>
 </div>
 <div class="eq" id="q5_3">
   <div class="qhdr">
     <div class="qn">3</div>
-    <div class="qtx">🟠 ¿Cuál es el mayor riesgo de implementar IA en el aula colombiana sin formación pedagógica previa del maestro?</div>
+    <div class="qtx">🟠 ¿Cuál es el mayor riesgo de implementar IA en el aula sin formación pedagógica del docente?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(5,3,0)">
-  <span class="mk">A</span><span>El mayor riesgo es que los estudiantes se vuelvan dependientes de la IA</span>
+  <span class="mk">A</span><span>Delegar el juicio a la herramienta sin verificar ni enseñar a usarla con criterio</span>
 </button>
 <button class="opt" onclick="S.pick(5,3,1)">
-  <span class="mk">B</span><span>El mayor riesgo es que la tecnología falle y se pierda el tiempo de clase</span>
+  <span class="mk">B</span><span>Que la conexión a internet falle a mitad de la actividad y se pierdan minutos de clase</span>
+</button>
+<button class="opt" onclick="S.pick(5,3,2)">
+  <span class="mk">C</span><span>Que los estudiantes se diviertan demasiado durante las actividades</span>
+</button>
+<button class="opt" onclick="S.pick(5,3,3)">
+  <span class="mk">D</span><span>Que se gaste dinero en licencias de pago que no sean necesarias</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(5,3,1)" disabled>
+  <button class="btncheck" onclick="S.check(5,3,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La delegación sin criterio es el mayor riesgo: el maestro adopta la IA como 'experto' en su lugar — sin verificar sus outputs, sin evaluar su pertinencia para el contexto colombiano, sin desarrollar en los estudiantes el pensamiento crítico sobre ella. El resultado: una nueva forma de aprendizaje superficial, potencialmente con información incorrecta y sesgos no detectados. La formación pedagógica previa no es un lujo — es la condición para que la implementación produzca aprendizaje real. <div class='fbr'>💭 ¿Con qué nivel de preparación pedagógica comenzaste tu primer uso de IA en el aula?</div></div>
+    <div>✅ Correcto. El riesgo central es tratar a la IA como experta: usar sus salidas sin verificar, no detectar sesgos y dejar que sustituya el esfuerzo de los estudiantes. El resultado puede ser aprendizaje superficial con errores. B y D son problemas prácticos menores; C no es un riesgo en sí mismo. <div class='fbr'>💭 ¿Con qué preparación empezaste a usar la IA en tu práctica?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>La IA sin criterio pedagógico amplifica los problemas existentes — no los resuelve.</div>
+    <div>Pista: piensa en qué pasa con la calidad cuando nadie revisa lo que produce la herramienta.</div>
   </div>
 </div>
 <div class="eq" id="q5_4">
   <div class="qhdr">
     <div class="qn">4</div>
-    <div class="qtx">🟢 ¿Cuáles son las 3 habilidades del maestro que más contribuyen a una implementación exitosa de IA en el aula?</div>
+    <div class="qtx">🟢 ¿Qué conjunto de habilidades docentes sirve con cualquier herramienta de IA, actual o futura?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(5,4,0)">
-  <span class="mk">A</span><span>Conocer las herramientas técnicas más avanzadas de IA disponibles</span>
+  <span class="mk">A</span><span>Conocer las funciones avanzadas de la herramienta más popular del momento</span>
 </button>
 <button class="opt" onclick="S.pick(5,4,1)">
-  <span class="mk">B</span><span>Tener una licencia premium de ChatGPT u otra plataforma de IA de pago</span>
+  <span class="mk">B</span><span>Tener una licencia de pago de alguna plataforma de inteligencia artificial</span>
+</button>
+<button class="opt" onclick="S.pick(5,4,2)">
+  <span class="mk">C</span><span>Saber programar desde cero modelos propios de aprendizaje automático en lenguaje Python</span>
+</button>
+<button class="opt" onclick="S.pick(5,4,3)">
+  <span class="mk">D</span><span>Pedir con criterio pedagógico, verificar resultados y diseñar evaluación auténtica</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(5,4,2)" disabled>
+  <button class="btncheck" onclick="S.check(5,4,3)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Las 3 habilidades son transferibles a cualquier herramienta de IA — actual o futura. El maestro que las tiene no necesita formación específica para cada nueva herramienta que aparezca. El que no las tiene necesitará formación constante porque cada nueva versión de la IA lo dejará desactualizado. La inversión en estas 3 habilidades es la más duradera en la era de la IA. <div class='fbr'>💭 ¿Cuál de las 3 habilidades es tu prioridad de desarrollo?</div></div>
+    <div>✅ Correcto. Formular instrucciones con propósito pedagógico, verificar lo que produce la IA y diseñar evaluaciones que midan aprendizaje real son habilidades transferibles a cualquier herramienta. A y B dependen de un producto que cambiará; C es valioso, pero no es necesario para un buen uso pedagógico. <div class='fbr'>💭 ¿Cuál de las tres habilidades es tu prioridad?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Las 3 habilidades más duraderas: prompting con criterio pedagógico, verificación crítica de outputs, y diseño de evaluación auténtica.</div>
+    <div>Pista: busca las habilidades que no dependen de una marca ni de una versión.</div>
   </div>
 </div>
 <div class="eq" id="q5_5">
   <div class="qhdr">
     <div class="qn">5</div>
-    <div class="qtx">🟡 Diseña tu plan personal de implementación de IA para los próximos 90 días — específico para tu área, nivel educativo, y contexto.</div>
+    <div class="qtx">🟡 Vas a diseñar tu plan de implementación de IA para los próximos 90 días. ¿Qué plan es más sensato?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(5,5,0)">
-  <span class="mk">A</span><span>No es posible diseñar un plan sin saber cuáles herramientas de IA existirán en 90 días</span>
+  <span class="mk">A</span><span>Ninguno, porque no se sabe qué herramientas existirán dentro de 90 días</span>
 </button>
 <button class="opt" onclick="S.pick(5,5,1)">
-  <span class="mk">B</span><span>Un plan de 90 días es innecesario — la IA se implementa mejor de forma espontánea según las necesidades del momento</span>
+  <span class="mk">B</span><span>Usar la IA de forma espontánea según lo que surja en cada clase</span>
+</button>
+<button class="opt" onclick="S.pick(5,5,2)">
+  <span class="mk">C</span><span>Fases breves con un producto concreto, un indicador y un colega de apoyo</span>
+</button>
+<button class="opt" onclick="S.pick(5,5,3)">
+  <span class="mk">D</span><span>Implementarla desde el primer día en todas las clases y grupos a la vez</span>
 </button></div>
   <button class="btncheck" onclick="S.check(5,5,2)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ Este plan en 3 fases es realista porque: cada fase produce un resultado concreto antes de pasar a la siguiente, el criterio de evaluación garantiza que se aprende de la experiencia, y la consulta con el colega produce accountability sin presión. El maestro que completa estas 3 fases en 90 días tiene bases sólidas para continuar desarrollándose indefinidamente. <div class='fbr'>💭 ¿Cuándo escribirás tu plan personal de implementación de IA?</div></div>
+    <div>✅ Correcto. Un plan por fases (explorar, aplicar, evaluar), cada una con un producto, un criterio para saber si funcionó y un colega con quien revisar, convierte la intención en práctica sostenible. A y B dejan todo al azar; D genera sobrecarga y errores. <div class='fbr'>💭 ¿Cuándo escribirás tu plan de 90 días?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>El plan de 90 días transforma el conocimiento en práctica — sin él, el curso queda en el nivel de la intención.</div>
+    <div>Pista: un buen plan avanza por pasos que dejan evidencia.</div>
   </div>
 </div>
 <div class="eq" id="q5_6">
   <div class="qhdr">
     <div class="qn">6</div>
-    <div class="qtx">🟠 ¿Cómo evalúas si la implementación de IA en tu aula está produciendo más aprendizaje real — y no solo más actividad?</div>
+    <div class="qtx">🟠 ¿Cómo sabes si la IA en tu aula está produciendo más aprendizaje y no solo más actividad?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(5,6,0)">
-  <span class="mk">A</span><span>El nivel de motivación de los estudiantes es el mejor indicador — si están más motivados, están aprendiendo más</span>
+  <span class="mk">A</span><span>Por la motivación: si los estudiantes están más contentos, aprenden más</span>
 </button>
 <button class="opt" onclick="S.pick(5,6,1)">
-  <span class="mk">B</span><span>El número de actividades con IA completadas es el indicador más importante</span>
+  <span class="mk">B</span><span>Por el número de actividades con IA completadas durante el periodo</span>
+</button>
+<button class="opt" onclick="S.pick(5,6,2)">
+  <span class="mk">C</span><span>Por la cantidad de minutos que los estudiantes pasan usando la herramienta</span>
+</button>
+<button class="opt" onclick="S.pick(5,6,3)">
+  <span class="mk">D</span><span>Por el desempeño sin la herramienta, la calidad con rúbrica y la metacognición</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(5,6,2)" disabled>
+  <button class="btncheck" onclick="S.check(5,6,3)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ El conjunto de 4 indicadores es el más robusto porque triangula la evidencia: los logros en evaluaciones auténticas muestran si el aprendizaje real ocurrió; la metacognición muestra si los estudiantes comprenden su propio proceso; el uso autónomo muestra si transfirieron el aprendizaje; y la calidad del trabajo muestra el impacto en el producto. La motivación y el número de actividades son indicadores de proceso — no de aprendizaje real. <div class='fbr'>💭 ¿Cuál de estos 4 indicadores medirás primero en tu implementación?</div></div>
+    <div>✅ Correcto. El desempeño en tareas sin IA muestra si el aprendizaje quedó en el estudiante; la rúbrica valora la calidad; la metacognición muestra si entiende cómo aprendió. Motivación, número de actividades y tiempo de uso (A, B y C) son datos de proceso, no prueban aprendizaje. <div class='fbr'>💭 ¿Qué indicador medirás primero?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Motivación y número de actividades son indicadores de proceso — el aprendizaje real requiere indicadores de resultado.</div>
+    <div>Pista: pregúntate qué pasa cuando se retira la herramienta.</div>
   </div>
 </div>
 <div class="eq" id="q5_7">
   <div class="qhdr">
     <div class="qn">7</div>
-    <div class="qtx">🔵 ¿Por qué el maestro que domina la IA pedagógicamente está en la mejor posición para proteger el valor insustituible de la educación humana?</div>
+    <div class="qtx">🔵 ¿Por qué el docente que comprende bien la IA protege mejor lo insustituible de la educación?</div>
   </div>
   <div class="opts">
 <button class="opt" onclick="S.pick(5,7,0)">
-  <span class="mk">A</span><span>Los maestros que dominan la IA la hacen más indispensable de lo necesario</span>
+  <span class="mk">A</span><span>Porque reconoce lo que la IA no hace: vínculo, juicio situado y formación en valores</span>
 </button>
 <button class="opt" onclick="S.pick(5,7,1)">
-  <span class="mk">B</span><span>El dominio de la IA inevitablemente lleva a que los maestros sean reemplazados por ella</span>
+  <span class="mk">B</span><span>Porque dominarla lleva inevitablemente a que la IA reemplace al docente</span>
+</button>
+<button class="opt" onclick="S.pick(5,7,2)">
+  <span class="mk">C</span><span>Porque así puede delegar en la IA todas las decisiones pedagógicas</span>
+</button>
+<button class="opt" onclick="S.pick(5,7,3)">
+  <span class="mk">D</span><span>Porque comprenderla a fondo solo sirve para prohibirla con mejores argumentos en clase</span>
 </button></div>
-  <button class="btncheck" onclick="S.check(5,7,1)" disabled>
+  <button class="btncheck" onclick="S.check(5,7,0)" disabled>
     Verificar respuesta
   </button>
   <div class="fb ok">
     <div class="fbt">✅ ¡Correcto!</div>
-    <div>✅ La paradoja final del curso: el maestro que comprende profundamente la IA es el que puede articular con mayor claridad qué es lo que la IA NO puede hacer — y por tanto, qué es lo que el maestro SÍ puede hacer de forma insustituible. La relación humana, el modelado de valores, el acompañamiento en el desarrollo identitario, la facilitation del aprendizaje socioemocional, y el juicio pedagógico complejo en situaciones únicas son exactamente lo que la IA no puede reemplazar — y exactamente lo más valioso de la educación. <div class='fbr'>💭 ¿Cuál es el aspecto de tu práctica docente que consideras más insustituible por la IA?</div></div>
+    <div>✅ Correcto. Entender la IA permite ver con claridad lo que no puede hacer: la relación de confianza, el acompañamiento socioemocional, el juicio pedagógico en situaciones únicas y el ejemplo en valores. Eso orienta dónde poner el tiempo que la IA ahorra. B y C contradicen ese propósito; D reduce la comprensión a una prohibición. <div class='fbr'>💭 ¿Qué parte de tu práctica consideras más insustituible?</div></div>
   </div>
   <div class="fb no">
     <div class="fbt">🔄 Reflexiona de nuevo</div>
-    <div>Comprender la IA profundamente revela con claridad qué es lo que el maestro puede hacer y la IA no — y eso es lo más valioso.</div>
+    <div>Pista: piensa en qué necesita un estudiante que ninguna herramienta puede darle.</div>
   </div>
 </div>
 </div>
 <div class="rmod" id="r5"></div></div></div>
+
 </div>
 <footer class="footer">
   <div class="fl">SABI CENTEC MAESTROS</div>

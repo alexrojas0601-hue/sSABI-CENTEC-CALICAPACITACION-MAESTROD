@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="https://sabicentec.com/assets/sabi-sesion.js" data-app="capacitacion"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SABI C29: Educación climática y sostenibilidad — CENTEC Cali</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+
+:root{
+  --navy:#0B1E3D; --gold:#D4A843; --teal:#1D9E75; --coral:#D85A30;
+  --purple:#7F77DD; --blue:#1B7FA6; --sage:#2E7D5A; --cream:#FAF8F3;
+  --fh:'Crimson Pro',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --r:10px; --rl:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fb);background:var(--cream);color:var(--navy);
+  line-height:1.6;font-size:16px;min-height:100vh}
+
+/* NAV */
+.nav{
+  background:var(--navy);padding:12px 28px;
+  display:flex;align-items:center;gap:16px;
+  position:sticky;top:0;z-index:200;
+  border-bottom:2px solid var(--gold);
+}
+.nav-brand{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--gold)}
+.nav-tag{font-size:11px;color:rgba(212,168,67,.6);letter-spacing:1.5px;
+  text-transform:uppercase;font-weight:300}
+.nav-pill{margin-left:auto;background:rgba(212,168,67,.12);
+  border:1px solid rgba(212,168,67,.3);color:var(--gold);
+  padding:4px 14px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* HERO (algorithmic-art: textura geométrica animada) */
+.hero{
+  background:var(--navy);padding:52px 32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(212,168,67,.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(29,158,117,.08) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4A843' fill-opacity='0.03'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{position:relative;max-width:780px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-block;background:rgba(212,168,67,.15);
+  border:1px solid rgba(212,168,67,.35);color:var(--gold);
+  padding:5px 18px;border-radius:20px;font-size:11px;
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:var(--fh);font-size:clamp(26px,4vw,42px);
+  font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px;
+}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.7);font-size:15px;
+  max-width:560px;margin:0 auto 24px;line-height:1.75}
+.hero-stats{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.hstat{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  padding:10px 20px;border-radius:28px;
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;color:#fff;
+}
+.hstat strong{color:var(--gold)}
+
+/* WRAP */
+.wrap{max-width:840px;margin:0 auto;padding:28px 20px}
+
+/* INFO BAR */
+.info-bar{
+  background:#fff;border:1px solid rgba(11,30,61,.07);
+  border-radius:var(--rl);padding:14px 20px;
+  display:flex;align-items:center;gap:20px;
+  font-size:13px;color:#64748b;margin-bottom:24px;
+  box-shadow:0 2px 12px rgba(11,30,61,.06);
+}
+.info-bar span strong{color:var(--navy)}
+.info-bar span:last-child{margin-left:auto;font-style:italic;color:#94a3b8}
+
+/* TARJETA MÓDULO */
+.mod{
+  background:#fff;border-radius:var(--rl);
+  border:1px solid rgba(11,30,61,.07);
+  box-shadow:0 3px 16px rgba(11,30,61,.08);
+  margin-bottom:24px;overflow:hidden;
+  transition:box-shadow .25s var(--ease),transform .25s var(--ease);
+}
+.mod:hover{
+  box-shadow:0 6px 28px rgba(11,30,61,.13);
+  transform:translateY(-2px);
+}
+
+/* HEADER MÓDULO */
+.mhdr{
+  display:flex;align-items:center;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.mhdr .mnum{
+  background:var(--ac,var(--teal));
+  color:#fff;font-family:var(--fh);
+  font-size:26px;font-weight:700;
+  width:68px;min-height:80px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.mhdr .minfo{padding:16px 20px;flex:1}
+.mhdr .mtitle{
+  font-family:var(--fh);font-size:18px;
+  font-weight:700;color:var(--navy);margin-bottom:3px;
+}
+.mhdr .msub{font-size:12px;color:#64748b;margin-bottom:6px}
+.mhdr .mmeta{display:flex;gap:10px;align-items:center}
+.mhdr .mdur{
+  background:rgba(11,30,61,.06);color:var(--navy);
+  padding:2px 10px;border-radius:6px;font-size:11px;font-weight:500;
+}
+.mhdr .mlock{font-size:11px;color:#94a3b8;display:flex;align-items:center;gap:4px}
+.mhdr .mchev{
+  margin-right:18px;font-size:18px;color:#94a3b8;
+  transition:transform .3s var(--ease);flex-shrink:0;
+}
+.mhdr.open .mchev{transform:rotate(180deg)}
+/* barra de progreso micro */
+.mpbar{position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:rgba(11,30,61,.05)}
+.mpfill{height:100%;width:0%;background:var(--ac,var(--teal));
+  transition:width .7s var(--ease)}
+
+/* CUERPO MÓDULO */
+.mbody{display:none;animation:sdown .3s var(--ease)}
+.mbody.open{display:block}
+@keyframes sdown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+/* CAJA INTRO (Ag3 Emocional: engancha con dato + pregunta) */
+.intro{
+  margin:22px 26px;padding:18px 22px;
+  border-radius:var(--r);
+  border-left:4px solid var(--ac,var(--teal));
+  background:linear-gradient(135deg,rgba(29,158,117,.06),rgba(29,158,117,.02));
+  font-size:14px;line-height:1.8;color:#334155;
+}
+.intro strong{color:var(--navy)}
+
+/* CARDS DE CONTENIDO (frontend-design + learn: andamiaje visual) */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;padding:0 26px 22px;
+}
+.card{
+  border-radius:var(--r);border:1px solid rgba(11,30,61,.08);
+  overflow:hidden;background:#fff;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(11,30,61,.1)}
+.card-hd{
+  padding:12px 16px;
+  background:var(--ca,var(--teal));
+  display:flex;align-items:center;gap:10px;
+}
+.card-ico{
+  width:30px;height:30px;background:rgba(255,255,255,.2);
+  border-radius:7px;display:flex;align-items:center;
+  justify-content:center;font-size:15px;flex-shrink:0;
+}
+.card-title{
+  font-family:var(--fh);font-size:14px;font-weight:700;
+  color:#fff;line-height:1.25;
+}
+.card-bd{padding:13px 16px;font-size:13px;line-height:1.75;color:#374151}
+.card-bd strong{color:var(--navy)}
+.card-reflect{
+  margin-top:10px;padding:9px 13px;
+  background:rgba(11,30,61,.04);border-radius:7px;
+  font-size:12px;color:#475569;font-style:italic;
+  border-left:3px solid var(--ca,var(--teal));
+}
+
+/* ZONA EXAMEN */
+.zona{padding:0 26px 26px}
+.ehdr{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 20px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--navy),#1e3a6e);
+  color:#fff;margin-bottom:18px;
+}
+.ehdr .eico{font-size:22px}
+.ehdr .etit{font-family:var(--fh);font-size:16px;font-weight:700;margin-bottom:2px}
+.ehdr .esub{font-size:11px;opacity:.7}
+.ehdr .epct{margin-left:auto;text-align:right}
+.ehdr .enum{font-size:20px;font-weight:700;color:var(--gold)}
+.ehdr .elbl{font-size:10px;opacity:.65}
+
+/* BARRA PROGRESO EXAMEN */
+.ebar{height:5px;background:rgba(11,30,61,.08);border-radius:3px;
+  margin-bottom:18px;overflow:hidden}
+.efill{height:100%;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  border-radius:3px;width:0%;transition:width .5s var(--ease)}
+
+/* PREGUNTA */
+.eq{
+  background:#fff;border-radius:var(--r);
+  border:1px solid rgba(11,30,61,.08);
+  padding:20px 22px;margin-bottom:14px;
+  transition:border-color .25s,box-shadow .25s;
+}
+.eq.ok{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,158,117,.12)}
+.eq.no{border-color:var(--coral);box-shadow:0 0 0 2px rgba(216,90,48,.1)}
+.eq .qhdr{display:flex;gap:10px;margin-bottom:14px;align-items:flex-start}
+.eq .qn{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.eq .qtx{font-size:14.5px;line-height:1.65;color:var(--navy);font-weight:500}
+
+/* OPCIONES */
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:11px 15px;border-radius:var(--r);
+  border:1.5px solid rgba(11,30,61,.09);
+  cursor:pointer;background:#fff;
+  font-size:13.5px;color:#374151;
+  text-align:left;width:100%;
+  transition:all .2s var(--ease);
+}
+.opt:hover{border-color:var(--navy);background:rgba(11,30,61,.025)}
+.opt .mk{
+  width:21px;height:21px;border-radius:50%;
+  border:2px solid #cbd5e1;color:#94a3b8;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0;
+  transition:all .2s;margin-top:1px;
+}
+.opt.sel .mk{border-color:var(--navy);background:var(--navy);color:#fff}
+.opt.good{border-color:var(--teal);background:rgba(29,158,117,.06)}
+.opt.good .mk{border-color:var(--teal);background:var(--teal);color:#fff}
+.opt.bad{border-color:var(--coral);background:rgba(216,90,48,.05)}
+.opt.bad .mk{border-color:var(--coral);background:var(--coral);color:#fff}
+
+/* BOTÓN VERIFICAR */
+.btncheck{
+  display:block;width:100%;margin-top:14px;
+  padding:13px;border:none;border-radius:var(--r);
+  background:var(--navy);color:var(--gold);
+  font-family:var(--fb);font-size:13.5px;font-weight:600;
+  letter-spacing:.4px;cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.btncheck:hover{background:#1a3a6e;transform:translateY(-1px)}
+.btncheck:disabled{background:#94a3b8;color:#fff;cursor:not-allowed;transform:none}
+
+/* FEEDBACK (learn skill: feedback formativo profundo) */
+.fb{
+  display:none;margin-top:12px;padding:15px 18px;
+  border-radius:var(--r);font-size:13px;line-height:1.8;
+}
+.fb.ok{
+  background:linear-gradient(135deg,rgba(29,158,117,.09),rgba(29,158,117,.04));
+  border-left:4px solid var(--teal);color:#14532d;
+}
+.fb.no{
+  background:linear-gradient(135deg,rgba(216,90,48,.08),rgba(216,90,48,.03));
+  border-left:4px solid var(--coral);color:#7c2d12;
+}
+.fb .fbt{font-weight:700;margin-bottom:6px;font-size:13.5px}
+.fb .fbr{
+  margin-top:9px;padding:9px 13px;
+  background:rgba(0,0,0,.04);border-radius:7px;
+  font-style:italic;font-size:12px;
+}
+
+/* RESULTADO MÓDULO */
+.rmod{text-align:center;padding:30px 22px;display:none}
+.rmod.show{display:block;animation:rin .45s var(--ease)}
+@keyframes rin{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.rmod .rico{font-size:52px;margin-bottom:14px}
+.rmod .rpct{
+  font-family:var(--fh);font-size:44px;font-weight:700;
+  color:var(--teal);margin-bottom:8px;
+}
+.rmod .rmsg{font-size:15px;color:#374151;margin-bottom:18px}
+.rmod .rrow{display:flex;justify-content:center;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.rmod .rstat{
+  background:rgba(11,30,61,.05);padding:10px 18px;
+  border-radius:var(--r);font-size:12px;color:#64748b;
+}
+.rmod .rstat strong{display:block;font-size:18px;color:var(--navy);font-weight:700}
+.btnnx{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--teal),var(--sage));
+  color:#fff;padding:13px 30px;border-radius:28px;border:none;
+  font-size:14px;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 16px rgba(29,158,117,.28);
+  transition:all .25s var(--ease);
+}
+.btnnx:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(29,158,117,.38)}
+.btnrt{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(11,30,61,.07);color:var(--navy);
+  padding:11px 24px;border-radius:28px;border:none;
+  font-size:13px;cursor:pointer;margin-left:10px;
+  transition:all .25s;
+}
+.btnrt:hover{background:rgba(11,30,61,.12)}
+
+/* PANEL LATERAL PROGRESO */
+.sidebar{
+  position:fixed;right:18px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:7px;z-index:100;
+}
+.sdot{
+  width:9px;height:9px;border-radius:50%;
+  border:2px solid rgba(11,30,61,.18);cursor:pointer;
+  transition:all .3s;title:'';
+}
+.sdot.done{background:var(--teal);border-color:var(--teal)}
+.sdot.cur{background:var(--gold);border-color:var(--gold);transform:scale(1.5)}
+.sdot.lock{background:rgba(11,30,61,.08)}
+
+/* TOAST */
+.toast{
+  position:fixed;top:18px;left:50%;
+  transform:translateX(-50%) translateY(-120px);
+  background:var(--navy);color:#fff;
+  padding:12px 26px;border-radius:30px;
+  font-size:13.5px;font-weight:500;
+  border:1px solid rgba(212,168,67,.3);
+  box-shadow:0 8px 28px rgba(11,30,61,.25);
+  z-index:999;transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* FOOTER */
+.footer{
+  background:var(--navy);color:rgba(255,255,255,.55);
+  text-align:center;padding:36px 20px;margin-top:40px;
+  font-size:12.5px;border-top:1px solid rgba(212,168,67,.2);
+}
+.footer .fl{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.footer strong{color:var(--gold)}
+
+/* BLOOM BADGES */
+.bloom{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:2px 9px;border-radius:10px;
+  font-size:10px;font-weight:700;letter-spacing:.4px;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.b1{background:#eff6ff;color:#1d4ed8}
+.b2{background:#f0fdf4;color:#166534}
+.b3{background:#fefce8;color:#854d0e}
+.b4{background:#fff7ed;color:#9a3412}
+.b5{background:#fdf4ff;color:#7e22ce}
+.b6{background:#f5f3ff;color:#5b21b6}
+
+@media(max-width:600px){
+  .wrap{padding:16px 12px}
+  .cards{grid-template-columns:1fr;padding:0 14px 16px}
+  .sidebar{display:none}
+  .hero{padding:32px 16px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div>
+    <div class="nav-brand">🔭 SABI CENTEC</div>
+    <div class="nav-tag">Autoformación Docente de Excelencia</div>
+  </div>
+  <div class="nav-pill">Curso 29 · Educación climática (ODS)</div>
+</nav>
+
+<div class="sidebar"><div class="sdot lock" data-n="1" title="Módulo 1" onclick="S.toggle(1)"></div>
+<div class="sdot lock" data-n="2" title="Módulo 2" onclick="S.toggle(2)"></div>
+<div class="sdot lock" data-n="3" title="Módulo 3" onclick="S.toggle(3)"></div></div>
+<div class="toast"></div>
+<div class="wrap">
+  <div class="info-bar">
+    <span>📚 <strong>3 módulos</strong></span>
+    <span>❓ <strong>21 preguntas</strong></span>
+    <span>🏆 <strong>Mínimo 70% por módulo</strong></span>
+    <span>Contenido en revisión · Filosofía SABI — que verdaderamente aprendan</span>
+  </div>
+  
+<div class="mod" id="mod1" style="--ac:#1D9E75">
+  <div class="mhdr" id="h1" data-lock="0" onclick="S.toggle(1)" style="--ac:#1D9E75">
+    <div class="mnum" style="background:#1D9E75">1</div>
+    <div class="minfo">
+      <div class="mtitle">Ciencia del clima para enseñar bien</div>
+      <div class="msub">Tiempo y clima · Efecto invernadero · Evidencia IPCC AR6 · Ideas erróneas · Experimentos seguros</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 1-2</span>
+        
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b1"><div class="intro">Para enseñar el cambio climático sin miedo y sin mitos, primero hay que dominar tres ideas: la diferencia entre tiempo atmosférico y clima, cómo funciona el efecto invernadero y qué dice la evidencia evaluada por el IPCC. En este módulo verás las ideas erróneas más frecuentes de estudiantes (y adultos) y experimentos seguros, por grados, para que tus estudiantes predigan, observen y expliquen.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🌦️</div>
+    <div class="card-title">Tiempo atmosférico y clima: no son lo mismo</div>
+  </div>
+  <div class="card-bd"><strong>Idea intuitiva:</strong> el tiempo atmosférico es lo que pasa hoy en el cielo de Cali (si llueve esta tarde, si hace calor al mediodía); el clima es el comportamiento típico de muchos años. Una analogía útil: el tiempo es el estado de ánimo de una persona hoy; el clima es su forma de ser.<br><br><strong>Fundamento:</strong> la Organización Meteorológica Mundial (OMM) describe el clima con estadísticas de largo plazo (promedios y variabilidad) y usa periodos de referencia de 30 años, llamados normales climatológicas. Por eso un día frío o un mes muy lluvioso no confirman ni desmienten el calentamiento global: se necesitan series largas.<br><br><strong>Ejemplo (ficticio):</strong> en 4.°, Mateo dice: «Ayer llovió durísimo y hizo frío, entonces no hay calentamiento». La profe Daniela no lo corrige de inmediato: pregunta «¿cuántos días necesitaríamos para saber cómo es el clima de Cali?». El grupo concluye que un solo día no alcanza.<br><br><strong>Error frecuente:</strong> usar un evento aislado (a favor o en contra) como prueba.<br><br><strong>Aplicación:</strong> lleva un registro diario de lluvia y temperatura durante un mes y compáralo después con datos de largo plazo del IDEAM, citando la fuente y el año.</div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🌍</div>
+    <div class="card-title">El efecto invernadero: natural y reforzado</div>
+  </div>
+  <div class="card-bd"><strong>Idea intuitiva:</strong> la atmósfera funciona como una cobija: deja pasar la luz del Sol y retiene parte del calor que la Tierra devuelve.<br><br><strong>Cómo funciona:</strong> 1) La radiación solar atraviesa la atmósfera y calienta el suelo y el océano. 2) La superficie caliente emite radiación infrarroja (calor). 3) Gases como el vapor de agua, el dióxido de carbono (CO₂), el metano y el óxido nitroso absorben parte de esa radiación y la reemiten en todas las direcciones, también hacia abajo. 4) Resultado: la superficie queda más caliente de lo que estaría sin esos gases.<br><br><strong>Por qué importa la distinción:</strong> el efecto invernadero natural es bueno; sin él, la Tierra sería mucho más fría y no tendríamos la vida que conocemos. El problema es el efecto <strong>reforzado</strong>: al quemar combustibles fósiles y deforestar, aumentamos la concentración de esos gases y se retiene más energía.<br><br><strong>Límite de la analogía:</strong> un invernadero de vidrio se calienta sobre todo porque impide que el aire caliente se mezcle con el de afuera; la atmósfera actúa absorbiendo y reemitiendo radiación. Dilo a tus estudiantes: toda analogía tiene un límite.<br><br><strong>Error frecuente:</strong> confundir el efecto invernadero con el agujero de la capa de ozono; son fenómenos distintos.</div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">📈</div>
+    <div class="card-title">Qué dice la evidencia: IPCC AR6 (2023)</div>
+  </div>
+  <div class="card-bd"><strong>Quién es el IPCC:</strong> el Grupo Intergubernamental de Expertos sobre el Cambio Climático no hace experimentos propios: evalúa la literatura científica publicada y asigna niveles de confianza a sus conclusiones. Su Informe de Síntesis del Sexto Ciclo de Evaluación (AR6) se publicó en 2023.<br><br><strong>Tres afirmaciones del Resumen para responsables de políticas (2023):</strong> 1) Las actividades humanas, principalmente por las emisiones de gases de efecto invernadero, han causado de forma inequívoca el calentamiento global; la temperatura superficial global alcanzó 1,1 °C por encima de 1850-1900 en el periodo 2011-2020. 2) En 2019, la concentración atmosférica de CO₂ (410 partes por millón, dato evaluado por el Grupo de Trabajo I y recogido en la Síntesis) fue más alta que en cualquier momento de al menos los últimos 2 millones de años. 3) Se han producido cambios generalizados y rápidos en la atmósfera, el océano, la criosfera y la biosfera.<br><br><strong>Cómo leer una cifra:</strong> fíjate en qué se compara (1850-1900), en qué periodo (2011-2020, no un solo año) y en la fuente y el año del informe. Enseña a tus estudiantes esa misma rutina: dato, comparación, fuente, año.<br><br><strong>Error frecuente:</strong> presentar cifras de redes sociales sin fuente o redondearlas para que «impacten». La exactitud también es pedagógica.</div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🧩</div>
+    <div class="card-title">Ideas erróneas frecuentes y cómo abordarlas</div>
+  </div>
+  <div class="card-bd"><strong>Qué dice la investigación:</strong> Shepardson, Niyogi, Choi y Charusombat (2011, Climatic Change) analizaron cómo estudiantes de secundaria explicaban el efecto invernadero y el calentamiento global, y encontraron confusiones recurrentes; entre ellas, mezclar el calentamiento con el agujero de la capa de ozono o con cualquier tipo de contaminación.<br><br><strong>Ideas erróneas que vale la pena anticipar:</strong> 1) «El agujero de ozono deja entrar más calor». 2) «El efecto invernadero es malo en sí mismo». 3) «Toda contaminación produce calentamiento». 4) «Si hoy hace frío, no hay calentamiento». 5) «Los científicos no se ponen de acuerdo en si los humanos influyen».<br><br><strong>Cómo abordarlas:</strong> no basta con decir la respuesta correcta. Funciona mejor el ciclo predigo → observo → explico: el estudiante hace su predicción por escrito, observa un experimento o un dato que la pone a prueba y luego explica la diferencia. Monroe y colegas (2019) identificaron el trabajo explícito con ideas erróneas como una de las estrategias presentes en programas eficaces de educación climática.<br><br><strong>Ejemplo (ficticio):</strong> el profe Andrés, de 7.°, pide escribir «¿por qué se calienta la Tierra?» antes y después de la unidad, y compara ambas respuestas con su grupo.<br><br><strong>Aplicación:</strong> diseña una pregunta diagnóstica para detectar estas ideas.</div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🧪</div>
+    <div class="card-title">Experimentos seguros: Transición a 5.°</div>
+  </div>
+  <div class="card-bd"><strong>Regla de seguridad:</strong> de Transición a 2.° no se usa fuego ni agua caliente; ningún grado usa químicos peligrosos. El docente revisa materiales y un adulto acompaña.<br><br><strong>1. Colores que se calientan (Transición a 2.°):</strong> dos hojas, una negra y una blanca, al sol durante 10 minutos. Predigo: ¿cuál estará más tibia? Observo: la tocan con el dorso de la mano. Explico: lo oscuro absorbe más luz; las superficies claras, como la nieve y el hielo, reflejan más.<br><br><strong>2. Hielo en tierra o en el mar (3.° a 5.°):</strong> en un vaso, cubos de hielo sobre una piedra que sobresale del agua; en otro, cubos flotando. Marcan el nivel del agua con cinta y esperan a que se derrita. Observan que el hielo que estaba sobre la «tierra» sí sube el nivel, y el que flotaba casi no lo cambia. Conexión: el derretimiento de glaciares y casquetes sobre tierra firme contribuye a que suba el nivel del mar.<br><br><strong>3. Ciclo del agua en bolsa (1.° a 5.°):</strong> bolsa transparente con un poco de agua, cerrada y pegada a una ventana soleada. Observan evaporación y condensación durante varios días.<br><br><strong>Idea errónea a trabajar:</strong> «el hielo que flota también inunda». <strong>Reto:</strong> cambia una variable (más sol, más hielo) y vuelve a predecir.</div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🔬</div>
+    <div class="card-title">Experimentos seguros: 6.° a 11.°</div>
+  </div>
+  <div class="card-bd"><strong>1. Dos frascos al sol (6.° a 9.°):</strong> dos frascos iguales de plástico transparente con termómetro digital o de alcohol (nunca de mercurio), uno tapado con plástico transparente y otro destapado, al sol; registran la temperatura cada 3 minutos durante 30 minutos y construyen una gráfica. <strong>Honestidad científica:</strong> la diferencia se debe sobre todo a que el frasco cerrado no deja escapar el aire caliente; es un modelo útil para hablar de energía retenida, pero no reproduce el mecanismo radiativo de la atmósfera. Discutir el límite del modelo es parte del aprendizaje.<br><br><strong>2. CO₂ e indicador de repollo morado (8.° a 11.°):</strong> se prepara el indicador en casa con el apoyo de un adulto (el docente lo trae listo y frío). Cada estudiante sopla suavemente con su propio pitillo en un vaso con indicador, sin aspirar. El color cambia porque el CO₂ del aliento forma un ácido débil en el agua. Conexión: el océano absorbe CO₂ y se vuelve menos básico (acidificación), con efectos sobre corales y moluscos del Pacífico.<br><br><strong>3. Datos reales (10.° y 11.°):</strong> descargar una serie de temperatura o de lluvia de una fuente oficial, calcular promedios por década y discutir la diferencia entre variabilidad y tendencia.<br><br><strong>Seguridad:</strong> sin velas ni mecheros, sin ácidos fuertes; cada pitillo es personal; lavado de manos al terminar.</div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">📊</div>
+    <div class="card-title">Enseñar con datos: de la gráfica a la explicación</div>
+  </div>
+  <div class="card-bd"><strong>Idea intuitiva:</strong> una gráfica climática cuenta una historia, pero solo si se sabe leer: qué hay en cada eje, en qué unidades, con qué se compara y de dónde salieron los datos.<br><br><strong>Concepto clave:</strong> <strong>anomalía de temperatura</strong> es la diferencia entre la temperatura de un periodo y el promedio de un periodo de referencia. Por eso el IPCC dice «1,1 °C por encima de 1850-1900»: compara, no da una temperatura absoluta.<br><br><strong>Ejemplo resuelto (datos ficticios):</strong> un grupo de 9.° registra la temperatura del patio a las 12 m durante cuatro semanas. Paso 1: calculan el promedio de cada semana (28,4; 28,9; 27,8; 29,1 °C). Paso 2: calculan el promedio general: 28,55 °C. Paso 3: hallan la anomalía de cada semana restando el promedio: 28,4 − 28,55 = −0,15; 28,9 − 28,55 = +0,35; 27,8 − 28,55 = −0,75; 29,1 − 28,55 = +0,55. Paso 4: concluyen que cuatro semanas muestran variabilidad, no una tendencia climática.<br><br><strong>Error frecuente:</strong> sacar conclusiones de largo plazo con pocos datos o con ejes recortados que exageran la pendiente.<br><br><strong>Mini-rúbrica (lectura de gráficas):</strong> identifica ejes y unidades; describe la tendencia; distingue variabilidad y tendencia; cita fuente y año.</div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q1_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">Un estudiante de 5.° dice: «Esta semana ha hecho frío en Cali, así que el calentamiento global es mentira». ¿Cuál es la mejor respuesta del docente?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,1,0)">
+  <span class="mk">A</span><span>Darle la razón, porque el frío de varios días demuestra que la Tierra se enfría</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,1)">
+  <span class="mk">B</span><span>Preguntar cuántos años de datos se necesitan para describir el clima de un lugar</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,2)">
+  <span class="mk">C</span><span>Explicarle que en Cali nunca hace frío y que seguramente midió mal</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,3)">
+  <span class="mk">D</span><span>Pedirle que no opine sobre temas científicos hasta llegar al bachillerato</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Exacto. El clima se describe con estadísticas de largo plazo (la OMM usa normales de 30 años), y una pregunta lo lleva a descubrir que un evento aislado no basta. Así respetas su razonamiento y lo haces avanzar. ¿Qué datos del IDEAM podrías mostrarle después?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en la diferencia entre el estado de ánimo de un día y la forma de ser de una persona. ¿Cuánto tiempo hace falta para hablar de «clima»? Relee la primera tarjeta.</div>
+  </div>
+</div>
+<div class="eq" id="q1_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">En 6.°, una estudiante afirma que «el efecto invernadero es malo y deberíamos eliminarlo». ¿Qué precisión es la más correcta?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,2,0)">
+  <span class="mk">A</span><span>Tiene razón: cualquier efecto invernadero es producto de la contaminación humana</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,1)">
+  <span class="mk">B</span><span>El efecto invernadero se produce porque el agujero de ozono deja entrar más calor</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,2)">
+  <span class="mk">C</span><span>El efecto natural hace habitable la Tierra; el problema es reforzarlo con más gases</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,3)">
+  <span class="mk">D</span><span>El efecto invernadero solo ocurre dentro de los invernaderos de vidrio de los cultivos</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,2,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Muy bien. Sin el efecto invernadero natural la Tierra sería mucho más fría; lo que preocupa es el efecto reforzado por la quema de combustibles fósiles y la deforestación, que aumenta la energía retenida. ¿Cómo explicarías esta diferencia a un niño de 3.°?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Distingue entre un proceso natural necesario para la vida y su intensificación por actividades humanas. Revisa también por qué el ozono es un tema diferente.</div>
+  </div>
+</div>
+<div class="eq" id="q1_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">Al preparar una clase, un docente quiere citar el Informe de Síntesis del IPCC AR6 (2023) sobre el calentamiento observado. ¿Cuál cita es fiel a la fuente?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,3,0)">
+  <span class="mk">A</span><span>La temperatura global ya subió 3 °C desde la Revolución Industrial, según el IPCC</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,1)">
+  <span class="mk">B</span><span>El IPCC concluye que el calentamiento se debe principalmente a la actividad solar</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,2)">
+  <span class="mk">C</span><span>Según el IPCC, la temperatura de Cali subió exactamente 1,1 °C en 2020</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,3)">
+  <span class="mk">D</span><span>1,1 °C por encima de 1850-1900 en 2011-2020, causado de forma inequívoca por humanos</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,3,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Correcto. Esa es la afirmación A.1 del Resumen para responsables de políticas: periodo 2011-2020, comparado con 1850-1900, promedio global y no de una ciudad. Citar con exactitud enseña también a leer cifras. ¿Qué rutina usarás para que tus estudiantes revisen comparación, periodo, fuente y año?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Fíjate en tres cosas: con qué periodo se compara, si el dato es global o local y si corresponde a un año o a una década. Relee la tarjeta sobre la evidencia.</div>
+  </div>
+</div>
+<div class="eq" id="q1_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">Antes de la unidad, varios estudiantes de 8.° explican el calentamiento por «el agujero en la capa de ozono». ¿Qué estrategia tiene mejor respaldo para transformar esa idea?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,4,0)">
+  <span class="mk">A</span><span>Hacer que predigan por escrito, contrastar con evidencia y luego explicar la diferencia</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,1)">
+  <span class="mk">B</span><span>Dictar la definición correcta y pedir que la copien tres veces en el cuaderno</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,2)">
+  <span class="mk">C</span><span>Evitar mencionar la idea errónea para que no se refuerce con la repetición</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,3)">
+  <span class="mk">D</span><span>Poner un video impactante sin discusión para que la emoción reemplace la idea</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,4,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Exacto. El ciclo predigo → observo → explico hace visible la idea previa y la pone a prueba; Monroe y colegas (2019) encontraron el trabajo explícito con ideas erróneas entre las estrategias de programas eficaces, y Shepardson y colegas (2011) documentaron esta confusión. ¿Qué pregunta diagnóstica usarás?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en qué pasa con una idea previa que nunca se hace visible ni se contrasta con evidencia. Revisa la tarjeta de ideas erróneas.</div>
+  </div>
+</div>
+<div class="eq" id="q1_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">La profe de Transición quiere mostrar por qué el hielo y la nieve ayudan a reflejar la luz del Sol. ¿Qué actividad es adecuada y segura para su grado?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,5,0)">
+  <span class="mk">A</span><span>Calentar agua en una estufa del aula para observar el vapor de cerca</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,1)">
+  <span class="mk">B</span><span>Encender una vela debajo de un vaso para ver cómo sube la temperatura</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,2)">
+  <span class="mk">C</span><span>Dejar al sol una hoja negra y una blanca y comparar cuál se siente más tibia</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,3)">
+  <span class="mk">D</span><span>Mezclar vinagre con cloro para ver cómo cambia de color el agua</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,5,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Muy bien. Es segura, sin fuego ni agua caliente, y permite predecir, observar y explicar: lo oscuro absorbe más luz y lo claro refleja más. De Transición a 2.° no se usa fuego, y nunca se mezcla cloro con otras sustancias. ¿Qué variable podría cambiar el grupo en un segundo intento?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Revisa las reglas de seguridad: ¿qué está prohibido de Transición a 2.° y qué está prohibido en todos los grados? Relee la tarjeta de experimentos para los más pequeños.</div>
+  </div>
+</div>
+<div class="eq" id="q1_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">En 9.°, dos frascos al sol muestran que el tapado se calienta más. Un estudiante concluye: «Así exactamente funciona la atmósfera». ¿Qué debe precisar el docente?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,6,0)">
+  <span class="mk">A</span><span>Que el frasco reproduce exactamente el mecanismo de la atmósfera terrestre</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,1)">
+  <span class="mk">B</span><span>Que el experimento no sirve para nada y es mejor no hacerlo en clase</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,2)">
+  <span class="mk">C</span><span>Que la diferencia se debe a que el plástico produce gases de efecto invernadero</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,3)">
+  <span class="mk">D</span><span>Que el frasco retiene aire caliente; es un modelo útil con límites que hay que discutir</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,6,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Correcto. El frasco cerrado se calienta sobre todo porque el aire caliente no se mezcla con el de afuera; la atmósfera retiene energía al absorber y reemitir radiación infrarroja. Discutir los límites de un modelo es pensamiento científico. ¿Qué pregunta harías para que el grupo descubra ese límite?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en qué impide la tapa: ¿la radiación o el intercambio de aire? Relee la nota de honestidad científica en la tarjeta de 6.° a 11.°.</div>
+  </div>
+</div>
+<div class="eq" id="q1_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">Un grupo de 9.° tiene cuatro semanas de temperatura del patio y concluye que «el clima del colegio se está enfriando». ¿Cuál es la mejor retroalimentación?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,7,0)">
+  <span class="mk">A</span><span>Felicitarlos, porque cualquier serie de datos permite concluir tendencias climáticas</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,1)">
+  <span class="mk">B</span><span>Indicar que cuatro semanas muestran variabilidad y que una tendencia exige series largas</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,2)">
+  <span class="mk">C</span><span>Decirles que los datos del patio siempre son falsos y que solo valen los del IPCC</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,3)">
+  <span class="mk">D</span><span>Pedirles que borren la semana más fría para que la gráfica se vea más clara</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,7,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Exacto. Con pocas semanas solo se observa variabilidad; para hablar de tendencia climática se necesitan series de muchos años. Sus datos sí valen: sirven para aprender a medir, calcular anomalías y argumentar con prudencia. ¿Cómo podrían comparar su registro con una serie oficial?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda la diferencia entre variabilidad y tendencia, y cuánto tiempo hace falta para describir el clima. Revisa el ejemplo resuelto de la última tarjeta.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r1"></div></div></div>
+
+<div class="mod" id="mod2" style="--ac:#1B7FA6">
+  <div class="mhdr" id="h2" data-lock="1" onclick="S.toggle(2)" style="--ac:#1B7FA6">
+    <div class="mnum" style="background:#1B7FA6">2</div>
+    <div class="minfo">
+      <div class="mtitle">Del miedo a la acción: emociones, ODS y marco colombiano</div>
+      <div class="msub">Ecoansiedad sin diagnosticar · Esperanza constructiva · ODS 4.7 y 13 · UNESCO EDS 2030 · PRAE · Ley 1549 de 2012</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 3-4</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b2"><div class="intro">Hablar del cambio climático despierta emociones: preocupación, tristeza, rabia o indiferencia. La investigación sugiere que el miedo solo paraliza y que la esperanza ingenua desmoviliza; lo que sostiene la acción es una esperanza basada en la información y en la capacidad de actuar. Este módulo conecta esa mirada emocional con los marcos que orientan tu trabajo: los ODS, la UNESCO y la normativa colombiana de educación ambiental.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">💭</div>
+    <div class="card-title">Ecoansiedad: qué es y qué no es</div>
+  </div>
+  <div class="card-bd"><strong>Idea intuitiva:</strong> sentir preocupación por el futuro del planeta es una reacción comprensible ante una amenaza real; no es, por sí misma, una enfermedad.<br><br><strong>Fundamento:</strong> Susan Clayton (2020, Journal of Anxiety Disorders) describe la ansiedad climática como una respuesta psicológica que puede ir desde una preocupación que motiva a actuar hasta un malestar que interfiere con la vida diaria; no es en sí misma un trastorno mental y a menudo es una respuesta proporcionada a una amenaza real; preocupa cuando interfiere con el sueño, el estudio o la vida diaria. Hickman y colegas (2021, The Lancet Planetary Health) encuestaron a 10 000 jóvenes de 16 a 25 años en diez países y encontraron preocupación extendida, junto con la sensación de que los gobiernos no responden lo suficiente. Colombia no estuvo entre esos países, así que no traslades sus resultados al aula como si fueran datos locales.<br><br><strong>Qué hace el docente:</strong> escucha, valida («es comprensible que te preocupe»), informa con exactitud y ofrece acciones a la medida del estudiante. <strong>Qué no hace:</strong> diagnosticar, etiquetar («tienes ecoansiedad») ni minimizar («eso es exagerado»).<br><br><strong>Límite y ruta:</strong> si un estudiante muestra malestar persistente (no duerme, no come, llora con frecuencia, se aísla), informa a orientación escolar y activa la ruta institucional. El docente acompaña; el diagnóstico corresponde a profesionales de la salud.</div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🌱</div>
+    <div class="card-title">Esperanza constructiva: ni negación ni catástrofe</div>
+  </div>
+  <div class="card-bd"><strong>Idea intuitiva:</strong> no toda esperanza es igual. Decir «tranquilos, los científicos lo arreglarán» calma, pero no mueve a actuar. Decir «ya no hay nada que hacer» paraliza. En medio está la esperanza que reconoce el problema y confía en que nuestras acciones cuentan.<br><br><strong>Fundamento:</strong> Maria Ojala (2012, Environmental Education Research) estudió a adolescentes y adultos jóvenes suecos y distinguió una <strong>esperanza constructiva</strong>, basada en confiar en la propia acción y en la de otros actores, de una <strong>esperanza basada en la negación</strong> del problema. La primera se asoció positivamente con el compromiso ambiental; la segunda, negativamente. Es un estudio correlacional: muestra asociación, no prueba causalidad, pero orienta bien la práctica.<br><br><strong>Ejemplo (ficticio):</strong> en 10.°, Valentina dice: «¿Para qué reciclar si igual el mundo se va a acabar?». El profe Julián no discute: pregunta «¿qué parte del problema sí podemos medir y cambiar en el colegio?». El grupo elige reducir los vasos desechables de la cafetería y llevar un registro semanal.<br><br><strong>Error frecuente:</strong> cerrar una clase con imágenes catastróficas sin ninguna salida de acción.<br><br><strong>Aplicación:</strong> termina cada unidad sobre clima con una acción concreta y un dato que el grupo pueda seguir.</div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🧒</div>
+    <div class="card-title">Hablar de clima según la edad</div>
+  </div>
+  <div class="card-bd"><strong>Orientación pedagógica</strong> (criterio profesional apoyado en la evidencia de este curso, no una norma):<br><br><strong>Transición a 2.°:</strong> asombro y cuidado. Observar el patio, sembrar, cuidar el agua y la luz, conocer animales y plantas de Cali. Sin catástrofes ni imágenes de desastres. La pregunta guía es «¿cómo cuidamos lo que queremos?».<br><br><strong>3.° a 5.°:</strong> causas sencillas y acciones cercanas. Energía, agua, residuos, árboles. Mediciones simples (cuántos litros, cuántas bolsas). Relatos de personas que solucionan problemas.<br><br><strong>6.° a 9.°:</strong> sistemas y datos. Efecto invernadero, ciclo del carbono, gráficas, biodiversidad del Pacífico y del valle del río Cauca. Debate con evidencia y proyectos escolares.<br><br><strong>10.° y 11.°:</strong> decisiones y justicia. Políticas públicas, adaptación y mitigación, quiénes son más vulnerables, carreras verdes y técnicas del SENA, argumentación tipo Saber 11.<br><br><strong>Fundamento:</strong> Monroe y colegas (2019) encontraron que los programas eficaces usan información personalmente relevante y significativa, y métodos activos. Para los más pequeños, la relevancia es lo cercano.<br><br><strong>Error frecuente:</strong> trasladar a Transición el mismo video que se usa en 11.°.</div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🎯</div>
+    <div class="card-title">ODS 4.7 y ODS 13: el mandato de la Agenda 2030</div>
+  </div>
+  <div class="card-bd"><strong>Idea intuitiva:</strong> los Objetivos de Desarrollo Sostenible (ODS) de la Agenda 2030, adoptados por la Asamblea General de las Naciones Unidas en 2015, reconocen que la educación es parte de la respuesta al cambio climático.<br><br><strong>Meta 4.7</strong> (redacción oficial en español de la ONU): «De aquí a 2030, asegurar que todos los alumnos adquieran los conocimientos teóricos y prácticos necesarios para promover el desarrollo sostenible, entre otras cosas mediante la educación para el desarrollo sostenible y los estilos de vida sostenibles, los derechos humanos, la igualdad de género, la promoción de una cultura de paz y no violencia, la ciudadanía mundial y la valoración de la diversidad cultural y la contribución de la cultura al desarrollo sostenible».<br><br><strong>Meta 13.3:</strong> mejorar la educación, la sensibilización y la capacidad humana e institucional respecto de la mitigación del cambio climático, la adaptación a él, la reducción de sus efectos y la alerta temprana.<br><br><strong>Dos palabras clave:</strong> <strong>mitigación</strong> es reducir las emisiones o aumentar su captura (por ejemplo, ahorrar energía o sembrar árboles); <strong>adaptación</strong> es prepararse para los efectos (por ejemplo, planes ante inundaciones o lluvias intensas). En Cali, el jarillón del río Cauca es un buen punto de partida para hablar de adaptación.<br><br><strong>Aplicación:</strong> clasifica las actividades de tu PRAE en mitigación, adaptación o ambas.</div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🏫</div>
+    <div class="card-title">UNESCO: educación para el desarrollo sostenible (EDS 2030)</div>
+  </div>
+  <div class="card-bd"><strong>Qué es la EDS:</strong> la UNESCO entiende la educación para el desarrollo sostenible como una educación que da a las personas conocimientos, habilidades, valores y actitudes para tomar decisiones informadas y actuar de forma responsable por la integridad ambiental, una economía viable y una sociedad justa.<br><br><strong>Hoja de ruta EDS para 2030 (UNESCO, 2020):</strong> propone cinco áreas prioritarias de acción: 1) promover políticas; 2) transformar los entornos de aprendizaje; 3) fortalecer las capacidades de los educadores; 4) empoderar y movilizar a los jóvenes; 5) acelerar las acciones en el ámbito local.<br><br><strong>Enfoque institucional integral:</strong> la idea de «transformar los entornos de aprendizaje» significa que el colegio entero enseña con lo que hace: cómo usa el agua, qué pasa con los residuos de la cafetería, cómo se cuidan las zonas verdes. Un discurso ambiental en clase pierde fuerza si el colegio hace lo contrario.<br><br><strong>Ejemplo (ficticio):</strong> en un colegio de la Comuna 15, el consejo estudiantil revisa con la rectoría el uso de icopor en los eventos y propone una alternativa reutilizable.<br><br><strong>Error frecuente:</strong> reducir la EDS a una semana ambiental al año.<br><br><strong>Aplicación:</strong> identifica qué área prioritaria de la hoja de ruta fortalece tu proyecto.</div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">⚖️</div>
+    <div class="card-title">Marco colombiano: Ley 115, Decreto 1743 y Ley 1549</div>
+  </div>
+  <div class="card-bd"><strong>Ley 115 de 1994 (Ley General de Educación):</strong> entre los fines de la educación incluye la conciencia para la conservación, protección y mejoramiento del medio ambiente (artículo 5, numeral 10), y establece como enseñanza obligatoria la protección del ambiente, la ecología y la preservación de los recursos naturales (artículo 14, literal c).<br><br><strong>Decreto 1743 de 1994:</strong> instituye el Proyecto de Educación Ambiental para todos los niveles de la educación formal. Su artículo 1 dispone que, a partir de enero de 1995, los establecimientos oficiales y privados de preescolar, básica y media incluyan en su Proyecto Educativo Institucional (PEI) proyectos ambientales escolares, en el marco de diagnósticos ambientales locales, regionales o nacionales. El artículo 2 señala los principios de interculturalidad, formación en valores, regionalización, interdisciplina, participación y formación para la democracia. El artículo 3 asigna la responsabilidad a toda la comunidad educativa, y el artículo 7 permite cumplir el servicio social obligatorio en educación ambiental.<br><br><strong>Política Nacional de Educación Ambiental (2002):</strong> formulada por los ministerios de Ambiente y de Educación.<br><br><strong>Ley 1549 de 2012:</strong> fortalece la institucionalización de esa política. Pide fortalecer los Proyectos Ambientales Escolares (PRAE) en el marco de los PEI y reconoce los Comités Técnicos Interinstitucionales de Educación Ambiental (CIDEA) y los Proyectos Ciudadanos y Comunitarios de Educación Ambiental (PROCEDA).</div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">🤝</div>
+    <div class="card-title">Qué funciona en educación climática según la evidencia</div>
+  </div>
+  <div class="card-bd"><strong>Revisión sistemática de Monroe, Plate, Oxarart, Bowers y Chaves (2019, Environmental Education Research):</strong> analizaron 49 estudios revisados por pares sobre programas de educación climática e identificaron estrategias presentes en los eficaces. Dos son comunes a la buena educación ambiental: 1) información personalmente relevante y significativa, y 2) métodos activos y participativos. Otras cuatro son más propias del clima: 3) discusiones deliberativas, en las que se escuchan argumentos y se decide con evidencia; 4) interacción con la ciencia y con científicos (por ejemplo, recolectar y analizar datos); 5) trabajo explícito con las ideas erróneas; y 6) proyectos escolares o comunitarios.<br><br><strong>Revisión de Rousell y Cutter-Mackenzie-Knowles (2020, Children's Geographies):</strong> señalan que buena parte de la educación climática se ha centrado en transmitir conocimiento científico, y proponen dar a niños y jóvenes «voz» (participar en las decisiones) y «mano» (actuar sobre el problema) con enfoques participativos, creativos e interdisciplinarios.<br><br><strong>Cautela:</strong> los estudios son heterogéneos y muchos miden cambios a corto plazo en conocimiento o actitudes; hay menos evidencia sobre cambios de conducta sostenidos. Preséntalo así: orientaciones con respaldo, no recetas garantizadas.<br><br><strong>Aplicación:</strong> revisa tu próxima unidad y marca cuáles de las seis estrategias ya usas y cuál vas a incorporar.</div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q2_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">En 7.°, Samuel dice en clase que no puede dormir pensando en que «el planeta se va a acabar». ¿Qué respuesta del docente es la más adecuada?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,1,0)">
+  <span class="mk">A</span><span>Decirle frente al grupo que tiene ecoansiedad y que debe ver a un psiquiatra</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,1)">
+  <span class="mk">B</span><span>Escucharlo, validar su preocupación, ofrecer acciones y avisar a orientación</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,2)">
+  <span class="mk">C</span><span>Explicarle que esa preocupación es exagerada y que no debe pensar en eso</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,3)">
+  <span class="mk">D</span><span>Mostrarle más datos alarmantes para que entienda la gravedad del problema</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Exacto. Validar y escuchar reduce el aislamiento; ofrecer acciones devuelve sentido de capacidad; y si el malestar afecta el sueño, se informa a orientación para activar la ruta. El docente no diagnostica ni minimiza (Clayton, 2020). ¿Qué frase usarías para validar sin aumentar el miedo?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en qué le corresponde al docente y qué a los profesionales de la salud, y en qué efecto tienen minimizar o alarmar. Relee la tarjeta sobre ecoansiedad.</div>
+  </div>
+</div>
+<div class="eq" id="q2_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">Al cerrar una unidad sobre clima en 10.°, ¿qué cierre se alinea mejor con la «esperanza constructiva» que describe Ojala (2012)?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,2,0)">
+  <span class="mk">A</span><span>Asegurar que la tecnología resolverá el problema y que no hay que preocuparse</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,1)">
+  <span class="mk">B</span><span>Mostrar un video de desastres para que el miedo los motive a cambiar</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,2)">
+  <span class="mk">C</span><span>Reconocer el problema y acordar una acción medible que el grupo pueda seguir</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,3)">
+  <span class="mk">D</span><span>Evitar el tema para no afectar el ánimo del grupo antes de vacaciones</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,2,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Muy bien. La esperanza constructiva combina reconocer el problema con confiar en la propia acción y en la de otros; Ojala la encontró asociada al compromiso ambiental, mientras que la esperanza basada en la negación se asoció en sentido contrario. ¿Qué acción medible podría adoptar tu grupo?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Compara una esperanza que niega el problema con una que se apoya en la capacidad de actuar. ¿Cuál mueve a la acción sin paralizar? Revisa la segunda tarjeta.</div>
+  </div>
+</div>
+<div class="eq" id="q2_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">Un docente de Transición quiere trabajar el cuidado del ambiente. ¿Qué propuesta es la más apropiada para la edad?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,3,0)">
+  <span class="mk">A</span><span>Observar y cuidar plantas del patio, con preguntas sobre cómo cuidar lo que queremos</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,1)">
+  <span class="mk">B</span><span>Proyectar imágenes de inundaciones y sequías para que comprendan la gravedad</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,2)">
+  <span class="mk">C</span><span>Explicar con gráficas la concentración de CO₂ en partes por millón</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,3)">
+  <span class="mk">D</span><span>Organizar un debate sobre políticas climáticas internacionales</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,3,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Correcto. En los primeros grados se construyen asombro, vínculo y hábitos de cuidado con experiencias cercanas, sin catástrofes. La relevancia personal, que Monroe y colegas (2019) encontraron en programas eficaces, en Transición es lo que el niño ve y toca. ¿Qué rincón del colegio podrían cuidar tus estudiantes?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en qué puede comprender y hacer un niño de cinco años y qué podría asustarlo sin darle una salida. Relee la tarjeta sobre hablar de clima según la edad.</div>
+  </div>
+</div>
+<div class="eq" id="q2_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">El equipo del PRAE propone construir un plan de evacuación ante lluvias intensas con estudiantes de 9.°. ¿A qué tipo de acción y meta corresponde mejor?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,4,0)">
+  <span class="mk">A</span><span>Es mitigación, porque reduce las emisiones de gases del colegio (meta 4.7)</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,1)">
+  <span class="mk">B</span><span>Es una actividad que no tiene relación con ningún ODS de la Agenda 2030</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,2)">
+  <span class="mk">C</span><span>Es mitigación y adaptación a la vez, porque siembra árboles (meta 13.3)</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,3)">
+  <span class="mk">D</span><span>Es adaptación y alerta temprana, como pide la meta 13.3</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,4,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Exacto. Prepararse para los efectos del clima es adaptación, y la meta 13.3 menciona expresamente la educación en adaptación, reducción de efectos y alerta temprana. Distinguir mitigación y adaptación ayuda a planear un PRAE equilibrado. ¿Qué actividad de mitigación agregarías?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda: mitigar es reducir emisiones o capturarlas; adaptarse es prepararse para los efectos. ¿Un plan de evacuación reduce emisiones? Relee la tarjeta de los ODS.</div>
+  </div>
+</div>
+<div class="eq" id="q2_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">En un colegio, la clase de ciencias enseña a reducir residuos, pero en los eventos se usan vasos y platos desechables. Según la hoja de ruta EDS 2030 de la UNESCO, ¿qué se debe fortalecer?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,5,0)">
+  <span class="mk">A</span><span>Solo el contenido de ciencias naturales, porque el resto no es pedagógico</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,1)">
+  <span class="mk">B</span><span>La transformación del entorno de aprendizaje con un enfoque institucional integral</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,2)">
+  <span class="mk">C</span><span>La compra de más canecas, porque basta con tener infraestructura</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,3)">
+  <span class="mk">D</span><span>Una semana ambiental al año para compensar lo que se hace en los eventos</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,5,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Muy bien. «Transformar los entornos de aprendizaje» es una de las cinco áreas prioritarias de la hoja de ruta (UNESCO, 2020): el colegio enseña con lo que hace. La coherencia entre el discurso y la práctica institucional fortalece el aprendizaje. ¿Qué práctica de tu colegio contradice lo que enseñas?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en qué aprende un estudiante cuando el colegio dice una cosa en clase y hace otra en los eventos. Revisa las cinco áreas prioritarias de la UNESCO.</div>
+  </div>
+</div>
+<div class="eq" id="q2_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">Un directivo afirma que el Proyecto Ambiental Escolar «es opcional y lo hace solo el área de ciencias». ¿Qué responde la normativa colombiana?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,6,0)">
+  <span class="mk">A</span><span>Tiene razón: ninguna norma obliga a los colegios a tener proyectos ambientales</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,1)">
+  <span class="mk">B</span><span>Es obligatorio solo para colegios oficiales, según la Ley 1581 de 2012</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,2)">
+  <span class="mk">C</span><span>El Decreto 1743 de 1994 lo incluye en el PEI y lo hace responsabilidad de toda la comunidad</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,3)">
+  <span class="mk">D</span><span>Lo exige únicamente el SENA para los colegios con media técnica</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,6,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Correcto. El Decreto 1743 de 1994 dispuso que, desde 1995, todos los establecimientos oficiales y privados incluyan proyectos ambientales escolares en su PEI, con principio de interdisciplina y responsabilidad de toda la comunidad educativa; la Ley 1549 de 2012 fortaleció los PRAE. ¿Qué áreas de tu colegio podrían sumarse?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Revisa qué norma instituyó el proyecto de educación ambiental, desde cuándo, para qué colegios y a quién asigna la responsabilidad. La Ley 1581 trata otro tema.</div>
+  </div>
+</div>
+<div class="eq" id="q2_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">Un equipo quiere rediseñar su unidad de clima con las estrategias que Monroe y colegas (2019) encontraron en programas eficaces. ¿Qué combinación las refleja mejor?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,7,0)">
+  <span class="mk">A</span><span>Discusión deliberativa con evidencia, trabajo con ideas erróneas y un proyecto escolar</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,1)">
+  <span class="mk">B</span><span>Exposición magistral larga, lectura del informe completo y examen memorístico</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,2)">
+  <span class="mk">C</span><span>Videos impactantes sin discusión y concursos de carteles con premios</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,3)">
+  <span class="mk">D</span><span>Copiar definiciones del glosario y responder un cuestionario al final</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,7,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Exacto. La revisión identifica información relevante, métodos activos, discusiones deliberativas, interacción con científicos, trabajo con ideas erróneas y proyectos escolares o comunitarios. Ojo: la evidencia es heterogénea y se mide más en conocimiento y actitudes que en conducta sostenida. ¿Cuál de estas estrategias incorporarás primero?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en cuáles opciones hacen que el estudiante participe, contraste ideas y actúe, y cuáles lo dejan en el papel de receptor. Relee la última tarjeta del módulo.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r2"></div></div></div>
+
+<div class="mod" id="mod3" style="--ac:#D85A30">
+  <div class="mhdr" id="h3" data-lock="1" onclick="S.toggle(3)" style="--ac:#D85A30">
+    <div class="mnum" style="background:#D85A30">3</div>
+    <div class="minfo">
+      <div class="mtitle">Proyectos escolares con impacto</div>
+      <div class="msub">PRAE con diagnóstico · Huerta · Agua · Residuos · Biodiversidad local · STEAM y matemática financiera · Familias</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 5-6</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b3"><div class="intro">Un proyecto ambiental escolar con impacto no es una campaña de carteles: parte de un diagnóstico, mide, decide con datos y comunica resultados. En este módulo diseñarás proyectos de huerta, agua, residuos y biodiversidad adaptados a Cali y al valle del río Cauca, los integrarás con STEAM y matemática financiera, e involucrarás a las familias cuidando la privacidad de los estudiantes.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🗺️</div>
+    <div class="card-title">Diseñar un PRAE desde el diagnóstico</div>
+  </div>
+  <div class="card-bd"><strong>Idea intuitiva:</strong> un buen proyecto empieza como un buen médico: primero examina, luego receta. El Decreto 1743 de 1994 pide que los proyectos ambientales escolares se hagan en el marco de diagnósticos ambientales locales, regionales o nacionales.<br><br><strong>Procedimiento en seis pasos:</strong> 1) <strong>Diagnóstico:</strong> recorrido por el colegio y el barrio con lista de chequeo (agua, residuos, zonas verdes, ruido, riesgo de inundación). 2) <strong>Pregunta:</strong> elegir un problema que se pueda medir y cambiar. 3) <strong>Objetivo SMART:</strong> específico, medible, alcanzable, relevante y con plazo. 4) <strong>Plan:</strong> responsables por grado y áreas que se integran. 5) <strong>Medición:</strong> línea base, seguimiento y resultado. 6) <strong>Comunicación:</strong> mostrar a la comunidad qué cambió.<br><br><strong>Ejemplo resuelto (ficticio):</strong> en un colegio de la Comuna 15, el diagnóstico muestra que el patio se encharca y que se botan muchas botellas plásticas. El comité ambiental, con representantes estudiantiles, elige: «Reducir en un 30 % las botellas plásticas desechables en la cafetería en 10 semanas, medido con conteo semanal». Matemáticas calcula los porcentajes; Lenguaje redacta la campaña; Ciencias explica el ciclo del plástico.<br><br><strong>Error frecuente:</strong> empezar por la actividad («hagamos un mural») sin saber qué problema resuelve.<br><br><strong>Aplicación:</strong> redacta un objetivo SMART para tu proyecto.</div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🥬</div>
+    <div class="card-title">La huerta escolar: ciencia que se come</div>
+  </div>
+  <div class="card-bd"><strong>Por qué funciona:</strong> la huerta integra ciencias (germinación, fotosíntesis, suelo, polinizadores), matemáticas (áreas, perímetros, registros de crecimiento), lenguaje (bitácoras) y valores (corresponsabilidad, paciencia, cuidado).<br><br><strong>Por grados:</strong> Transición a 2.°: germinar fríjoles en algodón y dibujar los cambios (el docente reparte y recoge las semillas: son piezas pequeñas que no se llevan a la boca, y el fríjol crudo no se come). 3.° a 5.°: medir la altura de las plantas cada semana y hacer gráficas de barras. 6.° a 9.°: comparar crecimiento con y sin compost, controlando variables. 10.° y 11.°: calcular costos y producción, y conectar con formación técnica agropecuaria del SENA.<br><br><strong>Compostaje:</strong> los residuos orgánicos de la cafetería (cáscaras, residuos vegetales) se convierten en abono. Se evitan carnes y lácteos para no atraer plagas. Conecta con la caneca verde del código de colores nacional.<br><br><strong>Seguridad:</strong> guantes y lavado de manos; herramientas cortantes las manipula un adulto; sin plaguicidas químicos; revisar alergias; no consumir lo cosechado sin lavarlo.<br><br><strong>Ejemplo (ficticio):</strong> el grupo de 4.° de la profe Lorena siembra cilantro en botellas recicladas y registra en una tabla los centímetros de cada semana; con ese registro aprende a calcular promedios.<br><br><strong>Error frecuente:</strong> que la huerta sea responsabilidad de una sola persona y muera en vacaciones. Haz un turno de cuidado por cursos y familias.</div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">💧</div>
+    <div class="card-title">Agua: medir antes de pedir que la cuiden</div>
+  </div>
+  <div class="card-bd"><strong>Contexto:</strong> Cali está atravesada por varios ríos que bajan de los Farallones y desembocan en el río Cauca. Cuidar el agua en el colegio conecta con esa cuenca.<br><br><strong>Auditoría de agua:</strong> los estudiantes recorren baños, lavamanos y bebederos, registran fugas y miden el caudal de las que encuentren.<br><br><strong>Ejemplo resuelto (datos ficticios):</strong> una llave que gotea llena 40 mL en 5 minutos. Paso 1: caudal = 40 ÷ 5 = 8 mL por minuto. Paso 2: en un día, 8 × 60 × 24 = 11 520 mL, es decir, 11,52 litros. Paso 3: en 30 días, 11,52 × 30 = 345,6 litros, que equivalen a 0,3456 m³ (1 m³ = 1000 L). Paso 4: si la tarifa ficticia fuera de $5000 por m³, el costo sería 0,3456 × 5000 = $1728 al mes por una sola llave. <strong>Comprobación:</strong> las unidades se mantienen (mL → L → m³ → pesos) y el orden de magnitud es razonable.<br><br><strong>Interpretación:</strong> parece poco por llave, pero se multiplica por el número de fugas y por los meses. Con datos reales del colegio, el grupo puede presentar a rectoría un argumento económico y ambiental.<br><br><strong>Error frecuente:</strong> estimar a ojo sin medir, o usar tarifas inventadas como si fueran reales. Usa la factura del colegio como fuente.<br><br><strong>Aplicación:</strong> propone a tu grupo medir una fuga real.</div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">♻️</div>
+    <div class="card-title">Residuos: separar, medir y reducir</div>
+  </div>
+  <div class="card-bd"><strong>Norma vigente:</strong> la Resolución 2184 de 2019 del Ministerio de Ambiente y Desarrollo Sostenible unificó el código de colores para separar residuos en la fuente, de aplicación nacional desde el 1.° de enero de 2021: <strong>blanco</strong> para aprovechables (plástico, vidrio, metales, papel y cartón limpios), <strong>negro</strong> para no aprovechables (papel higiénico, servilletas, papeles o cartones sucios con comida, papel metalizado) y <strong>verde</strong> para orgánicos aprovechables (restos de comida y residuos vegetales).<br><br><strong>Caracterización (pesaje):</strong> durante una semana, un grupo pesa cada día lo que se recoge en cada caneca de un piso. Con esos datos se hace una gráfica y se descubre qué tipo de residuo predomina.<br><br><strong>Orden de prioridad:</strong> primero evitar y reducir, después reutilizar, luego reciclar y, por último, disponer. Reciclar es valioso, pero no generar el residuo es mejor.<br><br><strong>Ejemplo (ficticio):</strong> en 7.°, el grupo del profe Camilo descubre que la caneca negra tiene muchos plásticos limpios mal separados. Diseña con 1.° una canción y un cartel con dibujos de cada color, y repite el pesaje dos semanas después para comparar.<br><br><strong>Seguridad:</strong> guantes, nada de vidrios rotos ni residuos de baño para los estudiantes, lavado de manos.<br><br><strong>Error frecuente:</strong> celebrar «toneladas recicladas» sin preguntarse cómo producir menos residuos.</div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🦜</div>
+    <div class="card-title">Biodiversidad local: del patio al Pacífico</div>
+  </div>
+  <div class="card-bd"><strong>Idea intuitiva:</strong> se cuida lo que se conoce. Muchos estudiantes reconocen animales de otros continentes, pero no las aves de su barrio.<br><br><strong>Contexto regional:</strong> el suroccidente colombiano reúne ecosistemas muy diversos: los bosques de los Farallones de Cali, los humedales y el bosque seco del valle del río Cauca, y en el Pacífico, los manglares y las selvas húmedas del Chocó biogeográfico. Los manglares protegen las costas y almacenan carbono.<br><br><strong>Actividades por grado:</strong> Transición a 2.°: búsqueda de bichos y hojas en el patio, con lupa, sin tocar ni capturar los animales y sin usar la lupa para concentrar el sol. 3.° a 5.°: conteo de aves durante 10 minutos a la misma hora, una vez por semana. 6.° a 9.°: inventario de plantas del colegio con fichas y claves sencillas. 10.° y 11.°: ciencia ciudadana con plataformas de registro de especies, analizando datos por mes.<br><br><strong>Ética y privacidad:</strong> observar sin molestar ni capturar; fotografiar plantas y animales, nunca a los estudiantes sin autorización; no publicar datos personales (Ley 1581 de 2012).<br><br><strong>Ejemplo (ficticio):</strong> en 5.°, el grupo de la profe Marisol registra durante un periodo las aves que llegan a un comedero de frutas y descubre que algunas especies aparecen más temprano que otras.<br><br><strong>Error frecuente:</strong> traer plantas exóticas invasoras para «decorar»; prioriza especies nativas con asesoría técnica.</div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">💡</div>
+    <div class="card-title">STEAM y matemática financiera: costos y ahorro</div>
+  </div>
+  <div class="card-bd"><strong>Idea intuitiva:</strong> las decisiones ambientales también son decisiones económicas. Calcular el ahorro ayuda a convencer y enseña matemática con sentido.<br><br><strong>Ejemplo resuelto (datos ficticios):</strong> un salón tiene un bombillo de 60 W encendido 4 horas al día. Se propone cambiarlo por uno LED de 9 W que ilumina de forma parecida. Paso 1: energía mensual actual = 60 W × 4 h × 30 días = 7200 Wh = 7,2 kWh. Paso 2: con LED = 9 × 4 × 30 = 1080 Wh = 1,08 kWh. Paso 3: ahorro = 7,2 − 1,08 = 6,12 kWh al mes. Paso 4: con una tarifa ficticia de $800 por kWh, el ahorro es 6,12 × 800 = $4896 al mes. Paso 5: si el bombillo LED costara $10 000, la inversión se recuperaría en 10 000 ÷ 4896 ≈ 2 meses. <strong>Comprobación:</strong> W × h = Wh y 1 kWh = 1000 Wh.<br><br><strong>Interpretación y límites:</strong> el cálculo supone horas de uso constantes y no incluye la vida útil ni el costo de desecho. En 10.° y 11.° se puede comparar el ahorro acumulado y discutir el interés simple de un ahorro mensual.<br><br><strong>Integración STEAM:</strong> Ciencias (energía), Tecnología (medición con el contador), Ingeniería (propuesta de cambio), Arte (infografía), Matemáticas (proporciones y costos).<br><br><strong>Error frecuente:</strong> presentar tarifas o precios inventados como reales; usa la factura del colegio y dilo.</div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">👨‍👩‍👧</div>
+    <div class="card-title">Comunicar con familias y medir el impacto</div>
+  </div>
+  <div class="card-bd"><strong>Fundamento:</strong> Lawson y colegas (2019, Nature Climate Change) evaluaron de forma experimental un programa de educación climática con estudiantes de secundaria básica en Carolina del Norte (Estados Unidos) y encontraron que la preocupación por el clima aumentó también en sus padres, con efectos mayores en quienes partían de menor preocupación. Es un solo estudio, en otro contexto: úsalo como inspiración, no como garantía.<br><br><strong>Estrategias:</strong> tareas en las que el estudiante entrevista a su familia («¿cómo era el clima del barrio cuando eras niño?»); retos de hogar opcionales (revisar fugas, separar residuos); feria del PRAE con resultados; boletín breve con un dato medido por los estudiantes.<br><br><strong>Cómo medir el impacto:</strong> indicadores de proceso (participación, sesiones realizadas) y de resultado (litros ahorrados, kilos de residuos bien separados, especies registradas), comparados con la línea base.<br><br><strong>Privacidad (Ley 1581 de 2012):</strong> resultados agregados por grupo, nunca datos ni consumos de una familia identificable; fotos solo con autorización.<br><br><strong>Ejemplo (ficticio):</strong> en 3.°, el profe Hernán envía una hoja «Detectives del agua en casa» sin pedir datos privados; los niños traen solo «sí encontramos» o «no encontramos» fugas.<br><br><strong>Mini-rúbrica:</strong> diagnóstico claro, objetivo medible, datos con fuente, participación de la comunidad, resultados comunicados.</div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q3_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">El comité ambiental de un colegio de Cali quiere empezar su PRAE. ¿Cuál es el primer paso más sólido?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,1,0)">
+  <span class="mk">A</span><span>Pintar un mural ecológico en la entrada para motivar a toda la comunidad</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,1)">
+  <span class="mk">B</span><span>Comprar canecas de colores para todos los salones del colegio</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,2)">
+  <span class="mk">C</span><span>Hacer un diagnóstico ambiental del colegio y del barrio con lista de chequeo</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,3)">
+  <span class="mk">D</span><span>Organizar un concurso de reinado ambiental con premios por curso</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,1,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Exacto. El Decreto 1743 de 1994 enmarca los proyectos ambientales escolares en diagnósticos ambientales; sin diagnóstico no se sabe qué problema se resuelve ni cómo medir el cambio. Después vienen la pregunta, el objetivo SMART y el plan. ¿Qué incluirías en tu lista de chequeo?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en qué necesitas saber antes de elegir una actividad: ¿cuál es el problema y cómo sabrás si mejoró? Relee la tarjeta sobre el diseño del PRAE.</div>
+  </div>
+</div>
+<div class="eq" id="q3_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">Un grupo de 6.° compara el crecimiento de plantas con y sin compost. ¿Qué condición hace válida la comparación?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,2,0)">
+  <span class="mk">A</span><span>Mantener iguales la especie, el agua, la luz y el recipiente; cambiar solo el compost</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,1)">
+  <span class="mk">B</span><span>Poner las plantas con compost al sol y las otras en la sombra para ver diferencias</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,2)">
+  <span class="mk">C</span><span>Regar más las plantas con compost porque necesitan más agua</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,3)">
+  <span class="mk">D</span><span>Usar especies distintas en cada grupo para tener más variedad de datos</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,2,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Correcto. Para atribuir la diferencia al compost hay que controlar las demás variables: es el núcleo del diseño experimental y del ciclo predigo → observo → explico. ¿Cómo registrarías las mediciones semanales en una tabla?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Si cambias varias cosas a la vez, ¿cómo sabrías cuál produjo el efecto? Revisa la actividad de 6.° a 9.° en la tarjeta de la huerta.</div>
+  </div>
+</div>
+<div class="eq" id="q3_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">Una llave gotea y llena 40 mL en 5 minutos. ¿Cuántos litros se pierden en un día?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,3,0)">
+  <span class="mk">A</span><span>0,96 litros, porque 40 × 24 = 960 mL al día</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,1)">
+  <span class="mk">B</span><span>11,52 litros, porque 8 mL/min × 1440 min = 11 520 mL</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,2)">
+  <span class="mk">C</span><span>115,2 litros, porque 8 × 60 × 24 = 115 200 mL</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,3)">
+  <span class="mk">D</span><span>1,152 litros, porque 40 ÷ 5 × 144 = 1152 mL</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,3,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Muy bien. Caudal: 40 ÷ 5 = 8 mL por minuto; un día tiene 60 × 24 = 1440 minutos; 8 × 1440 = 11 520 mL = 11,52 L. Comprobar unidades evita errores de orden de magnitud. ¿Cuánto sería en un mes y en metros cúbicos?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Calcula primero los mililitros por minuto y luego cuántos minutos tiene un día. Revisa con cuidado la multiplicación y la conversión de mL a L.</div>
+  </div>
+</div>
+<div class="eq" id="q3_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">En la caneca negra de un piso aparecen muchas botellas plásticas limpias. Según la Resolución 2184 de 2019, ¿qué deben aprender los estudiantes?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,4,0)">
+  <span class="mk">A</span><span>Que todas las botellas van en la caneca verde porque son reciclables</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,1)">
+  <span class="mk">B</span><span>Que la caneca negra recibe todo lo que no sea comida</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,2)">
+  <span class="mk">C</span><span>Que da igual la caneca, porque luego se separa en el relleno sanitario</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,3)">
+  <span class="mk">D</span><span>Que los aprovechables limpios van en la blanca y la negra es para no aprovechables</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,4,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Exacto. El código nacional asigna blanco a los aprovechables (plástico, vidrio, metales, papel y cartón limpios), negro a los no aprovechables y verde a los orgánicos aprovechables. Además, antes de reciclar conviene reducir. ¿Cómo enseñarías este código a niños de 1.°?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda qué color corresponde a cada tipo de residuo en el código unificado y qué significa «aprovechable». Relee la tarjeta de residuos.</div>
+  </div>
+</div>
+<div class="eq" id="q3_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">Un grupo de 10.° quiere registrar biodiversidad en el colegio y publicarla en redes. ¿Qué práctica respeta la ética y la Ley 1581 de 2012?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,5,0)">
+  <span class="mk">A</span><span>Publicar fotos de los estudiantes con sus nombres junto a cada especie</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,1)">
+  <span class="mk">B</span><span>Capturar aves para fotografiarlas de cerca y luego soltarlas</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,2)">
+  <span class="mk">C</span><span>Fotografiar plantas y animales sin capturarlos y publicar sin datos personales</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,3)">
+  <span class="mk">D</span><span>Traer plantas exóticas llamativas para que el registro sea más atractivo</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,5,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Correcto. Observar sin capturar protege a los animales, y publicar solo datos de especies, sin fotos ni nombres de estudiantes sin autorización, protege su privacidad. Además, se prefieren especies nativas. ¿Qué especie nativa del valle del río Cauca podrías proponer para el colegio?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en dos cuidados a la vez: el bienestar de los seres vivos y la privacidad de los estudiantes. Relee la tarjeta de biodiversidad local.</div>
+  </div>
+</div>
+<div class="eq" id="q3_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">Un bombillo de 60 W y uno LED de 9 W se usan 4 horas al día durante 30 días. ¿Cuánta energía ahorra el LED en el mes?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,6,0)">
+  <span class="mk">A</span><span>6,12 kWh, porque (60 − 9) × 4 × 30 = 6120 Wh</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,1)">
+  <span class="mk">B</span><span>51 kWh, porque 60 − 9 = 51</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,2)">
+  <span class="mk">C</span><span>0,612 kWh, porque 51 × 4 × 30 = 612 Wh</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,3)">
+  <span class="mk">D</span><span>61,2 kWh, porque 51 × 4 × 30 = 61 200 Wh</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,6,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Muy bien. La diferencia de potencia es 51 W; 51 × 4 h × 30 días = 6120 Wh = 6,12 kWh. Con la tarifa real de la factura se calcula el ahorro en pesos y el tiempo de recuperación de la inversión. ¿Qué supuestos del cálculo cambiarías con datos reales del colegio?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Multiplica la diferencia de potencia por las horas y los días, y recuerda que 1 kWh = 1000 Wh. Revisa el ejemplo resuelto de la tarjeta de STEAM y matemática financiera.</div>
+  </div>
+</div>
+<div class="eq" id="q3_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">El docente de 3.° quiere involucrar a las familias en el proyecto de agua. ¿Qué propuesta es la más adecuada?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,7,0)">
+  <span class="mk">A</span><span>Pedir a cada familia su factura de agua y publicar en el grupo quién consume más</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,1)">
+  <span class="mk">B</span><span>Proponer una búsqueda de fugas en casa y reportar solo si se encontraron o no</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,2)">
+  <span class="mk">C</span><span>Calificar a los estudiantes según el consumo de agua de su hogar</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,3)">
+  <span class="mk">D</span><span>Enviar fotos de las casas de los estudiantes para mostrar buenas prácticas</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,7,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>✅ Exacto. Es una tarea que conecta la escuela con el hogar sin exponer datos privados ni comparar familias; los resultados se presentan agregados. Lawson y colegas (2019) muestran que los estudiantes pueden influir en sus familias, siempre con respeto. ¿Qué pregunta de entrevista familiar podrías añadir?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en qué datos de una familia son privados y qué efecto tendría comparar hogares en público. Revisa la tarjeta sobre familias y la Ley 1581 de 2012.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r3"></div></div></div>
+</div>
+<footer class="footer">
+  <div class="fl">SABI CENTEC MAESTROS</div>
+  <div>Plataforma de Autoformación Docente · Colegio CENTEC · Cali, Colombia</div>
+  <div style="margin-top:6px;opacity:.75">Autor: <strong>Alexander Rojas Zamorano</strong></div>
+  <div style="margin-top:4px;font-style:italic;opacity:.55">"Nadie puede enseñar lo que no sabe"</div>
+</footer>
+<script>
+const S={
+  mods:{},prog:{},
+  init(){
+    try{const d=localStorage.getItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''));if(d)this.prog=JSON.parse(d)}catch(e){}
+    this.repaint();this.unlock();
+  },
+  save(){try{localStorage.setItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''),JSON.stringify(this.prog))}catch(e){}},
+  repaint(){
+    document.querySelectorAll('.sdot').forEach(d=>{
+      const n=+d.dataset.n;
+      d.className='sdot'+(this.prog['m'+n]?.ok?' done':' lock');
+    });
+  },
+  toggle(n){
+    const h=document.getElementById('h'+n),b=document.getElementById('b'+n);
+    if(!b)return;
+    if(h?.dataset.lock==='1'){S.toast('🔒 Completa el módulo anterior con 70%+ para continuar');return;}
+    const op=b.classList.toggle('open');
+    h?.classList.toggle('open',op);
+    h?.querySelector('.mchev') && (h.querySelector('.mchev').textContent=op?'▲':'▽');
+  },
+  pick(mn,qn,i){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    q.querySelectorAll('.opt').forEach((o,j)=>{
+      o.classList.toggle('sel',j===i);
+      o.querySelector('.mk').textContent=j===i?'●':String.fromCharCode(65+j);
+    });
+    const b=q.querySelector('.btncheck');
+    if(b){b.disabled=false;b.dataset.sel=i;}
+  },
+  check(mn,qn,ci){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    const b=q.querySelector('.btncheck');
+    const sel=+(b?.dataset.sel??-1);
+    if(sel<0){S.toast('Selecciona una opción primero');return;}
+    const ok=sel===ci;
+    q.querySelectorAll('.opt').forEach((o,i)=>{
+      if(i===ci)o.classList.add('good');
+      else if(i===sel&&!ok)o.classList.add('bad');
+      o.style.pointerEvents='none';
+    });
+    q.classList.add(ok?'ok':'no');
+    q.dataset.done='1';
+    b.disabled=true;b.textContent=ok?'✓ Correcto':'✗ Incorrecto';
+    q.querySelector('.fb.'+(ok?'ok':'no')).style.display='block';
+    if(!S.mods[mn])S.mods[mn]={ok:0,t:0};
+    S.mods[mn].t++;if(ok)S.mods[mn].ok++;
+    S.progBar(mn);
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    if(done>=tot)setTimeout(()=>S.result(mn),600);
+  },
+  progBar(mn){
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    const pct=Math.round(done/tot*100);
+    const f=document.querySelector('#b'+mn+' .efill');if(f)f.style.width=pct+'%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width=pct+'%';
+    const en=document.querySelector('#b'+mn+' .enum');
+    if(en&&S.mods[mn])en.textContent=Math.round(S.mods[mn].ok/(S.mods[mn].t||1)*100)+'%';
+  },
+  result(mn){
+    const d=S.mods[mn]||{ok:0,t:7};
+    const pct=Math.round(d.ok/d.t*100),pass=pct>=70;
+    const r=document.getElementById('r'+mn);if(!r)return;
+    r.innerHTML=`
+      <div class="rico">${pass?'🏆':'📚'}</div>
+      <div class="rpct">${pct}%</div>
+      <div class="rmsg">${pass
+        ?'<strong style="color:var(--teal)">¡Módulo dominado!</strong><br>Demostraste comprensión real del contenido.'
+        :'Necesitas <strong>70%</strong> para avanzar.<br>Revisa el contenido y vuelve a intentar.'}</div>
+      <div class="rrow">
+        <div class="rstat"><strong>${d.ok}</strong>Correctas</div>
+        <div class="rstat"><strong>${d.t-d.ok}</strong>A reforzar</div>
+        <div class="rstat"><strong>${pct}%</strong>Logro</div>
+      </div>
+      ${pass
+        ?`<button class="btnnx" onclick="S.next(${mn})">Siguiente módulo →</button>`
+        :`<button class="btnrt" onclick="S.retry(${mn})">🔄 Intentar de nuevo</button>`}`;
+    r.classList.add('show');
+    if(pass){
+      S.prog['m'+mn]={ok:true,pct};S.save();S.repaint();
+      S.toast(pct===100?'🌟 ¡Perfecto! 100% de logro':`✅ Módulo ${mn} — ${pct}% logrado`);
+    }
+  },
+  next(mn){
+    const nh=document.getElementById('h'+(mn+1));
+    if(nh){nh.dataset.lock='0';nh.querySelector('.mlock')?.remove();}
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.toggle(mn+1);
+    document.getElementById('h'+(mn+1))?.scrollIntoView({behavior:'smooth',block:'center'});
+  },
+  retry(mn){
+    const b=document.getElementById('b'+mn);if(!b)return;
+    b.querySelectorAll('.eq').forEach(q=>{
+      delete q.dataset.done;
+      q.classList.remove('ok','no');
+      q.querySelectorAll('.opt').forEach((o,i)=>{
+        o.classList.remove('sel','good','bad');
+        o.style.pointerEvents='';
+        o.querySelector('.mk').textContent=String.fromCharCode(65+i);
+      });
+      b.querySelectorAll('.fb').forEach(f=>f.style.display='none');
+      const bc=q.querySelector('.btncheck');
+      if(bc){bc.disabled=true;bc.textContent='Verificar respuesta';delete bc.dataset.sel;}
+    });
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.mods[mn]={ok:0,t:0};
+    const f=b.querySelector('.efill');if(f)f.style.width='0%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width='0%';
+  },
+  unlock(){
+    document.querySelectorAll('[data-lock]').forEach(h=>{
+      const n=+h.id.replace('h','');
+      if(n<=1){h.dataset.lock='0';return;}
+      if(S.prog['m'+(n-1)]?.ok)h.dataset.lock='0';
+    });
+  },
+  toast(msg){
+    let t=document.querySelector('.toast');
+    if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t);}
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3200);
+  }
+};
+document.addEventListener('DOMContentLoaded',()=>S.init());
+</script>
+<script src="sabi_dots.js" defer></script>
+<script src="https://superacion.sabicentec.com/sabi-puerta.js" data-rol="docente" data-texto="SABI para docentes" defer></script>
+</body>
+</html>

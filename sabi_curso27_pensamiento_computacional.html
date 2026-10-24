@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="https://sabicentec.com/assets/sabi-sesion.js" data-app="capacitacion"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SABI C27: Pensamiento computacional — CENTEC Cali</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+
+:root{
+  --navy:#0B1E3D; --gold:#D4A843; --teal:#1D9E75; --coral:#D85A30;
+  --purple:#7F77DD; --blue:#1B7FA6; --sage:#2E7D5A; --cream:#FAF8F3;
+  --fh:'Crimson Pro',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --r:10px; --rl:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fb);background:var(--cream);color:var(--navy);
+  line-height:1.6;font-size:16px;min-height:100vh}
+
+/* NAV */
+.nav{
+  background:var(--navy);padding:12px 28px;
+  display:flex;align-items:center;gap:16px;
+  position:sticky;top:0;z-index:200;
+  border-bottom:2px solid var(--gold);
+}
+.nav-brand{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--gold)}
+.nav-tag{font-size:11px;color:rgba(212,168,67,.6);letter-spacing:1.5px;
+  text-transform:uppercase;font-weight:300}
+.nav-pill{margin-left:auto;background:rgba(212,168,67,.12);
+  border:1px solid rgba(212,168,67,.3);color:var(--gold);
+  padding:4px 14px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* HERO (algorithmic-art: textura geométrica animada) */
+.hero{
+  background:var(--navy);padding:52px 32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(212,168,67,.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(29,158,117,.08) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4A843' fill-opacity='0.03'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{position:relative;max-width:780px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-block;background:rgba(212,168,67,.15);
+  border:1px solid rgba(212,168,67,.35);color:var(--gold);
+  padding:5px 18px;border-radius:20px;font-size:11px;
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:var(--fh);font-size:clamp(26px,4vw,42px);
+  font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px;
+}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.7);font-size:15px;
+  max-width:560px;margin:0 auto 24px;line-height:1.75}
+.hero-stats{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.hstat{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  padding:10px 20px;border-radius:28px;
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;color:#fff;
+}
+.hstat strong{color:var(--gold)}
+
+/* WRAP */
+.wrap{max-width:840px;margin:0 auto;padding:28px 20px}
+
+/* INFO BAR */
+.info-bar{
+  background:#fff;border:1px solid rgba(11,30,61,.07);
+  border-radius:var(--rl);padding:14px 20px;
+  display:flex;align-items:center;gap:20px;
+  font-size:13px;color:#64748b;margin-bottom:24px;
+  box-shadow:0 2px 12px rgba(11,30,61,.06);
+}
+.info-bar span strong{color:var(--navy)}
+.info-bar span:last-child{margin-left:auto;font-style:italic;color:#94a3b8}
+
+/* TARJETA MÓDULO */
+.mod{
+  background:#fff;border-radius:var(--rl);
+  border:1px solid rgba(11,30,61,.07);
+  box-shadow:0 3px 16px rgba(11,30,61,.08);
+  margin-bottom:24px;overflow:hidden;
+  transition:box-shadow .25s var(--ease),transform .25s var(--ease);
+}
+.mod:hover{
+  box-shadow:0 6px 28px rgba(11,30,61,.13);
+  transform:translateY(-2px);
+}
+
+/* HEADER MÓDULO */
+.mhdr{
+  display:flex;align-items:center;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.mhdr .mnum{
+  background:var(--ac,var(--teal));
+  color:#fff;font-family:var(--fh);
+  font-size:26px;font-weight:700;
+  width:68px;min-height:80px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.mhdr .minfo{padding:16px 20px;flex:1}
+.mhdr .mtitle{
+  font-family:var(--fh);font-size:18px;
+  font-weight:700;color:var(--navy);margin-bottom:3px;
+}
+.mhdr .msub{font-size:12px;color:#64748b;margin-bottom:6px}
+.mhdr .mmeta{display:flex;gap:10px;align-items:center}
+.mhdr .mdur{
+  background:rgba(11,30,61,.06);color:var(--navy);
+  padding:2px 10px;border-radius:6px;font-size:11px;font-weight:500;
+}
+.mhdr .mlock{font-size:11px;color:#94a3b8;display:flex;align-items:center;gap:4px}
+.mhdr .mchev{
+  margin-right:18px;font-size:18px;color:#94a3b8;
+  transition:transform .3s var(--ease);flex-shrink:0;
+}
+.mhdr.open .mchev{transform:rotate(180deg)}
+/* barra de progreso micro */
+.mpbar{position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:rgba(11,30,61,.05)}
+.mpfill{height:100%;width:0%;background:var(--ac,var(--teal));
+  transition:width .7s var(--ease)}
+
+/* CUERPO MÓDULO */
+.mbody{display:none;animation:sdown .3s var(--ease)}
+.mbody.open{display:block}
+@keyframes sdown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+/* CAJA INTRO (Ag3 Emocional: engancha con dato + pregunta) */
+.intro{
+  margin:22px 26px;padding:18px 22px;
+  border-radius:var(--r);
+  border-left:4px solid var(--ac,var(--teal));
+  background:linear-gradient(135deg,rgba(29,158,117,.06),rgba(29,158,117,.02));
+  font-size:14px;line-height:1.8;color:#334155;
+}
+.intro strong{color:var(--navy)}
+
+/* CARDS DE CONTENIDO (frontend-design + learn: andamiaje visual) */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;padding:0 26px 22px;
+}
+.card{
+  border-radius:var(--r);border:1px solid rgba(11,30,61,.08);
+  overflow:hidden;background:#fff;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(11,30,61,.1)}
+.card-hd{
+  padding:12px 16px;
+  background:var(--ca,var(--teal));
+  display:flex;align-items:center;gap:10px;
+}
+.card-ico{
+  width:30px;height:30px;background:rgba(255,255,255,.2);
+  border-radius:7px;display:flex;align-items:center;
+  justify-content:center;font-size:15px;flex-shrink:0;
+}
+.card-title{
+  font-family:var(--fh);font-size:14px;font-weight:700;
+  color:#fff;line-height:1.25;
+}
+.card-bd{padding:13px 16px;font-size:13px;line-height:1.75;color:#374151}
+.card-bd strong{color:var(--navy)}
+.card-reflect{
+  margin-top:10px;padding:9px 13px;
+  background:rgba(11,30,61,.04);border-radius:7px;
+  font-size:12px;color:#475569;font-style:italic;
+  border-left:3px solid var(--ca,var(--teal));
+}
+
+/* ZONA EXAMEN */
+.zona{padding:0 26px 26px}
+.ehdr{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 20px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--navy),#1e3a6e);
+  color:#fff;margin-bottom:18px;
+}
+.ehdr .eico{font-size:22px}
+.ehdr .etit{font-family:var(--fh);font-size:16px;font-weight:700;margin-bottom:2px}
+.ehdr .esub{font-size:11px;opacity:.7}
+.ehdr .epct{margin-left:auto;text-align:right}
+.ehdr .enum{font-size:20px;font-weight:700;color:var(--gold)}
+.ehdr .elbl{font-size:10px;opacity:.65}
+
+/* BARRA PROGRESO EXAMEN */
+.ebar{height:5px;background:rgba(11,30,61,.08);border-radius:3px;
+  margin-bottom:18px;overflow:hidden}
+.efill{height:100%;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  border-radius:3px;width:0%;transition:width .5s var(--ease)}
+
+/* PREGUNTA */
+.eq{
+  background:#fff;border-radius:var(--r);
+  border:1px solid rgba(11,30,61,.08);
+  padding:20px 22px;margin-bottom:14px;
+  transition:border-color .25s,box-shadow .25s;
+}
+.eq.ok{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,158,117,.12)}
+.eq.no{border-color:var(--coral);box-shadow:0 0 0 2px rgba(216,90,48,.1)}
+.eq .qhdr{display:flex;gap:10px;margin-bottom:14px;align-items:flex-start}
+.eq .qn{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.eq .qtx{font-size:14.5px;line-height:1.65;color:var(--navy);font-weight:500}
+
+/* OPCIONES */
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:11px 15px;border-radius:var(--r);
+  border:1.5px solid rgba(11,30,61,.09);
+  cursor:pointer;background:#fff;
+  font-size:13.5px;color:#374151;
+  text-align:left;width:100%;
+  transition:all .2s var(--ease);
+}
+.opt:hover{border-color:var(--navy);background:rgba(11,30,61,.025)}
+.opt .mk{
+  width:21px;height:21px;border-radius:50%;
+  border:2px solid #cbd5e1;color:#94a3b8;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0;
+  transition:all .2s;margin-top:1px;
+}
+.opt.sel .mk{border-color:var(--navy);background:var(--navy);color:#fff}
+.opt.good{border-color:var(--teal);background:rgba(29,158,117,.06)}
+.opt.good .mk{border-color:var(--teal);background:var(--teal);color:#fff}
+.opt.bad{border-color:var(--coral);background:rgba(216,90,48,.05)}
+.opt.bad .mk{border-color:var(--coral);background:var(--coral);color:#fff}
+
+/* BOTÓN VERIFICAR */
+.btncheck{
+  display:block;width:100%;margin-top:14px;
+  padding:13px;border:none;border-radius:var(--r);
+  background:var(--navy);color:var(--gold);
+  font-family:var(--fb);font-size:13.5px;font-weight:600;
+  letter-spacing:.4px;cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.btncheck:hover{background:#1a3a6e;transform:translateY(-1px)}
+.btncheck:disabled{background:#94a3b8;color:#fff;cursor:not-allowed;transform:none}
+
+/* FEEDBACK (learn skill: feedback formativo profundo) */
+.fb{
+  display:none;margin-top:12px;padding:15px 18px;
+  border-radius:var(--r);font-size:13px;line-height:1.8;
+}
+.fb.ok{
+  background:linear-gradient(135deg,rgba(29,158,117,.09),rgba(29,158,117,.04));
+  border-left:4px solid var(--teal);color:#14532d;
+}
+.fb.no{
+  background:linear-gradient(135deg,rgba(216,90,48,.08),rgba(216,90,48,.03));
+  border-left:4px solid var(--coral);color:#7c2d12;
+}
+.fb .fbt{font-weight:700;margin-bottom:6px;font-size:13.5px}
+.fb .fbr{
+  margin-top:9px;padding:9px 13px;
+  background:rgba(0,0,0,.04);border-radius:7px;
+  font-style:italic;font-size:12px;
+}
+
+/* RESULTADO MÓDULO */
+.rmod{text-align:center;padding:30px 22px;display:none}
+.rmod.show{display:block;animation:rin .45s var(--ease)}
+@keyframes rin{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.rmod .rico{font-size:52px;margin-bottom:14px}
+.rmod .rpct{
+  font-family:var(--fh);font-size:44px;font-weight:700;
+  color:var(--teal);margin-bottom:8px;
+}
+.rmod .rmsg{font-size:15px;color:#374151;margin-bottom:18px}
+.rmod .rrow{display:flex;justify-content:center;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.rmod .rstat{
+  background:rgba(11,30,61,.05);padding:10px 18px;
+  border-radius:var(--r);font-size:12px;color:#64748b;
+}
+.rmod .rstat strong{display:block;font-size:18px;color:var(--navy);font-weight:700}
+.btnnx{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--teal),var(--sage));
+  color:#fff;padding:13px 30px;border-radius:28px;border:none;
+  font-size:14px;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 16px rgba(29,158,117,.28);
+  transition:all .25s var(--ease);
+}
+.btnnx:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(29,158,117,.38)}
+.btnrt{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(11,30,61,.07);color:var(--navy);
+  padding:11px 24px;border-radius:28px;border:none;
+  font-size:13px;cursor:pointer;margin-left:10px;
+  transition:all .25s;
+}
+.btnrt:hover{background:rgba(11,30,61,.12)}
+
+/* PANEL LATERAL PROGRESO */
+.sidebar{
+  position:fixed;right:18px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:7px;z-index:100;
+}
+.sdot{
+  width:9px;height:9px;border-radius:50%;
+  border:2px solid rgba(11,30,61,.18);cursor:pointer;
+  transition:all .3s;title:'';
+}
+.sdot.done{background:var(--teal);border-color:var(--teal)}
+.sdot.cur{background:var(--gold);border-color:var(--gold);transform:scale(1.5)}
+.sdot.lock{background:rgba(11,30,61,.08)}
+
+/* TOAST */
+.toast{
+  position:fixed;top:18px;left:50%;
+  transform:translateX(-50%) translateY(-120px);
+  background:var(--navy);color:#fff;
+  padding:12px 26px;border-radius:30px;
+  font-size:13.5px;font-weight:500;
+  border:1px solid rgba(212,168,67,.3);
+  box-shadow:0 8px 28px rgba(11,30,61,.25);
+  z-index:999;transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* FOOTER */
+.footer{
+  background:var(--navy);color:rgba(255,255,255,.55);
+  text-align:center;padding:36px 20px;margin-top:40px;
+  font-size:12.5px;border-top:1px solid rgba(212,168,67,.2);
+}
+.footer .fl{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.footer strong{color:var(--gold)}
+
+/* BLOOM BADGES */
+.bloom{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:2px 9px;border-radius:10px;
+  font-size:10px;font-weight:700;letter-spacing:.4px;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.b1{background:#eff6ff;color:#1d4ed8}
+.b2{background:#f0fdf4;color:#166534}
+.b3{background:#fefce8;color:#854d0e}
+.b4{background:#fff7ed;color:#9a3412}
+.b5{background:#fdf4ff;color:#7e22ce}
+.b6{background:#f5f3ff;color:#5b21b6}
+
+@media(max-width:600px){
+  .wrap{padding:16px 12px}
+  .cards{grid-template-columns:1fr;padding:0 14px 16px}
+  .sidebar{display:none}
+  .hero{padding:32px 16px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div>
+    <div class="nav-brand">🔭 SABI CENTEC</div>
+    <div class="nav-tag">Autoformación Docente de Excelencia</div>
+  </div>
+  <div class="nav-pill">Curso 27 · Pensamiento computacional</div>
+</nav>
+
+<div class="sidebar"><div class="sdot lock" data-n="1" title="Módulo 1" onclick="S.toggle(1)"></div>
+<div class="sdot lock" data-n="2" title="Módulo 2" onclick="S.toggle(2)"></div>
+<div class="sdot lock" data-n="3" title="Módulo 3" onclick="S.toggle(3)"></div></div>
+<div class="toast"></div>
+<div class="wrap">
+  <div class="info-bar">
+    <span>📚 <strong>3 módulos</strong></span>
+    <span>❓ <strong>21 preguntas</strong></span>
+    <span>🏆 <strong>Mínimo 70% por módulo</strong></span>
+    <span>Contenido en revisión · Filosofía SABI — que verdaderamente aprendan</span>
+  </div>
+  
+
+<div class="mod" id="mod1" style="--ac:#1D9E75">
+  <div class="mhdr" id="h1" data-lock="0" onclick="S.toggle(1)" style="--ac:#1D9E75">
+    <div class="mnum" style="background:#1D9E75">1</div>
+    <div class="minfo">
+      <div class="mtitle">Qué es el pensamiento computacional y cómo enseñarlo sin pantallas</div>
+      <div class="msub">Wing 2006 · Descomposición · Patrones · Abstracción · Algoritmos · Depuración · Actividades desconectadas</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 1-2</span>
+        
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b1"><div class="intro">Pensamiento computacional no es «pensar como una computadora» ni aprender a usar programas de oficina: es una forma de plantear y resolver problemas que se puede enseñar en cualquier área, incluso sin pantallas. En este módulo conocerás su origen, sus componentes (descomposición, patrones, abstracción, algoritmos y depuración) y actividades desconectadas listas para usar de Transición a 11.°. <strong>Contenido en revisión.</strong></div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">💡</div>
+    <div class="card-title">¿Qué es el pensamiento computacional?</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: es la manera de pensar que usamos cuando organizamos un problema para que una persona o una máquina pueda resolverlo paso a paso.<br><br>Fundamento: Jeannette Wing (2006, Communications of the ACM) planteó que el pensamiento computacional es una habilidad fundamental para todas las personas, no solo para los informáticos: resolver problemas, diseñar sistemas y comprender el comportamiento humano apoyándose en conceptos de la informática. Más tarde, Wing (2011) lo describió como los procesos de pensamiento para formular problemas y sus soluciones de modo que una persona o una máquina puedan ejecutarlas con eficacia (citado por Grover y Pea, 2013). Aclaró que no se trata de pensar como una computadora: las máquinas ejecutan; las personas imaginan, deciden y crean. Grover y Pea (2013, Educational Researcher) revisaron el campo y señalaron que aún no hay una definición única, aunque hay acuerdo en elementos como la abstracción, el pensamiento algorítmico, la descomposición y la depuración. Shute, Sun y Asbell-Clarke (2017) llegaron a una conclusión parecida.<br><br>Ejemplo (ficticio): la profe Marcela, de 4.°, pide planear la salida a la biblioteca del barrio: qué llevar, en qué orden salir y qué hacer si llueve. Sin computador, sus estudiantes ya están descomponiendo, ordenando y previendo condiciones.<br><br>Error frecuente: confundirlo con la clase de sistemas o con manejar ofimática.<br><br>Aplicación: identifica un problema de tu área que tus estudiantes resuelvan por pasos y nómbralo así frente a ellos.</div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🧩</div>
+    <div class="card-title">Descomposición: dividir para resolver</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: un problema grande asusta; dividido en partes pequeñas, se vuelve manejable. Descomponer es partir un problema en subproblemas que se pueden resolver, probar y luego unir.<br><br>Fundamento: la descomposición aparece en los marcos revisados por Grover y Pea (2013) y en el informe del Centro Común de Investigación de la Comisión Europea (Bocconi y colegas, 2016). También es una práctica de la escritura, la ingeniería y la investigación: un ensayo se divide en párrafos y un experimento en etapas.<br><br>Ejemplo resuelto (ficticio): en 3.°, el profe Hernán propone organizar la venta de empanadas para la feria escolar. Paso 1: el grupo escribe la meta («recoger fondos para la salida»). Paso 2: la divide en partes: ingredientes, precio, turnos, publicidad y cuentas. Paso 3: cada equipo toma una parte y la vuelve a dividir si sigue siendo grande. Paso 4: los equipos comprueban que su parte encaje con las demás; por ejemplo, que el precio cubra el costo de los ingredientes. Así se trabaja también dinero y cambio.<br><br>Error frecuente: dividir en partes que dependen tanto entre sí que nadie puede avanzar solo.<br><br>Aplicación: pide a tu grupo que descomponga la próxima tarea larga antes de empezarla y que la escriba como lista de subproblemas.</div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🔁</div>
+    <div class="card-title">Patrones y generalización: no resolver dos veces lo mismo</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: cuando reconocemos que algo se repite, no tenemos que resolverlo desde cero cada vez. Reconocer patrones permite generalizar: crear una regla que sirve para muchos casos.<br><br>Fundamento: el reconocimiento de patrones y la generalización están entre los componentes del pensamiento computacional que recoge el informe del JRC (Bocconi y colegas, 2016). En programación, un patrón repetido se convierte en un bucle (repetir) o en un procedimiento reutilizable. En matemáticas se conecta con series y patrones; en lenguaje, con rimas y estructuras de texto; en ciencias, con ciclos como el del agua.<br><br>Ejemplo resuelto (ficticio): en 5.°, la profe Diana muestra la serie 3, 7, 11, 15. Paso 1: los estudiantes calculan las diferencias (4, 4, 4). Paso 2: describen la regla con palabras: «se suma 4». Paso 3: la generalizan: el término que ocupa el lugar n es 4 × n − 1. Paso 4: la comprueban con el cuarto término: 4 × 4 − 1 = 15. Paso 5: la usan para predecir el término 10 (39) sin escribir toda la serie.<br><br>Error frecuente: «ver» un patrón con dos datos y no comprobarlo con más casos.<br><br>Aplicación: incluye en tu próxima clase la pregunta «¿qué se repite aquí y cómo lo diríamos como regla?».</div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🎯</div>
+    <div class="card-title">Abstracción: quedarse con lo esencial</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: abstraer es quedarse con lo esencial para un propósito y dejar de lado los detalles que no importan. Un mapa de rutas del transporte público no muestra cada árbol ni cada casa: muestra paradas y conexiones, porque eso es lo que necesita el pasajero.<br><br>Fundamento: Wing (2006) subrayó que pensar computacionalmente exige pensar en varios niveles de abstracción, y Grover y Pea (2013) la incluyen entre los elementos ampliamente aceptados en los marcos que revisaron. Abstraer exige decidir qué información es relevante, y esa decisión depende del problema: para calcular el área de la cancha importan las medidas, no el color de las líneas.<br><br>Ejemplo (ficticio): en 7.°, el profe Julián pide modelar el camino de cada estudiante desde la casa hasta el colegio. Unos dibujan cada tienda; otros, solo cruces, tiempos y distancias. El grupo discute qué versión sirve para estimar quién llega primero y por qué.<br><br>Error frecuente: confundir abstracción con «resumen vago». Una buena abstracción es precisa: elimina detalles, pero conserva los datos que sí afectan la solución.<br><br>Aplicación: antes de un problema verbal, pide a los estudiantes que tachen los datos que no se necesitan y expliquen por qué los descartaron.</div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">📋</div>
+    <div class="card-title">Algoritmos: instrucciones precisas y ordenadas</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: un algoritmo es una secuencia finita de instrucciones precisas y ordenadas que resuelve un problema. Una receta, las indicaciones para llegar a un lugar o el procedimiento de la división son algoritmos.<br><br>Fundamento: el pensamiento algorítmico aparece en los marcos que revisaron Grover y Pea (2013). Para que una máquina lo ejecute, el algoritmo debe ser inequívoco: la máquina no «entiende lo que quisiste decir». Por eso escribir algoritmos entrena la precisión del lenguaje.<br><br>Ejemplo resuelto (ficticio), actividad «el robot literal»: en 2.°, la profe Luz se convierte en robot y solo obedece instrucciones exactas para guardar un cuaderno en la maleta. Paso 1: un niño dice «guarda el cuaderno» y Luz no se mueve: «¿cuál cuaderno?, ¿dónde está?». Paso 2: el grupo reescribe: «camina tres pasos hacia la mesa», «toma el cuaderno azul», «abre la maleta». Paso 3: Luz ejecuta y, si algo falla, el grupo corrige la instrucción en lugar de culpar al robot. Paso 4: comparan la versión final con la inicial y nombran qué la hizo precisa: orden, cantidades y objetos concretos.<br><br>Error frecuente: saltarse un paso porque a nosotros nos parece obvio.<br><br>Aplicación: pide a tus estudiantes escribir el algoritmo de un procedimiento de tu área y que otro grupo lo ejecute al pie de la letra.</div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🐞</div>
+    <div class="card-title">Depuración: el error como información</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: depurar es encontrar y corregir errores en un algoritmo o programa. En computación el error no es una vergüenza: es lo normal, y el trabajo consiste en hallarlo con método. Es la pedagogía del error en acción: «El error no nos detiene: nos enseña, nos fortalece y nos hace crecer».<br><br>Fundamento: la revisión de McCauley y colegas (2008, Computer Science Education) muestra que depurar es una habilidad distinta de escribir código y que los novatos suelen hacerlo al azar, cambiando cosas sin una hipótesis. Quienes tienen experiencia comparan lo que debía pasar con lo que pasó y formulan hipótesis sobre la diferencia. Esa habilidad puede enseñarse de forma explícita.<br><br>Rutina de cinco pasos para el aula: 1) ¿Qué debía pasar? 2) ¿Qué pasó en realidad? 3) ¿Dónde empieza la diferencia? 4) Cambio una sola cosa y vuelvo a probar. 5) Explico qué aprendí del error.<br><br>Ejemplo (ficticio): en 6.°, Valentina sigue su algoritmo para dibujar un cuadrado en la cuadrícula y le sale una «L». Al revisar paso a paso descubre que repitió «avanza y gira» dos veces, no cuatro.<br><br>Error frecuente: corregir el error del estudiante en lugar de enseñarle a encontrarlo.<br><br>Aplicación: usa la rutina con un ejercicio mal resuelto de tu propia área.</div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">✂️</div>
+    <div class="card-title">Actividades desconectadas: pensar sin computador</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: se puede aprender pensamiento computacional con papel, tarjetas, cuerdas y el propio cuerpo. Esto es valioso en aulas con pocos equipos y en Transición y primeros grados.<br><br>Fundamento: el proyecto CS Unplugged, creado en Nueva Zelanda por Tim Bell, Ian Witten y Mike Fellows, reúne actividades gratuitas de este tipo. La revisión de Bell y Vahrenhold (2018) describe cómo se ha usado (divulgación, formación docente y currículos escolares), revisa sus evaluaciones formales y advierte que todavía hay relativamente poca evaluación sistemática de su eficacia: es una puerta de entrada útil, no una garantía. Recomendación del curso: conectar después cada actividad con la programación para que no quede como un juego aislado.<br><br>Actividades listas: 1) Números binarios con cinco tarjetas de puntos (16, 8, 4, 2, 1) boca arriba o boca abajo. 2) Imagen por píxeles: colorear una cuadrícula siguiendo un código por filas. 3) Ordenar al grupo por estatura comparando solo de dos en dos. 4) Laberinto en el piso con flechas de cartulina para Transición. 5) El robot literal.<br><br>Ejemplo resuelto: con las tarjetas 16, 8, 4, 2 y 1, el número 13 es 8 + 4 + 1; se escribe 01101 (cero para la tarjeta boca abajo).<br><br>Error frecuente: quedarse en lo lúdico sin nombrar el concepto.<br><br>Aplicación: elige una actividad y ciérrala con la pregunta «¿qué haría una computadora aquí?».</div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q1_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">En reunión de área, un colega afirma que el pensamiento computacional «es enseñar a usar Word y Excel». ¿Qué respuesta tiene mayor respaldo?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,1,0)">
+  <span class="mk">A</span><span>Tiene razón: se trata de dominar los programas de oficina más usados</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,1)">
+  <span class="mk">B</span><span>Es formular problemas y soluciones para que puedan ejecutarse paso a paso</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,2)">
+  <span class="mk">C</span><span>Es aprender a pensar exactamente de la misma forma que una computadora</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,3)">
+  <span class="mk">D</span><span>Es una habilidad que solo necesitan quienes estudiarán ingeniería de sistemas</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Wing (2006) lo planteó como una habilidad para todas las personas y, en una formulación posterior (Wing, 2011), como formular problemas y soluciones de modo que una persona o una máquina pueda ejecutarlas con eficacia. No es ofimática ni pensar como una máquina, porque las personas imaginan y deciden. ¿Qué problema de tu área podrías presentar así esta semana?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Vuelve a la primera tarjeta: ¿qué dijo Wing sobre quiénes necesitan esta habilidad y sobre la diferencia entre pensar y ejecutar? Piensa si manejar un programa de oficina implica formular un problema.</div>
+  </div>
+</div>
+<div class="eq" id="q1_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">En 3.°, el grupo debe organizar la feria de la ciencia y está bloqueado porque «es demasiado». ¿Qué acción aplica mejor la descomposición?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,2,0)">
+  <span class="mk">A</span><span>Asignar toda la organización a los estudiantes más ordenados del grupo</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,1)">
+  <span class="mk">B</span><span>Esperar a que el docente entregue el plan completo ya resuelto</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,2)">
+  <span class="mk">C</span><span>Dividir la meta en partes y asignar cada parte a un equipo distinto</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,3)">
+  <span class="mk">D</span><span>Empezar por lo más divertido y dejar lo demás para el final</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,2,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. Descomponer convierte un problema abrumador en subproblemas manejables que se pueden resolver, probar y luego unir. Además, cada equipo puede avanzar en paralelo y después comprobar que su parte encaje con las demás. ¿Qué tarea larga de tu área podrías descomponer con tu grupo?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Pregúntate cuál de las opciones convierte el problema grande en partes más pequeñas que los estudiantes mismos resuelven. Relee el ejemplo de la venta de empanadas en la tarjeta de descomposición.</div>
+  </div>
+</div>
+<div class="eq" id="q1_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">En 5.°, un estudiante observa la serie 3, 7, 11 y dice «se suma 4». ¿Cuál es el siguiente paso más útil para desarrollar su pensamiento computacional?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,3,0)">
+  <span class="mk">A</span><span>Pedirle que compruebe la regla con más términos y la exprese en general</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,1)">
+  <span class="mk">B</span><span>Darle la fórmula general para que la copie en el cuaderno</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,2)">
+  <span class="mk">C</span><span>Pasar a otro tema, porque ya encontró el patrón de la serie</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,3)">
+  <span class="mk">D</span><span>Pedirle que memorice los primeros veinte términos de la serie</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,3,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Reconocer el patrón es el inicio; comprobarlo con más casos y generalizarlo (por ejemplo, 4 × n − 1) es lo que permite predecir sin rehacer todo, igual que un bucle en programación. Así el estudiante construye la regla en lugar de recibirla. ¿En qué tema de tu área aparece una regularidad que tus estudiantes podrían generalizar?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa qué diferencia hay entre notar una regularidad y convertirla en una regla que sirve para cualquier caso. Revisa los pasos 3 a 5 del ejemplo de la profe Diana.</div>
+  </div>
+</div>
+<div class="eq" id="q1_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">Un problema dice: «Camila, de 11 años y con camiseta roja, compra 3 cuadernos de $4.500 en la papelería del barrio. ¿Cuánto paga?». ¿Qué muestra una buena abstracción?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,4,0)">
+  <span class="mk">A</span><span>Usar todos los datos del enunciado, porque el problema los incluye</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,1)">
+  <span class="mk">B</span><span>Ignorar los números y estimar el resultado aproximado a ojo</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,2)">
+  <span class="mk">C</span><span>Dibujar primero la papelería con todos sus detalles y colores</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,3)">
+  <span class="mk">D</span><span>Quedarse con la cantidad y el precio, y descartar la edad y el color</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,4,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Así es. Abstraer es conservar lo que afecta la solución (3 cuadernos y $4.500 cada uno, es decir, $13.500) y descartar lo que no (edad, color de la camiseta). No es un resumen vago: es una selección precisa según el propósito. ¿Cómo podrías entrenar esta habilidad con los problemas de tu área?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Pregúntate qué datos cambian el resultado y cuáles no. Relee la tarjeta de abstracción: una buena abstracción elimina detalles, pero no cualquier dato.</div>
+  </div>
+</div>
+<div class="eq" id="q1_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">En el juego del robot literal, el «robot» no se mueve cuando un estudiante le dice «guarda el cuaderno». ¿Qué conviene hacer?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,5,0)">
+  <span class="mk">A</span><span>Repetir la misma instrucción más fuerte y más despacio</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,1)">
+  <span class="mk">B</span><span>Reescribir la instrucción con pasos, orden y objetos precisos</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,2)">
+  <span class="mk">C</span><span>Concluir que la actividad no funciona en ese grado</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,3)">
+  <span class="mk">D</span><span>Pedir al robot que adivine lo que quisimos decir</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,5,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Un algoritmo debe ser inequívoco: la máquina no interpreta intenciones. Reescribir con pasos, cantidades y objetos concretos entrena la precisión del lenguaje y muestra que el error está en la instrucción, no en quien la ejecuta. ¿Qué procedimiento de tu área podrías convertir en un algoritmo para que otros lo sigan?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda qué hace que una instrucción sea ejecutable por una máquina. ¿Cambia algo repetir la orden con otro tono? Revisa los pasos del ejemplo de la profe Luz.</div>
+  </div>
+</div>
+<div class="eq" id="q1_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">El algoritmo de Valentina dibuja una «L» en lugar de un cuadrado. ¿Qué intervención aplica la depuración como pedagogía del error?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,6,0)">
+  <span class="mk">A</span><span>Corregirle el algoritmo de inmediato para que no se frustre</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,1)">
+  <span class="mk">B</span><span>Pedirle que borre todo y empiece de nuevo con más cuidado</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,2)">
+  <span class="mk">C</span><span>Preguntarle qué debía pasar, qué pasó y dónde empieza la diferencia</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,3)">
+  <span class="mk">D</span><span>Calificar el intento con nota baja para que tenga más atención</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,6,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. La rutina de depuración convierte el error en información: comparar lo esperado con lo obtenido y ubicar dónde empieza la diferencia. McCauley y colegas (2008) muestran que esta habilidad se puede enseñar de forma explícita. Si el docente corrige por el estudiante, este pierde la oportunidad de aprender a encontrar errores. ¿Dónde podrías usar esta rutina mañana?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en quién aprende a encontrar errores en cada opción. Relee los cinco pasos de la rutina de depuración y la frase de la pedagogía del error.</div>
+  </div>
+</div>
+<div class="eq" id="q1_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">La evidencia sobre las actividades desconectadas todavía es limitada. ¿Cómo conviene usarlas en el aula, según lo visto en el módulo?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,7,0)">
+  <span class="mk">A</span><span>Para introducir ideas y luego conectarlas con la programación</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,1)">
+  <span class="mk">B</span><span>Como reemplazo definitivo de cualquier forma de programar</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,2)">
+  <span class="mk">C</span><span>Solo como premio cuando el grupo termina antes de tiempo</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,3)">
+  <span class="mk">D</span><span>Únicamente en grados superiores con conocimientos previos</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,7,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Las actividades desconectadas son una buena puerta de entrada, sobre todo con pocos equipos o con niños pequeños, pero su valor crece cuando se nombra el concepto y se conecta después con la programación. La revisión de Bell y Vahrenhold (2018) señala que su eficacia se ha evaluado poco de forma sistemática; por eso conviene usarlas con intención. ¿Cuál de las cinco actividades probarías primero?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda para qué grados y situaciones se recomiendan estas actividades y qué se sugirió hacer después de ellas. Relee la última tarjeta del módulo.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r1"></div></div></div>
+
+<div class="mod" id="mod2" style="--ac:#1B7FA6">
+  <div class="mhdr" id="h2" data-lock="1" onclick="S.toggle(2)" style="--ac:#1B7FA6">
+    <div class="mnum" style="background:#1B7FA6">2</div>
+    <div class="minfo">
+      <div class="mtitle">Programar para aprender: de ScratchJr a Python</div>
+      <div class="msub">Scratch y ScratchJr · Brennan y Resnick 2012 · Progresión por grados · micro:bit y MakeCode · PRIMM · Depurar</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 3-4</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b2"><div class="intro">Programar es la forma más directa de poner a prueba un algoritmo: la máquina hace exactamente lo que dice el código, ni más ni menos. Con herramientas gratuitas como ScratchJr, Scratch y MakeCode para micro:bit, los estudiantes crean historias, juegos y mediciones. Verás una progresión por grados, ejemplos resueltos con código real y rutinas para enseñar a depurar.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🧱</div>
+    <div class="card-title">Programación por bloques: Scratch y ScratchJr</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: en la programación por bloques, las instrucciones son piezas que encajan como un rompecabezas. No hay que memorizar comandos ni preocuparse por comas: el estudiante se concentra en la lógica.<br><br>Fundamento: Scratch fue creado por el grupo Lifelong Kindergarten del MIT Media Lab y se lanzó en 2007. Resnick y colegas (2009, Communications of the ACM) describen su diseño con «piso bajo» (es fácil empezar), «techo alto» (permite proyectos complejos) y «paredes anchas» (admite proyectos muy distintos: historias, juegos, arte, simulaciones). ScratchJr, pensado para niños de 5 a 7 años, usa bloques con íconos y casi sin texto. Ambos son gratuitos, y Scratch tiene una aplicación que funciona sin conexión, útil cuando falla el internet del colegio.<br><br>Raíces: esta propuesta viene de Seymour Papert, quien en «Mindstorms» (1980) defendió que los niños aprenden construyendo objetos que pueden compartir y depurar, con el lenguaje Logo y su tortuga.<br><br>Ejemplo (ficticio): en Transición, la profe Sandra usa ScratchJr en tabletas compartidas: cada pareja hace que un gato camine hasta su casa con tres bloques.<br><br>Error frecuente: dejar que «jueguen con Scratch» sin una meta de aprendizaje.<br><br>Aplicación: define qué concepto de tu área modelará el primer proyecto.</div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🗺️</div>
+    <div class="card-title">Qué se aprende al programar: conceptos, prácticas y perspectivas</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: para saber qué aprende un estudiante cuando programa conviene mirar tres cosas: qué conceptos usa, cómo trabaja y cómo se ve a sí mismo frente a la tecnología.<br><br>Fundamento: Brennan y Resnick (2012), en un trabajo presentado en la reunión anual de la Asociación Estadounidense de Investigación Educativa (AERA), propusieron un marco de tres dimensiones a partir de lo que observaron en jóvenes que creaban con Scratch. Conceptos computacionales: secuencias, bucles, eventos, paralelismo, condicionales, operadores y datos. Prácticas computacionales: trabajar de forma incremental e iterativa, probar y depurar, reutilizar y remezclar, abstraer y modularizar. Perspectivas computacionales: expresarse (crear, no solo consumir), conectarse (crear con y para otros) y preguntar (cuestionar cómo funciona la tecnología).<br><br>Ejemplo (ficticio): en 6.°, Mateo hace un juego de preguntas de Ciencias. Usa condicionales y una variable de puntaje (conceptos), lo prueba con su compañera y corrige (prácticas), y decide compartirlo con el curso de 5.° (perspectivas).<br><br>Error frecuente: evaluar solo el producto final y no el proceso.<br><br>Aplicación: elige un concepto, una práctica y una perspectiva para tu próximo proyecto y escríbelos en la planeación.</div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🪜</div>
+    <div class="card-title">Progresión de Transición a 11.°</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: igual que en lectura, el pensamiento computacional se construye por niveles. Esta progresión es una propuesta orientativa del curso, no una norma del MEN: ajústala al diagnóstico de tu grupo.<br><br>Transición a 2.°: actividades desconectadas, secuencias con flechas, robots de piso o ScratchJr. Conceptos: secuencia, orden y repetición. Bers y colegas (2014, Computers & Education) mostraron que niños de preescolar pueden trabajar ideas de secuencia y depuración con un currículo de robótica adecuado a su edad.<br><br>3.° a 5.°: Scratch con historias y juegos sencillos. Conceptos: eventos, bucles, condicionales y variables simples.<br><br>6.° a 8.°: Scratch con proyectos de mayor alcance y MakeCode para micro:bit (sensores y medición). Conceptos: variables, operadores, listas y procedimientos.<br><br>9.° a 11.°: transición a un lenguaje de texto, por ejemplo Python, con análisis de datos, simulaciones y conexión con proyectos STEAM y con la formación técnica.<br><br>Ejemplo (ficticio): el equipo de tecnología de un colegio de la Comuna 15 ubica a sus grupos en este mapa con una tarea diagnóstica corta y descubre que 7.° necesita volver a los bucles antes de usar variables.<br><br>Error frecuente: saltar al código de texto sin dominar la lógica.<br><br>Aplicación: ubica a tu grupo en la progresión y escribe su siguiente paso.</div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🔌</div>
+    <div class="card-title">micro:bit y MakeCode: código que mide el mundo</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: la computación física une el código con el mundo real: un programa lee un sensor y enciende luces, muestra la temperatura o cuenta movimientos.<br><br>Fundamento: la BBC micro:bit es una placa pequeña y de bajo costo con una matriz de 25 luces LED, botones y sensores como el acelerómetro y el de temperatura. Se programa con Microsoft MakeCode, un editor gratuito en el navegador que ofrece bloques, JavaScript y Python, e incluye un simulador: los estudiantes pueden programar y probar en pantalla aunque el colegio no tenga placas. Seguridad: la placa funciona con pilas o con el cable USB del computador; nunca se conecta a la red eléctrica.<br><br>Ejemplo resuelto (ficticio), 7.°, Ciencias: el profe Andrés quiere registrar la temperatura del salón. Paso 1: bloque «al presionar el botón A». Paso 2: «mostrar número (temperatura)». Paso 3: lo prueban en el simulador moviendo el control de temperatura. Paso 4: con la placa real toman lecturas a las 7:00, 10:00 y 12:00 y las grafican. Paso 5: discuten un límite: el sensor está en el procesador de la placa, así que la lectura puede diferir algo de la del aire; por eso la comparan con un termómetro.<br><br>Error frecuente: comprar equipos sin un plan pedagógico.<br><br>Aplicación: prueba el simulador antes de pedir materiales.</div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🧪</div>
+    <div class="card-title">Ejemplos resueltos con código real</div>
+  </div>
+  <div class="card-bd">Ejemplo 1 (Scratch, 4.°, multiplicación; los nombres de los bloques pueden variar un poco según la versión en español): la profe Paola quiere que el gato pregunte tablas y cuente aciertos.<br><code>al hacer clic en la bandera verde<br>dar a [aciertos] el valor 0<br>repetir 5<br>&nbsp;&nbsp;dar a [a] el valor (número aleatorio entre 2 y 9)<br>&nbsp;&nbsp;dar a [b] el valor (número aleatorio entre 2 y 9)<br>&nbsp;&nbsp;preguntar (unir (a) (unir « × » (b))) y esperar<br>&nbsp;&nbsp;si &lt;(respuesta) = (a * b)&gt; entonces<br>&nbsp;&nbsp;&nbsp;&nbsp;sumar a [aciertos] 1<br>decir (unir «Aciertos: » aciertos)</code><br><br>Cómo se lee: las variables guardan datos; «repetir 5» es un bucle; «si… entonces» es un condicional. La primera versión de Paola tenía un error: había puesto «dar a [aciertos] el valor 0» dentro del bucle, y el juego siempre terminaba en 0 o 1. Depuración: el valor inicial debe asignarse una sola vez, antes del bucle.<br><br>Ejemplo 2 (Python, 10.°):<br><code>for n in range(1, 11):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(n, "x 7 =", n * 7)</code><br>Escribe la tabla del 7 del 1 al 10. Si se escribe range(1, 10), solo llega al 9, porque range no incluye el número final: es el típico error «por uno».<br><br>Aplicación: pide predecir la salida antes de ejecutar.</div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🔍</div>
+    <div class="card-title">PRIMM: leer y modificar antes de crear</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: antes de pedir que un estudiante escriba un programa desde cero, conviene que lea, prediga y modifique programas que ya funcionan. Es como aprender a escribir leyendo buenos textos.<br><br>Fundamento: Sentance, Waite y Kallia (2019, Computer Science Education) describen PRIMM, una secuencia de cinco momentos: Predecir (¿qué hará este código?), Ejecutar (comprobar la predicción), Investigar (rastrear línea por línea y explicar cada parte), Modificar (cambiar algo con una intención) y Crear (un programa nuevo propio). Leer y explicar código antecede a escribirlo, y el apoyo se retira poco a poco, como ocurre con los ejemplos resueltos en otras áreas.<br><br>Ejemplo resuelto (ficticio), 8.°: el profe Camilo proyecta un programa de Scratch que dibuja un hexágono. Predecir: en parejas escriben qué figura saldrá. Ejecutar: comprueban quién acertó. Investigar: ¿por qué gira 60 grados? Modificar: lo cambian para obtener un pentágono (giro de 72 grados). Crear: cada pareja dibuja un polígono de su elección y explica el ángulo.<br><br>Error frecuente: saltar directo al «crea tu propio juego» con novatos, lo que suele generar frustración o copia sin comprensión.<br><br>Aplicación: aplica PRIMM a un programa corto en tu próxima sesión.</div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">🕵️</div>
+    <div class="card-title">Depurar como pedagogía del error</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: en programación el error aparece en casi todos los intentos. Si se enseña bien, el estudiante aprende algo valioso para cualquier área: que equivocarse es información y que se puede salir de un problema con método.<br><br>Fundamento: McCauley y colegas (2008) muestran que depurar requiere conocer el programa, el tema y estrategias de búsqueda, y que esas estrategias se pueden enseñar. Brennan y Resnick (2012) incluyen «probar y depurar» entre las prácticas centrales al crear con Scratch.<br><br>Rutina «detective del error» (/detective) en cuatro pistas: 1) Reproduce el error: ¿pasa siempre o a veces? 2) Lee el código en voz alta, bloque por bloque, como si fueras la máquina. 3) Aísla: separa partes hasta encontrar dónde nace el fallo. 4) Cambia una sola cosa y vuelve a probar. Al final, el estudiante escribe en su bitácora: «El error era…, lo encontré porque…, la próxima vez…».<br><br>Ejemplo (ficticio): en 9.°, Sara no logra que su personaje salte. Al leer en voz alta descubre que el evento era «al presionar la tecla espacio» y ella presionaba la flecha hacia arriba.<br><br>Error frecuente: que el docente arregle el código con su propio teclado.<br><br>Aplicación: crea con tu grupo un «muro de errores famosos» con lo aprendido de cada uno.</div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q2_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">Un colega dice que Scratch «es solo para jugar» y que no sirve en su área. ¿Qué respuesta tiene mayor respaldo?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,1,0)">
+  <span class="mk">A</span><span>Tiene razón: los bloques no enseñan la lógica de la programación</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,1)">
+  <span class="mk">B</span><span>Scratch solo es útil dentro de la clase de tecnología e informática</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,2)">
+  <span class="mk">C</span><span>Scratch exige internet rápido y equipos costosos para funcionar</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,3)">
+  <span class="mk">D</span><span>Su diseño permite crear historias, juegos y simulaciones de cualquier área</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,1,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Resnick y colegas (2009) describen Scratch con piso bajo, techo alto y paredes anchas: admite proyectos de lenguaje, ciencias, matemáticas o arte. Los bloques sí enseñan lógica (secuencias, bucles, condicionales), y existe una aplicación gratuita que funciona sin conexión. ¿Qué tema de tu área podría convertirse en un proyecto de Scratch?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda las tres metáforas del diseño de Scratch y qué tipos de proyectos admite. Revisa también qué se dijo sobre su costo y su funcionamiento sin conexión.</div>
+  </div>
+</div>
+<div class="eq" id="q2_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">En 6.°, Mateo prueba su juego con una compañera y corrige un error que ella encontró. Según Brennan y Resnick (2012), ¿qué dimensión evidencia?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,2,0)">
+  <span class="mk">A</span><span>Una práctica computacional: probar y depurar</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,1)">
+  <span class="mk">B</span><span>Un concepto computacional: los operadores</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,2)">
+  <span class="mk">C</span><span>Una perspectiva computacional: preguntar</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,3)">
+  <span class="mk">D</span><span>Ninguna, porque el juego todavía tenía errores</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,2,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Probar y depurar es una de las prácticas computacionales del marco, junto con trabajar de forma iterativa, reutilizar y remezclar, y abstraer y modularizar. Las prácticas describen cómo trabaja el estudiante, no solo qué bloques usa. ¿Cómo podrías registrar las prácticas de tus estudiantes, además del producto?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Distingue las tres dimensiones del marco: qué usa el estudiante, cómo trabaja y cómo se ve frente a la tecnología. ¿En cuál encaja lo que hizo Mateo con su compañera?</div>
+  </div>
+</div>
+<div class="eq" id="q2_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">Una docente de Transición quiere iniciar con pensamiento computacional. ¿Qué propuesta es más adecuada para la edad?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,3,0)">
+  <span class="mk">A</span><span>Enseñar Python con ejercicios escritos en el tablero</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,1)">
+  <span class="mk">B</span><span>Esperar a 3.°, cuando el grupo ya lea con fluidez</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,2)">
+  <span class="mk">C</span><span>Secuencias con flechas en el piso y luego ScratchJr en parejas</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,3)">
+  <span class="mk">D</span><span>Ver videos sobre la historia de la computación</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,3,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. En los primeros grados funcionan las actividades corporales y desconectadas, los robots de piso y ScratchJr, que usa íconos en lugar de texto. Bers y colegas (2014) mostraron que niños de preescolar pueden trabajar secuencia y depuración con un currículo adecuado. ¿Qué secuencia con flechas podrías montar en el patio?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa qué pueden hacer niños que aún no leen con fluidez y qué herramienta se diseñó para ellos. Revisa el primer nivel de la progresión por grados.</div>
+  </div>
+</div>
+<div class="eq" id="q2_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">El colegio no tiene placas micro:bit, pero sí algunos computadores con internet. ¿Qué opción permite empezar ya?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,4,0)">
+  <span class="mk">A</span><span>Aplazar el proyecto hasta comprar una placa por estudiante</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,1)">
+  <span class="mk">B</span><span>Programar y probar en el simulador gratuito de MakeCode</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,2)">
+  <span class="mk">C</span><span>Conectar sensores caseros a la red eléctrica del salón</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,3)">
+  <span class="mk">D</span><span>Mostrar solo fotos de proyectos hechos en otros colegios</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,4,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. MakeCode es gratuito e incluye un simulador en el que se programa y se prueba la placa en pantalla, incluso moviendo los sensores virtuales. Cuando lleguen las placas, el código ya estará listo. Nunca se conectan montajes caseros a la red eléctrica. ¿Qué medición sencilla podrías simular primero con tu grupo?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda qué herramienta gratuita se mencionó para programar la placa y qué incluye para trabajar sin ella. Revisa también la advertencia de seguridad de la tarjeta.</div>
+  </div>
+</div>
+<div class="eq" id="q2_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">En el juego de tablas de la profe Paola, el contador de aciertos siempre termina en 0 o 1. ¿Cuál es la causa más probable?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,5,0)">
+  <span class="mk">A</span><span>La variable de aciertos se creó con un nombre distinto</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,1)">
+  <span class="mk">B</span><span>El número aleatorio entre 2 y 9 es demasiado pequeño</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,2)">
+  <span class="mk">C</span><span>El bloque «decir» quedó ubicado al final del programa</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,3)">
+  <span class="mk">D</span><span>El valor inicial 0 se asigna dentro del bucle y lo reinicia</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,5,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Si la instrucción que pone el contador en 0 está dentro del bucle, en cada vuelta se borra lo acumulado y solo puede quedar el resultado de la última pregunta. La corrección es inicializar una sola vez, antes del bucle. Es un error frecuente también en hojas de cálculo. ¿Cómo lo explicarías con un ejemplo de la vida diaria?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Sigue el programa vuelta por vuelta como si fueras la máquina: ¿qué valor tiene el contador al empezar cada repetición? Revisa la explicación del primer ejemplo resuelto.</div>
+  </div>
+</div>
+<div class="eq" id="q2_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">El profe Camilo quiere aplicar PRIMM con un programa que dibuja un hexágono. ¿Qué debe hacer primero?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,6,0)">
+  <span class="mk">A</span><span>Pedir que predigan en parejas qué figura dibujará el código</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,1)">
+  <span class="mk">B</span><span>Pedir que creen desde cero un programa con otra figura</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,2)">
+  <span class="mk">C</span><span>Ejecutar el programa y explicar él mismo cada bloque</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,3)">
+  <span class="mk">D</span><span>Entregar el código impreso para que lo copien igual</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,6,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Así es. PRIMM empieza por Predecir: leer el código y anticipar qué hará obliga a razonar antes de ver el resultado. Luego vienen Ejecutar, Investigar, Modificar y Crear. Crear desde cero es el último momento, no el primero (Sentance, Waite y Kallia, 2019). ¿Qué programa corto podrías usar para la primera predicción?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda qué significa cada letra de PRIMM y en qué orden van. ¿Cuál de las opciones corresponde a la primera letra?</div>
+  </div>
+</div>
+<div class="eq" id="q2_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">Sara no logra que su personaje salte y pide al docente que se lo arregle. ¿Qué respuesta aplica mejor la pedagogía del error?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,7,0)">
+  <span class="mk">A</span><span>Tomar el teclado y corregirlo rápido para no perder tiempo</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,1)">
+  <span class="mk">B</span><span>Decirle que borre el proyecto y empiece otro más fácil</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,2)">
+  <span class="mk">C</span><span>Pedirle que lea el código en voz alta como si fuera la máquina</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,3)">
+  <span class="mk">D</span><span>Pedir a otro estudiante que le preste su proyecto terminado</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,7,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. Leer el código en voz alta, bloque por bloque, es una de las pistas de la rutina del detective del error: obliga a comparar lo que el programa dice con lo que se esperaba. Así Sara aprende a depurar y no solo obtiene un programa que funciona. ¿Qué pregunta harías si, aun así, no encuentra el error?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Pregúntate quién aprende a encontrar el error en cada opción. Relee las cuatro pistas de la rutina «detective del error».</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r2"></div></div></div>
+
+<div class="mod" id="mod3" style="--ac:#D85A30">
+  <div class="mhdr" id="h3" data-lock="1" onclick="S.toggle(3)" style="--ac:#D85A30">
+    <div class="mnum" style="background:#D85A30">3</div>
+    <div class="minfo">
+      <div class="mtitle">Integración curricular, evaluación, inclusión y seguridad</div>
+      <div class="msub">Matemáticas · Ciencias y STEAM · Evidencia de transferencia · Rúbricas · DUA e inclusión · IA y programación · Seguridad digital</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 5-6</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b3"><div class="intro">El pensamiento computacional cobra sentido cuando ayuda a aprender matemáticas, ciencias, lenguaje o arte, no como una isla. Este módulo muestra cómo integrarlo en proyectos STEAM, qué dice con honestidad la evidencia sobre la transferencia a otras áreas, cómo evaluarlo con rúbricas, cómo incluir a todos y cómo usar la IA y los entornos digitales con seguridad.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">➗</div>
+    <div class="card-title">Matemáticas con programación: geometría y finanzas</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: programar obliga a hacer explícito lo que en matemáticas a veces queda implícito: para que el computador dibuje un polígono, el estudiante debe saber qué ángulo girar.<br><br>Fundamento: Weintrop y colegas (2016, Journal of Science Education and Technology) proponen una taxonomía para integrar el pensamiento computacional en matemáticas y ciencias con cuatro categorías: prácticas con datos, modelación y simulación, resolución computacional de problemas y pensamiento sistémico.<br><br>Ejemplo resuelto (ficticio), 6.°, geometría visual: la profe Natalia pide dibujar polígonos regulares con la extensión Lápiz de Scratch. Código: <code>repetir (n) [mover 60 pasos, girar (360 / n) grados]</code>. Paso 1: con n = 4 giran 90 grados y sale un cuadrado. Paso 2: con n = 3 algunos ponen 60 grados y la figura no cierra; descubren que el giro es el ángulo exterior, 120 grados. Paso 3: generalizan que la suma de los giros es 360 grados. Paso 4: prueban n = 36 con pasos más cortos (por ejemplo, mover 10 pasos, para que quepa en el escenario) y ven una figura que se parece a un círculo.<br><br>Matemática financiera: en 9.°, un programa simula el ahorro mensual con interés compuesto y permite comparar escenarios cambiando la tasa o el plazo.<br><br>Error frecuente: que el código resuelva todo y el estudiante no explique la matemática.<br><br>Aplicación: pide siempre justificar con matemáticas cada número del programa.</div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🔬</div>
+    <div class="card-title">Ciencias, arte y STEAM: código para preguntar y crear</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: en STEAM, el código es una herramienta para preguntar y crear: medir, simular, componer y diseñar.<br><br>Ciencias: con micro:bit se registran datos de luz o temperatura y se comparan con predicciones (ciclo predigo, observo, explico). Con Scratch se simula un fenómeno sencillo, como la caída de un objeto o la propagación de un rumor en un grupo, y se discute qué deja por fuera el modelo: toda simulación simplifica.<br><br>Arte y música: patrones geométricos con bucles, animación de un cuento propio y ritmos con la extensión de música de Scratch.<br><br>Lenguaje: historias interactivas con decisiones del lector; los condicionales («si eliges A, pasa…») hacen visible la estructura narrativa.<br><br>Ejemplo (ficticio), proyecto de 8.°: «¿Cuál es el salón más caluroso del colegio?». Matemáticas: promedios y gráficas. Ciencias: transferencia de calor y control de variables. Tecnología: programa de registro con micro:bit. Arte: infografía para la comunidad. Ética: no registrar datos personales.<br><br>Límite: si el tiempo de programación se come el tiempo del contenido, el proyecto pierde sentido; planea qué aprendizaje de cada área se evaluará.<br><br>Error frecuente: proyectos vistosos sin pregunta de investigación.<br><br>Aplicación: escribe la pregunta guía de un proyecto que una dos áreas.</div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">📊</div>
+    <div class="card-title">¿Programar mejora otras áreas? Lo que dice la evidencia</div>
+  </div>
+  <div class="card-bd">Pregunta clave: ¿aprender a programar mejora el desempeño en otras áreas? La respuesta honesta es «en parte, y con condiciones».<br><br>Evidencia: el metaanálisis de Scherer, Siddiq y Sánchez Viveros (2019, Journal of Educational Psychology) encontró un efecto de transferencia moderado en promedio (g = 0,49), mayor para la transferencia cercana (g = 0,75), es decir, a tareas de programación o de pensamiento computacional parecidas a las practicadas, que para la lejana (g = 0,47), a otras habilidades cognitivas. Dentro de la transferencia lejana, hubo efectos en pensamiento creativo, habilidades matemáticas, metacognición, razonamiento y habilidades espaciales; el rendimiento escolar general y la lectoescritura fueron los que menos se beneficiaron. Además, los efectos fueron mayores en estudios con grupos de control sin intervención que con controles activos, y en estudios publicados que en literatura gris, lo que pide cautela.<br><br>Por otra parte, Román-González y colegas (2017, Computers in Human Behavior) encontraron que el pensamiento computacional se relaciona con el razonamiento y las habilidades espaciales: no es una habilidad aislada, aunque una correlación no prueba causa.<br><br>Implicación: la transferencia no ocurre sola. Si quieres que la programación ayude en matemáticas, enseña de forma explícita la conexión y evalúala.<br><br>Error frecuente: prometer a las familias que programar «sube los puntajes» en todas las áreas.<br><br>Aplicación: escribe qué transferencia esperas y cómo la comprobarás.</div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">📝</div>
+    <div class="card-title">Evaluar el pensamiento computacional con rúbricas</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: un producto puede funcionar aunque el estudiante no entienda por qué, y puede fallar aunque haya razonado muy bien. Por eso se evalúa el proceso además del resultado.<br><br>Fundamento: Brennan y Resnick (2012) proponen evaluar con el análisis de los proyectos, entrevistas sobre el producto («cuéntame cómo hiciste esto») y escenarios de diseño en los que el estudiante explica, corrige o amplía un proyecto ajeno, y sugieren combinar métodos porque cada uno capta algo distinto. Es coherente con el Decreto 1290 de 2009, que entre los propósitos de la evaluación incluye consolidar o reorientar los procesos educativos.<br><br>Mini-rúbrica (niveles: bajo, básico, alto, superior): 1) Descomposición: divide el problema en partes coherentes. 2) Algoritmo: usa secuencias, bucles y condicionales correctos y sin pasos sobrantes. 3) Depuración: identifica el error, formula una hipótesis y documenta la corrección. 4) Comunicación: explica su código y su relación con el contenido del área.<br><br>Ejemplo (ficticio): en 10.°, el profe Felipe pide a cada pareja un audio de dos minutos explicando un error que tuvo y cómo lo resolvió. Descubre que una pareja con un proyecto impecable no podía explicar su propio código.<br><br>Error frecuente: calificar solo si «funciona».<br><br>Aplicación: adapta la rúbrica a tu próximo proyecto.</div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">♿</div>
+    <div class="card-title">Inclusión y equidad: pensamiento computacional para todos</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: el pensamiento computacional es para todos, no solo para quienes «son buenos en matemáticas» o tienen computador en casa.<br><br>Fundamento: el Diseño Universal para el Aprendizaje (CAST, pautas 3.0, 2024) propone ofrecer múltiples formas de implicación, de representación y de acción y expresión. En Colombia, el Decreto 1421 de 2017 reglamenta la atención educativa a la población con discapacidad, con ajustes razonables y el Plan Individual de Ajustes Razonables (PIAR). En programación esto se traduce en actividades desconectadas y manipulativas además de la pantalla; bloques con íconos para quienes aún no leen con fluidez; temas elegidos por el estudiante; y trabajo en parejas con roles que rotan: quien maneja el teclado y quien guía.<br><br>Equidad: muchos estudiantes no tienen computador en casa; las tareas que requieren equipo se hacen en el colegio o tienen una versión en papel. Cuida también que las niñas tengan igual protagonismo: rota los roles y muestra referentes diversos.<br><br>Ejemplo (ficticio): Samuel, de 4.°, tiene baja visión; trabaja con la pantalla ampliada y con una versión táctil del laberinto en cartulina con relieve.<br><br>Error frecuente: dejar que el más rápido haga todo mientras los demás miran.<br><br>Aplicación: define roles rotativos para tu próximo trabajo en parejas.</div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🤖</div>
+    <div class="card-title">IA generativa y programación: verificar antes de confiar</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: hoy una IA generativa puede escribir código en segundos. Eso no vuelve inútil aprender a programar: hace más importante entender, leer y verificar el código.<br><br>Fundamento: la Guía de la UNESCO para la IA generativa en la educación y la investigación (2023) pide un uso centrado en las personas, con validación humana, protección de datos y atención a la edad, y propone 13 años como edad mínima para usar estas herramientas en el aula. El marco de competencias en IA para estudiantes de la UNESCO (2024) incluye comprender cómo funcionan estos sistemas y usarlos con ética.<br><br>Usos recomendados: pedir a la IA que explique un programa línea por línea y luego comprobar la explicación; comparar la solución propia con la de la IA; usarla para proponer casos de prueba. Uso que conviene evitar con novatos: copiar código generado sin leerlo, porque se pierde la práctica de razonar y depurar. La IA también se equivoca: su código puede tener errores o soluciones innecesariamente complejas.<br><br>Ejemplo (ficticio): en 11.°, la profe Alejandra entrega un programa generado por IA con dos errores ocultos; los estudiantes los encuentran con la rutina del detective.<br><br>Error frecuente: prohibir sin enseñar o permitir sin verificar.<br><br>Aplicación: diseña una actividad en la que la IA sea objeto de verificación.</div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">🔒</div>
+    <div class="card-title">Seguridad digital y privacidad al crear y compartir</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: cuando los estudiantes crean y comparten en internet, también dejan rastros. Enseñar a programar incluye enseñar a cuidarse.<br><br>Fundamento: la Ley 1581 de 2012 protege los datos personales en Colombia y exige autorización para su tratamiento; en el caso de niños, niñas y adolescentes prima el respeto de sus derechos y su interés superior. Por eso, en proyectos escolares: no publicar nombres completos, fotos, voces ni ubicaciones de estudiantes; usar seudónimos en los usuarios; preferir cuentas de clase administradas por el docente (Scratch ofrece cuentas de profesor para crear cuentas de estudiantes) y revisar los términos de cada plataforma, incluidos los requisitos de edad.<br><br>Ciudadanía digital que se integra bien: contraseñas seguras y no compartidas; crédito al remezclar proyectos de otros; comentarios respetuosos; y qué hacer ante un contacto o contenido que incomoda: avisar a un adulto y activar la ruta institucional de la Ley 1620 de 2013.<br><br>Ejemplo (ficticio): un grupo de 7.° quiere publicar su juego con fotos de compañeros como personajes. La profe Liliana propone usar dibujos propios y nombres inventados.<br><br>Error frecuente: crear cuentas con correos personales de los estudiantes sin autorización de las familias.<br><br>Aplicación: revisa la configuración de privacidad de la plataforma que usas.</div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q3_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">En 6.°, al dibujar un triángulo equilátero en Scratch, un estudiante programa giros de 60 grados y la figura no cierra. ¿Qué conclusión matemática debe construir?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,1,0)">
+  <span class="mk">A</span><span>Que Scratch tiene una falla al dibujar triángulos</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,1)">
+  <span class="mk">B</span><span>Que el giro es el ángulo exterior: 360 / 3 = 120 grados</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,2)">
+  <span class="mk">C</span><span>Que debe aumentar los pasos hasta que la figura cierre</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,3)">
+  <span class="mk">D</span><span>Que el ángulo interior siempre es igual al ángulo de giro</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. La tortuga gira el ángulo exterior, y la suma de los giros de un polígono regular es 360 grados; por eso el triángulo necesita 120 grados por giro, aunque su ángulo interior sea de 60. El error del programa revela una idea matemática. ¿Qué otra confusión de tu área podría hacerse visible al programarla?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Imagina que caminas por el borde del triángulo: ¿cuánto giras en total al volver al punto de partida? Revisa los pasos 2 y 3 del ejemplo de la profe Natalia.</div>
+  </div>
+</div>
+<div class="eq" id="q3_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">El equipo de 8.° debe proponer un proyecto STEAM. ¿Cuál integra mejor varias áreas con sentido?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,2,0)">
+  <span class="mk">A</span><span>Un juego vistoso sin relación con los contenidos del periodo</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,1)">
+  <span class="mk">B</span><span>Copiar el mismo tutorial de Scratch para todo el grupo</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,2)">
+  <span class="mk">C</span><span>Programar sin pregunta guía y evaluar solo si funciona</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,3)">
+  <span class="mk">D</span><span>Medir la temperatura de los salones, graficarla y explicarla</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,2,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. Ese proyecto parte de una pregunta real, usa matemáticas (promedios y gráficas), ciencias (calor y variables), tecnología (registro con micro:bit) y comunicación (infografía), y permite evaluar aprendizajes de cada área. El código está al servicio de la pregunta. ¿Qué pregunta de tu contexto podría guiar un proyecto así?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Busca la opción que tenga una pregunta de investigación y aprendizajes evaluables en más de un área. Relee el ejemplo y el límite de la tarjeta de STEAM.</div>
+  </div>
+</div>
+<div class="eq" id="q3_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">Una familia pregunta si programar «subirá todas las notas» de su hijo. Según Scherer y colegas (2019), ¿qué respuesta es más honesta?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,3,0)">
+  <span class="mk">A</span><span>Hay transferencia moderada, mayor a tareas cercanas y menor en lectura</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,1)">
+  <span class="mk">B</span><span>Sí, programar mejora por igual todas las áreas del colegio</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,2)">
+  <span class="mk">C</span><span>No, la investigación muestra que no tiene ningún efecto</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,3)">
+  <span class="mk">D</span><span>Solo mejora a quienes ya son buenos en matemáticas</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,3,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. El metaanálisis encontró un efecto moderado en promedio, mayor en transferencia cercana que lejana, con beneficios en creatividad, matemáticas, metacognición y razonamiento, y menores en rendimiento general y lectoescritura. Además, el tipo de grupo de control influyó en el tamaño del efecto. Comunicar matices genera confianza. ¿Cómo lo explicarías en una reunión de padres?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda qué dos tipos de transferencia comparó el metaanálisis y qué áreas se beneficiaron menos. Evita las opciones absolutas y relee la tarjeta de evidencia.</div>
+  </div>
+</div>
+<div class="eq" id="q3_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">Una pareja entrega un juego que funciona perfectamente, pero no puede explicar su código. ¿Qué evaluación es más coherente con Brennan y Resnick (2012)?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,4,0)">
+  <span class="mk">A</span><span>Nota máxima, porque el producto funciona sin errores</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,1)">
+  <span class="mk">B</span><span>Nota mínima, porque seguramente copiaron el proyecto</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,2)">
+  <span class="mk">C</span><span>Analizar el proyecto y entrevistar a la pareja sobre su proceso</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,3)">
+  <span class="mk">D</span><span>Evaluar solo la presentación visual y la originalidad del juego</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,4,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Así es. Brennan y Resnick proponen combinar el análisis del proyecto con entrevistas y escenarios de diseño, porque el producto solo no muestra el proceso ni la comprensión. La entrevista permite valorar con justicia y orientar lo que falta, sin presumir copia. ¿Qué preguntas incluirías en una entrevista de dos minutos?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa qué información falta cuando solo se mira si el programa funciona, y qué métodos de evaluación se sugirieron para captar el proceso. Relee la tarjeta de rúbricas.</div>
+  </div>
+</div>
+<div class="eq" id="q3_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">En el trabajo en parejas, siempre el mismo estudiante maneja el teclado. ¿Qué ajuste favorece la inclusión?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,5,0)">
+  <span class="mk">A</span><span>Dejarlo así, porque es el más rápido del grupo</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,1)">
+  <span class="mk">B</span><span>Asignar roles de conductor y guía que roten cada cierto tiempo</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,2)">
+  <span class="mk">C</span><span>Separar en otro grupo a quienes avanzan más lento</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,3)">
+  <span class="mk">D</span><span>Pedir a los demás que tomen apuntes mientras observan</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,5,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Los roles rotativos (quien maneja el teclado y quien guía) garantizan que todos programen, piensen y expliquen. Es coherente con el Diseño Universal para el Aprendizaje: varias formas de participar y expresarse. Separar por ritmo o dejar observadores aumenta las brechas. ¿Cada cuánto rotarías los roles en tu clase?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Pregúntate en cuál opción todos los estudiantes llegan a programar y a explicar. Revisa la tarjeta de inclusión y equidad.</div>
+  </div>
+</div>
+<div class="eq" id="q3_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">Un estudiante de 10.° entrega un programa generado por IA. ¿Qué actividad aprovecha mejor la IA para aprender?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,6,0)">
+  <span class="mk">A</span><span>Pedirle que explique cada línea y pruebe casos para verificarlo</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,1)">
+  <span class="mk">B</span><span>Aceptarlo, porque la IA escribe código sin errores</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,2)">
+  <span class="mk">C</span><span>Ponerle cero sin conversar y prohibir cualquier herramienta</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,3)">
+  <span class="mk">D</span><span>Pedirle que genere con la IA otro programa más largo</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,6,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. Convertir el código de la IA en objeto de verificación obliga a leer, razonar y depurar, que es lo que se quiere aprender. La guía de la UNESCO (2023) insiste en la validación humana, y la IA también comete errores. Prohibir sin enseñar o aceptar sin verificar pierde la oportunidad. ¿Qué casos de prueba le pedirías diseñar?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda los usos recomendados y los que conviene evitar con novatos. ¿En qué opción el estudiante tiene que pensar sobre el código?</div>
+  </div>
+</div>
+<div class="eq" id="q3_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">Un grupo de 7.° quiere publicar su juego en internet con fotos de sus compañeros como personajes. ¿Qué conviene hacer, en coherencia con la Ley 1581 de 2012?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,7,0)">
+  <span class="mk">A</span><span>Publicarlo, porque es un trabajo escolar sin fines comerciales</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,1)">
+  <span class="mk">B</span><span>Publicarlo con las fotos, pero sin escribir los apellidos</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,2)">
+  <span class="mk">C</span><span>Pedir permiso solo a los compañeros que aparecen en las fotos</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,3)">
+  <span class="mk">D</span><span>Usar dibujos propios y nombres inventados en lugar de datos reales</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,7,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. La imagen de un menor es un dato personal y su tratamiento requiere autorización y respeto de su interés superior. La opción más segura es no usar datos reales: dibujos propios y nombres inventados. Así el grupo publica su creación sin exponer a nadie. ¿Qué norma de privacidad acordarías con tu grupo antes de publicar?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa si una foto es un dato personal y quién debe autorizar su uso en el caso de menores de edad. Revisa la tarjeta de seguridad digital y privacidad.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r3"></div></div></div>
+</div>
+<footer class="footer">
+  <div class="fl">SABI CENTEC MAESTROS</div>
+  <div>Plataforma de Autoformación Docente · Colegio CENTEC · Cali, Colombia</div>
+  <div style="margin-top:6px;opacity:.75">Autor: <strong>Alexander Rojas Zamorano</strong></div>
+  <div style="margin-top:4px;font-style:italic;opacity:.55">"Nadie puede enseñar lo que no sabe"</div>
+</footer>
+<script>
+const S={
+  mods:{},prog:{},
+  init(){
+    try{const d=localStorage.getItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''));if(d)this.prog=JSON.parse(d)}catch(e){}
+    this.repaint();this.unlock();
+  },
+  save(){try{localStorage.setItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''),JSON.stringify(this.prog))}catch(e){}},
+  repaint(){
+    document.querySelectorAll('.sdot').forEach(d=>{
+      const n=+d.dataset.n;
+      d.className='sdot'+(this.prog['m'+n]?.ok?' done':' lock');
+    });
+  },
+  toggle(n){
+    const h=document.getElementById('h'+n),b=document.getElementById('b'+n);
+    if(!b)return;
+    if(h?.dataset.lock==='1'){S.toast('🔒 Completa el módulo anterior con 70%+ para continuar');return;}
+    const op=b.classList.toggle('open');
+    h?.classList.toggle('open',op);
+    h?.querySelector('.mchev') && (h.querySelector('.mchev').textContent=op?'▲':'▽');
+  },
+  pick(mn,qn,i){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    q.querySelectorAll('.opt').forEach((o,j)=>{
+      o.classList.toggle('sel',j===i);
+      o.querySelector('.mk').textContent=j===i?'●':String.fromCharCode(65+j);
+    });
+    const b=q.querySelector('.btncheck');
+    if(b){b.disabled=false;b.dataset.sel=i;}
+  },
+  check(mn,qn,ci){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    const b=q.querySelector('.btncheck');
+    const sel=+(b?.dataset.sel??-1);
+    if(sel<0){S.toast('Selecciona una opción primero');return;}
+    const ok=sel===ci;
+    q.querySelectorAll('.opt').forEach((o,i)=>{
+      if(i===ci)o.classList.add('good');
+      else if(i===sel&&!ok)o.classList.add('bad');
+      o.style.pointerEvents='none';
+    });
+    q.classList.add(ok?'ok':'no');
+    q.dataset.done='1';
+    b.disabled=true;b.textContent=ok?'✓ Correcto':'✗ Incorrecto';
+    q.querySelector('.fb.'+(ok?'ok':'no')).style.display='block';
+    if(!S.mods[mn])S.mods[mn]={ok:0,t:0};
+    S.mods[mn].t++;if(ok)S.mods[mn].ok++;
+    S.progBar(mn);
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    if(done>=tot)setTimeout(()=>S.result(mn),600);
+  },
+  progBar(mn){
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    const pct=Math.round(done/tot*100);
+    const f=document.querySelector('#b'+mn+' .efill');if(f)f.style.width=pct+'%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width=pct+'%';
+    const en=document.querySelector('#b'+mn+' .enum');
+    if(en&&S.mods[mn])en.textContent=Math.round(S.mods[mn].ok/(S.mods[mn].t||1)*100)+'%';
+  },
+  result(mn){
+    const d=S.mods[mn]||{ok:0,t:7};
+    const pct=Math.round(d.ok/d.t*100),pass=pct>=70;
+    const r=document.getElementById('r'+mn);if(!r)return;
+    r.innerHTML=`
+      <div class="rico">${pass?'🏆':'📚'}</div>
+      <div class="rpct">${pct}%</div>
+      <div class="rmsg">${pass
+        ?'<strong style="color:var(--teal)">¡Módulo dominado!</strong><br>Demostraste comprensión real del contenido.'
+        :'Necesitas <strong>70%</strong> para avanzar.<br>Revisa el contenido y vuelve a intentar.'}</div>
+      <div class="rrow">
+        <div class="rstat"><strong>${d.ok}</strong>Correctas</div>
+        <div class="rstat"><strong>${d.t-d.ok}</strong>A reforzar</div>
+        <div class="rstat"><strong>${pct}%</strong>Logro</div>
+      </div>
+      ${pass
+        ?`<button class="btnnx" onclick="S.next(${mn})">Siguiente módulo →</button>`
+        :`<button class="btnrt" onclick="S.retry(${mn})">🔄 Intentar de nuevo</button>`}`;
+    r.classList.add('show');
+    if(pass){
+      S.prog['m'+mn]={ok:true,pct};S.save();S.repaint();
+      S.toast(pct===100?'🌟 ¡Perfecto! 100% de logro':`✅ Módulo ${mn} — ${pct}% logrado`);
+    }
+  },
+  next(mn){
+    const nh=document.getElementById('h'+(mn+1));
+    if(nh){nh.dataset.lock='0';nh.querySelector('.mlock')?.remove();}
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.toggle(mn+1);
+    document.getElementById('h'+(mn+1))?.scrollIntoView({behavior:'smooth',block:'center'});
+  },
+  retry(mn){
+    const b=document.getElementById('b'+mn);if(!b)return;
+    b.querySelectorAll('.eq').forEach(q=>{
+      delete q.dataset.done;
+      q.classList.remove('ok','no');
+      q.querySelectorAll('.opt').forEach((o,i)=>{
+        o.classList.remove('sel','good','bad');
+        o.style.pointerEvents='';
+        o.querySelector('.mk').textContent=String.fromCharCode(65+i);
+      });
+      b.querySelectorAll('.fb').forEach(f=>f.style.display='none');
+      const bc=q.querySelector('.btncheck');
+      if(bc){bc.disabled=true;bc.textContent='Verificar respuesta';delete bc.dataset.sel;}
+    });
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.mods[mn]={ok:0,t:0};
+    const f=b.querySelector('.efill');if(f)f.style.width='0%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width='0%';
+  },
+  unlock(){
+    document.querySelectorAll('[data-lock]').forEach(h=>{
+      const n=+h.id.replace('h','');
+      if(n<=1){h.dataset.lock='0';return;}
+      if(S.prog['m'+(n-1)]?.ok)h.dataset.lock='0';
+    });
+  },
+  toast(msg){
+    let t=document.querySelector('.toast');
+    if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t);}
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3200);
+  }
+};
+document.addEventListener('DOMContentLoaded',()=>S.init());
+</script>
+<script src="sabi_dots.js" defer></script>
+<script src="https://superacion.sabicentec.com/sabi-puerta.js" data-rol="docente" data-texto="SABI para docentes" defer></script>
+</body>
+</html>

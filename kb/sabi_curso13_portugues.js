@@ -320,6 +320,9 @@ window.SABI_KB = {
   "Ministério da Educação do Brasil / INEP. Exame Celpe-Bras: documento base",
   "CAPLE — Centro de Avaliação de Português Língua Estrangeira, Universidade de Lisboa. Exámenes CIPLE a DUPLE",
   "Cunha, C. y Cintra, L. Nova Gramática do Português Contemporâneo",
-  "Camões, L. de (1572). Os Lusíadas"
+  "Camões, L. de (1572). Os Lusíadas",
+  "RAE y ASALE (2009). Nueva gramática de la lengua española (ser y estar con adjetivos como casado o soltero)",
+  "Jensen, J. B. (1989). On the mutual intelligibility of Spanish and Portuguese. Hispania, 72(4). DOI 10.2307/343562",
+  "Lyster, R. y Saito, K. (2010). Oral feedback in classroom SLA: A meta-analysis. Studies in Second Language Acquisition, 32(2), 265-302. DOI 10.1017/S0272263109990520"
  ]
 };

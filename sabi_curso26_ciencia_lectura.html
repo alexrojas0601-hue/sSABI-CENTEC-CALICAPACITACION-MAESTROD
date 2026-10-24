@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="https://sabicentec.com/assets/sabi-sesion.js" data-app="capacitacion"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SABI C26: La ciencia de la lectura — CENTEC Cali</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+
+:root{
+  --navy:#0B1E3D; --gold:#D4A843; --teal:#1D9E75; --coral:#D85A30;
+  --purple:#7F77DD; --blue:#1B7FA6; --sage:#2E7D5A; --cream:#FAF8F3;
+  --fh:'Crimson Pro',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --r:10px; --rl:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fb);background:var(--cream);color:var(--navy);
+  line-height:1.6;font-size:16px;min-height:100vh}
+
+/* NAV */
+.nav{
+  background:var(--navy);padding:12px 28px;
+  display:flex;align-items:center;gap:16px;
+  position:sticky;top:0;z-index:200;
+  border-bottom:2px solid var(--gold);
+}
+.nav-brand{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--gold)}
+.nav-tag{font-size:11px;color:rgba(212,168,67,.6);letter-spacing:1.5px;
+  text-transform:uppercase;font-weight:300}
+.nav-pill{margin-left:auto;background:rgba(212,168,67,.12);
+  border:1px solid rgba(212,168,67,.3);color:var(--gold);
+  padding:4px 14px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* HERO (algorithmic-art: textura geométrica animada) */
+.hero{
+  background:var(--navy);padding:52px 32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(212,168,67,.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(29,158,117,.08) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4A843' fill-opacity='0.03'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{position:relative;max-width:780px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-block;background:rgba(212,168,67,.15);
+  border:1px solid rgba(212,168,67,.35);color:var(--gold);
+  padding:5px 18px;border-radius:20px;font-size:11px;
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:var(--fh);font-size:clamp(26px,4vw,42px);
+  font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px;
+}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.7);font-size:15px;
+  max-width:560px;margin:0 auto 24px;line-height:1.75}
+.hero-stats{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.hstat{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  padding:10px 20px;border-radius:28px;
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;color:#fff;
+}
+.hstat strong{color:var(--gold)}
+
+/* WRAP */
+.wrap{max-width:840px;margin:0 auto;padding:28px 20px}
+
+/* INFO BAR */
+.info-bar{
+  background:#fff;border:1px solid rgba(11,30,61,.07);
+  border-radius:var(--rl);padding:14px 20px;
+  display:flex;align-items:center;gap:20px;
+  font-size:13px;color:#64748b;margin-bottom:24px;
+  box-shadow:0 2px 12px rgba(11,30,61,.06);
+}
+.info-bar span strong{color:var(--navy)}
+.info-bar span:last-child{margin-left:auto;font-style:italic;color:#94a3b8}
+
+/* TARJETA MÓDULO */
+.mod{
+  background:#fff;border-radius:var(--rl);
+  border:1px solid rgba(11,30,61,.07);
+  box-shadow:0 3px 16px rgba(11,30,61,.08);
+  margin-bottom:24px;overflow:hidden;
+  transition:box-shadow .25s var(--ease),transform .25s var(--ease);
+}
+.mod:hover{
+  box-shadow:0 6px 28px rgba(11,30,61,.13);
+  transform:translateY(-2px);
+}
+
+/* HEADER MÓDULO */
+.mhdr{
+  display:flex;align-items:center;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.mhdr .mnum{
+  background:var(--ac,var(--teal));
+  color:#fff;font-family:var(--fh);
+  font-size:26px;font-weight:700;
+  width:68px;min-height:80px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.mhdr .minfo{padding:16px 20px;flex:1}
+.mhdr .mtitle{
+  font-family:var(--fh);font-size:18px;
+  font-weight:700;color:var(--navy);margin-bottom:3px;
+}
+.mhdr .msub{font-size:12px;color:#64748b;margin-bottom:6px}
+.mhdr .mmeta{display:flex;gap:10px;align-items:center}
+.mhdr .mdur{
+  background:rgba(11,30,61,.06);color:var(--navy);
+  padding:2px 10px;border-radius:6px;font-size:11px;font-weight:500;
+}
+.mhdr .mlock{font-size:11px;color:#94a3b8;display:flex;align-items:center;gap:4px}
+.mhdr .mchev{
+  margin-right:18px;font-size:18px;color:#94a3b8;
+  transition:transform .3s var(--ease);flex-shrink:0;
+}
+.mhdr.open .mchev{transform:rotate(180deg)}
+/* barra de progreso micro */
+.mpbar{position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:rgba(11,30,61,.05)}
+.mpfill{height:100%;width:0%;background:var(--ac,var(--teal));
+  transition:width .7s var(--ease)}
+
+/* CUERPO MÓDULO */
+.mbody{display:none;animation:sdown .3s var(--ease)}
+.mbody.open{display:block}
+@keyframes sdown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+/* CAJA INTRO (Ag3 Emocional: engancha con dato + pregunta) */
+.intro{
+  margin:22px 26px;padding:18px 22px;
+  border-radius:var(--r);
+  border-left:4px solid var(--ac,var(--teal));
+  background:linear-gradient(135deg,rgba(29,158,117,.06),rgba(29,158,117,.02));
+  font-size:14px;line-height:1.8;color:#334155;
+}
+.intro strong{color:var(--navy)}
+
+/* CARDS DE CONTENIDO (frontend-design + learn: andamiaje visual) */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;padding:0 26px 22px;
+}
+.card{
+  border-radius:var(--r);border:1px solid rgba(11,30,61,.08);
+  overflow:hidden;background:#fff;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(11,30,61,.1)}
+.card-hd{
+  padding:12px 16px;
+  background:var(--ca,var(--teal));
+  display:flex;align-items:center;gap:10px;
+}
+.card-ico{
+  width:30px;height:30px;background:rgba(255,255,255,.2);
+  border-radius:7px;display:flex;align-items:center;
+  justify-content:center;font-size:15px;flex-shrink:0;
+}
+.card-title{
+  font-family:var(--fh);font-size:14px;font-weight:700;
+  color:#fff;line-height:1.25;
+}
+.card-bd{padding:13px 16px;font-size:13px;line-height:1.75;color:#374151}
+.card-bd strong{color:var(--navy)}
+.card-reflect{
+  margin-top:10px;padding:9px 13px;
+  background:rgba(11,30,61,.04);border-radius:7px;
+  font-size:12px;color:#475569;font-style:italic;
+  border-left:3px solid var(--ca,var(--teal));
+}
+
+/* ZONA EXAMEN */
+.zona{padding:0 26px 26px}
+.ehdr{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 20px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--navy),#1e3a6e);
+  color:#fff;margin-bottom:18px;
+}
+.ehdr .eico{font-size:22px}
+.ehdr .etit{font-family:var(--fh);font-size:16px;font-weight:700;margin-bottom:2px}
+.ehdr .esub{font-size:11px;opacity:.7}
+.ehdr .epct{margin-left:auto;text-align:right}
+.ehdr .enum{font-size:20px;font-weight:700;color:var(--gold)}
+.ehdr .elbl{font-size:10px;opacity:.65}
+
+/* BARRA PROGRESO EXAMEN */
+.ebar{height:5px;background:rgba(11,30,61,.08);border-radius:3px;
+  margin-bottom:18px;overflow:hidden}
+.efill{height:100%;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  border-radius:3px;width:0%;transition:width .5s var(--ease)}
+
+/* PREGUNTA */
+.eq{
+  background:#fff;border-radius:var(--r);
+  border:1px solid rgba(11,30,61,.08);
+  padding:20px 22px;margin-bottom:14px;
+  transition:border-color .25s,box-shadow .25s;
+}
+.eq.ok{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,158,117,.12)}
+.eq.no{border-color:var(--coral);box-shadow:0 0 0 2px rgba(216,90,48,.1)}
+.eq .qhdr{display:flex;gap:10px;margin-bottom:14px;align-items:flex-start}
+.eq .qn{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.eq .qtx{font-size:14.5px;line-height:1.65;color:var(--navy);font-weight:500}
+
+/* OPCIONES */
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:11px 15px;border-radius:var(--r);
+  border:1.5px solid rgba(11,30,61,.09);
+  cursor:pointer;background:#fff;
+  font-size:13.5px;color:#374151;
+  text-align:left;width:100%;
+  transition:all .2s var(--ease);
+}
+.opt:hover{border-color:var(--navy);background:rgba(11,30,61,.025)}
+.opt .mk{
+  width:21px;height:21px;border-radius:50%;
+  border:2px solid #cbd5e1;color:#94a3b8;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0;
+  transition:all .2s;margin-top:1px;
+}
+.opt.sel .mk{border-color:var(--navy);background:var(--navy);color:#fff}
+.opt.good{border-color:var(--teal);background:rgba(29,158,117,.06)}
+.opt.good .mk{border-color:var(--teal);background:var(--teal);color:#fff}
+.opt.bad{border-color:var(--coral);background:rgba(216,90,48,.05)}
+.opt.bad .mk{border-color:var(--coral);background:var(--coral);color:#fff}
+
+/* BOTÓN VERIFICAR */
+.btncheck{
+  display:block;width:100%;margin-top:14px;
+  padding:13px;border:none;border-radius:var(--r);
+  background:var(--navy);color:var(--gold);
+  font-family:var(--fb);font-size:13.5px;font-weight:600;
+  letter-spacing:.4px;cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.btncheck:hover{background:#1a3a6e;transform:translateY(-1px)}
+.btncheck:disabled{background:#94a3b8;color:#fff;cursor:not-allowed;transform:none}
+
+/* FEEDBACK (learn skill: feedback formativo profundo) */
+.fb{
+  display:none;margin-top:12px;padding:15px 18px;
+  border-radius:var(--r);font-size:13px;line-height:1.8;
+}
+.fb.ok{
+  background:linear-gradient(135deg,rgba(29,158,117,.09),rgba(29,158,117,.04));
+  border-left:4px solid var(--teal);color:#14532d;
+}
+.fb.no{
+  background:linear-gradient(135deg,rgba(216,90,48,.08),rgba(216,90,48,.03));
+  border-left:4px solid var(--coral);color:#7c2d12;
+}
+.fb .fbt{font-weight:700;margin-bottom:6px;font-size:13.5px}
+.fb .fbr{
+  margin-top:9px;padding:9px 13px;
+  background:rgba(0,0,0,.04);border-radius:7px;
+  font-style:italic;font-size:12px;
+}
+
+/* RESULTADO MÓDULO */
+.rmod{text-align:center;padding:30px 22px;display:none}
+.rmod.show{display:block;animation:rin .45s var(--ease)}
+@keyframes rin{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.rmod .rico{font-size:52px;margin-bottom:14px}
+.rmod .rpct{
+  font-family:var(--fh);font-size:44px;font-weight:700;
+  color:var(--teal);margin-bottom:8px;
+}
+.rmod .rmsg{font-size:15px;color:#374151;margin-bottom:18px}
+.rmod .rrow{display:flex;justify-content:center;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.rmod .rstat{
+  background:rgba(11,30,61,.05);padding:10px 18px;
+  border-radius:var(--r);font-size:12px;color:#64748b;
+}
+.rmod .rstat strong{display:block;font-size:18px;color:var(--navy);font-weight:700}
+.btnnx{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--teal),var(--sage));
+  color:#fff;padding:13px 30px;border-radius:28px;border:none;
+  font-size:14px;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 16px rgba(29,158,117,.28);
+  transition:all .25s var(--ease);
+}
+.btnnx:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(29,158,117,.38)}
+.btnrt{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(11,30,61,.07);color:var(--navy);
+  padding:11px 24px;border-radius:28px;border:none;
+  font-size:13px;cursor:pointer;margin-left:10px;
+  transition:all .25s;
+}
+.btnrt:hover{background:rgba(11,30,61,.12)}
+
+/* PANEL LATERAL PROGRESO */
+.sidebar{
+  position:fixed;right:18px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:7px;z-index:100;
+}
+.sdot{
+  width:9px;height:9px;border-radius:50%;
+  border:2px solid rgba(11,30,61,.18);cursor:pointer;
+  transition:all .3s;title:'';
+}
+.sdot.done{background:var(--teal);border-color:var(--teal)}
+.sdot.cur{background:var(--gold);border-color:var(--gold);transform:scale(1.5)}
+.sdot.lock{background:rgba(11,30,61,.08)}
+
+/* TOAST */
+.toast{
+  position:fixed;top:18px;left:50%;
+  transform:translateX(-50%) translateY(-120px);
+  background:var(--navy);color:#fff;
+  padding:12px 26px;border-radius:30px;
+  font-size:13.5px;font-weight:500;
+  border:1px solid rgba(212,168,67,.3);
+  box-shadow:0 8px 28px rgba(11,30,61,.25);
+  z-index:999;transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* FOOTER */
+.footer{
+  background:var(--navy);color:rgba(255,255,255,.55);
+  text-align:center;padding:36px 20px;margin-top:40px;
+  font-size:12.5px;border-top:1px solid rgba(212,168,67,.2);
+}
+.footer .fl{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.footer strong{color:var(--gold)}
+
+/* BLOOM BADGES */
+.bloom{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:2px 9px;border-radius:10px;
+  font-size:10px;font-weight:700;letter-spacing:.4px;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.b1{background:#eff6ff;color:#1d4ed8}
+.b2{background:#f0fdf4;color:#166534}
+.b3{background:#fefce8;color:#854d0e}
+.b4{background:#fff7ed;color:#9a3412}
+.b5{background:#fdf4ff;color:#7e22ce}
+.b6{background:#f5f3ff;color:#5b21b6}
+
+@media(max-width:600px){
+  .wrap{padding:16px 12px}
+  .cards{grid-template-columns:1fr;padding:0 14px 16px}
+  .sidebar{display:none}
+  .hero{padding:32px 16px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div>
+    <div class="nav-brand">🔭 SABI CENTEC</div>
+    <div class="nav-tag">Autoformación Docente de Excelencia</div>
+  </div>
+  <div class="nav-pill">Curso 26 · Ciencia de la lectura</div>
+</nav>
+
+<div class="sidebar"><div class="sdot lock" data-n="1" title="Módulo 1" onclick="S.toggle(1)"></div>
+<div class="sdot lock" data-n="2" title="Módulo 2" onclick="S.toggle(2)"></div>
+<div class="sdot lock" data-n="3" title="Módulo 3" onclick="S.toggle(3)"></div></div>
+<div class="toast"></div>
+<div class="wrap">
+  <div class="info-bar">
+    <span>📚 <strong>3 módulos</strong></span>
+    <span>❓ <strong>21 preguntas</strong></span>
+    <span>🏆 <strong>Mínimo 70% por módulo</strong></span>
+    <span>Contenido en revisión · que verdaderamente aprendan</span>
+  </div>
+  
+<div class="mod" id="mod1" style="--ac:#1D9E75">
+  <div class="mhdr" id="h1" data-lock="0" onclick="S.toggle(1)" style="--ac:#1D9E75">
+    <div class="mnum" style="background:#1D9E75">1</div>
+    <div class="minfo">
+      <div class="mtitle">Cómo aprende a leer el cerebro</div>
+      <div class="msub">Leer no es natural · Visión simple de la lectura · Cuerda de Scarborough · Conciencia fonológica · Principio alfabético · Español transparente</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 1-2</span>
+        
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b1"><div class="intro">Hablar se aprende conviviendo; leer, no: hay que enseñarlo. En este módulo construirás el mapa que usa la ciencia de la lectura para entender qué pasa cuando un niño aprende a leer: la visión simple de la lectura, la «cuerda» de Scarborough, la conciencia fonológica y el principio alfabético en una lengua transparente como el español. <strong>Contenido en revisión.</strong> Al final podrás ubicar dónde está la dificultad de un lector antes de decidir qué enseñarle.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">📖</div>
+    <div class="card-title">Leer no es natural: hay que enseñarlo</div>
+  </div>
+  <div class="card-bd">Idea intuitiva: ningún niño necesita clases para aprender a hablar, pero casi todos necesitan enseñanza para aprender a leer. La escritura es un invento cultural de unos pocos miles de años, demasiado reciente para que el cerebro tenga un «circuito de lectura» de fábrica. Lo que ocurre es un reciclaje: al aprender a leer, regiones que ya procesaban formas visuales y lenguaje oral se conectan de una manera nueva. Dehaene y colaboradores (2010, <em>Science</em>) compararon adultos que nunca aprendieron a leer, adultos alfabetizados en la infancia y adultos que aprendieron a leer ya mayores: aprender a leer se asoció con una región especializada en reconocer palabras escritas y con cambios en la red visual y del lenguaje, incluso cuando se aprendió en la adultez. Implicaciones para CENTEC: rodear a los niños de libros y leerles en voz alta es valioso para el vocabulario y el gusto por leer, pero no basta para que descubran solos el código; se necesita enseñanza explícita. Y como la plasticidad dura toda la vida, nunca es tarde para nivelar a un lector de 6.° o de 9.°. Cuidado con el «neuro» como adorno: estos hallazgos explican por qué enseñar el código, no prescriben ejercicios «para el hemisferio» ni gimnasia cerebral, que son neuromitos.</div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">✖️</div>
+    <div class="card-title">La visión simple de la lectura (Gough y Tunmer, 1986)</div>
+  </div>
+  <div class="card-bd">Gough y Tunmer (1986) y luego Hoover y Gough (1990) propusieron una fórmula sencilla: <strong>comprensión lectora = decodificación × comprensión del lenguaje</strong>. La decodificación es reconocer con precisión y fluidez las palabras escritas; la comprensión del lenguaje es entender ese mismo mensaje si alguien lo leyera en voz alta. Es una multiplicación, no una suma: si uno de los dos factores es cero, la comprensión lectora es cero. Un niño que decodifica perfecto pero no conoce las palabras ni el tema no comprende; uno que entiende todo lo que se le cuenta pero no logra descifrar las letras tampoco. De ahí salen cuatro perfiles: buen lector (ambos factores fuertes); dificultad de decodificación con buena comprensión oral (perfil típico de la dislexia); buena decodificación con comprensión oral débil (el «comprensor pobre», que lee en voz alta sin errores y no entiende); y dificultad mixta. El modelo es una simplificación útil, no una descripción completa: deja por fuera la motivación, la atención o el propósito de lectura. Su gran valor en el aula es diagnóstico: antes de decir «no comprende», pregunte qué factor está fallando, porque la enseñanza que necesita cada perfil es distinta.</div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🪢</div>
+    <div class="card-title">La «cuerda» de Scarborough: dos grupos de hebras</div>
+  </div>
+  <div class="card-bd">Hollis Scarborough (2001) representó la lectura hábil como una cuerda hecha de muchas hebras que se entrelazan con la práctica. Un grupo de hebras es la <strong>comprensión del lenguaje</strong>: conocimiento previo, vocabulario, estructuras del lenguaje (sintaxis y semántica), razonamiento verbal (inferencias, metáforas) y conocimiento sobre los textos (géneros, formas de presentar la información). Con los años, estas hebras se usan de manera cada vez más <em>estratégica</em>. El otro grupo es el <strong>reconocimiento de palabras</strong>: conciencia fonológica, decodificación y reconocimiento a primera vista de palabras conocidas. Estas hebras deben volverse cada vez más <em>automáticas</em>, para que la atención quede libre para pensar en el significado. La cuerda desarrolla la visión simple: muestra qué hay dentro de cada factor. Uso práctico en CENTEC: si un estudiante de 4.° se atasca, pregunte en qué hebra está el nudo. ¿Lee despacio y con errores? Revise las hebras de abajo. ¿Lee bien, pero no entiende un texto sobre ecosistemas? Revise vocabulario y conocimiento del tema. Error frecuente: trabajar solo «estrategias de comprensión» con un niño que todavía no reconoce las palabras con fluidez, o solo planas de sílabas con uno que ya decodifica y necesita lenguaje y conocimiento.</div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">👂</div>
+    <div class="card-title">Conciencia fonológica: oír los sonidos dentro de las palabras</div>
+  </div>
+  <div class="card-bd">La conciencia fonológica es la capacidad de notar y manipular los sonidos del lenguaje oral, sin mirar letras. Va de unidades grandes a pequeñas: palabras dentro de una frase, sílabas (<em>ma-ri-po-sa</em>), rimas y, la más exigente, <strong>fonemas</strong>, los sonidos mínimos (/s/ /o/ /l/). La conciencia fonémica es la que más se relaciona con aprender a leer en un sistema alfabético. El metaanálisis de Ehri y colaboradores (2001), hecho para el National Reading Panel, encontró que enseñarla ayuda a aprender a leer y a escribir; el informe del Panel (2000) destacó que rinde más cuando se trabaja de forma explícita con letras (no solo con sonidos), en grupos pequeños y con pocas operaciones a la vez. Caravolas y colaboradores (2012) siguieron a niños que aprendían en inglés, español, eslovaco y checo: la conciencia fonémica, el conocimiento de las correspondencias letra-sonido y la velocidad para nombrar estímulos conocidos predijeron el avance en lectura y escritura en las cuatro lenguas. Ejemplo para Transición: «Vamos a separar los sonidos de <em>sol</em>»: la docente empuja una ficha por cada sonido, /s/ /o/ /l/, y luego pone las letras debajo. Funcionan bien las sesiones cortas, frecuentes y con juego. Error frecuente: quedarse meses en sílabas y rimas sin llegar al fonema, o hacer ejercicios auditivos sin conectarlos nunca con las letras.</div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🔤</div>
+    <div class="card-title">Principio alfabético y mapeo ortográfico (Ehri)</div>
+  </div>
+  <div class="card-bd">El <strong>principio alfabético</strong> es comprender que las letras representan sonidos del habla de forma sistemática. Linnea Ehri (2005) describió fases en la lectura de palabras: prealfabética (el niño «lee» el logo de una marca por su forma y color, sin usar las letras), alfabética parcial (usa algunas letras, casi siempre la primera y la última), alfabética completa (conecta todas las letras con sus sonidos) y alfabética consolidada (reconoce sílabas y partes de palabras como unidades). Ehri (2014) explicó el <strong>mapeo ortográfico</strong>: reconocemos al instante miles de palabras no porque memoricemos su silueta, sino porque conectamos sus letras con su pronunciación y su significado; esa conexión deja la palabra guardada en la memoria. Por eso decodificar no es una etapa que se «salta»: es el mecanismo que construye el vocabulario visual. Implicaciones: enseñar los sonidos de las letras (no solo sus nombres), pedir al niño que lea y escriba la palabra mirando todas sus letras, y evitar que adivine por la forma o el dibujo. Ejemplo: Valentina, de 1.°, lee <em>mesa</em> como «mamá». Está en una fase alfabética parcial: usa la primera letra. La docente le pide señalar cada letra mientras dice su sonido y luego unirlos.</div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🌎</div>
+    <div class="card-title">El español, una ortografía transparente</div>
+  </div>
+  <div class="card-bd">Una ortografía es <strong>transparente</strong> cuando las letras corresponden de forma muy regular a los sonidos, y <strong>opaca</strong> cuando hay muchas excepciones. El español es de las más transparentes para leer; el inglés, de las más opacas. Seymour, Aro y Erskine (2003) compararon el inicio de la alfabetización en inglés y otras doce lenguas europeas, entre ellas el español: en la mayoría, los niños leían palabras con precisión al final del primer año escolar, mientras que en inglés el proceso tomaba bastante más tiempo. Consecuencias para CENTEC: la fase de decodificación suele ser más corta en español, y por eso la diferencia entre lectores se nota pronto en la <strong>velocidad, la fluidez y la comprensión</strong>, no solo en los errores; conviene vigilarlas desde 1.° y 2.°. Al mismo tiempo, el español es menos transparente para escribir que para leer: en Colombia, donde se sesea, el sonido /s/ puede escribirse con <em>s</em>, <em>c</em> o <em>z</em>; además están <em>b</em> y <em>v</em>, la <em>h</em> muda, <em>ll</em> y <em>y</em>, <em>g</em> y <em>j</em>. Error frecuente: trasladar sin más los programas y debates del inglés. Buena parte de la investigación sobre lectura se hizo en inglés; cuando exista evidencia en español, prefiérala, y cuando no, dígalo.</div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">🧭</div>
+    <div class="card-title">Ejemplo resuelto: ubicar la dificultad de un lector</div>
+  </div>
+  <div class="card-bd">Caso: Samuel, de 3.° en CENTEC, «no comprende lo que lee», según su informe. Paso 1, separar los factores de la visión simple. La docente le lee en voz alta un cuento de su nivel y hace cinco preguntas: responde bien cuatro. Su comprensión del lenguaje es aceptable. Paso 2, revisar la decodificación. Le pide leer diez palabras reales y diez pseudopalabras (palabras inventadas que se pueden pronunciar, como <em>trefo</em> o <em>lupani</em>): acierta las reales conocidas, pero falla varias pseudopalabras y lee despacio, sílaba por sílaba. Paso 3, ubicar en la cuerda: el nudo está en las hebras de reconocimiento de palabras, no en la comprensión. Paso 4, decidir: práctica diaria y breve de correspondencias y sílabas trabadas, lectura repetida de textos a su nivel y seguimiento cada dos semanas; mientras tanto, se le lee en voz alta el material de Ciencias para que no se atrase en conocimiento. Paso 5, comprobar: si con buena enseñanza no avanza, se activa la ruta institucional (módulo 3). Mini-rúbrica para tu propio análisis: ¿evalué por separado decodificación y comprensión oral?, ¿usé pseudopalabras?, ¿mi plan ataca el factor débil?, ¿definí cuándo y cómo vuelvo a medir? «El error no nos detiene: nos enseña, nos fortalece y nos hace crecer».</div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q1_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">En una reunión de área, un colega afirma: «Si llenamos el salón de Transición con libros, los niños aprenderán a leer solos, como aprendieron a hablar». ¿Qué afirmación tiene mayor respaldo?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,1,0)">
+  <span class="mk">A</span><span>Es cierto: leer es tan natural como hablar si el ambiente es rico en libros</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,1)">
+  <span class="mk">B</span><span>Solo aprenden solos los niños con estilo de aprendizaje visual</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,2)">
+  <span class="mk">C</span><span>Los libros ayudan, pero el código escrito se aprende con enseñanza explícita</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,3)">
+  <span class="mk">D</span><span>Leer depende de la madurez; enseñar antes de los siete años es dañino</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,1,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. La escritura es un invento cultural reciente y el cerebro la aprende reciclando circuitos visuales y del lenguaje; por eso el código necesita enseñanza explícita. Leer en voz alta y tener libros sigue siendo valioso para el vocabulario y la motivación.<div class='fbr'>¿Qué parte de tu rutina de lectura es ambiente rico y qué parte es enseñanza explícita del código?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en la diferencia entre el lenguaje oral y la escritura en la historia humana. Revisa la tarjeta «Leer no es natural»: ¿qué basta y qué no basta para aprender el código? Descarta las opciones que se apoyan en ideas sin respaldo.</div>
+  </div>
+</div>
+<div class="eq" id="q1_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">Lucía, de 4.°, lee en voz alta un texto sobre el ciclo del agua casi sin errores, pero no puede explicar nada de lo que leyó. Cuando la docente le lee otro texto del mismo tema, tampoco lo comprende. Según la visión simple de la lectura, ¿dónde conviene intervenir primero?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,2,0)">
+  <span class="mk">A</span><span>En la comprensión del lenguaje: vocabulario y conocimiento del tema</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,1)">
+  <span class="mk">B</span><span>En la decodificación: más planas de sílabas y lectura de listas de palabras</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,2)">
+  <span class="mk">C</span><span>En la velocidad: cronometrar la lectura hasta que lea más rápido</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,3)">
+  <span class="mk">D</span><span>En la caligrafía: copiar el texto completo para fijarlo en la memoria</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,2,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Lucía decodifica bien, pero tampoco comprende el texto oral: su factor débil es la comprensión del lenguaje. Más decodificación o más velocidad no atacan el problema; sí lo hacen el vocabulario, el conocimiento del tema y la conversación sobre textos.<div class='fbr'>¿Tienes algún estudiante que «lee bonito» pero no comprende? ¿Cómo lo comprobarías?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda que la fórmula multiplica dos factores. Pregúntate cuál de los dos falla cuando Lucía escucha el texto en lugar de leerlo, y relee la tarjeta de la visión simple.</div>
+  </div>
+</div>
+<div class="eq" id="q1_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">Según la «cuerda» de Scarborough, ¿qué hebras deben volverse cada vez más automáticas a medida que el lector progresa?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,3,0)">
+  <span class="mk">A</span><span>El conocimiento previo, el vocabulario y el razonamiento verbal</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,1)">
+  <span class="mk">B</span><span>Las estructuras del lenguaje y el conocimiento sobre los textos</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,2)">
+  <span class="mk">C</span><span>La motivación, la atención y el gusto por la lectura</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,3)">
+  <span class="mk">D</span><span>La conciencia fonológica, la decodificación y el reconocimiento visual</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,3,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Así es. Las hebras del reconocimiento de palabras deben automatizarse para liberar la atención; las de comprensión del lenguaje se usan de forma cada vez más estratégica. Ambas se entrelazan en la lectura hábil.<div class='fbr'>¿En qué grupo de hebras trabajas más en tus clases y cuál podrías estar descuidando?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>La cuerda tiene dos grupos de hebras: uno se vuelve automático y otro estratégico. Piensa cuál debe funcionar «sin pensar» para que la mente quede libre para el significado.</div>
+  </div>
+</div>
+<div class="eq" id="q1_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">La profesora Diana, de Transición, quiere fortalecer la conciencia fonémica de su grupo. ¿Qué actividad tiene mejor respaldo?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,4,0)">
+  <span class="mk">A</span><span>Colorear cada día una letra grande del abecedario en una ficha</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,1)">
+  <span class="mk">B</span><span>Separar con fichas los sonidos de palabras cortas y luego poner las letras</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,2)">
+  <span class="mk">C</span><span>Copiar planas de la vocal de la semana con buena letra</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,3)">
+  <span class="mk">D</span><span>Repetir en coro el abecedario completo todas las mañanas</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,4,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Separar y unir sonidos con apoyo concreto, y conectarlos con las letras, es lo que el National Reading Panel (2000), con base en el metaanálisis de Ehri y colaboradores (2001), destacó como más eficaz. Colorear o copiar letras no trabaja los sonidos dentro de las palabras.<div class='fbr'>¿Qué tres palabras cortas de tu contexto usarías mañana para separar sonidos?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>La conciencia fonémica trata de los sonidos dentro de las palabras. Revisa cuál opción hace que el niño los oiga, los separe y los conecte con las letras.</div>
+  </div>
+</div>
+<div class="eq" id="q1_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">Un acudiente pregunta cómo hace su hijo de 3.° para leer de inmediato palabras como «escuela» sin deletrear. Según el mapeo ortográfico de Ehri, ¿qué respuesta es más precisa?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,5,0)">
+  <span class="mk">A</span><span>Memoriza la silueta y la forma de cada palabra, como si fuera un dibujo</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,1)">
+  <span class="mk">B</span><span>Adivina la palabra por el contexto y el dibujo que la acompaña</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,2)">
+  <span class="mk">C</span><span>Conectó sus letras con sus sonidos y significado, y la palabra quedó guardada</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,3)">
+  <span class="mk">D</span><span>Usa más el hemisferio derecho, que se encarga de las palabras completas</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,5,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Las palabras que reconocemos al instante se guardan porque antes conectamos sus letras con su pronunciación y su significado. Por eso la decodificación construye el vocabulario visual. La «silueta» y los hemisferios no explican la lectura hábil.<div class='fbr'>¿Cómo le explicarías a esa familia, en una frase, por qué practicar la decodificación sigue siendo útil?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en qué conecta el lector cuando una palabra se vuelve conocida. Revisa la tarjeta de Ehri y descarta las ideas que la tarjeta señala como mitos.</div>
+  </div>
+</div>
+<div class="eq" id="q1_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">Al finalizar 1.°, casi todo el grupo de la profesora Marcela lee palabras con precisión. ¿Qué conclusión sobre el español es más acertada para planear 2.°?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,6,0)">
+  <span class="mk">A</span><span>Ya aprendieron a leer; en 2.° basta con dictados y caligrafía</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,1)">
+  <span class="mk">B</span><span>La precisión llega pronto; ahora hay que vigilar fluidez, vocabulario y comprensión</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,2)">
+  <span class="mk">C</span><span>Como el español es transparente, la ortografía tampoco necesita enseñanza</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,3)">
+  <span class="mk">D</span><span>Los que aún leen lento alcanzarán a los demás sin ninguna ayuda adicional</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,6,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. En una ortografía transparente la precisión llega relativamente pronto, así que las diferencias se notan en fluidez y comprensión. Y escribir es menos transparente que leer: en Colombia, con seseo, s, c y z requieren enseñanza.<div class='fbr'>¿Qué dato de fluidez o de comprensión podrías recoger de tu grupo este mes?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda lo que mostraron Seymour, Aro y Erskine (2003) sobre las lenguas transparentes y lo que dice la tarjeta sobre la escritura en español. ¿Qué queda por desarrollar cuando la precisión ya está?</div>
+  </div>
+</div>
+<div class="eq" id="q1_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">Te informan que Samuel, de 3.°, «no comprende lo que lee». ¿Cuál es el primer paso más riguroso antes de planear su apoyo?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,7,0)">
+  <span class="mk">A</span><span>Darle más talleres de idea principal, porque su problema es de comprensión</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,1)">
+  <span class="mk">B</span><span>Solicitar de inmediato un diagnóstico de dislexia a la familia</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,2)">
+  <span class="mk">C</span><span>Cambiarlo de puesto y esperar a que madure en el siguiente periodo</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,3)">
+  <span class="mk">D</span><span>Evaluar por separado su decodificación y su comprensión oral del mismo nivel</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,7,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Separar los dos factores, con pseudopalabras para la decodificación y un texto leído en voz alta para la comprensión oral, permite saber qué enseñar. Sin ese paso, se corre el riesgo de dar la intervención equivocada o de rotular sin evidencia.<div class='fbr'>¿Qué materiales de tu área podrías usar para esa evaluación rápida?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Antes de decidir qué enseñar o a quién remitir, piensa qué información te falta. Revisa el ejemplo resuelto y sus pasos 1 y 2.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r1"></div></div></div>
+
+<div class="mod" id="mod2" style="--ac:#1B7FA6">
+  <div class="mhdr" id="h2" data-lock="1" onclick="S.toggle(2)" style="--ac:#1B7FA6">
+    <div class="mnum" style="background:#1B7FA6">2</div>
+    <div class="minfo">
+      <div class="mtitle">Decodificación, fluidez y vocabulario</div>
+      <div class="msub">Instrucción explícita y sistemática · Las «guerras de la lectura» · Pseudopalabras · Lectura repetida · Prosodia · Vocabulario en contexto</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 3-4</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b2"><div class="intro">Ya sabes dónde puede estar la dificultad; ahora toca enseñar. Este módulo reúne lo que tiene mejor respaldo para que los estudiantes reconozcan palabras con precisión, lean con fluidez y expresión, y amplíen su vocabulario: instrucción explícita y sistemática del código, lectura repetida con retroalimentación y enseñanza intencional de palabras. También revisaremos con honestidad el debate de las «guerras de la lectura», sin caricaturas.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🧱</div>
+    <div class="card-title">Enseñanza explícita y sistemática del código</div>
+  </div>
+  <div class="card-bd"><strong>Explícita</strong> significa que la docente muestra y nombra la relación letra-sonido, en lugar de esperar que el niño la descubra. <strong>Sistemática</strong> significa que sigue una secuencia planeada, de lo sencillo a lo complejo, con práctica diaria y repaso acumulativo. El informe del National Reading Panel (2000) y el metaanálisis de Ehri, Nunes, Stahl y Willows (2001) encontraron que la instrucción fonética sistemática mejora la lectura de palabras, sobre todo cuando empieza en los primeros grados y en niños en riesgo. Una secuencia posible en español: vocales; consonantes que se pueden alargar (<em>m, s, l, f</em>), que facilitan unir sonidos; sílabas directas (<em>ma, sa</em>); sílabas inversas y cerradas (<em>al, sol</em>); sílabas trabadas (<em>pla, tre</em>); y combinaciones como <em>ch, ll, rr, qu, gu, gü</em>. En Colombia es tradicional el método silábico; puede ser compatible con esta evidencia si se enseña de forma explícita qué sonido aporta cada letra y no solo se memorizan sílabas como bloques. Rutina de 15 minutos: repaso de correspondencias, modelado («yo lo hago»), práctica guiada («lo hacemos»), práctica independiente («tú lo haces») con lectura y escritura de palabras, y una frase con lo aprendido. Error frecuente: avanzar al ritmo del libro y no al del grupo, sin comprobar quién domina cada paso.</div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">⚖️</div>
+    <div class="card-title">Las «guerras de la lectura», con honestidad</div>
+  </div>
+  <div class="card-bd">Durante décadas se enfrentaron dos posturas: enseñar primero el código (fonética) o sumergir al niño en textos con sentido y esperar que descubra el código (lenguaje integral o <em>whole language</em>). Castles, Rastle y Nation (2018) revisaron la evidencia y concluyeron que la enseñanza explícita de las correspondencias letra-sonido es esencial al inicio, pero que el código no es toda la lectura: después hay que construir vocabulario, conocimiento y comprensión de textos. También cuestionaron prácticas difundidas, como pedir al niño que adivine una palabra por el dibujo o por la primera letra. Hay debate legítimo: Bowers (2020) revisó los metaanálisis y sostuvo que la ventaja de la fonética sistemática frente a otros métodos es menos clara de lo que se suele afirmar, aunque advirtió que eso no respalda al lenguaje integral. Además, gran parte de estos estudios se hizo en inglés, una ortografía opaca; en español la fase de decodificación es más corta. Postura prudente para CENTEC: enseñar el código de forma explícita desde Transición y 1.°, y, al mismo tiempo, leer en voz alta, conversar, ampliar vocabulario y conocimiento desde el primer día. No es «fonética o significado»: es fonética y significado. Distinguir hallazgo robusto, evidencia mixta y opinión es parte de la ciencia de la lectura.</div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🧪</div>
+    <div class="card-title">Practicar y comprobar la decodificación</div>
+  </div>
+  <div class="card-bd">La decodificación se consolida con mucha práctica breve, frecuente y con retroalimentación. Tres herramientas útiles. Primera: <strong>textos decodificables</strong>, en los que casi todas las palabras usan correspondencias ya enseñadas; le permiten al niño aplicar lo que sabe en lugar de adivinar. Segunda: <strong>pseudopalabras</strong> (<em>lufo, trepalo, nisca</em>), que se pueden leer, pero no se conocen de memoria; son la forma más limpia de saber si el niño decodifica o si reconoce palabras que ya vio. Tercera: una <strong>rutina de corrección</strong> respetuosa. Si un niño lee «caballo» donde dice <em>camello</em>, mirando el dibujo, la docente no dice «casi» ni «bien»: señala la palabra, dice «mira todas las letras», le pide producir los sonidos, unirlos y volver a leer la frase para comprobar que tiene sentido. Así el significado sirve para verificar, no para adivinar. Ejemplo resuelto: el profesor Andrés, de 2.°, dicta cada viernes cinco palabras y cinco pseudopalabras con las sílabas trabadas de la semana; anota quién falla <em>pl</em> o <em>br</em> y forma un grupo de refuerzo de diez minutos. Error frecuente: medir solo con palabras conocidas y concluir que el niño «ya lee».</div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🏃</div>
+    <div class="card-title">Fluidez: el puente entre decodificar y comprender</div>
+  </div>
+  <div class="card-bd">La fluidez lectora tiene tres componentes: <strong>precisión</strong> (leer las palabras correctamente), <strong>automaticidad</strong> (hacerlo sin esfuerzo y a un ritmo adecuado) y <strong>prosodia</strong> (leer con entonación, pausas y expresión que reflejan el sentido). Es un puente: cuando reconocer palabras deja de consumir toda la atención, la mente queda libre para comprender. Kuhn y Stahl (2003) revisaron las prácticas de fluidez y encontraron que la lectura oral repetida y guiada, con apoyo y retroalimentación, ayuda a mejorar la fluidez, y que la clave es la cantidad de lectura guiada de textos adecuados, no un truco concreto. En español, como la precisión llega pronto, la fluidez es un indicador muy útil para detectar a quién le cuesta. Cómo observarla: escuche leer un minuto un texto del nivel y registre errores, autocorrecciones, ritmo y expresión; repítalo cada cierto tiempo con textos equivalentes para ver la tendencia. Límites: la velocidad no es la meta. Un estudiante que lee muy rápido, sin pausas ni sentido, no es fluido. Evite carreras con cronómetro y comparaciones públicas, que generan ansiedad; compare a cada estudiante consigo mismo. Error frecuente: confundir fluidez con «leer rápido» o creer que en 6.° ya no hace falta trabajarla.</div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🎭</div>
+    <div class="card-title">Lectura repetida y prosodia en el aula</div>
+  </div>
+  <div class="card-bd">La lectura repetida consiste en leer varias veces el mismo texto breve, con un modelo y retroalimentación, hasta leerlo con precisión y expresión. Rutina semanal posible para 3.° (unos 15 minutos diarios): lunes, la docente lee el texto con buena entonación mientras los niños siguen con el dedo (modelado) y conversan sobre su sentido; martes, lectura en eco (la docente lee una frase, el grupo la repite) y lectura coral; miércoles, lectura en parejas, alternando párrafos, con una tarjeta de retroalimentación («¿hice pausas en los puntos?, ¿se notó la pregunta?»); jueves, ensayo libre; viernes, lectura expresiva para otro curso o grabación de audio. El <strong>teatro leído</strong> funciona muy bien: los estudiantes ensayan un guion para leerlo con expresión, sin memorizarlo, y el propósito real motiva a releer. Para lectores con dificultad en grados superiores, use textos de su edad y de su interés con el nivel de dificultad ajustado, nunca cuentos infantiles que avergüencen. Cada lectura repetida debe terminar con una pregunta de comprensión, para que el foco no sea solo «sonar bien». Error frecuente: hacer leer en voz alta, por turnos y sin preparación, a un estudiante que lee con dificultad frente a todo el grupo; expone y no da práctica suficiente.</div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">📚</div>
+    <div class="card-title">Vocabulario: qué palabras enseñar y cómo</div>
+  </div>
+  <div class="card-bd">El vocabulario está en el corazón de la comprensión: no se entiende un texto si se desconocen muchas de sus palabras. Muchas palabras se aprenden leyendo y conversando, pero las más útiles para los textos escolares conviene enseñarlas de forma intencional. Beck, McKeown y Kucan proponen pensar en tres niveles: palabras de uso cotidiano que casi todos conocen (<em>casa, correr</em>); palabras de nivel 2, frecuentes en textos escritos y útiles en muchas áreas (<em>escaso, asombrado, comparar, consecuencia</em>); y palabras de nivel 3, propias de una disciplina (<em>fotosíntesis, hipotenusa</em>), que se enseñan cuando el tema las necesita. Rutina para una palabra de nivel 2: leerla en el texto; dar una definición amigable («escaso es cuando hay muy poco de algo»); mostrar ejemplos y no ejemplos («¿el agua en un desierto es escasa?, ¿y en el mar?»); pedir que la usen en una frase propia; y volver a ella durante la semana en otras actividades. Ejemplo: en 5.°, la profesora Carolina elige cinco palabras de nivel 2 de cada lectura y las deja en un «muro de palabras» que el grupo usa al escribir. Error frecuente: pedir copiar definiciones del diccionario, que no garantiza comprender ni usar la palabra.</div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">🔍</div>
+    <div class="card-title">Palabras en contexto y morfología</div>
+  </div>
+  <div class="card-bd">Cuando el estudiante encuentra una palabra desconocida, tiene dos herramientas propias además del diccionario. Primera: el <strong>contexto</strong>, es decir, las pistas de la frase y el párrafo: una definición cercana, un sinónimo, un contraste («no era permanente, sino efímero»), un ejemplo o la causa y el efecto. Segunda: la <strong>morfología</strong>, el análisis de las partes de la palabra: prefijos (<em>des-, in-, re-, sub-</em>), sufijos (<em>-dad, -ero, -oso, -ción</em>) y raíces compartidas en familias de palabras (<em>luz, lucero, luminoso, iluminar</em>). Enseñar estas dos herramientas da autonomía, y es lo que piden ítems de comprensión de lectura como los de Saber 11. Ejemplo resuelto en 9.°: «La alegría de la fiesta fue efímera: al llegar la noticia, todos guardaron silencio». El estudiante subraya la pista («al llegar la noticia... silencio»), propone un significado («duró poco»), lo reemplaza en la frase para ver si tiene sentido y lo confirma en el diccionario. Límite importante: el contexto muchas veces no basta o engaña; por eso conviene combinarlo con morfología y verificación. En el SABI Taller de Aula encontrarás actividades de «palabras en contexto» listas para usar. Error frecuente: decir «sáquelo por el contexto» sin enseñar cómo.</div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q2_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">El profesor Óscar, de 1.°, prepara su plan de lectura del primer periodo. ¿Qué decisión se ajusta mejor a la evidencia sobre la enseñanza del código?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,1,0)">
+  <span class="mk">A</span><span>Esperar a que cada niño descubra las letras leyendo cuentos libremente</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,1)">
+  <span class="mk">B</span><span>Seguir una secuencia planeada de correspondencias con práctica diaria y repaso</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,2)">
+  <span class="mk">C</span><span>Enseñar primero todo el abecedario por su nombre y luego leer cuentos</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,3)">
+  <span class="mk">D</span><span>Trabajar solo las letras que aparezcan por casualidad en las lecturas</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. La enseñanza explícita y sistemática (secuencia planeada, modelado, práctica guiada y repaso acumulativo) tiene respaldo, especialmente en los primeros grados. Aprender solo el nombre de las letras no basta: lo que se usa para leer es su sonido.<div class='fbr'>¿Tu secuencia actual empieza por letras que se pueden alargar, como m, s y l?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Revisa qué significan «explícita» y «sistemática» en la tarjeta. ¿Cuál opción deja el código al azar y cuál lo planea?</div>
+  </div>
+</div>
+<div class="eq" id="q2_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">En una capacitación, alguien afirma: «La ciencia de la lectura ya demostró que basta con enseñar fonética». ¿Qué respuesta es más honesta con la evidencia?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,2,0)">
+  <span class="mk">A</span><span>Es cierto: la fonética es suficiente para comprender cualquier texto</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,1)">
+  <span class="mk">B</span><span>Es falso: la fonética es un método anticuado y sin ninguna evidencia</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,2)">
+  <span class="mk">C</span><span>Da igual el método; lo que importa es que el niño esté motivado</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,3)">
+  <span class="mk">D</span><span>La enseñanza explícita del código tiene respaldo al inicio, pero no basta</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,2,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Castles, Rastle y Nation (2018) sostienen que el código debe enseñarse explícitamente al inicio, pero que después hay que construir vocabulario, conocimiento y comprensión. Además, autores como Bowers (2020) discuten el tamaño de la ventaja de la fonética: hay debate y conviene decirlo.<div class='fbr'>¿Cómo explicarías a un colega la diferencia entre «necesario» y «suficiente» en este debate?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Busca la opción que no caricaturice ninguna postura. Recuerda la diferencia entre lo que es esencial al comienzo y lo que se necesita después.</div>
+  </div>
+</div>
+<div class="eq" id="q2_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">En 1.°, Tomás lee «caballo» donde el texto dice «camello», mirando el dibujo. ¿Qué respuesta de la docente fortalece mejor la decodificación?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,3,0)">
+  <span class="mk">A</span><span>Pedirle que mire todas las letras, produzca los sonidos y relea la frase</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,1)">
+  <span class="mk">B</span><span>Decirle «muy bien, se parece» para no desmotivarlo y seguir leyendo</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,2)">
+  <span class="mk">C</span><span>Tapar el dibujo y pedirle que adivine otra vez con la primera letra</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,3)">
+  <span class="mk">D</span><span>Leerle la palabra y pasar a la siguiente para no perder tiempo</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,3,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. La corrección que lleva a mirar todas las letras, unir sonidos y comprobar el sentido refuerza el mapeo ortográfico. Aceptar la adivinanza o adivinar por la primera letra fortalece una estrategia que no sirve con palabras nuevas.<div class='fbr'>¿Qué frase breve usarías de manera constante en tu grupo para estas correcciones?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa qué estrategia queremos que Tomás use la próxima vez que no tenga un dibujo. Revisa la rutina de corrección de la tarjeta sobre decodificación.</div>
+  </div>
+</div>
+<div class="eq" id="q2_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">En una reunión de 4.° se propone medir la fluidez «solo con cronómetro, para ver quién lee más rápido». ¿Qué observación es más acertada?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,4,0)">
+  <span class="mk">A</span><span>Es correcto: la fluidez es exactamente la velocidad lectora</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,1)">
+  <span class="mk">B</span><span>Es mejor no medir la fluidez, porque en español todos leen bien</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,2)">
+  <span class="mk">C</span><span>La fluidez incluye precisión, automaticidad y prosodia, no solo velocidad</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,3)">
+  <span class="mk">D</span><span>Basta con preguntar a cada estudiante si siente que lee bien</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,4,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Así es. Leer muy rápido sin pausas ni sentido no es leer con fluidez. Conviene observar errores, autocorrecciones, ritmo y expresión, comparar a cada estudiante consigo mismo y evitar carreras públicas que generan ansiedad.<div class='fbr'>¿Qué tres aspectos anotarías al escuchar leer un minuto a un estudiante?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda los tres componentes de la fluidez y para qué sirve: es un puente hacia la comprensión. Revisa la tarjeta «Fluidez».</div>
+  </div>
+</div>
+<div class="eq" id="q2_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">La profesora Paola tiene en 3.° cinco estudiantes que leen despacio y sin expresión. ¿Qué plan tiene mejor respaldo para mejorar su fluidez?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,5,0)">
+  <span class="mk">A</span><span>Hacerlos leer en voz alta, por turnos, frente a todo el curso cada día</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,1)">
+  <span class="mk">B</span><span>Darles más fichas de comprensión escrita para responder en silencio</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,2)">
+  <span class="mk">C</span><span>Pedirles que lean en casa la mayor cantidad de páginas posible, sin guía</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,3)">
+  <span class="mk">D</span><span>Lectura repetida y guiada de un texto breve, con modelo y retroalimentación</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,5,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Kuhn y Stahl (2003) encontraron que la lectura oral repetida y guiada, con apoyo y retroalimentación, ayuda a mejorar la fluidez. Leer por turnos sin preparación expone al estudiante y le da poca práctica real.<div class='fbr'>¿Qué texto corto podrías usar esta semana para una rutina de lectura repetida?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa qué opción combina modelo, repetición del mismo texto y retroalimentación, sin exponer al estudiante. Revisa la tarjeta de lectura repetida.</div>
+  </div>
+</div>
+<div class="eq" id="q2_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">En un cuento para 5.° aparecen «perro», «asombrado», «fotosíntesis» y «escaso». Si solo puedes enseñar de forma explícita dos palabras esta semana, ¿cuáles priorizas?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,6,0)">
+  <span class="mk">A</span><span>«Asombrado» y «escaso», porque son útiles en muchos textos y áreas</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,1)">
+  <span class="mk">B</span><span>«Perro» y «asombrado», porque los niños deben dominar lo básico</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,2)">
+  <span class="mk">C</span><span>«Fotosíntesis» y «perro», porque una es técnica y la otra cotidiana</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,3)">
+  <span class="mk">D</span><span>Ninguna: el vocabulario se aprende solo leyendo mucho</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,6,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Son palabras de nivel 2: frecuentes en textos escritos y útiles en muchas áreas. «Perro» ya la conocen y «fotosíntesis» se enseña cuando el tema de Ciencias la necesite. Leer mucho ayuda, pero las palabras clave conviene enseñarlas a propósito.<div class='fbr'>¿Qué palabras de nivel 2 aparecen en el próximo texto que vas a usar?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda los tres niveles de palabras de Beck, McKeown y Kucan. ¿Cuáles darían más rendimiento en otros textos y otras áreas?</div>
+  </div>
+</div>
+<div class="eq" id="q2_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">Un estudiante de 9.° encuentra «efímera» en la frase «La alegría fue efímera: al llegar la noticia, todos callaron». ¿Qué estrategia le enseña mejor a resolverlo por sí mismo?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,7,0)">
+  <span class="mk">A</span><span>Saltarse la palabra, porque una sola palabra no cambia el sentido</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,1)">
+  <span class="mk">B</span><span>Buscar pistas en la frase, proponer un significado y verificarlo</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,2)">
+  <span class="mk">C</span><span>Copiar la definición del diccionario sin leer de nuevo la frase</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,3)">
+  <span class="mk">D</span><span>Preguntar siempre al docente, que es quien sabe el significado</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,7,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Buscar pistas del contexto, proponer un significado, reemplazarlo en la frase y verificarlo (en el diccionario o con la morfología) da autonomía. El contexto a veces engaña, por eso se verifica.<div class='fbr'>¿Qué pista del contexto subrayarías en esa frase y por qué?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Busca la opción que vuelva autónomo al estudiante y que incluya comprobar. Revisa la tarjeta «Palabras en contexto y morfología».</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r2"></div></div></div>
+
+<div class="mod" id="mod3" style="--ac:#D85A30">
+  <div class="mhdr" id="h3" data-lock="1" onclick="S.toggle(3)" style="--ac:#D85A30">
+    <div class="mnum" style="background:#D85A30">3</div>
+    <div class="minfo">
+      <div class="mtitle">Comprensión y lectores con dificultad</div>
+      <div class="msub">Conocimiento previo · Enseñanza recíproca · Tipos de preguntas · Evaluación formativa · Dislexia y ruta institucional · DBA y Saber 11</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 5-6</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b3"><div class="intro">Comprender es construir un significado: se necesita reconocer palabras, pero también saber del tema, conocer el vocabulario, hacer inferencias y vigilar si se está entendiendo. En este módulo verás cómo enseñar la comprensión con estrategias que tienen respaldo, cómo evaluar la lectura de forma formativa y cómo acompañar a los lectores con dificultad, incluida la sospecha de dislexia, sin diagnosticar y siguiendo la ruta institucional.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🧠</div>
+    <div class="card-title">El conocimiento previo: el ingrediente olvidado</div>
+  </div>
+  <div class="card-bd">Comprender un texto es unir lo que dice con lo que ya sabemos. Recht y Leslie (1988) lo mostraron con un estudio clásico: estudiantes de secundaria leyeron un texto sobre un partido de béisbol. Los que sabían mucho de béisbol, aunque fueran lectores menos hábiles, recordaron y reconstruyeron mejor el texto que los buenos lectores que sabían poco del tema. Conclusión: la comprensión no es una habilidad general que se entrena en vacío; depende mucho del conocimiento sobre el tema. Implicaciones para CENTEC: construir conocimiento es enseñar a leer. Antes de un texto difícil sobre volcanes, un video corto, una imagen comentada, un texto más sencillo sobre el mismo tema o una conversación sobre el vocabulario clave preparan la comprensión. Los conjuntos de textos sobre un mismo tema, leídos durante varias semanas, construyen conocimiento y vocabulario a la vez. Para lectores con dificultad, leerles en voz alta textos de Ciencias y Sociales evita que su retraso en decodificación se convierta también en un retraso en conocimiento. Error frecuente: dedicar horas a fichas de «idea principal» con textos sueltos y sin relación entre sí, y concluir que el estudiante «no tiene la habilidad» cuando lo que le faltaba era saber del tema.</div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🔄</div>
+    <div class="card-title">Enseñanza recíproca: cuatro estrategias en diálogo</div>
+  </div>
+  <div class="card-bd">La enseñanza recíproca, propuesta por Palincsar y Brown (1984), enseña cuatro estrategias que usan los buenos lectores, mediante un diálogo en el que el docente y luego los estudiantes se turnan el papel de guía. <strong>Predecir</strong>: anticipar qué viene, a partir del título, las imágenes o lo leído. <strong>Preguntar</strong>: formular preguntas sobre las ideas importantes. <strong>Clarificar</strong>: detectar lo que no se entiende (una palabra, una frase) y resolverlo. <strong>Resumir</strong>: decir en pocas palabras lo esencial de un párrafo. Al inicio el docente modela en voz alta; después guía a los grupos; finalmente los estudiantes asumen los roles con tarjetas (predictor, preguntón, aclarador, resumidor) y el docente retira el apoyo poco a poco. La revisión de Rosenshine y Meister (1994) encontró efectos positivos en la comprensión, mayores cuando se medían con pruebas elaboradas por los investigadores que con pruebas estandarizadas: evidencia favorable, con matices. Ejemplo en 6.°: con un artículo sobre el río Cauca, cada grupo de cuatro lee un párrafo, rota los roles y escribe un resumen de dos líneas. Error frecuente: repartir las tarjetas de roles sin haber modelado antes cada estrategia, o convertirlas en un formato mecánico sin conversación.</div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🧩</div>
+    <div class="card-title">Tipos de preguntas: de lo que dice el texto a pensar y argumentar</div>
+  </div>
+  <div class="card-bd">Hacer preguntas variadas enseña a leer en distintos niveles. En el SABI Taller de Aula se usan seis tipos. <strong>Lo que dice el texto</strong> (literal): la respuesta está escrita, y el estudiante debe encontrar la oración exacta que la contiene. <strong>Leer entre líneas</strong> (inferencial): la respuesta no está escrita; se deduce uniendo pistas del texto con lo que se sabe. <strong>Palabras en contexto</strong>: deducir el sentido de una palabra en esa frase. <strong>¿Dónde lo pone?</strong>: localizar la información y justificar con el texto. <strong>Orden y causas</strong>: secuencia de hechos y relaciones de causa y efecto. <strong>Piensa y argumenta</strong> (crítico): opinar, evaluar o relacionar con otros textos, con razones y evidencias del texto. Ejemplo, con la frase «Doña Rosa guardó la carta en el cajón y no volvió a mencionarla»: literal, «¿dónde guardó la carta?»; inferencial, «¿por qué crees que no volvió a mencionarla?»; crítica, «¿hizo bien en guardar silencio? Argumenta». Un consejo didáctico: pida siempre «¿qué parte del texto te hace pensar eso?». Esa pregunta une la inferencia y la opinión con la evidencia, y frena las respuestas inventadas. Error frecuente: quedarse solo en preguntas literales, o saltar a la opinión sin exigir apoyo en el texto.</div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">📋</div>
+    <div class="card-title">Evaluación formativa de la lectura</div>
+  </div>
+  <div class="card-bd">Evaluar la lectura de forma formativa significa recoger información para decidir qué enseñar, no solo para poner una nota, en coherencia con el Decreto 1290 de 2009, que pide valorar el desempeño de forma integral y continua. Un buen sistema combina varias herramientas breves. <strong>Tamizaje inicial</strong> al comenzar el año: conocimiento de letras y sonidos y conciencia fonémica en Transición y 1.°; lectura de palabras y pseudopalabras y fluidez desde 1.° y 2.°; comprensión oral y escrita en todos los grados. <strong>Registro de lectura oral</strong>: el estudiante lee un fragmento y la docente marca errores, autocorrecciones y expresión. <strong>Recuento</strong>: después de leer, el estudiante cuenta lo que entendió sin mirar el texto. <strong>Comparar comprensión oral y escrita</strong> del mismo nivel, para aplicar la visión simple. Ejemplo resuelto: en 5.°, Juliana lee con precisión, pero muy despacio, y su recuento es pobre; cuando la docente le lee el texto, lo comprende bien. Decisión: trabajar fluidez con lectura repetida y volver a medir en tres semanas. Mini-rúbrica: ¿la evaluación me dice qué enseñar?, ¿mido igual al inicio y después?, ¿registro sin exponer al estudiante?, ¿comparto los resultados solo con quien corresponde? Error frecuente: evaluar únicamente con preguntas de opción múltiple sobre un texto, sin escuchar nunca leer al estudiante.</div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🚦</div>
+    <div class="card-title">Dislexia: qué es y qué no es</div>
+  </div>
+  <div class="card-bd">Lyon, Shaywitz y Shaywitz (2003) propusieron una definición muy citada: la dislexia es una dificultad específica de aprendizaje, de origen neurobiológico, que se caracteriza por dificultades en el reconocimiento preciso o fluido de palabras y por problemas de deletreo y decodificación. Suele deberse a una dificultad en el componente fonológico del lenguaje y es inesperada en relación con otras capacidades del estudiante y con una enseñanza adecuada. Qué no es: no es ver las letras al revés (muchos niños confunden <em>b</em> y <em>d</em> al comenzar, y eso es normal); no es falta de inteligencia ni de esfuerzo; no es pereza; no se «cura» con ejercicios visuales o de gimnasia cerebral. En español, como casi todos los niños llegan pronto a leer con precisión, las dificultades suelen notarse también en una lectura lenta y trabajosa y en la ortografía. Señales para observar, no para diagnosticar: dificultad persistente para asociar letras y sonidos, lectura muy lenta pese a buena enseñanza, contraste entre su comprensión oral y su lectura, y antecedentes familiares de dificultad lectora. Lo más importante: el docente no diagnostica. Observa, enseña bien, registra cómo responde el estudiante a la enseñanza y activa la ruta institucional para que profesionales hagan la valoración.</div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🛤️</div>
+    <div class="card-title">Ruta institucional, Decreto 1421 de 2017 y privacidad</div>
+  </div>
+  <div class="card-bd">Cuando un estudiante no avanza en lectura a pesar de una enseñanza de calidad, se sigue la ruta, sin improvisar y sin rotular. Paso 1: documentar con evidencias concretas (registros de lectura, muestras de escritura, tamizajes) y con la descripción de los apoyos ya ofrecidos y de cómo respondió el estudiante. Paso 2: intensificar la enseñanza en grupo pequeño, con más tiempo y más práctica explícita, y volver a medir. Paso 3: dialogar con la familia y con orientación escolar, sin usar etiquetas diagnósticas. Paso 4: si persiste la dificultad, la institución orienta a la familia para buscar una valoración profesional (por ejemplo, por fonoaudiología o neuropsicología, a través de su servicio de salud). Paso 5: si corresponde según esa valoración y la normativa, el Decreto 1421 de 2017, que reglamenta la atención educativa a la población con discapacidad en el marco de la educación inclusiva, contempla el Plan Individual de Ajustes Razonables (PIAR). Ajustes posibles: más tiempo, enunciados leídos en voz alta, audiolibros, evaluación oral de lo que se sabe, sin bajar las metas de comprensión. Privacidad: la Ley 1581 de 2012 protege los datos personales; la información del estudiante no se comenta en grupos de mensajería ni frente al curso. Y para los lectores con dificultad en 7.°, 9.° u 11.°, nunca es tarde: la intervención explícita sigue funcionando.</div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">🎯</div>
+    <div class="card-title">Conexión con los DBA de Lenguaje y con Saber 11</div>
+  </div>
+  <div class="card-bd">Los Derechos Básicos de Aprendizaje (DBA) de Lenguaje del Ministerio de Educación Nacional describen, grado por grado, aprendizajes como reconocer las letras y sus sonidos, leer con fluidez, comprender e interpretar textos y producirlos. Al planear, cite el DBA de su grado con su número y su redacción oficial, consultados en el documento del MEN; en este curso no se transcriben para no citarlos de memoria. En el examen Saber 11, la prueba de Lectura Crítica del ICFES evalúa tres competencias: identificar y entender los contenidos locales de un texto; comprender cómo se articulan sus partes para darle un sentido global; y reflexionar a partir de un texto y evaluar su contenido. Hay continuidad con todo lo visto: lo literal y las palabras en contexto preparan la primera competencia; el orden, las causas y la estructura, la segunda; pensar y argumentar con evidencias, la tercera. Y todo descansa en la base: un estudiante de 11.° que lee con lentitud o tiene poco vocabulario y conocimiento llega en desventaja. Síntesis del curso: la comprensión necesita decodificación automática y lenguaje rico; el código se enseña de forma explícita; la fluidez es un puente; el vocabulario y el conocimiento se construyen a propósito; la comprensión se enseña con diálogo; se evalúa para decidir; y ante la dificultad, se enseña mejor y se sigue la ruta, sin diagnosticar.</div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+  
+<div class="eq" id="q3_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">Los estudiantes de 7.° de la profesora Natalia respondieron muy mal un texto sobre volcanes, aunque leen bien otros textos. ¿Qué decisión tiene mejor respaldo?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,1,0)">
+  <span class="mk">A</span><span>Repetir fichas de «idea principal» con textos de distintos temas</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,1)">
+  <span class="mk">B</span><span>Bajar la nota del periodo para que se esfuercen más la próxima vez</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,2)">
+  <span class="mk">C</span><span>Construir conocimiento del tema antes de releer con un propósito claro</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,3)">
+  <span class="mk">D</span><span>Cambiar el texto por uno de fútbol, porque ese tema sí les gusta</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,1,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Recht y Leslie (1988) mostraron que el conocimiento del tema pesa mucho en la comprensión. Preparar el tema con una imagen, un video corto, un texto más sencillo o el vocabulario clave, y luego releer, ataca la causa. Cambiar de tema evita el aprendizaje en lugar de construirlo.<div class='fbr'>¿Qué conocimiento previo necesitaría tu próximo texto y cómo lo construirías en diez minutos?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa qué mostró el estudio del béisbol sobre los lectores hábiles que sabían poco del tema. Revisa la tarjeta del conocimiento previo.</div>
+  </div>
+</div>
+<div class="eq" id="q3_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">¿Qué conjunto corresponde a las cuatro estrategias de la enseñanza recíproca de Palincsar y Brown (1984)?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,2,0)">
+  <span class="mk">A</span><span>Subrayar, copiar, memorizar y repetir el contenido del texto</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,1)">
+  <span class="mk">B</span><span>Predecir, preguntar, clarificar y resumir en diálogo guiado</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,2)">
+  <span class="mk">C</span><span>Leer en silencio, responder un cuestionario, revisar y calificar</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,3)">
+  <span class="mk">D</span><span>Visualizar, escuchar, moverse y dibujar según el estilo de cada uno</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,2,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Predecir, preguntar, clarificar y resumir se modelan primero y luego los estudiantes las asumen por turnos, mientras el docente retira el apoyo. La última opción mezcla actividades con la idea de estilos de aprendizaje, que es un neuromito.<div class='fbr'>¿Cuál de las cuatro estrategias modelarías primero con tu grupo y con qué texto?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa qué hace un buen lector antes de leer un párrafo, mientras lo lee y al terminarlo. Descarta las opciones que no requieren pensar sobre el significado o que se basan en mitos.</div>
+  </div>
+</div>
+<div class="eq" id="q3_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">Tras leer «Doña Rosa guardó la carta en el cajón y no volvió a mencionarla», la docente pregunta: «¿Por qué crees que no volvió a mencionarla?». ¿Qué tipo de pregunta es?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,3,0)">
+  <span class="mk">A</span><span>Literal: la respuesta está escrita en una oración del texto</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,1)">
+  <span class="mk">B</span><span>De vocabulario: pide el significado de una palabra en contexto</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,2)">
+  <span class="mk">C</span><span>De secuencia: pide ordenar los hechos del texto</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,3)">
+  <span class="mk">D</span><span>Inferencial: se deduce uniendo pistas del texto con lo que se sabe</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,3,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. La respuesta no está escrita: hay que leer entre líneas, unir pistas y conocimiento. Por eso conviene pedir siempre «¿qué parte del texto te hace pensar eso?», para que la inferencia tenga apoyo y no sea una invención.<div class='fbr'>Redacta una pregunta literal y una crítica para esa misma frase.</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Busca si la respuesta aparece escrita en el texto o si hay que deducirla. Revisa los seis tipos de preguntas en la tarjeta correspondiente.</div>
+  </div>
+</div>
+<div class="eq" id="q3_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">Juliana, de 5.°, lee en voz alta con precisión pero muy despacio, y su recuento es pobre. ¿Cuál es el siguiente paso más útil de evaluación formativa?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,4,0)">
+  <span class="mk">A</span><span>Leerle el mismo tipo de texto en voz alta y ver si lo comprende</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,1)">
+  <span class="mk">B</span><span>Ponerle una nota baja en comprensión para motivarla a mejorar</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,2)">
+  <span class="mk">C</span><span>Remitirla de inmediato a un especialista para diagnosticar dislexia</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,3)">
+  <span class="mk">D</span><span>Darle textos más largos para que practique leyendo más rápido</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,4,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Comparar su comprensión oral con la escrita aplica la visión simple: si comprende bien al escuchar, el nudo probablemente está en la fluidez y conviene trabajar lectura repetida y volver a medir. Remitir sin antes intervenir y documentar se salta pasos de la ruta.<div class='fbr'>¿Qué texto y qué preguntas usarías para esa comparación?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>La evaluación formativa sirve para decidir qué enseñar. Piensa qué información separaría los dos factores de la visión simple de la lectura.</div>
+  </div>
+</div>
+<div class="eq" id="q3_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">Un acudiente comenta: «Mi hijo tiene dislexia porque escribe la b como d; seguro ve las letras al revés». ¿Qué respuesta es más precisa?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,5,0)">
+  <span class="mk">A</span><span>Es correcto: la dislexia es un problema de la vista que invierte letras</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,1)">
+  <span class="mk">B</span><span>La dislexia se relaciona sobre todo con el procesamiento fonológico</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,2)">
+  <span class="mk">C</span><span>La dislexia aparece solo en niños con baja capacidad intelectual</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,3)">
+  <span class="mk">D</span><span>Se corrige en pocas semanas con ejercicios de coordinación visual</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,5,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Según la definición de Lyon, Shaywitz y Shaywitz (2003), la dislexia implica dificultades en el reconocimiento preciso o fluido de palabras, ligadas en general al componente fonológico. Confundir b y d es común al inicio; no prueba nada por sí solo. Y el docente no diagnostica: orienta y sigue la ruta.<div class='fbr'>¿Cómo responderías a esa familia con calma, sin rotular y ofreciendo un siguiente paso?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Revisa la tarjeta «Dislexia: qué es y qué no es». Piensa qué parte del lenguaje está implicada y descarta las ideas que la tarjeta señala como mitos.</div>
+  </div>
+</div>
+<div class="eq" id="q3_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">El profesor Felipe sospecha que Martina, de 3.°, podría tener dislexia. ¿Qué actuación se ajusta a la ruta y a la normativa?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,6,0)">
+  <span class="mk">A</span><span>Comentar el caso en el grupo de mensajería de docentes para pedir ideas</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,1)">
+  <span class="mk">B</span><span>Decirle a la familia que la niña tiene dislexia para que actúe rápido</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,2)">
+  <span class="mk">C</span><span>Documentar, intensificar la enseñanza y activar la ruta con orientación</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,3)">
+  <span class="mk">D</span><span>Bajarle las exigencias de lectura para que no sufra durante el año</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,6,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Se documenta con evidencias, se intensifica la enseñanza explícita, se dialoga con la familia y con orientación sin etiquetas, y se sigue la ruta para la valoración profesional; si corresponde, el Decreto 1421 de 2017 contempla el PIAR. La Ley 1581 de 2012 protege sus datos.<div class='fbr'>¿Qué evidencias de Martina guardarías desde hoy?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa quién puede diagnosticar, cómo se protege la información de la estudiante y por qué bajar las metas no la ayuda. Revisa la tarjeta de la ruta institucional.</div>
+  </div>
+</div>
+<div class="eq" id="q3_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">En un simulacro de Saber 11, una pregunta pide valorar si el argumento de un columnista está bien sustentado. ¿A qué competencia de Lectura Crítica corresponde?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,7,0)">
+  <span class="mk">A</span><span>Identificar y entender los contenidos locales del texto</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,1)">
+  <span class="mk">B</span><span>Comprender cómo se articulan las partes para un sentido global</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,2)">
+  <span class="mk">C</span><span>Reconocer el significado literal de las palabras del texto</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,3)">
+  <span class="mk">D</span><span>Reflexionar a partir de un texto y evaluar su contenido</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,7,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Valorar la solidez de un argumento es reflexionar y evaluar el contenido, la competencia más exigente. Se prepara desde la primaria con preguntas de «piensa y argumenta» que exigen razones y evidencias del texto.<div class='fbr'>¿Qué pregunta de «piensa y argumenta» podrías hacer en tu próxima clase, sea cual sea tu área?</div></div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda las tres competencias de Lectura Crítica y cuál de ellas implica juzgar el texto. Revisa la tarjeta de DBA y Saber 11.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r3"></div></div></div>
+
+</div>
+<footer class="footer">
+  <div class="fl">SABI CENTEC MAESTROS</div>
+  <div>Plataforma de Autoformación Docente · Colegio CENTEC · Cali, Colombia</div>
+  <div style="margin-top:6px;opacity:.75">Autor: <strong>Alexander Rojas Zamorano</strong></div>
+  <div style="margin-top:4px;font-style:italic;opacity:.55">"Nadie puede enseñar lo que no sabe"</div>
+</footer>
+<script>
+const S={
+  mods:{},prog:{},
+  init(){
+    try{const d=localStorage.getItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''));if(d)this.prog=JSON.parse(d)}catch(e){}
+    this.repaint();this.unlock();
+  },
+  save(){try{localStorage.setItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''),JSON.stringify(this.prog))}catch(e){}},
+  repaint(){
+    document.querySelectorAll('.sdot').forEach(d=>{
+      const n=+d.dataset.n;
+      d.className='sdot'+(this.prog['m'+n]?.ok?' done':' lock');
+    });
+  },
+  toggle(n){
+    const h=document.getElementById('h'+n),b=document.getElementById('b'+n);
+    if(!b)return;
+    if(h?.dataset.lock==='1'){S.toast('🔒 Completa el módulo anterior con 70%+ para continuar');return;}
+    const op=b.classList.toggle('open');
+    h?.classList.toggle('open',op);
+    h?.querySelector('.mchev') && (h.querySelector('.mchev').textContent=op?'▲':'▽');
+  },
+  pick(mn,qn,i){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    q.querySelectorAll('.opt').forEach((o,j)=>{
+      o.classList.toggle('sel',j===i);
+      o.querySelector('.mk').textContent=j===i?'●':String.fromCharCode(65+j);
+    });
+    const b=q.querySelector('.btncheck');
+    if(b){b.disabled=false;b.dataset.sel=i;}
+  },
+  check(mn,qn,ci){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    const b=q.querySelector('.btncheck');
+    const sel=+(b?.dataset.sel??-1);
+    if(sel<0){S.toast('Selecciona una opción primero');return;}
+    const ok=sel===ci;
+    q.querySelectorAll('.opt').forEach((o,i)=>{
+      if(i===ci)o.classList.add('good');
+      else if(i===sel&&!ok)o.classList.add('bad');
+      o.style.pointerEvents='none';
+    });
+    q.classList.add(ok?'ok':'no');
+    q.dataset.done='1';
+    b.disabled=true;b.textContent=ok?'✓ Correcto':'✗ Incorrecto';
+    q.querySelector('.fb.'+(ok?'ok':'no')).style.display='block';
+    if(!S.mods[mn])S.mods[mn]={ok:0,t:0};
+    S.mods[mn].t++;if(ok)S.mods[mn].ok++;
+    S.progBar(mn);
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    if(done>=tot)setTimeout(()=>S.result(mn),600);
+  },
+  progBar(mn){
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    const pct=Math.round(done/tot*100);
+    const f=document.querySelector('#b'+mn+' .efill');if(f)f.style.width=pct+'%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width=pct+'%';
+    const en=document.querySelector('#b'+mn+' .enum');
+    if(en&&S.mods[mn])en.textContent=Math.round(S.mods[mn].ok/(S.mods[mn].t||1)*100)+'%';
+  },
+  result(mn){
+    const d=S.mods[mn]||{ok:0,t:7};
+    const pct=Math.round(d.ok/d.t*100),pass=pct>=70;
+    const r=document.getElementById('r'+mn);if(!r)return;
+    r.innerHTML=`
+      <div class="rico">${pass?'🏆':'📚'}</div>
+      <div class="rpct">${pct}%</div>
+      <div class="rmsg">${pass
+        ?'<strong style="color:var(--teal)">¡Módulo dominado!</strong><br>Demostraste comprensión real del contenido.'
+        :'Necesitas <strong>70%</strong> para avanzar.<br>Revisa el contenido y vuelve a intentar.'}</div>
+      <div class="rrow">
+        <div class="rstat"><strong>${d.ok}</strong>Correctas</div>
+        <div class="rstat"><strong>${d.t-d.ok}</strong>A reforzar</div>
+        <div class="rstat"><strong>${pct}%</strong>Logro</div>
+      </div>
+      ${pass
+        ?`<button class="btnnx" onclick="S.next(${mn})">Siguiente módulo →</button>`
+        :`<button class="btnrt" onclick="S.retry(${mn})">🔄 Intentar de nuevo</button>`}`;
+    r.classList.add('show');
+    if(pass){
+      S.prog['m'+mn]={ok:true,pct};S.save();S.repaint();
+      S.toast(pct===100?'🌟 ¡Perfecto! 100% de logro':`✅ Módulo ${mn} — ${pct}% logrado`);
+    }
+  },
+  next(mn){
+    const nh=document.getElementById('h'+(mn+1));
+    if(nh){nh.dataset.lock='0';nh.querySelector('.mlock')?.remove();}
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.toggle(mn+1);
+    document.getElementById('h'+(mn+1))?.scrollIntoView({behavior:'smooth',block:'center'});
+  },
+  retry(mn){
+    const b=document.getElementById('b'+mn);if(!b)return;
+    b.querySelectorAll('.eq').forEach(q=>{
+      delete q.dataset.done;
+      q.classList.remove('ok','no');
+      q.querySelectorAll('.opt').forEach((o,i)=>{
+        o.classList.remove('sel','good','bad');
+        o.style.pointerEvents='';
+        o.querySelector('.mk').textContent=String.fromCharCode(65+i);
+      });
+      b.querySelectorAll('.fb').forEach(f=>f.style.display='none');
+      const bc=q.querySelector('.btncheck');
+      if(bc){bc.disabled=true;bc.textContent='Verificar respuesta';delete bc.dataset.sel;}
+    });
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.mods[mn]={ok:0,t:0};
+    const f=b.querySelector('.efill');if(f)f.style.width='0%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width='0%';
+  },
+  unlock(){
+    document.querySelectorAll('[data-lock]').forEach(h=>{
+      const n=+h.id.replace('h','');
+      if(n<=1){h.dataset.lock='0';return;}
+      if(S.prog['m'+(n-1)]?.ok)h.dataset.lock='0';
+    });
+  },
+  toast(msg){
+    let t=document.querySelector('.toast');
+    if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t);}
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3200);
+  }
+};
+document.addEventListener('DOMContentLoaded',()=>S.init());
+</script>
+<script src="sabi_dots.js" defer></script>
+<script src="https://superacion.sabicentec.com/sabi-puerta.js" data-rol="docente" data-texto="SABI para docentes" defer></script>
+</body>
+</html>

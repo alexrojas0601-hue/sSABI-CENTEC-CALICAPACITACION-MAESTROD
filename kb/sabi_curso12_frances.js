@@ -4,7 +4,7 @@ window.SABI_KB = {
  "dot": "Dot_Bilinguismo_Ingles",
  "objetivos": [
   "Al finalizar, el docente podrá presentarse en francés usando correctamente être, avoir, artículos y contracciones obligatorias (nivel A1 del MCER).",
-  "Al finalizar, el docente podrá conjugar verbos regulares de los tres grupos en presente y narrar hechos en passé composé con el auxiliar adecuado (A2).",
+  "Al finalizar, el docente podrá conjugar en presente verbos de los tres grupos (-er, -ir tipo finir y los irregulares más frecuentes) y narrar hechos en passé composé con el auxiliar adecuado (A2).",
   "Al finalizar, el docente podrá redactar un correo profesional en francés con apertura, cuerpo y fórmula de cortesía formal.",
   "Al finalizar, el docente podrá identificar las interferencias del español más frecuentes y corregirlas en su propia producción."
  ],
@@ -68,7 +68,7 @@ window.SABI_KB = {
   {
    "w": "POLITESSE",
    "t": "Formule de politesse",
-   "d": "Cierre codificado de una carta o correo formal. Ejemplo: «Je vous prie d'agréer, Madame, l'expression de mes sentiments distingués»."
+   "d": "Cierre codificado de una carta o de un correo formal. Ejemplo: «Je vous prie d'agréer, Madame, l'expression de mes salutations distinguées»; en correos profesionales cotidianos basta «Cordialement»."
   },
   {
    "w": "FRANCOPHONIE",
@@ -160,7 +160,7 @@ window.SABI_KB = {
   "quien": "Docentes de CENTEC de cualquier área interesados en la Francofonía, con el apoyo del equipo directivo.",
   "que": "Construir bases A1 y avanzar hacia A2–B1: pronunciación, être/avoir, artículos, presente, passé composé y correo profesional.",
   "cuando": "Módulo 1 en las semanas 1–2 y módulo 2 en las semanas 3–8, con práctica breve y diaria.",
-  "donde": "En casa con audio auténtico, en grupos de práctica entre colegas y en la Alianza Francesa de Cali para certificación.",
+  "donde": "En casa con audio auténtico, en grupos de práctica entre colegas y en un centro de examen oficial DELF (por ejemplo, una sede de la Alianza Francesa), consultando antes fechas y sedes vigentes.",
   "porque": "Porque el francés abre intercambios escolares, recursos educativos de organismos internacionales y oportunidades académicas francófonas.",
   "como": "Escuchar y repetir en voz alta, aprender cada sustantivo con su artículo, escribir frases propias y redactar correos reales."
  },
@@ -171,7 +171,7 @@ window.SABI_KB = {
    "Abrir con Madame, Monsieur o el cargo exacto",
    "Presentarse con nombre, cargo e institución",
    "Exponer el propósito con afin de + infinitivo",
-   "Cerrar con una formule de politesse completa",
+   "Cerrar con una formule de politesse adecuada al destinatario",
    "Revisar concordancias, acentos y contracciones"
   ]
  },
@@ -197,7 +197,7 @@ window.SABI_KB = {
    {
     "n": "Verbos A2",
     "h": [
-     "Presente -er, -ir, -re",
+     "Presente: tres grupos",
      "Passé composé",
      "Depuis + presente"
     ]
@@ -239,7 +239,7 @@ window.SABI_KB = {
   {
    "caso": "Una docente termina un correo a una directora francesa con «Bonne journée, Carlos».",
    "error": "En la correspondencia formal francesa se espera una fórmula de cortesía codificada; omitirla puede parecer descortés.",
-   "correccion": "Cerrar con «Je vous prie d'agréer, Madame la Directrice, l'expression de mes sentiments respectueux»."
+   "correccion": "En una primera solicitud formal, cerrar con «Je vous prie d'agréer, Madame la Directrice, l'expression de mes salutations distinguées»; en correos profesionales cotidianos, «Bien cordialement»."
   }
  ],
  "recuperacion": [
@@ -316,9 +316,11 @@ window.SABI_KB = {
  ],
  "fuentes": [
   "Consejo de Europa (2001). Marco Común Europeo de Referencia para las Lenguas: aprendizaje, enseñanza, evaluación",
+  "Consejo de Europa (2020). Common European Framework of Reference for Languages: Companion Volume",
   "France Éducation international. Descripción oficial de los diplomas DELF y DALF",
-  "Académie française. Dictionnaire de l'Académie française, 9.ª edición",
-  "Grevisse, M. y Goosse, A. Le Bon Usage. De Boeck Supérieur",
-  "Organisation internationale de la Francophonie. La langue française dans le monde (informe periódico)"
+  "Organisation internationale de la Francophonie (2026). La langue française dans le monde, édition 2026",
+  "Lyster, R. y Saito, K. (2010). Oral feedback in classroom SLA: A meta-analysis. Studies in Second Language Acquisition, 32(2), 265-302 · DOI: 10.1017/S0272263109990520",
+  "Lee, J., Jang, J. y Plonsky, L. (2015). The effectiveness of second language pronunciation instruction: A meta-analysis. Applied Linguistics, 36(3), 345-366 · DOI: 10.1093/applin/amu040",
+  "Kim, S. K. y Webb, S. (2022). The effects of spaced practice on second language learning: A meta-analysis. Language Learning, 72(1), 269-319 · DOI: 10.1111/lang.12479"
  ]
 };

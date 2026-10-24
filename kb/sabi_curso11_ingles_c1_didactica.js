@@ -320,12 +320,13 @@ window.SABI_KB = {
   }
  ],
  "fuentes": [
-  "Consejo de Europa (2001). Marco Común Europeo de Referencia para las Lenguas: aprendizaje, enseñanza, evaluación",
-  "Consejo de Europa (2020). Common European Framework of Reference for Languages: Companion Volume",
-  "Ministerio de Educación Nacional (2006). Guía 22: Estándares Básicos de Competencias en Lenguas Extranjeras: Inglés",
+  "Consejo de Europa (2020). Common European Framework of Reference for Languages: Companion Volume (con la escala global del MCER de 2001)",
   "Ministerio de Educación Nacional (2016). Derechos Básicos de Aprendizaje de Inglés, grados 6.° a 11.°",
+  "Ministerio de Educación Nacional (2006). Guía 22: Estándares Básicos de Competencias en Lenguas Extranjeras: Inglés",
   "Ley 1651 de 2013 — Ley de Bilingüismo (Colombia)",
   "Coyle, D., Hood, P. y Marsh, D. (2010). CLIL: Content and Language Integrated Learning. Cambridge University Press · DOI: 10.1017/9781009024549",
-  "Harmer, J. The Practice of English Language Teaching. Pearson"
+  "Lyster, R. y Ranta, L. (1997). Corrective feedback and learner uptake: Negotiation of form in communicative classrooms. Studies in Second Language Acquisition, 19(1), 37-66 · DOI: 10.1017/S0272263197001034",
+  "Ellis, R. (2009). Task-based language teaching: Sorting out the misunderstandings. International Journal of Applied Linguistics, 19(3), 221-246 · DOI: 10.1111/j.1473-4192.2009.00231.x",
+  "Harmer, J. (2015). The Practice of English Language Teaching (5.ª ed.). Pearson"
  ]
 };

@@ -46,7 +46,8 @@ window.SABI_KB = {
       { y: "1995", e: "Daniel Goleman publica «Emotional Intelligence», que populariza el concepto." },
       { y: "2008", e: "Colombia expide la Resolución 2646 sobre factores de riesgo psicosocial en el trabajo." },
       { y: "2015", e: "Se expide el Decreto 1072, que compila las normas del SG-SST en Colombia." },
-      { y: "2019", e: "La OMS incluye el burnout en la CIE-11 como fenómeno ocupacional." }
+      { y: "2019", e: "La OMS incluye el burnout en la CIE-11 como fenómeno ocupacional (vigente desde 2022)." },
+      { y: "2022", e: "Colombia expide la Ley 2191 de desconexión laboral y la Resolución 2764 sobre la batería de riesgo psicosocial." }
     ]
   },
   w5h1: {
@@ -74,8 +75,8 @@ window.SABI_KB = {
       { n: "Diagnóstico", h: ["Triada de Maslach", "CIE-11 (2019)", "Estrés vs burnout"] },
       { n: "Autocuidado", h: ["Atención plena", "Regulación emocional", "Sueño y movimiento"] },
       { n: "Relaciones", h: ["Comunicación asertiva", "Límites saludables", "Comunidades de práctica"] },
-      { n: "Organización", h: ["Matriz de Eisenhower", "Trabajo profundo", "Ciclos de energía"] },
-      { n: "Marco legal", h: ["Decreto 1072 de 2015", "Resolución 2646 de 2008", "Ley 1616 de 2013"] }
+      { n: "Organización", h: ["Matriz de Eisenhower", "Trabajo profundo", "Pausas breves"] },
+      { n: "Marco legal", h: ["Decreto 1072 de 2015", "Resolución 2764 de 2022", "Ley 2191 de 2022"] }
     ]
   },
   errores: [
@@ -100,8 +101,8 @@ window.SABI_KB = {
     ]
   },
   dominar: {
-    memorizar: ["Las tres dimensiones del burnout según Maslach y la CIE-11", "Normas: Decreto 1072 de 2015, Resolución 2646 de 2008 y Ley 1616 de 2013"],
-    comprender: ["Por qué el burnout es un fenómeno ocupacional y no solo individual", "Cómo el estrés crónico afecta la planeación, la memoria y la reactividad emocional"],
+    memorizar: ["Las tres dimensiones del burnout según Maslach y la CIE-11", "Normas: Decreto 1072 de 2015, Resolución 2646 de 2008, Resolución 2764 de 2022 y Ley 2191 de 2022"],
+    comprender: ["Por qué el burnout es un fenómeno ocupacional y no solo individual", "Cómo el estrés crónico se asocia con dificultades de atención, memoria y regulación emocional, sin exagerar lo que dice la evidencia"],
     ejecutar: ["Una pausa de regulación emocional durante la jornada", "La clasificación semanal de tareas con la matriz de Eisenhower", "Una comunicación asertiva para poner un límite profesional"],
     decidir: ["Cuándo una señal amerita valoración profesional o reporte al SG-SST", "Qué tareas priorizar, delegar o eliminar en semanas de alta carga"]
   },
@@ -114,12 +115,12 @@ window.SABI_KB = {
     { n: "N6 Crear", i: "Diseña un plan personal de autocuidado y límites para un periodo académico." }
   ],
   fuentes: [
-    "Maslach, C., Jackson, S. E. y Leiter, M. P. — Maslach Burnout Inventory Manual (3.ª ed., 1996)",
+    "Iancu, Rusu, Măroiu, Păcurar y Maricuțoiu — The effectiveness of interventions aimed at reducing teacher burnout: a meta-analysis (Educational Psychology Review, 2018) · DOI: 10.1007/s10648-017-9420-8",
     "Organización Mundial de la Salud — Clasificación Internacional de Enfermedades, CIE-11 (2019), QD85 Síndrome de desgaste ocupacional",
     "Decreto 1072 de 2015 — Decreto Único Reglamentario del Sector Trabajo (Colombia)",
-    "Resolución 2646 de 2008 — Ministerio de la Protección Social (Colombia), factores de riesgo psicosocial",
-    "Ley 1616 de 2013 — Ley de Salud Mental (Colombia)",
+    "Resolución 2646 de 2008 (Ministerio de la Protección Social) y Resolución 2764 de 2022 (Ministerio del Trabajo) — factores de riesgo psicosocial, batería de instrumentos y protocolos (Colombia)",
+    "Ley 2191 de 2022 — Desconexión laboral (Colombia)",
     "Gross, J. J. — The emerging field of emotion regulation: An integrative review (Review of General Psychology, 1998) · DOI: 10.1037/1089-2680.2.3.271",
-    "Kabat-Zinn, J. — Full Catastrophe Living (1990)"
+    "Maslach, C. y Leiter, M. P. — Understanding the burnout experience: recent research and its implications for psychiatry (World Psychiatry, 2016) · DOI: 10.1002/wps.20311"
   ]
 };

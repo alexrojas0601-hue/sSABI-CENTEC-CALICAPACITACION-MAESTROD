@@ -46,7 +46,8 @@ window.SABI_KB = {
       { y: "2009", e: "Colombia aprueba esa Convención mediante la Ley 1346." },
       { y: "2013", e: "Se expide la Ley Estatutaria 1618 sobre derechos de las personas con discapacidad." },
       { y: "2015", e: "La Agenda 2030 incluye el ODS 4: educación inclusiva, equitativa y de calidad." },
-      { y: "2017", e: "Se expide el Decreto 1421, que crea el PIAR y regula los ajustes razonables." }
+      { y: "2017", e: "Se expide el Decreto 1421, que crea el PIAR y regula los ajustes razonables." },
+      { y: "2024", e: "CAST publica la versión 3.0 de las pautas del Diseño Universal para el Aprendizaje." }
     ]
   },
   w5h1: {
@@ -118,9 +119,13 @@ window.SABI_KB = {
     "Ley Estatutaria 1618 de 2013 — Derechos de las personas con discapacidad (Colombia)",
     "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar (Colombia)",
     "Ley 1098 de 2006 — Código de la Infancia y la Adolescencia (Colombia)",
-    "CAST — Universal Design for Learning Guidelines",
+    "CAST (2024). Universal Design for Learning Guidelines, versión 3.0 — udlguidelines.cast.org",
     "Capp, M. J. — The effectiveness of universal design for learning: a meta-analysis of literature between 2013 and 2016 (International Journal of Inclusive Education, 2017) · DOI: 10.1080/13603116.2017.1325074",
     "Booth, T. y Ainscow, M. — Index for Inclusion (Índice de Inclusión)",
-    "UNESCO — Declaración de Salamanca y Marco de Acción (1994)"
+    "UNESCO — Declaración de Salamanca y Marco de Acción (1994)",
+    "Szumski, G., Smogorzewska, J. y Karwowski, M. — Academic achievement of students without special educational needs in inclusive classrooms: A meta-analysis (Educational Research Review, 21, 33-54, 2017) · DOI: 10.1016/j.edurev.2017.02.004",
+    "Pashler, H., McDaniel, M., Rohrer, D. y Bjork, R. — Learning styles: Concepts and evidence (Psychological Science in the Public Interest, 9(3), 105-119, 2008) · DOI: 10.1111/j.1539-6053.2009.01038.x",
+    "Wilder, S. — Effects of parental involvement on academic achievement: a meta-synthesis (Educational Review, 66(3), 377-397, 2014) · DOI: 10.1080/00131911.2013.780009",
+    "SAMHSA (2014). SAMHSA's Concept of Trauma and Guidance for a Trauma-Informed Approach"
   ]
 };

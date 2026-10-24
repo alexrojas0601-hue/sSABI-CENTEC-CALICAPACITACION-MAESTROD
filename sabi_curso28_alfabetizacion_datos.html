@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script src="https://sabicentec.com/assets/sabi-sesion.js" data-app="capacitacion"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SABI C28: Alfabetización de datos — CENTEC Cali</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+
+:root{
+  --navy:#0B1E3D; --gold:#D4A843; --teal:#1D9E75; --coral:#D85A30;
+  --purple:#7F77DD; --blue:#1B7FA6; --sage:#2E7D5A; --cream:#FAF8F3;
+  --fh:'Crimson Pro',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --r:10px; --rl:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fb);background:var(--cream);color:var(--navy);
+  line-height:1.6;font-size:16px;min-height:100vh}
+
+/* NAV */
+.nav{
+  background:var(--navy);padding:12px 28px;
+  display:flex;align-items:center;gap:16px;
+  position:sticky;top:0;z-index:200;
+  border-bottom:2px solid var(--gold);
+}
+.nav-brand{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--gold)}
+.nav-tag{font-size:11px;color:rgba(212,168,67,.6);letter-spacing:1.5px;
+  text-transform:uppercase;font-weight:300}
+.nav-pill{margin-left:auto;background:rgba(212,168,67,.12);
+  border:1px solid rgba(212,168,67,.3);color:var(--gold);
+  padding:4px 14px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* HERO (algorithmic-art: textura geométrica animada) */
+.hero{
+  background:var(--navy);padding:52px 32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(212,168,67,.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(29,158,117,.08) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4A843' fill-opacity='0.03'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{position:relative;max-width:780px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-block;background:rgba(212,168,67,.15);
+  border:1px solid rgba(212,168,67,.35);color:var(--gold);
+  padding:5px 18px;border-radius:20px;font-size:11px;
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:var(--fh);font-size:clamp(26px,4vw,42px);
+  font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px;
+}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:rgba(255,255,255,.7);font-size:15px;
+  max-width:560px;margin:0 auto 24px;line-height:1.75}
+.hero-stats{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.hstat{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  padding:10px 20px;border-radius:28px;
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;color:#fff;
+}
+.hstat strong{color:var(--gold)}
+
+/* WRAP */
+.wrap{max-width:840px;margin:0 auto;padding:28px 20px}
+
+/* INFO BAR */
+.info-bar{
+  background:#fff;border:1px solid rgba(11,30,61,.07);
+  border-radius:var(--rl);padding:14px 20px;
+  display:flex;align-items:center;gap:20px;
+  font-size:13px;color:#64748b;margin-bottom:24px;
+  box-shadow:0 2px 12px rgba(11,30,61,.06);
+}
+.info-bar span strong{color:var(--navy)}
+.info-bar span:last-child{margin-left:auto;font-style:italic;color:#94a3b8}
+
+/* TARJETA MÓDULO */
+.mod{
+  background:#fff;border-radius:var(--rl);
+  border:1px solid rgba(11,30,61,.07);
+  box-shadow:0 3px 16px rgba(11,30,61,.08);
+  margin-bottom:24px;overflow:hidden;
+  transition:box-shadow .25s var(--ease),transform .25s var(--ease);
+}
+.mod:hover{
+  box-shadow:0 6px 28px rgba(11,30,61,.13);
+  transform:translateY(-2px);
+}
+
+/* HEADER MÓDULO */
+.mhdr{
+  display:flex;align-items:center;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.mhdr .mnum{
+  background:var(--ac,var(--teal));
+  color:#fff;font-family:var(--fh);
+  font-size:26px;font-weight:700;
+  width:68px;min-height:80px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.mhdr .minfo{padding:16px 20px;flex:1}
+.mhdr .mtitle{
+  font-family:var(--fh);font-size:18px;
+  font-weight:700;color:var(--navy);margin-bottom:3px;
+}
+.mhdr .msub{font-size:12px;color:#64748b;margin-bottom:6px}
+.mhdr .mmeta{display:flex;gap:10px;align-items:center}
+.mhdr .mdur{
+  background:rgba(11,30,61,.06);color:var(--navy);
+  padding:2px 10px;border-radius:6px;font-size:11px;font-weight:500;
+}
+.mhdr .mlock{font-size:11px;color:#94a3b8;display:flex;align-items:center;gap:4px}
+.mhdr .mchev{
+  margin-right:18px;font-size:18px;color:#94a3b8;
+  transition:transform .3s var(--ease);flex-shrink:0;
+}
+.mhdr.open .mchev{transform:rotate(180deg)}
+/* barra de progreso micro */
+.mpbar{position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:rgba(11,30,61,.05)}
+.mpfill{height:100%;width:0%;background:var(--ac,var(--teal));
+  transition:width .7s var(--ease)}
+
+/* CUERPO MÓDULO */
+.mbody{display:none;animation:sdown .3s var(--ease)}
+.mbody.open{display:block}
+@keyframes sdown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+/* CAJA INTRO (Ag3 Emocional: engancha con dato + pregunta) */
+.intro{
+  margin:22px 26px;padding:18px 22px;
+  border-radius:var(--r);
+  border-left:4px solid var(--ac,var(--teal));
+  background:linear-gradient(135deg,rgba(29,158,117,.06),rgba(29,158,117,.02));
+  font-size:14px;line-height:1.8;color:#334155;
+}
+.intro strong{color:var(--navy)}
+
+/* CARDS DE CONTENIDO (frontend-design + learn: andamiaje visual) */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;padding:0 26px 22px;
+}
+.card{
+  border-radius:var(--r);border:1px solid rgba(11,30,61,.08);
+  overflow:hidden;background:#fff;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(11,30,61,.1)}
+.card-hd{
+  padding:12px 16px;
+  background:var(--ca,var(--teal));
+  display:flex;align-items:center;gap:10px;
+}
+.card-ico{
+  width:30px;height:30px;background:rgba(255,255,255,.2);
+  border-radius:7px;display:flex;align-items:center;
+  justify-content:center;font-size:15px;flex-shrink:0;
+}
+.card-title{
+  font-family:var(--fh);font-size:14px;font-weight:700;
+  color:#fff;line-height:1.25;
+}
+.card-bd{padding:13px 16px;font-size:13px;line-height:1.75;color:#374151}
+.card-bd strong{color:var(--navy)}
+.card-reflect{
+  margin-top:10px;padding:9px 13px;
+  background:rgba(11,30,61,.04);border-radius:7px;
+  font-size:12px;color:#475569;font-style:italic;
+  border-left:3px solid var(--ca,var(--teal));
+}
+
+/* ZONA EXAMEN */
+.zona{padding:0 26px 26px}
+.ehdr{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 20px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--navy),#1e3a6e);
+  color:#fff;margin-bottom:18px;
+}
+.ehdr .eico{font-size:22px}
+.ehdr .etit{font-family:var(--fh);font-size:16px;font-weight:700;margin-bottom:2px}
+.ehdr .esub{font-size:11px;opacity:.7}
+.ehdr .epct{margin-left:auto;text-align:right}
+.ehdr .enum{font-size:20px;font-weight:700;color:var(--gold)}
+.ehdr .elbl{font-size:10px;opacity:.65}
+
+/* BARRA PROGRESO EXAMEN */
+.ebar{height:5px;background:rgba(11,30,61,.08);border-radius:3px;
+  margin-bottom:18px;overflow:hidden}
+.efill{height:100%;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  border-radius:3px;width:0%;transition:width .5s var(--ease)}
+
+/* PREGUNTA */
+.eq{
+  background:#fff;border-radius:var(--r);
+  border:1px solid rgba(11,30,61,.08);
+  padding:20px 22px;margin-bottom:14px;
+  transition:border-color .25s,box-shadow .25s;
+}
+.eq.ok{border-color:var(--teal);box-shadow:0 0 0 2px rgba(29,158,117,.12)}
+.eq.no{border-color:var(--coral);box-shadow:0 0 0 2px rgba(216,90,48,.1)}
+.eq .qhdr{display:flex;gap:10px;margin-bottom:14px;align-items:flex-start}
+.eq .qn{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.eq .qtx{font-size:14.5px;line-height:1.65;color:var(--navy);font-weight:500}
+
+/* OPCIONES */
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:11px 15px;border-radius:var(--r);
+  border:1.5px solid rgba(11,30,61,.09);
+  cursor:pointer;background:#fff;
+  font-size:13.5px;color:#374151;
+  text-align:left;width:100%;
+  transition:all .2s var(--ease);
+}
+.opt:hover{border-color:var(--navy);background:rgba(11,30,61,.025)}
+.opt .mk{
+  width:21px;height:21px;border-radius:50%;
+  border:2px solid #cbd5e1;color:#94a3b8;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0;
+  transition:all .2s;margin-top:1px;
+}
+.opt.sel .mk{border-color:var(--navy);background:var(--navy);color:#fff}
+.opt.good{border-color:var(--teal);background:rgba(29,158,117,.06)}
+.opt.good .mk{border-color:var(--teal);background:var(--teal);color:#fff}
+.opt.bad{border-color:var(--coral);background:rgba(216,90,48,.05)}
+.opt.bad .mk{border-color:var(--coral);background:var(--coral);color:#fff}
+
+/* BOTÓN VERIFICAR */
+.btncheck{
+  display:block;width:100%;margin-top:14px;
+  padding:13px;border:none;border-radius:var(--r);
+  background:var(--navy);color:var(--gold);
+  font-family:var(--fb);font-size:13.5px;font-weight:600;
+  letter-spacing:.4px;cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.btncheck:hover{background:#1a3a6e;transform:translateY(-1px)}
+.btncheck:disabled{background:#94a3b8;color:#fff;cursor:not-allowed;transform:none}
+
+/* FEEDBACK (learn skill: feedback formativo profundo) */
+.fb{
+  display:none;margin-top:12px;padding:15px 18px;
+  border-radius:var(--r);font-size:13px;line-height:1.8;
+}
+.fb.ok{
+  background:linear-gradient(135deg,rgba(29,158,117,.09),rgba(29,158,117,.04));
+  border-left:4px solid var(--teal);color:#14532d;
+}
+.fb.no{
+  background:linear-gradient(135deg,rgba(216,90,48,.08),rgba(216,90,48,.03));
+  border-left:4px solid var(--coral);color:#7c2d12;
+}
+.fb .fbt{font-weight:700;margin-bottom:6px;font-size:13.5px}
+.fb .fbr{
+  margin-top:9px;padding:9px 13px;
+  background:rgba(0,0,0,.04);border-radius:7px;
+  font-style:italic;font-size:12px;
+}
+
+/* RESULTADO MÓDULO */
+.rmod{text-align:center;padding:30px 22px;display:none}
+.rmod.show{display:block;animation:rin .45s var(--ease)}
+@keyframes rin{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.rmod .rico{font-size:52px;margin-bottom:14px}
+.rmod .rpct{
+  font-family:var(--fh);font-size:44px;font-weight:700;
+  color:var(--teal);margin-bottom:8px;
+}
+.rmod .rmsg{font-size:15px;color:#374151;margin-bottom:18px}
+.rmod .rrow{display:flex;justify-content:center;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.rmod .rstat{
+  background:rgba(11,30,61,.05);padding:10px 18px;
+  border-radius:var(--r);font-size:12px;color:#64748b;
+}
+.rmod .rstat strong{display:block;font-size:18px;color:var(--navy);font-weight:700}
+.btnnx{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--teal),var(--sage));
+  color:#fff;padding:13px 30px;border-radius:28px;border:none;
+  font-size:14px;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 16px rgba(29,158,117,.28);
+  transition:all .25s var(--ease);
+}
+.btnnx:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(29,158,117,.38)}
+.btnrt{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(11,30,61,.07);color:var(--navy);
+  padding:11px 24px;border-radius:28px;border:none;
+  font-size:13px;cursor:pointer;margin-left:10px;
+  transition:all .25s;
+}
+.btnrt:hover{background:rgba(11,30,61,.12)}
+
+/* PANEL LATERAL PROGRESO */
+.sidebar{
+  position:fixed;right:18px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:7px;z-index:100;
+}
+.sdot{
+  width:9px;height:9px;border-radius:50%;
+  border:2px solid rgba(11,30,61,.18);cursor:pointer;
+  transition:all .3s;title:'';
+}
+.sdot.done{background:var(--teal);border-color:var(--teal)}
+.sdot.cur{background:var(--gold);border-color:var(--gold);transform:scale(1.5)}
+.sdot.lock{background:rgba(11,30,61,.08)}
+
+/* TOAST */
+.toast{
+  position:fixed;top:18px;left:50%;
+  transform:translateX(-50%) translateY(-120px);
+  background:var(--navy);color:#fff;
+  padding:12px 26px;border-radius:30px;
+  font-size:13.5px;font-weight:500;
+  border:1px solid rgba(212,168,67,.3);
+  box-shadow:0 8px 28px rgba(11,30,61,.25);
+  z-index:999;transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* FOOTER */
+.footer{
+  background:var(--navy);color:rgba(255,255,255,.55);
+  text-align:center;padding:36px 20px;margin-top:40px;
+  font-size:12.5px;border-top:1px solid rgba(212,168,67,.2);
+}
+.footer .fl{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.footer strong{color:var(--gold)}
+
+/* BLOOM BADGES */
+.bloom{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:2px 9px;border-radius:10px;
+  font-size:10px;font-weight:700;letter-spacing:.4px;
+  text-transform:uppercase;margin-bottom:8px;
+}
+.b1{background:#eff6ff;color:#1d4ed8}
+.b2{background:#f0fdf4;color:#166534}
+.b3{background:#fefce8;color:#854d0e}
+.b4{background:#fff7ed;color:#9a3412}
+.b5{background:#fdf4ff;color:#7e22ce}
+.b6{background:#f5f3ff;color:#5b21b6}
+
+@media(max-width:600px){
+  .wrap{padding:16px 12px}
+  .cards{grid-template-columns:1fr;padding:0 14px 16px}
+  .sidebar{display:none}
+  .hero{padding:32px 16px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div>
+    <div class="nav-brand">🔭 SABI CENTEC</div>
+    <div class="nav-tag">Autoformación Docente de Excelencia</div>
+  </div>
+  <div class="nav-pill">Curso 28 · Alfabetización de datos</div>
+</nav>
+
+<div class="sidebar"><div class="sdot lock" data-n="1" title="Módulo 1" onclick="S.toggle(1)"></div>
+<div class="sdot lock" data-n="2" title="Módulo 2" onclick="S.toggle(2)"></div>
+<div class="sdot lock" data-n="3" title="Módulo 3" onclick="S.toggle(3)"></div></div>
+<div class="toast"></div>
+<div class="wrap">
+  <div class="info-bar">
+    <span>📚 <strong>3 módulos</strong></span>
+    <span>❓ <strong>21 preguntas</strong></span>
+    <span>🏆 <strong>Mínimo 70% por módulo</strong></span>
+    <span>Filosofía SABI — que verdaderamente aprendan</span>
+  </div>
+  
+
+<div class="mod" id="mod1" style="--ac:#1D9E75">
+  <div class="mhdr" id="h1" data-lock="0" onclick="S.toggle(1)" style="--ac:#1D9E75">
+    <div class="mnum" style="background:#1D9E75">1</div>
+    <div class="minfo">
+      <div class="mtitle">Enseñar estadística con datos reales</div>
+      <div class="msub">Alfabetización de datos · Ciclo PPDAC · Tipos de variables · Tablas y gráficos honestos · Tendencia central y dispersión</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 1-2</span>
+        
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b1"><div class="intro"><strong>Contenido en revisión.</strong> Todos los días tomamos decisiones con datos: notas, asistencia, precios del mercado, resultados Saber. Alfabetizarse en datos no es memorizar fórmulas: es saber formular una buena pregunta, recoger datos con cuidado, organizarlos, representarlos con honestidad y sacar conclusiones con humildad. En este módulo vivirás el ciclo investigativo con datos del aula (ficticios en los ejemplos) y verificarás cada cálculo paso a paso.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">📊</div>
+    <div class="card-title">¿Qué es la alfabetización de datos y por qué es de todas las áreas?</div>
+  </div>
+  <div class="card-bd">Iddo Gal (2002, <em>International Statistical Review</em>) describe la alfabetización estadística de los adultos como la capacidad de <strong>interpretar y evaluar críticamente</strong> información estadística y de <strong>comunicar</strong> opiniones sobre ella. Para Gal no basta el conocimiento matemático: también hacen falta conocimiento del contexto, preguntas críticas y una disposición a sospechar con argumentos. Por eso no es un asunto exclusivo del docente de matemáticas. En ciencias naturales se leen datos de experimentos; en sociales, encuestas y censos; en lenguaje, gráficos dentro de noticias; en educación física, tiempos y marcas; en inglés, infografías; y en la dirección de grupo, reportes de asistencia y de convivencia. Los Estándares Básicos de Competencias del MEN (2006) dedican un pensamiento completo de matemáticas, el <strong>pensamiento aleatorio y sistemas de datos</strong>, a este propósito; para 10.° y 11.° incluyen, según la redacción que reproducen fuentes académicas colombianas, «Interpreto y comparo resultados de estudios con información estadística provenientes de medios de comunicación» (redacción pendiente de cotejo con el PDF oficial del MEN). En el modelo SABI esto se conecta con la <strong>estadística financiera</strong>: leer precios, tasas, riesgos y proyecciones para decidir mejor en familia.<div class="card-reflect">Piensa: ¿qué dato de tu área le pediste interpretar a tus estudiantes la semana pasada?</div></div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🔁</div>
+    <div class="card-title">El ciclo investigativo PPDAC y el marco GAISE II</div>
+  </div>
+  <div class="card-bd">Wild y Pfannkuch (1999) describen el pensamiento estadístico en la investigación empírica y retoman el ciclo <strong>PPDAC</strong> de MacKay y Oldford: <strong>Problema</strong> (¿qué queremos saber?), <strong>Plan</strong> (¿qué medimos, a quién y cómo?), <strong>Datos</strong> (recoger, limpiar, organizar), <strong>Análisis</strong> (tablas, gráficos, medidas) y <strong>Conclusiones</strong> (responder la pregunta y reconocer límites). El informe GAISE II para preescolar a grado 12 (Bargagliotti y colaboradores, 2020, American Statistical Association y NCTM) organiza el mismo proceso en cuatro componentes: formular preguntas investigativas, recoger o considerar datos, analizar datos e interpretar resultados, y propone avanzar por niveles de complejidad. <strong>Ejemplo CENTEC (ficticio):</strong> la profesora Liliana, de 7.°, pregunta «¿cómo llegamos al colegio?». Plan: una sola pregunta cerrada, anónima, para todo el grupo. Datos: 30 respuestas. Análisis: tabla de frecuencias y gráfico de barras. Conclusión: describir el grupo, no «todo Cali». La clave didáctica es que la pregunta sea de los estudiantes y que el ciclo se cierre: una investigación sin conclusión comunicada se queda en ejercicio de dibujo.<div class="card-reflect">Una pregunta estadística espera variabilidad en las respuestas: «¿cuántos años tengo?» no lo es; «¿cuánto dormimos en 9.°?» sí.</div></div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🧩</div>
+    <div class="card-title">Tipos de variables: la decisión que define todo lo demás</div>
+  </div>
+  <div class="card-bd">Antes de calcular o graficar hay que saber qué clase de dato tenemos. Una <strong>variable cualitativa</strong> (o categórica) describe una cualidad: puede ser <strong>nominal</strong>, sin orden (medio de transporte, deporte favorito), u <strong>ordinal</strong>, con orden (nivel de desempeño bajo, básico, alto, superior). Una <strong>variable cuantitativa</strong> se mide con números que tienen sentido aritmético: es <strong>discreta</strong> si se cuenta (hermanos, inasistencias) y <strong>continua</strong> si se mide y admite decimales (estatura, tiempo de lectura). ¿Por qué importa? Porque define qué podemos hacer: el promedio del «deporte favorito» no existe; para variables nominales usamos frecuencias y moda; para ordinales, también la mediana; para cuantitativas, media, mediana y medidas de dispersión. <strong>Error frecuente:</strong> codificar categorías con números (1 = fútbol, 2 = baloncesto) y luego promediar esos códigos. <strong>Otro error:</strong> tratar el número de documento o el código del estudiante como cantidad. En la práctica, pide a tus estudiantes que clasifiquen cada variable de su encuesta antes de recoger datos; esa clasificación anticipa la tabla, el gráfico y la medida que usarán.<div class="card-reflect">Pregunta de bolsillo: «¿Tiene sentido sumar estos datos?». Si no, no es cuantitativa.</div></div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🧮</div>
+    <div class="card-title">Tabla de frecuencias: ejemplo resuelto paso a paso</div>
+  </div>
+  <div class="card-bd"><strong>Datos ficticios</strong> del grupo de la profesora Liliana: 30 estudiantes respondieron cómo llegan al colegio. <strong>Paso 1, contar:</strong> caminando 12, en bus 9, en moto con un familiar 6, en bicicleta 3. <strong>Paso 2, comprobar:</strong> 12 + 9 + 6 + 3 = 30; si la suma no da el total, hay un dato perdido o contado dos veces. <strong>Paso 3, frecuencia relativa:</strong> dividir cada conteo entre 30: 12/30 = 0,40; 9/30 = 0,30; 6/30 = 0,20; 3/30 = 0,10. <strong>Paso 4, porcentaje:</strong> 40 %, 30 %, 20 % y 10 %, que suman 100 %. <strong>Paso 5, interpretar:</strong> «En este grupo, 4 de cada 10 estudiantes llegan caminando; la categoría más frecuente (la moda) es caminar». <strong>Límite:</strong> no podemos decir que así llega todo el colegio, porque solo preguntamos a un grupo. En clase, la frecuencia relativa es un puente natural hacia fracciones, decimales y porcentajes, y hacia la probabilidad: si elegimos al azar un estudiante de este grupo, la probabilidad de que llegue caminando es 12/30. Haz que los estudiantes construyan la tabla a mano antes de usar la hoja de cálculo: así entienden qué hace la herramienta.<div class="card-reflect">Comprobación rápida: las frecuencias absolutas suman n; las relativas suman 1; los porcentajes, 100 %.</div></div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">📈</div>
+    <div class="card-title">Gráficos honestos: elegir según la variable y la pregunta</div>
+  </div>
+  <div class="card-bd">Un gráfico honesto muestra los datos sin exagerar ni esconder. <strong>Guía de elección:</strong> para variables cualitativas, el <strong>gráfico de barras</strong> (barras separadas, del mismo ancho, eje vertical desde cero); el gráfico circular solo sirve con pocas categorías que forman un todo. Para variables cuantitativas, el <strong>diagrama de puntos</strong> en primaria, el <strong>histograma</strong> (barras contiguas por intervalos) y el <strong>diagrama de caja</strong> en secundaria. Para cambios en el tiempo, la <strong>línea</strong>. Para relacionar dos variables cuantitativas, el <strong>diagrama de dispersión</strong>. <strong>Lista de chequeo de honestidad:</strong> 1) título que diga qué, quién y cuándo; 2) ejes con nombre y unidades; 3) en barras, el eje empieza en cero; 4) fuente de los datos y tamaño del grupo (n); 5) sin efectos 3D que deformen áreas; 6) colores con propósito, no decorativos. <strong>Ejemplo:</strong> con la tabla de transporte, un gráfico de barras ordenado de mayor a menor (12, 9, 6, 3) permite comparar de un vistazo. Los estándares del MEN para 8.° y 9.° incluyen, según fuentes secundarias consultadas, «Reconozco cómo diferentes maneras de presentación de información pueden originar distintas interpretaciones» (redacción pendiente de cotejo con el documento oficial).<div class="card-reflect">Antes de entregar un gráfico, pregúntate: ¿alguien que no estuvo en clase lo entendería sin que yo lo explique?</div></div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🎯</div>
+    <div class="card-title">Media, mediana y moda: ejemplo resuelto y verificado</div>
+  </div>
+  <div class="card-bd"><strong>Datos ficticios:</strong> minutos de lectura diaria de 9 estudiantes de 6.°: 10, 15, 15, 20, 20, 20, 25, 30, 90. <strong>Media (promedio):</strong> suma 245, dividida entre 9 = 27,2 minutos (aproximado). <strong>Mediana:</strong> con los datos ordenados, el valor del centro es el quinto: 20 minutos. <strong>Moda:</strong> el valor que más se repite: 20 minutos. <strong>¿Por qué la media es mayor?</strong> Porque un estudiante lee 90 minutos, un valor atípico que «jala» el promedio. Si lo quitamos, la media de los 8 restantes es 155 / 8 = 19,4 minutos, mientras la mediana casi no cambia (20). <strong>Conclusión didáctica:</strong> la media usa todos los valores y es sensible a extremos; la mediana es resistente; la moda sirve incluso para datos cualitativos. Cuando la distribución es asimétrica (ingresos, tiempos, precios), la mediana describe mejor lo «típico». <strong>Error frecuente:</strong> informar solo el promedio de notas de un grupo y concluir que «todos van bien». <strong>Para clase:</strong> pide a los estudiantes que inventen un conjunto de 5 datos con media 4,0 y mediana 3,5; el reto obliga a comprender, no solo a calcular.<div class="card-reflect">Cálculos comprobados: 245 / 9 = 27,22…; 155 / 8 = 19,375.</div></div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">↔️</div>
+    <div class="card-title">Dispersión: dos grupos con igual promedio no son iguales</div>
+  </div>
+  <div class="card-bd"><strong>Datos ficticios</strong> de notas (escala 1,0 a 5,0) de dos subgrupos de 5 estudiantes. Grupo A: 3,0; 3,5; 3,5; 4,0; 4,0. Grupo B: 2,0; 3,0; 3,5; 4,5; 5,0. <strong>Paso 1:</strong> ambas medias son 3,6 (18,0 / 5). <strong>Paso 2, rango</strong> (máximo menos mínimo): A = 1,0; B = 3,0. <strong>Paso 3, desviación estándar</strong> (qué tanto se alejan, en promedio, los datos de la media): A ≈ 0,37 y B ≈ 1,07 si se calcula como población; con la fórmula muestral (dividiendo entre n − 1) A ≈ 0,42 y B ≈ 1,19. <strong>Interpretación:</strong> el promedio dice lo mismo, pero el grupo B es mucho más heterogéneo: tiene un estudiante en 2,0 que necesita apoyo y otros que pueden asumir retos mayores. Decidir solo con la media habría escondido esa diferencia. <strong>Didáctica:</strong> en primaria basta con el rango y con mirar un diagrama de puntos; en secundaria se introduce la desviación estándar y, luego, el diagrama de caja con cuartiles. Las hojas de cálculo distinguen DESVEST.P (población) y DESVEST.M (muestra); di siempre cuál usaste.<div class="card-reflect">Regla de oro: reporta siempre una medida de centro acompañada de una de dispersión.</div></div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+
+<div class="eq" id="q1_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">En una encuesta de 8.° se preguntó el deporte favorito y se codificó 1 = fútbol, 2 = baloncesto, 3 = voleibol. Un estudiante calcula «el promedio del deporte favorito es 1,8». ¿Qué le respondes?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,1,0)">
+  <span class="mk">A</span><span>Está bien calculado, pero debe redondear a 2</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,1)">
+  <span class="mk">B</span><span>Debe usar la mediana, que es más resistente</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,2)">
+  <span class="mk">C</span><span>La variable es nominal: se usan frecuencias y moda</span>
+</button>
+<button class="opt" onclick="S.pick(1,1,3)">
+  <span class="mk">D</span><span>Debe calcular la desviación estándar de los códigos</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,1,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Los códigos son etiquetas, no cantidades: su promedio no significa nada. Para una variable cualitativa nominal se reportan frecuencias, porcentajes y la moda. ¿Cómo enseñarías a tus estudiantes a preguntarse «¿tiene sentido sumar esto?» antes de calcular?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Revisa la tarjeta de tipos de variables: ¿los números 1, 2 y 3 miden una cantidad o solo nombran categorías? Piensa qué medidas sirven para cada tipo.</div>
+  </div>
+</div>
+<div class="eq" id="q1_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">La profesora Liliana quiere iniciar un proyecto con su grupo de 7.°. ¿Cuál es la mejor pregunta investigativa para arrancar el ciclo PPDAC?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,2,0)">
+  <span class="mk">A</span><span>¿Cuántos años tiene la profesora Liliana este año?</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,1)">
+  <span class="mk">B</span><span>¿Cuántas horas duermen, en general, los estudiantes de 7.°?</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,2)">
+  <span class="mk">C</span><span>¿Cuál es la capital del departamento del Valle?</span>
+</button>
+<button class="opt" onclick="S.pick(1,2,3)">
+  <span class="mk">D</span><span>¿Cuántos estudiantes hay matriculados en el salón?</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,2,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. Una pregunta estadística anticipa variabilidad en las respuestas y se responde con datos de varias personas. Las otras tienen una única respuesta que se consulta, no se investiga. ¿Qué pregunta propondrían tus estudiantes sobre su propia vida escolar?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda la diferencia entre una pregunta con una sola respuesta fija y una pregunta que espera respuestas distintas de distintas personas.</div>
+  </div>
+</div>
+<div class="eq" id="q1_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">En la tabla de transporte (30 estudiantes), un estudiante escribe: caminando 12, bus 9, moto 6, bicicleta 4. ¿Qué paso del procedimiento le permite descubrir el error?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,3,0)">
+  <span class="mk">A</span><span>Calcular el porcentaje de la categoría mayor</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,1)">
+  <span class="mk">B</span><span>Ordenar las categorías de mayor a menor</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,2)">
+  <span class="mk">C</span><span>Elegir colores distintos para cada barra</span>
+</button>
+<button class="opt" onclick="S.pick(1,3,3)">
+  <span class="mk">D</span><span>Comprobar que la suma de conteos sea 30</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,3,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. 12 + 9 + 6 + 4 = 31, que no coincide con los 30 estudiantes: hay un dato contado dos veces o mal registrado. Comprobar que las frecuencias absolutas suman n es el control de calidad más simple. ¿Qué otras comprobaciones podrías volver rutina en tus clases?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Vuelve al paso 2 del ejemplo resuelto: ¿qué debe cumplirse siempre entre los conteos y el total de personas encuestadas?</div>
+  </div>
+</div>
+<div class="eq" id="q1_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">Un estudiante presenta un gráfico de barras de la tabla de transporte cuyo eje vertical empieza en 2, sin título y sin indicar cuántos estudiantes respondieron. ¿Qué corrección es prioritaria?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,4,0)">
+  <span class="mk">A</span><span>Cambiarlo por un gráfico circular en tres dimensiones</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,1)">
+  <span class="mk">B</span><span>Eje desde cero, título claro y tamaño del grupo n</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,2)">
+  <span class="mk">C</span><span>Agregar más colores para que se vea llamativo</span>
+</button>
+<button class="opt" onclick="S.pick(1,4,3)">
+  <span class="mk">D</span><span>Usar un histograma porque son datos de transporte</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,4,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Así es. En barras, la longitud representa la cantidad, por eso el eje debe empezar en cero; además, el título y el n permiten saber de qué y de quiénes hablan los datos. El 3D deforma y el histograma es para variables cuantitativas. ¿Usarías esta lista de chequeo como rúbrica con tus estudiantes?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Repasa la lista de chequeo de honestidad: ¿qué hace que la longitud de una barra represente bien una cantidad? ¿Qué información mínima necesita el lector?</div>
+  </div>
+</div>
+<div class="eq" id="q1_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">Con los minutos de lectura 10, 15, 15, 20, 20, 20, 25, 30 y 90, ¿qué medida describe mejor lo «típico» del grupo y por qué?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,5,0)">
+  <span class="mk">A</span><span>La mediana, 20 minutos, porque resiste el valor atípico</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,1)">
+  <span class="mk">B</span><span>La media, 27,2 minutos, porque usa todos los datos</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,2)">
+  <span class="mk">C</span><span>El rango, 80 minutos, porque mide toda la variación</span>
+</button>
+<button class="opt" onclick="S.pick(1,5,3)">
+  <span class="mk">D</span><span>La media sin redondear, porque es más precisa</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,5,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. El valor 90 es atípico y eleva la media a 27,2 minutos, aunque 7 de los 9 estudiantes leen 25 minutos o menos. La mediana (20) no se deja arrastrar por ese extremo. El rango mide dispersión, no centro. ¿En qué datos de tu área la mediana sería más honesta que el promedio?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Compara qué pasa con la media y con la mediana cuando quitas el 90. ¿Cuál cambia mucho y cuál casi no? Recuerda también qué mide el rango.</div>
+  </div>
+</div>
+<div class="eq" id="q1_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">Dos subgrupos tienen media 3,6. El grupo A tiene rango 1,0 y el grupo B, rango 3,0. ¿Qué decisión pedagógica se apoya mejor en estos datos?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,6,0)">
+  <span class="mk">A</span><span>Tratar a ambos grupos igual porque tienen la misma media</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,1)">
+  <span class="mk">B</span><span>Concluir que el grupo B estudia menos que el grupo A</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,2)">
+  <span class="mk">C</span><span>Diferenciar en B: apoyo para unos y retos para otros</span>
+</button>
+<button class="opt" onclick="S.pick(1,6,3)">
+  <span class="mk">D</span><span>Subir las notas del grupo B para igualar la dispersión</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,6,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. La misma media puede esconder realidades distintas. La mayor dispersión de B indica estudiantes en extremos que necesitan apoyos y retos diferentes; los datos no dicen por qué ocurre, así que culpar al grupo sería una inferencia sin respaldo. ¿Qué dato adicional recogerías para entender la causa?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa qué te dice la media y qué te agrega el rango. ¿Alguna opción saca una conclusión sobre causas que los datos no muestran?</div>
+  </div>
+</div>
+<div class="eq" id="q1_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">Al finalizar el ciclo PPDAC, el grupo concluye: «En Cali, 4 de cada 10 estudiantes llegan caminando al colegio». ¿Qué debe corregirse en la conclusión?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(1,7,0)">
+  <span class="mk">A</span><span>Nada: el porcentaje del 40 % está bien calculado</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,1)">
+  <span class="mk">B</span><span>Debe expresarse en decimales y no en fracción</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,2)">
+  <span class="mk">C</span><span>Debe usar la media en lugar del porcentaje</span>
+</button>
+<button class="opt" onclick="S.pick(1,7,3)">
+  <span class="mk">D</span><span>La muestra fue un grupo: la conclusión es sobre él</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(1,7,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. El cálculo es correcto, pero la conclusión generaliza más allá de los datos: solo se preguntó a un grupo de 7.°. Las conclusiones deben respetar a quién se le preguntó. ¿Cómo ayudarías a tus estudiantes a escribir conclusiones con el alcance justo?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Repasa la etapa de Conclusiones del ciclo PPDAC y el límite señalado en el ejemplo resuelto: ¿a quiénes se les preguntó realmente?</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r1"></div></div></div>
+
+<div class="mod" id="mod2" style="--ac:#1B7FA6">
+  <div class="mhdr" id="h2" data-lock="1" onclick="S.toggle(2)" style="--ac:#1B7FA6">
+    <div class="mnum" style="background:#1B7FA6">2</div>
+    <div class="minfo">
+      <div class="mtitle">Leer gráficos y no dejarse engañar</div>
+      <div class="msub">Escalas · Correlación y causalidad · Muestras y sesgo · Frecuencias naturales · Riesgo · Interés, inflación y presupuesto</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 3-4</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b2"><div class="intro">Un gráfico puede ser exacto en sus números y engañoso en su mensaje. En este módulo aprenderás a detectar escalas que exageran, saltos de la correlación a la causa, muestras sesgadas y riesgos presentados para asustar. También harás, paso a paso, los cálculos de estadística financiera que toda familia necesita: interés simple y compuesto, inflación y presupuesto. Todos los datos son <strong>ficticios</strong> y los cálculos están verificados.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">🔍</div>
+    <div class="card-title">Ejes truncados: cuando una diferencia pequeña parece enorme</div>
+  </div>
+  <div class="card-bd"><strong>Caso ficticio:</strong> un volante compara la «satisfacción» de dos sedes: Sede Norte 82 % y Sede Sur 86 %. El gráfico de barras tiene el eje vertical desde 80. <strong>Paso 1:</strong> lo que el ojo compara es la altura dibujada: 82 − 80 = 2 unidades frente a 86 − 80 = 6 unidades; la barra de la Sede Sur se ve <strong>tres veces</strong> más alta. <strong>Paso 2:</strong> la comparación real es 86 / 82 ≈ 1,05: la Sede Sur tiene apenas unos 4 puntos porcentuales más, alrededor de un 5 % más en términos relativos. <strong>Paso 3:</strong> preguntar por el tamaño de cada grupo; con pocos encuestados, 4 puntos pueden ser simple variación. <strong>Regla:</strong> en gráficos de barras y de áreas el eje debe empezar en cero, porque la longitud o el área representan la cantidad. En gráficos de línea que muestran tendencias se acepta un eje que no empiece en cero, siempre que esté claramente rotulado. <strong>Otros trucos frecuentes:</strong> intervalos de tiempo desiguales, escalas distintas en dos gráficos que se comparan, pictogramas que crecen en alto y ancho a la vez (el área se multiplica), y elegir solo el periodo que favorece el mensaje.<div class="card-reflect">Actividad: entrega el mismo dato graficado con eje desde 0 y desde 80, y pide que escriban qué titular pondría cada uno.</div></div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🔗</div>
+    <div class="card-title">Correlación no es causalidad</div>
+  </div>
+  <div class="card-bd">Dos variables están <strong>correlacionadas</strong> cuando tienden a variar juntas; eso no prueba que una cause la otra. <strong>Caso ficticio:</strong> un docente observa que, en su grupo, quienes tienen más horas de pantalla tienen notas más bajas. Antes de concluir «las pantallas bajan las notas», hay que considerar tres explicaciones alternativas: 1) <strong>variable de confusión</strong>: otra causa común (por ejemplo, menos acompañamiento en casa) puede aumentar las pantallas y bajar las notas a la vez; 2) <strong>causalidad inversa</strong>: a quien le va mal puede refugiarse más en las pantallas; 3) <strong>azar</strong>: con pocos datos aparecen patrones que no se repiten. El ejemplo clásico de aula: la venta de helados y los ahogamientos aumentan juntos en temporada de calor; el calor es la causa común. <strong>¿Cómo se acerca uno a una causa?</strong> Con experimentos bien diseñados (asignación aleatoria a grupos), con estudios que controlan variables de confusión y con evidencia que se replica. Para el aula: el diagrama de dispersión muestra la tendencia; la conclusión correcta es «en este grupo se observa una relación», no «X produce Y». Esta distinción es central para leer noticias, publicidad y también investigaciones educativas.<div class="card-reflect">Pregunta crítica para estudiantes: «¿Qué otra cosa podría explicar que estas dos variables se muevan juntas?»</div></div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">👥</div>
+    <div class="card-title">Muestras y sesgo: ¿a quién le preguntamos?</div>
+  </div>
+  <div class="card-bd">Una <strong>población</strong> es el grupo completo sobre el que queremos concluir; una <strong>muestra</strong> es la parte que observamos. Una muestra puede ser grande y aun así engañar si está <strong>sesgada</strong>. <strong>Caso ficticio:</strong> para saber si a los estudiantes les gusta el nuevo horario, un coordinador encuesta solo a quienes llegan antes de las 6:30 a. m. Esa muestra excluye a quienes llegan tarde, justamente los más afectados: es un <strong>sesgo de selección</strong>. Otros sesgos: <strong>autoselección</strong> (responden solo los muy entusiastas o los muy molestos, como en encuestas abiertas en redes sociales), <strong>no respuesta</strong> y <strong>preguntas sesgadas</strong> («¿No cree que el nuevo horario es mejor?»). El remedio principal es el <strong>muestreo aleatorio</strong>: que cada miembro de la población tenga una probabilidad conocida de ser elegido. Sobre el tamaño: como aproximación para proporciones obtenidas con muestreo aleatorio, el margen de error al 95 % es cercano a 1/√n (es el margen máximo, el que corresponde a una proporción cercana al 50 %, y sale de 1,96 × √(0,25/n) ≈ 1/√n); con n = 100 es de unos ±10 puntos porcentuales, y con n = 400, de unos ±5. Cuadruplicar la muestra solo reduce el margen a la mitad. <strong>Límite:</strong> esa fórmula no corrige el sesgo; una muestra enorme y sesgada sigue sesgada.<div class="card-reflect">Comprobado: 1/√100 = 0,10 y 1/√400 = 0,05.</div></div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🎲</div>
+    <div class="card-title">Probabilidad con frecuencias naturales</div>
+  </div>
+  <div class="card-bd">Gigerenzer y Hoffrage (1995, <em>Psychological Review</em>) mostraron que muchas personas razonan mejor sobre probabilidades condicionales cuando la información se presenta como <strong>frecuencias naturales</strong> («9 de cada 1.000») en lugar de porcentajes y probabilidades encadenadas. <strong>Ejemplo resuelto con datos ficticios:</strong> una prueba de tamizaje detecta una condición que tiene 1 de cada 100 personas. Si la persona tiene la condición, la prueba sale positiva el 90 % de las veces; si no la tiene, sale positiva por error el 10 % de las veces. ¿Qué probabilidad tiene de tener la condición alguien con resultado positivo? <strong>Paso 1:</strong> imagina 1.000 personas. <strong>Paso 2:</strong> 10 tienen la condición y 990 no. <strong>Paso 3:</strong> de las 10, salen positivas 9. <strong>Paso 4:</strong> de las 990, salen positivas por error 99. <strong>Paso 5:</strong> positivas en total: 9 + 99 = 108. <strong>Paso 6:</strong> de esas 108, solo 9 tienen la condición: 9 / 108 ≈ 0,083, es decir, cerca del 8 %. La intuición suele decir «90 %». Con un árbol de frecuencias dibujado en el tablero, estudiantes de secundaria siguen el razonamiento sin fórmulas. En primaria, la probabilidad empieza con experimentos: lanzar dados y comparar lo esperado (la suma 7 tiene 6 de 36 casos) con lo observado.<div class="card-reflect">Comprobado: 9 / 108 = 0,0833; 6 / 36 = 0,1667.</div></div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">⚠️</div>
+    <div class="card-title">Riesgo relativo y riesgo absoluto</div>
+  </div>
+  <div class="card-bd">Gigerenzer y colaboradores (2007, <em>Psychological Science in the Public Interest</em>) documentan cómo la forma de presentar los riesgos confunde a pacientes, periodistas e incluso a profesionales de la salud. La trampa más común es informar solo el <strong>riesgo relativo</strong>. <strong>Ejemplo ficticio:</strong> un titular dice «¡Este hábito aumenta el riesgo en 50 %!». Si el riesgo pasa de 2 de cada 1.000 personas a 3 de cada 1.000, el aumento relativo es (3 − 2) / 2 = 0,5, es decir, 50 %. Pero el <strong>aumento absoluto</strong> es de 1 persona más por cada 1.000, o sea 0,1 puntos porcentuales. Ambas cifras son verdaderas; solo la segunda permite dimensionar el riesgo. <strong>Regla práctica para estudiantes y familias:</strong> ante cualquier porcentaje de riesgo, preguntar «¿de cuánto a cuánto?» y «¿de cada cuántas personas?». Lo mismo aplica a promociones («50 % más de producto»), a rendimientos financieros y a noticias sobre educación («los puntajes subieron 20 %»: ¿desde qué valor?). Este es un excelente puente entre matemáticas, ciencias naturales, lenguaje y ciudadanía: es lectura crítica con números.<div class="card-reflect">Ejercicio: reescribe un titular alarmista con frecuencias naturales y compara cómo cambia el mensaje.</div></div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">💰</div>
+    <div class="card-title">Interés simple e interés compuesto, paso a paso</div>
+  </div>
+  <div class="card-bd">Esta es una de las ideas más poderosas de la estadística y la matemática financiera del modelo SABI. <strong>Datos ficticios:</strong> una familia ahorra 1.000.000 pesos durante 12 meses a una tasa de ejemplo del 1 % mensual. <strong>Interés simple:</strong> el interés se calcula siempre sobre el capital inicial. Interés = capital × tasa × tiempo = 1.000.000 × 0,01 × 12 = 120.000 pesos. Total: 1.120.000. <strong>Interés compuesto:</strong> cada mes el interés se suma al capital y genera nuevos intereses. Valor final = 1.000.000 × (1,01)<sup>12</sup> ≈ 1.126.825 pesos. Interés ganado ≈ 126.825. <strong>Interpretación:</strong> la diferencia (unos 6.825 pesos) parece pequeña en un año, pero crece cada vez más con el tiempo, porque se gana «interés sobre el interés». Funciona igual en contra: las deudas con interés compuesto (tarjetas de crédito, préstamos informales de «gota a gota») crecen muy rápido. <strong>Errores frecuentes:</strong> confundir tasa mensual con anual y multiplicar 1,01 × 12 en lugar de elevar a la 12. <strong>Didáctica:</strong> construye con el grupo una tabla mes a mes en la hoja de cálculo; ver la columna crecer vale más que la fórmula sola.<div class="card-reflect">Comprobado: 1.000.000 × 1,01^12 = 1.126.825,03.</div></div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">🛒</div>
+    <div class="card-title">Inflación, poder adquisitivo y presupuesto</div>
+  </div>
+  <div class="card-bd">La <strong>inflación</strong> es el aumento generalizado y sostenido de los precios; en Colombia el DANE la mide con el Índice de Precios al Consumidor (IPC). Lo que importa a una familia es el <strong>poder adquisitivo</strong>: cuánto puede comprar con su ingreso. <strong>Ejemplo ficticio:</strong> si el ingreso sube 5 % y los precios suben 8 %, el ingreso real cambia en 1,05 / 1,08 − 1 ≈ −0,028: la familia puede comprar cerca de un 2,8 % menos, aunque reciba más pesos. Restar 5 − 8 = −3 es solo una aproximación. <strong>Presupuesto ficticio</strong> de un hogar con ingreso de 2.000.000 pesos: arriendo 700.000 (35 %), mercado 600.000 (30 %), servicios 250.000 (12,5 %), transporte 200.000 (10 %), ahorro 150.000 (7,5 %) y otros 100.000 (5 %); suma: 2.000.000 y 100 %. Con estos datos los estudiantes construyen un gráfico de barras, calculan porcentajes y simulan decisiones: ¿qué pasa si el arriendo sube 10 %? <strong>Cuidado:</strong> nunca uses datos reales de la economía de las familias de tus estudiantes; trabaja con hogares ficticios y respeta la diversidad de situaciones. Cuando cites cifras reales de inflación, consúltalas en la fuente oficial vigente (DANE o Banco de la República) y escribe la fecha.<div class="card-reflect">Comprobado: 1,05 / 1,08 = 0,9722; 700.000 / 2.000.000 = 0,35.</div></div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+
+<div class="eq" id="q2_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">Un gráfico de barras compara 82 % y 86 % con el eje vertical desde 80, y la segunda barra se ve tres veces más alta. ¿Cuál es la lectura correcta?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,1,0)">
+  <span class="mk">A</span><span>La segunda sede es tres veces mejor que la primera</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,1)">
+  <span class="mk">B</span><span>La diferencia real es de unos 4 puntos, cerca de 5 % relativo</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,2)">
+  <span class="mk">C</span><span>La diferencia es de 6 puntos, según la altura dibujada</span>
+</button>
+<button class="opt" onclick="S.pick(2,1,3)">
+  <span class="mk">D</span><span>No puede leerse nada porque el eje no empieza en 80</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,1,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. La altura dibujada compara 2 contra 6 unidades por el eje truncado, pero los datos son 82 % y 86 %: 4 puntos porcentuales, alrededor de 5 % en términos relativos (86 / 82 ≈ 1,05). ¿Qué más preguntarías antes de concluir que una sede es mejor?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Haz la cuenta con los valores reales, no con lo que se dibuja desde el 80. Compara la resta y el cociente de 86 y 82.</div>
+  </div>
+</div>
+<div class="eq" id="q2_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">Un estudiante concluye: «Quienes desayunan tienen mejores notas, así que desayunar sube las notas». ¿Cuál es la mejor respuesta del docente?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,2,0)">
+  <span class="mk">A</span><span>Tiene razón: si dos cosas van juntas, una causa la otra</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,1)">
+  <span class="mk">B</span><span>Está equivocado: el desayuno no tiene relación con nada</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,2)">
+  <span class="mk">C</span><span>La relación puede deberse a otras causas comunes</span>
+</button>
+<button class="opt" onclick="S.pick(2,2,3)">
+  <span class="mk">D</span><span>Solo sería cierto si se calcula la media de las notas</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,2,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. Una correlación observada no prueba causa: pueden intervenir variables de confusión (por ejemplo, rutinas y acompañamiento en casa), causalidad inversa o azar. Eso no significa que el desayuno no importe; significa que estos datos solos no lo demuestran. ¿Qué estudio permitiría acercarse más a una causa?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Repasa las tres explicaciones alternativas de la tarjeta de correlación. ¿Alguna opción descarta toda relación sin evidencia o confunde ir juntos con causar?</div>
+  </div>
+</div>
+<div class="eq" id="q2_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">Para evaluar el nuevo horario, se encuesta a 300 estudiantes que llegan antes de las 6:30 a. m. y el 90 % lo aprueba. ¿Qué problema tiene el resultado?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,3,0)">
+  <span class="mk">A</span><span>Ninguno: 300 estudiantes es una muestra grande</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,1)">
+  <span class="mk">B</span><span>El porcentaje debería calcularse sobre 100</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,2)">
+  <span class="mk">C</span><span>Faltó calcular la media de las respuestas</span>
+</button>
+<button class="opt" onclick="S.pick(2,3,3)">
+  <span class="mk">D</span><span>Sesgo de selección: excluye a los más afectados</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,3,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. El tamaño no corrige el sesgo: se preguntó justo a quienes no tienen problemas con la hora de llegada. Una muestra aleatoria de todos los estudiantes daría una imagen más justa. ¿Has visto encuestas de autoselección en redes sociales que sufran el mismo problema?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa a quiénes no se les preguntó. ¿Una muestra grande garantiza que represente a toda la población?</div>
+  </div>
+</div>
+<div class="eq" id="q2_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">Una condición la tiene 1 de cada 100 personas; la prueba detecta 9 de cada 10 casos y da 10 % de falsos positivos. Con frecuencias naturales sobre 1.000 personas, ¿cuántos positivos tienen realmente la condición?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,4,0)">
+  <span class="mk">A</span><span>9 de 108 positivos, cerca del 8 %</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,1)">
+  <span class="mk">B</span><span>90 de 100 positivos, el 90 %</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,2)">
+  <span class="mk">C</span><span>10 de 1.000 personas, el 1 %</span>
+</button>
+<button class="opt" onclick="S.pick(2,4,3)">
+  <span class="mk">D</span><span>99 de 108 positivos, cerca del 92 %</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,4,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. De 1.000 personas, 10 tienen la condición y 9 dan positivo; de las 990 sanas, 99 dan positivo por error. Total de positivos: 108, y solo 9 son verdaderos: 9 / 108 ≈ 8 %. ¿Cómo dibujarías este árbol de frecuencias en el tablero?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Sigue los pasos del árbol: primero separa las 1.000 personas en quienes tienen y no tienen la condición; luego cuenta los positivos de cada rama y súmalos.</div>
+  </div>
+</div>
+<div class="eq" id="q2_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">Un titular dice: «Este hábito aumenta el riesgo en 50 %». El riesgo pasó de 2 a 3 casos por cada 1.000 personas. ¿Qué información completa el panorama?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,5,0)">
+  <span class="mk">A</span><span>El aumento absoluto es de 50 casos por cada 1.000</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,1)">
+  <span class="mk">B</span><span>El aumento absoluto es de 1 caso por cada 1.000</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,2)">
+  <span class="mk">C</span><span>El riesgo final es del 50 % de la población</span>
+</button>
+<button class="opt" onclick="S.pick(2,5,3)">
+  <span class="mk">D</span><span>El titular es falso porque el aumento fue de 1 %</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,5,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. El 50 % es el aumento relativo ((3 − 2) / 2); el absoluto es 1 caso más por cada 1.000, es decir, 0,1 puntos porcentuales. Ambas cifras son ciertas, pero solo la absoluta dimensiona el riesgo. ¿En qué publicidad has visto esta misma trampa?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Pregunta «¿de cuánto a cuánto?»: calcula la diferencia entre 3 y 2 casos por cada 1.000 y compárala con el porcentaje del titular.</div>
+  </div>
+</div>
+<div class="eq" id="q2_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">Una familia ahorra 1.000.000 pesos 12 meses a una tasa de ejemplo del 1 % mensual compuesto. Un estudiante calcula 1.000.000 × 1,12 = 1.120.000. ¿Qué corrección haces?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,6,0)">
+  <span class="mk">A</span><span>Está bien: el compuesto y el simple dan lo mismo</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,1)">
+  <span class="mk">B</span><span>Debe multiplicar por 1,01 × 12 = 12,12</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,2)">
+  <span class="mk">C</span><span>Debe usar 1.000.000 × (1,01)^12 ≈ 1.126.825</span>
+</button>
+<button class="opt" onclick="S.pick(2,6,3)">
+  <span class="mk">D</span><span>Debe sumar 1 % solo una vez al final del año</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,6,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. 1.000.000 × 1,12 corresponde al interés simple. En el compuesto, cada mes se multiplica por 1,01, así que se eleva a la 12: 1.000.000 × 1,01^12 ≈ 1.126.825 pesos. ¿Cómo mostrarías con una tabla mes a mes que se gana «interés sobre el interés»?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda qué cambia en el interés compuesto: ¿sobre qué capital se calcula el interés de cada mes? Revisa los errores frecuentes de la tarjeta.</div>
+  </div>
+</div>
+<div class="eq" id="q2_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">El ingreso de un hogar ficticio sube 5 % en un año y los precios suben 8 %. ¿Qué ocurrió con su poder adquisitivo?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(2,7,0)">
+  <span class="mk">A</span><span>Aumentó 5 %, porque recibe más pesos</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,1)">
+  <span class="mk">B</span><span>Aumentó 3 %, porque 8 − 5 = 3</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,2)">
+  <span class="mk">C</span><span>No cambió, porque ambos subieron</span>
+</button>
+<button class="opt" onclick="S.pick(2,7,3)">
+  <span class="mk">D</span><span>Disminuyó cerca de 2,8 %, porque 1,05 / 1,08 ≈ 0,972</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(2,7,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. El ingreso real se calcula dividiendo los factores de crecimiento: 1,05 / 1,08 ≈ 0,972, una caída cercana al 2,8 %. Restar 5 − 8 = −3 es una aproximación. Recibir más pesos no significa poder comprar más. ¿Cómo llevarías este cálculo a un presupuesto familiar ficticio en clase?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa qué crece más rápido, el ingreso o los precios, y recuerda que el poder adquisitivo compara ambos con una división, no con una suma.</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r2"></div></div></div>
+
+<div class="mod" id="mod3" style="--ac:#D85A30">
+  <div class="mhdr" id="h3" data-lock="1" onclick="S.toggle(3)" style="--ac:#D85A30">
+    <div class="mnum" style="background:#D85A30">3</div>
+    <div class="minfo">
+      <div class="mtitle">Datos para decidir en el aula</div>
+      <div class="msub">Evaluación formativa · Análisis de ítems · Reportes Saber (ICFES) · Ley 1581 de 2012 · Hojas de cálculo gratuitas · Proyecto de aula</div>
+      <div class="mmeta">
+        <span class="mdur">⏱ Sem 5-6</span>
+        <span class="mlock">🔒 Completa el anterior</span>
+      </div>
+    </div>
+    <span class="mchev">▽</span>
+    <div class="mpbar"><div class="mpfill"></div></div>
+  </div>
+  <div class="mbody" id="b3"><div class="intro">Los datos sirven cuando cambian lo que hacemos mañana en clase. En este módulo usarás datos de evaluación formativa para reenseñar, leerás con prudencia los resultados Saber del ICFES, protegerás la privacidad de tus estudiantes conforme a la Ley 1581 de 2012 y diseñarás un proyecto de aula con el ciclo PPDAC. Recuerda: <strong>el error no nos detiene: nos enseña, nos fortalece y nos hace crecer</strong>.</div><div class="cards">
+<div class="card" style="--ca:#1D9E75">
+  <div class="card-hd">
+    <div class="card-ico">✅</div>
+    <div class="card-title">Evaluación formativa con datos: análisis de ítems y distractores</div>
+  </div>
+  <div class="card-bd">Black y Wiliam (1998, <em>Assessment in Education</em>) revisaron la investigación sobre evaluación formativa y concluyeron que usar la información de la evaluación para ajustar la enseñanza y retroalimentar al estudiante puede mejorar el aprendizaje. Los datos más útiles del aula son pequeños y rápidos. <strong>Ejemplo ficticio:</strong> el profesor Andrés aplica un boleto de salida de 3 preguntas de selección múltiple a 30 estudiantes de 9.°. En la pregunta 3 (interés compuesto), solo 9 aciertan: 9 / 30 = 30 %. Pero el dato más valioso es otro: 15 estudiantes (50 %) eligieron la misma opción incorrecta, la que multiplica la tasa por el tiempo. Ese <strong>distractor</strong> revela un error conceptual compartido, no un descuido individual. <strong>Decisión:</strong> al día siguiente, reenseñar con una tabla mes a mes y un contraejemplo, y volver a preguntar con un ítem nuevo. <strong>Claves:</strong> diseñar distractores que representen errores reales; mirar los datos el mismo día; agrupar por error, no por nota; y comunicar al estudiante qué hacer para mejorar, no solo su puntaje (Hattie y Timperley, 2007). La retroalimentación se dirige a la tarea, nunca a etiquetar a la persona.<div class="card-reflect">Pregunta guía: «¿Qué error comparten mis estudiantes y qué haré mañana distinto por eso?»</div></div>
+</div>
+<div class="card" style="--ca:#1B7FA6">
+  <div class="card-hd">
+    <div class="card-ico">🏫</div>
+    <div class="card-title">Leer los resultados Saber del ICFES con cautela</div>
+  </div>
+  <div class="card-bd">Según la información oficial publicada por el Ministerio de Educación sobre los resultados individuales de Saber 11, el <strong>puntaje global</strong> se expresa en una escala de 0 a 500 y cada prueba en una escala de 0 a 100; el reporte incluye el <strong>percentil</strong>, que indica qué porcentaje de evaluados obtuvo un puntaje menor, y <strong>niveles de desempeño</strong> que describen lo que el estudiante sabe hacer (en inglés se usan niveles referidos al Marco Común Europeo). <strong>Cómo leerlos:</strong> 1) consulta siempre la guía de interpretación oficial del ICFES del año correspondiente, porque los reportes pueden cambiar; 2) el percentil compara personas, el nivel de desempeño describe competencias: para planear clases, los niveles y las descripciones de lo evaluado son más útiles que el puesto; 3) no compares años distintos sin verificar que la escala y la prueba sean comparables; 4) lee los resultados institucionales junto con tus datos de aula, no en lugar de ellos. <strong>Advertencia de rigor:</strong> este curso no reproduce cifras de resultados ni la estructura detallada de los reportes institucionales; búscalas en los canales oficiales del ICFES y verifica la fecha. Los resultados Saber son una fotografía útil, no un diagnóstico completo de cada estudiante.<div class="card-reflect">Antes de una reunión de área, escribe qué decisión concreta tomarás con el reporte; si no hay decisión, no hay análisis.</div></div>
+</div>
+<div class="card" style="--ca:#D85A30">
+  <div class="card-hd">
+    <div class="card-ico">🧭</div>
+    <div class="card-title">Errores al interpretar resultados: grupos pequeños y regresión a la media</div>
+  </div>
+  <div class="card-bd">Tres trampas frecuentes al analizar resultados de grupos. <strong>1) Grupos pequeños:</strong> en un grupo de 25 estudiantes, uno o dos resultados extremos mueven mucho el promedio; un cambio de un año a otro puede ser pura variación. Antes de celebrar o alarmarse, mira la distribución (diagrama de puntos o de caja), no solo la media. <strong>2) Comparar cohortes distintas:</strong> el 11.° de este año no es el mismo grupo de estudiantes que el del año pasado; una diferencia puede deberse a quiénes son, no a lo que se hizo. <strong>3) Regresión a la media:</strong> cuando se elige a quienes obtuvieron resultados muy bajos en una prueba, en la siguiente medición tienden, en promedio, a acercarse al centro aunque no se haga nada, porque parte del resultado extremo era azar. Si se aplica un programa de refuerzo solo a ellos y luego «mejoran», no se puede atribuir toda la mejora al programa sin un grupo de comparación. <strong>Buenas prácticas:</strong> combinar varias fuentes (pruebas internas, trabajos, observación); comparar el mismo grupo en el tiempo; usar rangos y medianas; y escribir conclusiones con palabras prudentes («sugiere», «en este grupo»). Así se toman decisiones justas con los estudiantes y con los docentes.<div class="card-reflect">Pregunta del auditor: «¿Este cambio es mayor que la variación que esperaríamos por azar?»</div></div>
+</div>
+<div class="card" style="--ca:#7F77DD">
+  <div class="card-hd">
+    <div class="card-ico">🔒</div>
+    <div class="card-title">Privacidad de los datos de estudiantes: Ley 1581 de 2012</div>
+  </div>
+  <div class="card-bd">La <strong>Ley 1581 de 2012</strong> establece el régimen general de protección de datos personales en Colombia. Entre sus principios están la finalidad (usar los datos solo para el propósito informado), la libertad (con autorización del titular), el acceso y la circulación restringida, la seguridad y la confidencialidad. La ley da una protección especial a los datos de <strong>niños, niñas y adolescentes</strong>, cuyo tratamiento debe responder y respetar su interés superior (art. 7 de la ley y art. 12 del Decreto 1377 de 2013, compilado en el Decreto 1074 de 2015), y a los <strong>datos sensibles</strong> (por ejemplo, salud). <strong>En el aula esto significa:</strong> 1) no publicar listas de notas con nombres en carteleras, grupos de WhatsApp ni redes; 2) entregar resultados individuales solo al estudiante y a su familia; 3) para analizar o mostrar datos, usar <strong>códigos o datos agregados</strong> (por ejemplo, «12 de 30 estudiantes»); 4) en proyectos estadísticos, encuestas anónimas y preguntas que no expongan situaciones familiares, económicas o de salud; 5) guardar las hojas de cálculo en cuentas institucionales con acceso restringido, no en memorias USB compartidas; 6) no subir datos personales de estudiantes a herramientas de inteligencia artificial. Ante dudas, consulta la política de tratamiento de datos de la institución.<div class="card-reflect">Prueba rápida: si este archivo se filtrara, ¿alguien podría identificar a un estudiante? Si la respuesta es sí, protégelo mejor.</div></div>
+</div>
+<div class="card" style="--ca:#D4A843">
+  <div class="card-hd">
+    <div class="card-ico">🧰</div>
+    <div class="card-title">Hojas de cálculo gratuitas: las funciones esenciales</div>
+  </div>
+  <div class="card-bd">No se necesita software costoso. <strong>LibreOffice Calc</strong> es libre y gratuito, y <strong>Hojas de cálculo de Google</strong> se usa sin costo con una cuenta. Con la configuración en español, las funciones clave son: <strong>PROMEDIO</strong>(rango) para la media; <strong>MEDIANA</strong>(rango); <strong>MIN</strong> y <strong>MAX</strong> para el rango (MAX − MIN); <strong>CONTAR.SI</strong>(rango; criterio) para frecuencias, por ejemplo cuántos eligieron la opción B; y la desviación estándar (DESVEST y sus variantes según el programa). <strong>Ejemplo guiado (ficticio):</strong> en la columna B, las respuestas de 30 estudiantes a la pregunta 3; en la celda D2 escribe =CONTAR.SI(B2:B31;"B") y obtendrás cuántos eligieron el distractor B; divide entre 30 para el porcentaje. Según la configuración regional, el separador puede ser punto y coma o coma. <strong>Buenas prácticas:</strong> una fila por estudiante (con código, no con nombre, cuando compartas), una columna por variable, sin celdas combinadas en la tabla de datos; verificar a mano un cálculo antes de confiar en la fórmula; y usar formato condicional para ver de un vistazo qué ítems tienen bajo acierto. Enseña a tus estudiantes a construir la tabla primero a mano: la herramienta acelera, no reemplaza la comprensión.<div class="card-reflect">Reto: calcula a mano la media de 5 datos y compárala con PROMEDIO; si no coinciden, busca el error.</div></div>
+</div>
+<div class="card" style="--ca:#2E7D5A">
+  <div class="card-hd">
+    <div class="card-ico">🔄</div>
+    <div class="card-title">Del dato a la decisión: un ciclo de mejora en el aula</div>
+  </div>
+  <div class="card-bd">Los datos no deciden: deciden las personas con criterio. Un ciclo simple para cualquier área: <strong>1) Pregunta:</strong> ¿qué necesito saber de mis estudiantes? (por ejemplo, «¿entienden la diferencia entre media y mediana?»). <strong>2) Evidencia:</strong> un instrumento breve y alineado (boleto de salida, mini-quiz, producción escrita). <strong>3) Análisis:</strong> porcentaje de acierto por ítem, errores compartidos, dispersión del grupo. <strong>4) Decisión:</strong> reenseñar a todos, formar grupos flexibles o avanzar. <strong>5) Comprobación:</strong> volver a medir con un ítem nuevo, no con el mismo. <strong>Indicadores por nivel de Bloom para este curso:</strong> N1 identifica tipos de variables; N2 explica qué mide la media y qué la mediana; N3 construye tablas y gráficos honestos; N4 detecta sesgos, ejes truncados y saltos causales; N5 juzga si un reporte permite una conclusión; N6 diseña un proyecto PPDAC con su grupo. <strong>Mini-rúbrica de una conclusión con datos:</strong> inicial, opina sin datos; en desarrollo, cita datos sin analizarlos; logrado, interpreta centro y dispersión y responde la pregunta; avanzado, además reconoce límites (muestra, sesgos, azar). Úsala con estudiantes y también para revisar tus propios informes.<div class="card-reflect">Un dato que no cambia ninguna decisión es solo un adorno del informe.</div></div>
+</div>
+<div class="card" style="--ca:#0f6e56">
+  <div class="card-hd">
+    <div class="card-ico">🚀</div>
+    <div class="card-title">Proyecto de aula PPDAC y síntesis del curso</div>
+  </div>
+  <div class="card-bd"><strong>Propuesta de proyecto (adaptable a cualquier área y grado):</strong> «¿Cuánto tiempo tardamos en llegar al colegio y qué lo explica?». <strong>Problema:</strong> los estudiantes formulan la pregunta y predicen el resultado. <strong>Plan:</strong> definen variables (minutos, cuantitativa continua; medio de transporte, cualitativa nominal), redactan preguntas neutrales y acuerdan una encuesta anónima. <strong>Datos:</strong> recogen, revisan totales y limpian errores. <strong>Análisis:</strong> tabla de frecuencias, gráfico de barras para el transporte, diagrama de puntos para los minutos, mediana y rango por medio de transporte. <strong>Conclusiones:</strong> responden la pregunta, reconocen límites (solo su grupo, datos autodeclarados) y proponen una acción, por ejemplo una ruta segura para caminar. Conexión con estadística financiera: estimar el gasto semanal de transporte de un hogar ficticio. <strong>Síntesis del curso — qué memorizar:</strong> tipos de variables y las etapas del PPDAC. <strong>Qué comprender:</strong> centro con dispersión; correlación no es causa; muestras y sesgo. <strong>Qué ejecutar:</strong> tablas, gráficos honestos, interés compuesto e ingreso real. <strong>Qué decidir:</strong> qué conclusión permiten los datos y cómo proteger la privacidad. Este contenido está en revisión hasta que lo apruebe el equipo responsable.<div class="card-reflect">El error no nos detiene: nos enseña, nos fortalece y nos hace crecer, también cuando el error está en un gráfico.</div></div>
+</div></div>
+<div class="zona">
+  <div class="ehdr">
+    <div class="eico">🎯</div>
+    <div>
+      <div class="etit">Evaluación del Módulo</div>
+      <div class="esub">Mínimo 70% para avanzar · Filosofía SABI</div>
+    </div>
+    <div class="epct">
+      <div class="enum">0%</div>
+      <div class="elbl">logro actual</div>
+    </div>
+  </div>
+  <div class="ebar"><div class="efill"></div></div>
+
+<div class="eq" id="q3_1">
+  <div class="qhdr">
+    <div class="qn">1</div>
+    <div class="qtx">En un boleto de salida, 9 de 30 estudiantes aciertan la pregunta 3 y 15 eligen la misma opción incorrecta. ¿Cuál es la decisión más formativa?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,1,0)">
+  <span class="mk">A</span><span>Reenseñar atacando el error que revela ese distractor</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,1)">
+  <span class="mk">B</span><span>Poner la nota y pasar al siguiente tema según el plan</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,2)">
+  <span class="mk">C</span><span>Repetir mañana la misma pregunta para ver si mejoran</span>
+</button>
+<button class="opt" onclick="S.pick(3,1,3)">
+  <span class="mk">D</span><span>Bajar la dificultad del tema para el resto del periodo</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,1,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. Que la mitad elija el mismo distractor revela un error conceptual compartido; la evaluación es formativa cuando esa información cambia la enseñanza. Luego se comprueba con un ítem nuevo, no con el mismo. ¿Qué distractores diseñarías para detectar los errores típicos de tu área?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Fíjate en el dato de los 15 estudiantes que eligieron la misma opción. ¿Qué te dice sobre su forma de pensar y qué harías con esa información?</div>
+  </div>
+</div>
+<div class="eq" id="q3_2">
+  <div class="qhdr">
+    <div class="qn">2</div>
+    <div class="qtx">Un docente lee que un estudiante quedó en el percentil 70 de una prueba de Saber 11. ¿Qué significa?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,2,0)">
+  <span class="mk">A</span><span>Que respondió bien el 70 % de las preguntas</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,1)">
+  <span class="mk">B</span><span>Que obtuvo 70 puntos sobre 100 en esa prueba</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,2)">
+  <span class="mk">C</span><span>Que superó a cerca del 70 % de los evaluados</span>
+</button>
+<button class="opt" onclick="S.pick(3,2,3)">
+  <span class="mk">D</span><span>Que alcanzó el nivel de desempeño número 7</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,2,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. El percentil compara al estudiante con los demás evaluados: indica qué porcentaje obtuvo un puntaje menor. No es el porcentaje de aciertos ni el puntaje. Los niveles de desempeño describen competencias. ¿Qué información te sirve más para planear tus clases: el percentil o el nivel?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Repasa la tarjeta sobre los resultados Saber: ¿el percentil describe lo que el estudiante sabe hacer o su posición frente a otros evaluados?</div>
+  </div>
+</div>
+<div class="eq" id="q3_3">
+  <div class="qhdr">
+    <div class="qn">3</div>
+    <div class="qtx">El promedio de un grupo de 24 estudiantes subió de un año a otro, pero son cohortes distintas. ¿Qué conclusión es la más prudente?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,3,0)">
+  <span class="mk">A</span><span>La nueva metodología causó la mejora del grupo</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,1)">
+  <span class="mk">B</span><span>El cambio puede deberse a otros factores; hay que analizar más</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,2)">
+  <span class="mk">C</span><span>Los docentes del año anterior enseñaron peor</span>
+</button>
+<button class="opt" onclick="S.pick(3,3,3)">
+  <span class="mk">D</span><span>La subida del promedio prueba que todos mejoraron</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,3,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. Con grupos pequeños y cohortes distintas, una diferencia puede deberse a quiénes son los estudiantes o al azar. Hace falta mirar la distribución, comparar el mismo grupo en el tiempo y cruzar fuentes. ¿Qué datos adicionales pedirías antes de concluir?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Recuerda las tres trampas de la tarjeta: tamaño del grupo, cohortes distintas y regresión a la media. ¿Alguna opción atribuye una causa sin evidencia suficiente?</div>
+  </div>
+</div>
+<div class="eq" id="q3_4">
+  <div class="qhdr">
+    <div class="qn">4</div>
+    <div class="qtx">Un director de grupo quiere motivar al curso publicando en el grupo de WhatsApp de familias la lista de notas con nombres. ¿Qué le recomiendas?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,4,0)">
+  <span class="mk">A</span><span>Hacerlo, porque la transparencia motiva a estudiar</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,1)">
+  <span class="mk">B</span><span>Publicar solo los nombres de quienes van perdiendo</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,2)">
+  <span class="mk">C</span><span>Publicarla si se borra a los dos días del chat</span>
+</button>
+<button class="opt" onclick="S.pick(3,4,3)">
+  <span class="mk">D</span><span>Compartir datos agregados y entregar lo individual en privado</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,4,3)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. La Ley 1581 de 2012 protege los datos personales y da protección especial a niños, niñas y adolescentes; exponer notas con nombres viola la confidencialidad y puede generar burlas. Los datos agregados informan sin exponer a nadie. ¿Cómo comunicarías avances del grupo sin identificar a ningún estudiante?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en los principios de finalidad y circulación restringida y en el interés superior del estudiante. ¿Qué opción informa sin exponer a nadie?</div>
+  </div>
+</div>
+<div class="eq" id="q3_5">
+  <div class="qhdr">
+    <div class="qn">5</div>
+    <div class="qtx">En una hoja de cálculo, la columna B tiene las respuestas de 30 estudiantes (filas 2 a 31). ¿Qué fórmula cuenta cuántos eligieron la opción B?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,5,0)">
+  <span class="mk">A</span><span>=CONTAR.SI(B2:B31;"B")</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,1)">
+  <span class="mk">B</span><span>=PROMEDIO(B2:B31)</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,2)">
+  <span class="mk">C</span><span>=MEDIANA(B2:B31;"B")</span>
+</button>
+<button class="opt" onclick="S.pick(3,5,3)">
+  <span class="mk">D</span><span>=MAX(B2:B31)-MIN(B2:B31)</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,5,0)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Exacto. CONTAR.SI cuenta las celdas de un rango que cumplen un criterio; dividiendo entre 30 obtienes el porcentaje. PROMEDIO y MEDIANA no aplican a respuestas de texto y MAX − MIN da el rango de datos numéricos. Recuerda que el separador puede ser coma según la configuración. ¿Qué otro análisis harías con esta función?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>La respuesta es una letra, es decir, una categoría. ¿Qué función cuenta cuántas veces aparece un valor en un rango?</div>
+  </div>
+</div>
+<div class="eq" id="q3_6">
+  <div class="qhdr">
+    <div class="qn">6</div>
+    <div class="qtx">Para evaluar un programa de refuerzo, se elige solo a los 10 estudiantes con peores resultados; en la siguiente prueba su promedio sube. ¿Qué precaución metodológica aplica?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,6,0)">
+  <span class="mk">A</span><span>Ninguna: la subida prueba que el refuerzo funcionó</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,1)">
+  <span class="mk">B</span><span>La subida demuestra que la primera prueba estuvo mal</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,2)">
+  <span class="mk">C</span><span>Pudo influir la regresión a la media; falta comparar</span>
+</button>
+<button class="opt" onclick="S.pick(3,6,3)">
+  <span class="mk">D</span><span>Hay que excluir a los que no mejoraron del análisis</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,6,2)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Muy bien. Los resultados extremos tienden a acercarse al centro en una nueva medición, aunque no se haga nada, porque parte del extremo era azar. Para atribuir la mejora al programa se necesita un grupo de comparación. ¿Cómo diseñarías esa comparación de manera ética?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Repasa la idea de regresión a la media: ¿qué tiende a pasar con quienes tuvieron resultados muy extremos cuando se les mide otra vez?</div>
+  </div>
+</div>
+<div class="eq" id="q3_7">
+  <div class="qhdr">
+    <div class="qn">7</div>
+    <div class="qtx">En el proyecto PPDAC, un grupo de 10.° propone preguntar en la encuesta el ingreso mensual de cada familia, con nombre. ¿Cómo orientas el diseño?</div>
+  </div>
+  <div class="opts">
+<button class="opt" onclick="S.pick(3,7,0)">
+  <span class="mk">A</span><span>Aceptarlo, porque así los datos serán más exactos</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,1)">
+  <span class="mk">B</span><span>Encuesta anónima sin datos económicos ni sensibles</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,2)">
+  <span class="mk">C</span><span>Pedir el ingreso solo a las familias que acepten</span>
+</button>
+<button class="opt" onclick="S.pick(3,7,3)">
+  <span class="mk">D</span><span>Preguntar el ingreso pero publicar únicamente el promedio</span>
+</button></div>
+  <button class="btncheck" onclick="S.check(3,7,1)" disabled>
+    Verificar respuesta
+  </button>
+  <div class="fb ok">
+    <div class="fbt">✅ ¡Correcto!</div>
+    <div>Correcto. Un buen plan protege a las personas desde el diseño: encuestas anónimas y variables que no expongan la situación económica, familiar o de salud. Para la estadística financiera se trabaja con hogares ficticios. ¿Qué variable alternativa permitiría a tus estudiantes investigar sin exponer a nadie?</div>
+  </div>
+  <div class="fb no">
+    <div class="fbt">🔄 Reflexiona de nuevo</div>
+    <div>Piensa en la etapa de Plan del PPDAC y en la tarjeta de privacidad: ¿qué opción evita recoger datos sensibles desde el principio?</div>
+  </div>
+</div>
+</div>
+<div class="rmod" id="r3"></div></div></div>
+</div>
+<footer class="footer">
+  <div class="fl">SABI CENTEC MAESTROS</div>
+  <div>Plataforma de Autoformación Docente · Colegio CENTEC · Cali, Colombia</div>
+  <div style="margin-top:6px;opacity:.75">Autor: <strong>Alexander Rojas Zamorano</strong></div>
+  <div style="margin-top:4px;font-style:italic;opacity:.55">"Nadie puede enseñar lo que no sabe"</div>
+  <div style="margin-top:8px;opacity:.7">Curso 28 · Contenido en revisión · Datos de ejemplo ficticios; cálculos verificados.</div>
+</footer>
+<script>
+const S={
+  mods:{},prog:{},
+  init(){
+    try{const d=localStorage.getItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''));if(d)this.prog=JSON.parse(d)}catch(e){}
+    this.repaint();this.unlock();
+  },
+  save(){try{localStorage.setItem('sabi_p:'+location.pathname.split('/').pop().replace(/\.html?$/,''),JSON.stringify(this.prog))}catch(e){}},
+  repaint(){
+    document.querySelectorAll('.sdot').forEach(d=>{
+      const n=+d.dataset.n;
+      d.className='sdot'+(this.prog['m'+n]?.ok?' done':' lock');
+    });
+  },
+  toggle(n){
+    const h=document.getElementById('h'+n),b=document.getElementById('b'+n);
+    if(!b)return;
+    if(h?.dataset.lock==='1'){S.toast('🔒 Completa el módulo anterior con 70%+ para continuar');return;}
+    const op=b.classList.toggle('open');
+    h?.classList.toggle('open',op);
+    h?.querySelector('.mchev') && (h.querySelector('.mchev').textContent=op?'▲':'▽');
+  },
+  pick(mn,qn,i){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    q.querySelectorAll('.opt').forEach((o,j)=>{
+      o.classList.toggle('sel',j===i);
+      o.querySelector('.mk').textContent=j===i?'●':String.fromCharCode(65+j);
+    });
+    const b=q.querySelector('.btncheck');
+    if(b){b.disabled=false;b.dataset.sel=i;}
+  },
+  check(mn,qn,ci){
+    const q=document.getElementById('q'+mn+'_'+qn);
+    if(!q||q.dataset.done)return;
+    const b=q.querySelector('.btncheck');
+    const sel=+(b?.dataset.sel??-1);
+    if(sel<0){S.toast('Selecciona una opción primero');return;}
+    const ok=sel===ci;
+    q.querySelectorAll('.opt').forEach((o,i)=>{
+      if(i===ci)o.classList.add('good');
+      else if(i===sel&&!ok)o.classList.add('bad');
+      o.style.pointerEvents='none';
+    });
+    q.classList.add(ok?'ok':'no');
+    q.dataset.done='1';
+    b.disabled=true;b.textContent=ok?'✓ Correcto':'✗ Incorrecto';
+    q.querySelector('.fb.'+(ok?'ok':'no')).style.display='block';
+    if(!S.mods[mn])S.mods[mn]={ok:0,t:0};
+    S.mods[mn].t++;if(ok)S.mods[mn].ok++;
+    S.progBar(mn);
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    if(done>=tot)setTimeout(()=>S.result(mn),600);
+  },
+  progBar(mn){
+    const tot=document.querySelectorAll('#b'+mn+' .eq').length;
+    const done=document.querySelectorAll('#b'+mn+' .eq[data-done]').length;
+    const pct=Math.round(done/tot*100);
+    const f=document.querySelector('#b'+mn+' .efill');if(f)f.style.width=pct+'%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width=pct+'%';
+    const en=document.querySelector('#b'+mn+' .enum');
+    if(en&&S.mods[mn])en.textContent=Math.round(S.mods[mn].ok/(S.mods[mn].t||1)*100)+'%';
+  },
+  result(mn){
+    const d=S.mods[mn]||{ok:0,t:7};
+    const pct=Math.round(d.ok/d.t*100),pass=pct>=70;
+    const r=document.getElementById('r'+mn);if(!r)return;
+    r.innerHTML=`
+      <div class="rico">${pass?'🏆':'📚'}</div>
+      <div class="rpct">${pct}%</div>
+      <div class="rmsg">${pass
+        ?'<strong style="color:var(--teal)">¡Módulo dominado!</strong><br>Demostraste comprensión real del contenido.'
+        :'Necesitas <strong>70%</strong> para avanzar.<br>Revisa el contenido y vuelve a intentar.'}</div>
+      <div class="rrow">
+        <div class="rstat"><strong>${d.ok}</strong>Correctas</div>
+        <div class="rstat"><strong>${d.t-d.ok}</strong>A reforzar</div>
+        <div class="rstat"><strong>${pct}%</strong>Logro</div>
+      </div>
+      ${pass
+        ?`<button class="btnnx" onclick="S.next(${mn})">Siguiente módulo →</button>`
+        :`<button class="btnrt" onclick="S.retry(${mn})">🔄 Intentar de nuevo</button>`}`;
+    r.classList.add('show');
+    if(pass){
+      S.prog['m'+mn]={ok:true,pct};S.save();S.repaint();
+      S.toast(pct===100?'🌟 ¡Perfecto! 100% de logro':`✅ Módulo ${mn} — ${pct}% logrado`);
+    }
+  },
+  next(mn){
+    const nh=document.getElementById('h'+(mn+1));
+    if(nh){nh.dataset.lock='0';nh.querySelector('.mlock')?.remove();}
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.toggle(mn+1);
+    document.getElementById('h'+(mn+1))?.scrollIntoView({behavior:'smooth',block:'center'});
+  },
+  retry(mn){
+    const b=document.getElementById('b'+mn);if(!b)return;
+    b.querySelectorAll('.eq').forEach(q=>{
+      delete q.dataset.done;
+      q.classList.remove('ok','no');
+      q.querySelectorAll('.opt').forEach((o,i)=>{
+        o.classList.remove('sel','good','bad');
+        o.style.pointerEvents='';
+        o.querySelector('.mk').textContent=String.fromCharCode(65+i);
+      });
+      b.querySelectorAll('.fb').forEach(f=>f.style.display='none');
+      const bc=q.querySelector('.btncheck');
+      if(bc){bc.disabled=true;bc.textContent='Verificar respuesta';delete bc.dataset.sel;}
+    });
+    const r=document.getElementById('r'+mn);if(r)r.classList.remove('show');
+    S.mods[mn]={ok:0,t:0};
+    const f=b.querySelector('.efill');if(f)f.style.width='0%';
+    const mf=document.querySelector('#h'+mn+' .mpfill');if(mf)mf.style.width='0%';
+  },
+  unlock(){
+    document.querySelectorAll('[data-lock]').forEach(h=>{
+      const n=+h.id.replace('h','');
+      if(n<=1){h.dataset.lock='0';return;}
+      if(S.prog['m'+(n-1)]?.ok)h.dataset.lock='0';
+    });
+  },
+  toast(msg){
+    let t=document.querySelector('.toast');
+    if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t);}
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3200);
+  }
+};
+document.addEventListener('DOMContentLoaded',()=>S.init());
+</script>
+<script src="sabi_dots.js" defer></script>
+<script src="https://superacion.sabicentec.com/sabi-puerta.js" data-rol="docente" data-texto="SABI para docentes" defer></script>
+</body>
+</html>
