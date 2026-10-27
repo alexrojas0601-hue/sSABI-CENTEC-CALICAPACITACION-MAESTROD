@@ -105,5 +105,4 @@ Informe por curso (qué se corrigió, fuentes con DOI, auditoría independiente,
       respuesta en 17, 18, 20, 21 y 22 retirado.
 - [ ] Ampliar 17, 18, 20, 21 y 22 (1 pregunta y 2-4 tarjetas por módulo) al estándar de 6-8 tarjetas y 7 preguntas.
 - [ ] Revisión humana de lo marcado en cada informe (normas no abiertas en la fuente oficial, cifras de fuentes secundarias).
-- [ ] Las tarjetas del catálogo en index.html aún tienen cifras sin fuente (p. ej. «68 % FOMAG 2024», «32 % TALIS 2024»,
-      «3er país con más ciberataques», «CENTEC Futuro PEI 2026+»).
+- [x] Tarjetas del catálogo en index.html sin cifras sin fuente (FOMAG, TALIS, «3er país», «CENTEC Futuro PEI 2026+» retirados).
