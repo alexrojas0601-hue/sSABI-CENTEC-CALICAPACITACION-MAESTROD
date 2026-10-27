@@ -38,7 +38,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
     parrafos: [
       "Muchos colegios celebran el emprendimiento con una feria vistosa y una pregunta final: ¿quién quiere tener su propia empresa? La intención parece buena, pero mide poco. Enseñar emprendimiento no es enseñar a abrir empresas. Es enseñar a ver problemas, proponer soluciones y actuar con responsabilidad.",
       "La evidencia invita a la prudencia. El metaanálisis de Martin, McNally y Kay encontró una relación positiva, aunque modesta, entre la formación en emprendimiento y los conocimientos y habilidades emprendedoras. Esa relación fue más débil en los estudios con mejor diseño. Otros trabajos citados en el curso muestran resultados distintos según el programa y la edad de los participantes.",
-      "Esto tiene una consecuencia práctica para el aula. Si la formación se asocia sobre todo con habilidades, conviene evaluar habilidades y no solo entusiasmo. El proyecto enseña cuando los estudiantes practican de verdad: costear, fijar un precio, probar con clientes y revisar. Un grupo que cambia su prototipo después de escuchar a tres usuarios aprendió más que uno que vendió mucho sin preguntar nada.",
+      "Esto tiene una consecuencia práctica para el aula. Si la formación se asocia sobre todo con habilidades, conviene evaluar habilidades y no solo entusiasmo. El proyecto enseña cuando los estudiantes practican de verdad: costear, fijar un precio, probar con clientes y revisar. Un grupo que cambia su prototipo después de escuchar a tres usuarios practicó más habilidades que uno que vendió mucho sin preguntar nada.",
       "Un marco claro ayuda a mirar ese aprendizaje. EntreComp organiza las competencias en tres áreas: ideas y oportunidades, recursos y pasar a la acción. Con él, cada estudiante puede autoevaluarse y elegir qué fortalecer. Así, la feria deja de ser el final del proyecto y se convierte en una evidencia más del camino recorrido."
     ],
     literal: [
@@ -52,7 +52,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       o: [
         "Que está midiendo con precisión el efecto principal de la formación",
         "Que sus estudiantes aprendieron más que en otros colegios",
-        "Que puede estar dejando sin medir las habilidades, que es donde la evidencia ubica el efecto",
+        "Que puede estar dejando sin medir las habilidades, que es donde el texto ubica el efecto de la formación",
         "Que debería eliminar la feria porque no aporta nada al aprendizaje"
       ],
       c: 2,
@@ -71,9 +71,9 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       fb: "El texto dice «una relación positiva, aunque modesta»: existe, pero su tamaño es reducido. No habla de humildad ni de costo, y «positiva» descarta que sea inexistente."
     },
     donde: {
-      afirmacion: "Un grupo que ajusta su prototipo tras escuchar a usuarios aprende más que uno que vende sin preguntar.",
+      afirmacion: "Un grupo que ajusta su prototipo tras escuchar a usuarios practica más habilidades que uno que vende sin preguntar.",
       parrafo: 2,
-      fb: "Está en el párrafo 3 (índice 2): «Un grupo que cambia su prototipo después de escuchar a tres usuarios aprendió más que uno que vendió mucho sin preguntar nada»."
+      fb: "Está en el párrafo 3 (índice 2): «Un grupo que cambia su prototipo después de escuchar a tres usuarios practicó más habilidades que uno que vendió mucho sin preguntar nada»."
     },
     orden: {
       q: "Ordena las ideas tal como avanza el argumento del texto, de la primera a la última.",
