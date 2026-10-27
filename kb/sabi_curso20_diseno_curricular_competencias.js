@@ -3,14 +3,14 @@ window.SABI_KB = {
   titulo: "Diseño curricular por competencias y proyectos transversales",
   dot: "Dot_CienciasSociales_Ciudadanas",
   objetivos: [
-    "Al finalizar, el docente podrá diferenciar un currículo por contenidos de uno por competencias, usando la noción del MEN de «saber hacer en contexto».",
+    "Al finalizar, el docente podrá diferenciar un currículo por contenidos de uno por competencias, usando la noción de los EBC del MEN (2006): un «saber hacer flexible que puede actualizarse en distintos contextos».",
     "Al finalizar, el docente podrá alinear una unidad de su área con los Estándares Básicos de Competencias, los DBA, el PEI de CENTEC y las necesidades del contexto local.",
     "Al finalizar, el docente podrá diseñar un proyecto transversal con pregunta guía, áreas integradas, producto final real y criterios de evaluación.",
     "Al finalizar, el docente podrá construir una rúbrica de competencias coherente con el Sistema Institucional de Evaluación de Estudiantes que exige el Decreto 1290 de 2009."
   ],
   intuitiva: "Un currículo por contenidos se parece a entregarle a alguien una caja con todas las piezas de una bicicleta y pedirle que memorice el nombre de cada una. Un currículo por competencias le pide armarla, montarla y usarla para llegar a algún lugar real, entendiendo para qué sirve cada pieza. El conocimiento sigue siendo indispensable, pero se pone al servicio de una capacidad. En Colombia, la Ley 115 de 1994 da autonomía a cada colegio para organizar su plan de estudios; el MEN ofrece los Estándares Básicos de Competencias y los DBA como referentes; y el Decreto 1290 de 2009 deja en manos de la institución su sistema de evaluación. Diseñar currículo es tejer esos hilos con las necesidades de los estudiantes de Cali.",
   glosario: [
-    { w: "COMPETENCIA", t: "Competencia", d: "Saber hacer flexible que integra conocimientos, habilidades y actitudes para actuar en contextos nuevos; el MEN la presenta como «saber hacer en contexto»." },
+    { w: "COMPETENCIA", t: "Competencia", d: "Saber hacer flexible que integra conocimientos, habilidades y actitudes para actuar en contextos nuevos; los EBC del MEN (2006) la describen como un «saber hacer flexible que puede actualizarse en distintos contextos»." },
     { w: "CURRICULO", t: "Currículo", d: "Conjunto de criterios, planes de estudio, programas, metodologías y procesos que contribuyen a la formación integral; definición del artículo 76 de la Ley 115 de 1994." },
     { w: "ESTANDARES", t: "Estándares Básicos de Competencias", d: "Criterios claros y públicos del MEN (2006) que establecen lo que los estudiantes deben saber y saber hacer por grupos de grados en las áreas fundamentales." },
     { w: "DERECHOS", t: "Derechos Básicos de Aprendizaje", d: "Referente del MEN que explicita, grado a grado, aprendizajes estructurantes en cada área; publicados desde 2015 y actualizados en su segunda versión." },
@@ -34,7 +34,7 @@ window.SABI_KB = {
     { q: "¿En qué año publicó el MEN los Estándares Básicos de Competencias en Lenguaje, Matemáticas, Ciencias y Ciudadanas?", a: "En 2006." },
     { q: "¿Qué precisan los DBA respecto a los estándares?", a: "Aprendizajes estructurantes grado a grado, mientras los estándares se organizan por grupos de grados." },
     { q: "¿Qué decreto instituye el Proyecto Ambiental Escolar (PRAE)?", a: "El Decreto 1743 de 1994." },
-    { q: "¿Qué es el triple alineamiento curricular del Modelo CENTEC Futuro?", a: "Articular los referentes del MEN (DBA), el modelo institucional CENTEC y las necesidades del contexto local." },
+    { q: "¿Qué pide el alineamiento constructivo de Biggs (1996)?", a: "Coherencia entre los resultados de aprendizaje esperados, las actividades de enseñanza y las tareas de evaluación." },
     { q: "¿Qué propone el diseño inverso de Wiggins y McTighe?", a: "Definir primero los resultados, luego las evidencias de evaluación y después las actividades." }
   ],
   timeline: {
@@ -75,7 +75,7 @@ window.SABI_KB = {
     ramas: [
       { n: "Marco legal", h: ["Ley 115 de 1994", "Decreto 1290 de 2009", "Decreto 1075 de 2015"] },
       { n: "Referentes MEN", h: ["Lineamientos curriculares", "Estándares (EBC)", "DBA grado a grado"] },
-      { n: "Diseño", h: ["Diseño inverso", "Triple alineamiento", "Contenidos al servicio"] },
+      { n: "Diseño", h: ["Diseño inverso", "Alineamiento constructivo", "Contenidos al servicio"] },
       { n: "Proyectos transversales", h: ["Pregunta guía", "PRAE y sexualidad", "Producto final real"] },
       { n: "Evaluación auténtica", h: ["Rúbricas de competencias", "Portafolio de evidencias", "SIEE institucional"] }
     ]
@@ -122,6 +122,13 @@ window.SABI_KB = {
     "Ministerio de Educación Nacional (2006). Estándares Básicos de Competencias en Lenguaje, Matemáticas, Ciencias y Ciudadanas.",
     "Ministerio de Educación Nacional (2016). Derechos Básicos de Aprendizaje, versión 2.",
     "Decreto 1743 de 1994 — Proyecto de Educación Ambiental (Colombia).",
-    "Wiggins, G. y McTighe, J. (1998). Understanding by Design. ASCD."
+    "Wiggins, G. y McTighe, J. (1998; 2.ª ed., 2005). Understanding by Design. ASCD.",
+    "Decreto 1860 de 1994 (art. 36, proyectos pedagógicos) y Ley 1029 de 2006 (modifica el art. 14 de la Ley 115 de 1994) — Colombia.",
+    "Biggs, J. (1996). Enhancing teaching through constructive alignment. Higher Education, 32(3), 347-364. · DOI: 10.1007/BF00138871",
+    "Barnett, S. M. y Ceci, S. J. (2002). When and where do we apply what we learn? A taxonomy for far transfer. Psychological Bulletin, 128(4), 612-637. · DOI: 10.1037/0033-2909.128.4.612",
+    "Chen, C.-H. y Yang, Y.-C. (2019). Revisiting the effects of project-based learning on students' academic achievement: A meta-analysis investigating moderators. Educational Research Review, 26, 71-81. · DOI: 10.1016/j.edurev.2018.11.001",
+    "Kirschner, P. A., Sweller, J. y Clark, R. E. (2006). Why minimal guidance during instruction does not work. Educational Psychologist, 41(2), 75-86. · DOI: 10.1207/s15326985ep4102_1",
+    "Jonsson, A. y Svingby, G. (2007). The use of scoring rubrics: Reliability, validity and educational consequences. Educational Research Review, 2(2), 130-144. · DOI: 10.1016/j.edurev.2007.05.002",
+    "Panadero, E. y Jonsson, A. (2013). The use of scoring rubrics for formative assessment purposes revisited: A review. Educational Research Review, 9, 129-144. · DOI: 10.1016/j.edurev.2013.01.002"
   ]
 };

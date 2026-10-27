@@ -155,8 +155,16 @@ window.SABI_KB = {
     "e": "La Ley 1328 de 2009 establece el régimen de protección al consumidor financiero."
    },
    {
+    "y": "2011",
+    "e": "El artículo 145 de la Ley 1450 de 2011 encarga al MEN incluir la educación económica y financiera en las competencias básicas."
+   },
+   {
+    "y": "2014",
+    "e": "El MEN publica el Documento 26, «Mi plan, mi vida y mi futuro», con orientaciones para la educación económica y financiera."
+   },
+   {
     "y": "2024",
-    "e": "Se expide la Ley 2381 de 2024, que reforma el sistema de protección para la vejez."
+    "e": "Se expide la Ley 2381 de 2024, que reforma el sistema de protección para la vejez; su entrada en vigencia se aplazó durante la revisión de la Corte Constitucional (prevista para el 1 de abril de 2027, según información de agosto de 2026)."
    }
   ]
  },
@@ -327,6 +335,10 @@ window.SABI_KB = {
   "Código Sustantivo del Trabajo, artículo 249 — Cesantías (Colombia)",
   "OCDE (2020). Recomendación del Consejo sobre Alfabetización Financiera",
   "Superintendencia Financiera de Colombia. Material de educación financiera para el consumidor",
-  "Lusardi, A. y Mitchell, O. S. (2014). The economic importance of financial literacy: Theory and evidence. Journal of Economic Literature · DOI: 10.1257/jel.52.1.5"
+  "Lusardi, A. y Mitchell, O. S. (2014). The economic importance of financial literacy: Theory and evidence. Journal of Economic Literature · DOI: 10.1257/jel.52.1.5",
+  "Ley 1450 de 2011, artículo 145 — Programa de educación en economía y finanzas (Colombia)",
+  "Ministerio de Educación Nacional (2014). Documento 26: Mi plan, mi vida y mi futuro. Orientaciones pedagógicas para la educación económica y financiera",
+  "Kaiser, T., Lusardi, A., Menkhoff, L. y Urban, C. (2022). Financial education affects financial knowledge and downstream behaviors. Journal of Financial Economics, 145(2), 255-272 · DOI: 10.1016/j.jfineco.2021.09.022",
+  "Thaler, R. H. y Benartzi, S. (2004). Save More Tomorrow: Using behavioral economics to increase employee saving. Journal of Political Economy, 112(S1), S164-S187 · DOI: 10.1086/380085"
  ]
 };

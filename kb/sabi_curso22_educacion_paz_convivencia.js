@@ -20,7 +20,7 @@ window.SABI_KB = {
     { w: "COMITE", t: "Comité Escolar de Convivencia", d: "Instancia institucional creada por la Ley 1620 de 2013 que lidera acciones de convivencia y activa la Ruta de Atención Integral." },
     { w: "MEMORIA", t: "Memoria histórica", d: "Reconstrucción colectiva del pasado, especialmente del conflicto armado, orientada a reconocer a las víctimas, comprender lo ocurrido y comprometerse con la no repetición." },
     { w: "REPARACION", t: "Reparación", d: "Conjunto de acciones para restablecer derechos y reconocer el daño causado; en el aula, se traduce en prácticas restaurativas que reparan relaciones." },
-    { w: "RESTAURATIVO", t: "Enfoque restaurativo", d: "Forma de responder a una falta centrada en reparar el daño y restaurar relaciones, con participación de quien causó y de quien recibió el daño." },
+    { w: "RESTAURATIVO", t: "Enfoque restaurativo", d: "Forma de responder a una falta centrada en reparar el daño y restaurar relaciones, con participación de quien causó y de quien recibió el daño; su evidencia es prometedora pero mixta." },
     { w: "PERSONERO", t: "Personero estudiantil", d: "Estudiante del último grado elegido por los estudiantes para promover sus derechos y deberes (artículo 94 de la Ley 115 de 1994)." },
     { w: "CIUDADANIA", t: "Competencias ciudadanas", d: "Conocimientos y habilidades cognitivas, emocionales y comunicativas que permiten actuar de manera constructiva en una sociedad democrática (Estándares MEN, 2004)." },
     { w: "ACOSO", t: "Acoso escolar", d: "Conducta negativa, intencional, metódica y sistemática de agresión o intimidación contra un estudiante, en relación de poder asimétrica y reiterada en el tiempo (Ley 1620)." }
@@ -47,7 +47,7 @@ window.SABI_KB = {
       { y: "2013", e: "La Ley 1620 y el Decreto 1965 crean el Sistema Nacional de Convivencia Escolar y la Ruta de Atención Integral." },
       { y: "2014", e: "La Ley 1732 establece la Cátedra de la Paz en todas las instituciones educativas." },
       { y: "2015", e: "El Decreto 1038 reglamenta la Cátedra de la Paz." },
-      { y: "2016", e: "Se firma el Acuerdo Final entre el Gobierno y las FARC-EP." }
+      { y: "2016", e: "Tras el plebiscito del 2 de octubre y una renegociación, el Gobierno y las FARC-EP suscriben el Acuerdo Final el 24 de noviembre." }
     ]
   },
   w5h1: {

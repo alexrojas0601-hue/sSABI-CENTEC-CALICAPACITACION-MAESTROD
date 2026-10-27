@@ -28,7 +28,7 @@ window.SABI_KB = {
   flashcards: [
     { q: "¿Cuáles son los cuatro pilares de la marca docente?", a: "Especialidad clara, audiencia definida, tono consistente y presencia regular." },
     { q: "¿Cuál es el primer paso para construir una marca docente?", a: "Definir especialidad y audiencia antes de publicar." },
-    { q: "¿Qué significa la regla 70-20-10?", a: "70 % contenido educativo, 20 % comunidad, 10 % personal." },
+    { q: "¿Qué significa la regla 70-20-10?", a: "Una guía práctica (no un hallazgo de investigación): 70 % contenido educativo, 20 % comunidad, 10 % personal." },
     { q: "¿Qué contenido genera más interacción entre docentes en Instagram y TikTok?", a: "Consejos prácticos y accionables que otros docentes pueden aplicar de inmediato." },
     { q: "¿Qué publicación da más credibilidad en LinkedIn?", a: "Reflexiones honestas sobre la propia práctica, incluidos errores y aprendizajes." },
     { q: "¿Qué condición hace sostenible una comunidad de práctica informal?", a: "Que la participación sea voluntaria y aporte valor real a sus miembros." },
@@ -47,7 +47,8 @@ window.SABI_KB = {
       { y: "2010", e: "Se lanza Instagram, red centrada en imagen y luego en video corto." },
       { y: "2012", e: "Se expide la Ley 1581, régimen general de protección de datos personales en Colombia." },
       { y: "2013", e: "Se expiden la Ley 1620 de convivencia escolar y el Decreto 1377, que reglamenta parcialmente la Ley 1581." },
-      { y: "2023", e: "WhatsApp habilita los Canales, función de difusión unidireccional para seguidores." }
+      { y: "2023", e: "WhatsApp lanza los Canales en junio, primero en Colombia y Singapur; es una función de difusión unidireccional para seguidores." },
+      { y: "2025", e: "Se expide la Ley 2489 (17 de julio), sobre entornos digitales sanos y seguros para niños, niñas y adolescentes, que pide incluir la ciudadanía digital en el currículo." }
     ]
   },
   w5h1: {
@@ -81,7 +82,7 @@ window.SABI_KB = {
     ]
   },
   errores: [
-    { caso: "Una docente publica en su Instagram personal fotos de sus estudiantes de 3.° con el uniforme de CENTEC para mostrar «la clase del día».", error: "Trata datos sensibles de menores (su imagen) sin autorización de sus representantes legales, lo que contraría la Ley 1581 de 2012 y el deber de proteger la imagen e intimidad de los niños previsto en la Ley 1098 de 2006.", correccion: "Publicar solo con autorización escrita de las familias y por canales institucionales; preferir fotos de manos, trabajos o espacios sin rostros ni nombres." },
+    { caso: "Una docente publica en su Instagram personal fotos de sus estudiantes de 3.° con el uniforme de CENTEC para mostrar «la clase del día».", error: "Trata datos personales de menores (su imagen) sin autorización de sus representantes legales, lo que contraría la Ley 1581 de 2012 y el deber de proteger la imagen e intimidad de los niños previsto en la Ley 1098 de 2006.", correccion: "Publicar solo con autorización escrita de las familias y por canales institucionales; preferir fotos de manos, trabajos o espacios sin rostros ni nombres." },
     { caso: "Un docente abre cuentas en cinco redes la misma semana y publica contenido distinto a diario hasta agotarse.", error: "Sin especialidad, audiencia ni frecuencia sostenible no hay marca, solo presencia aleatoria; además el esfuerzo compite con la preparación de clases.", correccion: "Empezar con una red principal, una frecuencia realista y un banco de temas; ampliar solo si el ritmo es sostenible." },
     { caso: "Un docente acepta como «amigos» a sus estudiantes en su perfil personal y responde mensajes privados en la noche.", error: "Difumina los límites profesionales, expone su vida privada y crea comunicaciones sin trazabilidad institucional.", correccion: "Usar canales institucionales para comunicarse con estudiantes y familias, separar perfil personal y profesional y fijar horarios de respuesta." },
     { caso: "Una docente comparte en su red un pantallazo de un chat de familias para criticar un comentario.", error: "Divulga datos personales y conversaciones de terceros sin autorización y puede afectar la convivencia escolar y la reputación institucional.", correccion: "Manejar los conflictos por los conductos regulares del manual de convivencia y nunca exponer conversaciones privadas en redes." }
@@ -120,7 +121,10 @@ window.SABI_KB = {
     "Ley 1581 de 2012 — Régimen general de protección de datos personales (Colombia).",
     "Decreto 1377 de 2013 — Reglamentación parcial de la Ley 1581 de 2012 (compilado en el Decreto 1074 de 2015).",
     "Ley 1098 de 2006 — Código de la Infancia y la Adolescencia (Colombia).",
-    "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar (Colombia).",
+    "Ley 1620 de 2013 — Sistema Nacional de Convivencia Escolar (Colombia), y Decreto 1965 de 2013.",
+    "Ley 2489 de 2025 — Entornos digitales sanos y seguros para niños, niñas y adolescentes (Colombia).",
+    "Vescio, V., Ross, D. y Adams, A. (2008). A review of research on the impact of professional learning communities on teaching practice and student learning. Teaching and Teacher Education, 24(1), 80-91. · DOI: 10.1016/j.tate.2007.01.004",
+    "Macià, M. y García, I. (2016). Informal online communities and networks as a source of teacher professional development: A review. Teaching and Teacher Education, 55, 291-307. · DOI: 10.1016/j.tate.2016.01.021",
     "Wenger, E. (1998). Communities of Practice: Learning, Meaning, and Identity. Cambridge University Press. · DOI: 10.1017/CBO9780511803932"
   ]
 };

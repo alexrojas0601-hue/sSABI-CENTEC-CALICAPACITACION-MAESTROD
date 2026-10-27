@@ -99,7 +99,10 @@ Informe por curso (qué se corrigió, fuentes con DOI, auditoría independiente,
 - [x] Cursos nuevos 26 Ciencia de la lectura, 27 Pensamiento computacional, 28 Alfabetización de datos y
       29 Educación climática y ODS: 3 módulos, 21 preguntas, kb y kb/plus, auditados. Bloque «Tendencias 2026» en index.html.
 - [x] index.html: el encabezado del bloque de Idiomas desbordaba a 390 px (botón «Club de Idiomas 3D»); corregido.
-- [ ] Cursos 15-25: revisados por el Dot autor; falta la auditoría independiente (en curso).
+- [x] Cursos 15-25: revisados por el Dot autor y auditados por un Dot distinto (2026-10-27). Destacados: estado de la Ley 2381
+      de 2024 actualizado (vigencia desde 1-04-2027), Ley 2025 de 2020 reglamentada por el Decreto 459 de 2024, Cátedra de la Paz
+      corregida según el Decreto 1038 de 2015, panel con cifras inventadas del curso 17 reemplazado, «✓» que delataba la
+      respuesta en 17, 18, 20, 21 y 22 retirado.
 - [ ] Ampliar 17, 18, 20, 21 y 22 (1 pregunta y 2-4 tarjetas por módulo) al estándar de 6-8 tarjetas y 7 preguntas.
 - [ ] Revisión humana de lo marcado en cada informe (normas no abiertas en la fuente oficial, cifras de fuentes secundarias).
 - [ ] Las tarjetas del catálogo en index.html aún tienen cifras sin fuente (p. ej. «68 % FOMAG 2024», «32 % TALIS 2024»,

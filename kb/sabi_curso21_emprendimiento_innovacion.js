@@ -32,7 +32,7 @@ window.SABI_KB = {
     { q: "¿Qué diferencia a un emprendimiento social de una ONG tradicional?", a: "Genera sus propios ingresos para ser sostenible, sin depender de donaciones." },
     { q: "¿Cuál es el objetivo principal de enseñar emprendimiento en básica y media?", a: "Desarrollar competencias: identificar problemas, crear, tolerar el error y actuar; no que todos funden empresas." },
     { q: "¿Por qué presentar el proyecto ante una audiencia real?", a: "Activa la motivación, eleva la calidad del trabajo y conecta el aprendizaje con un propósito real." },
-    { q: "¿Cuál es el error más común al innovar pedagógicamente?", a: "Querer cambiar todo a la vez en lugar de hacer experimentos pequeños y medibles." },
+    { q: "¿Qué error conviene evitar al empezar a innovar pedagógicamente?", a: "Querer cambiar todo a la vez en lugar de hacer experimentos pequeños y medibles." },
     { q: "¿Qué cuatro roles rotan en el equipo emprendedor escolar?", a: "Líder de proyecto, diseñador, investigador y comunicador." },
     { q: "¿Qué economista asoció el emprendimiento con la «destrucción creativa»?", a: "Joseph Schumpeter, en «Capitalismo, socialismo y democracia» (1942)." }
   ],

@@ -1,6 +1,6 @@
 // SABI CENTEC · Experiencia SABI v2 · Curso 17 · Producción de video y podcast educativo
 // Estado: en revisión (lo aprueba el docente responsable del área de tecnología e informática).
-// Evidencia: Mayer (2001, principios de aprendizaje multimedia); Guo, Kim y Rubin (2014); Brame (2016).
+// Evidencia: Mayer (2001 y 2020, principios de aprendizaje multimedia); Guo, Kim y Rubin (2014); Brame (2016); Gernsbacher (2015). Revisado 2026-10-24.
 // Normativa: Ley 1581 de 2012, Ley 1098 de 2006, Ley 23 de 1982.
 Object.assign(window.SABI_KB = window.SABI_KB || {}, {
   audio: {

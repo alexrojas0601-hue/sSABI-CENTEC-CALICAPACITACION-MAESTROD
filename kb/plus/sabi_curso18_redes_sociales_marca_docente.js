@@ -1,6 +1,6 @@
 // SABI CENTEC · Experiencia SABI v2 · Curso 18 · Redes sociales pedagógicas y marca docente digital
 // Estado: en revisión (lo aprueba el docente responsable del área de tecnología e informática y coordinación de convivencia).
-// Normativa: Constitución Política de 1991 (art. 15), Ley 1581 de 2012, Decreto 1377 de 2013, Ley 1098 de 2006, Ley 1620 de 2013.
+// Normativa: Constitución Política de 1991 (art. 15), Ley 1581 de 2012, Decreto 1377 de 2013, Ley 1098 de 2006, Ley 1620 de 2013, Ley 2489 de 2025. Revisado 2026-10-24.
 // Referente: Wenger (1998), comunidades de práctica.
 Object.assign(window.SABI_KB = window.SABI_KB || {}, {
   audio: {

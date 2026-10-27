@@ -35,7 +35,7 @@ window.SABI_KB = {
     { q: "¿Qué duración se sugiere para un episodio de podcast educativo?", a: "Entre 10 y 20 minutos." },
     { q: "¿Cuál es la ventaja principal del podcast frente al video?", a: "Puede escucharse mientras se hacen otras actividades, ampliando el tiempo de exposición." },
     { q: "Con 2 horas semanales, ¿cuál es la estrategia de distribución recomendada?", a: "Un video de calidad en YouTube y clips cortos adaptados para una red secundaria." },
-    { q: "¿Qué factor construye audiencia a largo plazo?", a: "Publicar con regularidad predecible durante al menos 6 meses." }
+    { q: "¿Qué factor construye audiencia a largo plazo?", a: "Publicar con una regularidad predecible y sostenible (recomendación práctica, no hallazgo de investigación)." }
   ],
   timeline: {
     titulo: "Hitos del video y el audio educativo en línea",
@@ -46,7 +46,9 @@ window.SABI_KB = {
       { y: "2005", e: "Apple incorpora los podcasts a iTunes y populariza su escucha masiva." },
       { y: "2008", e: "Salman Khan funda Khan Academy, con explicaciones breves en video para estudiantes." },
       { y: "2014", e: "Guo, Kim y Rubin publican un estudio con datos de edX que muestra mayor permanencia del espectador en videos cortos, de hasta unos 6 minutos." },
-      { y: "2019", e: "Spotify adquiere Anchor, plataforma gratuita de creación de podcasts, luego renombrada Spotify for Podcasters." }
+      { y: "2019", e: "Spotify adquiere Anchor, plataforma gratuita de creación de podcasts, luego renombrada Spotify for Podcasters y, en noviembre de 2024, Spotify for Creators." },
+      { y: "2020", e: "Mayer publica la tercera edición de «Multimedia Learning», que actualiza los principios con nueva evidencia." },
+      { y: "2023", e: "El W3C publica las WCAG 2.2, que mantienen como requisito de nivel A los subtítulos para el audio pregrabado (criterio 1.2.2)." }
     ]
   },
   w5h1: {
@@ -108,7 +110,7 @@ window.SABI_KB = {
   },
   bloom: [
     { n: "N1 Recordar", i: "Enumera los componentes del equipo mínimo viable y las partes del guion." },
-    { n: "N2 Comprender", i: "Explica por qué los subtítulos mejoran la accesibilidad y la retención." },
+    { n: "N2 Comprender", i: "Explica por qué los subtítulos mejoran la accesibilidad y la comprensión (Gernsbacher, 2015)." },
     { n: "N3 Aplicar", i: "Graba y edita una microlección de 3 a 4 minutos sobre un concepto de su área." },
     { n: "N4 Analizar", i: "Analiza tres videos educativos identificando gancho, objetivo y causas de abandono." },
     { n: "N5 Evaluar", i: "Valora su propio video con criterios de claridad, audio, accesibilidad y protección de datos." },
@@ -116,8 +118,15 @@ window.SABI_KB = {
   ],
   fuentes: [
     "Mayer, R. E. (2001). Multimedia Learning. Cambridge University Press. · DOI: 10.1017/CBO9781139164603",
-    "Guo, P. J., Kim, J. y Rubin, R. (2014). How video production affects student engagement: An empirical study of MOOC videos. ACM Conference on Learning at Scale. · DOI: 10.1145/2556325.2566239",
-    "Brame, C. J. (2016). Effective educational videos: Principles and guidelines for maximizing student learning from video content. CBE—Life Sciences Education. · DOI: 10.1187/cbe.16-03-0125",
+    "Mayer, R. E. (2020). Multimedia Learning (3.ª ed.). Cambridge University Press. · DOI: 10.1017/9781316941355",
+    "Guo, P. J., Kim, J. y Rubin, R. (2014). How video production affects student engagement: An empirical study of MOOC videos. Proceedings of the First ACM Conference on Learning @ Scale, 41-50. · DOI: 10.1145/2556325.2566239",
+    "Brame, C. J. (2016). Effective educational videos: Principles and guidelines for maximizing student learning from video content. CBE—Life Sciences Education, 15(4), es6. · DOI: 10.1187/cbe.16-03-0125",
+    "Noetel, M. et al. (2021). Video improves learning in higher education: A systematic review. Review of Educational Research, 91(2), 204-236. · DOI: 10.3102/0034654321990713",
+    "Rey, G. D. et al. (2019). A meta-analysis of the segmenting effect. Educational Psychology Review, 31(2), 389-419. · DOI: 10.1007/s10648-018-9456-4",
+    "Gernsbacher, M. A. (2015). Video captions benefit everyone. Policy Insights from the Behavioral and Brain Sciences, 2(1), 195-202. · DOI: 10.1177/2372732215602130",
+    "Newman, E. J. y Schwarz, N. (2018). Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication, 40(2), 246-257. · DOI: 10.1177/1075547018759345",
+    "Szpunar, K. K., Khan, N. Y. y Schacter, D. L. (2013). Interpolated memory tests reduce mind wandering and improve learning of online lectures. PNAS, 110(16), 6313-6317. · DOI: 10.1073/pnas.1221764110",
+    "W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2.",
     "Ley 1581 de 2012 — Régimen general de protección de datos personales (Colombia).",
     "Ley 1098 de 2006 — Código de la Infancia y la Adolescencia (Colombia).",
     "Ley 23 de 1982 — Sobre derechos de autor (Colombia)."
