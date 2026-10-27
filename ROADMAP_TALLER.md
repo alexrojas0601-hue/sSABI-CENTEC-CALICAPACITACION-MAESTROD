@@ -82,7 +82,10 @@ rigurosos, con voz, práctica, comprobación y transferencia al aula.
       distinto (datos DELF/Celpe-Bras/HSK/Goethe verificados; Lyster y Ranta 1997 con DOI). Pendiente: los módulos 1-2 de
       12, 13 y 14 traen cifras sin fuente y texto sin tildes; las fichas del portal dicen «6 módulos» para el curso 14.
 - [x] DOI verificados en las fuentes de `kb/*.js` (36 DOI: 31 en fuentes existentes y 5 en artículos añadidos; registro en `docs/VERIFICACION_DOI.md`). Sin fuente revisada por pares: cursos 09, 12, 13, 14 y 20.
-- [ ] Más escenarios del Club (meta: 30 por idioma; validador listo: `node club/tools/validar_club.js`) y conversación libre con IA mediante un Worker propio.
+- [x] Club de Diálogo: 30 escenarios por idioma (en, fr, pt, de, zh = 150), autor y auditor lingüístico distintos (2026-10-27);
+      validador `node club/tools/validar_club.js`. Pendiente: revisión de hablantes nativos y verificar el DOI de Rohrer et al. 2015
+      (retirado de de-29 hasta confirmarlo).
+- [ ] Conversación libre con IA mediante un Worker propio (requiere decisión y clave del equipo; nunca una clave en el navegador).
 - [ ] Prueba física del minilibro impreso y del certificado en PDF.
 
 ---
