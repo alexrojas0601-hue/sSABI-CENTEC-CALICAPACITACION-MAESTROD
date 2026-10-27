@@ -22,14 +22,14 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       ],
       modelo: "Criterios: integración real entre áreas, respaldo de la evidencia y apoyo a quienes empiezan un tema. (A) Falla en el apoyo: Kirschner, Sweller y Clark (2006) recuerdan que la guía mínima funciona peor con novatos, que necesitan instrucción explícita y ejemplos resueltos. (B) Falla en la integración: el curso llama a esto yuxtaponer; si las áreas solo se juntan al final para una cartelera, no hubo integración, porque la pregunta no exigía los aportes de todas. (C) Cumple: la pregunta guía obliga a integrar, la enseñanza explícita sostiene a los novatos y el producto tiene una audiencia real con criterios compartidos. Recomiendo (C). Límite: el metaanálisis de Chen y Yang (2019) muestra un efecto positivo promedio del aprendizaje basado en proyectos que varía según el diseño y las condiciones de implementación, así que no es garantía; hay que evaluar qué aprendieron antes de ampliar el proyecto." },
     { n: "N6", verbo: "Crear",
-      tarea: "Diseña, con el diseño inverso de Wiggins y McTighe, una unidad de dos semanas de tu área. Escribe las tres etapas: resultado deseado (con el espacio para copiar el estándar y el DBA exactos), evidencia aceptable (una tarea auténtica con meta, rol, audiencia, situación, producto y criterios) y experiencias de aprendizaje. Añade una rúbrica analítica de tres criterios con su equivalencia a la escala nacional del SIEE.",
+      tarea: "Diseña, con el diseño inverso de Wiggins y McTighe, una unidad de dos semanas de tu área. Escribe las tres etapas: resultado deseado (con el espacio para copiar el estándar y el DBA exactos), evidencia aceptable (una tarea auténtica con meta, rol, audiencia, situación, producto y criterios) y experiencias de aprendizaje. Añade una rúbrica analítica de tres criterios con niveles equivalentes a la escala nacional (superior, alto, básico y bajo) que el Decreto 1290 de 2009 pide incluir en el SIEE.",
       criterios: [
         "Respeta el orden del diseño inverso: resultado, evidencia y después actividades",
         "La tarea auténtica incluye meta, rol, audiencia, situación, producto y criterios",
         "La rúbrica es analítica, con descriptores observables y equivalencia a superior, alto, básico y bajo",
         "Deja explícito dónde va el referente del MEN con su número y redacción exactos, sin inventarlo"
       ],
-      modelo: "Etapa 1 · Resultado: el estudiante de 7.° organiza datos de consumo de agua y recomienda acciones justificadas. Referente MEN: [copiar aquí el estándar de Matemáticas del grupo de grados y el DBA de 7.° con su número y redacción exactos del documento oficial; si no se verifica, se dice]. Etapa 2 · Evidencia: «Eres analista de datos de la junta de acción comunal (rol). Prepara para la reunión del mes (situación, audiencia) un informe de una página (producto) con datos agregados del sector, una gráfica bien rotulada y dos recomendaciones justificadas (meta)». Rúbrica analítica: 1) Organización de datos: «tabla con categorías correctas y totales verificados»; 2) Gráfica: «ejes rotulados con unidades y escala adecuada»; 3) Recomendación: «dos acciones sostenidas en un dato del informe». Cuatro niveles por criterio, equivalentes a superior, alto, básico y bajo del SIEE. Etapa 3 · Experiencias: enseñanza explícita de tablas de frecuencia, ejemplo resuelto, recolección de datos y borrador evaluado con la rúbrica a mitad de camino." }
+      modelo: "Etapa 1 · Resultado: el estudiante de 7.° organiza datos de consumo de agua y recomienda acciones justificadas. Referente MEN: [copiar aquí el estándar de Matemáticas del grupo de grados y el DBA de 7.° con su número y redacción exactos del documento oficial; si no se verifica, se dice]. Etapa 2 · Evidencia: «Eres analista de datos de la junta de acción comunal (rol). Prepara para la reunión del mes (situación, audiencia) un informe de una página (producto) con datos agregados del sector, una gráfica bien rotulada y dos recomendaciones justificadas (meta)». Rúbrica analítica (descriptor del nivel superior): 1) Organización de datos: «tabla con categorías correctas y totales verificados»; 2) Gráfica: «ejes rotulados con unidades y escala adecuada»; 3) Recomendación: «dos acciones sostenidas en un dato del informe». Cuatro niveles por criterio, equivalentes a superior, alto, básico y bajo de la escala nacional; por ejemplo, bajo en gráfica: «sin rótulos ni unidades». Etapa 3 · Experiencias: enseñanza explícita de tablas de frecuencia, ejemplo resuelto, recolección de datos y borrador evaluado con la rúbrica a mitad de camino." }
   ],
   lectura: {
     titulo: "Que la meta, la clase y la prueba digan lo mismo",
@@ -75,14 +75,14 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       fb: "El párrafo 4 cierra advirtiendo contra «elegir primero actividades atractivas y descubrir después que no conducen a la meta»."
     },
     orden: {
-      q: "Ordena, del primero al último, las etapas del diseño inverso según el texto.",
+      q: "Ordena, del primero al último, las ideas tal como avanza el texto.",
       pasos: [
-        "Identificar los resultados deseados",
-        "Determinar qué evidencia mostrará que se lograron",
-        "Planear las experiencias de aprendizaje",
-        "Revisar que las actividades conduzcan a la meta y no al revés"
+        "Muchos planes declaran metas ambiciosas que las clases y las pruebas no acompañan",
+        "Biggs propone alinear enseñanza y evaluación con los resultados esperados",
+        "Se advierte que la evidencia directa sobre el alineamiento es limitada",
+        "El diseño inverso ofrece una ruta práctica: resultados, evidencia y experiencias"
       ],
-      fb: "El párrafo 4 describe el orden: resultados, evidencia y, solo al final, experiencias. La cuarta acción expresa el propósito de ese orden: evitar actividades que no llevan a la meta."
+      fb: "El texto parte del problema (párrafo 1), presenta el principio de Biggs (párrafo 2), aclara qué tan fuerte es su evidencia (párrafo 3) y cierra con una ruta práctica para aplicarlo (párrafo 4)."
     },
     argumenta: {
       q: "¿Debería coordinación académica de CENTEC revisar cada plan de área comprobando primero que su evaluación pida lo mismo que declaran sus metas? Defiende tu postura.",

@@ -9,7 +9,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Señala qué rasgo del contenido favorece su difusión (novedad, emoción, urgencia)",
         "Identifica cuál exige activar la ruta de convivencia y por qué"
       ],
-      modelo: "(a) Si el audio es falso, puede ser información errónea, si quien lo reenvía cree que es cierto, o desinformación, si alguien lo fabricó para engañar; sin conocer el origen no se puede decidir, y por eso se verifica en los canales oficiales de la Secretaría y del colegio. (b) Es información maliciosa: el contenido es verdadero, pero se usa para dañar, y además expone datos privados; como se reenvía para burlarse de una estudiante, puede configurar ciberacoso y exige proteger a la víctima y activar la ruta de la Ley 1620 de 2013. (c) Puede ser desinformación: apela a lo oculto y a la indignación, rasgos que Vosoughi, Roy y Aral (2018) asocian con la difusión más rápida de lo falso. Se verifica con lectura lateral antes de opinar. Prioridad: primero (b), porque daña a una persona concreta." },
+      modelo: "(a) Si el audio es falso, puede ser información errónea, si quien lo reenvía cree que es cierto, o desinformación, si alguien lo fabricó para engañar; sin conocer el origen no se puede decidir, y por eso se verifica en los canales oficiales de la Secretaría y del colegio. (b) Es información maliciosa: el contenido es verdadero, pero se usa para dañar, y además expone datos privados; como se reenvía para burlarse de una estudiante, puede configurar ciberacoso y exige proteger a la víctima y activar la ruta de la Ley 1620 de 2013. (c) Puede ser desinformación: apela a la novedad («nadie quiere que veas») y a la indignación; Vosoughi, Roy y Aral (2018) asocian la difusión más rápida de lo falso con su novedad y con las emociones que provoca. Se verifica con lectura lateral antes de opinar. Prioridad: primero (b), porque daña a una persona concreta." },
     { n: "N5", verbo: "Evaluar",
       tarea: "El área de Sociales debe elegir cómo enseñar a 10.° a evaluar información en línea: (A) una lista de verificación para revisar el diseño, el «quiénes somos» y la redacción del sitio; (B) seis lecciones breves de lectura lateral con casos reales; (C) un detector automático de imágenes generadas con IA como herramienta principal. Evalúa las opciones con criterios explícitos y recomienda una.",
       criterios: [
@@ -27,7 +27,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Incluye medidas de seguridad de cuentas coherentes con el curso (frases largas, verificación en dos pasos, sin reutilizar)",
         "Prevé la verificación de autorizaciones de imagen y una alternativa cuando faltan"
       ],
-      modelo: "Protocolo de datos · Grado 6.°B. 1) Inventario: listas, notas, observaciones y contactos de familias. Pregunta antes de pedir cualquier dato: ¿lo necesito, para qué y quién más lo verá? No pido la EPS ni otros datos de salud para una salida si coordinación ya los tiene. 2) Almacenamiento: todo en la plataforma institucional; borro las copias del celular y del correo personal (principio de seguridad). 3) Circulación restringida: las notas y los casos de convivencia no se publican en carteleras ni en grupos; cada familia recibe solo lo de su hijo. 4) Cuentas: frase larga y única, verificación en dos pasos y gestor de contraseñas; nunca pido contraseñas a los estudiantes. 5) Imágenes: antes de cada evento consulto con secretaría la lista de autorizaciones; si falta alguna, fotografío en plano general o sin rostros identificables, y solo publico por canales institucionales." }
+      modelo: "Protocolo de datos · Grado 6.°B. 1) Inventario: listas, notas, observaciones y contactos de familias. Pregunta antes de pedir cualquier dato: ¿lo necesito, para qué y quién más lo verá? No pido la EPS ni otros datos de salud para una salida si coordinación ya los tiene (principio de finalidad). 2) Almacenamiento: todo en la plataforma institucional; borro las copias del celular y del correo personal (principio de seguridad). 3) Circulación restringida: las notas y los casos de convivencia no se publican en carteleras ni en grupos; cada familia recibe solo lo de su hijo. 4) Cuentas: frase larga y única, verificación en dos pasos y gestor de contraseñas; nunca pido contraseñas a los estudiantes. 5) Imágenes: antes de cada evento consulto con secretaría la lista de autorizaciones; si falta alguna, fotografío en plano general o sin rostros identificables, y solo publico por canales institucionales." }
   ],
   lectura: {
     titulo: "Salir de la página para entenderla",
@@ -73,14 +73,14 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       fb: "El párrafo 3 dice que las tres preguntas no dependen de detectar errores visuales, «que cada vez son menos confiables con los contenidos producidos por inteligencia artificial»."
     },
     orden: {
-      q: "Ordena, del primero al último, los pasos que sigue un verificador profesional según el texto.",
+      q: "Ordena, del primero al último, las ideas tal como avanza el texto.",
       pasos: [
-        "Encuentra una página desconocida",
-        "Sale pronto de ella",
-        "Abre otras pestañas para averiguar quién está detrás",
-        "Contrasta lo que dicen fuentes confiables sobre esa página"
+        "Se describe la lectura vertical y su problema",
+        "Un estudio muestra que los verificadores profesionales salían de la página",
+        "Se resumen tres preguntas que sirven para cualquier contenido",
+        "Un estudio en un distrito escolar muestra que la habilidad se puede enseñar"
       ],
-      fb: "El párrafo 2 describe la secuencia: los verificadores «salían pronto de la página y abrían otras pestañas para averiguar quién estaba detrás y qué decían fuentes confiables sobre ella»."
+      fb: "El texto parte del modo habitual de leer y su falla (párrafo 1), presenta la alternativa que usan los expertos (párrafo 2), la resume en tres preguntas (párrafo 3) y cierra con la evidencia de que se aprende en el colegio (párrafo 4)."
     },
     argumenta: {
       q: "¿Debería la lectura lateral enseñarse en todas las áreas de CENTEC y no solo en Ciencias Sociales? Defiende tu postura.",

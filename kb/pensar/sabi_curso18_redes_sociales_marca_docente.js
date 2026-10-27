@@ -9,7 +9,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Separa lo legal de lo pedagógico y de lo que afecta la marca docente",
         "Propone qué cambiar para que la publicación sea aceptable"
       ],
-      modelo: "Riesgo legal: los rostros de menores con uniforme y ubicación son datos personales; la Ley 1581 de 2012 (artículo 7) da prevalencia a sus derechos y, según el Decreto 1377 de 2013, se necesita autorización de su representante, que el caso no menciona. Riesgo pedagógico: invitar a estudiantes de 4.° a seguirla los empuja a redes que, según las condiciones consultadas por el curso, piden al menos 13 años; además, las tareas no deben depender de una cuenta personal. Riesgo de marca: «mis niños más juiciosos» compara y expone a los estudiantes, y mezcla lo personal con lo profesional, cuando la marca docente se construye con especialidad, audiencia y tono definidos. Cambio: publicar en un canal profesional un consejo pedagógico sin rostros ni ubicación, y dejar las fotos del evento a los canales institucionales con las autorizaciones verificadas por secretaría." },
+      modelo: "Riesgo legal: los rostros de menores con uniforme y ubicación son datos personales; la Ley 1581 de 2012 (artículo 7) da prevalencia a sus derechos y, según el Decreto 1377 de 2013, se necesita autorización de su representante, que el caso no menciona. Riesgo pedagógico: invitar a estudiantes de 4.° a seguirla los empuja a redes que, según sus condiciones de uso consultadas por el curso en octubre de 2026, piden al menos 13 años (dato que cambia: hay que revisarlo); además, las tareas no deben depender de una cuenta personal. Riesgo de marca: «mis niños más juiciosos» compara y expone a los estudiantes, y mezcla lo personal con lo profesional, cuando la marca docente se construye con especialidad, audiencia y tono definidos. Cambio: publicar en un canal profesional un consejo pedagógico sin rostros ni ubicación, y dejar las fotos del evento a los canales institucionales con las autorizaciones verificadas por secretaría." },
     { n: "N5", verbo: "Evaluar",
       tarea: "Tres docentes de CENTEC proponen indicadores para saber si su presencia en redes «funciona»: Óscar (nombre ficticio) quiere llegar a 1.000 seguidores en tres meses; Lina (nombre ficticio) quiere contar cuántos colegas aplican algo que ella compartió; Fabio (nombre ficticio) quiere medir el número de «me gusta» por publicación. Evalúa los tres indicadores con criterios explícitos y recomienda cuál adoptar.",
       criterios: [
@@ -68,9 +68,9 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       fb: "La «forma sensata» que propone el párrafo consiste en aprender sin prometer, medir la utilidad y proteger datos: decisiones prudentes que se derivan de la evidencia presentada antes."
     },
     donde: {
-      afirmacion: "Hay muy pocos estudios que hayan medido si los estudiantes aprenden más gracias a estas comunidades.",
+      afirmacion: "Los pocos estudios que midieron el aprendizaje de los estudiantes en comunidades docentes encontraron mejoras.",
       parrafo: 2,
-      fb: "El párrafo 3 dice que «los pocos estudios que midieron el aprendizaje de los estudiantes reportaron mejoras, aunque la evidencia es escasa»."
+      fb: "El párrafo 3 dice que «los pocos estudios que midieron el aprendizaje de los estudiantes reportaron mejoras, aunque la evidencia es escasa». El párrafo 2 habla de evidencia limitada, pero no menciona mejoras."
     },
     orden: {
       q: "Ordena, del primero al último, las ideas tal como avanza el texto.",
