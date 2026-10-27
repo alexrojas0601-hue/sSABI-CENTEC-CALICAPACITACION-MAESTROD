@@ -34,7 +34,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
   ],
   lectura: {
     titulo: "Trabajo en grupo no es aprendizaje cooperativo",
-    base: "Slavin, R. E. (1996). Contemporary Educational Psychology, 21(1), 43-69. DOI 10.1006/ceps.1996.0004; y Johnson, D. W. y Johnson, R. T. (2009). Educational Researcher, 38(5), 365-379. DOI 10.3102/0013189X09339057 (ambos citados en el módulo de aprendizaje cooperativo del curso).",
+    base: "Slavin, R. E. (1996). Research on Cooperative Learning and Achievement: What We Know, What We Need to Know. Contemporary Educational Psychology, 21(1), 43-69. DOI 10.1006/ceps.1996.0004; y Johnson, D. W. y Johnson, R. T. (2009). An Educational Psychology Success Story: Social Interdependence Theory and Cooperative Learning. Educational Researcher, 38(5), 365-379. DOI 10.3102/0013189X09339057 (ambos citados en el módulo de aprendizaje cooperativo del curso).",
     parrafos: [
       "Casi todos los docentes han vivido la escena. Se forman equipos, se entrega una guía y, al final, una sola persona hizo todo mientras los demás firmaron. El producto puede quedar bonito, pero no se sabe quién aprendió. Esa experiencia ha hecho que muchos desconfíen del trabajo en equipo.",
       "El problema no es trabajar juntos, sino hacerlo sin estructura. David y Roger Johnson describen cinco elementos que distinguen el aprendizaje cooperativo del simple trabajo en grupo. Son la interdependencia positiva, la responsabilidad individual, la interacción promotora, las habilidades sociales y el procesamiento grupal. Sin estos elementos suele haber trabajo en grupo, no aprendizaje cooperativo.",

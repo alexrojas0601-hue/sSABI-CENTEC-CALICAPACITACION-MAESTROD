@@ -19,7 +19,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Reconoce que una evaluación no accesible mide la barrera y no el aprendizaje",
         "Recomienda una opción y señala quién debe participar en la decisión"
       ],
-      modelo: "A parece justa, pero no lo es: igualdad como uniformidad. Si el formato es la barrera, el examen mide la barrera y no lo que Samuel sabe, en contra del Decreto 1421 de 2017. B modifica el objetivo sin justificación ni decisión interdisciplinaria: baja las expectativas y lo decide una sola persona, cuando las modificaciones son excepcionales y deben documentarse. C mantiene el objetivo y cambia el medio: es una adaptación, coherente con el DUA y con los ajustes razonables. Además aprovecha lo que ya funciona con Samuel: mapas y fotografías. Recomiendo C, siempre que esté acordada en el PIAR con el docente de apoyo, la familia y el propio Samuel. Y como su PIAR aún no existe, la prioridad es elaborarlo."
+      modelo: "A parece justa, pero no lo es: igualdad como uniformidad. Si el formato es la barrera, el examen mide la barrera y no lo que Samuel sabe, en contra del Decreto 1421 de 2017. B modifica el objetivo sin justificación ni decisión interdisciplinaria: baja las expectativas y lo decide una sola persona, cuando las modificaciones son excepcionales y deben documentarse. C mantiene el objetivo y cambia el medio: es una adaptación, coherente con el DUA y con los ajustes razonables. Además aprovecha lo que ya funciona con Samuel: mapas y fotografías. Recomiendo C, siempre que esté acordada en el PIAR con el docente de apoyo, la familia y el propio Samuel."
     },
     { n: "N6", verbo: "Crear",
       tarea: "Crea una planeación DUA de una clase de 45 minutos para tu área que puedas usar mañana con un grupo de 35 estudiantes. Indica la meta, y para cada principio (implicación, representación, acción y expresión) al menos una opción concreta. Añade cómo comprobarás al final que todos alcanzaron la misma meta y qué no harás (por ejemplo, asignar estilos de aprendizaje).",
@@ -39,7 +39,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       "Una rampa se construye pensando en quien usa silla de ruedas, pero termina sirviendo a muchos más. La usa quien empuja un coche de bebé, quien lleva una maleta o quien tiene una lesión. El Diseño Universal para el Aprendizaje, conocido como DUA, lleva esa idea al aula.",
       "El DUA no pregunta cómo adaptar la clase para un estudiante cuando ya falló. Pregunta cómo diseñar desde el inicio para que todos puedan aprender. Las pautas de CAST proponen múltiples formas de implicación, de representación y de acción y expresión. En julio de 2024 se publicó la versión 3.0, cuya meta es formar aprendices con agencia.",
       "Ofrecer varias vías no significa asignar a cada niño su estilo de aprendizaje, una idea sin respaldo. Significa poner las opciones al alcance de todo el grupo para que nadie quede por fuera por una barrera. Cuando una barrera persiste a pesar del buen diseño, llegan los ajustes razonables del PIAR, como pide el Decreto 1421 de 2017. Los ajustes individuales llegan después del buen diseño, no en su lugar.",
-      "¿Qué dice la evidencia? El metaanálisis de Capp concluye que el DUA mejora el proceso de aprendizaje. Sin embargo, advierte que su impacto en los resultados académicos todavía no está demostrado. Por eso conviene presentarlo como una práctica prometedora y coherente con el derecho a la educación, y medir en el propio aula si está funcionando."
+      "¿Qué dice la evidencia? El metaanálisis de Capp concluye que el DUA mejora el proceso de aprendizaje. Sin embargo, advierte que todavía pocos estudios miden su impacto en los resultados académicos. Por eso conviene presentarlo como una práctica prometedora y coherente con el derecho a la educación, y medir en el propio aula si está funcionando."
     ],
     literal: [
       { q: "¿Qué pregunta se hace el DUA, según el texto?", oracion: "Pregunta cómo diseñar desde el inicio para que todos puedan aprender." },
@@ -73,7 +73,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
     donde: {
       afirmacion: "La evidencia sobre el efecto del DUA en los resultados académicos todavía no es concluyente.",
       parrafo: 3,
-      fb: "Está en el párrafo 4 (índice 3): Capp «advierte que su impacto en los resultados académicos todavía no está demostrado»."
+      fb: "Está en el párrafo 4 (índice 3): Capp «advierte que todavía pocos estudios miden su impacto en los resultados académicos»."
     },
     orden: {
       q: "Ordena, según el texto, cómo debería proceder un docente frente a la diversidad de su grupo.",
@@ -83,7 +83,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Acordar en el PIAR los ajustes razonables para quien los necesite",
         "Medir en el propio aula si las decisiones están funcionando"
       ],
-      fb: "El texto pone el diseño universal primero, los ajustes individuales después («no en su lugar») y cierra pidiendo medir en el propio aula porque la evidencia sobre resultados aún no es concluyente."
+      fb: "El texto pone el diseño universal primero, los ajustes individuales después («no en su lugar») y cierra pidiendo medir en el propio aula porque la evidencia sobre resultados aún es escasa."
     },
     argumenta: {
       q: "Si la evidencia sobre el efecto del DUA en los resultados académicos aún no es concluyente, ¿debería CENTEC exigirlo en todas las planeaciones? Defiende tu postura.",

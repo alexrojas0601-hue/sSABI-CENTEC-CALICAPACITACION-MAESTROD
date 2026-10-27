@@ -34,18 +34,18 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
   ],
   lectura: {
     titulo: "Exigir y cuidar al mismo tiempo",
-    base: "Edmondson, A. (1999). Psychological Safety and Learning Behavior in Work Teams. Administrative Science Quarterly, 44(2), 350-383. DOI 10.2307/2666999 (citado en el módulo de seguridad psicológica del curso).",
+    base: "Edmondson, A. (1999). Psychological Safety and Learning Behavior in Work Teams. Administrative Science Quarterly, 44(2), 350-383. DOI 10.2307/2666999 (citado en el módulo de seguridad psicológica del curso). El cuadro de cuatro zonas procede de obras divulgativas posteriores de la autora, no del artículo de 1999.",
     parrafos: [
       "En muchas salas de profesores circula un temor: si el aula se vuelve demasiado amable, el nivel baja. La preocupación es comprensible, porque nadie quiere un grupo cómodo que no se esfuerza. Sin embargo, la investigación sobre seguridad psicológica sugiere que el dilema está mal planteado.",
       "Amy Edmondson definió la seguridad psicológica como la creencia compartida de que es seguro asumir riesgos interpersonales. En la práctica, esos riesgos son preguntar, admitir un error o proponer una idea distinta. Sus estudios se hicieron con equipos de trabajo, y allí la seguridad se relacionó con más conductas de aprendizaje. La investigación en aulas escolares todavía es menor, así que conviene observar el propio grupo antes de suponer.",
       "La autora propone cruzar dos ejes: los estándares de desempeño y la seguridad. Con estándares altos y poca seguridad aparece la ansiedad. Con seguridad y estándares bajos aparece la comodidad, y cuando ambos son bajos surge la apatía. Solo cuando los dos son altos se abre la zona de aprendizaje.",
-      "Para un docente, la consecuencia es clara. No hay que elegir entre exigir y cuidar, porque se exige mejor cuando el error no se castiga. Un estudiante con miedo se queda con la respuesta segura y superficial. En cambio, uno que se siente seguro se arriesga con hipótesis y preguntas más profundas, que son justamente las que hacen avanzar a la clase."
+      "Para un docente, la consecuencia es clara. No hay que elegir entre exigir y cuidar, porque se exige mejor cuando el error no se castiga. Un estudiante con miedo tiende a quedarse con la respuesta segura y superficial. En cambio, uno que se siente seguro puede arriesgarse con hipótesis y preguntas más profundas, que son justamente las que hacen avanzar a la clase."
     ],
     literal: [
       { q: "¿Cómo definió Amy Edmondson la seguridad psicológica?", oracion: "Amy Edmondson definió la seguridad psicológica como la creencia compartida de que es seguro asumir riesgos interpersonales." },
       { q: "¿Qué aparece, según el texto, con estándares altos y poca seguridad?", oracion: "Con estándares altos y poca seguridad aparece la ansiedad." },
       { q: "¿Cuándo se abre la zona de aprendizaje?", oracion: "Solo cuando los dos son altos se abre la zona de aprendizaje." },
-      { q: "¿Qué hace un estudiante con miedo, según el texto?", oracion: "Un estudiante con miedo se queda con la respuesta segura y superficial." }
+      { q: "¿Qué tiende a hacer un estudiante con miedo, según el texto?", oracion: "Un estudiante con miedo tiende a quedarse con la respuesta segura y superficial." }
     ],
     inferencia: {
       q: "¿Qué se puede concluir sobre un docente que trata con amabilidad a su grupo pero nunca le plantea retos exigentes?",
