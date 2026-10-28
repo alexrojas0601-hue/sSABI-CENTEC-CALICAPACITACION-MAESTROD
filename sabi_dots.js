@@ -962,7 +962,7 @@
   R.lectura = function (el) {
     var P = KB.pensar, Lc = P && P.lectura; if (!Lc) { el.innerHTML = '<p class="lead">Este curso aún no tiene lectura crítica.</p>'; return; }
     var st = store('lect') || {}; st.lit = st.lit || [];
-    var oraciones = []; Lc.parrafos.forEach(function (p, pi) { (p.match(/[^.!?]+[.!?»”"]*\s*/g) || [p]).forEach(function (o) { if (o.trim()) oraciones.push({ p: pi, t: o.trim() }); }); });
+    var oraciones = []; Lc.parrafos.forEach(function (p, pi) { partirOraciones(p).forEach(function (o) { oraciones.push({ p: pi, t: o }); }); });
     var modo = null, litK = 0;
     function txtHTML() {
       return '<div class="box" id="sd-lt" style="line-height:1.7">' + Lc.parrafos.map(function (p, pi) {
@@ -1010,6 +1010,15 @@
     }
     pinta();
   };
+  /* Parte un párrafo en oraciones solo donde termina una oración de verdad: signo final seguido de espacio y
+     mayúscula (o ¿ ¡ « “ antes de ella). Así «¿hacia dónde voy?, ¿cómo voy?», «versión 3.0» o «et al. (2006)»
+     quedan enteras y la pregunta literal siempre tiene su oración exacta. */
+  function partirOraciones(p) {
+    var out = [], re = /[.!?…][»”"')\]]*\s+(?=[¿¡«“"(]?[A-ZÁÉÍÓÚÑÜ])/g, last = 0, m;
+    while ((m = re.exec(p))) { var end = m.index + m[0].length; out.push(p.slice(last, end).trim()); last = end; }
+    if (last < p.length) out.push(p.slice(last).trim());
+    return out.filter(Boolean);
+  }
   function shuffleSeguro(a) { var b = shuffle(a), n = 0; while (b.join('|') === a.join('|') && n++ < 9) b = shuffle(a); return b; }
 
   /* ---------- 🔁 Repaso espaciado 2 · 7 · 30 días ---------- */

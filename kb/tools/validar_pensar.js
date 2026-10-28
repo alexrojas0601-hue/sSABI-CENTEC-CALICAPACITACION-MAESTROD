@@ -36,6 +36,9 @@ for (const f of files) {
   const texto = L.parrafos.join(' ');
   if (!Array.isArray(L.literal) || L.literal.length !== 4) E(f, 'literal debe tener 4');
   (L.literal || []).forEach((l, i) => { if (texto.indexOf(l.oracion) < 0) E(f, `literal[${i}] oración no está literal en el texto: «${l.oracion}»`); });
+  // Misma regla de corte que sabi_dots.js (partirOraciones): la oración debe ser UNA unidad tocable en pantalla.
+  const ors = []; (L.parrafos || []).forEach(p => { const re = /[.!?…][»”"')\]]*\s+(?=[¿¡«“"(]?[A-ZÁÉÍÓÚÑÜ])/g; let last = 0, m; while ((m = re.exec(p))) { ors.push(p.slice(last, m.index + m[0].length).trim()); last = m.index + m[0].length; } if (last < p.length) ors.push(p.slice(last).trim()); });
+  (L.literal || []).forEach((l, i) => { if (!ors.includes(l.oracion.trim())) E(f, `literal[${i}] no coincide con una oración completa tocable (revisa que empiece y termine donde el texto la corta): «${l.oracion}»`); });
   for (const k of ['inferencia', 'contexto']) {
     const q = L[k]; if (!q) { E(f, 'falta ' + k); continue; }
     if (!Array.isArray(q.o) || q.o.length !== 4 || !(q.c >= 0 && q.c <= 3)) E(f, k + ': 4 opciones y c 0-3');
