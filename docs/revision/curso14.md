@@ -66,3 +66,17 @@ Fecha: 2026-10-24 · `Dot_Auditor_Riguroso` (no escribió este contenido) · Alc
 **Preguntas:** 14/14 con una sola clave correcta (M1: D A C B A D C; M2: B C A D C A D), retroalimentación coherente, pistas sin revelar y sin duplicados. Los estilos de aprendizaje y la «ventana que se cierra» aparecen solo para refutarlos.
 
 **Pruebas:** Playwright, 1280 y 390 px: 0 errores de página, sin desborde, los 3 módulos aprobados en orden al 100 %; un error muestra solo la pista. `validar.js todo`: OK. Veredicto: **apto para revisión del docente** y de hablantes nativos.
+
+## Auditoría SABI Pensamiento (Dot distinto del autor)
+
+Fecha: 2026-10-27 · `Dot_Auditor_Riguroso` (no escribió el contenido) · Archivo: `kb/pensar/sabi_curso14_mandarin_aleman.js`. Estado: sigue **en revisión** hasta la aprobación del docente o del equipo responsable.
+
+**Qué verifiqué:** `lectura.base` (Wang, Spence, Jongman y Sereno, 1999, DOI 10.1121/1.428217; Baills, Suárez-González, González-Fuente y Prieto, 2019, DOI 10.1017/S0272263118000074) está en el HTML, en `kb/` y en `docs/VERIFICACION_DOI.md`. Las cifras del texto (mejora media del 21 %, generalización, seis meses, 106 principiantes) coinciden con el curso. Pashler y otros (2008), Karpicke y Roediger (2008), Cepeda y otros (2006) y Lyster y Ranta (1997), citados en la escalera, están en el curso y registrados. Mandarín revisado: mā 妈 (mamá) y mǎ 马 (caballo), con el pinyin y los tonos correctos; 我很累, 三个学生 y 我昨天去学校 coinciden con el módulo 3. Alemán: Heute lerne ich Deutsch, Ich bin 14 Jahre alt, Das Mädchen liest, endurecimiento final (Tag «tak», Hund «hunt», gelb «gelp»), «Macht bitte die Bücher auf» (curso). Neuromitos: los estilos de aprendizaje y la idea de que «ya es tarde» aparecen solo para corregirlos. Literales exactos; `donde.parrafo` = 1 correcto; orden con Primero / Después / Por último; claves inferencia c = 3 y contexto c = 1.
+
+**Correcciones hechas:**
+1. Inferencia: la correcta era la más larga; se acortó («puede mejorar en los tonos») y se alargaron las opciones B y C.
+2. Modelo N6: se añadió el significado de las dos frases de aula en alemán, como exige el criterio 1.
+
+**Pruebas:** `node kb/tools/validar_pensar.js` ✓ OK (0 avisos).
+
+**Queda para revisión humana:** que el área de idiomas confirme si la rutina de N6 debe incluir también una versión en mandarín. No se hizo commit.

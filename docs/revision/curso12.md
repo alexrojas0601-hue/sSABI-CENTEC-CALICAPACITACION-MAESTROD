@@ -54,3 +54,19 @@ Fecha: 2026-10-24 · `Dot_Auditor_Riguroso` (no escribió este contenido) · Alc
 **Preguntas:** 14/14 con una sola clave correcta (M1: C A D B A C D; M2: B D A C B D A), retroalimentación coherente, pistas que no revelan y sin opciones duplicadas ni sesgo de longitud. Sin neuromitos. Ortografía revisada.
 
 **Pruebas:** Playwright, 1280 y 390 px: 0 errores de página, sin desborde, los 3 módulos aprobados en orden al 100 %; un error muestra solo la pista. `validar.js todo`: OK. Veredicto: **apto para revisión del docente**.
+
+## Auditoría SABI Pensamiento (Dot distinto del autor)
+
+Fecha: 2026-10-27 · `Dot_Auditor_Riguroso` (no escribió el contenido) · Archivo: `kb/pensar/sabi_curso12_frances.js`. Estado: sigue **en revisión** hasta la aprobación del docente o del equipo responsable.
+
+**Qué verifiqué:** `lectura.base` (texto elaborado a partir del módulo 3, con Lyster y Ranta, 1997, DOI 10.1017/S0272263197001034) está en el HTML y en `docs/VERIFICACION_DOI.md`; Kim y Webb (2022, DOI 10.1111/lang.12479), citado en N6, está en el curso y registrado. El texto en francés se basa en el caso de la profe Lucía del módulo 3 (diagnóstico, carnet d'erreurs de tres columnas, seis semanas, colega Andrés, «Oui, madame !»); las diferencias son de adaptación narrativa y la edad del ejemplo (35 ans) coincide con la del módulo 1. Las 5 correcciones de N4 son correctas (j'ai 42 ans, au collège, je suis allé, le lait est froid, depuis dix ans) y están en el curso; la consigna de N5 y su corrección («Ouvrez vos cahiers, s'il vous plaît») coinciden con la evaluación del curso. Literales exactos; `donde.parrafo` = 1 correcto; orden marcado por D'abord / Alors / Ensuite / Après; claves inferencia c = 3 y contexto c = 0 inequívocas. Espacios antes de ! ? : y comillas « » según la norma de Francia. Sin neuromitos.
+
+**Correcciones hechas:**
+1. P4: «sans que personne ne le demande» → «sans que personne ne le leur demande» (falta el complemento indirecto).
+2. Modelo N6: no cubría la comprensión escrita, aunque el criterio 2 exige atender las cuatro pruebas; se añadió una lectura breve el fin de semana, porque cada prueba exige un mínimo.
+3. Modelo N6: se nombran los cuatro criterios de la mini-rúbrica (comprensibilidad, corrección, pronunciación, adecuación), como pide el criterio 4.
+4. Contexto: se alargó un distractor para que la correcta no destaque por su extensión.
+
+**Pruebas:** `node kb/tools/validar_pensar.js` ✓ OK (0 avisos).
+
+**Queda para revisión humana:** «elle se bloque quand elle doit parler» es correcto pero coloquial («elle bloque» es más frecuente); no se cambió porque es una oración literal. Que el docente de francés lo decida. No se hizo commit.

@@ -135,6 +135,9 @@
     ['hoy', '🏁 Hoy', ['/hoy', '/inicio', '/sesion'], 1],
     ['audio', '🎧 Audio-lección', ['/audio', '/podcast', '/escuchar'], 'audio'],
     ['quiz', '🎯 Reto diagnóstico', ['/diagnostico', '/quiz', '/test'], 'quiz'],
+    ['pensar', '🧗 Escalera de pensamiento', ['/pensar', '/niveles', '/bloom', '/ultrathink', '/critique'], 'pensar'],
+    ['lectura', '📖 Lectura crítica', ['/lectura', '/literal', '/entrelineas', '/palabras_contexto', '/dondelopone', '/orden_causas', '/argumenta'], 'pensar'],
+    ['repaso', '🔁 Repaso 2·7·30', ['/espaciado', '/repaso_espaciado', '/spaced'], 'quiz'],
     ['frases', '🗣 Escucha y repite', ['/frases', '/pronunciacion', '/club'], 'frases'],
     ['ruta', '🧭 Ruta', ['/ruta', '/objetivos', '/5w1h_ruta']],
     ['glosario', '📒 Glosario', ['/glosario', '/sketchnotes']],
@@ -450,7 +453,10 @@
     voz: ['🗣', 'Me atrevo a hablar', 'Lograste 80 % o más de pronunciación en una frase.'],
     racha3: ['🔥', 'Constancia', 'Tres días seguidos aprendiendo.'],
     racha7: ['⭐', 'Hábito SABI', 'Siete días seguidos aprendiendo.'],
-    xp500: ['💎', 'Maestro en ascenso', 'Sumaste 500 puntos de aprendizaje.']
+    xp500: ['💎', 'Maestro en ascenso', 'Sumaste 500 puntos de aprendizaje.'],
+    crear: ['🛠', 'Pensamiento creador', 'Completaste el nivel N6 Crear de la escalera.'],
+    lector: ['📖', 'Lector crítico', 'Argumentaste con tesis, razones y evidencia del texto.'],
+    espaciado: ['🔁', 'Memoria a largo plazo', 'Hiciste un repaso espaciado a tiempo.']
   };
   function toast(msg) {
     var t = document.createElement('div'); t.className = 'sd-toast'; t.innerHTML = msg; document.body.appendChild(t);
@@ -592,6 +598,10 @@
     pasos.push(['flash', '🗂 Flashcards de hoy', 'Repetición espaciada: 5 minutos que fijan lo esencial.', false]);
     if (KB.frases) pasos.push(['frases', '🗣 Escucha y repite', 'Pronuncia frases reales de aula y recibe tu puntaje.', false]);
     if (KB.retos) pasos.push(['retos', '📅 Reto de 7 días en tu aula', nret + ' de 7 días cumplidos. Lo que se aplica, se aprende.', nret >= 7]);
+    var EP = estadoPensar(), RP = repasoPendiente();
+    if (RP) pasos.unshift(['repaso', '🔁 Hoy toca tu repaso del día ' + RP, 'Tres preguntas mezcladas y una de memoria: así lo aprendido se queda.', false]);
+    if (EP.hay) pasos.push(['pensar', '🧗 Escalera de pensamiento', EP.esc + ' de ' + EP.escT + ' niveles (analizar, evaluar, crear) demostrados.', EP.esc === EP.escT]);
+    if (EP.hay) pasos.push(['lectura', '📖 Lectura crítica docente', EP.lect == null ? 'Seis destrezas de lectura con un texto del curso.' : 'Puntaje ' + EP.lect + '/8' + (EP.lectOk ? ' y argumento listo.' : ' · completa tu argumento.'), EP.lectOk]);
     pasos.push(['escape', '🔐 Escape room del curso', 'Cuatro candados para demostrar que dominas el tema.', store('escape')]);
     var saludo = (function () { var h = new Date().getHours(); return h < 12 ? 'Buenos días' : (h < 19 ? 'Buenas tardes' : 'Buenas noches'); })();
     el.innerHTML = '<div class="hero"><h3>' + saludo + ', profe.</h3><div style="opacity:.85;font-size:13.5px">' + esc(KB.titulo) + ' · Nadie puede enseñar lo que no sabe: hoy das un paso más.</div>' +
@@ -876,12 +886,18 @@
   R.cert = function (el) {
     var E = estadoCurso(), nombre = ''; try { nombre = localStorage.getItem('sabi_nombre') || ''; } catch (e) { }
     var h = '<h3>🎓 Mi certificado</h3><p class="lead">Este curso es <b>gratuito y certificado</b> por SABI CENTEC Maestros. El certificado se gana con dominio real: aprobar cada módulo con mínimo 70 %.</p>';
+    var EP = estadoPensar();
+    var perfil = EP.hay ? '<h4>Perfil de pensamiento</h4><div class="box"><table><tr><td>N1-N3</td><td>Recordar, comprender, aplicar: evaluaciones de los módulos y reto diagnóstico.</td></tr><tr><td>' + (EP.esc === EP.escT ? '✅' : '⏳') + ' N4-N6</td><td>Escalera de pensamiento: ' + EP.esc + ' de ' + EP.escT + ' <a href="#" data-go="pensar">abrir</a></td></tr><tr><td>' + (EP.lectOk ? '✅' : '⏳') + ' Lectura</td><td>Lectura crítica: ' + (EP.lect == null ? 'pendiente' : EP.lect + '/8') + ' (mínimo 6 y argumento) <a href="#" data-go="lectura">abrir</a></td></tr></table></div>' : '';
     if (E.tipo !== 'mod') {
-      h += '<div class="box teal">Este curso emite su diploma desde la propia página: completa sus actividades y usa el botón <b>Ver diploma</b> del curso.</div>';
+      var F = requisitosOtro();
+      h += perfil + (F.length ? '<div class="box gold"><b>Para tu certificado te falta:</b><ul>' + F.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>Cuando cumplas todo, el botón <b>Ver diploma</b> del curso quedará habilitado.</div>' : '<div class="box teal">✅ Demostraste dominio. Usa el botón <b>Ver diploma</b> del curso para descargarlo.</div>');
       el.innerHTML = h; return;
     }
+    h = h.replace('aprobar cada módulo con mínimo 70 %.', 'aprobar cada módulo con mínimo 70 %' + (EP.hay ? ', subir la escalera de pensamiento y aprobar la lectura crítica.' : '.'));
     h += '<div class="box"><table>' + E.lista.map(function (m) { return '<tr><td>' + (m.ok ? '✅' : '⏳') + ' M' + m.n + '</td><td>' + esc(m.t) + '<div class="prog"><i style="width:' + (m.ok ? m.pct : 0) + '%"></i></div>' + (m.ok ? m.pct + ' %' : 'pendiente') + '</td></tr>'; }).join('') + '</table></div>';
-    if (E.listo) {
+    h += perfil;
+    if (E.listo && !EP.listo) h += '<div class="box gold">Aprobaste todos los módulos. Falta demostrar los niveles altos de pensamiento: completa la <a href="#" data-go="pensar">escalera</a> y la <a href="#" data-go="lectura">lectura crítica</a>.</div>';
+    else if (E.listo) {
       h += '<div class="box gold"><b>¡Felicitaciones! Tu certificado está listo.</b><br>Escribe tu nombre completo tal como quieres que aparezca:<br><input id="sd-nom" value="' + esc(nombre) + '" style="width:100%;box-sizing:border-box;margin:8px 0;padding:9px;border-radius:8px;border:1px solid #D9CFB6;font:inherit"><button class="btn g" id="sd-dip">🎓 Generar certificado</button></div>';
     } else {
       h += '<div class="box teal">Vas en <b>' + E.hechos + ' de ' + E.total + '</b> módulos. Abre el siguiente módulo en la página del curso, estudia sus tarjetas y responde su evaluación. Usa la <a href="#" data-go="audio">audio-lección</a> y las <a href="#" data-go="flash">flashcards</a> para llegar con seguridad.</div>';
@@ -897,6 +913,158 @@
   function vigilarCert() {
     var antes = estadoCurso().listo;
     setInterval(function () { var E = estadoCurso(); if (E.listo && !antes) { antes = true; toast('🎓 ¡Aprobaste todos los módulos! Tu certificado está listo en el Tutor Dots.'); setTimeout(function () { if (window.SABIDots) window.SABIDots.open('cert'); }, 1800); } }, 2500);
+  }
+
+
+  /* =====================================================================
+     SABI PENSAMIENTO v3 (en revisión) · diagnóstico inverso 2026-10-27
+     Escalera N4-N6 con rúbrica (Krathwohl, 2002; Panadero y Jonsson, 2013;
+     Andrade, 2019), lectura crítica con las seis destrezas SABI (Kintsch,
+     1988) y repaso espaciado a los 2, 7 y 30 días (Cepeda et al., 2006;
+     Roediger y Karpicke, 2006). Bibliografía: sabi_evidencia.html
+     ===================================================================== */
+  function nw(s) { return String(s || '').trim().split(/\s+/).filter(Boolean).length; }
+  function diasDesde(f) { if (!f) return 0; var a = new Date(f + 'T00:00:00'), b = new Date(hoy() + 'T00:00:00'); return Math.round((b - a) / 864e5); }
+  function estadoPensar() {
+    var P = KB.pensar; if (!P) return { hay: false, listo: true };
+    var es = store('pensar') || {}, le = store('lect') || {};
+    var n = (P.escalera || []).filter(function (x, i) { var s = es[i] || {}; return s.done && nw(s.txt) >= 40; }).length;
+    var lok = le.score != null && le.score >= 6 && le.arg && nw(le.arg.txt) >= 50;
+    return { hay: true, esc: n, escT: (P.escalera || []).length, lect: le.score, lectOk: !!lok, listo: n === (P.escalera || []).length && !!lok };
+  }
+
+  R.pensar = function (el) {
+    var P = KB.pensar; if (!P) { el.innerHTML = '<p class="lead">Este curso aún no tiene escalera de pensamiento.</p>'; return; }
+    var st = store('pensar') || {}, L = ['🔎', '⚖️', '🛠'];
+    el.innerHTML = '<h3>🧗 Escalera de pensamiento</h3><p class="lead">Recordar y comprender no bastan. Aquí <b>analizas</b>, <b>evalúas</b> y <b>creas</b> (niveles N4 a N6 de la taxonomía revisada de Bloom). Escribe tu respuesta, valórala con la rúbrica y solo después mira el modelo. Contenido en revisión por el equipo académico.</p>' +
+      '<div class="box teal">¿Por qué así? Juzgar tu propio trabajo con criterios claros antes de ver una respuesta mejora el desempeño y la autorregulación (Panadero y Jonsson, 2013; Andrade, 2019). <a href="sabi_evidencia.html" target="_blank" rel="noopener">Ver evidencia</a></div>' +
+      P.escalera.map(function (x, i) {
+        var s = st[i] || {}, au = s.auto || [];
+        return '<div class="box ' + (s.done ? 'teal' : 'gold') + '" data-i="' + i + '"><b>' + L[i] + ' ' + esc(x.n + ' · ' + x.verbo) + (s.done ? ' ✓' : '') + '</b><p>' + esc(x.tarea) + '</p>' +
+          '<textarea data-t="' + i + '" placeholder="Tu respuesta (mínimo 40 palabras)…" style="min-height:120px">' + esc(s.txt || '') + '</textarea><small data-c="' + i + '">' + nw(s.txt) + ' palabras</small>' +
+          '<div style="margin-top:8px"><b>Mi rúbrica</b>' + x.criterios.map(function (c, k) {
+            return '<div style="margin:6px 0">' + esc(c) + '<br>' + [[2, 'Lo logré'], [1, 'En parte'], [0, 'Aún no']].map(function (o) { return '<button class="btn ' + (au[k] === o[0] ? 't' : 'o') + '" data-a="' + i + '" data-k="' + k + '" data-v="' + o[0] + '" style="padding:4px 9px;font-size:12px">' + o[1] + '</button>'; }).join('') + '</div>';
+          }).join('') + '</div><button class="btn g" data-m="' + i + '">Comparar con el modelo</button><div class="rev' + (s.done ? ' on' : '') + '" data-r="' + i + '"><div class="box teal"><b>Respuesta modelo</b><br>' + esc(x.modelo) + '</div>¿Qué le falta a tu respuesta frente al modelo? Mejórala arriba: así se aprende.</div></div>';
+      }).join('') + '<div class="box">Tu perfil de pensamiento queda en <a href="#" data-go="cert">Mi certificado</a>: el certificado exige demostrar estos tres niveles.</div>';
+    $$('[data-t]', el).forEach(function (t) { t.oninput = function () { var i = t.dataset.t; st[i] = st[i] || {}; st[i].txt = t.value; store('pensar', st); $('[data-c="' + i + '"]', el).textContent = nw(t.value) + ' palabras'; }; });
+    $$('[data-a]', el).forEach(function (b) { b.onclick = function () { var i = b.dataset.a; st[i] = st[i] || {}; st[i].auto = st[i].auto || []; st[i].auto[+b.dataset.k] = +b.dataset.v; store('pensar', st); $$('[data-a="' + i + '"][data-k="' + b.dataset.k + '"]', el).forEach(function (x) { x.className = 'btn ' + (x === b ? 't' : 'o'); }); }; });
+    $$('[data-m]', el).forEach(function (b) {
+      b.onclick = function () {
+        var i = b.dataset.m, s = st[i] || {}, x = P.escalera[i];
+        if (nw(s.txt) < 40) { toast('Escribe al menos 40 palabras antes de comparar: pensar primero es lo que hace aprender.'); return; }
+        if ((s.auto || []).filter(function (v) { return v != null; }).length < x.criterios.length) { toast('Valora cada criterio de tu rúbrica antes de ver el modelo.'); return; }
+        $('[data-r="' + i + '"]', el).classList.add('on');
+        if (!s.done) { s.done = 1; s.f = hoy(); st[i] = s; store('pensar', st); ganar(20, i == 2 ? 'crear' : null); b.closest('.box').classList.remove('gold'); b.closest('.box').classList.add('teal'); }
+      };
+    });
+  };
+
+  R.lectura = function (el) {
+    var P = KB.pensar, Lc = P && P.lectura; if (!Lc) { el.innerHTML = '<p class="lead">Este curso aún no tiene lectura crítica.</p>'; return; }
+    var st = store('lect') || {}; st.lit = st.lit || [];
+    var oraciones = []; Lc.parrafos.forEach(function (p, pi) { partirOraciones(p).forEach(function (o) { oraciones.push({ p: pi, t: o }); }); });
+    var modo = null, litK = 0;
+    function txtHTML() {
+      return '<div class="box" id="sd-lt" style="line-height:1.7">' + Lc.parrafos.map(function (p, pi) {
+        return '<p data-p="' + pi + '"><b style="color:#B8902A">¶' + (pi + 1) + '</b> ' + oraciones.filter(function (o) { return o.p === pi; }).map(function (o) { var k = oraciones.indexOf(o); return '<span data-o="' + k + '" style="border-radius:4px;padding:1px 2px">' + esc(o.t) + '</span>'; }).join(' ') + '</p>';
+      }).join('') + '<small>Base: ' + esc(Lc.base) + '</small></div>';
+    }
+    function puntaje() {
+      var s = 0; st.lit.forEach(function (v) { if (v) s++; }); ['inf', 'ctx', 'donde', 'orden'].forEach(function (k) { if (st[k] === true) s++; }); return s;
+    }
+    function guardar() { st.score = puntaje(); store('lect', st); }
+    function mcq(q, key, titulo) {
+      return '<div class="box"><b>' + titulo + '</b><p>' + esc(q.q) + '</p>' + q.o.map(function (o, j) { var cls = st[key] != null ? (j === q.c ? ' si' : (st[key + 'j'] === j ? ' no' : '')) : ''; return '<button class="opt2' + cls + '" data-q="' + key + '" data-j="' + j + '"' + (st[key] != null ? ' disabled' : '') + '>' + 'ABCD'[j] + '. ' + esc(o) + '</button>'; }).join('') + (st[key] != null ? '<div class="box ' + (st[key] ? 'teal' : 'gold') + '">' + (st[key] ? '✅ ' : '🔄 ') + esc(q.fb) + '</div>' : '') + '</div>';
+    }
+    function pinta() {
+      var litDone = st.lit.length >= Lc.literal.length;
+      var lq = Lc.literal[Math.min(litK, Lc.literal.length - 1)];
+      var orden = st.ordenIntento || shuffleSeguro(Lc.orden.pasos);
+      el.innerHTML = '<h3>📖 Lectura crítica docente</h3><p class="lead">' + esc(Lc.titulo) + ' · Leer es comprender, relacionar y pensar. Primero lee todo el texto con calma; luego responde. Puntaje automático: <b>' + puntaje() + ' / 8</b> (el certificado pide 6) más tu argumento.</p>' + txtHTML() +
+        '<h4>1. Lo que dice el texto (literal)</h4>' + (litDone ? '<div class="box teal">✅ Literal: ' + st.lit.filter(Boolean).length + ' de 4 oraciones exactas encontradas.</div>' :
+          '<div class="box gold"><b>Pregunta ' + (litK + 1) + ' de 4.</b> ' + esc(lq.q) + '<br><small>Toca en el texto la oración exacta que la responde.</small></div>') +
+        '<h4>2. Leer entre líneas</h4>' + mcq(Lc.inferencia, 'inf', 'Inferencia') +
+        '<h4>3. Palabras en contexto</h4>' + mcq(Lc.contexto, 'ctx', '«' + esc(Lc.contexto.palabra) + '»') +
+        '<h4>4. ¿Dónde lo pone?</h4><div class="box"><b>' + esc(Lc.donde.afirmacion) + '</b><br>¿En qué párrafo se sustenta? ' + Lc.parrafos.map(function (p, pi) { var cls = st.donde != null ? (pi === Lc.donde.parrafo ? 't' : (st.dondej === pi ? 'o' : '')) : ''; return '<button class="btn ' + cls + '" data-d="' + pi + '"' + (st.donde != null ? ' disabled' : '') + '>¶' + (pi + 1) + '</button>'; }).join('') + (st.donde != null ? '<div class="box ' + (st.donde ? 'teal' : 'gold') + '">' + (st.donde ? '✅ ' : '🔄 Está en el ¶' + (Lc.donde.parrafo + 1) + '. ') + esc(Lc.donde.fb) + '</div>' : '') + '</div>' +
+        '<h4>5. Orden y causas</h4><div class="box"><b>' + esc(Lc.orden.q) + '</b>' + orden.map(function (o, k) { return '<div style="display:flex;gap:6px;align-items:center;margin:5px 0"><span style="min-width:22px"><b>' + (k + 1) + '.</b></span><span style="flex:1">' + esc(o) + '</span>' + (st.orden == null ? '<button class="btn o" data-up="' + k + '" aria-label="Subir">▲</button><button class="btn o" data-dn="' + k + '" aria-label="Bajar">▼</button>' : '') + '</div>'; }).join('') + (st.orden == null ? '<button class="btn g" id="sd-or">Comprobar el orden</button>' : '<div class="box ' + (st.orden ? 'teal' : 'gold') + '">' + (st.orden ? '✅ ' : '🔄 Orden correcto: ' + Lc.orden.pasos.map(function (x, i) { return (i + 1) + ') ' + x; }).join(' ') + ' ') + esc(Lc.orden.fb) + '</div>') + '</div>' +
+        '<h4>6. Piensa y argumenta</h4><div class="box"><b>' + esc(Lc.argumenta.q) + '</b><textarea id="sd-arg" placeholder="Tesis, razones, evidencia del texto y un límite (mínimo 50 palabras)…" style="min-height:130px">' + esc((st.arg || {}).txt || '') + '</textarea><small id="sd-argn">' + nw((st.arg || {}).txt) + ' palabras</small><div><b>Revisa tu argumento:</b>' + Lc.argumenta.criterios.map(function (c, k) { var on = st.arg && st.arg.crit && st.arg.crit[k]; return '<label style="display:block;margin:4px 0"><input type="checkbox" data-ac="' + k + '"' + (on ? ' checked' : '') + '> ' + esc(c) + '</label>'; }).join('') + '</div></div>' +
+        '<div class="box teal">🧠 Lo que acabas de hacer es lo que tus estudiantes necesitan: localizar, inferir, deducir significados, sustentar, ordenar y argumentar. Llévalo a tu clase con el <a href="sabi_taller.html" target="_blank" rel="noopener">Taller de Aula</a>.</div>';
+      st.ordenIntento = orden;
+      if (!litDone) $$('[data-o]', el).forEach(function (s) {
+        s.style.cursor = 'pointer';
+        s.onclick = function () {
+          var ok = norm(oraciones[+s.dataset.o].t) === norm(lq.oracion) || norm(oraciones[+s.dataset.o].t).indexOf(norm(lq.oracion)) > -1 || norm(lq.oracion).indexOf(norm(oraciones[+s.dataset.o].t)) > -1 && nw(oraciones[+s.dataset.o].t) > 5;
+          st.lit[litK] = ok; if (ok) ganar(3);
+          toast(ok ? '✅ Esa es la oración exacta.' : '🔄 No es esa. La respuesta estaba en: «' + esc(lq.oracion) + '»');
+          litK++; guardar(); setTimeout(pinta, ok ? 300 : 1600);
+        };
+      });
+      else $$('[data-o]', el).forEach(function (s) { if (Lc.literal.some(function (l) { return norm(oraciones[+s.dataset.o].t).indexOf(norm(l.oracion)) > -1 || norm(l.oracion).indexOf(norm(oraciones[+s.dataset.o].t)) > -1 && nw(oraciones[+s.dataset.o].t) > 5; })) s.style.background = '#FFF1C9'; });
+      $$('[data-q]', el).forEach(function (b) { b.onclick = function () { var key = b.dataset.q, q = key === 'inf' ? Lc.inferencia : Lc.contexto; st[key] = +b.dataset.j === q.c; st[key + 'j'] = +b.dataset.j; if (st[key]) ganar(4); guardar(); pinta(); }; });
+      $$('[data-d]', el).forEach(function (b) { b.onclick = function () { st.dondej = +b.dataset.d; st.donde = st.dondej === Lc.donde.parrafo; if (st.donde) ganar(4); guardar(); pinta(); }; });
+      $$('[data-up]', el).forEach(function (b) { b.onclick = function () { var k = +b.dataset.up; if (k > 0) { var t = orden[k - 1]; orden[k - 1] = orden[k]; orden[k] = t; } st.ordenIntento = orden; store('lect', st); pinta(); }; });
+      $$('[data-dn]', el).forEach(function (b) { b.onclick = function () { var k = +b.dataset.dn; if (k < orden.length - 1) { var t = orden[k + 1]; orden[k + 1] = orden[k]; orden[k] = t; } st.ordenIntento = orden; store('lect', st); pinta(); }; });
+      if ($('#sd-or', el)) $('#sd-or', el).onclick = function () { st.orden = orden.join('|') === Lc.orden.pasos.join('|'); if (st.orden) ganar(4); guardar(); pinta(); };
+      var ta = $('#sd-arg', el); ta.oninput = function () { st.arg = st.arg || { crit: [] }; st.arg.txt = ta.value; $('#sd-argn', el).textContent = nw(ta.value) + ' palabras'; guardar(); };
+      $$('[data-ac]', el).forEach(function (c) { c.onchange = function () { st.arg = st.arg || { crit: [] }; st.arg.crit = st.arg.crit || []; st.arg.crit[+c.dataset.ac] = c.checked; guardar(); if (!st.argOk && nw(st.arg.txt) >= 50 && st.arg.crit.filter(Boolean).length === Lc.argumenta.criterios.length) { st.argOk = 1; guardar(); ganar(15, 'lector'); } }; });
+    }
+    pinta();
+  };
+  /* Parte un párrafo en oraciones solo donde termina una oración de verdad: signo final seguido de espacio y
+     mayúscula (o ¿ ¡ « “ antes de ella). Así «¿hacia dónde voy?, ¿cómo voy?», «versión 3.0» o «et al. (2006)»
+     quedan enteras y la pregunta literal siempre tiene su oración exacta. */
+  function partirOraciones(p) {
+    var out = [], re = /[.!?…][»”"')\]]*\s+(?=[¿¡«“"(]?[A-ZÁÉÍÓÚÑÜ])/g, last = 0, m;
+    while ((m = re.exec(p))) { var end = m.index + m[0].length; out.push(p.slice(last, end).trim()); last = end; }
+    if (last < p.length) out.push(p.slice(last).trim());
+    return out.filter(Boolean);
+  }
+  function shuffleSeguro(a) { var b = shuffle(a), n = 0; while (b.join('|') === a.join('|') && n++ < 9) b = shuffle(a); return b; }
+
+  /* ---------- 🔁 Repaso espaciado 2 · 7 · 30 días ---------- */
+  var HITOS = [2, 7, 30];
+  function repasoPendiente() {
+    var ini = store('inicio'); if (!ini) return null;
+    var hechos = store('repaso') || {}, d = diasDesde(ini);
+    for (var i = 0; i < HITOS.length; i++) if (d >= HITOS[i] && !hechos[HITOS[i]]) return HITOS[i];
+    return null;
+  }
+  R.repaso = function (el) {
+    var h = repasoPendiente(), Q = KB.quiz || [], RQ = KB.recuperacion || [], hechos = store('repaso') || {};
+    var cab = '<h3>🔁 Repaso espaciado</h3><p class="lead">Volver a recordar a los 2, 7 y 30 días fija lo aprendido mucho mejor que repasarlo todo de una vez (Cepeda et al., 2006; Roediger y Karpicke, 2006). <a href="sabi_evidencia.html" target="_blank" rel="noopener">Ver evidencia</a></p>' +
+      '<div class="grid2">' + HITOS.map(function (x) { return '<div class="box ' + (hechos[x] ? 'teal' : '') + '"><b>Día ' + x + '</b><br>' + (hechos[x] ? '✓ ' + esc(hechos[x].f) + ' · ' + hechos[x].ok + '/3' : 'pendiente') + '</div>'; }).join('') + '</div>';
+    if (!h || !Q.length) { el.innerHTML = cab + '<div class="box">' + (store('inicio') ? 'No tienes repaso pendiente hoy. El próximo llega solo; vuelve cuando el Tutor te lo recuerde.' : 'Tu reloj de repaso empieza hoy.') + '</div>'; return; }
+    var sel = shuffle(Q).slice(0, 3), k = 0, ok = 0, rq = RQ.length ? RQ[Math.floor(Math.random() * RQ.length)] : null;
+    function pinta() {
+      if (k >= sel.length) {
+        el.innerHTML = cab + (rq ? '<div class="box gold"><b>Última: sin mirar.</b> ' + esc(rq.p) + '<textarea placeholder="Respóndela de memoria…"></textarea><button class="btn" id="sd-rm">Ver modelo y cerrar el repaso</button><div class="rev" id="sd-rv"><div class="box teal">' + esc(rq.modelo) + '</div></div></div>' : '<button class="btn" id="sd-rm">Cerrar el repaso</button>');
+        $('#sd-rm', el).onclick = function () { var rv = $('#sd-rv', el); if (rv) rv.classList.add('on'); hechos[h] = { f: hoy(), ok: ok }; store('repaso', hechos); ganar(15, 'espaciado'); this.disabled = true; toast('Repaso del día ' + h + ' guardado.'); };
+        return;
+      }
+      var q = sel[k];
+      el.innerHTML = cab + '<div class="box"><b>Repaso día ' + h + ' · ' + (k + 1) + ' de 3</b><p>' + esc(q.q) + '</p>' + q.o.map(function (o, j) { return '<button class="opt2" data-j="' + j + '">' + 'ABCD'[j] + '. ' + esc(o) + '</button>'; }).join('') + '<div id="sd-rf"></div></div>';
+      $$('.opt2', el).forEach(function (b) { b.onclick = function () { var bien = +b.dataset.j === q.c; if (bien) ok++; $$('.opt2', el).forEach(function (x) { x.disabled = true; if (+x.dataset.j === q.c) x.classList.add('si'); }); if (!bien) b.classList.add('no'); $('#sd-rf', el).innerHTML = '<div class="box ' + (bien ? 'teal' : 'gold') + '">' + esc(q.fb || '') + '</div><button class="btn" id="sd-rn">Siguiente →</button>'; $('#sd-rn', el).onclick = function () { k++; pinta(); }; }; });
+    }
+    pinta();
+  };
+
+  /* Diploma propio de la página (cursos sin módulos evaluados): exige dominio demostrado */
+  function requisitosOtro() {
+    var post = store('quizpost'), P = estadoPensar();
+    var falta = [];
+    if (KB.quiz && !(post >= 7)) falta.push('Reto final del diagnóstico con 7/10 o más (llevas ' + (post == null ? 'sin hacer' : post + '/10') + ')');
+    if (P.hay && P.esc < P.escT) falta.push('Escalera de pensamiento N4-N6 (' + P.esc + ' de ' + P.escT + ')');
+    if (P.hay && !P.lectOk) falta.push('Lectura crítica: 6 de 8 y tu argumento de 50 palabras o más');
+    return falta;
+  }
+  function reqPensar() { var P = estadoPensar(), f = []; if (P.hay && P.esc < P.escT) f.push('Escalera de pensamiento N4-N6 (' + P.esc + ' de ' + P.escT + ')'); if (P.hay && !P.lectOk) f.push('Lectura crítica: 6 de 8 y tu argumento de 50 palabras o más'); return f; }
+  function protegerDiplomaPropio() {
+    var mod = estadoCurso().tipo === 'mod';
+    (mod ? ['showDiploma'] : ['imprimirDiploma', 'imprimir', 'showDiploma']).forEach(function (fn) {
+      var orig = window[fn]; if (typeof orig !== 'function' || orig.__sabi) return;
+      var w = function () { var f = mod ? reqPensar() : requisitosOtro(); if (f.length) { toast('🎓 El certificado se gana con dominio demostrado. Te falta: ' + f.join(' · ')); if (window.SABIDots) window.SABIDots.open('cert'); return; } return orig.apply(this, arguments); };
+      w.__sabi = 1; window[fn] = w;
+    });
   }
 
   /* ---------- interfaz ---------- */
@@ -934,6 +1102,8 @@
     view = store('last') || 'hoy';
     window.SABIDots = { open: function (v) { if (v) view = v; open(); } };
     vigilarCert();
+    if (!store('inicio')) store('inicio', hoy());
+    protegerDiplomaPropio(); setTimeout(protegerDiplomaPropio, 1500);
   }
 
   /* Rellena tarjetas que solo tenían texto provisional, sin tocar el diseño */
@@ -954,7 +1124,11 @@
     s.onload = function () {
       KB = window.SABI_KB; if (!KB) return;
       var p = document.createElement('script'); p.src = base + 'kb/plus/' + page + '.js';
-      p.onload = p.onerror = function () { KB = window.SABI_KB; fillCards(); build(); };
+      p.onload = p.onerror = function () {
+        var q = document.createElement('script'); q.src = base + 'kb/pensar/' + page + '.js';
+        q.onload = q.onerror = function () { KB = window.SABI_KB; fillCards(); build(); };
+        document.head.appendChild(q);
+      };
       document.head.appendChild(p);
     };
     document.head.appendChild(s);

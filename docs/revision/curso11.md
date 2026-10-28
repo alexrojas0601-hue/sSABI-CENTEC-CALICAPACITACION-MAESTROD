@@ -79,3 +79,20 @@ Fecha: 2026-10-24 · `Dot_Auditor_Riguroso` (no escribió este contenido) · Alc
 **Pruebas:** Playwright (Chromium, dominios externos bloqueados), 1280 y 390 px: 0 errores de página (solo fallan las cargas externas bloqueadas a propósito); sin desborde horizontal; 12/12 preguntas marcan la correcta y muestran la retroalimentación; pestañas Auditor, Scholar y Coach funcionan. `node taller/tools/validar.js todo`: OK.
 
 **Pendiente humano:** la retroalimentación sigue mostrando la clave tras un error y no se puede reintentar (JS, decisión del equipo); `sabi_dots.js` y el FAB del chat se amontonan en las esquinas inferiores en todos los cursos: conviene un ajuste global. Veredicto: **apto para revisión del docente**.
+
+## Auditoría SABI Pensamiento (Dot distinto del autor)
+
+Fecha: 2026-10-27 · `Dot_Auditor_Riguroso` (no escribió el contenido) · Archivo: `kb/pensar/sabi_curso11_ingles_c1_didactica.js`. Estado: sigue **en revisión** hasta la aprobación del docente o del equipo responsable.
+
+**Qué verifiqué:** `lectura.base` (Lyster y Ranta, 1997, DOI 10.1017/S0272263197001034; Lyster y Saito, 2010, DOI 10.1017/S0272263109990520) está en el HTML y en `kb/`, y ambos DOI figuran en `docs/VERIFICACION_DOI.md`; Ellis (2009) y Schmitt, Jiang y Grabe (2011), citados en N5 y N6, también están en el curso. Cada afirmación del texto en inglés coincide con el módulo 4 (seis tipos, la reformulación es la más frecuente y la que menos reparación produce, efectos mayores con estudiantes más jóvenes, estudio descriptivo). Las 4 oraciones literales están, carácter por carácter, en P1-P4; `donde.parrafo` = 3 es correcto y no ambiguo; `orden.pasos` sigue P1→P4; claves: inferencia c = 1 y contexto c = 2, con una sola opción defendible. Inglés C1 revisado: sin errores gramaticales. Sin neuromitos. N4 (clasificar técnicas con evidencia), N5 (juzgar tres planes con criterios) y N6 (diseñar una tarea CLIL) corresponden a su nivel; los modelos cumplen todos los criterios sin datos nuevos.
+
+**Correcciones hechas:**
+1. P1: «observed French immersion classrooms in Canada» → «studied communicative classrooms»: el HTML de este curso no menciona el contexto canadiense (es cierto, pero no está en el curso).
+2. P1: «only a second or two» → «very little time» (cifra sin fuente).
+3. Inferencia: la correcta era la más larga; se alargaron las opciones A y D (la correcta ya no es la más larga).
+4. Contexto: se alargó la opción A por la misma razón.
+5. `orden.pasos[1]`: «rara vez lleva» → «es la técnica que menos lleva», más fiel al hallazgo (comparativo, no absoluto).
+
+**Pruebas:** `node kb/tools/validar_pensar.js` ✓ OK (0 avisos).
+
+**Queda para revisión humana:** que el docente de inglés confirme el registro C1 del texto y que el diálogo de N4 («I go to Jamundí yesterday») sea adecuado para 9.°. No se hizo commit.
