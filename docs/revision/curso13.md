@@ -52,3 +52,20 @@ Fecha: 2026-10-24 · `Dot_Auditor_Riguroso` (no escribió este contenido) · Alc
 **Preguntas:** 14/14 con una sola clave correcta (M1: C A D B C A D; M2: B D A C B D A), retroalimentación coherente, pistas sin revelar y sin duplicados. **Ajuste:** la opción correcta de la 1.2 era 9 caracteres más larga que las demás; se acortó sin cambiar el contenido. Sin neuromitos.
 
 **Pruebas:** Playwright, 1280 y 390 px: 0 errores de página, sin desborde, los 3 módulos aprobados en orden al 100 %; un error muestra solo la pista. `validar.js todo`: OK. Veredicto: **apto para revisión del docente** y de un hablante nativo.
+
+## Auditoría SABI Pensamiento (Dot distinto del autor)
+
+Fecha: 2026-10-27 · `Dot_Auditor_Riguroso` (no escribió el contenido) · Archivo: `kb/pensar/sabi_curso13_portugues.js`. Estado: sigue **en revisión** hasta la aprobación del docente o del equipo responsable.
+
+**Qué verifiqué:** `lectura.base` (Jensen, 1989, *Hispania*, 72(4), DOI 10.2307/343562) está en el HTML, en `kb/` y en `docs/VERIFICACION_DOI.md`; la afirmación «cerca da metade» coincide con el curso. Karpicke y Roediger (2008), citado en N5, también está en el curso y registrado. Patrones (educação, universidade, falar), vocales nasales (mão, pão), falsos amigos (esquisito, embaraçada), portunhol, «um erro fixo por semana» y grabarse están en los módulos 1 y 3. Correcciones de N4 revisadas en portugués: muito, estou muito contente, vão resolver, na sala, gostam muito de, Há / Tem, esquisitos = raros. Literales exactos; `donde.parrafo` = 1 correcto; orden P1→P4; claves inferencia c = 2 y contexto c = 0. Sin neuromitos.
+
+**Correcciones hechas:**
+1. P3: «mistura de espanhol com sotaque» → «mistura de espanhol e português»: la definición del curso es «mezcla»; la frase original parecía decir «español con acento».
+2. Modelo N6: el correo tenía unas 50 palabras y la tarea pide 60-80; se añadió una oración correcta («Cada turma vai apresentar o seu livro favorito…») y ahora tiene 66, con los mismos seis errores.
+3. Modelo N6: el cierre usaba solo dos criterios de la mini-rúbrica; ahora usa los cuatro que exige el criterio 4 (precisión léxica, estructuras, adecuación, autocorrección).
+4. Inferencia: la correcta era claramente la más larga y añadía «ni hablar sin portuñol» (P2 trata solo de escuchar); se acortó y se alargó la opción D.
+5. Contexto: se alargó un distractor.
+
+**Pruebas:** `node kb/tools/validar_pensar.js` ✓ OK (0 avisos).
+
+**Queda para revisión humana:** que el área de idiomas confirme el registro del texto (usa «vira», coloquial de Brasil, a propósito para A2-B1). No se hizo commit.

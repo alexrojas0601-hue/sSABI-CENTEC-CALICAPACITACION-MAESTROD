@@ -69,3 +69,20 @@ De memoria, sin abrir la fuente oficial (redacción ya prudente): Ley 1450 de 20
 **Pruebas:** `node -e …` OK en `kb/` y `kb/plus/`; `node taller/tools/validar.js todo` ✓ OK (0 avisos). Playwright (Chromium, dominios externos bloqueados) a 1280 y 390 px: 0 errores de página, sin desborde horizontal, 3 módulos aprobados en orden al 100 %; una respuesta incorrecta muestra la pista. Los 4 errores de consola son solo recursos externos bloqueados por la prueba (sabi-sesion.js, sabi-puerta.js y Google Fonts).
 
 **Queda para revisión humana:** confirmar en el portal del MEN el año del Documento 26; confirmar el estado de la Ley 2381 en una fuente oficial (Corte Constitucional, Mintrabajo o Colpensiones) antes de publicar; confirmar que CENTEC es colegio privado, como dicen la tarjeta de pensión y la pregunta q3_5. No se hizo commit.
+
+## Auditoría SABI Pensamiento (Dot distinto del autor)
+
+Fecha: 2026-10-27 · `Dot_Auditor_Riguroso` (no escribió el contenido) · Archivo: `kb/pensar/sabi_curso15_finanzas_personales.js`. Estado: sigue **en revisión** hasta la aprobación del docente o del equipo responsable.
+
+**Qué verifiqué:** `lectura.base` (Stango y Zinman, 2009, *Journal of Finance*, 64(6), 2807-2849, DOI 10.1111/j.1540-6261.2009.01518.x) está en el HTML (módulos 1 y 2) y en `docs/VERIFICACION_DOI.md`; el hallazgo «los hogares con más sesgo se endeudaban más y ahorraban menos» coincide con el curso. Los casos (Carolina, Marcela, Natalia) y sus datos son los del curso. **Recalculé todos los números con Python:** 2.080.000 ÷ 2.944.000 = 70,65 %; 560.000 → 19,02 %; 304.000 → 10,33 %; 20 % = 588.800; (1,024)^12 − 1 = 32,92 %; cuotas A 258.404,18 / B 241.010,33 / C 189.919,16; totales 6.201.700 / 5.784.248 / 6.837.090; intereses 1.201.700 / 784.248 / 1.837.090; ahorro B frente a A 417.452; (1,012)^12 − 1 = 15,39 %; (1,018)^12 − 1 = 23,87 %; (1,02)^12 − 1 = 26,82 %; 100.000 × ((1,005)^120 − 1) / 0,005 = 16.387.934,68 ≈ 16.387.935; 1.000.000 × 1,1^3 = 1.331.000 frente a 1.300.000 (diferencia de 31.000). Todo es correcto. Normas: el archivo no cita leyes, artículos ni tasas de usura vigentes; la mención a la libranza («reduce el ingreso disponible todo el plazo») coincide con el curso (Ley 1527 de 2012, que el curso ya trae). Las tasas se presentan como ilustrativas. Literales exactos; orden con Primero / Luego / Por último; claves inferencia c = 0 y contexto c = 3.
+
+**Correcciones hechas:**
+1. `donde`: la afirmación («pensar el ahorro como suma lineal lleva a subestimar…») también se sostenía en P2 («subestiman … lo que puede crecer un ahorro»): había dos párrafos defendibles. Se reescribió para que solo P3 la sustente (el único ejemplo numérico de ahorro mensual), y se ajustó la retroalimentación.
+2. Modelo N6, pregunta bisagra: el distractor D («10 % por 3 da 33 %») no expresaba el crecimiento lineal (daría 30 %); ahora dice «10 % durante 3 años siempre es 30 %», que sí es el error de pensar en lineal.
+3. Modelo N5: 15,4 % → 15,39 % E.A., con la misma precisión que 23,87 %.
+4. `lectura.base`: decía «módulos 2 y 3», pero Stango y Zinman aparecen en el módulo 1; ahora dice «módulos 1, 2 y 3».
+5. Inferencia y contexto: la correcta era la más larga; se acortaron las correctas y se alargaron distractores.
+
+**Pruebas:** `node kb/tools/validar_pensar.js` ✓ OK (0 avisos).
+
+**Queda para revisión humana:** el equipo docente debe confirmar que el ejemplo de 7.° (interés compuesto y efectivo anual en la clase de N6) se ajusta a la secuencia por grados del curso (que pone simple frente a compuesto en 9.°, aunque el caso de Natalia en 7.° es del propio curso). No se hizo commit.

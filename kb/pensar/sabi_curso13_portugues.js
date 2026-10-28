@@ -29,7 +29,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Las instrucciones organizan el trabajo en parejas con un producto verificable",
         "Cierra con autoevaluación usando criterios de la mini-rúbrica (precisión léxica, estructuras, adecuación, autocorrección)"
       ],
-      modelo: "Correo: «Prezada Diretora, Mis colegas e eu vamos a fazer um projeto de leitura em a escola. Os alunos gostam muito os livros e estão muy animados. Queremos convidar a sua escola para uma oficina virtual. O resultado vai ser esquisito! Obrigado pela atenção. Atenciosamente, Professor Julián, Colégio CENTEC de Cali.» Clave: 1) Mis → Meus; 2) vamos a fazer → vamos fazer; 3) em a → na; 4) gostam os → gostam dos (gostar de + os); 5) muy → muito; 6) esquisito (raro) → excelente. Distractor útil: «oficina» sí es correcto aquí (taller), y «Obrigado» concuerda porque firma un hombre. Instrucciones: en parejas, 8 minutos para hallar y clasificar los errores; 5 minutos para comparar con la clave; 5 para reescribir el correo. Cierre: cada uno se ubica en la mini-rúbrica en precisión léxica y estructuras." }
+      modelo: "Correo: «Prezada Diretora, Mis colegas e eu vamos a fazer um projeto de leitura em a escola. Os alunos gostam muito os livros e estão muy animados. Queremos convidar a sua escola para uma oficina virtual. Cada turma vai apresentar o seu livro favorito e fazer perguntas aos colegas da outra escola. O resultado vai ser esquisito! Obrigado pela atenção. Atenciosamente, Professor Julián, Colégio CENTEC de Cali.» Clave: 1) Mis → Meus; 2) vamos a fazer → vamos fazer; 3) em a → na; 4) gostam os → gostam dos (gostar de + os); 5) muy → muito; 6) esquisito (raro) → excelente. Distractor útil: «oficina» sí es correcto aquí (taller), y «Obrigado» concuerda porque firma un hombre. Instrucciones: en parejas, 8 minutos para hallar y clasificar los errores; 5 minutos para comparar con la clave; 5 para reescribir el correo. Cierre: cada uno se ubica en la mini-rúbrica en precisión léxica, estructuras, adecuación y autocorrección, y anota el criterio que subirá de nivel." }
   ],
   lectura: {
     titulo: "Perto, mas não igual",
@@ -37,7 +37,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
     parrafos: [
       "Para quem fala espanhol, ler em português é fácil desde o primeiro dia. Muitas palavras são parecidas, e algumas mudam com padrões regulares: educación vira educação, universidad vira universidade e hablar vira falar. Por isso, muitos professores acham que já sabem a língua.",
       "Mas escutar é outra história. Num estudo clássico, Jensen (1989) observou que falantes de espanhol entenderam cerca da metade do que ouviram em português. As vogais nasais, como em mão e pão, e o ritmo da fala mudam muito o som das palavras. A proximidade ajuda bastante na leitura, mas o ouvido precisa de treino.",
-      "Existe também uma armadilha: o portunhol. É uma mistura de espanhol com sotaque que serve para sobreviver, mas não basta para ensinar ou para coordenar um projeto com uma escola do Brasil. Os falsos amigos são o maior perigo. Em português, esquisito quer dizer estranho, e embaraçada quer dizer envergonhada. Um professor que elogia um trabalho dizendo que é esquisito pode criar um mal-entendido.",
+      "Existe também uma armadilha: o portunhol. É uma mistura de espanhol e português que serve para sobreviver, mas não basta para ensinar ou para coordenar um projeto com uma escola do Brasil. Os falsos amigos são o maior perigo. Em português, esquisito quer dizer estranho, e embaraçada quer dizer envergonhada. Um professor que elogia um trabalho dizendo que é esquisito pode criar um mal-entendido.",
       "Então, o que fazer? Primeiro, use as semelhanças como atalho, mas confira no dicionário cada palavra que soa igual. Depois, escolha um erro fixo por semana e escreva cinco frases corretas com ele. Também é útil gravar sua voz e comparar com um falante do Brasil. Errar faz parte de aprender."
     ],
     literal: [
@@ -51,8 +51,8 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       o: [
         "Que tienen razón, porque las palabras siguen patrones regulares sin excepciones.",
         "Que solo necesitan memorizar una lista de falsos amigos para comunicarse bien.",
-        "Que pueden sobrestimar su nivel, porque leer bien no garantiza entender al escuchar ni hablar sin portuñol.",
-        "Que deberían dejar de usar el español como apoyo para aprender portugués."
+        "Que pueden sobrestimar su nivel: leer bien no garantiza entender al escuchar.",
+        "Que deberían dejar por completo de usar el español como apoyo para aprender portugués."
       ],
       c: 2,
       fb: "El párrafo 1 dice que muchos «acham que já sabem a língua»; el párrafo 2 empieza con «Mas escutar é outra história» y el 3 advierte que el portunhol no basta para enseñar. El texto no niega el apoyo del español: lo propone como atajo con verificación."
@@ -62,7 +62,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       q: "En el párrafo 4, «atalho» significa…",
       o: [
         "Un camino más corto que ayuda a llegar antes a la meta.",
-        "Un obstáculo que impide avanzar en el aprendizaje.",
+        "Un obstáculo que impide avanzar en el aprendizaje diario.",
         "Un error que se repite cada semana sin corregirse.",
         "Una regla gramatical que no admite excepciones."
       ],

@@ -106,6 +106,13 @@ Informe por curso (qué se corrigió, fuentes con DOI, auditoría independiente,
       de 2024 actualizado (vigencia desde 1-04-2027), Ley 2025 de 2020 reglamentada por el Decreto 459 de 2024, Cátedra de la Paz
       corregida según el Decreto 1038 de 2015, panel con cifras inventadas del curso 17 reemplazado, «✓» que delataba la
       respuesta en 17, 18, 20, 21 y 22 retirado.
+- [x] SABI Pensamiento v3 (2026-10-27): escalera N4-N6 con rúbrica antes del modelo, lectura crítica docente con las seis
+      destrezas, repaso 2·7·30 y diploma protegido por dominio en los 29 cursos. Auditoría independiente por lotes (01-05, 06-10,
+      11-15, 16-20, 21-25 y 26-29). Corregido: tres preguntas literales imposibles (cursos 03, 05 y 27) por el corte de oraciones;
+      el validador ahora exige que cada oración literal sea una unidad tocable. Pruebas de punta a punta: 29/29 cursos 8/8 en
+      lectura y escalera reconocida en el certificado.
+- [ ] Revisión humana de SABI Pensamiento: cada docente de área aprueba la escalera y la lectura de su curso (ver
+      docs/revision/cursoNN.md, sección «Auditoría SABI Pensamiento»).
 - [ ] Ampliar 17, 18, 20, 21 y 22 (1 pregunta y 2-4 tarjetas por módulo) al estándar de 6-8 tarjetas y 7 preguntas.
 - [ ] Revisión humana de lo marcado en cada informe (normas no abiertas en la fuente oficial, cifras de fuentes secundarias).
 - [x] Tarjetas del catálogo en index.html sin cifras sin fuente (FOMAG, TALIS, «3er país», «CENTEC Futuro PEI 2026+» retirados).

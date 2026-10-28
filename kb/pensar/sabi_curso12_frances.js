@@ -29,7 +29,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Distribuye la práctica en sesiones breves a lo largo de las semanas en lugar de concentrarla al final",
         "Incluye una evaluación semanal con los cuatro criterios de la mini-rúbrica (comprensibilidad, corrección, pronunciación, adecuación)"
       ],
-      modelo: "Diagnóstico: con los ejemplos oficiales del DELF B1 veo que comprendo bien lo escrito y me bloqueo en la producción oral. Plan: lunes a viernes, diez minutos; tres días de producción oral grabada (un minuto de opinión con «À mon avis…», «Je ne suis pas tout à fait d'accord, parce que…») y dos días alternando comprensión oral (leo las preguntas antes de escuchar) y escritura en tres partes con «d'abord», «ensuite», «cependant», «enfin». Cada día uso una consigna en francés con mi grupo. Carnet d'erreurs con tres columnas: lo que dije, la forma correcta y la regla; lo repaso antes de cada práctica. Martes y jueves practico con un colega que también estudia francés. Viernes: nos evaluamos con la mini-rúbrica y anotamos una meta. No memorizo discursos completos: en lo oral hay interacción. Distribuyo la práctica porque Kim y Webb (2022) hallaron que la práctica espaciada favorece la retención." }
+      modelo: "Diagnóstico: con los ejemplos oficiales del DELF B1 veo que comprendo bien lo escrito y me bloqueo en la producción oral. Plan: lunes a viernes, diez minutos; tres días de producción oral grabada (un minuto de opinión con «À mon avis…», «Je ne suis pas tout à fait d'accord, parce que…») y dos días alternando comprensión oral (leo las preguntas antes de escuchar) y escritura en tres partes con «d'abord», «ensuite», «cependant», «enfin»; el fin de semana, una lectura breve para no descuidar la comprensión escrita, porque cada prueba exige un mínimo. Cada día uso una consigna en francés con mi grupo. Carnet d'erreurs con tres columnas: lo que dije, la forma correcta y la regla; lo repaso antes de cada práctica. Martes y jueves practico con un colega que también estudia francés. Viernes: nos evaluamos con la mini-rúbrica (comprensibilidad, corrección, pronunciación, adecuación) y anotamos una meta. No memorizo discursos completos: en lo oral hay interacción. Distribuyo la práctica porque Kim y Webb (2022) hallaron que la práctica espaciada favorece la retención." }
   ],
   lectura: {
     titulo: "Le carnet d'erreurs de madame Lucía",
@@ -38,7 +38,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       "Lucía est professeure de sciences dans un collège de Cali. Elle veut obtenir le DELF et organiser un projet de correspondance avec une école francophone. D'abord, elle fait un diagnostic avec des exemples officiels. Elle comprend bien les textes écrits, mais elle se bloque quand elle doit parler.",
       "Alors, elle commence un carnet d'erreurs avec trois colonnes : ce qu'elle a dit, la forme correcte et la règle avec ses propres mots. Un jour, elle écrit « Je suis 35 ans » dans la première colonne. Dans la deuxième, elle note « J'ai 35 ans ». Dans la troisième, elle explique qu'en français on dit l'âge avec le verbe avoir. Elle relit son carnet avant chaque séance de pratique.",
       "Ensuite, elle change sa manière de corriger ses élèves. Avant, elle répétait simplement la phrase correcte, mais les élèves disaient « oui » et continuaient. Maintenant, elle donne un indice et demande à l'élève de répéter, par exemple : « Presque ! L'âge, on le dit avec avoir… Tu peux répéter ? » Comme ça, c'est l'élève qui fait l'effort de trouver la bonne forme.",
-      "Après six semaines, Lucía comprend que son problème n'était pas la grammaire. Il lui manquait de la pratique orale régulière. Avec son collègue Andrés, elle parle dix minutes deux fois par semaine et elle s'enregistre. Elle n'est pas encore parfaite, mais elle fait moins d'erreurs. Et ses élèves répondent maintenant « Oui, madame ! » sans que personne ne le demande."
+      "Après six semaines, Lucía comprend que son problème n'était pas la grammaire. Il lui manquait de la pratique orale régulière. Avec son collègue Andrés, elle parle dix minutes deux fois par semaine et elle s'enregistre. Elle n'est pas encore parfaite, mais elle fait moins d'erreurs. Et ses élèves répondent maintenant « Oui, madame ! » sans que personne ne le leur demande."
     ],
     literal: [
       { q: "Según el diagnóstico, ¿qué le pasa a Lucía con el francés?", oracion: "Elle comprend bien les textes écrits, mais elle se bloque quand elle doit parler." },
@@ -62,7 +62,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       q: "En el párrafo 3, «indice» significa…",
       o: [
         "Una pista que orienta al estudiante sin darle toda la respuesta.",
-        "La lista de capítulos que aparece al comienzo de un libro.",
+        "La lista ordenada de capítulos y páginas que aparece al comienzo de un libro.",
         "Una nota numérica que mide el desempeño del estudiante.",
         "El dedo con el que la profesora señala el tablero."
       ],

@@ -29,7 +29,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Trabaja una regla de pronunciación concreta (tono, sandhi, Umlaut, endurecimiento final u otra del curso)",
         "Define un registro de progreso observable y un repaso espaciado entre sesiones"
       ],
-      modelo: "Idioma: alemán. Minuto 0-2: saludo y rutina con «Guten Morgen!» y «Macht bitte die Bücher auf», que los estudiantes ya reconocen. Minuto 2-7: recuperación con tarjetas: ven «___ Schule», «___ Buch», «___ Mädchen» y dicen el artículo antes de voltear; las tarjetas falladas vuelven en la sesión siguiente y las acertadas, una semana después. Minuto 7-12: pronunciación con el endurecimiento final: leen «Tag», «Hund» y «gelb» y comprueban que suenan «tak», «hunt» y «gelp»; luego se graban y se comparan con un audio nativo. Minuto 12-15: cada estudiante escribe una oración con el verbo en posición 2 («Heute lerne ich…») y la marca en su tabla: artículo correcto sí o no, V2 sí o no. Registro: tabla semanal con aciertos de artículos y de V2. Justificación: recuperar produce mejor recuerdo que releer (Karpicke y Roediger, 2008) y espaciar el repaso favorece la retención (Cepeda y otros, 2006)." }
+      modelo: "Idioma: alemán. Minuto 0-2: saludo y rutina con «Guten Morgen!» (¡Buenos días!) y «Macht bitte die Bücher auf» (Abran los libros, por favor), que los estudiantes ya reconocen. Minuto 2-7: recuperación con tarjetas: ven «___ Schule», «___ Buch», «___ Mädchen» y dicen el artículo antes de voltear; las tarjetas falladas vuelven en la sesión siguiente y las acertadas, una semana después. Minuto 7-12: pronunciación con el endurecimiento final: leen «Tag», «Hund» y «gelb» y comprueban que suenan «tak», «hunt» y «gelp»; luego se graban y se comparan con un audio nativo. Minuto 12-15: cada estudiante escribe una oración con el verbo en posición 2 («Heute lerne ich…») y la marca en su tabla: artículo correcto sí o no, V2 sí o no. Registro: tabla semanal con aciertos de artículos y de V2. Justificación: recuperar produce mejor recuerdo que releer (Karpicke y Roediger, 2008) y espaciar el repaso favorece la retención (Cepeda y otros, 2006)." }
   ],
   lectura: {
     titulo: "Aprender tonos de adulto: oído, mano y memoria",
@@ -50,9 +50,9 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       q: "¿Qué se puede concluir del texto sobre un docente adulto de CENTEC que empieza mandarín?",
       o: [
         "Que no podrá distinguir los tonos, porque esa capacidad se pierde en la infancia.",
-        "Que solo aprenderá los tonos si su estilo de aprendizaje es kinestésico.",
-        "Que le basta con dominar la gramática, ya que los tonos son un adorno del habla.",
-        "Que con entrenamiento auditivo, gestos y repaso puede mejorar su identificación de tonos."
+        "Que solo aprenderá los tonos si su estilo de aprendizaje es kinestésico y usa gestos.",
+        "Que le basta con dominar la gramática, ya que los tonos son solo un adorno del habla.",
+        "Que con entrenamiento, gestos y repaso puede mejorar en los tonos."
       ],
       c: 3,
       fb: "El párrafo 2 contradice la creencia de que «ya es tarde» con el estudio de Wang y su equipo; el párrafo 3 añade el gesto para todos y el 4 propone entrenar el oído y repasar. El texto rechaza los estilos de aprendizaje y muestra que el tono cambia la palabra, así que no es un adorno."

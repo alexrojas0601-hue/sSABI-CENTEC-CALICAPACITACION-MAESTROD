@@ -35,7 +35,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
     titulo: "Who does the repair?",
     base: "Lyster, R. y Ranta, L. (1997). Corrective feedback and learner uptake: Negotiation of form in communicative classrooms. Studies in Second Language Acquisition, 19(1), 37-66 · DOI: 10.1017/S0272263197001034; Lyster, R. y Saito, K. (2010). Oral feedback in classroom SLA: A meta-analysis. Studies in Second Language Acquisition, 32(2), 265-302 · DOI: 10.1017/S0272263109990520. Texto original en inglés C1 elaborado por SABI CENTEC a partir del módulo 4 del curso.",
     parrafos: [
-      "When a student makes a mistake while speaking, the teacher has only a second or two to decide what to do. Lyster and Ranta (1997) observed French immersion classrooms in Canada and described six types of oral corrective feedback: explicit correction, recasts, clarification requests, metalinguistic feedback, elicitation and repetition of the error. Recasts, in which the teacher simply reformulates the student's sentence correctly, were the most frequent type.",
+      "When a student makes a mistake while speaking, the teacher has very little time to decide what to do. Lyster and Ranta (1997) studied communicative classrooms and described six types of oral corrective feedback: explicit correction, recasts, clarification requests, metalinguistic feedback, elicitation and repetition of the error. Recasts, in which the teacher simply reformulates the student's sentence correctly, were the most frequent type.",
       "However, recasts were the type least likely to lead students to correct themselves. A recast often sounds like a confirmation of meaning, so the learner says “yes” and carries on. In contrast, techniques that hand the turn back to the learner, such as elicitation or a brief metalinguistic clue, were followed by more student repair. The difference lies in who does the cognitive work of retrieving the correct form.",
       "Later research reinforced this pattern. A meta-analysis by Lyster and Saito (2010) concluded that oral corrective feedback in classrooms has significant and lasting effects on language development, and that prompts tended to work better than recasts. The effects were also larger with younger learners. Still, the original study was descriptive: it shows an association, not a universal recipe.",
       "None of this means that teachers should interrupt every sentence. During a fluency activity, constant correction can raise anxiety and discourage students from taking risks. A wiser plan is to note frequent errors and return to them later with the whole group. During an accuracy activity, by contrast, an immediate prompt is appropriate. The real question is not whether to correct, but when to do it and how to let students do the repair."
@@ -49,10 +49,10 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
     inferencia: {
       q: "¿Qué se puede concluir del texto sobre el papel del estudiante en la corrección?",
       o: [
-        "Que el estudiante aprende más cuando el docente le dice siempre la forma correcta de inmediato.",
+        "Que el estudiante aprende más cuando el docente le dice siempre la forma correcta de inmediato, en cualquier actividad.",
         "Que conviene que el propio estudiante haga el esfuerzo de recuperar la forma correcta cuando la actividad lo permite.",
         "Que el estudiante no debería recibir ninguna corrección oral para no aumentar su ansiedad.",
-        "Que el tipo de corrección da igual, siempre que el docente sea amable con el estudiante."
+        "Que el tipo de corrección da igual, siempre que el docente sea amable y paciente con quien se equivoca."
       ],
       c: 1,
       fb: "El párrafo 2 dice que la diferencia está en quién hace el trabajo cognitivo de recuperar la forma, y el párrafo 4 cierra con dejar que los estudiantes hagan la reparación. El texto no pide eliminar la corrección (solo diferirla en fluidez) ni dice que el tipo de técnica sea indiferente."
@@ -61,7 +61,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       palabra: "prompts",
       q: "En el párrafo 3, «prompts» significa…",
       o: [
-        "Respuestas rápidas que el docente da para no perder tiempo de clase.",
+        "Respuestas rápidas que el docente da para no perder tiempo valioso de la clase.",
         "Correcciones escritas que se entregan al final del período.",
         "Pistas que invitan al estudiante a reformular por sí mismo su enunciado.",
         "Preguntas de comprensión sobre el contenido de una lectura."
@@ -78,7 +78,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       q: "Ordena las ideas del texto del primero al último.",
       pasos: [
         "Lyster y Ranta describen seis tipos de retroalimentación correctiva oral.",
-        "Se observa que la reformulación rara vez lleva al estudiante a corregirse.",
+        "Se observa que la reformulación es la técnica que menos lleva al estudiante a corregirse.",
         "Un metaanálisis posterior confirma efectos duraderos y una ventaja de las pistas.",
         "Se recomienda ajustar el momento de la corrección al tipo de actividad."
       ],

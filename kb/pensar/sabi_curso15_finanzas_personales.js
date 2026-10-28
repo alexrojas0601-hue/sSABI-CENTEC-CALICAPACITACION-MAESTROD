@@ -21,7 +21,7 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Recomienda una oferta y explica el riesgo de elegir por la cuota más baja",
         "Menciona qué más debe pedir antes de firmar (plan de pagos completo, seguros y otros cobros)"
       ],
-      modelo: "A: cuota $258.404; total $6.201.700; intereses $1.201.700. B: cuota $241.010; total $5.784.248; intereses $784.248. C: cuota $189.919; total $6.837.090; intereses $1.837.090. C tiene la cuota más baja, pero es la más cara: con la misma tasa, más meses significan más intereses, el error que el curso señala de elegir por la cuota. B es la mejor: menor tasa (1,2 % mensual ≈ 15,4 % E.A. frente a 1,8 % ≈ 23,87 % E.A.) y menor total; frente a A ahorra $417.452 en el plazo. Recomiendo B si la cuota cabe en el presupuesto. Antes de firmar, Marcela debe pedir el plan de pagos completo y preguntar por seguros, cuota de manejo y otros cobros, porque el costo total no es solo la tasa; si fuera por libranza, recordar que reduce el ingreso disponible todo el plazo." },
+      modelo: "A: cuota $258.404; total $6.201.700; intereses $1.201.700. B: cuota $241.010; total $5.784.248; intereses $784.248. C: cuota $189.919; total $6.837.090; intereses $1.837.090. C tiene la cuota más baja, pero es la más cara: con la misma tasa, más meses significan más intereses, el error que el curso señala de elegir por la cuota. B es la mejor: menor tasa (1,2 % mensual ≈ 15,39 % E.A. frente a 1,8 % ≈ 23,87 % E.A.) y menor total; frente a A ahorra $417.452 en el plazo. Recomiendo B si la cuota cabe en el presupuesto. Antes de firmar, Marcela debe pedir el plan de pagos completo y preguntar por seguros, cuota de manejo y otros cobros, porque el costo total no es solo la tasa; si fuera por libranza, recordar que reduce el ingreso disponible todo el plazo." },
     { n: "N6", verbo: "Crear",
       tarea: "Crea una clase de 45 minutos para 7.° sobre interés simple y compuesto, a partir del caso de la profe Natalia (ahorrar para la salida pedagógica). Incluye: una pregunta de predicción inicial, una tabla año a año que los grupos completen en hoja de cálculo, una pregunta bisagra con un distractor que revele el error de pensar el crecimiento como lineal y un cierre con decisión argumentada.",
       criterios: [
@@ -30,11 +30,11 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
         "Los estudiantes toman una decisión y la justifican con los números de su tabla",
         "Aclara que las tasas son ilustrativas y no una promesa de rentabilidad"
       ],
-      modelo: "Inicio (5 min): «Si guardamos $1.000.000 al 10 % anual tres años, ¿tendremos $1.300.000 o más? Escribe tu predicción». Desarrollo (20 min): en hoja de cálculo, cada grupo llena dos columnas. Simple: 1.100.000; 1.200.000; 1.300.000. Compuesto (=saldo anterior × 1,1): 1.100.000; 1.210.000; 1.331.000. Pregunta bisagra: «¿Por qué el compuesto da $31.000 más?» A) Porque la tasa sube cada año. B) Porque los intereses de cada año también ganan intereses. C) Porque el banco regala un bono. D) Porque 10 % por 3 da 33 %. La clave es B; quien marque D muestra el sesgo de crecimiento lineal descrito por Stango y Zinman (2009). Cierre (15 min): cada grupo decide qué opción le conviene al curso y la defiende con su tabla. Aclaración: la tasa del 10 % es ilustrativa, no una promesa. Salida (5 min): «Explica a tu familia con un ejemplo la diferencia entre simple y compuesto»." }
+      modelo: "Inicio (5 min): «Si guardamos $1.000.000 al 10 % anual tres años, ¿tendremos $1.300.000 o más? Escribe tu predicción». Desarrollo (20 min): en hoja de cálculo, cada grupo llena dos columnas. Simple: 1.100.000; 1.200.000; 1.300.000. Compuesto (=saldo anterior × 1,1): 1.100.000; 1.210.000; 1.331.000. Pregunta bisagra: «¿Por qué el compuesto da $31.000 más?» A) Porque la tasa sube cada año. B) Porque los intereses de cada año también ganan intereses. C) Porque el banco regala un bono. D) No debería haber diferencia: 10 % durante 3 años siempre es 30 %, así que alguien se equivocó. La clave es B; quien marque D muestra el sesgo de crecimiento lineal descrito por Stango y Zinman (2009). Cierre (15 min): cada grupo decide qué opción le conviene al curso y la defiende con su tabla. Aclaración: la tasa del 10 % es ilustrativa, no una promesa. Salida (5 min): «Explica a tu familia con un ejemplo la diferencia entre simple y compuesto»." }
   ],
   lectura: {
     titulo: "El crecimiento que no vemos venir",
-    base: "Stango, V. y Zinman, J. (2009). Exponential growth bias and household finance. Journal of Finance, 64(6), 2807-2849 · DOI: 10.1111/j.1540-6261.2009.01518.x. Texto original elaborado por SABI CENTEC a partir de los módulos 2 y 3 del curso (tasa efectiva anual e interés compuesto); cálculos verificados.",
+    base: "Stango, V. y Zinman, J. (2009). Exponential growth bias and household finance. Journal of Finance, 64(6), 2807-2849 · DOI: 10.1111/j.1540-6261.2009.01518.x. Texto original elaborado por SABI CENTEC a partir de los módulos 1, 2 y 3 del curso (sesgo de crecimiento exponencial, tasa efectiva anual e interés compuesto); cálculos verificados.",
     parrafos: [
       "Cuando pensamos en el dinero que crece, solemos imaginar una línea recta: cada mes se suma lo mismo. Sin embargo, el interés compuesto no funciona así. En él, los intereses de cada periodo se suman al saldo y, en el periodo siguiente, también generan intereses. Por eso el crecimiento se acelera con el tiempo.",
       "Stango y Zinman (2009) describieron este error como sesgo de crecimiento exponencial. Muchas personas piensan el crecimiento como si fuera lineal y, en consecuencia, subestiman la tasa que implica un crédito y lo que puede crecer un ahorro. En su estudio, los hogares con más sesgo se endeudaban más y ahorraban menos.",
@@ -50,9 +50,9 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
     inferencia: {
       q: "¿Qué se puede concluir del texto sobre un docente que compara un crédito al 2 % mensual con otro al 24 % efectivo anual multiplicando por 12?",
       o: [
-        "Que concluirá, con error, que los dos créditos cuestan lo mismo, aunque el de 2 % mensual es más caro.",
+        "Que creerá, con error, que cuestan lo mismo, aunque el de 2 % mensual es más caro.",
         "Que hará bien la comparación, porque multiplicar por 12 es la conversión oficial de tasas.",
-        "Que pensará que el de 24 % efectivo anual es el más caro, y acertará.",
+        "Que pensará que el de 24 % efectivo anual es el más caro de los dos, y acertará en su elección.",
         "Que no podrá comparar, porque las tasas mensuales y anuales nunca se pueden convertir."
       ],
       c: 0,
@@ -62,18 +62,18 @@ Object.assign(window.SABI_KB = window.SABI_KB || {}, { pensar: {
       palabra: "antídoto",
       q: "En el párrafo 4, «antídoto» significa…",
       o: [
-        "Un medicamento que se toma contra una intoxicación.",
+        "Un medicamento que se toma para contrarrestar una intoxicación.",
         "Una deuda que se paga antes de tiempo para ahorrar intereses.",
         "Una tasa más baja que ofrece el banco al cliente que compara.",
-        "Una práctica que contrarresta el efecto del sesgo descrito antes."
+        "Una práctica que contrarresta el sesgo descrito antes."
       ],
       c: 3,
       fb: "El texto dice que «el antídoto es sencillo» y enumera prácticas (convertir tasas, mirar el total, usar hoja de cálculo) que corrigen el sesgo. Se usa en sentido figurado: no es un medicamento, sino un remedio contra un error de pensamiento."
     },
     donde: {
-      afirmacion: "Pensar el ahorro como una suma lineal lleva a subestimar cuánto puede crecer.",
+      afirmacion: "Un ejemplo de ahorro mensual muestra que el resultado supera con creces la simple suma de los aportes.",
       parrafo: 2,
-      fb: "El párrafo 3 muestra el caso del ahorro: $100.000 al mes durante 10 años a 0,5 % mensual dan cerca de $16.387.935, no los $12.000.000 de la suma lineal."
+      fb: "El párrafo 3 es el único que da un ejemplo numérico de ahorro: $100.000 al mes durante 10 años a 0,5 % mensual dan cerca de $16.387.935, no los $12.000.000 de la suma lineal."
     },
     orden: {
       q: "Ordena los pasos del antídoto tal como los presenta el texto.",
