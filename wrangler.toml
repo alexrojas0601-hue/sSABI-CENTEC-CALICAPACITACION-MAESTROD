@@ -1,9 +1,18 @@
-# Capacitación Maestros en Cloudflare (para usar el ingreso único SABI necesita estar en *.sabicentec.com)
-# Pasos: Cloudflare → Workers & Pages → Create → Import a repository → este repositorio →
-#        luego Settings → Domains → Add Domain → capacitacion.sabicentec.com
+# Capacitación Maestros en Cloudflare: capacitacion.sabicentec.com
+# El Worker (worker/index.js) entrega los cursos solo a quien tiene sesión SABI; el catálogo es público.
 name = "sabicentec-capacitacion"
+main = "worker/index.js"
 compatibility_date = "2026-01-01"
+workers_dev = false
+routes = [{ pattern = "capacitacion.sabicentec.com", custom_domain = true }]
 
 [assets]
 directory = "."
+binding = "ASSETS"
 not_found_handling = "404-page"
+run_worker_first = true   # todo pasa por el guardián antes de servirse
+
+# Enlace interno al portal para saber quién está conectado (sin copiar secretos)
+[[services]]
+binding = "PORTAL"
+service = "sabicentec-portal"

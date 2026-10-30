@@ -3,3 +3,7 @@ wrangler.toml
 CLAUDE.md
 ROADMAP_TALLER.md
 docs
+worker
+.github
+.sabi-puerta.json
+node_modules
