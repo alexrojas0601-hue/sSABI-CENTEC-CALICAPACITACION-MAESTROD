@@ -1,6 +1,6 @@
 // SABI CENTEC · Curso 30 · Algoritmos y diagramas de flujo: enseñar a pensar y crear soluciones (Transición a 11°)
 // Estado: contenido en revisión (lo aprueban coordinación académica, el docente responsable de tecnología e informática y el equipo STEAM).
-// Fuentes tomadas de la investigación verificada del curso (29-oct-2026). Desde este entorno no se pudo reconsultar Crossref: el auditor debe confirmar los DOI y registrarlos en docs/VERIFICACION_DOI.md.
+// Fuentes tomadas de la investigación verificada del curso (29-oct-2026). DOI contrastados por el Dot auditor el 30-oct-2026 en páginas de editor y repositorios (Crossref no accesible): ver docs/revision/curso30.md y docs/VERIFICACION_DOI.md.
 window.SABI_KB = {
   curso: "C30",
   titulo: "Algoritmos y diagramas de flujo: enseñar a pensar y crear soluciones",
