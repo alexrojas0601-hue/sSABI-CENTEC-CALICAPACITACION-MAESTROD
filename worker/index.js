@@ -9,6 +9,10 @@
 // La sesión se consulta al portal sabicentec.com por enlace interno (service binding PORTAL → /api/sabi/sesion),
 // sin copiar secretos. Si el portal no responde, se niega el acceso (falla cerrado).
 
+// ENTRADA LIBRE (orden del rector, 30 oct 2026, jornada de capacitación): ningún curso pide sesión ni inscripción.
+// Para volver a exigir sesión SABI: ENTRADA_LIBRE = false.
+const ENTRADA_LIBRE = true;
+
 const PUBLICAS = new Set(['/', '/index.html', '/robots.txt', '/sitemap.xml', '/favicon.ico', '/404.html']);
 
 const CSP_PAGINA = "frame-ancestors 'self' https://sabicentec.com https://*.sabicentec.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests";
@@ -57,7 +61,7 @@ export default {
 
     if (PUBLICAS.has(p)) return blindar(await env.ASSETS.fetch(req), false);
 
-    if (!(await haySesion(req, env))) {
+    if (!ENTRADA_LIBRE && !(await haySesion(req, env))) {
       const html = /\.html?$/.test(p) || !/\.[a-z0-9]+$/i.test(p);
       if (html && req.method === 'GET') {
         const destino = 'https://sabicentec.com/cuenta?volver=' + encodeURIComponent(url.href) + '#ingresar';

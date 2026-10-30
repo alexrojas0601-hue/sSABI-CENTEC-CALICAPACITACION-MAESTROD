@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<script src="https://sabicentec.com/assets/sabi-sesion.js" data-app="capacitacion"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal de Excelencia Docente · CENTEC · SABI</title>
@@ -1008,7 +1007,9 @@ document.addEventListener("keydown", e => { if(e.key === "Escape") cerrarModal()
    VERIFICAR SESIÓN AL CARGAR
 ══════════════════════════════════════════ */
 window.addEventListener("load", () => {
-  const saved = sessionStorage.getItem("sabi_user");
+  // Entrada libre (orden del rector, 30 oct 2026): sin datos guardados se entra como docente invitado.
+  let saved = null; try { saved = sessionStorage.getItem("sabi_user"); } catch(e){}
+  if(!saved) saved = JSON.stringify({ nombre: "Docente", nombreCompleto: "Docente invitado", email: "" });
   if(saved) {
     USUARIO = JSON.parse(saved);
     document.getElementById("login-screen").style.display = "none";
@@ -1042,6 +1043,5 @@ window.addEventListener("load", () => {
     </p>
   </div>
 </div>
-<script src="https://superacion.sabicentec.com/sabi-puerta.js" data-rol="docente" data-texto="SABI para docentes" defer></script>
 </body>
 </html>

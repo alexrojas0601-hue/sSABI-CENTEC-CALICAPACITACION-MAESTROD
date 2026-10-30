@@ -1,6 +1,9 @@
 {
  "rol": "docente",
  "texto": "SABI para docentes",
- "excluir": [],
- "reglas": []
+ "excluir": [
+  ".*\\.html$"
+ ],
+ "reglas": [],
+ "nota": "Entrada libre (orden del rector, 30 oct 2026): el bot de acceso NO se instala en ninguna página. Para volver a ponerlo: excluir = []."
 }
